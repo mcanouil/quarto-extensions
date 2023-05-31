@@ -1,0 +1,23 @@
+---
+title: "Quarto Extensions"
+listing:
+  id: listing-extensions
+  contents:
+    - extensions/**.yml
+  type: table
+  sort-ui: true
+  filter-ui: true
+  categories: true
+  fields:
+    - name
+    - description
+    - author
+    - category
+  field-links:
+    - name
+  field-display-names:
+    name: Name
+---
+
+::: {#listing-extensions .column-body-outset-right}
+:::

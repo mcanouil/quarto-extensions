@@ -1,0 +1,15 @@
+project:
+  type: website
+  pre-render: make.sh
+
+website:
+  title: "quarto-extensions"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Extensions
+
+format:
+  html:
+    theme: cosmo
+    toc: true
