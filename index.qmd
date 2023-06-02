@@ -3,7 +3,7 @@ title: "Quarto Extensions"
 listing:
   id: listing-extensions
   contents:
-    - extensions/**.yml
+    - extensions/yaml/**.yml
   type: table
   sort-ui: true
   filter-ui: true
@@ -12,12 +12,23 @@ listing:
     - name
     - description
     - author
-    - category
+    - categories
   field-links:
     - name
   field-display-names:
     name: Name
+format:
+  html:
+    grid:
+      margin-width: 100px
+    include-in-header:
+      - text: |
+          <style>
+          table.quarto-listing-table a {
+            word-break: keep-all !important;
+          }
+          </style>
 ---
 
-::: {#listing-extensions .column-body-outset-right}
+::: {#listing-extensions}
 :::

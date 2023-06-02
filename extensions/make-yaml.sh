@@ -7,7 +7,7 @@ while IFS=, read -r category repo; do
   # if [ ! -d "${target}" ]; then
   #   git submodule add "https://github.com/${repo}" "${target}"
   # fi
-  meta="extensions/${repo//\//--}.yml"
+  meta="extensions/yaml/${repo//\//--}.yml"
   # if [ ! -f "${meta}" ]; then
     yaml_name="- name: $(basename ${repo})"
     yaml_path="path: https://github.com/${repo}"
@@ -17,7 +17,7 @@ while IFS=, read -r category repo; do
     description=$(gh repo view --json description --jq ".description" "${repo}")
     yaml_usage="  \n    \`\`\`sh\n    quarto add ${repo}\n    \`\`\`"
     yaml_description="description: |\n    ${description}${yaml_usage}"
-    yaml_categories="categories: ${category}"
+    yaml_categories="categories: [${category}]"
     echo -e "${yaml_name}\n  ${yaml_path}\n  ${yaml_author}\n  ${yaml_description}\n  ${yaml_categories}\n" > "${meta}"
   # fi
 
