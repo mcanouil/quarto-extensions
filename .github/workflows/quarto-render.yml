@@ -1,0 +1,71 @@
+name: Quarto Render
+
+on:
+  workflow_dispatch:
+  pull_request:
+  schedule:
+    - cron: 00 12 1 * *
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}
+  cancel-in-progress: true
+
+jobs:
+  quarto-render:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      
+      - if: ${{ github.event_name == 'pull_request' }}
+        uses: r-lib/actions/pr-fetch@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - uses: r-lib/actions/setup-pandoc@v2
+      
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: pre-release
+
+      - if: ${{ github.event_name == 'schedule' }}
+        run: |
+          rm -rf extensions/yaml
+      
+      - name: Render Quarto Project
+        uses: quarto-dev/quarto-actions/render@v2
+      
+      - name: Commit to Pull Request
+        shell: bash
+        run: |
+          git config --local user.name "${{ github.actor }}"
+          git config --local user.email "${{ github.actor }}@users.noreply.github.com"
+          git add docs/*
+          git commit -m 'ci: quarto automatic render
+          
+          
+          skip-checks: true' || echo "No changes to commit"
+      
+      - name: Create Pull Request
+        if: ${{ github.event_name != 'pull_request' }}
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: |
+            ci: quarto automatic render
+            
+            
+            skip-checks: true
+          signoff: false
+          branch: ci/latest-quarto-updates
+          delete-branch: true
+          title: "ci: quarto automatic render"
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          committer: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+      
+      - name: Push to Pull Request
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: r-lib/actions/pr-push@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
