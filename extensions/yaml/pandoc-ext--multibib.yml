@@ -1,0 +1,12 @@
+- name: multibib
+  path: https://github.com/pandoc-ext/multibib
+  author: "[Pandoc Extensions](https://github.com/pandoc-ext/)"
+  description: |
+    Generate multiple, topic-specific bibliographies.
+    
+    ```sh
+    quarto add pandoc-ext/multibib
+    ```
+  type: [shortcodes-filters]
+  categories: ["pandoc","pandoc-filter","lua"]
+

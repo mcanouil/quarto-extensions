@@ -1,0 +1,27 @@
+---
+repo-actions: false
+listing:
+  id: listing-extensions
+  contents:
+    - extensions/yaml/**.yml
+  type: table
+  sort-ui: true
+  filter-ui: true
+  categories: true
+  page-size: 5
+  sort:
+    - name
+  fields:
+    - type
+    - name
+    - description
+    - author
+  field-links:
+    - name
+  field-display-names:
+    name: Name
+    type: Type
+---
+
+::: {#listing-extensions}
+:::

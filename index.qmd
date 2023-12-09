@@ -1,34 +1,25 @@
 ---
-title: "Quarto Extensions"
-listing:
-  id: listing-extensions
-  contents:
-    - extensions/yaml/**.yml
-  type: table
-  sort-ui: true
-  filter-ui: true
-  categories: true
-  fields:
-    - name
-    - description
-    - author
-    - categories
-  field-links:
-    - name
-  field-display-names:
-    name: Name
-format:
-  html:
-    grid:
-      margin-width: 100px
-    include-in-header:
-      - text: |
-          <style>
-          table.quarto-listing-table a {
-            word-break: keep-all !important;
-          }
-          </style>
+repo-actions: false
+about:
+  template: trestles
+  image: /assets/media/quarto-extension.png
+  links:
+    - text: "{{< iconify fa6-brands github >}} GitHub"
+      href: "https://github.com/mcanouil/quarto-extensions"
+      aria-label: "GitHub logo linking to mcanouil/quarto-extensions repository"
 ---
 
-::: {#listing-extensions}
+This website is a listing of [Quarto](https://quarto.org) extensions.
+
+You can submit a new extension by making a pull request to the [GitHub repository](https://github.com/mcanouil/quarto-extensions/edit/main/extensions/quarto-extensions.csv).
+
+::: {.callout-important}
+## Before submitting
+
+Please make sure that:
+
+- The extension is not already listed.
+- Your GitHub repository contains a **Description**.
+- Your GitHub repository contains **Topics**.
+- Avoid special characters/strings in the **Description**, such as `'<style>'` instead of `` `<style>` ``.
 :::

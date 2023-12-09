@@ -1,15 +1,58 @@
 project:
   type: website
-  pre-render: extensions/make-yaml.sh
+  output-dir: _site
+  pre-render:
+    - extensions/make-yaml.sh
 
 website:
-  title: "quarto-extensions"
+  image: "/assets/media/quarto-extension.png"
+  favicon: "/assets/media/quarto-extension.png"
+  page-navigation: true
+  open-graph: true
+  twitter-card: true
+  repo-url: https://github.com/mcanouil/quarto-extensions
+  repo-actions: [edit, issue]
+  page-footer:
+    border: true
+    left: |
+      Powered by [Quarto](https://quarto.org).
+    center: |
+      &copy; 2023 Mickaël CANOUIL.
   navbar:
+    logo: "/assets/media/quarto-extension.png"
     left:
-      - href: index.qmd
-        text: Extensions
-
+      - text: Quarto Extensions
+        href: extensions.qmd
+    right:
+      - text: "{{< iconify fa6-brands github >}}"
+        href: "https://github.com/mcanouil/quarto-extensions"
 format:
   html:
     theme: cosmo
-    toc: true
+    grid:
+      sidebar-width: 250px
+      body-width: 900px
+      margin-width: 300px
+    lang: en
+    date-format: 'dddd[, the] Do [of] MMMM, YYYY'
+    highlight-style: github
+    code-copy: true
+    code-link: true
+    anchor-sections: true
+    email-obfuscation: javascript
+    link-external-newwindow: true
+    code-tools:
+      source: false
+      toggle: false
+      caption: none
+    include-after-body:
+      text: |
+        <script type="text/javascript">
+        const dateElements = document.querySelectorAll("p.date, div.listing-date");
+        dateElements.forEach((el) => {
+          el.innerHTML = el.innerHTML.replace(
+            /(\d+)(rd|st|th)/g,
+            "$1<sup style='font-size:0.5em;font-style:italic;'>$2</sup>"
+          );
+        });
+        </script>
