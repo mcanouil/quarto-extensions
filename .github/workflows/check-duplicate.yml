@@ -29,6 +29,6 @@ jobs:
                 echo "::error file=$FILE,line=$lineNumber,endLine=$lineNumber,title=Duplicate Entry::Duplicate value '$duplicate' found"
               done
             done <<< "$duplicates"
-            # exit 1
+            exit 1
           fi
           
