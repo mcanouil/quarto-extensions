@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.523">
+<meta name="generator" content="quarto-1.5.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -135,8 +135,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   })
   </script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -169,7 +196,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -180,7 +207,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(128)</span></div><div class="category" data-category="adsense">adsense <span class="quarto-category-count">(1)</span></div><div class="category" data-category="animatecss">animatecss <span class="quarto-category-count">(1)</span></div><div class="category" data-category="animation">animation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="arxiv">arxiv <span class="quarto-category-count">(1)</span></div><div class="category" data-category="asce">asce <span class="quarto-category-count">(1)</span></div><div class="category" data-category="asm">asm <span class="quarto-category-count">(1)</span></div><div class="category" data-category="authors">authors <span class="quarto-category-count">(1)</span></div><div class="category" data-category="authorship">authorship <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bibtex">bibtex <span class="quarto-category-count">(1)</span></div><div class="category" data-category="black">black <span class="quarto-category-count">(1)</span></div><div class="category" data-category="black-formatter">black-formatter <span class="quarto-category-count">(1)</span></div><div class="category" data-category="blog">blog <span class="quarto-category-count">(2)</span></div><div class="category" data-category="book">book <span class="quarto-category-count">(1)</span></div><div class="category" data-category="brief">brief <span class="quarto-category-count">(1)</span></div><div class="category" data-category="canvas-confetti">canvas-confetti <span class="quarto-category-count">(1)</span></div><div class="category" data-category="css">css <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cv">cv <span class="quarto-category-count">(1)</span></div><div class="category" data-category="din5008">din5008 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="docx">docx <span class="quarto-category-count">(1)</span></div><div class="category" data-category="elevatorjs">elevatorjs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="extension">extension <span class="quarto-category-count">(4)</span></div><div class="category" data-category="gists">gists <span class="quarto-category-count">(1)</span></div><div class="category" data-category="hedgedoc">hedgedoc <span class="quarto-category-count">(1)</span></div><div class="category" data-category="highlighting">highlighting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="html">html <span class="quarto-category-count">(2)</span></div><div class="category" data-category="iconify">iconify <span class="quarto-category-count">(1)</span></div><div class="category" data-category="icons">icons <span class="quarto-category-count">(3)</span></div><div class="category" data-category="insee">insee <span class="quarto-category-count">(1)</span></div><div class="category" data-category="journal">journal <span class="quarto-category-count">(1)</span></div><div class="category" data-category="latex">latex <span class="quarto-category-count">(5)</span></div><div class="category" data-category="latex-template">latex-template <span class="quarto-category-count">(3)</span></div><div class="category" data-category="lcars">lcars <span class="quarto-category-count">(1)</span></div><div class="category" data-category="letter">letter <span class="quarto-category-count">(3)</span></div><div class="category" data-category="lua">lua <span class="quarto-category-count">(3)</span></div><div class="category" data-category="lua-filters">lua-filters <span class="quarto-category-count">(1)</span></div><div class="category" data-category="markdown-to-pdf">markdown-to-pdf <span class="quarto-category-count">(1)</span></div><div class="category" data-category="material-design">material-design <span class="quarto-category-count">(1)</span></div><div class="category" data-category="metadata">metadata <span class="quarto-category-count">(1)</span></div><div class="category" data-category="msystems">msystems <span class="quarto-category-count">(1)</span></div><div class="category" data-category="nmfsopensci-templates">nmfsopensci-templates <span class="quarto-category-count">(1)</span></div><div class="category" data-category="onyxia">onyxia <span class="quarto-category-count">(1)</span></div><div class="category" data-category="pandoc">pandoc <span class="quarto-category-count">(7)</span></div><div class="category" data-category="pandoc-filter">pandoc-filter <span class="quarto-category-count">(7)</span></div><div class="category" data-category="pdf">pdf <span class="quarto-category-count">(4)</span></div><div class="category" data-category="pdf-generation">pdf-generation <span class="quarto-category-count">(2)</span></div><div class="category" data-category="presentation">presentation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="preview-colour">preview-colour <span class="quarto-category-count">(1)</span></div><div class="category" data-category="proceedings">proceedings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="programme10pourcent">programme10pourcent <span class="quarto-category-count">(1)</span></div><div class="category" data-category="publications">publications <span class="quarto-category-count">(1)</span></div><div class="category" data-category="publishing">publishing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="python">python <span class="quarto-category-count">(4)</span></div><div class="category" data-category="r">r <span class="quarto-category-count">(6)</span></div><div class="category" data-category="r-ladies">r-ladies <span class="quarto-category-count">(1)</span></div><div class="category" data-category="r-ladies-global">r-ladies-global <span class="quarto-category-count">(1)</span></div><div class="category" data-category="r-programming">r-programming <span class="quarto-category-count">(1)</span></div><div class="category" data-category="reveal-js">reveal-js <span class="quarto-category-count">(1)</span></div><div class="category" data-category="reveal-js-plugin">reveal-js-plugin <span class="quarto-category-count">(2)</span></div><div class="category" data-category="revealjs">revealjs <span class="quarto-category-count">(14)</span></div><div class="category" data-category="revealjs-plugin">revealjs-plugin <span class="quarto-category-count">(1)</span></div><div class="category" data-category="revealjs-theme">revealjs-theme <span class="quarto-category-count">(1)</span></div><div class="category" data-category="rstats">rstats <span class="quarto-category-count">(4)</span></div><div class="category" data-category="rvalhub">rvalhub <span class="quarto-category-count">(1)</span></div><div class="category" data-category="scientific">scientific <span class="quarto-category-count">(1)</span></div><div class="category" data-category="scientific-publications">scientific-publications <span class="quarto-category-count">(1)</span></div><div class="category" data-category="scientific-publishing">scientific-publishing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="shortcode">shortcode <span class="quarto-category-count">(1)</span></div><div class="category" data-category="social-media">social-media <span class="quarto-category-count">(1)</span></div><div class="category" data-category="sql">sql <span class="quarto-category-count">(1)</span></div><div class="category" data-category="sqlite3">sqlite3 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="star-trek">star-trek <span class="quarto-category-count">(1)</span></div><div class="category" data-category="template">template <span class="quarto-category-count">(2)</span></div><div class="category" data-category="tex">tex <span class="quarto-category-count">(2)</span></div><div class="category" data-category="theme">theme <span class="quarto-category-count">(2)</span></div><div class="category" data-category="twitter">twitter <span class="quarto-category-count">(1)</span></div><div class="category" data-category="typesetting">typesetting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="typst">typst <span class="quarto-category-count">(1)</span></div><div class="category" data-category="uiuc">uiuc <span class="quarto-category-count">(1)</span></div><div class="category" data-category="university-of-illinois-urbana-champaign">university-of-illinois-urbana-champaign <span class="quarto-category-count">(1)</span></div><div class="category" data-category="vimeo">vimeo <span class="quarto-category-count">(1)</span></div><div class="category" data-category="webassembly">webassembly <span class="quarto-category-count">(1)</span></div><div class="category" data-category="webr">webr <span class="quarto-category-count">(1)</span></div><div class="category" data-category="website">website <span class="quarto-category-count">(2)</span></div><div class="category" data-category="word">word <span class="quarto-category-count">(1)</span></div><div class="category" data-category="youtube">youtube <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(128)</span></div><div class="category" data-category="adsense">adsense <span class="quarto-category-count">(1)</span></div><div class="category" data-category="animatecss">animatecss <span class="quarto-category-count">(1)</span></div><div class="category" data-category="animation">animation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="apa-style">apa-style <span class="quarto-category-count">(1)</span></div><div class="category" data-category="arxiv">arxiv <span class="quarto-category-count">(1)</span></div><div class="category" data-category="asce">asce <span class="quarto-category-count">(1)</span></div><div class="category" data-category="asm">asm <span class="quarto-category-count">(1)</span></div><div class="category" data-category="authors">authors <span class="quarto-category-count">(1)</span></div><div class="category" data-category="authorship">authorship <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bibtex">bibtex <span class="quarto-category-count">(1)</span></div><div class="category" data-category="black">black <span class="quarto-category-count">(1)</span></div><div class="category" data-category="black-formatter">black-formatter <span class="quarto-category-count">(1)</span></div><div class="category" data-category="blog">blog <span class="quarto-category-count">(2)</span></div><div class="category" data-category="book">book <span class="quarto-category-count">(1)</span></div><div class="category" data-category="brief">brief <span class="quarto-category-count">(1)</span></div><div class="category" data-category="canvas-confetti">canvas-confetti <span class="quarto-category-count">(1)</span></div><div class="category" data-category="css">css <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cv">cv <span class="quarto-category-count">(1)</span></div><div class="category" data-category="din5008">din5008 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="docx">docx <span class="quarto-category-count">(1)</span></div><div class="category" data-category="elevatorjs">elevatorjs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="extension">extension <span class="quarto-category-count">(4)</span></div><div class="category" data-category="gists">gists <span class="quarto-category-count">(1)</span></div><div class="category" data-category="hedgedoc">hedgedoc <span class="quarto-category-count">(1)</span></div><div class="category" data-category="highlighting">highlighting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="html">html <span class="quarto-category-count">(2)</span></div><div class="category" data-category="iconify">iconify <span class="quarto-category-count">(1)</span></div><div class="category" data-category="icons">icons <span class="quarto-category-count">(3)</span></div><div class="category" data-category="insee">insee <span class="quarto-category-count">(1)</span></div><div class="category" data-category="journal">journal <span class="quarto-category-count">(1)</span></div><div class="category" data-category="latex">latex <span class="quarto-category-count">(5)</span></div><div class="category" data-category="latex-template">latex-template <span class="quarto-category-count">(3)</span></div><div class="category" data-category="lcars">lcars <span class="quarto-category-count">(1)</span></div><div class="category" data-category="letter">letter <span class="quarto-category-count">(3)</span></div><div class="category" data-category="lua">lua <span class="quarto-category-count">(3)</span></div><div class="category" data-category="lua-filter">lua-filter <span class="quarto-category-count">(1)</span></div><div class="category" data-category="lua-filters">lua-filters <span class="quarto-category-count">(1)</span></div><div class="category" data-category="markdown-to-pdf">markdown-to-pdf <span class="quarto-category-count">(1)</span></div><div class="category" data-category="material-design">material-design <span class="quarto-category-count">(1)</span></div><div class="category" data-category="metadata">metadata <span class="quarto-category-count">(1)</span></div><div class="category" data-category="msystems">msystems <span class="quarto-category-count">(1)</span></div><div class="category" data-category="nmfsopensci-templates">nmfsopensci-templates <span class="quarto-category-count">(1)</span></div><div class="category" data-category="onyxia">onyxia <span class="quarto-category-count">(1)</span></div><div class="category" data-category="pandoc">pandoc <span class="quarto-category-count">(7)</span></div><div class="category" data-category="pandoc-filter">pandoc-filter <span class="quarto-category-count">(7)</span></div><div class="category" data-category="pdf">pdf <span class="quarto-category-count">(4)</span></div><div class="category" data-category="pdf-generation">pdf-generation <span class="quarto-category-count">(2)</span></div><div class="category" data-category="presentation">presentation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="preview-colour">preview-colour <span class="quarto-category-count">(1)</span></div><div class="category" data-category="proceedings">proceedings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="programme10pourcent">programme10pourcent <span class="quarto-category-count">(1)</span></div><div class="category" data-category="publications">publications <span class="quarto-category-count">(1)</span></div><div class="category" data-category="publishing">publishing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="python">python <span class="quarto-category-count">(4)</span></div><div class="category" data-category="r">r <span class="quarto-category-count">(6)</span></div><div class="category" data-category="r-ladies">r-ladies <span class="quarto-category-count">(1)</span></div><div class="category" data-category="r-ladies-global">r-ladies-global <span class="quarto-category-count">(1)</span></div><div class="category" data-category="r-programming">r-programming <span class="quarto-category-count">(1)</span></div><div class="category" data-category="reveal-js">reveal-js <span class="quarto-category-count">(1)</span></div><div class="category" data-category="reveal-js-plugin">reveal-js-plugin <span class="quarto-category-count">(2)</span></div><div class="category" data-category="revealjs">revealjs <span class="quarto-category-count">(14)</span></div><div class="category" data-category="revealjs-plugin">revealjs-plugin <span class="quarto-category-count">(1)</span></div><div class="category" data-category="revealjs-theme">revealjs-theme <span class="quarto-category-count">(1)</span></div><div class="category" data-category="rstats">rstats <span class="quarto-category-count">(4)</span></div><div class="category" data-category="rvalhub">rvalhub <span class="quarto-category-count">(1)</span></div><div class="category" data-category="scientific">scientific <span class="quarto-category-count">(1)</span></div><div class="category" data-category="scientific-publications">scientific-publications <span class="quarto-category-count">(1)</span></div><div class="category" data-category="scientific-publishing">scientific-publishing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="shortcode">shortcode <span class="quarto-category-count">(1)</span></div><div class="category" data-category="social-media">social-media <span class="quarto-category-count">(1)</span></div><div class="category" data-category="sql">sql <span class="quarto-category-count">(1)</span></div><div class="category" data-category="sqlite3">sqlite3 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="star-trek">star-trek <span class="quarto-category-count">(1)</span></div><div class="category" data-category="template">template <span class="quarto-category-count">(2)</span></div><div class="category" data-category="tex">tex <span class="quarto-category-count">(2)</span></div><div class="category" data-category="theme">theme <span class="quarto-category-count">(2)</span></div><div class="category" data-category="twitter">twitter <span class="quarto-category-count">(1)</span></div><div class="category" data-category="typesetting">typesetting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="typst">typst <span class="quarto-category-count">(1)</span></div><div class="category" data-category="uiuc">uiuc <span class="quarto-category-count">(1)</span></div><div class="category" data-category="university-of-illinois-urbana-champaign">university-of-illinois-urbana-champaign <span class="quarto-category-count">(1)</span></div><div class="category" data-category="vimeo">vimeo <span class="quarto-category-count">(1)</span></div><div class="category" data-category="webassembly">webassembly <span class="quarto-category-count">(1)</span></div><div class="category" data-category="webr">webr <span class="quarto-category-count">(1)</span></div><div class="category" data-category="website">website <span class="quarto-category-count">(2)</span></div><div class="category" data-category="word">word <span class="quarto-category-count">(1)</span></div><div class="category" data-category="youtube">youtube <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -292,7 +319,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </td>
 <td>
-<span class="listing-author"><a href="https://github.com/quarto-journals/">quarto-journals</a></span>
+<span class="listing-author"><a href="https://github.com/quarto-journals/">Quarto Journals</a></span>
 </td>
 </tr>
 <tr data-index="4" data-categories="" data-listing-name-sort="acronyms">
@@ -324,7 +351,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </td>
 <td>
-<span class="listing-author"><a href="https://github.com/quarto-journals/">quarto-journals</a></span>
+<span class="listing-author"><a href="https://github.com/quarto-journals/">Quarto Journals</a></span>
 </td>
 </tr>
 <tr data-index="6" data-categories="" data-listing-name-sort="add-code-files">
@@ -356,10 +383,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </td>
 <td>
-<span class="listing-author"><a href="https://github.com/quarto-journals/">quarto-journals</a></span>
+<span class="listing-author"><a href="https://github.com/quarto-journals/">Quarto Journals</a></span>
 </td>
 </tr>
-<tr data-index="8" data-categories="" data-listing-name-sort="apaquarto">
+<tr data-index="8" data-categories="apa-style,lua-filter" data-listing-name-sort="apaquarto">
 <td>
 <span class="listing-type">formats</span>
 </td>
@@ -420,7 +447,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </td>
 <td>
-<span class="listing-author"><a href="https://github.com/quarto-ext/">quarto-ext</a></span>
+<span class="listing-author"><a href="https://github.com/quarto-ext/">Quarto Extensions</a></span>
 </td>
 </tr>
 <tr data-index="12" data-categories="authors,authorship,extension,publications,scientific,scientific-publishing,docx,word" data-listing-name-sort="authors-block">
@@ -452,7 +479,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </td>
 <td>
-<span class="listing-author"><a href="https://github.com/quarto-journals/">quarto-journals</a></span>
+<span class="listing-author"><a href="https://github.com/quarto-journals/">Quarto Journals</a></span>
 </td>
 </tr>
 <tr data-index="14" data-categories="black,black-formatter,python" data-listing-name-sort="black-formatter">
@@ -660,7 +687,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </td>
 <td>
-<span class="listing-author"><a href="https://github.com/quarto-journals/">quarto-journals</a></span>
+<span class="listing-author"><a href="https://github.com/quarto-journals/">Quarto Journals</a></span>
 </td>
 </tr>
 <tr data-index="27" data-categories="" data-listing-name-sort="embedpdf">
@@ -692,7 +719,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </td>
 <td>
-<span class="listing-author"><a href="https://github.com/quarto-ext/">quarto-ext</a></span>
+<span class="listing-author"><a href="https://github.com/quarto-ext/">Quarto Extensions</a></span>
 </td>
 </tr>
 <tr data-index="29" data-categories="pandoc-filter,pandoc,typesetting" data-listing-name-sort="first-line-indent">
@@ -724,7 +751,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </td>
 <td>
-<span class="listing-author"><a href="https://github.com/quarto-ext/">quarto-ext</a></span>
+<span class="listing-author"><a href="https://github.com/quarto-ext/">Quarto Extensions</a></span>
 </td>
 </tr>
 <tr data-index="31" data-categories="" data-listing-name-sort="forms">
@@ -831,12 +858,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <a href="https://github.com/quarto-ext/include-code-files" class="name listing-name">include-code-files</a>
 </td>
 <td>
-<p><span class="listing-description">No description available</span></p>
+<p><span class="listing-description">Quarto extension to include code from source files.</span></p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> add quarto-ext/include-code-files</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </td>
 <td>
-<span class="listing-author"><a href="https://github.com/quarto-ext/">quarto-ext</a></span>
+<span class="listing-author"><a href="https://github.com/quarto-ext/">Quarto Extensions</a></span>
 </td>
 </tr>
 <tr data-index="38" data-categories="sql,sqlite3" data-listing-name-sort="interactive-sql">
@@ -868,7 +895,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </td>
 <td>
-<span class="listing-author"><a href="https://github.com/quarto-journals/">quarto-journals</a></span>
+<span class="listing-author"><a href="https://github.com/quarto-journals/">Quarto Journals</a></span>
 </td>
 </tr>
 <tr data-index="40" data-categories="" data-listing-name-sort="joas-template">
@@ -900,7 +927,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </td>
 <td>
-<span class="listing-author"><a href="https://github.com/quarto-journals/">quarto-journals</a></span>
+<span class="listing-author"><a href="https://github.com/quarto-journals/">Quarto Journals</a></span>
 </td>
 </tr>
 <tr data-index="42" data-categories="" data-listing-name-sort="kakashi-quarto-theme">
@@ -932,7 +959,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </td>
 <td>
-<span class="listing-author"><a href="https://github.com/quarto-ext/">quarto-ext</a></span>
+<span class="listing-author"><a href="https://github.com/quarto-ext/">Quarto Extensions</a></span>
 </td>
 </tr>
 <tr data-index="44" data-categories="" data-listing-name-sort="lightbox">
@@ -948,7 +975,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </td>
 <td>
-<span class="listing-author"><a href="https://github.com/quarto-ext/">quarto-ext</a></span>
+<span class="listing-author"><a href="https://github.com/quarto-ext/">Quarto Extensions</a></span>
 </td>
 </tr>
 <tr data-index="45" data-categories="highlighting,lua-filters,pandoc-filter" data-listing-name-sort="line-highlight">
@@ -1188,7 +1215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </td>
 <td>
-<span class="listing-author"><a href="https://github.com/quarto-journals/">quarto-journals</a></span>
+<span class="listing-author"><a href="https://github.com/quarto-journals/">Quarto Journals</a></span>
 </td>
 </tr>
 <tr data-index="60" data-categories="r" data-listing-name-sort="pnas">
@@ -1220,7 +1247,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </td>
 <td>
-<span class="listing-author"><a href="https://github.com/quarto-ext/">quarto-ext</a></span>
+<span class="listing-author"><a href="https://github.com/quarto-ext/">Quarto Extensions</a></span>
 </td>
 </tr>
 <tr data-index="62" data-categories="latex,letter,latex-template,markdown-to-pdf" data-listing-name-sort="qletter">
@@ -1471,7 +1498,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <a href="https://github.com/mcanouil/quarto-iconify" class="name listing-name">quarto-iconify</a>
 </td>
 <td>
-<p><span class="listing-description">Use Iconify icons in HTML-based Quarto documents</span></p>
+<p><span class="listing-description">Use Iconify icons in HTML-based Quarto documents (over 200,000 open source vector icons)</span></p>
 <div class="sourceCode" id="cb78"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> add mcanouil/quarto-iconify</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </td>
@@ -2063,7 +2090,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <a href="https://github.com/mcanouil/quarto-version-badge" class="name listing-name">quarto-version-badge</a>
 </td>
 <td>
-<p><span class="listing-description">Version Badge is an extension for Quarto to provide a shortcode to display software version.</span></p>
+<p><span class="listing-description">Badge is an extension for Quarto to provide a shortcode to display software version or anything as a badge.</span></p>
 <div class="sourceCode" id="cb115"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> add mcanouil/quarto-version-badge</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </td>
@@ -2244,7 +2271,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </td>
 <td>
-<span class="listing-author"><a href="https://github.com/quarto-ext/">quarto-ext</a></span>
+<span class="listing-author"><a href="https://github.com/quarto-ext/">Quarto Extensions</a></span>
 </td>
 </tr>
 <tr data-index="126" data-categories="" data-listing-name-sort="sportrxiv">
@@ -2328,18 +2355,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -2371,7 +2387,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -2430,10 +2468,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
           // target, if specified
           link.setAttribute("target", "_blank");
           if (link.getAttribute("rel") === null) {
@@ -2475,7 +2518,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -2490,27 +2537,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
@@ -2525,10 +2551,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             break;
           }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -2537,8 +2567,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -2763,10 +2800,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Powered by <a href="https://quarto.org">Quarto</a>.</p>
-</div>   
+      &nbsp;
+    </div>   
     <div class="nav-footer-center">
-<p>© 2023 Mickaël CANOUIL.</p>
+<p>© 2024 Mickaël CANOUIL. Powered by <a href="https://quarto.org">Quarto</a>.</p>
 </div>
     <div class="nav-footer-right">
       &nbsp;
