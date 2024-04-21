@@ -23,12 +23,12 @@ jobs:
           COLUMN=2
           duplicates=$(awk -F, -v col=$COLUMN '{print $col}' $FILE | sort | uniq -d)
           if [[ -n "$duplicates" ]]; then
-          while read -r duplicate; do
-            grep -n "$duplicate" $FILE | tail -n +2 | while read -r line ; do
-            lineNumber=$(echo $line | cut -d: -f1)
-            echo "::error file=$FILE,line=$lineNumber,endLine=$lineNumber,title=Duplicate Entry::Duplicate value '$duplicate' found"
-            done
-          done <<< "$duplicates"
-          # exit 1
+            while read -r duplicate; do
+              grep -n "$duplicate" $FILE | tail -n +2 | while read -r line ; do
+                lineNumber=$(echo $line | cut -d: -f1)
+                echo "::error file=$FILE,line=$lineNumber,endLine=$lineNumber,title=Duplicate Entry::Duplicate value '$duplicate' found"
+              done
+            done <<< "$duplicates"
+            # exit 1
           fi
           
