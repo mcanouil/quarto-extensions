@@ -29,10 +29,6 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: pre-release
-
-      - if: ${{ github.event_name == 'schedule' }}
-        run: |
-          rm -rf extensions/yaml
       
       - name: Render Quarto Project
         uses: quarto-dev/quarto-actions/render@v2
