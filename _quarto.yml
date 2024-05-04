@@ -45,6 +45,13 @@ format:
       source: false
       toggle: false
       caption: none
+    include-in-header:
+      text: |
+        <style>
+        .category {
+          text-transform: uppercase;
+        }
+        </style>
     include-after-body:
       text: |
         <script type="text/javascript">
