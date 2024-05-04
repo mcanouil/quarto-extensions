@@ -22,7 +22,10 @@ while IFS=, read -r category repo; do
       description="No description available"
     fi
     description=$(echo "${description}" | sed 's/^[[:space:]]*//')
-    topics=$(gh api "repos/${repo}/topics" --jq ".names | map(select(.) | sub(\"^quarto-\"; \"\")) | map(select(. | test(\"quarto|extension|^pub$\") | not))")
+    topics=$(gh api "repos/${repo}/topics" --jq ".names")
+    topics=$(echo "${topics}" | jq -r 'map(select(.) | sub("^quarto-"; "") | sub("-template[s]*"; "") | if test("filters$|formats$|journals$") then sub("s$"; "") else . end)')
+    topics=$(echo "${topics}" | jq -r 'map(select(. | test("quarto|extension|^pub$") | not))')
+    topics=$(echo "${topics}" | jq -r 'unique')
     yaml_usage="\n    \n    \`\`\`sh\n    quarto add ${repo}\n    \`\`\`"
     yaml_description="description: |\n    ${description}${yaml_usage}"
     yaml_type="type: [${category}]"
