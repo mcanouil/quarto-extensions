@@ -23,7 +23,10 @@ while IFS=, read -r category repo; do
     fi
     description=$(echo "${description}" | sed 's/^[[:space:]]*//')
     topics=$(gh api "repos/${repo}/topics" --jq ".names")
-    topics=$(echo "${topics}" | jq -r 'map(select(.) | sub("^quarto-"; "") | sub("-template[s]*"; "") | if test("filters$|formats$|journals$") then sub("s$"; "") else . end)')
+    topics=$(echo "${topics}" | jq -r 'map(select(.) | sub("^quarto-"; ""))')
+    topics=$(echo "${topics}" | jq -r 'map(select(.) | sub("-template[s]*"; ""))')
+    topics=$(echo "${topics}" | jq -r 'map(select(.) | if test("filters$|formats$|journals$") then sub("s$"; "") else . end)')
+    topics=$(echo "${topics}" | jq -r 'map(select(.) | sub("reveal-js"; "reveal.js") | sub("revealjs"; "reveal.js"))')
     topics=$(echo "${topics}" | jq -r 'map(select(. | test("quarto|extension|^pub$") | not))')
     topics=$(echo "${topics}" | jq -r 'unique')
     yaml_usage="\n    \n    \`\`\`sh\n    quarto add ${repo}\n    \`\`\`"
