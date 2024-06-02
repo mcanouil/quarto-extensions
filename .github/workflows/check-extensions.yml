@@ -52,7 +52,7 @@ jobs:
         run: |
           error=false
           add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "extensions/quarto-extensions.csv")')
-          if [[ -z "${add_extension}" ]]; then
+          if [[ -n "${add_extension}" ]]; then
             gh pr diff ${NUMBER} --patch | grep -E '^(\+shortcodes-filters,|\+formats,)' > diff.patch
             if [[ -s diff.patch ]]; then
               while IFS=, read -r category repo; do
@@ -76,7 +76,7 @@ jobs:
         run: |
           error=false
           add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "extensions/quarto-extensions.csv")')
-          if [[ -z "${add_extension}" ]]; then
+          if [[ -n "${add_extension}" ]]; then
             gh pr diff ${NUMBER} --patch | grep -E '^(\+shortcodes-filters,|\+formats,)' > diff.patch
             if [[ -s diff.patch ]]; then
               while IFS=, read -r category repo; do
