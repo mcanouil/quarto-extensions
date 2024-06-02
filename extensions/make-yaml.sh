@@ -57,14 +57,14 @@ while IFS=, read -r category repo; do
       "- title: $(basename ${repo})\n" \
       " path: https://github.com/${repo}\n" \
       " author: \"[${repo_author}](https://github.com/${repo_owner}/)\"\n" \
-      " description: |\n    ${repo_description}\n${yaml_usage}\n" \
-      " date: ${repo_created}\n" \
-      " file-modified: ${repo_updated}\n" \
+      " date: \"${repo_created}\"\n" \
+      " file-modified: \"${repo_updated}\"\n" \
       " type: [${category}]\n" \
       " categories: ${repo_topics}\n" \
       " license: \"${repo_license}\"\n" \
-      " stars: \"[{{< iconify fluent-emoji:star >}} ${repo_stars}](https://github.com/${repo}/stargazers)\"\n" \
-      " version: \"${repo_release}\"\n" \
+      " stars: \"[$(printf "%05d\n" ${repo_stars})]{style='display: none;'}[[\`&bigstar;\`{=html}]{style='color:#dcbe50;'} ${repo_stars}](https://github.com/${repo}/stargazers)\"\n" \
+      " version: \"${repo_release#v}\"\n" \
+      " description: |\n    ${repo_description}\n${yaml_usage}\n" \
       > "${meta}"
     # echo -e $(gh api "repos/${repo}/contents/README.md" -H "Accept: application/vnd.github.v3.raw") > "${readme}"
   fi

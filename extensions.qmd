@@ -5,14 +5,15 @@ listing:
   contents:
     - extensions/yaml/**.yml
   type: grid
-  sort-ui: true
-  filter-ui: true
+  sort-ui: [title, date, author, file-modified]
+  sort:
+    - stars desc
+  filter-ui: [title, date, author, description]
   categories: true
   page-size: 10
   grid-columns: 2
   grid-item-align: center
-  sort:
-    - title
+  max-description-length: 500
 include-in-header:
   text: |
     <style>
