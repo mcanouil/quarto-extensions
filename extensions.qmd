@@ -15,6 +15,13 @@ listing:
   grid-columns: 2
   grid-item-align: center
   max-description-length: 500
+include-in-header:
+  text: |
+    <style type="text/css">
+    #title-block-header.quarto-title-block.default .quarto-title .title {
+        display: none;
+    }
+    </style>
 ---
 
 ::: {#listing-extensions}
