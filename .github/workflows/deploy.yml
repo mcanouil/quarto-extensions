@@ -37,7 +37,7 @@ jobs:
       - name: Render Quarto Project
         shell: bash
         run:
-          quarto render
+          quarto render .
           touch _site/.nojekyll
       
       - uses: actions/configure-pages@v5
