@@ -25,7 +25,7 @@
 local function ensure_html_deps()
   quarto.doc.add_html_dependency({
     name = 'iconify',
-    version = '1.0.7',
+    version = '2.1.0',
     scripts = {"iconify-icon.min.js"}
   })
 end
@@ -71,7 +71,7 @@ local function is_valid_size(size)
       return 'font-size: ' .. value .. ';'
     end
   end
-  return 'font-size: ' .. size .. ';' 
+  return 'font-size: ' .. size .. ';'
 end
 
 return {
@@ -79,15 +79,27 @@ return {
     -- detect html (excluding epub which won't handle fa)
     if quarto.doc.is_format("html:js") then
       ensure_html_deps()
-      local set = "fluent-emoji"
       local icon = pandoc.utils.stringify(args[1])
-      if #args > 1 then
+      local set = "fluent-emoji"
+
+      if #args > 1 and string.find(pandoc.utils.stringify(args[2]), ":") then
+        quarto.log.warning(
+          'Use "set:icon" or "set icon" syntax, not both! ' ..
+          'Using "set:icon" syntax and discarding first argument!'
+        )
+        icon = pandoc.utils.stringify(args[2])
+      end
+
+      if string.find(icon, ":") then
+        set = string.sub(icon, 1, string.find(icon, ":") - 1)
+        icon = string.sub(icon, string.find(icon, ":") + 1)
+      elseif #args > 1 then
         set = icon
         icon = pandoc.utils.stringify(args[2])
       end
 
       local attributes = ' icon="' .. set .. ':' .. icon .. '"'
-      local label = '"Icon ' .. icon .. ' from ' .. set .. ' Iconify.design set."'
+      local default_label = 'Icon ' .. icon .. ' from ' .. set .. ' Iconify.design set.'
 
       local size = is_valid_size(pandoc.utils.stringify(kwargs["size"]))
       if not is_empty(size) then
@@ -96,20 +108,20 @@ return {
 
       local aria_label = pandoc.utils.stringify(kwargs["label"])
       if is_empty(aria_label) then
-        aria_label =  ' aria-label="' .. label .. '"'
-      else 
-        attributes = attributes .. aria_label
+        aria_label =  ' aria-label="' .. default_label .. '"'
+      else
+        aria_label =  ' aria-label="' .. aria_label .. '"'
       end
+
       local title = pandoc.utils.stringify(kwargs["title"])
       if is_empty(title) then
-        title =  ' title="' .. label .. '"'
-      else 
-        attributes = attributes .. title
+        title =  ' title="' .. default_label .. '"'
+      else
+        title =  ' title="' .. title .. '"'
       end
-      -- local style = pandoc.utils.stringify(kwargs["style"])
-      -- if not is_empty(style) then
-      --   local attributes = attributes .. ' style="' .. style .. '"'
-      -- end
+
+      attributes = attributes .. aria_label .. title
+
       local width = pandoc.utils.stringify(kwargs["width"])
       if not is_empty(width) and is_empty(size) then
         attributes = attributes .. ' width="' .. width .. '"'
