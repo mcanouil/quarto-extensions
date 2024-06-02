@@ -11,13 +11,14 @@ while IFS=, read -r category repo; do
   if [[ ! -f "${meta}" || (-f "${meta}" && $(find "$meta" -mtime +30)) ]]; then
     yaml_name="- name: $(basename ${repo})"
     yaml_path="path: https://github.com/${repo}"
-    repoowner=$(gh repo view --json owner --jq ".owner.login" "${repo}")
-    author=$(gh api "users/${repoowner}" --jq ".name")
+    repo_info=$(gh repo view --json owner,description "${repo}")
+    repo_owner=$(echo "${repo_info}" | jq -r ".owner.login")
+    author=$(gh api "users/${repo_owner}" --jq ".name")
     if [[ -z "${author}" ]]; then
-      author=$(gh api "users/${repoowner}" --jq ".login")
+      author=$(gh api "users/${repo_owner}" --jq ".login")
     fi
-    yaml_author="author: \"[${author}](https://github.com/${repoowner}/)\""
-    description=$(gh repo view --json description --jq ".description" "${repo}")
+    yaml_author="author: \"[${author}](https://github.com/${repo_owner}/)\""
+    description=$(echo "${repo_info}" | jq -r ".description")
     if [[ -z "${description}" ]]; then
       description="No description available"
     fi
