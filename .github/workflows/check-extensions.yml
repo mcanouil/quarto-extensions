@@ -1,0 +1,89 @@
+name: Check Extensions
+
+on:
+  workflow_dispatch:
+  pull_request:
+
+permissions:
+  pull-requests: read
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  NUMBER: ${{ github.event.pull_request.number }}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}
+  cancel-in-progress: true
+
+jobs:
+  check-duplicate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check for duplicates
+        shell: bash
+        run: |
+          add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "extensions/quarto-extensions.csv")')
+          if [[ -n "${add_extension}" ]]; then
+            echo "extensions/quarto-extensions.csv is being added"
+            FILE='extensions/quarto-extensions.csv'
+            COLUMN=2
+            duplicates=$(awk -F, -v col=$COLUMN '{print $col}' $FILE | sort | uniq -d)
+            if [[ -n "$duplicates" ]]; then
+              while read -r duplicate; do
+                grep -n "$duplicate" $FILE | tail -n +2 | while read -r line ; do
+                  lineNumber=$(echo $line | cut -d: -f1)
+                  echo "::error file=$FILE,line=$lineNumber,endLine=$lineNumber,title=Duplicate Entry::Duplicate value '$duplicate' found"
+                done
+              done <<< "$duplicates"
+              exit 1
+            fi
+          fi
+  check-topics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check for topics
+        shell: bash
+        run: |
+          add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "extensions/quarto-extensions.csv")')
+          if [[ -n "${add_extension}" ]]; then
+            git diff main -- extensions/quarto-extensions.csv | grep '^+\([^+]\|$\)' > diff.patch
+            if [[ -s diff.patch ]]; then
+              echo "diff.patch is not empty"
+              while IFS=, read -r category repo; do
+                repo_topics=$(gh repo view --json repositoryTopics "${repo}" | jq -r ".repositoryTopics")
+                if [[ "${repo_topics}" = "null" ]]; then
+                  echo "::error file=extensions/quarto-extensions.csv::Repository '${repo}' is missing topics!"
+                fi
+              done < diff.patch
+              exit 1
+            fi
+          fi
+  check-description:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check for description
+        shell: bash
+        run: |
+          add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "extensions/quarto-extensions.csv")')
+          if [[ -n "${add_extension}" ]]; then
+            git diff main -- extensions/quarto-extensions.csv | grep '^+\([^+]\|$\)' > diff.patch
+            if [[ -s diff.patch ]]; then
+              echo "diff.patch is not empty"
+              while IFS=, read -r category repo; do
+                repo_topics=$(gh repo view --json description "${repo}" | jq -r ".description")
+                if [[ "${repo_topics}" = "null" ]]; then
+                  echo "::error file=extensions/quarto-extensions.csv::Repository '${repo}' is missing description!"
+                fi
+              done < diff.patch
+              exit 1
+            fi
+          fi
