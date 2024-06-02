@@ -48,7 +48,7 @@ jobs:
         run: |
           add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "extensions/quarto-extensions.csv")')
           if [[ -n "${add_extension}" ]]; then
-            git diff main -- extensions/quarto-extensions.csv | grep '^+\([^+]\|$\)' > diff.patch
+          gh pr diff ${NUMBER} --patch | grep -E '^(\+shortcodes-filters,|\+formats,)' > diff.patch
             if [[ -s diff.patch ]]; then
               echo "diff.patch is not empty"
               while IFS=, read -r category repo; do
@@ -69,7 +69,7 @@ jobs:
         run: |
           add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "extensions/quarto-extensions.csv")')
           if [[ -n "${add_extension}" ]]; then
-            git diff main -- extensions/quarto-extensions.csv | grep '^+\([^+]\|$\)' > diff.patch
+            gh pr diff ${NUMBER} --patch | grep -E '^(\+shortcodes-filters,|\+formats,)' > diff.patch
             if [[ -s diff.patch ]]; then
               echo "diff.patch is not empty"
               while IFS=, read -r category repo; do
