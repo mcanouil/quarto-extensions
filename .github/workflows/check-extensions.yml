@@ -52,12 +52,12 @@ jobs:
         run: |
           error=false
           add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "extensions/quarto-extensions.csv")')
-          if [[ -n "${add_extension}" ]]; then
+          if [[ -z "${add_extension}" ]]; then
             gh pr diff ${NUMBER} --patch | grep -E '^(\+shortcodes-filters,|\+formats,)' > diff.patch
             if [[ -s diff.patch ]]; then
               while IFS=, read -r category repo; do
                 repo_topics=$(gh repo view --json repositoryTopics "${repo}" --jq ".repositoryTopics")
-                if [[ -n "${repo_topics}" ]]; then
+                if [[ -z "${repo_topics}" ]]; then
                   echo "::error file=extensions/quarto-extensions.csv::Repository '${repo}' is missing topics!"
                   error=true
                 fi
@@ -76,12 +76,12 @@ jobs:
         run: |
           error=false
           add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "extensions/quarto-extensions.csv")')
-          if [[ -n "${add_extension}" ]]; then
+          if [[ -z "${add_extension}" ]]; then
             gh pr diff ${NUMBER} --patch | grep -E '^(\+shortcodes-filters,|\+formats,)' > diff.patch
             if [[ -s diff.patch ]]; then
               while IFS=, read -r category repo; do
-                repo_topics=$(gh repo view --json description "${repo}" --jq ".description")
-                if [[ -n "${repo_topics}" ]]; then
+                repo_description=$(gh repo view --json description "${repo}" --jq ".description")
+                if [[ -z "${repo_description}" ]]; then
                   echo "::error file=extensions/quarto-extensions.csv::Repository '${repo}' is missing description!"
                   error=true
                 fi
