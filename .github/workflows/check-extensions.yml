@@ -23,6 +23,7 @@ jobs:
       - name: Check for duplicates
         shell: bash
         run: |
+          error=false
           add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "extensions/quarto-extensions.csv")')
           if [[ -n "${add_extension}" ]]; then
             echo "extensions/quarto-extensions.csv is being added"
@@ -34,8 +35,11 @@ jobs:
                 grep -n "$duplicate" $FILE | tail -n +2 | while read -r line ; do
                   lineNumber=$(echo $line | cut -d: -f1)
                   echo "::error file=$FILE,line=$lineNumber,endLine=$lineNumber,title=Duplicate Entry::Duplicate value '$duplicate' found"
+                  error=true
                 done
               done <<< "$duplicates"
+            fi
+            if [[ "${error}" = true ]]; then
               exit 1
             fi
           fi
@@ -46,17 +50,20 @@ jobs:
       - name: Check for topics
         shell: bash
         run: |
+          error=false
           add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "extensions/quarto-extensions.csv")')
           if [[ -n "${add_extension}" ]]; then
-          gh pr diff ${NUMBER} --patch | grep -E '^(\+shortcodes-filters,|\+formats,)' > diff.patch
+            gh pr diff ${NUMBER} --patch | grep -E '^(\+shortcodes-filters,|\+formats,)' > diff.patch
             if [[ -s diff.patch ]]; then
-              echo "diff.patch is not empty"
               while IFS=, read -r category repo; do
-                repo_topics=$(gh repo view --json repositoryTopics "${repo}" | jq -r ".repositoryTopics")
-                if [[ "${repo_topics}" = "null" ]]; then
+                repo_topics=$(gh repo view --json repositoryTopics "${repo}" --jq ".repositoryTopics")
+                if [[ -n "${repo_topics}" ]]; then
                   echo "::error file=extensions/quarto-extensions.csv::Repository '${repo}' is missing topics!"
+                  error=true
                 fi
               done < diff.patch
+            fi
+            if [[ "${error}" = true ]]; then
               exit 1
             fi
           fi
@@ -67,17 +74,20 @@ jobs:
       - name: Check for description
         shell: bash
         run: |
+          error=false
           add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "extensions/quarto-extensions.csv")')
           if [[ -n "${add_extension}" ]]; then
             gh pr diff ${NUMBER} --patch | grep -E '^(\+shortcodes-filters,|\+formats,)' > diff.patch
             if [[ -s diff.patch ]]; then
-              echo "diff.patch is not empty"
               while IFS=, read -r category repo; do
-                repo_topics=$(gh repo view --json description "${repo}" | jq -r ".description")
-                if [[ "${repo_topics}" = "null" ]]; then
+                repo_topics=$(gh repo view --json description "${repo}" --jq ".description")
+                if [[ -n "${repo_topics}" ]]; then
                   echo "::error file=extensions/quarto-extensions.csv::Repository '${repo}' is missing description!"
+                  error=true
                 fi
               done < diff.patch
+            fi
+            if [[ "${error}" = true ]]; then
               exit 1
             fi
           fi
