@@ -3,22 +3,38 @@
 set -e
 
 mkdir -p extensions/yaml
+# mkdir -p extensions/readme
 declare -A repos
 
 while IFS=, read -r category repo; do
   repos["$repo"]=1
   meta="extensions/yaml/${repo//\//--}.yml"
+  # readme="extensions/readme/${repo//\//--}.md"
   if [[ ! -f "${meta}" || (-f "${meta}" && $(find "$meta" -mtime +30)) ]]; then
-    yaml_name="- name: $(basename ${repo})"
-    yaml_path="path: https://github.com/${repo}"
-    repo_info=$(gh repo view --json owner,description,latestRelease,licenseInfo,stargazerCount,repositoryTopics "${repo}")
-    # repo_readme=$(gh api "repos/${repo}/contents/README.md" -H "Accept: application/vnd.github.v3.raw")
+    repo_info=$(gh repo view --json owner,description,createdAt,updatedAt,latestRelease,licenseInfo,stargazerCount,repositoryTopics "${repo}")
+    repo_created=$(echo "${repo_info}" | jq -r ".createdAt")
+    repo_release=$(echo "${repo_info}" | jq -r ".latestRelease.tagName")
+    if [[ "${repo_release}" = "null" ]]; then
+      repo_release="none"
+      repo_updated=$(echo "${repo_info}" | jq -r ".updatedAt")
+    else
+      repo_release_url=$(echo "${repo_info}" | jq -r ".latestRelease.url")
+      repo_release="[${repo_release}]($repo_release_url)"
+      repo_updated=$(echo "${repo_info}" | jq -r ".latestRelease.publishedAt")
+    fi
+    repo_license=$(echo "${repo_info}" | jq -r ".licenseInfo.name")
+    if [[ "${repo_license}" = "null" ]]; then
+      repo_license="No license specified"
+    fi
+    repo_stars=$(echo "${repo_info}" | jq -r ".stargazerCount")
+    if [[ "${repo_stars}" = "null" ]]; then
+      repo_stars="0"
+    fi
     repo_owner=$(echo "${repo_info}" | jq -r ".owner.login")
     repo_author=$(gh api "users/${repo_owner}" --jq ".name")
     if [[ -z "${repo_author}" ]]; then
       repo_author=$(gh api "users/${repo_owner}" --jq ".login")
     fi
-    yaml_author="author: \"[${repo_author}](https://github.com/${repo_owner}/)\""
     repo_description=$(echo "${repo_info}" | jq -r ".description")
     if [[ -z "${repo_description}" ]]; then
       repo_description="No description available"
@@ -37,10 +53,20 @@ while IFS=, read -r category repo; do
       repo_topics=$(echo "${repo_topics}" | jq -c 'unique')
     fi
     yaml_usage="\n    \n    \`\`\`sh\n    quarto add ${repo}\n    \`\`\`"
-    yaml_description="description: |\n    ${repo_description}${yaml_usage}"
-    yaml_type="type: [${category}]"
-    yaml_categories="categories: ${repo_topics}"
-    echo -e "${yaml_name}\n  ${yaml_path}\n  ${yaml_author}\n  ${yaml_description}\n  ${yaml_type}\n  ${yaml_categories}\n" > "${meta}"
+    echo -e \
+      "- title: $(basename ${repo})\n" \
+      " path: https://github.com/${repo}\n" \
+      " author: \"[${repo_author}](https://github.com/${repo_owner}/)\"\n" \
+      " description: |\n    ${repo_description}\n${yaml_usage}\n" \
+      " date: ${repo_created}\n" \
+      " file-modified: ${repo_updated}\n" \
+      " type: [${category}]\n" \
+      " categories: ${repo_topics}\n" \
+      " license: \"${repo_license}\"\n" \
+      " stars: \"[{{< iconify fluent-emoji:star >}} ${repo_stars}](https://github.com/${repo}/stargazers)\"\n" \
+      " version: \"${repo_release}\"\n" \
+      > "${meta}"
+    # echo -e $(gh api "repos/${repo}/contents/README.md" -H "Accept: application/vnd.github.v3.raw") > "${readme}"
   fi
 done < extensions/quarto-extensions.csv
 
