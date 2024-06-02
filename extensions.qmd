@@ -1,4 +1,5 @@
 ---
+title: Listing
 repo-actions: false
 listing:
   id: listing-extensions
@@ -14,25 +15,6 @@ listing:
   grid-columns: 2
   grid-item-align: center
   max-description-length: 500
-include-in-header:
-  text: |
-    <style>
-    .category {
-      text-transform: uppercase;
-    }
-    .quarto-grid-item .card-title {
-      font-size: 1.5em;
-      font-weight: 600;
-      margin-bottom: 0.5em;
-    }
-    .quarto-grid-item .card-other-values tr>td:first-of-type {
-      font-weight: 600;
-      padding-right: 1em;
-      padding-left: 1em;
-      vertical-align: top;
-      text-transform: capitalize;
-    }
-    </style>
 ---
 
 ::: {#listing-extensions}
