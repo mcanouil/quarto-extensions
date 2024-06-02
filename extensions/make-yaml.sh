@@ -11,7 +11,7 @@ while IFS=, read -r category repo; do
   if [[ ! -f "${meta}" || (-f "${meta}" && $(find "$meta" -mtime +30)) ]]; then
     yaml_name="- name: $(basename ${repo})"
     yaml_path="path: https://github.com/${repo}"
-    repo_info=$(gh repo view --json owner,description "${repo}")
+    repo_info=$(gh repo view --json owner,description,latestRelease,licenseInfo,stargazerCount,repositoryTopics "${repo}")
     repo_owner=$(echo "${repo_info}" | jq -r ".owner.login")
     author=$(gh api "users/${repo_owner}" --jq ".name")
     if [[ -z "${author}" ]]; then
@@ -23,13 +23,13 @@ while IFS=, read -r category repo; do
       description="No description available"
     fi
     description=$(echo "${description}" | sed 's/^[[:space:]]*//')
-    topics=$(gh api "repos/${repo}/topics" --jq ".names")
+    topics=$(echo "${repo_info}" | jq -r ".repositoryTopics | map(.name)")
     topics=$(echo "${topics}" | jq -r 'map(select(.) | sub("^quarto-"; ""))')
     topics=$(echo "${topics}" | jq -r 'map(select(.) | sub("-template[s]*"; ""))')
     topics=$(echo "${topics}" | jq -r 'map(select(.) | if test("filters$|formats$|journals$") then sub("s$"; "") else . end)')
     topics=$(echo "${topics}" | jq -r 'map(select(.) | sub("reveal-js"; "reveal.js") | sub("revealjs"; "reveal.js"))')
     topics=$(echo "${topics}" | jq -r 'map(select(. | test("quarto|extension|^pub$") | not))')
-    topics=$(echo "${topics}" | jq -r 'unique')
+    topics=$(echo "${topics}" | jq -c 'unique')
     yaml_usage="\n    \n    \`\`\`sh\n    quarto add ${repo}\n    \`\`\`"
     yaml_description="description: |\n    ${description}${yaml_usage}"
     yaml_type="type: [${category}]"
