@@ -19,7 +19,7 @@ while IFS=, read -r category repo; do
       repo_updated=$(echo "${repo_info}" | jq -r ".updatedAt")
     else
       repo_release_url=$(echo "${repo_info}" | jq -r ".latestRelease.url")
-      repo_release="[${repo_release}]($repo_release_url)"
+      repo_release="[${repo_release#v}]($repo_release_url)"
       repo_updated=$(echo "${repo_info}" | jq -r ".latestRelease.publishedAt")
     fi
     repo_license=$(echo "${repo_info}" | jq -r ".licenseInfo.name")
@@ -63,7 +63,7 @@ while IFS=, read -r category repo; do
       " categories: ${repo_topics}\n" \
       " license: \"${repo_license}\"\n" \
       " stars: \"[$(printf "%05d\n" ${repo_stars})]{style='display: none;'}[[\`&bigstar;\`{=html}]{style='color:#dcbe50;'} ${repo_stars}](https://github.com/${repo}/stargazers)\"\n" \
-      " version: \"${repo_release#v}\"\n" \
+      " version: \"${repo_release}\"\n" \
       " description: |\n    ${repo_description}\n${yaml_usage}\n" \
       > "${meta}"
     # echo -e $(gh api "repos/${repo}/contents/README.md" -H "Accept: application/vnd.github.v3.raw") > "${readme}"
