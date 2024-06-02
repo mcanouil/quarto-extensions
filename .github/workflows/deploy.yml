@@ -35,7 +35,10 @@ jobs:
           version: pre-release
       
       - name: Render Quarto Project
-        uses: quarto-dev/quarto-actions/render@v2
+        shell: bash
+        run:
+          quarto render
+          touch _site/.nojekyll
       
       - uses: actions/configure-pages@v5
 
