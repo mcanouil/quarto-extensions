@@ -12,28 +12,34 @@ while IFS=, read -r category repo; do
     yaml_name="- name: $(basename ${repo})"
     yaml_path="path: https://github.com/${repo}"
     repo_info=$(gh repo view --json owner,description,latestRelease,licenseInfo,stargazerCount,repositoryTopics "${repo}")
+    # repo_readme=$(gh api "repos/${repo}/contents/README.md" -H "Accept: application/vnd.github.v3.raw")
     repo_owner=$(echo "${repo_info}" | jq -r ".owner.login")
-    author=$(gh api "users/${repo_owner}" --jq ".name")
-    if [[ -z "${author}" ]]; then
-      author=$(gh api "users/${repo_owner}" --jq ".login")
+    repo_author=$(gh api "users/${repo_owner}" --jq ".name")
+    if [[ -z "${repo_author}" ]]; then
+      repo_author=$(gh api "users/${repo_owner}" --jq ".login")
     fi
-    yaml_author="author: \"[${author}](https://github.com/${repo_owner}/)\""
-    description=$(echo "${repo_info}" | jq -r ".description")
-    if [[ -z "${description}" ]]; then
-      description="No description available"
+    yaml_author="author: \"[${repo_author}](https://github.com/${repo_owner}/)\""
+    repo_description=$(echo "${repo_info}" | jq -r ".description")
+    if [[ -z "${repo_description}" ]]; then
+      repo_description="No description available"
     fi
-    description=$(echo "${description}" | sed 's/^[[:space:]]*//')
-    topics=$(echo "${repo_info}" | jq -r ".repositoryTopics | map(.name)")
-    topics=$(echo "${topics}" | jq -r 'map(select(.) | sub("^quarto-"; ""))')
-    topics=$(echo "${topics}" | jq -r 'map(select(.) | sub("-template[s]*"; ""))')
-    topics=$(echo "${topics}" | jq -r 'map(select(.) | if test("filters$|formats$|journals$") then sub("s$"; "") else . end)')
-    topics=$(echo "${topics}" | jq -r 'map(select(.) | sub("reveal-js"; "reveal.js") | sub("revealjs"; "reveal.js"))')
-    topics=$(echo "${topics}" | jq -r 'map(select(. | test("quarto|extension|^pub$") | not))')
-    topics=$(echo "${topics}" | jq -c 'unique')
+    repo_description=$(echo "${repo_description}" | sed 's/^[[:space:]]*//')
+    repo_topics=$(echo "${repo_info}" | jq -r ".repositoryTopics")
+    if [[ "${repo_topics}" = "null" ]]; then
+      repo_topics="[]"
+    else
+      repo_topics=$(echo "${repo_topics}" | jq -r "map(.name)")
+      repo_topics=$(echo "${repo_topics}" | jq -r 'map(select(.) | sub("^quarto-"; ""))')
+      repo_topics=$(echo "${repo_topics}" | jq -r 'map(select(.) | sub("-template[s]*"; ""))')
+      repo_topics=$(echo "${repo_topics}" | jq -r 'map(select(.) | if test("filters$|formats$|journals$") then sub("s$"; "") else . end)')
+      repo_topics=$(echo "${repo_topics}" | jq -r 'map(select(.) | sub("reveal-js"; "reveal.js") | sub("revealjs"; "reveal.js"))')
+      repo_topics=$(echo "${repo_topics}" | jq -r 'map(select(. | test("quarto|extension|^pub$") | not))')
+      repo_topics=$(echo "${repo_topics}" | jq -c 'unique')
+    fi
     yaml_usage="\n    \n    \`\`\`sh\n    quarto add ${repo}\n    \`\`\`"
-    yaml_description="description: |\n    ${description}${yaml_usage}"
+    yaml_description="description: |\n    ${repo_description}${yaml_usage}"
     yaml_type="type: [${category}]"
-    yaml_categories="categories: ${topics}"
+    yaml_categories="categories: ${repo_topics}"
     echo -e "${yaml_name}\n  ${yaml_path}\n  ${yaml_author}\n  ${yaml_description}\n  ${yaml_type}\n  ${yaml_categories}\n" > "${meta}"
   fi
 done < extensions/quarto-extensions.csv
