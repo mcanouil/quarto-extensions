@@ -4,16 +4,23 @@ project:
   pre-render:
     - extensions/make-yaml.sh
 
+author-meta: "Mickaël CANOUIL"
+date-meta: 2023-12-09
+
 website:
-  title: Quarto Extensions
-  description: "A collection of Quarto extensions."
   site-url: https://m.canouil.dev/quarto-extensions/
+  repo-url: https://github.com/mcanouil/quarto-extensions
+  title: Quarto Extensions
+  description: |
+    Explore the 'Quarto Extensions' website, a comprehensive repository of extensions designed to enhance your Quarto experience.
+    From new formats and shortcodes to filters that enrich your content with icons and text highlights,
+    our collection is tailored to empower your projects with added functionality and flair.
+    Dive into a world where creativity meets efficiency, and elevate your Quarto creations to new heights.
   image: "assets/media/quarto-extension.png"
   favicon: "assets/media/quarto-extension.png"
   page-navigation: true
   open-graph: true
   twitter-card: true
-  repo-url: https://github.com/mcanouil/quarto-extensions
   repo-actions: [edit, issue]
   page-footer:
     border: true
