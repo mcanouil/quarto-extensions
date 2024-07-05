@@ -9,9 +9,35 @@ about:
       aria-label: "GitHub logo linking to mcanouil/quarto-extensions repository"
 ---
 
-This is a listing of Quarto extensions hosted on GitHub and using GitHub API to retrieve information from the repositories.
+This is a listing of Quarto extensions using GitHub API to retrieve information from the repositories.
 
-You can submit a new extension by making a pull request to the [GitHub repository](https://github.com/mcanouil/quarto-extensions/edit/main/extensions/quarto-extensions.csv).
+To add your extension to this list, please submit a pull request to this repository by adding your extension repository at the bottom of [`extensions/quarto-extensions.csv`](https://github.com/mcanouil/quarto-extensions/edit/main/extensions/quarto-extensions.csv).
+
+
+::: {layout-ncol="2"}
+
+:::: {#pattern}
+
+### Pattern
+
+```md
+<owner>/<repository>
+<owner>/<repository>/<path>
+```
+
+::::
+:::: {#example}
+
+### Example
+
+```csv
+mcanouil/quarto-iconify
+mcanouil/quarto-revealjs-coeos
+gadenbuie/countdown/quarto
+```
+
+::::
+:::
 
 ::: {.callout-important}
 ## Before submitting
