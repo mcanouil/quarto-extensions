@@ -53,7 +53,7 @@ jobs:
           error=false
           add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "extensions/quarto-extensions.csv")')
           if [[ -n "${add_extension}" ]]; then
-            gh pr diff ${NUMBER} --patch | awk '/\+\+\+ b\/extensions\/quarto-extensions\.csv/{flag=1; next} flag && /^\+/' > diff.patch
+            gh pr diff ${NUMBER} --patch | awk '/\+\+\+ b\/extensions\/quarto-extensions\.csv/{flag=1; next} flag && /^\+/' | sed 's/^+//' > diff.patch
             if [[ -s diff.patch ]]; then
               while IFS=, read -r category repo; do
                 repo_topics=$(gh repo view --json repositoryTopics "${repo}" --jq ".repositoryTopics")
@@ -77,7 +77,7 @@ jobs:
           error=false
           add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "extensions/quarto-extensions.csv")')
           if [[ -n "${add_extension}" ]]; then
-            gh pr diff ${NUMBER} --patch | awk '/\+\+\+ b\/extensions\/quarto-extensions\.csv/{flag=1; next} flag && /^\+/' > diff.patch
+            gh pr diff ${NUMBER} --patch | awk '/\+\+\+ b\/extensions\/quarto-extensions\.csv/{flag=1; next} flag && /^\+/' | sed 's/^+//' > diff.patch
             if [[ -s diff.patch ]]; then
               while IFS=, read -r category repo; do
                 repo_description=$(gh repo view --json description "${repo}" --jq ".description")
