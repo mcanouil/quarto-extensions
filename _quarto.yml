@@ -28,15 +28,17 @@ website:
     border: true
     center: |
       &copy; 2024 Mickaël CANOUIL.
-      Powered by [Quarto](https://quarto.org).
+      Powered by [{{< iconify simple-icons:quarto >}} Quarto](https://quarto.org).
   navbar:
     logo: "assets/media/quarto-extension.png"
     left:
       - text: Quarto Extensions
         href: extensions.qmd
     right:
-      - text: "{{< iconify fa6-brands github >}}"
+      - text: "{{< iconify octicon:mark-github-16 >}}"
         href: "https://github.com/mcanouil/quarto-extensions"
+      - text: "{{< iconify simple-icons:quarto >}}"
+        href: "https://quarto.org/"
 format:
   html:
     theme:
