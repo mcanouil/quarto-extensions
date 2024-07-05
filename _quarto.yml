@@ -6,6 +6,8 @@ project:
 
 author-meta: "Mickaël CANOUIL"
 date-meta: 2023-12-09
+lang: en
+date-format: "dddd[, the] Do [of] MMMM, YYYY"
 
 website:
   site-url: https://m.canouil.dev/quarto-extensions/
@@ -40,30 +42,19 @@ format:
     theme:
       - cosmo
       - assets/stylesheets/theme.scss
+    include-after-body:
+      - file: assets/scripts/ordinal-dates.html
     grid:
       sidebar-width: 250px
       body-width: 900px
       margin-width: 300px
-    lang: en
-    date-format: 'dddd[, the] Do [of] MMMM, YYYY'
     highlight-style: github
-    code-copy: true
-    code-link: true
     anchor-sections: true
     email-obfuscation: javascript
     link-external-newwindow: true
+    code-copy: true
+    code-link: true
     code-tools:
       source: false
       toggle: false
       caption: none
-    include-after-body:
-      text: |
-        <script type="text/javascript">
-        const dateElements = document.querySelectorAll("p.date, p.date-modified, div.listing-date, div.listing-file-modified");
-        dateElements.forEach((el) => {
-          el.innerHTML = el.innerHTML.replace(
-            /(\d+)(st|nd|rd|th)/g,
-            "$1<sup style='font-size:0.5em;font-style:italic;'>$2</sup>"
-          );
-        });
-        </script>
