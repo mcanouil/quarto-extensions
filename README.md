@@ -4,11 +4,19 @@ This is a listing of Quarto extensions using GitHub API to retrieve information 
 
 To add your extension to this list, please submit a pull request to this repository by adding your extension repository at the bottom of [`extensions/quarto-extensions.csv`](https://github.com/mcanouil/quarto-extensions/edit/main/extensions/quarto-extensions.csv).
 
+Pattern:
+
+```md
+<owner>/<repository>
+<owner>/<repository>/<path>
+```
+
 Example:
 
 ```csv
 mcanouil/quarto-iconify
-quarto-revealjs-coeos
+mcanouil/quarto-revealjs-coeos
+gadenbuie/countdown/quarto
 ```
 
 > [!IMPORTANT]
