@@ -6,10 +6,10 @@ mkdir -p extensions/yaml
 # mkdir -p extensions/readme
 declare -A repos
 
-while IFS=, read -r category repo; do
+while IFS=, read -r entry; do
+  repo=$(echo "${entry}" | cut -d'/' -f1,2)
   repos["$repo"]=1
   meta="extensions/yaml/${repo//\//--}.yml"
-  # readme="extensions/readme/${repo//\//--}.md"
   if [[ ! -f "${meta}" || (-f "${meta}" && $(find "$meta" -mtime +30)) ]]; then
     repo_info=$(gh repo view --json owner,description,createdAt,updatedAt,latestRelease,licenseInfo,stargazerCount,repositoryTopics "${repo}")
     repo_created=$(echo "${repo_info}" | jq -r ".createdAt")
@@ -52,14 +52,13 @@ while IFS=, read -r category repo; do
       repo_topics=$(echo "${repo_topics}" | jq -r 'map(select(. | test("quarto|extension|^pub$") | not))')
       repo_topics=$(echo "${repo_topics}" | jq -c 'unique')
     fi
-    yaml_usage="\n    \n    \`\`\`sh\n    quarto add ${repo}\n    \`\`\`"
+    yaml_usage="\n    \n    \`\`\`sh\n    quarto add ${entry}\n    \`\`\`"
     echo -e \
       "- title: $(basename ${repo})\n" \
       " path: https://github.com/${repo}\n" \
       " author: \"[${repo_author}](https://github.com/${repo_owner}/)\"\n" \
       " date: \"${repo_created}\"\n" \
       " file-modified: \"${repo_updated}\"\n" \
-      " type: [${category}]\n" \
       " categories: ${repo_topics}\n" \
       " license: \"${repo_license}\"\n" \
       " stars: \"[$(printf "%05d\n" ${repo_stars})]{style='display: none;'}[[\`&bigstar;\`{=html}]{style='color:#dcbe50;'} ${repo_stars}](https://github.com/${repo}/stargazers)\"\n" \

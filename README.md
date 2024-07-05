@@ -7,8 +7,8 @@ To add your extension to this list, please submit a pull request to this reposit
 Example:
 
 ```csv
-shortcodes-filters,mcanouil/quarto-iconify
-formats,mcanouil/quarto-revealjs-coeos
+mcanouil/quarto-iconify
+quarto-revealjs-coeos
 ```
 
 > [!IMPORTANT]
