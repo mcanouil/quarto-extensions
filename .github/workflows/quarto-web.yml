@@ -61,6 +61,7 @@ jobs:
           gh pr create --fill-first --base "main" --head "${{ env.BRANCH }}" --label "Type: CI/CD :robot:"
 
       - name: Merge Pull Request
+        if: false
         shell: bash
         run: |
           gh pr merge --auto --squash --delete-branch
