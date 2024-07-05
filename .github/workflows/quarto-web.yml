@@ -58,7 +58,12 @@ jobs:
       - name: Create Pull Request
         shell: bash
         run: |
-          gh pr create --fill-first --base "main" --head "${{ env.BRANCH }}" --label "Type: CI/CD :robot:"
+          gh pr create \
+            --fill-first \
+            --base "main" \
+            --head "${{ env.BRANCH }}" \
+            --label "Type: CI/CD :robot:" \
+            --reviewer "${{ github.repository_owner }}"
 
       - name: Merge Pull Request
         if: false
