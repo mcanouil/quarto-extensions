@@ -58,7 +58,8 @@ jobs:
               while IFS=, read -r repo; do
                 repo_topics=$(gh repo view --json repositoryTopics "${repo}" --jq ".repositoryTopics")
                 if [[ -z "${repo_topics}" ]]; then
-                  echo "::error file=extensions/quarto-extensions.csv::Repository '${repo}' is missing topics!"
+                  lineNumber=$(grep -n "${repo}" extensions/quarto-extensions.csv | cut -d: -f1)
+                  echo "::error file=extensions/quarto-extensions.csv,line=$lineNumber,endLine=$lineNumber::Repository '${repo}' is missing topics!"
                   error=true
                 fi
               done < diff.patch
@@ -82,7 +83,8 @@ jobs:
               while IFS=, read -r repo; do
                 repo_description=$(gh repo view --json description "${repo}" --jq ".description")
                 if [[ -z "${repo_description}" ]]; then
-                  echo "::error file=extensions/quarto-extensions.csv::Repository '${repo}' is missing description!"
+                  lineNumber=$(grep -n "${repo}" extensions/quarto-extensions.csv | cut -d: -f1)
+                  echo "::error file=extensions/quarto-extensions.csv,line=$lineNumber,endLine=$lineNumber::Repository '${repo}' is missing description!"
                   error=true
                 fi
               done < diff.patch
