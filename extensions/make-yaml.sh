@@ -17,8 +17,10 @@ while IFS=, read -r entry; do
     if [[ "${repo_release}" = "null" ]]; then
       repo_release="none"
       repo_updated=$(echo "${repo_info}" | jq -r ".updatedAt")
+      yaml_usage="\n    \n    \`\`\`sh\n    quarto add ${entry}\n    \`\`\`"
     else
       repo_release_url=$(echo "${repo_info}" | jq -r ".latestRelease.url")
+      yaml_usage="\n    \n    \`\`\`sh\n    quarto add ${entry}@${repo_release}\n    \`\`\`"
       repo_release="[${repo_release#v}]($repo_release_url)"
       repo_updated=$(echo "${repo_info}" | jq -r ".latestRelease.publishedAt")
     fi
@@ -52,7 +54,6 @@ while IFS=, read -r entry; do
       repo_topics=$(echo "${repo_topics}" | jq -r 'map(select(. | test("quarto|extension|^pub$") | not))')
       repo_topics=$(echo "${repo_topics}" | jq -c 'unique')
     fi
-    yaml_usage="\n    \n    \`\`\`sh\n    quarto add ${entry}\n    \`\`\`"
     echo -e \
       "- title: $(basename ${repo})\n" \
       " path: https://github.com/${repo}\n" \
