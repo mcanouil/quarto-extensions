@@ -31,10 +31,9 @@ website:
       Powered by [{{< iconify simple-icons:quarto >}} Quarto](https://quarto.org).
   navbar:
     logo: "assets/media/quarto-extension.png"
-    left:
-      - text: Quarto Extensions
-        href: extensions.qmd
     right:
+      - text: "{{< iconify octicon:question-16 >}} About"
+        href: about.qmd
       - text: "{{< iconify octicon:mark-github-16 >}}"
         href: "https://github.com/mcanouil/quarto-extensions"
       - text: "{{< iconify simple-icons:quarto >}}"
