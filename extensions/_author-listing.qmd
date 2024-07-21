@@ -1,0 +1,33 @@
+---
+title: "<<fancy-author>>"
+image: https://github.com/<<author>>.png
+about:
+  id: about-<<author>>
+  template: solana
+  image-width: 9em
+  image-shape: round
+  links:
+    - text: "{{< iconify octicon:mark-github-16 >}} GitHub"
+      href: "https://github.com/<<author>>"
+repo-actions: false
+listing:
+  id: listing-extensions-<<author>>
+  contents:
+    - ../yaml/<<author>>--**.yml
+  type: grid
+  sort-ui: [title, date, author, file-modified]
+  sort:
+    - stars desc
+  filter-ui: true
+  categories: true
+  page-size: 10
+  grid-columns: 2
+  grid-item-align: center
+  max-description-length: 500
+---
+
+::: {#about-<<author>>}
+:::
+
+::: {#listing-extensions-<<author>>}
+:::

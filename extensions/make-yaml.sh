@@ -3,6 +3,7 @@
 set -e
 
 mkdir -p extensions/yaml
+mkdir -p extensions/authors
 # mkdir -p extensions/readme
 declare -A repos
 
@@ -43,7 +44,6 @@ while IFS=, read -r entry; do
     fi
     repo_description=$(echo "${repo_description}" | sed 's/^[[:space:]]*//')
     repo_description=$(echo "${repo_description}" | sed -E 's/([^`])(<[^<>]+>)([^`])/\1`\2`\3/g')
-
     repo_topics=$(echo "${repo_info}" | jq -r ".repositoryTopics")
     if [[ "${repo_topics}" = "null" ]]; then
       repo_topics="[]"
@@ -56,10 +56,11 @@ while IFS=, read -r entry; do
       repo_topics=$(echo "${repo_topics}" | jq -r 'map(select(. | test("quarto|extension|^pub$") | not))')
       repo_topics=$(echo "${repo_topics}" | jq -c 'unique')
     fi
+    author_listing="extensions/authors/${repo%%/*}.qmd"
     echo -e \
       "- title: $(basename ${repo})\n" \
       " path: https://github.com/${repo}\n" \
-      " author: \"[${repo_author}](https://github.com/${repo_owner}/)\"\n" \
+      " author: \"[${repo_author}](/${author_listing})\"\n" \
       " date: \"${repo_created}\"\n" \
       " file-modified: \"${repo_updated}\"\n" \
       " categories: ${repo_topics}\n" \
@@ -69,6 +70,9 @@ while IFS=, read -r entry; do
       " description: |\n    ${repo_description}\n${yaml_usage}\n" \
       > "${meta}"
     # echo -e $(gh api "repos/${repo}/contents/README.md" -H "Accept: application/vnd.github.v3.raw") > "${readme}"
+    if [[ ! -f "${author_listing}" ]]; then
+      sed -e "s/<<author>>/${repo%%/*}/g" -e "s/<<fancy-author>>/\[${repo_author}\]\(https:\/\/github.com\/${repo_owner}\)/g" extensions/_author-listing.qmd > "${author_listing}"
+    fi
   fi
 done < extensions/quarto-extensions.csv
 
