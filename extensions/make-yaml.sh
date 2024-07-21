@@ -42,6 +42,8 @@ while IFS=, read -r entry; do
       repo_description="No description available"
     fi
     repo_description=$(echo "${repo_description}" | sed 's/^[[:space:]]*//')
+    repo_description=$(echo "${repo_description}" | sed -E 's/([^`])(<[^<>]+>)([^`])/\1`\2`\3/g')
+
     repo_topics=$(echo "${repo_info}" | jq -r ".repositoryTopics")
     if [[ "${repo_topics}" = "null" ]]; then
       repo_topics="[]"
