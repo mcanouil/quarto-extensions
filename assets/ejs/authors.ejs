@@ -2,7 +2,7 @@
 <div class="grid text-center">
   <% for (const item of items) { %>
   <div class="g-col-4">
-    <a href="<%- item.path %>">
+    <a href="<%- item.path %>" class="quarto-grid-link">
       <img width="200" height="200" style="border-radius: 40%;" src="<%- item.image %>" alt="<%= item.nme %> picture" />
       <p><strong><%- item.name %></strong></p>
     </a>
