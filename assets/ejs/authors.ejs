@@ -3,8 +3,8 @@
   <% for (const item of items) { %>
   <div class="g-col-4" <%= metadataAttrs(item) %>>
     <a href="<%- item.path %>" class="listing-extension-author">
-      <img width="200" height="200" style="border-radius: 40%;" src="<%- item.image %>" alt="<%= item.nme %> picture" />
-      <p><strong><%- item.name %></strong></p>
+      <img width="200" height="200" style="border-radius: 40%;" src="<%- item.image %>" alt="<%= item.name %> picture" />
+      <p class="listing-name"><strong><%- item.name %></strong></p>
     </a>
   </div>
   <% } %>
