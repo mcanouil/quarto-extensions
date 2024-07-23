@@ -3,13 +3,18 @@
 set -e
 
 mkdir -p extensions/yaml
-mkdir -p extensions/authors
-# mkdir -p extensions/readme
-declare -A repos
+mkdir -p authors
 
-while IFS=, read -r entry; do
+# Dictionary to store the repositories
+# declare -A repos
+# repos["$repo"]=1
+
+author_listing_ref="assets/quarto/_author-listing.qmd"
+previous_repo_owner=""
+
+sort extensions/quarto-extensions.csv | while IFS=, read -r entry; do
   repo=$(echo "${entry}" | cut -d'/' -f1,2)
-  repos["$repo"]=1
+  author_listing="authors/${repo%%/*}.qmd"
   meta="extensions/yaml/${repo//\//--}.yml"
   if [[ ! -f "${meta}" || (-f "${meta}" && $(find "$meta" -mtime +30)) ]]; then
     repo_info=$(gh repo view --json owner,description,createdAt,updatedAt,latestRelease,licenseInfo,stargazerCount,repositoryTopics "${repo}")
@@ -56,11 +61,11 @@ while IFS=, read -r entry; do
       repo_topics=$(echo "${repo_topics}" | jq -r 'map(select(. | test("quarto|extension|^pub$") | not))')
       repo_topics=$(echo "${repo_topics}" | jq -c 'unique')
     fi
-    author_listing="extensions/authors/${repo%%/*}.qmd"
+    extension_title=$(basename "${repo}")
     echo -e \
-      "- title: $(basename ${repo})\n" \
+      "- title: ${extension_title#quarto-}\n" \
       " path: https://github.com/${repo}\n" \
-      " author: \"[${repo_author}](/${author_listing})\"\n" \
+      " author: \"[${repo_author}](/${author_listing}){.no-external}\"\n" \
       " date: \"${repo_created}\"\n" \
       " file-modified: \"${repo_updated}\"\n" \
       " categories: ${repo_topics}\n" \
@@ -69,18 +74,21 @@ while IFS=, read -r entry; do
       " version: \"${repo_release}\"\n" \
       " description: |\n    ${repo_description}\n${yaml_usage}\n" \
       > "${meta}"
-    # echo -e $(gh api "repos/${repo}/contents/README.md" -H "Accept: application/vnd.github.v3.raw") > "${readme}"
-    if [[ ! -f "${author_listing}" ]]; then
-      sed -e "s/<<author>>/${repo%%/*}/g" -e "s/<<fancy-author>>/\[${repo_author}\]\(https:\/\/github.com\/${repo_owner}\)/g" extensions/_author-listing.qmd > "${author_listing}"
+    if [[ "${repo_owner}" == "${previous_repo_owner}" ]]; then
+      count_extensions=$((count_extensions+1))
+      count_stars=$((count_stars+repo_stars))
+    else
+      previous_repo_owner=${repo_owner}
+      count_extensions=1
+      count_stars=${repo_stars}
     fi
-  fi
-done < extensions/quarto-extensions.csv
-
-for yaml in extensions/yaml/*.yml; do
-  repo_yaml=$(basename "${yaml}" .yml)
-  repo_yaml=${repo_yaml//--/\/}
-  if [[ -z ${repos["${repo_yaml%.*}"]} ]]; then
-    echo "Removing ${yaml} as its repo is not or no longer listed in the CSV file."
-    rm "${yaml}"
+    sed \
+      -e "s/<<github-username>>/${repo%%/*}/g" \
+      -e "s/<<github-stars>>/${count_stars}/g" \
+      -e "s/<<github-stars-string>>/$(printf "%05d\n" ${count_stars})/g" \
+      -e "s/<<extensions-count>>/${count_extensions}/g" \
+      -e "s:<<github-repo>>:${repo}:g" \
+      -e "s/<<github-name>>/${repo_author}/g" \
+      "${author_listing_ref}" > "${author_listing}"
   fi
 done

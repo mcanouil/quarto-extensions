@@ -1,0 +1,33 @@
+```{=html}
+<div class="grid text-center list">
+  <% for (const item of items) { %>
+  <div class="g-col-12 g-col-sm-6 g-col-md-4" <%= metadataAttrs(item) %>>
+    <p>
+      <a href="<%- item.path %>" class="listing-extension-author no-external">
+        <img loading="lazy" width="200" height="200" style="border-radius: 40%;" src="<%- item.image %>" alt="<%= item.title %> picture" />
+        <br/>
+        <strong class="listing-title"><%- item.title %></strong>
+      </a>
+      <% if (item.stars || item.extensions) { %>
+      <br/>
+      <% if (item.url) { %>
+      <span>
+        <a href="<%= item.url %>" target="_blank" class="text-decoration: none;"><iconify-icon inline="true" role="img" icon="octicon:mark-github-16" aria-label="Icon mark-github-16 from octicon Iconify.design set." title="Icon mark-github-16 from octicon Iconify.design set."></iconify-icon></a>
+      </span>
+      <% } %>
+      <% if (item.stars) { %>
+      <span>
+        <iconify-icon inline="true" role="img" icon="octicon:star-16" aria-label="Icon star-16 from octicon Iconify.design set." title="Icon star-16 from octicon Iconify.design set."></iconify-icon> <%= item.stars %>
+      </span>
+      <% } %>
+      <% if (item.extensions) { %>
+      <span>
+        <iconify-icon inline="true" role="img" icon="octicon:repo-16" aria-label="Icon repo-16 from octicon Iconify.design set." title="Icon repo-16 from octicon Iconify.design set."></iconify-icon> <%= item.extensions %>
+      </span>
+      <% } %>
+      <% } %>
+    </p>
+  </div>
+  <% } %>
+</div>
+```
