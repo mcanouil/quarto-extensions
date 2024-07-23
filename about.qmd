@@ -1,0 +1,37 @@
+---
+title: About
+repo-actions: false
+about:
+  id: quarto-extensions-about
+  template: trestles
+  image: assets/media/quarto-extensions.png
+  links:
+    - text: "{{< iconify octicon:mark-github-16 >}} GitHub"
+      href: "https://github.com/mcanouil/quarto-extensions"
+      aria-label: "GitHub logo linking to mcanouil/quarto-extensions repository"
+    - text: "{{< iconify simple-icons:quarto >}} Quarto"
+      href: "https://quarto.org/"
+      aria-label: "Quarto logo linking to quarto.org website"
+---
+
+::: {#quarto-extensions-about}
+::: {.callout-note title="What is this?"}
+This is a listing of {{< iconify simple-icons:quarto >}} Quarto extensions using {{< iconify octicon:mark-github-16 >}} GitHub API to retrieve information from the repositories.
+:::
+:::
+
+::: {.callout-tip title="How to submit your extension?"}
+To add your extension to this list, please submit a pull request to this repository by adding your extension repository at the bottom of [`extensions/quarto-extensions.csv`](https://github.com/mcanouil/quarto-extensions/edit/main/extensions/quarto-extensions.csv) following `<owner>/<repository></optional-path>`.
+
+:::: {}
+::: {.callout-important title="Before submitting"}
+Please make sure that:
+
+- The extension is not already listed.
+- Your GitHub repository contains a **Description**.
+- Your GitHub repository contains **Topics**.
+- Avoid special characters/strings in the **Description**, such as `'<style>'` instead of `` `<style>` ``.
+:::
+::::
+
+:::

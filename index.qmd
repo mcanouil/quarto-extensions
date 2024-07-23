@@ -1,25 +1,22 @@
 ---
 repo-actions: false
-about:
-  template: trestles
-  image: assets/media/quarto-extension.png
-  links:
-    - text: "{{< iconify fa6-brands github >}} GitHub"
-      href: "https://github.com/mcanouil/quarto-extensions"
-      aria-label: "GitHub logo linking to mcanouil/quarto-extensions repository"
+listing:
+  id: listing-extensions
+  contents:
+    - extensions/yaml/**.yml
+  type: grid
+  sort-ui: [title, date, author, file-modified]
+  sort:
+    - stars desc
+  filter-ui: true
+  categories: true
+  page-size: 10
+  grid-columns: 2
+  grid-item-align: center
+  max-description-length: 500
+  field-display-names:
+    stars-display: "Stars"
 ---
 
-This is a listing of Quarto extensions hosted on GitHub and using GitHub API to retrieve information from the repositories.
-
-You can submit a new extension by making a pull request to the [GitHub repository](https://github.com/mcanouil/quarto-extensions/edit/main/extensions/quarto-extensions.csv).
-
-::: {.callout-important}
-## Before submitting
-
-Please make sure that:
-
-- The extension is not already listed.
-- Your GitHub repository contains a **Description**.
-- Your GitHub repository contains **Topics**.
-- Avoid special characters/strings in the **Description**, such as `'<style>'` instead of `` `<style>` ``.
+::: {#listing-extensions}
 :::

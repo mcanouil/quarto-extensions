@@ -53,12 +53,13 @@ jobs:
           error=false
           add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "extensions/quarto-extensions.csv")')
           if [[ -n "${add_extension}" ]]; then
-            gh pr diff ${NUMBER} --patch | grep -E '^(\+shortcodes-filters,|\+formats,)' > diff.patch
+            gh pr diff ${NUMBER} --patch | awk '/\+\+\+ b\/extensions\/quarto-extensions\.csv/{flag=1; next} flag && /^\+/' | sed 's/^+//' > diff.patch
             if [[ -s diff.patch ]]; then
-              while IFS=, read -r category repo; do
+              while IFS=, read -r repo; do
                 repo_topics=$(gh repo view --json repositoryTopics "${repo}" --jq ".repositoryTopics")
                 if [[ -z "${repo_topics}" ]]; then
-                  echo "::error file=extensions/quarto-extensions.csv::Repository '${repo}' is missing topics!"
+                  lineNumber=$(grep -n "${repo}" extensions/quarto-extensions.csv | cut -d: -f1)
+                  echo "::error file=extensions/quarto-extensions.csv,line=$lineNumber,endLine=$lineNumber::Repository '${repo}' is missing topics!"
                   error=true
                 fi
               done < diff.patch
@@ -77,12 +78,13 @@ jobs:
           error=false
           add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "extensions/quarto-extensions.csv")')
           if [[ -n "${add_extension}" ]]; then
-            gh pr diff ${NUMBER} --patch | grep -E '^(\+shortcodes-filters,|\+formats,)' > diff.patch
+            gh pr diff ${NUMBER} --patch | awk '/\+\+\+ b\/extensions\/quarto-extensions\.csv/{flag=1; next} flag && /^\+/' | sed 's/^+//' > diff.patch
             if [[ -s diff.patch ]]; then
-              while IFS=, read -r category repo; do
+              while IFS=, read -r repo; do
                 repo_description=$(gh repo view --json description "${repo}" --jq ".description")
                 if [[ -z "${repo_description}" ]]; then
-                  echo "::error file=extensions/quarto-extensions.csv::Repository '${repo}' is missing description!"
+                  lineNumber=$(grep -n "${repo}" extensions/quarto-extensions.csv | cut -d: -f1)
+                  echo "::error file=extensions/quarto-extensions.csv,line=$lineNumber,endLine=$lineNumber::Repository '${repo}' is missing description!"
                   error=true
                 fi
               done < diff.patch

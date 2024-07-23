@@ -2,10 +2,12 @@ project:
   type: website
   output-dir: _site
   pre-render:
-    - extensions/make-yaml.sh
+    - assets/scripts/make-yaml.sh
 
 author-meta: "Mickaël CANOUIL"
 date-meta: 2023-12-09
+lang: en
+date-format: "dddd[, the] Do [of] MMMM, YYYY"
 
 website:
   site-url: https://m.canouil.dev/quarto-extensions/
@@ -16,8 +18,8 @@ website:
     From new formats and shortcodes to filters that enrich your content with icons and text highlights,
     our collection is tailored to empower your projects with added functionality and flair.
     Dive into a world where creativity meets efficiency, and elevate your Quarto creations to new heights.
-  image: "assets/media/quarto-extension.png"
-  favicon: "assets/media/quarto-extension.png"
+  image: "assets/media/quarto-extensions.png"
+  favicon: "assets/media/quarto-extensions.svg"
   page-navigation: true
   open-graph: true
   twitter-card: true
@@ -25,45 +27,40 @@ website:
   page-footer:
     border: true
     center: |
-      &copy; 2024 Mickaël CANOUIL.
-      Powered by [Quarto](https://quarto.org).
+      &copy; 2024 [Mickaël CANOUIL](https://mickael.canouil.fr/).
+      Powered by [{{< iconify simple-icons:quarto >}} Quarto](https://quarto.org/).
   navbar:
-    logo: "assets/media/quarto-extension.png"
+    logo: "assets/media/quarto-extensions.svg"
     left:
-      - text: Quarto Extensions
-        href: extensions.qmd
+      - text: Extensions
+        href: index.qmd
+      - text: Authors
+        href: authors.qmd
     right:
-      - text: "{{< iconify fa6-brands github >}}"
+      - text: "{{< iconify octicon:question-16 >}} About"
+        href: about.qmd
+      - text: "{{< iconify octicon:mark-github-16 >}}"
         href: "https://github.com/mcanouil/quarto-extensions"
+      - text: "{{< iconify simple-icons:quarto >}}"
+        href: "https://quarto.org/"
 format:
   html:
     theme:
       - cosmo
       - assets/stylesheets/theme.scss
+    include-after-body:
+      - file: assets/scripts/ordinal-dates.html
     grid:
       sidebar-width: 250px
       body-width: 900px
       margin-width: 300px
-    lang: en
-    date-format: 'dddd[, the] Do [of] MMMM, YYYY'
     highlight-style: github
-    code-copy: true
-    code-link: true
     anchor-sections: true
     email-obfuscation: javascript
     link-external-newwindow: true
+    code-copy: true
+    code-link: true
     code-tools:
       source: false
       toggle: false
       caption: none
-    include-after-body:
-      text: |
-        <script type="text/javascript">
-        const dateElements = document.querySelectorAll("p.date, p.date-modified, div.listing-date, div.listing-file-modified");
-        dateElements.forEach((el) => {
-          el.innerHTML = el.innerHTML.replace(
-            /(\d+)(st|nd|rd|th)/g,
-            "$1<sup style='font-size:0.5em;font-style:italic;'>$2</sup>"
-          );
-        });
-        </script>

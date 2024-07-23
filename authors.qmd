@@ -1,0 +1,24 @@
+---
+title: "Authors"
+repo-actions: false
+listing:
+  id: listing-authors
+  template: assets/ejs/authors.ejs
+  contents:
+    - authors/*.qmd
+  sort-ui: false
+  sort:
+    - stars desc
+    - extensions desc
+    - title
+  filter-ui:
+    - title
+  page-size: 9
+  field-display-names:
+    title: "Name"
+    stars: "Stars"
+    extensions: "Extensions"
+---
+
+::: {#listing-authors}
+:::

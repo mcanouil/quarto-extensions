@@ -1,0 +1,64 @@
+name: Get Extensions from Quarto Website
+
+on:
+  schedule:
+    - cron: '0 1 * * 0'
+  workflow_dispatch:
+
+jobs:
+  quarto-web:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.github_token }}
+      BRANCH: ci/get-quarto-web-extensions
+      COMMIT: "ci: get quarto-web extensions"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Git Config
+        shell: bash
+        run: |
+          git config --local user.name github-actions[bot]
+          git config --local user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+      - name: Checkout/Create branch
+        shell: bash
+        run: |
+          if git show-ref --quiet refs/heads/${{ env.BRANCH }}; then
+            echo "Branch ${{ env.BRANCH }} already exists."
+            git branch -D "${{ env.BRANCH }}"
+            git push origin --delete "${{ env.BRANCH }}"
+          fi
+          git checkout -b "${{ env.BRANCH }}"
+
+      - name: Get extensions from Quarto Website and commit
+        shell: bash
+        run: |
+          CSV_FILE="extensions/quarto-extensions.csv"
+          git clone --filter=blob:none --no-checkout https://github.com/quarto-dev/quarto-web _quarto-web
+          git -C _quarto-web sparse-checkout init --cone
+          git -C _quarto-web sparse-checkout set docs/extensions/listings
+          git -C _quarto-web checkout main
+          find _quarto-web/docs/extensions/listings -type f -name "*.yml" ! -name "_*" -exec grep -o 'path: https://github.com/.*' {} \; | sed 's/path: https:\/\/github.com\///' > _quarto-web/quarto-web-extensions.csv
+          cat "${CSV_FILE}" | cut -d'/' -f1,2 > _quarto-web/quarto-extensions.csv
+          grep -Fvx -f _quarto-web/quarto-extensions.csv _quarto-web/quarto-web-extensions.csv >> "${CSV_FILE}"
+          rm -rf _quarto-web
+          git add "${CSV_FILE}"
+          git commit -m "${{ env.COMMIT }}"
+          git push --force origin ${{ env.BRANCH }}
+      
+      - name: Create Pull Request
+        shell: bash
+        run: |
+          gh pr create \
+            --fill-first \
+            --base "main" \
+            --head "${{ env.BRANCH }}" \
+            --label "Type: CI/CD :robot:" \
+            --reviewer "${{ github.repository_owner }}"
+
+      - name: Merge Pull Request
+        if: false
+        shell: bash
+        run: |
+          gh pr merge --auto --squash --delete-branch

@@ -1,0 +1,42 @@
+---
+title: "<<github-name>>"
+image: https://github.com/<<github-username>>.png
+url: "https://github.com/<<github-username>>"
+stars: <<github-stars>>
+extensions: <<extensions-count>>
+about:
+  id: about-<<github-username>>
+  template: solana
+  image-width: 9em
+  image-shape: round
+  links:
+    - text: "{{< iconify octicon:mark-github-16 >}} GitHub"
+      href: "https://github.com/<<github-username>>"
+    - text: "{{< iconify octicon:star-16 >}} <<github-stars>> Stars"
+    - text: "{{< iconify octicon:repo-16 >}} <<extensions-count>> Extensions"
+repo-actions: false
+listing:
+  id: listing-extensions-<<github-username>>
+  contents:
+    - ../extensions/yaml/<<github-username>>--**.yml
+  type: grid
+  sort-ui: [title, date, author, file-modified]
+  sort:
+    - stars desc
+  filter-ui: true
+  categories: true
+  page-size: 10
+  grid-columns: 2
+  grid-item-align: center
+  max-description-length: 500
+  field-display-names:
+    title: "Name"
+    stars: "Stars"
+    extensions: "Extensions"
+---
+
+::: {#about-<<github-username>>}
+:::
+
+::: {#listing-extensions-<<github-username>>}
+:::
