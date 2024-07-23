@@ -2,19 +2,18 @@
 
 set -e
 
-rm -rf extensions/yaml
-rm -rf authors
 mkdir -p extensions/yaml
 mkdir -p authors
-declare -A repos
+
+# Dictionary to store the repositories
+# declare -A repos
+# repos["$repo"]=1
 
 author_listing_ref="assets/quarto/_author-listing.qmd"
-
 previous_repo_owner=""
 
 sort extensions/quarto-extensions.csv | while IFS=, read -r entry; do
   repo=$(echo "${entry}" | cut -d'/' -f1,2)
-  repos["$repo"]=1
   author_listing="authors/${repo%%/*}.qmd"
   meta="extensions/yaml/${repo//\//--}.yml"
   if [[ ! -f "${meta}" || (-f "${meta}" && $(find "$meta" -mtime +30)) ]]; then
