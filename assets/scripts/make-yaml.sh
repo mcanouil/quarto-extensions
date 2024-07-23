@@ -2,8 +2,8 @@
 
 set -e
 
-# rm -rf extensions/yaml
-# rm -rf authors
+rm -rf extensions/yaml
+rm -rf authors
 mkdir -p extensions/yaml
 mkdir -p authors
 declare -A repos
@@ -90,7 +90,6 @@ sort extensions/quarto-extensions.csv | while IFS=, read -r entry; do
       -e "s/<<extensions-count>>/${count_extensions}/g" \
       -e "s:<<github-repo>>:${repo}:g" \
       -e "s/<<github-name>>/${repo_author}/g" \
-      -e "s/<<fancy-author>>/\[${repo_author}\]\(https:\/\/github.com\/${repo_owner}\)/g" \
       "${author_listing_ref}" > "${author_listing}"
   fi
 done
