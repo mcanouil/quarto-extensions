@@ -7,13 +7,15 @@ listing:
   type: grid
   sort-ui: [title, date, author, file-modified]
   sort:
-    - stars desc
+    - stars-display desc
   filter-ui: true
   categories: true
   page-size: 10
   grid-columns: 2
   grid-item-align: center
   max-description-length: 500
+  field-display-names:
+    stars-display: "Stars"
 ---
 
 ::: {#listing-extensions}

@@ -19,7 +19,7 @@ listing:
   type: grid
   sort-ui: [title, date, author, file-modified]
   sort:
-    - stars desc
+    - stars-display desc
   filter-ui: true
   categories: true
   page-size: 10
@@ -27,7 +27,7 @@ listing:
   grid-item-align: center
   max-description-length: 500
   field-display-names:
-    stars: "Stars"
+    stars-display: "Stars"
 ---
 
 ::: {#about-<<github-username>>}
