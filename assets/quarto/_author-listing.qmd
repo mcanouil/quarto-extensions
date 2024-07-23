@@ -1,19 +1,21 @@
 ---
 title: "<<fancy-author>>"
-image: https://github.com/<<author>>.png
+name: "<<github-name>>"
+url: "https://github.com/<<github-username>>"
+image: https://github.com/<<github-username>>.png
 about:
-  id: about-<<author>>
+  id: about-<<github-username>>
   template: solana
   image-width: 9em
   image-shape: round
   links:
     - text: "{{< iconify octicon:mark-github-16 >}} GitHub"
-      href: "https://github.com/<<author>>"
+      href: "https://github.com/<<github-username>>"
 repo-actions: false
 listing:
-  id: listing-extensions-<<author>>
+  id: listing-extensions-<<github-username>>
   contents:
-    - ../yaml/<<author>>--**.yml
+    - ../extensions/yaml/<<github-username>>--**.yml
   type: grid
   sort-ui: [title, date, author, file-modified]
   sort:
@@ -26,8 +28,8 @@ listing:
   max-description-length: 500
 ---
 
-::: {#about-<<author>>}
+::: {#about-<<github-username>>}
 :::
 
-::: {#listing-extensions-<<author>>}
+::: {#listing-extensions-<<github-username>>}
 :::

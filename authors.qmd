@@ -1,0 +1,21 @@
+---
+title: "Authors"
+repo-actions: false
+listing:
+  id: listing-authors
+  template: assets/ejs/authors.ejs
+  contents:
+    - authors/*.qmd
+  sort-ui: false
+  sort:
+    - author
+  filter-ui: true
+  categories: false
+  page-size: 10
+  grid-columns: 2
+  grid-item-align: center
+  max-description-length: 500
+---
+
+::: {#listing-authors}
+:::

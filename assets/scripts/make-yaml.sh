@@ -3,13 +3,15 @@
 set -e
 
 mkdir -p extensions/yaml
-mkdir -p extensions/authors
-# mkdir -p extensions/readme
+mkdir -p authors
 declare -A repos
+
+author_listing_ref="assets/quarto/_author-listing.qmd"
 
 while IFS=, read -r entry; do
   repo=$(echo "${entry}" | cut -d'/' -f1,2)
   repos["$repo"]=1
+  author_listing="authors/${repo%%/*}.qmd"
   meta="extensions/yaml/${repo//\//--}.yml"
   if [[ ! -f "${meta}" || (-f "${meta}" && $(find "$meta" -mtime +30)) ]]; then
     repo_info=$(gh repo view --json owner,description,createdAt,updatedAt,latestRelease,licenseInfo,stargazerCount,repositoryTopics "${repo}")
@@ -56,9 +58,9 @@ while IFS=, read -r entry; do
       repo_topics=$(echo "${repo_topics}" | jq -r 'map(select(. | test("quarto|extension|^pub$") | not))')
       repo_topics=$(echo "${repo_topics}" | jq -c 'unique')
     fi
-    author_listing="extensions/authors/${repo%%/*}.qmd"
+    extension_title=$(basename "${repo}")
     echo -e \
-      "- title: $(basename ${repo})\n" \
+      "- title: ${extension_title#quarto-}\n" \
       " path: https://github.com/${repo}\n" \
       " author: \"[${repo_author}](/${author_listing})\"\n" \
       " date: \"${repo_created}\"\n" \
@@ -69,9 +71,12 @@ while IFS=, read -r entry; do
       " version: \"${repo_release}\"\n" \
       " description: |\n    ${repo_description}\n${yaml_usage}\n" \
       > "${meta}"
-    # echo -e $(gh api "repos/${repo}/contents/README.md" -H "Accept: application/vnd.github.v3.raw") > "${readme}"
     if [[ ! -f "${author_listing}" ]]; then
-      sed -e "s/<<author>>/${repo%%/*}/g" -e "s/<<fancy-author>>/\[${repo_author}\]\(https:\/\/github.com\/${repo_owner}\)/g" extensions/_author-listing.qmd > "${author_listing}"
+      sed \
+        -e "s/<<github-username>>/${repo%%/*}/g" \
+        -e "s/<<github-name>>/${repo_author}/g" \
+        -e "s/<<fancy-author>>/\[${repo_author}\]\(https:\/\/github.com\/${repo_owner}\)/g" \
+        "${author_listing_ref}" > "${author_listing}"
     fi
   fi
 done < extensions/quarto-extensions.csv
