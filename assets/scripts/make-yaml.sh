@@ -2,8 +2,8 @@
 
 set -e
 
-rm -rf extensions/yaml
-rm -rf authors
+# rm -rf extensions/yaml
+# rm -rf authors
 mkdir -p extensions/yaml
 mkdir -p authors
 declare -A repos
