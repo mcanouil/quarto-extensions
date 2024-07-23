@@ -8,13 +8,12 @@ listing:
     - authors/*.qmd
   sort-ui: false
   sort:
-    - author
-  filter-ui: true
+    - name
+  filter-ui:
+    - name
+    - title
   categories: false
-  page-size: 10
-  grid-columns: 2
-  grid-item-align: center
-  max-description-length: 500
+  page-size: 9
 ---
 
 ::: {#listing-authors}
