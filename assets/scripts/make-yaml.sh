@@ -67,7 +67,8 @@ while IFS=, read -r entry; do
       " file-modified: \"${repo_updated}\"\n" \
       " categories: ${repo_topics}\n" \
       " license: \"${repo_license}\"\n" \
-      " stars: \"[$(printf "%05d\n" ${repo_stars})]{style='display: none;'}[[\`&bigstar;\`{=html}]{style='color:#dcbe50;'} ${repo_stars}](https://github.com/${repo}/stargazers)\"\n" \
+      " stars: \"${repo_stars}\"\n" \
+      " stars-display: \"[$(printf "%05d\n" ${repo_stars})]{style='display: none;'}[[\`&bigstar;\`{=html}]{style='color:#dcbe50;'} ${repo_stars}](https://github.com/${repo}/stargazers)\"\n" \
       " version: \"${repo_release}\"\n" \
       " description: |\n    ${repo_description}\n${yaml_usage}\n" \
       > "${meta}"
