@@ -3,13 +3,13 @@
   <% for (const item of items) { %>
   <div class="g-col-12 g-col-sm-6 g-col-md-4" <%= metadataAttrs(item) %>>
     <p>
-      <a href="<%- item.path %>" class="listing-extension-author">
-        <img width="200" height="200" style="border-radius: 40%;" src="<%- item.image %>" alt="<%= item.name %> picture" />
+      <a href="<%- item.path %>" class="listing-extension-author" class="no-external">
+        <img loading="lazy" width="200" height="200" style="border-radius: 40%;" src="<%- item.image %>" alt="<%= item.name %> picture" />
         <br/>
         <strong class="listing-name"><%- item.name %></strong>
       </a>
-      <br/>
       <% if (item.stars || item.extensions) { %>
+      <br/>
       <% if (item.stars) { %>
       <span>
         <iconify-icon inline="true" role="img" icon="octicon:star-16" aria-label="Icon star-16 from octicon Iconify.design set." title="Icon star-16 from octicon Iconify.design set."></iconify-icon> <%= item.stars %>
