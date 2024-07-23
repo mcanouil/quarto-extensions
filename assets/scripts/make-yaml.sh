@@ -65,7 +65,7 @@ sort extensions/quarto-extensions.csv | while IFS=, read -r entry; do
     echo -e \
       "- title: ${extension_title#quarto-}\n" \
       " path: https://github.com/${repo}\n" \
-      " author: \"[${repo_author}](/${author_listing})\"\n" \
+      " author: \"[${repo_author}](/${author_listing}){.no-external}\"\n" \
       " date: \"${repo_created}\"\n" \
       " file-modified: \"${repo_updated}\"\n" \
       " categories: ${repo_topics}\n" \
