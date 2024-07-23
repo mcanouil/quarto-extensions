@@ -8,13 +8,16 @@ listing:
     - authors/*.qmd
   sort-ui: false
   sort:
+    - stars desc
+    - extensions desc
     - name
   filter-ui:
     - name
-  categories: false
   page-size: 9
   field-display-names:
     name: "Name"
+    stars: "Stars"
+    extensions: "Extensions"
 ---
 
 ::: {#listing-authors}

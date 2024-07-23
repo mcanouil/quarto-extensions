@@ -2,13 +2,17 @@
 
 set -e
 
+rm -rf extensions/yaml
+rm -rf authors
 mkdir -p extensions/yaml
 mkdir -p authors
 declare -A repos
 
 author_listing_ref="assets/quarto/_author-listing.qmd"
 
-while IFS=, read -r entry; do
+previous_repo_owner=""
+
+sort extensions/quarto-extensions.csv | while IFS=, read -r entry; do
   repo=$(echo "${entry}" | cut -d'/' -f1,2)
   repos["$repo"]=1
   author_listing="authors/${repo%%/*}.qmd"
@@ -67,26 +71,26 @@ while IFS=, read -r entry; do
       " file-modified: \"${repo_updated}\"\n" \
       " categories: ${repo_topics}\n" \
       " license: \"${repo_license}\"\n" \
-      " stars: \"${repo_stars}\"\n" \
-      " stars-display: \"[$(printf "%05d\n" ${repo_stars})]{style='display: none;'}[[\`&bigstar;\`{=html}]{style='color:#dcbe50;'} ${repo_stars}](https://github.com/${repo}/stargazers)\"\n" \
+      " stars: \"[$(printf "%05d\n" ${repo_stars})]{style='display: none;'}[[\`&bigstar;\`{=html}]{style='color:#dcbe50;'} ${repo_stars}](https://github.com/${repo}/stargazers)\"\n" \
       " version: \"${repo_release}\"\n" \
       " description: |\n    ${repo_description}\n${yaml_usage}\n" \
       > "${meta}"
-    if [[ ! -f "${author_listing}" ]]; then
-      sed \
-        -e "s/<<github-username>>/${repo%%/*}/g" \
-        -e "s/<<github-name>>/${repo_author}/g" \
-        -e "s/<<fancy-author>>/\[${repo_author}\]\(https:\/\/github.com\/${repo_owner}\)/g" \
-        "${author_listing_ref}" > "${author_listing}"
+    if [[ "${repo_owner}" == "${previous_repo_owner}" ]]; then
+      count_extensions=$((count_extensions+1))
+      count_stars=$((count_stars+repo_stars))
+    else
+      previous_repo_owner=${repo_owner}
+      count_extensions=1
+      count_stars=${repo_stars}
     fi
-  fi
-done < extensions/quarto-extensions.csv
-
-for yaml in extensions/yaml/*.yml; do
-  repo_yaml=$(basename "${yaml}" .yml)
-  repo_yaml=${repo_yaml//--/\/}
-  if [[ -z ${repos["${repo_yaml%.*}"]} ]]; then
-    echo "Removing ${yaml} as its repo is not or no longer listed in the CSV file."
-    rm "${yaml}"
+    sed \
+      -e "s/<<github-username>>/${repo%%/*}/g" \
+      -e "s/<<github-stars>>/${count_stars}/g" \
+      -e "s/<<github-stars-string>>/$(printf "%05d\n" ${count_stars})/g" \
+      -e "s/<<extensions-count>>/${count_extensions}/g" \
+      -e "s:<<github-repo>>:${repo}:g" \
+      -e "s/<<github-name>>/${repo_author}/g" \
+      -e "s/<<fancy-author>>/\[${repo_author}\]\(https:\/\/github.com\/${repo_owner}\)/g" \
+      "${author_listing_ref}" > "${author_listing}"
   fi
 done

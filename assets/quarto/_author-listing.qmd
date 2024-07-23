@@ -3,6 +3,8 @@ title: "<<fancy-author>>"
 name: "<<github-name>>"
 url: "https://github.com/<<github-username>>"
 image: https://github.com/<<github-username>>.png
+stars: <<github-stars>>
+extensions: <<extensions-count>>
 about:
   id: about-<<github-username>>
   template: solana
@@ -11,6 +13,8 @@ about:
   links:
     - text: "{{< iconify octicon:mark-github-16 >}} GitHub"
       href: "https://github.com/<<github-username>>"
+    - text: "{{< iconify octicon:star-16 >}} <<github-stars>> Stars"
+    - text: "{{< iconify octicon:repo-16 >}} <<extensions-count>> Extensions"
 repo-actions: false
 listing:
   id: listing-extensions-<<github-username>>
@@ -19,7 +23,7 @@ listing:
   type: grid
   sort-ui: [title, date, author, file-modified]
   sort:
-    - stars-display desc
+    - stars desc
   filter-ui: true
   categories: true
   page-size: 10
@@ -27,7 +31,9 @@ listing:
   grid-item-align: center
   max-description-length: 500
   field-display-names:
-    stars-display: "Stars"
+    name: "Name"
+    stars: "Stars"
+    extensions: "Extensions"
 ---
 
 ::: {#about-<<github-username>>}
