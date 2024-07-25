@@ -92,3 +92,5 @@ sort extensions/quarto-extensions.csv | while IFS=, read -r entry; do
       "${author_listing_ref}" > "${author_listing}"
   fi
 done
+
+echo -e "extensions: $(wc -l < extensions/quarto-extensions.csv | tr -d ' ')\nauthors: $(ls -1 authors | wc -l | tr -d ' ')" > _variables.yml
