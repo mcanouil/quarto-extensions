@@ -12,7 +12,7 @@ mkdir -p authors
 author_listing_ref="assets/quarto/_author-listing.qmd"
 previous_repo_owner=""
 
-sort extensions/quarto-extensions.csv | while IFS=, read -r entry; do
+sort -f extensions/quarto-extensions.csv | while IFS=, read -r entry; do
   repo=$(echo "${entry}" | cut -d'/' -f1,2)
   author_listing="authors/${repo%%/*}.qmd"
   meta="extensions/yaml/${repo//\//--}.yml"
