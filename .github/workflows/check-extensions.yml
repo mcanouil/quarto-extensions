@@ -27,7 +27,7 @@ jobs:
           error=false
           add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "${FILE}")')
           if [[ -n "${add_extension}" ]]; then
-            duplicates=$(sort "${FILE}" | uniq -d)
+            duplicates=$(sort -f "${FILE}" | uniq -di)
             if [[ -n "$duplicates" ]]; then
               while read -r duplicate; do
                 grep -n "$duplicate" "${FILE}" | tail -n +2 | while read -r line ; do
