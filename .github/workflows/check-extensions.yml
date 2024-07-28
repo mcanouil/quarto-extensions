@@ -23,18 +23,16 @@ jobs:
       - name: Check for duplicates
         shell: bash
         run: |
+          FILE='extensions/quarto-extensions.csv'
           error=false
-          add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "extensions/quarto-extensions.csv")')
+          add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "${FILE}")')
           if [[ -n "${add_extension}" ]]; then
-            echo "extensions/quarto-extensions.csv is being added"
-            FILE='extensions/quarto-extensions.csv'
-            COLUMN=2
-            duplicates=$(awk -F, -v col=$COLUMN '{print $col}' $FILE | sort | uniq -d)
+            duplicates=$(sort -f "${FILE}" | uniq -di)
             if [[ -n "$duplicates" ]]; then
               while read -r duplicate; do
-                grep -n "$duplicate" $FILE | tail -n +2 | while read -r line ; do
+                grep -n "$duplicate" "${FILE}" | tail -n +2 | while read -r line ; do
                   lineNumber=$(echo $line | cut -d: -f1)
-                  echo "::error file=$FILE,line=$lineNumber,endLine=$lineNumber,title=Duplicate Entry::Duplicate value '$duplicate' found"
+                  echo "::error file=${FILE},line=$lineNumber,endLine=$lineNumber,title=Duplicate Entry::Duplicate value '$duplicate' found"
                   error=true
                 done
               done <<< "$duplicates"
@@ -50,16 +48,17 @@ jobs:
       - name: Check for topics
         shell: bash
         run: |
+          FILE='extensions/quarto-extensions.csv'
           error=false
-          add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "extensions/quarto-extensions.csv")')
+          add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "${FILE}")')
           if [[ -n "${add_extension}" ]]; then
             gh pr diff ${NUMBER} --patch | awk '/\+\+\+ b\/extensions\/quarto-extensions\.csv/{flag=1; next} flag && /^\+/' | sed 's/^+//' > diff.patch
             if [[ -s diff.patch ]]; then
               while IFS=, read -r repo; do
                 repo_topics=$(gh repo view --json repositoryTopics "${repo}" --jq ".repositoryTopics")
                 if [[ -z "${repo_topics}" ]]; then
-                  lineNumber=$(grep -n "${repo}" extensions/quarto-extensions.csv | cut -d: -f1)
-                  echo "::error file=extensions/quarto-extensions.csv,line=$lineNumber,endLine=$lineNumber::Repository '${repo}' is missing topics!"
+                  lineNumber=$(grep -n "${repo}" ${FILE} | cut -d: -f1)
+                  echo "::error file=${FILE},line=$lineNumber,endLine=$lineNumber::Repository '${repo}' is missing topics!"
                   error=true
                 fi
               done < diff.patch
@@ -75,16 +74,17 @@ jobs:
       - name: Check for description
         shell: bash
         run: |
+          FILE='extensions/quarto-extensions.csv'
           error=false
-          add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "extensions/quarto-extensions.csv")')
+          add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "${FILE}")')
           if [[ -n "${add_extension}" ]]; then
             gh pr diff ${NUMBER} --patch | awk '/\+\+\+ b\/extensions\/quarto-extensions\.csv/{flag=1; next} flag && /^\+/' | sed 's/^+//' > diff.patch
             if [[ -s diff.patch ]]; then
               while IFS=, read -r repo; do
                 repo_description=$(gh repo view --json description "${repo}" --jq ".description")
                 if [[ -z "${repo_description}" ]]; then
-                  lineNumber=$(grep -n "${repo}" extensions/quarto-extensions.csv | cut -d: -f1)
-                  echo "::error file=extensions/quarto-extensions.csv,line=$lineNumber,endLine=$lineNumber::Repository '${repo}' is missing description!"
+                  lineNumber=$(grep -n "${repo}" ${FILE} | cut -d: -f1)
+                  echo "::error file=${FILE},line=$lineNumber,endLine=$lineNumber::Repository '${repo}' is missing description!"
                   error=true
                 fi
               done < diff.patch
