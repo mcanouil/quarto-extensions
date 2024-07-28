@@ -15,16 +15,12 @@
         <a href="<%= item.url %>" target="_blank" class="text-decoration: none;"><iconify-icon inline="true" role="img" icon="octicon:mark-github-16" aria-label="Icon mark-github-16 from octicon Iconify.design set." title="Icon mark-github-16 from octicon Iconify.design set."></iconify-icon></a>
       </span>
       <% } %>
-      <% if (item.stars) { %>
       <span>
         <iconify-icon inline="true" role="img" icon="octicon:star-16" aria-label="Icon star-16 from octicon Iconify.design set." title="Icon star-16 from octicon Iconify.design set."></iconify-icon> <%= item.stars %>
       </span>
-      <% } %>
-      <% if (item.extensions) { %>
       <span>
         <iconify-icon inline="true" role="img" icon="octicon:repo-16" aria-label="Icon repo-16 from octicon Iconify.design set." title="Icon repo-16 from octicon Iconify.design set."></iconify-icon> <%= item.extensions %>
       </span>
-      <% } %>
       <% } %>
     </p>
   </div>
