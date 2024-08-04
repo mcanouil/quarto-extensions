@@ -60,6 +60,7 @@ jobs:
               gh pr ready ${{ env.BRANCH }} 
           else
             echo "No new extensions to add."
+            exit 0
           fi
 
       - name: Merge Pull Request
