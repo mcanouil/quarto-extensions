@@ -37,6 +37,7 @@ jobs:
           grep -Fvxi -f _quarto-web/quarto-extensions.csv _quarto-web/quarto-web-extensions.csv >> "${CSV_FILE}"
           rm -rf _quarto-web
 
+          echo "Checking for new extensions to add."
           diff=$(git diff "${CSV_FILE}")
           if [[ -z "${diff}" ]]; then
             echo "No new extensions to add."
