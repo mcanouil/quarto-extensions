@@ -43,22 +43,24 @@ jobs:
           cat "${CSV_FILE}" | cut -d'/' -f1,2 > _quarto-web/quarto-extensions.csv
           grep -Fvxi -f _quarto-web/quarto-extensions.csv _quarto-web/quarto-web-extensions.csv >> "${CSV_FILE}"
           rm -rf _quarto-web
-          git add "${CSV_FILE}"
-          git commit -m "${{ env.COMMIT }}"
-          git push --force origin ${{ env.BRANCH }}
-      
-      - name: Create Pull Request
-        shell: bash
-        run: |
-          gh pr create \
-            --fill-first \
-            --base "main" \
-            --head "${{ env.BRANCH }}" \
-            --label "Type: CI/CD :robot:" \
-            --reviewer "${{ github.repository_owner }}" \
-            --draft
+
+          if ! git diff --quiet; then
+            git add "${CSV_FILE}"
+            git commit -m "${{ env.COMMIT }}"
+            git push --force origin ${{ env.BRANCH }}
+            
+            gh pr create \
+              --fill-first \
+              --base "main" \
+              --head "${{ env.BRANCH }}" \
+              --label "Type: CI/CD :robot:" \
+              --reviewer "${{ github.repository_owner }}" \
+              --draft
           
-          gh pr ready ${{ env.BRANCH }} 
+              gh pr ready ${{ env.BRANCH }} 
+          else
+            echo "No new extensions to add."
+          fi
 
       - name: Merge Pull Request
         if: false
