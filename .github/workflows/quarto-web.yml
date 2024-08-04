@@ -34,7 +34,7 @@ jobs:
             | sed 's/path: https:\/\/github.com\///' > _quarto-web/quarto-web-extensions.csv
           cat "${CSV_FILE}" | cut -d'/' -f1,2 > _quarto-web/quarto-extensions.csv
           echo "Extensions from Quarto Website retrieved."
-          extensions_to_add=$(grep -Fvxi -f _quarto-web/quarto-extensions.csv _quarto-web/quarto-web-extensions.csv)
+          extensions_to_add=$(grep -Fvxi -f _quarto-web/quarto-extensions.csv _quarto-web/quarto-web-extensions.csv || "")
           rm -rf _quarto-web
 
           if [[ -z "${extensions_to_add}" ]]; then
