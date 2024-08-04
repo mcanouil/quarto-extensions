@@ -34,7 +34,7 @@ jobs:
             | sed 's/path: https:\/\/github.com\///' > _quarto-web/quarto-web-extensions.csv
           cat "${CSV_FILE}" | cut -d'/' -f1,2 > _quarto-web/quarto-extensions.csv
           echo "List of extensions to add:"
-          extensions_to_add=$(grep -Fvx -f _quarto-web/quarto-extensions.csv _quarto-web/quarto-web-extensions.csv)
+          extensions_to_add=$(grep -Fvxi -f _quarto-web/quarto-extensions.csv _quarto-web/quarto-web-extensions.csv)
           echo "${extensions_to_add}"
           rm -rf _quarto-web
           echo "Cleaning cloned repository."
@@ -59,10 +59,7 @@ jobs:
             --base "main" \
             --head "${{ env.BRANCH }}" \
             --label "Type: CI/CD :robot:" \
-            --reviewer "${{ github.repository_owner }}" \
-            --draft
-
-          gh pr ready ${{ env.BRANCH }}
+            --reviewer "${{ github.repository_owner }}"
 
       - name: Merge Pull Request
         if: false
