@@ -35,20 +35,23 @@ jobs:
         shell: bash
         run: |
           CSV_FILE="extensions/quarto-extensions.csv"
-          git clone --filter=blob:none --no-checkout https://github.com/quarto-dev/quarto-web _quarto-web
+          git clone --quiet --filter=blob:none --no-checkout https://github.com/quarto-dev/quarto-web _quarto-web
           git -C _quarto-web sparse-checkout init --cone
           git -C _quarto-web sparse-checkout set docs/extensions/listings
-          git -C _quarto-web checkout main
+          git -C _quarto-web checkout main --quiet
           find _quarto-web/docs/extensions/listings -type f -name "*.yml" ! -name "_*" -exec grep -o 'path: https://github.com/.*' {} \; | sed 's/path: https:\/\/github.com\///' > _quarto-web/quarto-web-extensions.csv
           cat "${CSV_FILE}" | cut -d'/' -f1,2 > _quarto-web/quarto-extensions.csv
           grep -Fvxi -f _quarto-web/quarto-extensions.csv _quarto-web/quarto-web-extensions.csv >> "${CSV_FILE}"
           rm -rf _quarto-web
 
-          if ! git diff --quiet; then
+          diff=$(git diff "${CSV_FILE}")
+          if [[ -z "${diff}" ]]; then
+            echo "No new extensions to add."
+          else
             git add "${CSV_FILE}"
             git commit -m "${{ env.COMMIT }}"
             git push --force origin ${{ env.BRANCH }}
-            
+
             gh pr create \
               --fill-first \
               --base "main" \
@@ -56,12 +59,10 @@ jobs:
               --label "Type: CI/CD :robot:" \
               --reviewer "${{ github.repository_owner }}" \
               --draft
-          
-              gh pr ready ${{ env.BRANCH }} 
-          else
-            echo "No new extensions to add."
-            exit 0
+
+            gh pr ready ${{ env.BRANCH }}
           fi
+          exit 0
 
       - name: Merge Pull Request
         if: false
