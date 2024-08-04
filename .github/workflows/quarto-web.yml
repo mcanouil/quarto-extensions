@@ -33,34 +33,36 @@ jobs:
             -exec grep -o 'path: https://github.com/.*' {} \; \
             | sed 's/path: https:\/\/github.com\///' > _quarto-web/quarto-web-extensions.csv
           cat "${CSV_FILE}" | cut -d'/' -f1,2 > _quarto-web/quarto-extensions.csv
-          echo "Extensions from Quarto Website retrieved."
-          extensions_to_add=$(grep -Fvxi -f _quarto-web/quarto-extensions.csv _quarto-web/quarto-web-extensions.csv || "")
+          echo "List of extensions to add:"
+          extensions_to_add=$(grep -Fvx -f _quarto-web/quarto-extensions.csv _quarto-web/quarto-web-extensions.csv)
+          echo "${extensions_to_add}"
           rm -rf _quarto-web
+          echo "Cleaning cloned repository."
 
           if [[ -z "${extensions_to_add}" ]]; then
             echo "No new extensions to add."
-          else
-            if git show-ref --quiet refs/heads/${{ env.BRANCH }}; then
-              echo "Branch ${{ env.BRANCH }} already exists."
-              git branch -D "${{ env.BRANCH }}"
-              git push origin --delete "${{ env.BRANCH }}"
-            fi
-            git checkout -b "${{ env.BRANCH }}"
-            echo "${extensions_to_add}" >> "${CSV_FILE}"
-            git add "${CSV_FILE}"
-            git commit -m "${{ env.COMMIT }}"
-            git push --force origin ${{ env.BRANCH }}
-
-            gh pr create \
-              --fill-first \
-              --base "main" \
-              --head "${{ env.BRANCH }}" \
-              --label "Type: CI/CD :robot:" \
-              --reviewer "${{ github.repository_owner }}" \
-              --draft
-
-            gh pr ready ${{ env.BRANCH }}
+            exit 0
           fi
+          if git show-ref --quiet refs/heads/${{ env.BRANCH }}; then
+            echo "Branch ${{ env.BRANCH }} already exists."
+            git branch -D "${{ env.BRANCH }}"
+            git push origin --delete "${{ env.BRANCH }}"
+          fi
+          git checkout -b "${{ env.BRANCH }}"
+          echo "${extensions_to_add}" >> "${CSV_FILE}"
+          git add "${CSV_FILE}"
+          git commit -m "${{ env.COMMIT }}"
+          git push --force origin ${{ env.BRANCH }}
+
+          gh pr create \
+            --fill-first \
+            --base "main" \
+            --head "${{ env.BRANCH }}" \
+            --label "Type: CI/CD :robot:" \
+            --reviewer "${{ github.repository_owner }}" \
+            --draft
+
+          gh pr ready ${{ env.BRANCH }}
 
       - name: Merge Pull Request
         if: false
