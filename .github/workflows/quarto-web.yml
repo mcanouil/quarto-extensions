@@ -34,12 +34,10 @@ jobs:
             | sed 's/path: https:\/\/github.com\///' > _quarto-web/quarto-web-extensions.csv
           cat "${CSV_FILE}" | cut -d'/' -f1,2 > _quarto-web/quarto-extensions.csv
           echo "Extensions from Quarto Website retrieved."
-          grep -Fvxi -f _quarto-web/quarto-extensions.csv _quarto-web/quarto-web-extensions.csv >> "${CSV_FILE}"
+          extensions_to_add=$(grep -Fvxi -f _quarto-web/quarto-extensions.csv _quarto-web/quarto-web-extensions.csv)
           rm -rf _quarto-web
 
-          echo "Checking for new extensions to add."
-          diff=$(git diff "${CSV_FILE}")
-          if [[ -z "${diff}" ]]; then
+          if [[ -z "${extensions_to_add}" ]]; then
             echo "No new extensions to add."
           else
             if git show-ref --quiet refs/heads/${{ env.BRANCH }}; then
@@ -48,6 +46,7 @@ jobs:
               git push origin --delete "${{ env.BRANCH }}"
             fi
             git checkout -b "${{ env.BRANCH }}"
+            echo "${extensions_to_add}" >> "${CSV_FILE}"
             git add "${CSV_FILE}"
             git commit -m "${{ env.COMMIT }}"
             git push --force origin ${{ env.BRANCH }}
