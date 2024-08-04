@@ -41,7 +41,7 @@ jobs:
           git -C _quarto-web checkout main
           find _quarto-web/docs/extensions/listings -type f -name "*.yml" ! -name "_*" -exec grep -o 'path: https://github.com/.*' {} \; | sed 's/path: https:\/\/github.com\///' > _quarto-web/quarto-web-extensions.csv
           cat "${CSV_FILE}" | cut -d'/' -f1,2 > _quarto-web/quarto-extensions.csv
-          grep -Fvx -f _quarto-web/quarto-extensions.csv _quarto-web/quarto-web-extensions.csv >> "${CSV_FILE}"
+          grep -Fvxi -f _quarto-web/quarto-extensions.csv _quarto-web/quarto-web-extensions.csv >> "${CSV_FILE}"
           rm -rf _quarto-web
           git add "${CSV_FILE}"
           git commit -m "${{ env.COMMIT }}"
@@ -55,7 +55,10 @@ jobs:
             --base "main" \
             --head "${{ env.BRANCH }}" \
             --label "Type: CI/CD :robot:" \
-            --reviewer "${{ github.repository_owner }}"
+            --reviewer "${{ github.repository_owner }}" \
+            --draft
+          
+          gh pr ready ${{ env.BRANCH }} 
 
       - name: Merge Pull Request
         if: false
