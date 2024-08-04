@@ -21,16 +21,6 @@ jobs:
           git config --local user.name github-actions[bot]
           git config --local user.email 41898282+github-actions[bot]@users.noreply.github.com
 
-      - name: Checkout/Create branch
-        shell: bash
-        run: |
-          if git show-ref --quiet refs/heads/${{ env.BRANCH }}; then
-            echo "Branch ${{ env.BRANCH }} already exists."
-            git branch -D "${{ env.BRANCH }}"
-            git push origin --delete "${{ env.BRANCH }}"
-          fi
-          git checkout -b "${{ env.BRANCH }}"
-
       - name: Get extensions from Quarto Website and commit
         shell: bash
         run: |
@@ -39,8 +29,11 @@ jobs:
           git -C _quarto-web sparse-checkout init --cone
           git -C _quarto-web sparse-checkout set docs/extensions/listings
           git -C _quarto-web checkout main --quiet
-          find _quarto-web/docs/extensions/listings -type f -name "*.yml" ! -name "_*" -exec grep -o 'path: https://github.com/.*' {} \; | sed 's/path: https:\/\/github.com\///' > _quarto-web/quarto-web-extensions.csv
+          find _quarto-web/docs/extensions/listings -type f -name "*.yml" ! -name "_*" \
+            -exec grep -o 'path: https://github.com/.*' {} \; \
+            | sed 's/path: https:\/\/github.com\///' > _quarto-web/quarto-web-extensions.csv
           cat "${CSV_FILE}" | cut -d'/' -f1,2 > _quarto-web/quarto-extensions.csv
+          echo "Extensions from Quarto Website retrieved."
           grep -Fvxi -f _quarto-web/quarto-extensions.csv _quarto-web/quarto-web-extensions.csv >> "${CSV_FILE}"
           rm -rf _quarto-web
 
@@ -48,6 +41,12 @@ jobs:
           if [[ -z "${diff}" ]]; then
             echo "No new extensions to add."
           else
+            if git show-ref --quiet refs/heads/${{ env.BRANCH }}; then
+              echo "Branch ${{ env.BRANCH }} already exists."
+              git branch -D "${{ env.BRANCH }}"
+              git push origin --delete "${{ env.BRANCH }}"
+            fi
+            git checkout -b "${{ env.BRANCH }}"
             git add "${CSV_FILE}"
             git commit -m "${{ env.COMMIT }}"
             git push --force origin ${{ env.BRANCH }}
@@ -62,7 +61,6 @@ jobs:
 
             gh pr ready ${{ env.BRANCH }}
           fi
-          exit 0
 
       - name: Merge Pull Request
         if: false
