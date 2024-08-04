@@ -33,11 +33,8 @@ jobs:
             -exec grep -o 'path: https://github.com/.*' {} \; \
             | sed 's/path: https:\/\/github.com\///' > _quarto-web/quarto-web-extensions.csv
           cat "${CSV_FILE}" | cut -d'/' -f1,2 > _quarto-web/quarto-extensions.csv
-          echo "List of extensions to add:"
-          extensions_to_add=$(grep -Fvxi -f _quarto-web/quarto-extensions.csv _quarto-web/quarto-web-extensions.csv)
-          echo "${extensions_to_add}"
+          extensions_to_add=$(grep -Fvxi -f _quarto-web/quarto-extensions.csv _quarto-web/quarto-web-extensions.csv || true)
           rm -rf _quarto-web
-          echo "Cleaning cloned repository."
 
           if [[ -z "${extensions_to_add}" ]]; then
             echo "No new extensions to add."
