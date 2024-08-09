@@ -23,13 +23,16 @@ sort -f extensions/quarto-extensions.csv | while IFS=, read -r entry; do
     if [[ "${repo_release}" = "null" ]]; then
       repo_release="none"
       repo_updated=$(echo "${repo_info}" | jq -r ".updatedAt")
-      yaml_usage="\n    \n    \`\`\`sh\n    quarto add ${entry}\n    \`\`\`"
+      yaml_usage_body="${entry}"
     else
       repo_release_url=$(echo "${repo_info}" | jq -r ".latestRelease.url")
-      yaml_usage="\n    \n    \`\`\`sh\n    quarto add ${entry}@${repo_release}\n    \`\`\`"
+      yaml_usage_body="${entry}@${repo_release}"
       repo_release="[${repo_release#v}]($repo_release_url)"
       repo_updated=$(echo "${repo_info}" | jq -r ".latestRelease.publishedAt")
     fi
+    yaml_usage_header="\n    \n    \`\`\`{.sh filename='Terminal'}\n    quarto add "
+    yaml_usage_footer="\n    \`\`\`\n"
+    yaml_usage="${yaml_usage_header}${yaml_usage_body}${yaml_usage_footer}"
     repo_license=$(echo "${repo_info}" | jq -r ".licenseInfo.name")
     if [[ "${repo_license}" = "null" ]]; then
       repo_license="No license specified"

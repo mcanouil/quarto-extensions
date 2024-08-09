@@ -9,6 +9,16 @@
   text-transform: uppercase;
 }
 
+.category:hover {
+  color: $primary;
+  font-weight: bold;
+}
+
+.quarto-grid-item .listing-categories .listing-category:hover {
+  color: $primary;
+  border: solid 1px $primary;
+}
+
 .quarto-grid-item .card-title {
   font-size: 1.5em;
   font-weight: 600;
@@ -22,6 +32,11 @@
   padding-left: 1em;
   vertical-align: top;
   text-transform: capitalize;
+}
+
+.quarto-grid-link:hover {
+  color: $primary;
+  text-decoration: underline;
 }
 
 #quarto-back-to-top {
