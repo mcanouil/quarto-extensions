@@ -1,6 +1,10 @@
 /*-- scss:defaults --*/
 
 /*-- scss:rules --*/
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+  font-weight: bold;
+}
+
 .navbar-title {
   display: none !important;
 }
