@@ -1,0 +1,56 @@
+:::: {.grid .text-center .list}
+
+<% for (const item of items) { %>
+
+:::: {.g-col-12 .g-col-lg-12 .g-col-xl-6 <%= metadataAttrs(item) %>}
+
+:::: {.quarto-grid-item .card .h-100 .card-center .hovercard-extension}
+
+:::: {.card-body .post-contents}
+```{=html}
+<a href="<%- item.path %>" class="quarto-grid-link">
+  <h5 class="no-anchor card-title listing-title"><%= item.title %></h5>
+</a>
+```
+:::: {.listing-categories}
+```{=html}
+<% for (const category of item.categories) { %>
+<div class="listing-category" onclick="window.quartoListingCategory('<%=category%>'); return false;"><%= category %></div>
+<% } %>
+```
+:::
+
+:::: {.card-text .listing-description}
+<%= item.description %>
+:::
+
+:::: {.card-attribution .card-text-small .justify}
+:::: {.listing-author}
+<%= item.author %>
+:::
+:::: {.listing-date}
+<%= item.date %>
+:::
+:::
+
+<table class="card-other-values">
+  <tr><td>License</td><td class="license"><%= item.license %></td></tr>
+  <tr><td>Stars</td><td class="stars"><%= item.stars %></td></tr>
+  <tr><td>Version</td><td class="version"><%= item.version %></td></tr>
+</table>
+
+:::
+
+:::: {.card-footer}
+:::: {.listing-file-modified}
+***Updated**: <%= item['file-modified'] %>*
+:::
+:::
+
+:::
+
+:::
+
+<% } %>
+
+:::
