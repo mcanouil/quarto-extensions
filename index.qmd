@@ -7,9 +7,13 @@ listing:
   template: assets/ejs/extensions.ejs
   contents:
     - extensions/yaml/**.yml
-  sort-ui: [title, date, author, file-modified]
+  sort-ui: [stars, title, author, date, file-modified]
   sort:
     - stars desc
+  field-types:
+    stars: number
+  field-display-names: 
+    stars: Stars
   filter-ui: true
   categories: true
   page-size: 10

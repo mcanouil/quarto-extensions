@@ -19,6 +19,26 @@
   border: solid 1px $primary;
 }
 
+.listing-author a{
+  color: $primary;
+}
+
+.listing-author:hover a {
+  color: $primary;
+  font-weight: bold;
+}
+
+.listing-stars a {
+  color: $body-color;
+  text-decoration: none;
+}
+
+.listing-stars:hover a {
+  color: #dcbe50;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 .quarto-grid-item .card-title {
   font-size: 1.5em;
   font-weight: 600;
