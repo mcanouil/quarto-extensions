@@ -27,9 +27,12 @@ website:
   repo-actions: [edit, issue]
   page-footer:
     border: true
+    left: |
+      Powered by [{{< iconify simple-icons:quarto >}} Quarto](https://quarto.org).
     center: |
-      &copy; 2024 [Mickaël CANOUIL](https://mickael.canouil.fr/).
-      Powered by [{{< iconify simple-icons:quarto >}} Quarto](https://quarto.org/).
+      &copy; []{#current-year} [Mickaël CANOUIL](https://mickael.canouil.fr/).
+    right: |
+      [{{< iconify octicon:heart-fill-16 >}} Sponsor](https://github.com/sponsors/mcanouil?o=esb).
   navbar:
     logo: "assets/media/quarto-extensions.svg"
     left:
@@ -53,6 +56,7 @@ format:
       - assets/stylesheets/authors.scss
     include-after-body:
       - file: assets/scripts/ordinal-dates.html
+      - file: assets/scripts/current-year.html
     grid:
       sidebar-width: 250px
       body-width: 900px
