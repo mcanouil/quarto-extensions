@@ -1,0 +1,20 @@
+/*-- scss:defaults --*/
+
+/*-- scss:rules --*/
+.hovercard-extension {
+  flex: 0 50%;
+  background: $light;
+  box-shadow: 0 2px 4px 0 rgba($gray-300, 0.2), 0 5px 15px 0 rgba($gray-700, 0.15);
+  border-radius: 15px;
+  margin: 8px;
+  padding: 10px 15px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  min-height: 265px;
+  transition: 0.7s;
+
+  .card-footer {
+    background-color: $light;
+  }
+}
