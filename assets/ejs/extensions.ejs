@@ -13,11 +13,15 @@ let removeLeadingZeros = function (str) {
 :::: {.quarto-grid-item .card .h-100 .card-center .hovercard-extension}
 
 :::: {.card-body .post-contents}
-```{=html}
-<a href="<%- item['github-url'] %>" class="quarto-grid-link">
-  <h5 class="no-anchor card-title listing-title"><%= item.title %></h5>
-</a>
-```
+
+[{{< iconify octicon:mark-github-16 >}}](<%- item['github-url'] %>){.quarto-grid-link style="position: absolute; top: 0; right: 0; padding: 0.5em;"}
+
+[
+`<h5 class="no-anchor card-title listing-title">`{=html}
+<%= item.title %>
+`</h5>`{=html}
+](<%- item['github-url'] %>){.quarto-grid-link}
+
 :::: {.listing-categories}
 ```{=html}
 <% for (const category of item.categories) { %>
