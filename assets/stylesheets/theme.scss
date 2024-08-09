@@ -42,3 +42,14 @@
 #quarto-back-to-top {
   z-index: 100; /* Make sure it's above everything else */
 }
+
+.code-copy-button {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sourceCode:hover .code-copy-button {
+  opacity: 1;
+  visibility: visible;
+}
