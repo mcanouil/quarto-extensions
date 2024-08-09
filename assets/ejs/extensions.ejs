@@ -1,3 +1,9 @@
+<%
+let removeLeadingZeros = function (str) {
+  return str.replace(/^0+/, '');
+}
+%>
+
 :::: {.grid .text-center .list}
 
 <% for (const item of items) { %>
@@ -7,11 +13,15 @@
 :::: {.quarto-grid-item .card .h-100 .card-center .hovercard-extension}
 
 :::: {.card-body .post-contents}
-```{=html}
-<a href="<%- item.path %>" class="quarto-grid-link">
-  <h5 class="no-anchor card-title listing-title"><%= item.title %></h5>
-</a>
-```
+
+[{{< iconify octicon:mark-github-16 >}}](<%- item['github-url'] %>){.quarto-grid-link style="position: absolute; top: 0; right: 0; padding: 0.5em;"}
+
+[
+`<h5 class="no-anchor card-title listing-title">`{=html}
+<%= item.title %>
+`</h5>`{=html}
+](<%- item['github-url'] %>){.quarto-grid-link}
+
 :::: {.listing-categories}
 ```{=html}
 <% for (const category of item.categories) { %>
@@ -26,7 +36,7 @@
 
 :::: {.card-attribution .card-text-small .justify}
 :::: {.listing-author}
-<%= item.author %>
+[<%= item.author %>](<%= item['author-url'] %>){.no-external}
 :::
 :::: {.listing-date}
 <%= item.date %>
@@ -34,9 +44,13 @@
 :::
 
 <table class="card-other-values">
-  <tr><td>License</td><td class="license"><%= item.license %></td></tr>
-  <tr><td>Stars</td><td class="stars"><%= item.stars %></td></tr>
-  <tr><td>Version</td><td class="version"><%= item.version %></td></tr>
+  <tr><td>License</td><td class="listing-license"><%= item.license %></td></tr>
+  <tr><td>Stars</td><td class="listing-stars">
+    [
+      [{{< iconify octicon:star-16 >}}]{style='color:#dcbe50;'} <%= removeLeadingZeros(item.stars) %>
+    ](<%- item['github-url'] %>/stargazers)
+  </td></tr>
+  <tr><td>Version</td><td class="listing-version"><%= item.version %></td></tr>
 </table>
 
 :::

@@ -1,33 +1,31 @@
-```{=html}
-<div class="grid text-center list">
-  <% for (const item of items) { %>
-  <div class="g-col-12 g-col-sm-6 g-col-md-4" <%= metadataAttrs(item) %>>
-    <a href="<%- item.path %>" class="listing-extension-author no-external">
-      <div class="card hovercard">
-        <!-- <div class="ribbon">GitHub</div> -->
-        <img class="card-img-top" loading="lazy" style="border-radius: 40%;" src="<%- item.image %>" alt="<%= item.title %> picture" />
-        <div class="card-body">
-          <strong class="card-title listing-title"><%- item.title %></strong>
-          <p class="card-text">
-            <% if (item.stars || item.extensions) { %>
-            <br/>
-            <% if (item.url) { %>
-            <span>
-              <a href="<%= item.url %>" target="_blank" class="text-decoration: none;"><iconify-icon inline="true" role="img" icon="octicon:mark-github-16" aria-label="Icon mark-github-16 from octicon Iconify.design set." title="Icon mark-github-16 from octicon Iconify.design set."></iconify-icon></a>
-            </span>
-            <% } %>
-            <span>
-              <iconify-icon inline="true" role="img" icon="octicon:star-16" aria-label="Icon star-16 from octicon Iconify.design set." title="Icon star-16 from octicon Iconify.design set."></iconify-icon> <%= item.stars %>
-            </span>
-            <span>
-              <iconify-icon inline="true" role="img" icon="octicon:repo-16" aria-label="Icon repo-16 from octicon Iconify.design set." title="Icon repo-16 from octicon Iconify.design set."></iconify-icon> <%= item.extensions %>
-            </span>
-            <% } %>
-          </p>
-        </div>
-      </div>
-    </a>
-  </div>
-  <% } %>
-</div>
-```
+:::: {.grid .text-center .list}
+
+<% for (const item of items) { %>
+
+:::: {.g-col-12 .g-col-sm-6 .g-col-md-4 <%= metadataAttrs(item) %>}
+
+`<a href="<%- item.path %>" class="listing-extension-author no-external">`{=html}
+
+:::: {.card .hovercard}
+![](<%- item.image %>){.card-img-top loading="lazy" style="border-radius: 40%;" fig-alt="<%= item.title %> picture"}
+
+:::: {.card-body}
+[<%- item.title %>]{.card-title .listing-title style="font-weight: bold;"}
+
+[
+  [{{< iconify octicon:mark-github-16 >}}](<%= item.url %>){target="_blank" style="text-decoration: none;"}
+  [{{< iconify octicon:star-16 >}}]{style='color:#dcbe50;'} <%= item.stars %>
+  {{< iconify octicon:repo-16 >}} <%= item.extensions %>
+]{.card-text}
+:::
+
+:::
+
+`</a>`{=html}
+
+
+:::
+
+<% } %>
+
+:::

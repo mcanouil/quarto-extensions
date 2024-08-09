@@ -67,13 +67,14 @@ sort -f extensions/quarto-extensions.csv | while IFS=, read -r entry; do
     extension_title=$(basename "${repo}")
     echo -e \
       "- title: ${extension_title#quarto-}\n" \
-      " path: https://github.com/${repo}\n" \
-      " author: \"[${repo_author}](/${author_listing}){.no-external}\"\n" \
+      " github-url: https://github.com/${repo}\n" \
+      " author: \"${repo_author}\"\n" \
+      " author-url: \"/${author_listing}\"\n" \
       " date: \"${repo_created}\"\n" \
       " file-modified: \"${repo_updated}\"\n" \
       " categories: ${repo_topics}\n" \
       " license: \"${repo_license}\"\n" \
-      " stars: \"[$(printf "%05d\n" ${repo_stars})]{style='display: none;'}[[\`&bigstar;\`{=html}]{style='color:#dcbe50;'} ${repo_stars}](https://github.com/${repo}/stargazers)\"\n" \
+      " stars: \"$(printf "%05d\n" ${repo_stars})\"\n" \
       " version: \"${repo_release}\"\n" \
       " description: |\n    ${repo_description}\n${yaml_usage}\n" \
       > "${meta}"
