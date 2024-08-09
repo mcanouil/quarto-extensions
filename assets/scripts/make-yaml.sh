@@ -23,7 +23,7 @@ sort -f extensions/quarto-extensions.csv | while IFS=, read -r entry; do
     if [[ "${repo_release}" = "null" ]]; then
       repo_release="none"
       repo_updated=$(echo "${repo_info}" | jq -r ".updatedAt")
-      yaml_usage="\n    \n    \`\`\`sh\n    quarto add ${entry}\n    \`\`\`"
+      yaml_usage="\n    \n    \`\`\`{.sh filename='Terminal'}\n    quarto add ${entry}\n    \`\`\`"
     else
       repo_release_url=$(echo "${repo_info}" | jq -r ".latestRelease.url")
       yaml_usage="\n    \n    \`\`\`sh\n    quarto add ${entry}@${repo_release}\n    \`\`\`"
