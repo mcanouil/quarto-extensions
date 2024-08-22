@@ -23,19 +23,19 @@ jobs:
       - name: Check for duplicates
         shell: bash
         run: |
-          FILE='extensions/quarto-extensions.csv'
+          FILE="extensions/quarto-extensions.csv"
           error=false
-          add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "${FILE}")')
+          add_extension=$(gh pr view "${NUMBER}" --json files --jq ".files[] | select(.path == \"${FILE}\")")
           if [[ -n "${add_extension}" ]]; then
             duplicates=$(sort -f "${FILE}" | uniq -di)
-            if [[ -n "$duplicates" ]]; then
+            if [[ -n "${duplicates}" ]]; then
               while read -r duplicate; do
-                grep -n "$duplicate" "${FILE}" | tail -n +2 | while read -r line ; do
-                  lineNumber=$(echo $line | cut -d: -f1)
-                  echo "::error file=${FILE},line=$lineNumber,endLine=$lineNumber,title=Duplicate Entry::Duplicate value '$duplicate' found"
+                grep -n "${duplicate}" "${FILE}" | tail -n +2 | while read -r line ; do
+                  lineNumber=$(echo ${line} | cut -d: -f1)
+                  echo "::error file=${FILE},line=${lineNumber},endLine=${lineNumber},title=Duplicate Entry::Duplicate value \"${duplicate}\" found"
                   error=true
                 done
-              done <<< "$duplicates"
+              done <<< "${duplicates}"
             fi
             if [[ "${error}" = true ]]; then
               exit 1
@@ -48,9 +48,9 @@ jobs:
       - name: Check for topics
         shell: bash
         run: |
-          FILE='extensions/quarto-extensions.csv'
+          FILE="extensions/quarto-extensions.csv"
           error=false
-          add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "${FILE}")')
+          add_extension=$(gh pr view "${NUMBER}" --json files --jq ".files[] | select(.path == \"${FILE}\")")
           if [[ -n "${add_extension}" ]]; then
             gh pr diff ${NUMBER} --patch | awk '/\+\+\+ b\/extensions\/quarto-extensions\.csv/{flag=1; next} flag && /^\+/' | sed 's/^+//' > diff.patch
             if [[ -s diff.patch ]]; then
@@ -58,7 +58,7 @@ jobs:
                 repo_topics=$(gh repo view --json repositoryTopics "${repo}" --jq ".repositoryTopics")
                 if [[ -z "${repo_topics}" ]]; then
                   lineNumber=$(grep -n "${repo}" ${FILE} | cut -d: -f1)
-                  echo "::error file=${FILE},line=$lineNumber,endLine=$lineNumber::Repository '${repo}' is missing topics!"
+                  echo "::error file=${FILE},line=${lineNumber},endLine=${lineNumber}::Repository \"${repo}\" is missing topics!"
                   error=true
                 fi
               done < diff.patch
@@ -74,9 +74,9 @@ jobs:
       - name: Check for description
         shell: bash
         run: |
-          FILE='extensions/quarto-extensions.csv'
+          FILE="extensions/quarto-extensions.csv"
           error=false
-          add_extension=$(gh pr view "${NUMBER}" --json files --jq '.files[] | select(.path == "${FILE}")')
+          add_extension=$(gh pr view "${NUMBER}" --json files --jq ".files[] | select(.path == \"${FILE}\")")
           if [[ -n "${add_extension}" ]]; then
             gh pr diff ${NUMBER} --patch | awk '/\+\+\+ b\/extensions\/quarto-extensions\.csv/{flag=1; next} flag && /^\+/' | sed 's/^+//' > diff.patch
             if [[ -s diff.patch ]]; then
@@ -84,7 +84,7 @@ jobs:
                 repo_description=$(gh repo view --json description "${repo}" --jq ".description")
                 if [[ -z "${repo_description}" ]]; then
                   lineNumber=$(grep -n "${repo}" ${FILE} | cut -d: -f1)
-                  echo "::error file=${FILE},line=$lineNumber,endLine=$lineNumber::Repository '${repo}' is missing description!"
+                  echo "::error file=${FILE},line=${lineNumber},endLine=${lineNumber}::Repository \"${repo}\" is missing description!"
                   error=true
                 fi
               done < diff.patch
