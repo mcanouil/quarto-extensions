@@ -1,0 +1,30 @@
+{
+  "name": "quarto-extension-installer",
+  "displayName": "Quarto Extension Installer",
+  "description": "Install Quarto extensions from https://github.com/mcanouil/quarto-extensions",
+  "version": "0.0.1",
+  "publisher": "your-name",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "quartoExtensionInstaller.installExtension",
+        "title": "Quarto: Install Quarto Extension (mcanouil/quarto-extensions)"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^22.8.6",
+    "@types/vscode": "^1.75.0",
+    "typescript": "^5.6.2"
+  }
+}
