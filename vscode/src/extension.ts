@@ -30,7 +30,7 @@ export function activate(context: vscode.ExtensionContext) {
       if (selectedExtension) {
         const terminal = vscode.window.createTerminal("Quarto");
         terminal.show();
-        terminal.sendText(`quarto add ${selectedExtension}`);
+        terminal.sendText(`quarto add ${selectedExtension} --no-prompt`);
       }
     }
   );
