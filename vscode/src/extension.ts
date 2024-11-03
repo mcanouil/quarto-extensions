@@ -156,40 +156,55 @@ async function installExtensions(
     return;
   }
 
-  vscode.window.showInformationMessage("Installing selected extension(s) ...");
+  vscode.window.withProgress({
+    location: vscode.ProgressLocation.Notification,
+    title: "Installing selected extension(s) ...",
+    cancellable: false
+  }, async (progress) => {
+    const failedExtensions: string[] = [];
+    const totalExtensions = mutableSelectedExtensions.length;
+    let installedCount = 0;
 
-  const failedExtensions: string[] = [];
-  for (const selectedExtension of mutableSelectedExtensions) {
-    if (selectedExtension.description === undefined) {
-      continue;
+    for (const selectedExtension of mutableSelectedExtensions) {
+      if (selectedExtension.description === undefined) {
+        continue;
+      }
+
+      const success = await installQuartoExtension(selectedExtension.description);
+      if (!success) {
+        failedExtensions.push(selectedExtension.description);
+      } else {
+        // Update recently installed extensions
+        if (selectedExtension.description !== undefined) {
+          recentlyInstalled = [
+            selectedExtension.description,
+            ...recentlyInstalled.filter(
+              (ext) => ext !== selectedExtension.description
+            ),
+          ].slice(0, 5);
+        }
+      }
+
+      installedCount++;
+      progress.report({ increment: (installedCount / totalExtensions) * 100 });
     }
-    const success = await installQuartoExtension(selectedExtension.description);
-    if (!success) {
-      failedExtensions.push(selectedExtension.description);
+
+    if (failedExtensions.length > 0) {
+      vscode.window.showErrorMessage(`The following extensions were not installed, try manually with \`quarto add <extension>\`: ${failedExtensions.join(', ')}`);
     } else {
-      // Update recently installed extensions
-      if (selectedExtension.description !== undefined) {
-        recentlyInstalled = [
-          selectedExtension.description,
-          ...recentlyInstalled.filter(
-            (ext) => ext !== selectedExtension.description
-          ),
-        ].slice(0, 5);
+      vscode.window.showInformationMessage("All selected extensions were installed successfully.");
+      const terminal = vscode.window.terminals.find(
+        (t) => t.name === "quarto-extensions"
+      );
+      if (terminal) {
+        terminal.dispose();
       }
     }
-  }
+  });
 
   context.globalState.update(RECENTLY_INSTALLED_QEXT_KEY, [
     ...recentlyInstalled,
   ]);
-
-  if (failedExtensions.length > 0) {
-    vscode.window.showWarningMessage(
-      `The following extensions were not installed, try to install theme manually with \`quarto add <extension>\`: ${failedExtensions.join(
-        ", "
-      )}`
-    );
-  }
 }
 
 function getGitHubLink(extension: string): string {
