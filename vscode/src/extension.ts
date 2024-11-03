@@ -42,7 +42,8 @@ export function activate(context: vscode.ExtensionContext) {
 
       const quickPick = vscode.window.createQuickPick<ExtensionQuickPickItem>();
       quickPick.items = groupedExtensions;
-      quickPick.placeholder = "Select a Quarto extension to install";
+      quickPick.placeholder = "Select Quarto extensions to install";
+      quickPick.canSelectMany = true;
       quickPick.onDidTriggerItemButton((e) => {
         const url = e.item.url;
         if (url) {
@@ -51,17 +52,12 @@ export function activate(context: vscode.ExtensionContext) {
       });
 
       quickPick.onDidAccept(async () => {
-        const selectedExtension = quickPick.selectedItems[0];
-        if (
-          selectedExtension &&
-          selectedExtension.label !== "All Extensions" &&
-          selectedExtension.label !== "Recently Installed" &&
-          selectedExtension.description !== undefined
-        ) {
+        const selectedExtensions = quickPick.selectedItems;
+        if (selectedExtensions.length > 0) {
           const trustAuthors = await vscode.window.showQuickPick(
             ["Yes", "No"],
             {
-              placeHolder: "Do you trust the authors of this extension?"
+              placeHolder: "Do you trust the authors of the selected extension(s)?"
             }
           );
   
@@ -73,7 +69,7 @@ export function activate(context: vscode.ExtensionContext) {
           const installWorkspace = await vscode.window.showQuickPick(
             ["Yes", "No"],
             {
-              placeHolder: "Install extension in the current workspace?"
+              placeHolder: "Install the selected extension(s) in the current workspace?"
             }
           );
 
@@ -85,15 +81,18 @@ export function activate(context: vscode.ExtensionContext) {
           vscode.window.showInformationMessage("Installing selected extension(s) ...");
           const terminal = vscode.window.createTerminal("Quarto-Extensions");
           terminal.show();
-          terminal.sendText(`quarto add ${selectedExtension.description} --no-prompt`);
-
-          // Update recently installed extensions
-          recentlyInstalled = [
-            selectedExtension.description,
-            ...recentlyInstalled.filter(
-              (ext) => ext !== selectedExtension.description
-            ),
-          ].slice(0, 5);
+          selectedExtensions.forEach((selectedExtension) => {
+            terminal.sendText(`quarto add ${selectedExtension.description} --no-prompt`);
+            // Update recently installed extensions
+            if (selectedExtension.description !== undefined) {
+              recentlyInstalled = [
+                selectedExtension.description,
+                ...recentlyInstalled.filter(
+                  (ext) => ext !== selectedExtension.description
+                ),
+              ].slice(0, 5);
+            }
+          });
           context.globalState.update(
             RECENTLY_INSTALLED_QEXT_KEY,
             recentlyInstalled
