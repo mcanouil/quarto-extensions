@@ -101,7 +101,7 @@ async function fetchCSVFromURL(url: string): Promise<string> {
 
 async function checkQuartoVersion(): Promise<boolean> {
   return new Promise((resolve) => {
-    exec("quarto --version", (error, stdout, stderr) => {
+    exec("quarto --version;", (error, stdout, stderr) => {
       if (error || stderr) {
         resolve(false);
       } else {
@@ -111,6 +111,21 @@ async function checkQuartoVersion(): Promise<boolean> {
   });
 }
 
+// async function installQuartoExtension2(extension: string): Promise<boolean> {
+//   return new Promise((resolve) => {
+//     exec(`quarto add ${extension} --no-prompt`, (error, stdout, stderr) => {
+//       if (error) {
+//         console.error(`exec error: ${error}`);
+//         resolve(false);
+//         return;
+//       }
+//       console.log(`stdout: ${stdout}`);
+//       console.error(`stderr: ${stderr}`);
+//       resolve(true);
+//     });
+//   });
+// }
+
 async function installQuartoExtension(extension: string): Promise<boolean> {
   let terminal = vscode.window.terminals.find(
     (t) => t.name === "quarto-extensions"
@@ -118,9 +133,21 @@ async function installQuartoExtension(extension: string): Promise<boolean> {
   if (!terminal) {
     terminal = vscode.window.createTerminal("quarto-extensions");
   }
-  terminal.show();
-  terminal.sendText(`quarto add ${extension} --no-prompt`);
-  return true;
+  // terminal.show();
+  terminal.sendText(`exit $(quarto add ${extension} --no-prompt);`, true);
+
+  return new Promise((resolve) => {
+    const disposable = vscode.window.onDidCloseTerminal((closedTerminal) => {
+      if (closedTerminal === terminal) {
+        disposable.dispose();
+        if (terminal.exitStatus !== undefined) {
+          resolve(terminal.exitStatus.code === 0);
+        } else {
+          resolve(false);
+        }
+      }
+    });
+  });
 }
 
 async function installExtensions(
@@ -156,51 +183,64 @@ async function installExtensions(
     return;
   }
 
-  vscode.window.withProgress({
-    location: vscode.ProgressLocation.Notification,
-    title: "Installing selected extension(s) ...",
-    cancellable: false
-  }, async (progress) => {
-    const failedExtensions: string[] = [];
-    const totalExtensions = mutableSelectedExtensions.length;
-    let installedCount = 0;
+  vscode.window.withProgress(
+    {
+      location: vscode.ProgressLocation.Notification,
+      title: "Installing selected extension(s)",
+      cancellable: false,
+    },
+    async (progress) => {
+      const failedExtensions: string[] = [];
+      const totalExtensions = mutableSelectedExtensions.length;
+      let installedCount = 0;
 
-    for (const selectedExtension of mutableSelectedExtensions) {
-      if (selectedExtension.description === undefined) {
-        continue;
-      }
-
-      const success = await installQuartoExtension(selectedExtension.description);
-      if (!success) {
-        failedExtensions.push(selectedExtension.description);
-      } else {
-        // Update recently installed extensions
-        if (selectedExtension.description !== undefined) {
-          recentlyInstalled = [
-            selectedExtension.description,
-            ...recentlyInstalled.filter(
-              (ext) => ext !== selectedExtension.description
-            ),
-          ].slice(0, 5);
+      for (const selectedExtension of mutableSelectedExtensions) {
+        if (selectedExtension.description === undefined) {
+          continue;
         }
+
+        const success = await installQuartoExtension(
+          selectedExtension.description
+        );
+        if (!success) {
+          failedExtensions.push(selectedExtension.description);
+        } else {
+          if (selectedExtension.description !== undefined) {
+            recentlyInstalled = [
+              selectedExtension.description,
+              ...recentlyInstalled.filter(
+                (ext) => ext !== selectedExtension.description
+              ),
+            ].slice(0, 5);
+          }
+        }
+
+        installedCount++;
+        progress.report({
+          message: `(${installedCount} / ${totalExtensions}) ${selectedExtension.label} ...`,
+          increment: (1 / totalExtensions) * 100,
+        });
       }
 
-      installedCount++;
-      progress.report({ increment: (installedCount / totalExtensions) * 100 });
-    }
-
-    if (failedExtensions.length > 0) {
-      vscode.window.showErrorMessage(`The following extensions were not installed, try manually with \`quarto add <extension>\`: ${failedExtensions.join(', ')}`);
-    } else {
-      vscode.window.showInformationMessage("All selected extensions were installed successfully.");
-      const terminal = vscode.window.terminals.find(
-        (t) => t.name === "quarto-extensions"
-      );
-      if (terminal) {
-        terminal.dispose();
+      if (failedExtensions.length > 0) {
+        vscode.window.showErrorMessage(
+          `The following extensions were not installed, try manually with \`quarto add <extension>\`: ${failedExtensions.join(
+            ", "
+          )}`
+        );
+      } else {
+        vscode.window.showInformationMessage(
+          `All selected extensions (${installedCount}) were installed successfully.`
+        );
+        // const terminal = vscode.window.terminals.find(
+        //   (t) => t.name === "quarto-extensions"
+        // );
+        // if (terminal) {
+        //   terminal.dispose();
+        // }
       }
     }
-  });
+  );
 
   context.globalState.update(RECENTLY_INSTALLED_QEXT_KEY, [
     ...recentlyInstalled,
