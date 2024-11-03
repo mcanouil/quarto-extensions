@@ -60,7 +60,8 @@ export function activate(context: vscode.ExtensionContext) {
       ) {
         const terminal = vscode.window.createTerminal("Quarto");
         terminal.show();
-        terminal.sendText(`quarto add ${selectedExtension.label} --no-prompt`);
+        selectedExtension.label.match(/\(([^)]+)\)$/)
+        terminal.sendText(`quarto add ${selectedExtension.label.match(/\(([^)]+)\)$/)?.[1] ?? ''} --no-prompt`);
 
         // Update recently installed extensions
         recentlyInstalled = [
@@ -110,7 +111,7 @@ function formatExtensionLabel(ext: string): string {
     .split(" ")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join(" ");
-  return formattedRepo;
+  return `${formattedRepo} (${ext})`;
 }
 
 export function deactivate() {}
