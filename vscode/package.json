@@ -3,7 +3,22 @@
   "displayName": "Quarto Extension Installer",
   "description": "Install Quarto extensions from https://github.com/mcanouil/quarto-extensions",
   "version": "0.0.1",
-  "publisher": "your-name",
+  "publisher": "Mickaël Canouil",
+  "license": "MIT",
+  "private": true,
+  "keywords": [
+    "markdown",
+    "pandoc",
+    "quarto"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mcanouil/quarto-extensions/tree/main/vscode"
+  },
+  "homepage": "https://github.com/mcanouil/quarto-extensions/tree/main/vscode",
+  "bugs": {
+    "url": "https://github.com/mcanouil/quarto-extensions/issues"
+  },
   "engines": {
     "vscode": "^1.75.0"
   },
@@ -12,7 +27,7 @@
     "commands": [
       {
         "command": "quartoExtensionInstaller.installExtension",
-        "title": "Quarto: Install Quarto Extension (mcanouil/quarto-extensions)"
+        "title": "Quarto: Install Extension(s) from mcanouil/quarto-extensions"
       }
     ]
   },
