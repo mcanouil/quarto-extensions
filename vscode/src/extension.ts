@@ -44,6 +44,7 @@ export function activate(context: vscode.ExtensionContext) {
       quickPick.items = groupedExtensions;
       quickPick.placeholder = "Select Quarto extensions to install";
       quickPick.canSelectMany = true;
+      quickPick.matchOnDescription = true;
       quickPick.onDidTriggerItemButton((e) => {
         const url = e.item.url;
         if (url) {
