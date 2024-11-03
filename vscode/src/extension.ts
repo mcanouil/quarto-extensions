@@ -57,32 +57,42 @@ export function activate(context: vscode.ExtensionContext) {
           const trustAuthors = await vscode.window.showQuickPick(
             ["Yes", "No"],
             {
-              placeHolder: "Do you trust the authors of the selected extension(s)?"
+              placeHolder:
+                "Do you trust the authors of the selected extension(s)?",
             }
           );
-  
+
           if (trustAuthors !== "Yes") {
-            vscode.window.showInformationMessage("Operation cancelled by the user.");
+            vscode.window.showInformationMessage(
+              "Operation cancelled by the user."
+            );
             return;
           }
 
           const installWorkspace = await vscode.window.showQuickPick(
             ["Yes", "No"],
             {
-              placeHolder: "Install the selected extension(s) in the current workspace?"
+              placeHolder:
+                "Install the selected extension(s) in the current workspace?",
             }
           );
 
           if (installWorkspace !== "Yes") {
-            vscode.window.showInformationMessage("Operation cancelled by the user.");
+            vscode.window.showInformationMessage(
+              "Operation cancelled by the user."
+            );
             return;
           }
 
-          vscode.window.showInformationMessage("Installing selected extension(s) ...");
+          vscode.window.showInformationMessage(
+            "Installing selected extension(s) ..."
+          );
           const terminal = vscode.window.createTerminal("Quarto-Extensions");
           terminal.show();
           selectedExtensions.forEach((selectedExtension) => {
-            terminal.sendText(`quarto add ${selectedExtension.description} --no-prompt`);
+            terminal.sendText(
+              `quarto add ${selectedExtension.description} --no-prompt`
+            );
             // Update recently installed extensions
             if (selectedExtension.description !== undefined) {
               recentlyInstalled = [
