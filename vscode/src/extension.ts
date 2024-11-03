@@ -2,7 +2,7 @@ import * as vscode from "vscode";
 import * as https from "https";
 import { IncomingMessage } from "http";
 
-const RECENTLY_INSTALLED_KEY = "recentlyInstalledExtensions";
+const RECENTLY_INSTALLED_QEXT_KEY = "recentlyInstalledExtensions";
 
 export function activate(context: vscode.ExtensionContext) {
   let disposable = vscode.commands.registerCommand(
@@ -12,7 +12,7 @@ export function activate(context: vscode.ExtensionContext) {
         "https://raw.githubusercontent.com/mcanouil/quarto-extensions/main/extensions/quarto-extensions.csv";
       let extensionsList: string[] = [];
       let recentlyInstalled: string[] = context.globalState.get(
-        RECENTLY_INSTALLED_KEY,
+        RECENTLY_INSTALLED_QEXT_KEY,
         []
       );
 
@@ -67,7 +67,7 @@ export function activate(context: vscode.ExtensionContext) {
           selectedExtension.label,
           ...recentlyInstalled.filter((ext) => ext !== selectedExtension.label),
         ].slice(0, 5);
-        context.globalState.update(RECENTLY_INSTALLED_KEY, recentlyInstalled);
+        context.globalState.update(RECENTLY_INSTALLED_QEXT_KEY, recentlyInstalled);
       }
     }
   );
