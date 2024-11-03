@@ -67,7 +67,10 @@ export function activate(context: vscode.ExtensionContext) {
           selectedExtension.label,
           ...recentlyInstalled.filter((ext) => ext !== selectedExtension.label),
         ].slice(0, 5);
-        context.globalState.update(RECENTLY_INSTALLED_QEXT_KEY, recentlyInstalled);
+        context.globalState.update(
+          RECENTLY_INSTALLED_QEXT_KEY,
+          recentlyInstalled
+        );
       }
     }
   );
