@@ -55,7 +55,8 @@ export function activate(context: vscode.ExtensionContext) {
         if (
           selectedExtension &&
           selectedExtension.label !== "All Extensions" &&
-          selectedExtension.label !== "Recently Installed"
+          selectedExtension.label !== "Recently Installed" &&
+          selectedExtension.description !== undefined
         ) {
           const trustAuthors = await vscode.window.showQuickPick(
             ["Yes", "No"],
@@ -84,13 +85,13 @@ export function activate(context: vscode.ExtensionContext) {
           vscode.window.showInformationMessage("Installing selected extension(s) ...");
           const terminal = vscode.window.createTerminal("Quarto-Extensions");
           terminal.show();
-          terminal.sendText(`quarto add ${selectedExtension.label.replace(/^.*-- /, '')} --no-prompt`);
+          terminal.sendText(`quarto add ${selectedExtension.description} --no-prompt`);
 
           // Update recently installed extensions
           recentlyInstalled = [
-            selectedExtension.label.replace(/^.*-- /, ''),
+            selectedExtension.description,
             ...recentlyInstalled.filter(
-              (ext) => ext !== selectedExtension.label.replace(/^.*-- /, '')
+              (ext) => ext !== selectedExtension.description
             ),
           ].slice(0, 5);
           context.globalState.update(
@@ -105,7 +106,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
-  // context.globalState.update(RECENTLY_INSTALLED_QEXT_KEY, []);
+  context.globalState.update(RECENTLY_INSTALLED_QEXT_KEY, []);
   context.subscriptions.push(disposable);
 }
 
@@ -141,13 +142,14 @@ function formatExtensionLabel(ext: string): string {
     .split(" ")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join(" ");
-  return `${formattedRepo} -- ${ext}`;
+  return formattedRepo;
 }
 
 function createExtensionItems(extensions: string[]): ExtensionQuickPickItem[] {
   return extensions
     .map((ext) => ({
       label: formatExtensionLabel(ext),
+      description: ext,
       buttons: [
         {
           iconPath: new vscode.ThemeIcon("github"),
