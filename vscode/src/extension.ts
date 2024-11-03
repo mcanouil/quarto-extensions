@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 import * as https from "https";
 import { IncomingMessage } from "http";
+import { exec } from "child_process";
 
 const RECENTLY_INSTALLED_QEXT_KEY = "recentlyInstalledExtensions";
 
@@ -12,6 +13,14 @@ export function activate(context: vscode.ExtensionContext) {
   let disposable = vscode.commands.registerCommand(
     "quartoExtensionInstaller.installExtension",
     async () => {
+      const isQuartoAvailable = await checkQuartoVersion();
+      if (!isQuartoAvailable) {
+        vscode.window.showErrorMessage(
+          "Quarto is not installed or not available in PATH. Please install Quarto and make sure it is available in PATH."
+        );
+        return;
+      }
+
       const csvUrl =
         "https://raw.githubusercontent.com/mcanouil/quarto-extensions/main/extensions/quarto-extensions.csv";
       let extensionsList: string[] = [];
@@ -118,6 +127,18 @@ export function activate(context: vscode.ExtensionContext) {
 
   context.globalState.update(RECENTLY_INSTALLED_QEXT_KEY, []);
   context.subscriptions.push(disposable);
+}
+
+async function checkQuartoVersion(): Promise<boolean> {
+  return new Promise((resolve) => {
+    exec("quarto --version", (error, stdout, stderr) => {
+      if (error || stderr) {
+        resolve(false);
+      } else {
+        resolve(stdout.trim().length > 0);
+      }
+    });
+  });
 }
 
 async function fetchCSVFromURL(url: string): Promise<string> {
