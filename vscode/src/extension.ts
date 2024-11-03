@@ -6,7 +6,6 @@ const RECENTLY_INSTALLED_QEXT_KEY = "recentlyInstalledExtensions";
 
 interface ExtensionQuickPickItem extends vscode.QuickPickItem {
   url?: string;
-  prettyLabel?: string;
 }
 
 export function activate(context: vscode.ExtensionContext) {
@@ -85,13 +84,13 @@ export function activate(context: vscode.ExtensionContext) {
           vscode.window.showInformationMessage("Installing selected extension(s) ...");
           const terminal = vscode.window.createTerminal("Quarto-Extensions");
           terminal.show();
-          terminal.sendText(`quarto add ${selectedExtension.label} --no-prompt`);
+          terminal.sendText(`quarto add ${selectedExtension.label.replace(/^.*-- /, '')} --no-prompt`);
 
           // Update recently installed extensions
           recentlyInstalled = [
-            selectedExtension.label,
+            selectedExtension.label.replace(/^.*-- /, ''),
             ...recentlyInstalled.filter(
-              (ext) => ext !== selectedExtension.label
+              (ext) => ext !== selectedExtension.label.replace(/^.*-- /, '')
             ),
           ].slice(0, 5);
           context.globalState.update(
@@ -142,14 +141,13 @@ function formatExtensionLabel(ext: string): string {
     .split(" ")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join(" ");
-  return `${formattedRepo} (${ext})`;
+  return `${formattedRepo} -- ${ext}`;
 }
 
 function createExtensionItems(extensions: string[]): ExtensionQuickPickItem[] {
   return extensions
     .map((ext) => ({
-      label: ext,
-      prettyLabel: formatExtensionLabel(ext),
+      label: formatExtensionLabel(ext),
       buttons: [
         {
           iconPath: new vscode.ThemeIcon("github"),
@@ -158,7 +156,7 @@ function createExtensionItems(extensions: string[]): ExtensionQuickPickItem[] {
       ],
       url: getGitHubLink(ext),
     }))
-    .sort((a, b) => a.prettyLabel.localeCompare(b.prettyLabel));
+    .sort((a, b) => a.label.localeCompare(b.label));
 }
 
 export function deactivate() {}
