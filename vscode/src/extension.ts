@@ -4,6 +4,10 @@ import { IncomingMessage } from "http";
 
 const RECENTLY_INSTALLED_QEXT_KEY = "recentlyInstalledExtensions";
 
+interface ExtensionQuickPickItem extends vscode.QuickPickItem {
+  url?: string;
+}
+
 export function activate(context: vscode.ExtensionContext) {
   let disposable = vscode.commands.registerCommand(
     "quartoExtensionInstaller.installExtension",
@@ -26,7 +30,7 @@ export function activate(context: vscode.ExtensionContext) {
         return;
       }
 
-      const groupedExtensions = [
+      const groupedExtensions: ExtensionQuickPickItem[] = [
         {
           label: "Recently Installed",
           kind: vscode.QuickPickItemKind.Separator,
@@ -34,45 +38,67 @@ export function activate(context: vscode.ExtensionContext) {
         ...recentlyInstalled
           .map((ext) => ({
             label: formatExtensionLabel(ext),
-            detail: getGitHubLink(ext),
+            buttons: [
+              {
+                iconPath: new vscode.ThemeIcon("info"),
+                tooltip: "Open GitHub Repository",
+              },
+            ],
+            url: getGitHubLink(ext),
           }))
           .sort((a, b) => a.label.localeCompare(b.label)),
         { label: "All Extensions", kind: vscode.QuickPickItemKind.Separator },
         ...extensionsList
           .map((ext) => ({
             label: formatExtensionLabel(ext),
-            detail: getGitHubLink(ext),
+            buttons: [
+              {
+                iconPath: new vscode.ThemeIcon("info"),
+                tooltip: "Open GitHub Repository",
+              },
+            ],
+            url: getGitHubLink(ext),
           }))
           .sort((a, b) => a.label.localeCompare(b.label)),
       ];
 
-      const selectedExtension = await vscode.window.showQuickPick(
-        groupedExtensions,
-        {
-          placeHolder: "Select a Quarto extension to install",
+      const quickPick = vscode.window.createQuickPick<ExtensionQuickPickItem>();
+      quickPick.items = groupedExtensions;
+      quickPick.placeholder = "Select a Quarto extension to install";
+
+      quickPick.onDidTriggerItemButton((e) => {
+        const url = e.item.url;
+        if (url) {
+          vscode.env.openExternal(vscode.Uri.parse(url));
         }
-      );
+      });
 
-      if (
-        selectedExtension &&
-        selectedExtension.label !== "All Extensions" &&
-        selectedExtension.label !== "Recently Installed"
-      ) {
-        const terminal = vscode.window.createTerminal("Quarto");
-        terminal.show();
-        selectedExtension.label.match(/\(([^)]+)\)$/)
-        terminal.sendText(`quarto add ${selectedExtension.label.match(/\(([^)]+)\)$/)?.[1] ?? ''} --no-prompt`);
+      quickPick.onDidAccept(async () => {
+        const selectedExtension = quickPick.selectedItems[0];
+        if (
+          selectedExtension &&
+          selectedExtension.label !== "All Extensions" &&
+          selectedExtension.label !== "Recently Installed"
+        ) {
+          const terminal = vscode.window.createTerminal("Quarto");
+          terminal.show();
+          const match = selectedExtension.label.match(/\(([^)]+)\)$/);
+          terminal.sendText(`quarto add ${match?.[1] ?? ''} --no-prompt`);
 
-        // Update recently installed extensions
-        recentlyInstalled = [
-          selectedExtension.label,
-          ...recentlyInstalled.filter((ext) => ext !== selectedExtension.label),
-        ].slice(0, 5);
-        context.globalState.update(
-          RECENTLY_INSTALLED_QEXT_KEY,
-          recentlyInstalled
-        );
-      }
+          // Update recently installed extensions
+          recentlyInstalled = [
+            selectedExtension.label,
+            ...recentlyInstalled.filter((ext) => ext !== selectedExtension.label),
+          ].slice(0, 5);
+          context.globalState.update(
+            RECENTLY_INSTALLED_QEXT_KEY,
+            recentlyInstalled
+          );
+        }
+        quickPick.hide();
+      });
+
+      quickPick.show();
     }
   );
 
