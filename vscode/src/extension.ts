@@ -34,14 +34,14 @@ export function activate(context: vscode.ExtensionContext) {
         ...recentlyInstalled
           .map((ext) => ({
             label: formatExtensionLabel(ext),
-            description: getGitHubLink(ext),
+            detail: getGitHubLink(ext),
           }))
           .sort((a, b) => a.label.localeCompare(b.label)),
         { label: "All Extensions", kind: vscode.QuickPickItemKind.Separator },
         ...extensionsList
           .map((ext) => ({
             label: formatExtensionLabel(ext),
-            description: getGitHubLink(ext),
+            detail: getGitHubLink(ext),
           }))
           .sort((a, b) => a.label.localeCompare(b.label)),
       ];
