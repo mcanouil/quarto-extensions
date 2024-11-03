@@ -76,6 +76,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
+  // context.globalState.update(RECENTLY_INSTALLED_QEXT_KEY, []);
   context.subscriptions.push(disposable);
 }
 
