@@ -58,10 +58,35 @@ export function activate(context: vscode.ExtensionContext) {
           selectedExtension.label !== "All Extensions" &&
           selectedExtension.label !== "Recently Installed"
         ) {
-          const terminal = vscode.window.createTerminal("Quarto");
+          const trustAuthors = await vscode.window.showQuickPick(
+            ["Yes", "No"],
+            {
+              placeHolder: "Do you trust the authors of this extension?"
+            }
+          );
+  
+          if (trustAuthors !== "Yes") {
+            vscode.window.showInformationMessage("Operation cancelled by the user.");
+            return;
+          }
+
+          const installWorkspace = await vscode.window.showQuickPick(
+            ["Yes", "No"],
+            {
+              placeHolder: "Install extension in the current workspace?"
+            }
+          );
+
+          if (installWorkspace !== "Yes") {
+            vscode.window.showInformationMessage("Operation cancelled by the user.");
+            return;
+          }
+
+          vscode.window.showInformationMessage("Installing selected extension(s) ...");
+          const terminal = vscode.window.createTerminal("Quarto-Extensions");
           terminal.show();
-          const match = selectedExtension.label.match(/\(([^)]+)\)$/);
-          terminal.sendText(`quarto add ${match?.[1] ?? ""} --no-prompt`);
+          const rawExtension = selectedExtension.label.match(/\(([^)]+)\)$/);
+          terminal.sendText(`quarto add ${rawExtension?.[1] ?? ""} --no-prompt`);
 
           // Update recently installed extensions
           recentlyInstalled = [
@@ -82,7 +107,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
-  // context.globalState.update(RECENTLY_INSTALLED_QEXT_KEY, []);
+  context.globalState.update(RECENTLY_INSTALLED_QEXT_KEY, []);
   context.subscriptions.push(disposable);
 }
 
