@@ -81,18 +81,6 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(disposable);
 }
 
-async function checkQuartoVersion(): Promise<boolean> {
-  return new Promise((resolve) => {
-    exec("quarto --version", (error, stdout, stderr) => {
-      if (error || stderr) {
-        resolve(false);
-      } else {
-        resolve(stdout.trim().length > 0);
-      }
-    });
-  });
-}
-
 async function fetchCSVFromURL(url: string): Promise<string> {
   return new Promise((resolve, reject) => {
     https
@@ -111,37 +99,16 @@ async function fetchCSVFromURL(url: string): Promise<string> {
   });
 }
 
-function getGitHubLink(extension: string): string {
-  const [owner, repo] = extension.split("/").slice(0, 2);
-  return `https://github.com/${owner}/${repo}`;
-}
-
-function formatExtensionLabel(ext: string): string {
-  const parts = ext.split("/");
-  const repo = parts[1];
-  let formattedRepo = repo.replace(/[-_]/g, " ");
-  formattedRepo = formattedRepo.replace(/quarto/gi, "").trim();
-  formattedRepo = formattedRepo
-    .split(" ")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(" ");
-  return formattedRepo;
-}
-
-function createExtensionItems(extensions: string[]): ExtensionQuickPickItem[] {
-  return extensions
-    .map((ext) => ({
-      label: formatExtensionLabel(ext),
-      description: ext,
-      buttons: [
-        {
-          iconPath: new vscode.ThemeIcon("github"),
-          tooltip: "Open GitHub Repository",
-        },
-      ],
-      url: getGitHubLink(ext),
-    }))
-    .sort((a, b) => a.label.localeCompare(b.label));
+async function checkQuartoVersion(): Promise<boolean> {
+  return new Promise((resolve) => {
+    exec("quarto --version", (error, stdout, stderr) => {
+      if (error || stderr) {
+        resolve(false);
+      } else {
+        resolve(stdout.trim().length > 0);
+      }
+    });
+  });
 }
 
 async function installQuartoExtension(extension: string): Promise<boolean> {
@@ -223,6 +190,39 @@ async function installExtensions(
       )}`
     );
   }
+}
+
+function getGitHubLink(extension: string): string {
+  const [owner, repo] = extension.split("/").slice(0, 2);
+  return `https://github.com/${owner}/${repo}`;
+}
+
+function formatExtensionLabel(ext: string): string {
+  const parts = ext.split("/");
+  const repo = parts[1];
+  let formattedRepo = repo.replace(/[-_]/g, " ");
+  formattedRepo = formattedRepo.replace(/quarto/gi, "").trim();
+  formattedRepo = formattedRepo
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(" ");
+  return formattedRepo;
+}
+
+function createExtensionItems(extensions: string[]): ExtensionQuickPickItem[] {
+  return extensions
+    .map((ext) => ({
+      label: formatExtensionLabel(ext),
+      description: ext,
+      buttons: [
+        {
+          iconPath: new vscode.ThemeIcon("github"),
+          tooltip: "Open GitHub Repository",
+        },
+      ],
+      url: getGitHubLink(ext),
+    }))
+    .sort((a, b) => a.label.localeCompare(b.label));
 }
 
 export function deactivate() {}
