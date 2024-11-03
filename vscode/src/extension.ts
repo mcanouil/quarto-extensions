@@ -6,6 +6,7 @@ const RECENTLY_INSTALLED_QEXT_KEY = "recentlyInstalledExtensions";
 
 interface ExtensionQuickPickItem extends vscode.QuickPickItem {
   url?: string;
+  prettyLabel?: string;
 }
 
 export function activate(context: vscode.ExtensionContext) {
@@ -43,7 +44,6 @@ export function activate(context: vscode.ExtensionContext) {
       const quickPick = vscode.window.createQuickPick<ExtensionQuickPickItem>();
       quickPick.items = groupedExtensions;
       quickPick.placeholder = "Select a Quarto extension to install";
-
       quickPick.onDidTriggerItemButton((e) => {
         const url = e.item.url;
         if (url) {
@@ -85,8 +85,7 @@ export function activate(context: vscode.ExtensionContext) {
           vscode.window.showInformationMessage("Installing selected extension(s) ...");
           const terminal = vscode.window.createTerminal("Quarto-Extensions");
           terminal.show();
-          const rawExtension = selectedExtension.label.match(/\(([^)]+)\)$/);
-          terminal.sendText(`quarto add ${rawExtension?.[1] ?? ""} --no-prompt`);
+          terminal.sendText(`quarto add ${selectedExtension.label} --no-prompt`);
 
           // Update recently installed extensions
           recentlyInstalled = [
@@ -107,7 +106,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
-  context.globalState.update(RECENTLY_INSTALLED_QEXT_KEY, []);
+  // context.globalState.update(RECENTLY_INSTALLED_QEXT_KEY, []);
   context.subscriptions.push(disposable);
 }
 
@@ -149,7 +148,8 @@ function formatExtensionLabel(ext: string): string {
 function createExtensionItems(extensions: string[]): ExtensionQuickPickItem[] {
   return extensions
     .map((ext) => ({
-      label: formatExtensionLabel(ext),
+      label: ext,
+      prettyLabel: formatExtensionLabel(ext),
       buttons: [
         {
           iconPath: new vscode.ThemeIcon("github"),
@@ -158,7 +158,7 @@ function createExtensionItems(extensions: string[]): ExtensionQuickPickItem[] {
       ],
       url: getGitHubLink(ext),
     }))
-    .sort((a, b) => a.label.localeCompare(b.label));
+    .sort((a, b) => a.prettyLabel.localeCompare(b.prettyLabel));
 }
 
 export function deactivate() {}
