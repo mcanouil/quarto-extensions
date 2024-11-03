@@ -64,57 +64,9 @@ export function activate(context: vscode.ExtensionContext) {
       quickPick.onDidAccept(async () => {
         const selectedExtensions = quickPick.selectedItems;
         if (selectedExtensions.length > 0) {
-          const trustAuthors = await vscode.window.showQuickPick(
-            ["Yes", "No"],
-            {
-              placeHolder:
-                "Do you trust the authors of the selected extension(s)?",
-            }
-          );
-
-          if (trustAuthors !== "Yes") {
-            vscode.window.showInformationMessage(
-              "Operation cancelled by the user."
-            );
-            return;
-          }
-
-          const installWorkspace = await vscode.window.showQuickPick(
-            ["Yes", "No"],
-            {
-              placeHolder:
-                "Install the selected extension(s) in the current workspace?",
-            }
-          );
-
-          if (installWorkspace !== "Yes") {
-            vscode.window.showInformationMessage(
-              "Operation cancelled by the user."
-            );
-            return;
-          }
-
-          vscode.window.showInformationMessage(
-            "Installing selected extension(s) ..."
-          );
-          const terminal = vscode.window.createTerminal("Quarto-Extensions");
-          terminal.show();
-          selectedExtensions.forEach((selectedExtension) => {
-            terminal.sendText(
-              `quarto add ${selectedExtension.description} --no-prompt`
-            );
-            // Update recently installed extensions
-            if (selectedExtension.description !== undefined) {
-              recentlyInstalled = [
-                selectedExtension.description,
-                ...recentlyInstalled.filter(
-                  (ext) => ext !== selectedExtension.description
-                ),
-              ].slice(0, 5);
-            }
-          });
-          context.globalState.update(
-            RECENTLY_INSTALLED_QEXT_KEY,
+          await installExtensions(
+            context,
+            selectedExtensions,
             recentlyInstalled
           );
         }
@@ -125,7 +77,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
-  context.globalState.update(RECENTLY_INSTALLED_QEXT_KEY, []);
+  // context.globalState.update(RECENTLY_INSTALLED_QEXT_KEY, []);
   context.subscriptions.push(disposable);
 }
 
@@ -190,6 +142,87 @@ function createExtensionItems(extensions: string[]): ExtensionQuickPickItem[] {
       url: getGitHubLink(ext),
     }))
     .sort((a, b) => a.label.localeCompare(b.label));
+}
+
+async function installQuartoExtension(extension: string): Promise<boolean> {
+  let terminal = vscode.window.terminals.find(
+    (t) => t.name === "quarto-extensions"
+  );
+  if (!terminal) {
+    terminal = vscode.window.createTerminal("quarto-extensions");
+  }
+  terminal.show();
+  terminal.sendText(`quarto add ${extension} --no-prompt`);
+  return true;
+}
+
+async function installExtensions(
+  context: vscode.ExtensionContext,
+  selectedExtensions: readonly ExtensionQuickPickItem[],
+  recentlyInstalled: string[]
+) {
+  const mutableSelectedExtensions: ExtensionQuickPickItem[] = [
+    ...selectedExtensions,
+  ];
+
+  const isQuartoAvailable = await checkQuartoVersion();
+  if (!isQuartoAvailable) {
+    vscode.window.showErrorMessage(
+      "Quarto is not available. Please install Quarto and try again."
+    );
+    return;
+  }
+
+  const trustAuthors = await vscode.window.showQuickPick(["Yes", "No"], {
+    placeHolder: "Do you trust the authors of the selected extension(s)?",
+  });
+  if (trustAuthors !== "Yes") {
+    vscode.window.showInformationMessage("Operation cancelled by the user.");
+    return;
+  }
+
+  const installWorkspace = await vscode.window.showQuickPick(["Yes", "No"], {
+    placeHolder: "Do you want to install the selected extension(s)?",
+  });
+  if (installWorkspace !== "Yes") {
+    vscode.window.showInformationMessage("Operation cancelled by the user.");
+    return;
+  }
+
+  vscode.window.showInformationMessage("Installing selected extension(s) ...");
+
+  const failedExtensions: string[] = [];
+  for (const selectedExtension of mutableSelectedExtensions) {
+    if (selectedExtension.description === undefined) {
+      continue;
+    }
+    const success = await installQuartoExtension(selectedExtension.description);
+    if (!success) {
+      failedExtensions.push(selectedExtension.description);
+    } else {
+      // Update recently installed extensions
+      if (selectedExtension.description !== undefined) {
+        recentlyInstalled = [
+          selectedExtension.description,
+          ...recentlyInstalled.filter(
+            (ext) => ext !== selectedExtension.description
+          ),
+        ].slice(0, 5);
+      }
+    }
+  }
+
+  context.globalState.update(RECENTLY_INSTALLED_QEXT_KEY, [
+    ...recentlyInstalled,
+  ]);
+
+  if (failedExtensions.length > 0) {
+    vscode.window.showWarningMessage(
+      `The following extensions were not installed, try to install theme manually with \`quarto add <extension>\`: ${failedExtensions.join(
+        ", "
+      )}`
+    );
+  }
 }
 
 export function deactivate() {}
