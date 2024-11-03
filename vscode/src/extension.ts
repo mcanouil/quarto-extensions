@@ -35,31 +35,9 @@ export function activate(context: vscode.ExtensionContext) {
           label: "Recently Installed",
           kind: vscode.QuickPickItemKind.Separator,
         },
-        ...recentlyInstalled
-          .map((ext) => ({
-            label: formatExtensionLabel(ext),
-            buttons: [
-              {
-                iconPath: new vscode.ThemeIcon("info"),
-                tooltip: "Open GitHub Repository",
-              },
-            ],
-            url: getGitHubLink(ext),
-          }))
-          .sort((a, b) => a.label.localeCompare(b.label)),
+        ...createExtensionItems(recentlyInstalled),
         { label: "All Extensions", kind: vscode.QuickPickItemKind.Separator },
-        ...extensionsList
-          .map((ext) => ({
-            label: formatExtensionLabel(ext),
-            buttons: [
-              {
-                iconPath: new vscode.ThemeIcon("info"),
-                tooltip: "Open GitHub Repository",
-              },
-            ],
-            url: getGitHubLink(ext),
-          }))
-          .sort((a, b) => a.label.localeCompare(b.label)),
+        ...createExtensionItems(extensionsList),
       ];
 
       const quickPick = vscode.window.createQuickPick<ExtensionQuickPickItem>();
@@ -83,12 +61,14 @@ export function activate(context: vscode.ExtensionContext) {
           const terminal = vscode.window.createTerminal("Quarto");
           terminal.show();
           const match = selectedExtension.label.match(/\(([^)]+)\)$/);
-          terminal.sendText(`quarto add ${match?.[1] ?? ''} --no-prompt`);
+          terminal.sendText(`quarto add ${match?.[1] ?? ""} --no-prompt`);
 
           // Update recently installed extensions
           recentlyInstalled = [
             selectedExtension.label,
-            ...recentlyInstalled.filter((ext) => ext !== selectedExtension.label),
+            ...recentlyInstalled.filter(
+              (ext) => ext !== selectedExtension.label
+            ),
           ].slice(0, 5);
           context.globalState.update(
             RECENTLY_INSTALLED_QEXT_KEY,
@@ -139,6 +119,21 @@ function formatExtensionLabel(ext: string): string {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join(" ");
   return `${formattedRepo} (${ext})`;
+}
+
+function createExtensionItems(extensions: string[]): ExtensionQuickPickItem[] {
+  return extensions
+    .map((ext) => ({
+      label: formatExtensionLabel(ext),
+      buttons: [
+        {
+          iconPath: new vscode.ThemeIcon("github"),
+          tooltip: "Open GitHub Repository",
+        },
+      ],
+      url: getGitHubLink(ext),
+    }))
+    .sort((a, b) => a.label.localeCompare(b.label));
 }
 
 export function deactivate() {}
