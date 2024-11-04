@@ -118,7 +118,7 @@ async function installQuartoExtension(extension: string): Promise<boolean> {
   if (!terminal) {
     terminal = vscode.window.createTerminal("quarto-extensions");
   }
-  terminal.sendText(`exit $(quarto add ${extension} --no-prompt);`, true);
+  terminal.sendText(`quarto add ${extension} --no-prompt`, true);
 
   return new Promise((resolve) => {
     const disposable = vscode.window.onDidCloseTerminal((closedTerminal) => {
@@ -171,9 +171,13 @@ async function installExtensions(
     {
       location: vscode.ProgressLocation.Notification,
       title: "Installing selected extension(s)",
-      cancellable: false,
+      cancellable: true,
     },
-    async (progress) => {
+    async (progress, token) => {
+      token.onCancellationRequested(() => {
+				console.log("Operation cancelled by the user.");
+			});
+
       const failedExtensions: string[] = [];
       const totalExtensions = mutableSelectedExtensions.length;
       let installedCount = 0;
