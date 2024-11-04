@@ -111,21 +111,6 @@ async function checkQuartoVersion(): Promise<boolean> {
   });
 }
 
-// async function installQuartoExtension2(extension: string): Promise<boolean> {
-//   return new Promise((resolve) => {
-//     exec(`quarto add ${extension} --no-prompt`, (error, stdout, stderr) => {
-//       if (error) {
-//         console.error(`exec error: ${error}`);
-//         resolve(false);
-//         return;
-//       }
-//       console.log(`stdout: ${stdout}`);
-//       console.error(`stderr: ${stderr}`);
-//       resolve(true);
-//     });
-//   });
-// }
-
 async function installQuartoExtension(extension: string): Promise<boolean> {
   let terminal = vscode.window.terminals.find(
     (t) => t.name === "quarto-extensions"
@@ -133,7 +118,6 @@ async function installQuartoExtension(extension: string): Promise<boolean> {
   if (!terminal) {
     terminal = vscode.window.createTerminal("quarto-extensions");
   }
-  // terminal.show();
   terminal.sendText(`exit $(quarto add ${extension} --no-prompt);`, true);
 
   return new Promise((resolve) => {
