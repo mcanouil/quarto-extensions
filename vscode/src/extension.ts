@@ -7,7 +7,6 @@ const RECENTLY_INSTALLED_QEXT_KEY = "recentlyInstalledExtensions";
 
 const quartoExtensionLog = vscode.window.createOutputChannel('Quarto Extensions');
 
-
 interface ExtensionQuickPickItem extends vscode.QuickPickItem {
   url?: string;
 }
