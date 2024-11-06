@@ -33,8 +33,7 @@ export function activate(context: vscode.ExtensionContext) {
       );
 
       try {
-        // const data = await fetchCSVFromURL(csvUrl);
-        const data = "mcanouil/quarto-animate\nmcanouil/quarto-elevator\nmcanouil/quarto-github\nmcanouil/quarto-highlight-text"
+        const data = await fetchCSVFromURL(csvUrl);
         extensionsList = data.split("\n").filter((line) => line.trim() !== "");
       } catch (error) {
         const message = `Error fetching "quarto-extensions.csv" from ${csvUrl}`;
@@ -196,7 +195,7 @@ async function installExtensions(
         if (selectedExtension.description === undefined) {
           continue;
         }
-        const success = await installQuartoExtension(selectedExtension.description);;
+        const success = await installQuartoExtension(selectedExtension.description);
         if (success) {
           recentlyInstalled = [
             selectedExtension.description,
