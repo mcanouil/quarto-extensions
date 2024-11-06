@@ -29,8 +29,12 @@
   "contributes": {
     "commands": [
       {
-        "command": "quartoExtensionInstaller.installExtension",
-        "title": "Quarto: Install Extension(s) from mcanouil/quarto-extensions"
+        "command": "quartoExtensions.installExtension",
+        "title": "Quarto: Install Extension(s)"
+      },
+      {
+        "command": "quartoExtensions.showOutput",
+        "title": "Quarto: Show Quarto Extension Installer Output"
       }
     ]
   },
