@@ -13,6 +13,12 @@ interface ExtensionQuickPickItem extends vscode.QuickPickItem {
 }
 
 export function activate(context: vscode.ExtensionContext) {
+  context.subscriptions.push(
+    vscode.commands.registerCommand('quartoExtension.showOutput', () => {
+      quartoExtensionLog.show();
+    })
+  );
+
   let disposable = vscode.commands.registerCommand(
     "quartoExtensionInstaller.installExtension",
     async () => {
@@ -193,12 +199,12 @@ async function installExtensions(
   vscode.window.withProgress(
     {
       location: vscode.ProgressLocation.Notification,
-      title: "Installing selected extension(s)",
+      title: "Installing selected extension(s) ([details](command:quartoExtension.showOutput))",
       cancellable: true,
     },
     async (progress, token) => {
       token.onCancellationRequested(() => {
-        const message = "Operation cancelled by the user.";
+        const message = "Operation cancelled by the user ([details](command:quartoExtension.showOutput)).";
         quartoExtensionLog.appendLine(message);
         vscode.window.showInformationMessage(message);
       });
@@ -229,7 +235,7 @@ async function installExtensions(
       }
 
       if (installedExtensions.length > 0) {
-        quartoExtensionLog.appendLine(`\n\nSuccesfully installed extensions:`);
+        quartoExtensionLog.appendLine(`\n\nSuccessfully installed extensions:`);
         installedExtensions.forEach((ext) => {
           quartoExtensionLog.appendLine(` - ${ext}`);
         });
@@ -240,12 +246,12 @@ async function installExtensions(
         failedExtensions.forEach((ext) => {
           quartoExtensionLog.appendLine(` - ${ext}`);
         });
-        const message = "The following extensions were not installed, try installing theme manually with \`quarto add <extension>\`:"
-        vscode.window.showErrorMessage(`${message} ${failedExtensions.join(", ")}`);
+        const message = "The following extensions were not installed, try installing them manually with `quarto add <extension>`:";
+        vscode.window.showErrorMessage(`${message} ${failedExtensions.join(", ")}. See [details](command:quartoExtension.showOutput).`);
       } else {
         const message = `All selected extensions (${installedCount}) were installed successfully.`;
         quartoExtensionLog.appendLine(message);
-        vscode.window.showInformationMessage(message);
+        vscode.window.showInformationMessage(`${message} See [details](command:quartoExtension.showOutput).`);
       }
     }
   );
