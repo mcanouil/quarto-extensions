@@ -4,6 +4,12 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
+      "label": "Debug",
+      "type": "shell",
+      "command": "mkdir -p ${workspaceFolder}/debug; rm -rf ${workspaceFolder}/debug/_extensions; exit 0;",
+      "problemMatcher": []
+    },
+		{
 			"type": "npm",
 			"script": "watch",
 			"problemMatcher": "$tsc-watch",
