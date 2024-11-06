@@ -1,11 +1,12 @@
 import * as vscode from "vscode";
 import * as https from "https";
+import * as dns from 'dns';
 import { IncomingMessage } from "http";
 import { exec } from "child_process";
 
-const RECENTLY_INSTALLED_QEXT_KEY = "recentlyInstalledExtensions";
+const RECENTLY_INSTALLED_QUARTO_EXTENSIONS = "recentlyInstalledExtensions";
 
-const quartoExtensionLog = vscode.window.createOutputChannel('Quarto Extensions');
+const quartoExtensionLog = vscode.window.createOutputChannel("Quarto Extensions");
 
 interface ExtensionQuickPickItem extends vscode.QuickPickItem {
   url?: string;
@@ -15,19 +16,30 @@ export function activate(context: vscode.ExtensionContext) {
   let disposable = vscode.commands.registerCommand(
     "quartoExtensionInstaller.installExtension",
     async () => {
-      const isQuartoAvailable = await checkQuartoVersion();
-      if (!isQuartoAvailable) {
-        const message = "Quarto is not installed or not available in PATH. Please install Quarto and make sure it is available in PATH.";
+      const isConnected = await checkInternetConnection();
+      if (!isConnected) {
+        const message = "No internet connection. Please check your network settings.";
         quartoExtensionLog.appendLine(message);
         vscode.window.showErrorMessage(message);
         return;
       }
 
+      const isQuartoAvailable = await checkQuartoVersion();
+      if (!isQuartoAvailable) {
+        const message =
+          "Quarto is not installed or not available in PATH. Please install Quarto and make sure it is available in PATH.";
+        quartoExtensionLog.appendLine(message);
+        vscode.window.showErrorMessage(message);
+        return;
+      }
+
+
       const csvUrl =
         "https://raw.githubusercontent.com/mcanouil/quarto-extensions/main/extensions/quarto-extensions.csv";
       let extensionsList: string[] = [];
+      // context.globalState.update(RECENTLY_INSTALLED_QUARTO_EXTENSIONS, []);
       let recentlyInstalled: string[] = context.globalState.get(
-        RECENTLY_INSTALLED_QEXT_KEY,
+        RECENTLY_INSTALLED_QUARTO_EXTENSIONS,
         []
       );
 
@@ -66,10 +78,19 @@ export function activate(context: vscode.ExtensionContext) {
       quickPick.onDidAccept(async () => {
         const selectedExtensions = quickPick.selectedItems;
         if (selectedExtensions.length > 0) {
-          await installExtensions(
-            context,
-            selectedExtensions,
-            recentlyInstalled
+          await installExtensions(selectedExtensions);
+
+          const selectedDescriptions = selectedExtensions.map(
+            (ext) => ext.description
+          );
+          let updatedRecentlyInstalled = [
+            ...selectedDescriptions,
+            ...recentlyInstalled,
+          ];
+          updatedRecentlyInstalled = Array.from(new Set(updatedRecentlyInstalled));
+          await context.globalState.update(
+            RECENTLY_INSTALLED_QUARTO_EXTENSIONS,
+            updatedRecentlyInstalled.slice(0, 5)
           );
         }
         quickPick.hide();
@@ -79,7 +100,6 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
-  // context.globalState.update(RECENTLY_INSTALLED_QEXT_KEY, []);
   context.subscriptions.push(disposable);
 }
 
@@ -121,14 +141,13 @@ async function installQuartoExtension(extension: string): Promise<boolean> {
     exec(command, { cwd: workspaceFolder }, (error, stdout, stderr) => {
       if (stderr) {
         quartoExtensionLog.appendLine(`${stderr}`);
-      }
-      if (stdout) {
-        quartoExtensionLog.appendLine(`${stdout}`);
-      }
-      if (error) {
-        quartoExtensionLog.appendLine(`Error: ${error.message}`);
-        resolve(false);
-        return;
+        const isInstalled = stderr.includes("Extension installation complete");
+        if (isInstalled) {
+          resolve(true);
+        } else {
+          resolve(false);
+          return;
+        }
       }
       resolve(true);
     });
@@ -136,9 +155,7 @@ async function installQuartoExtension(extension: string): Promise<boolean> {
 }
 
 async function installExtensions(
-  context: vscode.ExtensionContext,
-  selectedExtensions: readonly ExtensionQuickPickItem[],
-  recentlyInstalled: string[]
+  selectedExtensions: readonly ExtensionQuickPickItem[]
 ) {
   const mutableSelectedExtensions: ExtensionQuickPickItem[] = [
     ...selectedExtensions,
@@ -146,7 +163,8 @@ async function installExtensions(
 
   const isQuartoAvailable = await checkQuartoVersion();
   if (!isQuartoAvailable) {
-    const message = "Quarto is not installed or not available in PATH. Please install Quarto and make sure it is available in PATH.";
+    const message =
+      "Quarto is not installed or not available in PATH. Please install Quarto and make sure it is available in PATH.";
     quartoExtensionLog.appendLine(message);
     vscode.window.showErrorMessage(message);
     return;
@@ -183,7 +201,7 @@ async function installExtensions(
         const message = "Operation cancelled by the user.";
         quartoExtensionLog.appendLine(message);
         vscode.window.showInformationMessage(message);
-			});
+      });
 
       const installedExtensions: string[] = [];
       const failedExtensions: string[] = [];
@@ -194,14 +212,10 @@ async function installExtensions(
         if (selectedExtension.description === undefined) {
           continue;
         }
-        const success = await installQuartoExtension(selectedExtension.description);
+        const success = await installQuartoExtension(
+          selectedExtension.description
+        );
         if (success) {
-          recentlyInstalled = [
-            selectedExtension.description,
-            ...recentlyInstalled.filter(
-              (ext) => ext !== selectedExtension.description
-            ),
-          ].slice(0, 5);
           installedExtensions.push(selectedExtension.description);
         } else {
           failedExtensions.push(selectedExtension.description);
@@ -214,25 +228,39 @@ async function installExtensions(
         });
       }
 
-      if (failedExtensions.length > 0) {
-        const message = `The following extensions were not installed, try manually with \`quarto add <extension>\`: ${failedExtensions.join(", ")}`;
-        quartoExtensionLog.appendLine(message);
-        vscode.window.showErrorMessage(message);
-      } else {
-        const message = `All selected extensions (${installedCount}) were installed successfully.`;
-        quartoExtensionLog.appendLine(message);
-        vscode.window.showInformationMessage(message);
-        quartoExtensionLog.appendLine(`\n\nInstalled Extensions:`);
+      if (installedExtensions.length > 0) {
+        quartoExtensionLog.appendLine(`\n\nSuccesfully installed extensions:`);
         installedExtensions.forEach((ext) => {
           quartoExtensionLog.appendLine(` - ${ext}`);
         });
       }
+
+      if (failedExtensions.length > 0) {
+        quartoExtensionLog.appendLine(`\n\nFailed to install extensions:`);
+        failedExtensions.forEach((ext) => {
+          quartoExtensionLog.appendLine(` - ${ext}`);
+        });
+        const message = "The following extensions were not installed, try installing theme manually with \`quarto add <extension>\`:"
+        vscode.window.showErrorMessage(`${message} ${failedExtensions.join(", ")}`);
+      } else {
+        const message = `All selected extensions (${installedCount}) were installed successfully.`;
+        quartoExtensionLog.appendLine(message);
+        vscode.window.showInformationMessage(message);
+      }
     }
   );
+}
 
-  context.globalState.update(RECENTLY_INSTALLED_QEXT_KEY, [
-    ...recentlyInstalled,
-  ]);
+function checkInternetConnection(): Promise<boolean> {
+  return new Promise((resolve) => {
+    dns.lookup('github.com', (err) => {
+      if (err && err.code === 'ENOTFOUND') {
+        resolve(false);
+      } else {
+        resolve(true);
+      }
+    });
+  });
 }
 
 function getGitHubLink(extension: string): string {
