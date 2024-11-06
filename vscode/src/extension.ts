@@ -33,7 +33,8 @@ export function activate(context: vscode.ExtensionContext) {
       );
 
       try {
-        const data = await fetchCSVFromURL(csvUrl);
+        // const data = await fetchCSVFromURL(csvUrl);
+        const data = "mcanouil/quarto-animate\nmcanouil/quarto-elevator\nmcanouil/quarto-github\nmcanouil/quarto-highlight-text"
         extensionsList = data.split("\n").filter((line) => line.trim() !== "");
       } catch (error) {
         const message = `Error fetching "quarto-extensions.csv" from ${csvUrl}`;
@@ -186,6 +187,7 @@ async function installExtensions(
         vscode.window.showInformationMessage(message);
 			});
 
+      const installedExtensions: string[] = [];
       const failedExtensions: string[] = [];
       const totalExtensions = mutableSelectedExtensions.length;
       let installedCount = 0;
@@ -194,24 +196,15 @@ async function installExtensions(
         if (selectedExtension.description === undefined) {
           continue;
         }
-
-        let success: boolean;
-
-        try {
-          await installQuartoExtension(selectedExtension.description);
-          success = true;
-        } catch {
-          success = false;
-        }
+        const success = await installQuartoExtension(selectedExtension.description);;
         if (success) {
-          if (selectedExtension.description !== undefined) {
-            recentlyInstalled = [
-              selectedExtension.description,
-              ...recentlyInstalled.filter(
-                (ext) => ext !== selectedExtension.description
-              ),
-            ].slice(0, 5);
-          }
+          recentlyInstalled = [
+            selectedExtension.description,
+            ...recentlyInstalled.filter(
+              (ext) => ext !== selectedExtension.description
+            ),
+          ].slice(0, 5);
+          installedExtensions.push(selectedExtension.description);
         } else {
           failedExtensions.push(selectedExtension.description);
         }
@@ -231,12 +224,10 @@ async function installExtensions(
         const message = `All selected extensions (${installedCount}) were installed successfully.`;
         quartoExtensionLog.appendLine(message);
         vscode.window.showInformationMessage(message);
-        // const terminal = vscode.window.terminals.find(
-        //   (t) => t.name === "quarto-extensions"
-        // );
-        // if (terminal) {
-        //   terminal.dispose();
-        // }
+        quartoExtensionLog.appendLine(`\n\nInstalled Extensions:`);
+        installedExtensions.forEach((ext) => {
+          quartoExtensionLog.appendLine(` - ${ext}`);
+        });
       }
     }
   );
