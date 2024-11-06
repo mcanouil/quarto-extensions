@@ -20,7 +20,7 @@ export function activate(context: vscode.ExtensionContext) {
   );
 
   let disposable = vscode.commands.registerCommand(
-    "quartoExtensionInstaller.installExtension",
+    "quartoExtension.installExtension",
     async () => {
       const isConnected = await checkInternetConnection();
       if (!isConnected) {
