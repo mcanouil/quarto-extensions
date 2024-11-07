@@ -65,8 +65,11 @@ export function activate(context: vscode.ExtensionContext) {
           kind: vscode.QuickPickItemKind.Separator,
         },
         ...createExtensionItems(recentlyInstalled),
-        { label: "All Extensions", kind: vscode.QuickPickItemKind.Separator },
-        ...createExtensionItems(extensionsList),
+        {
+          label: "All Extensions",
+          kind: vscode.QuickPickItemKind.Separator
+        },
+        ...createExtensionItems(extensionsList).sort((a, b) => a.label.localeCompare(b.label))
       ];
 
       const quickPick = vscode.window.createQuickPick<ExtensionQuickPickItem>();
@@ -86,14 +89,11 @@ export function activate(context: vscode.ExtensionContext) {
         if (selectedExtensions.length > 0) {
           await installExtensions(selectedExtensions);
 
-          const selectedDescriptions = selectedExtensions.map(
-            (ext) => ext.description
-          );
+          const selectedDescriptions = selectedExtensions.map((ext) => ext.description);
           let updatedRecentlyInstalled = [
             ...selectedDescriptions,
-            ...recentlyInstalled,
+            ...recentlyInstalled.filter(ext => !selectedDescriptions.includes(ext))
           ];
-          updatedRecentlyInstalled = Array.from(new Set(updatedRecentlyInstalled));
           await context.globalState.update(
             RECENTLY_INSTALLED_QUARTO_EXTENSIONS,
             updatedRecentlyInstalled.slice(0, 5)
@@ -199,12 +199,12 @@ async function installExtensions(
   vscode.window.withProgress(
     {
       location: vscode.ProgressLocation.Notification,
-      title: "Installing selected extension(s) ([details](command:quartoExtension.showOutput))",
+      title: "Installing selected extension(s) ([details](command:quartoExtensions.showOutput))",
       cancellable: true,
     },
     async (progress, token) => {
       token.onCancellationRequested(() => {
-        const message = "Operation cancelled by the user ([details](command:quartoExtension.showOutput)).";
+        const message = "Operation cancelled by the user ([details](command:quartoExtensions.showOutput)).";
         quartoExtensionsLog.appendLine(message);
         vscode.window.showInformationMessage(message);
       });
@@ -247,11 +247,11 @@ async function installExtensions(
           quartoExtensionsLog.appendLine(` - ${ext}`);
         });
         const message = "The following extensions were not installed, try installing them manually with `quarto add <extension>`:";
-        vscode.window.showErrorMessage(`${message} ${failedExtensions.join(", ")}. See [details](command:quartoExtension.showOutput).`);
+        vscode.window.showErrorMessage(`${message} ${failedExtensions.join(", ")}. See [details](command:quartoExtensions.showOutput).`);
       } else {
         const message = `All selected extensions (${installedCount}) were installed successfully.`;
         quartoExtensionsLog.appendLine(message);
-        vscode.window.showInformationMessage(`${message} See [details](command:quartoExtension.showOutput).`);
+        vscode.window.showInformationMessage(`${message} See [details](command:quartoExtensions.showOutput).`);
       }
     }
   );
@@ -298,8 +298,7 @@ function createExtensionItems(extensions: string[]): ExtensionQuickPickItem[] {
         },
       ],
       url: getGitHubLink(ext),
-    }))
-    .sort((a, b) => a.label.localeCompare(b.label));
+    }));
 }
 
 export function deactivate() {}
