@@ -19,7 +19,7 @@
 		{
       "label": "Debug",
       "type": "shell",
-      "command": "mkdir -p ${workspaceFolder}/debug; rm -rf ${workspaceFolder}/debug/_extensions; exit 0;",
+      "command": "npm run compile; mkdir -p ${workspaceFolder}/debug; rm -rf ${workspaceFolder}/debug/_extensions; exit 0;",
       "problemMatcher": []
     }
 	]
