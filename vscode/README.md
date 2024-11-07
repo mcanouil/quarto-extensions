@@ -1,7 +1,5 @@
 # Quarto Extension Installer
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
 ## Overview
 
 The **Quarto Extension Installer** is a Visual Studio Code extension that allows you to easily install Quarto extensions directly from the [Quarto Extensions Repository](https://github.com/mcanouil/quarto-extensions).
