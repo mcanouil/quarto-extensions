@@ -31,7 +31,7 @@ jobs:
           git -C _quarto-web checkout main --quiet
           find _quarto-web/docs/extensions/listings -type f -name "*.yml" ! -name "_*" \
             -exec grep -o 'path: https://github.com/.*' {} \; \
-            | sed 's/path: https:\/\/github.com\///' > _quarto-web/quarto-web-extensions.csv
+            | sed 's/path: https:\/\/github.com\///' | sed 's/blob\/[^/]*\///' > _quarto-web/quarto-web-extensions.csv
           cat "${CSV_FILE}" | cut -d'/' -f1,2 > _quarto-web/quarto-extensions.csv
           extensions_to_add=$(grep -Fvxi -f _quarto-web/quarto-extensions.csv _quarto-web/quarto-web-extensions.csv || true)
           rm -rf _quarto-web
