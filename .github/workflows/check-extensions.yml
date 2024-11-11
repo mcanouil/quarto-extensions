@@ -57,6 +57,7 @@ jobs:
             gh pr diff ${NUMBER} --patch | awk '/\+\+\+ b\/extensions\/quarto-extensions\.csv/{flag=1; next} flag && /^\+/' | sed 's/^+//' > diff.patch
             if [[ -s diff.patch ]]; then
               while IFS=, read -r repo; do
+                repo=$(echo "$repo" | cut -d'/' -f1-2)
                 repo_topics=$(gh repo view --json repositoryTopics "${repo}" --jq ".repositoryTopics")
                 if [[ -z "${repo_topics}" ]]; then
                   lineNumber=$(grep -n "${repo}" ${FILE} | cut -d: -f1)
@@ -83,6 +84,7 @@ jobs:
             gh pr diff ${NUMBER} --patch | awk '/\+\+\+ b\/extensions\/quarto-extensions\.csv/{flag=1; next} flag && /^\+/' | sed 's/^+//' > diff.patch
             if [[ -s diff.patch ]]; then
               while IFS=, read -r repo; do
+                repo=$(echo "$repo" | cut -d'/' -f1-2)
                 repo_description=$(gh repo view --json description "${repo}" --jq ".description")
                 if [[ -z "${repo_description}" ]]; then
                   lineNumber=$(grep -n "${repo}" ${FILE} | cut -d: -f1)
