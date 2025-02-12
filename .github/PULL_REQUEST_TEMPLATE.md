@@ -1,3 +1,5 @@
+<!--- Please provide a general summary of your changes in the title above -->
+
 ## Extension Submission :atom:
 
 - [ ] I have checked that the extension GitHub repository has a description.
