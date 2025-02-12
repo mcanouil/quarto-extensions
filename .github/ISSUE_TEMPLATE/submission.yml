@@ -1,0 +1,25 @@
+name: Extension Submission
+description: Submit a new Quarto extension to be added to the Quarto Extensions listing
+labels: ["Type: Valorisation :tada:"]
+assignees: mcanouil
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this extension submission form!
+  - type: input
+    id: submission
+    attributes:
+      label: Link to a Quarto extension GitHub repository
+      description: Please share a link to the GitHub repository of the Quarto extension you would like to submit
+      placeholder: https://github.com/mcanouil/quarto-iconify
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe your suggestion
+      description: Please provide a brief description of your suggestion
+      placeholder: A brief description of your suggestion
+    validations:
+      required: true
