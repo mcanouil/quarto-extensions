@@ -41,11 +41,11 @@ jobs:
           fi
           git fetch origin "${BRANCH}"
           git pull origin "${BRANCH}"
-          git checkout main -- "${CSV_FILE}"
 
-      - name: Get extensions from Quarto Website and commit
+      - name: Get extensions details
         shell: bash
         run: |
+          git checkout main -- "${CSV_FILE}"
           JSON_FILE="quarto-extensions.json"
     
           extensions_details=()
@@ -63,6 +63,6 @@ jobs:
           echo "${json_output}" > "${JSON_FILE}"
           rm -f "${CSV_FILE}"
 
-          git add "${JSON_FILE}"
-          git commit -m "${COMMIT}"
-          git push --force origin ${BRANCH}
+          git add "${JSON_FILE}" || echo "No changes to commit"
+          git commit -m "${COMMIT}" || echo "No changes to commit"
+          git push --force origin ${BRANCH} || echo "No changes to commit"
