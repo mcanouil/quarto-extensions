@@ -36,6 +36,8 @@ jobs:
             git push origin ${{ env.BRANCH }}
             git checkout ${{ env.BRANCH }}
           fi
+          git fetch origin ${{ env.BRANCH }}
+          git pull origin ${{ env.BRANCH }}
           git checkout main -- extensions/quarto-extensions.csv
 
       - name: Get extensions from Quarto Website and commit
