@@ -18,6 +18,7 @@ jobs:
       GH_TOKEN: ${{ secrets.github_token }}
       BRANCH: quarto-wizard
       COMMIT: "ci: update extensions details"
+      CSV_FILE: "extensions/quarto-extensions.csv"
     steps:
       - uses: actions/checkout@v4
 
@@ -27,23 +28,24 @@ jobs:
           git config --local user.name github-actions[bot]
           git config --local user.email 41898282+github-actions[bot]@users.noreply.github.com
           git fetch origin
-          if git show-ref --verify --quiet refs/heads/${{ env.BRANCH }}; then
-            git checkout ${{ env.BRANCH }}
+          if git show-ref --verify --quiet refs/heads/"${BRANCH}"; then
+            echo "Branch exists"
+            git checkout "${BRANCH}"
           else
-            git checkout --orphan ${{ env.BRANCH }}
+            echo "Branch does not exist"
+            git checkout --orphan "${BRANCH}"
             git rm -rf .
-            git commit --allow-empty -m "Initial commit on ${{ env.BRANCH }}"
-            git push origin ${{ env.BRANCH }}
-            git checkout ${{ env.BRANCH }}
+            git commit --allow-empty -m "ci: setup quarto-wizard branch"
+            git push origin "${BRANCH}"
+            git checkout "${BRANCH}"
           fi
-          git fetch origin ${{ env.BRANCH }}
-          git pull origin ${{ env.BRANCH }}
-          git checkout main -- extensions/quarto-extensions.csv
+          git fetch origin "${BRANCH}"
+          git pull origin "${BRANCH}"
+          git checkout main -- "${CSV_FILE}"
 
       - name: Get extensions from Quarto Website and commit
         shell: bash
         run: |
-          CSV_FILE="extensions/quarto-extensions.csv"
           JSON_FILE="quarto-extensions.json"
     
           extensions_details=()
@@ -62,5 +64,5 @@ jobs:
           rm -f "${CSV_FILE}"
 
           git add "${JSON_FILE}"
-          git commit -m "${{ env.COMMIT }}"
-          git push --force origin ${{ env.BRANCH }}
+          git commit -m "${COMMIT}"
+          git push --force origin ${BRANCH}
