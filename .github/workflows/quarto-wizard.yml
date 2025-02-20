@@ -22,7 +22,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: quarto-wizard
+          ref: ${{ env.BRANCH }}
+
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: ${{ env.CSV_FILE }}
+          sparse-checkout-cone-mode: false
 
       - name: Git Config
         shell: bash
@@ -41,7 +46,7 @@ jobs:
             echo "Branch does not exist"
             git checkout --orphan "${BRANCH}"
             git rm -rf .
-            git commit --allow-empty -m "ci: setup quarto-wizard branch"
+            git commit --allow-empty -m "ci: setup ${BRANCH} branch"
             git push --force origin "${BRANCH}"
           fi
           git checkout "${BRANCH}"
@@ -52,9 +57,7 @@ jobs:
           JSON_FILE="quarto-extensions.json"
           echo "*" > .gitignore
           echo "!${JSON_FILE}" > .gitignore
-          git checkout main -- ${CSV_FILE}
-          git rm --cached ${CSV_FILE}
-    
+
           EXTENSION_DETAILS=()
           while IFS=, read -r entry; do
             echo "Processing entry: ${entry}"
@@ -69,8 +72,8 @@ jobs:
           done < <(sort -f ${CSV_FILE})
           json_output=$(printf "%s\n" "${EXTENSION_DETAILS[@]}" | jq -s 'add')
           echo "${json_output}" > "${JSON_FILE}"
-          
-          rm -f ${CSV_FILE}
+
+          git rm -f ${CSV_FILE} || echo "No file to remove"
           git add ${JSON_FILE} || echo "No changes to commit"
-          git commit -m "${COMMIT}" || echo "No changes to commit"
-          git push --force origin ${BRANCH} || echo "No changes to commit"
+          git commit --allow-empty -m "${COMMIT}"
+          git push --force origin ${BRANCH}
