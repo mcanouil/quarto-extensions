@@ -45,23 +45,25 @@ jobs:
       - name: Get extensions details
         shell: bash
         run: |
-          git checkout main -- "${CSV_FILE}"
+          git checkout main -- ${{ env.CSV_FILE }}
           JSON_FILE="quarto-extensions.json"
     
           extensions_details=()
-          sort -f "${CSV_FILE}" | while IFS=, read -r entry; do
+          sort -f ${{ env.CSV_FILE }} | while IFS=, read -r entry; do
+            echo "Processing entry: ${entry}"
             repo=$(echo "${entry}" | cut -d'/' -f1,2)
             repo_info=$(
               gh repo view "${repo}" \
                 --json name,nameWithOwner,owner,description,stargazerCount,licenseInfo,url,latestRelease \
                 --jq '{(.nameWithOwner): {name: .name, nameWithOwner: .nameWithOwner, owner: .owner.login, description: .description, stargazerCount: .stargazerCount, licenseInfo: .licenseInfo.name, url: .url, latestRelease: .latestRelease.tagName}}'
             )
+            echo "Repo info: ${repo_info}"
             extensions_details+=("${repo_info}")
           done
 
           json_output=$(printf "%s\n" "${extensions_details[@]}" | jq -s 'add')
           echo "${json_output}" > "${JSON_FILE}"
-          rm -f "${CSV_FILE}"
+          rm -f ${{ env.CSV_FILE }}
 
           git add "${JSON_FILE}" || echo "No changes to commit"
           git commit -m "${COMMIT}" || echo "No changes to commit"
