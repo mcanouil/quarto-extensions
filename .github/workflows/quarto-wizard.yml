@@ -36,7 +36,7 @@ jobs:
             git checkout --orphan "${BRANCH}"
             git rm -rf .
             git commit --allow-empty -m "ci: setup quarto-wizard branch"
-            git push origin "${BRANCH}"
+            git push --force origin "${BRANCH}"
             git checkout "${BRANCH}"
           fi
           git fetch origin "${BRANCH}"
