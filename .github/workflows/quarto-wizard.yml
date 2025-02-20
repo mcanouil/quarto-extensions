@@ -18,7 +18,7 @@ jobs:
       GH_TOKEN: ${{ secrets.github_token }}
       BRANCH: quarto-wizard
       COMMIT: "ci: update extensions details"
-      CSV_FILE: "data/extensions/quarto-extensions.csv"
+      CSV_FILE: "extensions/quarto-extensions.csv"
     steps:
       - uses: actions/checkout@v4
         with:
@@ -70,7 +70,7 @@ jobs:
             )
             repo_info=$(echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}')
             EXTENSION_DETAILS+=("${repo_info}")
-          done < <(sort -f ${CSV_FILE})
+          done < <(sort -f data/${CSV_FILE})
           json_output=$(printf "%s\n" "${EXTENSION_DETAILS[@]}" | jq -s 'add')
           echo "${json_output}" > "${JSON_FILE}"
           git add ${JSON_FILE} || echo "No changes to commit"
