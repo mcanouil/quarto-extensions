@@ -25,7 +25,6 @@ jobs:
           ref: quarto-wizard
 
       - name: Git Config
-        if: false
         shell: bash
         run: |
           git config --local user.name github-actions[bot]
