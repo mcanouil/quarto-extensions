@@ -1,0 +1,64 @@
+name: Get Extensions Details for Quarto Wizard
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+  push:
+    branches: main
+    paths:
+      - extensions/quarto-extensions.csv
+  schedule:
+    - cron: '0 6 * * *'
+
+jobs:
+  quarto-wizard:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.github_token }}
+      BRANCH: quarto-wizard
+      COMMIT: "ci: update extensions details"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Git Config
+        shell: bash
+        run: |
+          git config --local user.name github-actions[bot]
+          git config --local user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git fetch origin
+          if git show-ref --verify --quiet refs/heads/${{ env.BRANCH }}; then
+            git checkout ${{ env.BRANCH }}
+          else
+            git checkout --orphan ${{ env.BRANCH }}
+            git rm -rf .
+            git commit --allow-empty -m "Initial commit on ${{ env.BRANCH }}"
+            git push origin ${{ env.BRANCH }}
+            git checkout ${{ env.BRANCH }}
+          fi
+          git checkout main -- extensions/quarto-extensions.csv
+
+      - name: Get extensions from Quarto Website and commit
+        shell: bash
+        run: |
+          CSV_FILE="extensions/quarto-extensions.csv"
+          JSON_FILE="quarto-extensions.json"
+    
+          extensions_details=()
+          sort -f "${CSV_FILE}" | while IFS=, read -r entry; do
+            repo=$(echo "${entry}" | cut -d'/' -f1,2)
+            repo_info=$(
+              gh repo view "${repo}" \
+                --json name,nameWithOwner,owner,description,stargazerCount,licenseInfo,url,latestRelease \
+                --jq '{(.nameWithOwner): {name: .name, nameWithOwner: .nameWithOwner, owner: .owner.login, description: .description, stargazerCount: .stargazerCount, licenseInfo: .licenseInfo.name, url: .url, latestRelease: .latestRelease.tagName}}'
+            )
+            extensions_details+=("${repo_info}")
+          done
+
+          json_output=$(printf "%s\n" "${extensions_details[@]}" | jq -s 'add')
+          echo "${json_output}" > "${JSON_FILE}"
+          rm -f "${CSV_FILE}"
+
+          git add "${JSON_FILE}"
+          git commit -m "${{ env.COMMIT }}"
+          git push --force origin ${{ env.BRANCH }}
