@@ -64,7 +64,7 @@ jobs:
           json_output=$(printf "%s\n" "${extensions_details[@]}" | jq -s 'add')
           echo "${json_output}" > "${JSON_FILE}"
           rm -f ${{ env.CSV_FILE }}
-
+          git rm -f ${{ env.CSV_FILE }}
           git add "${JSON_FILE}" || echo "No changes to commit"
           git commit -m "${COMMIT}" || echo "No changes to commit"
           git push --force origin ${BRANCH} || echo "No changes to commit"
