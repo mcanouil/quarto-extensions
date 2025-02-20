@@ -21,12 +21,20 @@ jobs:
       CSV_FILE: "extensions/quarto-extensions.csv"
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: quarto-wizard
 
       - name: Git Config
+        if: false
         shell: bash
         run: |
           git config --local user.name github-actions[bot]
           git config --local user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+      - name: Branch Setup
+        if: false
+        shell: bash
+        run: |
           git fetch --all
           if git show-ref --verify --quiet refs/heads/"${BRANCH}"; then
             echo "Branch exists"
