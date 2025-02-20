@@ -55,8 +55,9 @@ jobs:
             repo_info=$(
               gh repo view "${repo}" \
                 --json name,nameWithOwner,owner,description,stargazerCount,licenseInfo,url,latestRelease \
-                --jq '{(.nameWithOwner): {name: .name, nameWithOwner: .nameWithOwner, owner: .owner.login, description: .description, stargazerCount: .stargazerCount, licenseInfo: .licenseInfo.name, url: .url, latestRelease: .latestRelease.tagName}}'
+                --jq '{name: .name, nameWithOwner: .nameWithOwner, owner: .owner.login, description: .description, stargazerCount: .stargazerCount, licenseInfo: .licenseInfo.name, url: .url, latestRelease: .latestRelease.tagName}'
             )
+            repo_info=$(echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}')
             EXTENSION_DETAILS+=("${repo_info}")
           done < <(sort -f ${CSV_FILE})
           json_output=$(printf "%s\n" "${EXTENSION_DETAILS[@]}" | jq -s 'add')
