@@ -30,9 +30,6 @@ sort -f extensions/quarto-extensions.csv | while IFS=, read -r entry; do
       repo_release="[${repo_release#v}]($repo_release_url)"
       repo_updated=$(echo "${repo_info}" | jq -r ".latestRelease.publishedAt")
     fi
-    yaml_usage_header="\n    \n    \`\`\`{.sh filename='Terminal'}\n    quarto add "
-    yaml_usage_footer="\n    \`\`\`\n"
-    yaml_usage="${yaml_usage_header}${yaml_usage_body}${yaml_usage_footer}"
     repo_license=$(echo "${repo_info}" | jq -r ".licenseInfo.name")
     if [[ "${repo_license}" = "null" ]]; then
       repo_license="No license specified"
@@ -76,7 +73,8 @@ sort -f extensions/quarto-extensions.csv | while IFS=, read -r entry; do
       " license: \"${repo_license}\"\n" \
       " stars: \"$(printf "%05d\n" ${repo_stars})\"\n" \
       " version: \"${repo_release}\"\n" \
-      " description: |\n    ${repo_description}\n${yaml_usage}\n" \
+      " description: |\n    ${repo_description}\n" \
+      " usage: ${yaml_usage_body}\n" \
       > "${meta}"
     if [[ "${repo_owner}" == "${previous_repo_owner}" ]]; then
       count_extensions=$((count_extensions+1))

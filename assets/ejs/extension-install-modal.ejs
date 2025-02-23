@@ -1,0 +1,59 @@
+```{=html}
+<button type="button" class="btn btn-secondary" style="text-align: center;" data-bs-toggle="modal" data-bs-target="#installModal">Install</button>
+<div class="modal fade" id="installModal" tabindex="-1" aria-labelledby="installModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="installModalLabel">Install Options</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group list-group-flush"">
+          <li class="list-group-item list-group-item-action">
+```
+
+:::: {.fw-bold style="text-align: left;"}
+{{< iconify octicon:terminal >}} Manually
+:::
+
+```{.sh filename='Terminal' style="font-size: 0.8em; text-align: left;"}
+quarto add <%= item.usage %>
+```
+
+```{=html}
+          </li>
+          <li class="list-group-item list-group-item-action">
+```
+
+:::: {.fw-bold style="text-align: left;"}
+{{< iconify octicon:cloud-download >}} Using Quarto Wizard
+:::
+
+```{=html}
+            <div class="btn-group" role="group" aria-label="Quarto Wizard extension installer options">
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                onclick="window.location.href='vscode://mcanouil.quarto-wizard/install?repo=<%= item.usage %>'"
+                data-bs-toggle="tooltip" title="Install <%= item.usage %> in Visual Studio Code using Quarto Wizard extension."
+              >Visual Studio Code</button>
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                onclick="window.location.href='positron://mcanouil.quarto-wizard/install?repo=<%= item.usage %>'"
+                data-bs-toggle="tooltip" title="Install <%= item.usage %> in Positron using Quarto Wizard extension."
+              >Positron</button>
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                onclick="window.location.href='vscodium://mcanouil.quarto-wizard/install?repo=<%= item.usage %>'"
+                data-bs-toggle="tooltip" title="Install <%= item.usage %> in VSCodium using Quarto Wizard extension."
+              >VSCodium</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+```
