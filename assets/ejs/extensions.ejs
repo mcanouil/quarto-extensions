@@ -16,11 +16,9 @@ let removeLeadingZeros = function (str) {
 
 [{{< iconify octicon:mark-github-16 >}}](<%- item['github-url'] %>){.quarto-grid-link style="position: absolute; top: 0; right: 0; padding: 0.5em;"}
 
-[
-`<h5 class="no-anchor card-title listing-title">`{=html}
-<%= item.title %>
-`</h5>`{=html}
-](<%- item['github-url'] %>){.quarto-grid-link}
+```{=html}
+<h5 class="no-anchor card-title listing-title"><%= item.title %></h5>
+```
 
 :::: {.listing-categories}
 ```{=html}

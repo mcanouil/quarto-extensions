@@ -14,7 +14,10 @@ listing:
     stars: number
   field-display-names: 
     stars: Stars
-  filter-ui: true
+  filter-ui:
+    - title
+    - author
+    - description
   categories: true
   page-size: 10
   max-description-length: 500
