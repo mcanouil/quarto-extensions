@@ -9,7 +9,7 @@ on:
     paths:
       - extensions/quarto-extensions.csv
   schedule:
-    - cron: 00 12 1 * *
+    - cron: 00 8 * * *
 
 permissions:
   contents: read
