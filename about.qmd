@@ -6,17 +6,17 @@ about:
   template: trestles
   image: assets/media/quarto-extensions.png
   links:
-    - text: "{{< iconify octicon:mark-github-16 >}} GitHub"
+    - text: "{{< iconify octicon:mark-github-16 title='GitHub Source Repository' label='GitHub Source Repository' >}} GitHub"
       href: "https://github.com/mcanouil/quarto-extensions"
       aria-label: "GitHub logo linking to mcanouil/quarto-extensions repository"
-    - text: "{{< iconify simple-icons:quarto >}} Quarto"
+    - text: "{{< iconify simple-icons:quarto title='Quarto Documentation' label='Quarto Documentation' >}} Quarto"
       href: "https://quarto.org/"
       aria-label: "Quarto logo linking to quarto.org website"
 ---
 
 ::: {#quarto-extensions-about}
 ::: {.callout-note title="What is this?"}
-This is a listing of [{{< iconify simple-icons:quarto >}} Quarto](https://quarto.org) extensions using {{< iconify octicon:mark-github-16 >}} GitHub API to retrieve information from the repositories.
+This is a listing of [{{< iconify simple-icons:quarto title='Quarto Logo' label='Quarto Logo' >}} Quarto](https://quarto.org) extensions using {{< iconify octicon:mark-github-16 title='GitHub Logo' label='GitHub Logo' >}} GitHub API to retrieve information from the repositories.
 :::
 :::
 
