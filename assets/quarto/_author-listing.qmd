@@ -10,10 +10,10 @@ about:
   image-width: 9em
   image-shape: round
   links:
-    - text: "{{< iconify octicon:mark-github-16 >}} GitHub"
+    - text: "{{< iconify octicon:mark-github-16 title='GitHub Profile' label='GitHub Profile' >}} GitHub"
       href: "https://github.com/<<github-username>>"
-    - text: "[{{< iconify octicon:star-16 >}}]{style='color:#dcbe50;'} <<github-stars>> Stars"
-    - text: "{{< iconify octicon:repo-16 >}} <<extensions-count>> Extensions"
+    - text: "[{{< iconify octicon:star-16 title='Star' label='Star' >}}]{style='color:#dcbe50;'} <<github-stars>> Stars"
+    - text: "{{< iconify octicon:repo-16 title='GitHub Repository' label='GitHub Repository' >}} <<extensions-count>> Extensions"
 repo-actions: false
 listing:
   id: listing-extensions-<<github-username>>

@@ -13,9 +13,9 @@
 [<%- item.title %>]{.card-title .listing-title style="font-weight: bold;"}
 
 [
-  [{{< iconify octicon:mark-github-16 >}}](<%= item.url %>){target="_blank" style="text-decoration: none;"}
-  [{{< iconify octicon:star-16 >}}]{style='color:#dcbe50;'} <%= item.stars %>
-  {{< iconify octicon:repo-16 >}} <%= item.extensions %>
+  [{{< iconify octicon:mark-github-16 title='GitHub Profile' label='GitHub Profile' >}}](<%= item.url %>){target="_blank" style="text-decoration: none;"}
+  [{{< iconify octicon:star-16 title='Star' label='Star' >}}]{style='color:#dcbe50;'} <%= item.stars %>
+  {{< iconify octicon:repo-16 title='GitHub Repository' label='GitHub Repository' >}} <%= item.extensions %>
 ]{.card-text}
 :::
 
