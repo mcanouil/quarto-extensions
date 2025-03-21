@@ -1,6 +1,6 @@
 <!--- Please provide a general summary of your changes in the title above -->
 
-## Extension Submission :atom:
+## Extension Submission
 
 - [ ] I have checked that the extension GitHub repository has a description.
 - [ ] I have checked that the extension GitHub repository has topics.
