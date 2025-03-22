@@ -1,9 +1,3 @@
-<%
-let removeLeadingZeros = function (str) {
-  return str.replace(/^0+/, '');
-}
-%>
-
 :::: {.grid .text-center .list}
 
 <% for (const item of items) { %>
@@ -16,7 +10,7 @@ let removeLeadingZeros = function (str) {
 
 ```{=html}
 <a href="<%= item['github-url'] %>" class="no-external">
-  <img src="<%= item.image %>" class="card-img-top thumbnail-image" loading="lazy"  fig-alt="<%= item['image-alt'] %>" />
+  <img src="<%= item.image %>" class="card-img-top thumbnail-image" loading="lazy" fig-alt="<%= item['image-alt'] %>" />
 </a>
 ````
 

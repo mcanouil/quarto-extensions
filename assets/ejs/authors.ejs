@@ -7,7 +7,10 @@
 `<a href="<%- item.path %>" class="listing-extension-author no-external">`{=html}
 
 :::: {.card .hovercard}
-![](<%- item.image %>){.card-img-top loading="lazy" style="border-radius: 40%;" fig-alt="<%= item.title %> picture"}
+
+```{=html}
+<img src="<%= item.image %>" class="card-img-top" loading="lazy" style="border-radius: 40%;" fig-alt="<%= item.title %> picture" />
+````
 
 :::: {.card-body}
 [<%- item.title %>]{.card-title .listing-title style="font-weight: bold;"}
