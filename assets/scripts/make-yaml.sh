@@ -3,18 +3,19 @@
 set -e
 
 mkdir -p extensions/yaml
+mkdir -p extensions/media
 mkdir -p authors
+mkdir -p authors/media
 
 author_listing_ref="assets/quarto/_author-listing.qmd"
 previous_repo_owner=""
 
 json_file="quarto-extensions.json"
-git fetch origin quarto-wizard:quarto-wizard
-git restore --source quarto-wizard -- "${json_file}"
+# git fetch origin quarto-wizard:quarto-wizard
+# git restore --source quarto-wizard -- "${json_file}"
 
 jq -c 'to_entries[]' "${json_file}" | while read -r entry; do
   entry_repo=$(echo "${entry}" | jq -r '.key')
-  meta="extensions/yaml/${entry_repo//\//--}.yml"
 
   entry_owner=$(echo "${entry}" | jq -r '.value.owner')
   author_listing="authors/${entry_owner}.qmd"
@@ -41,9 +42,12 @@ jq -c 'to_entries[]' "${json_file}" | while read -r entry; do
     entry_release="[${entry_release#v}](${entry_release_url})"
   fi
 
+  social_image="extensions/media/${entry_repo//\//--}.png"
+  curl -s -o "${social_image}" "${entry_image}"
+
   echo -e \
     "- title: ${entry_title}\n" \
-    " image: ${entry_image}\n" \
+    " image: \"/${social_image}\"\n" \
     " image-alt: \"GitHub repository OpenGraph image for ${entry_url}\"\n" \
     " github-url: ${entry_url}\n" \
     " author: \"${entry_author}\"\n" \
@@ -56,7 +60,7 @@ jq -c 'to_entries[]' "${json_file}" | while read -r entry; do
     " version: \"${entry_release}\"\n" \
     " description: |\n    ${entry_description}\n" \
     " usage: ${yaml_usage_body}\n" \
-    > "${meta}"
+    >"extensions/yaml/${entry_repo//\//--}.yml"
 
   if [[ "${entry_owner}" == "${previous_entry_owner}" ]]; then
     count_extensions=$((count_extensions+1))
@@ -67,14 +71,18 @@ jq -c 'to_entries[]' "${json_file}" | while read -r entry; do
     count_stars=${entry_stars}
   fi
 
+  owner_image="authors/media/${entry_owner}.jpg"
+  curl -L -s -o "${owner_image}" "https://github.com/${entry_owner}.png"
+
   sed \
     -e "s/<<github-username>>/${entry_owner}/g" \
+    -e "s:<<github-username-image>>:/${owner_image}:g" \
     -e "s/<<github-stars>>/${count_stars}/g" \
     -e "s/<<github-stars-string>>/$(printf "%05d\n" ${count_stars})/g" \
     -e "s/<<extensions-count>>/${count_extensions}/g" \
     -e "s:<<github-repo>>:${entry_repo}:g" \
     -e "s/<<github-name>>/${entry_author}/g" \
-    "${author_listing_ref}" > "${author_listing}"
+    "${author_listing_ref}" >"${author_listing}"
 done
 
 echo -e "extensions: $(wc -l < extensions/quarto-extensions.csv | tr -d ' ')\nauthors: $(ls -1 authors | wc -l | tr -d ' ')" > _variables.yml

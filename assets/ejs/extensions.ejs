@@ -12,17 +12,13 @@ let removeLeadingZeros = function (str) {
 
 :::: {.quarto-grid-item .card .h-100 .card-center .hovercard-extension}
 
-<% if (item['github-open-graph']) { %>
-
 <% if (item.image) { %>
 
-::: {.card-img-top}
-
-[![](<%= item.image %>){.card-img-top .thumbnail-image loading="lazy" fig-alt="<%= item['image-alt'] %>"}](<%= item['github-url'] %>){.no-external}
-
-:::
-
-<% } %>
+```{=html}
+<a href="<%= item['github-url'] %>" class="no-external">
+  <img src="<%= item.image %>" class="card-img-top thumbnail-image" loading="lazy"  fig-alt="<%= item['image-alt'] %>" />
+</a>
+````
 
 <% } %>
 
