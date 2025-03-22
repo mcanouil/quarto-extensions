@@ -65,14 +65,39 @@ jobs:
             repo=$(echo "${entry}" | cut -d'/' -f1,2)
             repo_info=$(
               gh repo view "${repo}" \
-                --json name,nameWithOwner,owner,description,stargazerCount,licenseInfo,url,latestRelease \
-                --jq '{name: .name, nameWithOwner: .nameWithOwner, owner: .owner.login, description: .description, stargazerCount: .stargazerCount, licenseInfo: .licenseInfo.name, url: .url, latestRelease: .latestRelease.tagName}'
+                --json name,nameWithOwner,owner,description,openGraphImageUrl,stargazerCount,licenseInfo,url,latestRelease,createdAt,updatedAt,repositoryTopics,defaultBranchRef \
+                --jq '{
+                  name: .name,
+                  title: (.name | split("-|_"; "") | map(select(. != "quarto" and . != "template")) | join(" ") | ascii_upcase),
+                  nameWithOwner: .nameWithOwner,
+                  owner: .owner.login,
+                  description: (.description // "No description available."),
+                  openGraphImageUrl: .openGraphImageUrl,
+                  stargazerCount: (.stargazerCount // 0),
+                  licenseInfo: (.licenseInfo.name // "No license specified."),
+                  url: .url,
+                  latestRelease: .latestRelease.tagName,
+                  latestReleaseUrl: .latestRelease.url,
+                  createdAt: .createdAt,
+                  updatedAt: .updatedAt,
+                  defaultBranchRef: .defaultBranchRef.name,
+                  repositoryTopics: (if .repositoryTopics == null then [] else 
+                  [.repositoryTopics[].name | 
+                    sub("^quarto-"; "") | 
+                    sub("-template[s]*"; "") | 
+                    if test("filters$|formats$|journals$") then sub("s$"; "") else . end | 
+                    sub("reveal-js"; "reveal.js") | 
+                    sub("revealjs"; "reveal.js") | 
+                    select(test("quarto|extension|^pub$") | not)] | unique 
+                  end)
+                }'
             )
             repo_info=$(echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}')
             EXTENSION_DETAILS+=("${repo_info}")
           done < <(sort -f data/${CSV_FILE})
           json_output=$(printf "%s\n" "${EXTENSION_DETAILS[@]}" | jq -s 'add')
           echo "${json_output}" > "${JSON_FILE}"
+
           git add ${JSON_FILE} || echo "No changes to commit"
           git commit --allow-empty -m "${COMMIT}"
           git push --force origin ${BRANCH}
