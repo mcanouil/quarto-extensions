@@ -92,6 +92,12 @@ jobs:
                   end)
                 }'
             )
+            owner=$(echo "${repo_info}" | jq -r ".owner")
+            author=$(gh api "users/${owner}" --jq ".name")
+            if [[ -z "${author}" ]]; then
+              author="${owner}"
+            fi
+            repo_info=$(echo "${repo_info}" | jq --arg author "${author}" '. + {author: $author}')
             repo_info=$(echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}')
             EXTENSION_DETAILS+=("${repo_info}")
           done < <(sort -f data/${CSV_FILE})
