@@ -11,8 +11,8 @@ author_listing_ref="assets/quarto/_author-listing.qmd"
 previous_repo_owner=""
 
 json_file="quarto-extensions.json"
-# git fetch origin quarto-wizard:quarto-wizard
-# git restore --source quarto-wizard -- "${json_file}"
+git fetch origin quarto-wizard:quarto-wizard
+git restore --source quarto-wizard -- "${json_file}"
 
 jq -c 'to_entries[]' "${json_file}" | while read -r entry; do
   entry_repo=$(echo "${entry}" | jq -r '.key')
