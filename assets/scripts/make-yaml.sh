@@ -43,7 +43,20 @@ jq -c 'to_entries[]' "${json_file}" | while read -r entry; do
   fi
 
   social_image="extensions/media/${entry_repo//\//--}.png"
-  curl -s -o "${social_image}" "${entry_image}"
+  attempt=0
+  while [[ $attempt -lt 3 ]]; do
+    curl -s -o "${social_image}" "${entry_image}"
+    mime_type=$(file --mime-type -b "${social_image}")
+    if [[ "${mime_type}" == "image/png" ]]; then
+      break
+    fi
+    if [[ "${mime_type}" != "image/png" ]]; then
+      echo "Error: ${entry_repo} image is not a PNG file"
+      rm -f "${social_image}"
+    fi
+    attempt=$((attempt + 1))
+    sleep 1
+  done
 
   echo -e \
     "- title: ${entry_title}\n" \
@@ -71,8 +84,16 @@ jq -c 'to_entries[]' "${json_file}" | while read -r entry; do
     count_stars=${entry_stars}
   fi
 
-  owner_image="authors/media/${entry_owner}.jpg"
+  owner_image="authors/media/${entry_owner}"
   curl -L -s -o "${owner_image}" "https://github.com/${entry_owner}.png"
+  mime_type=$(file --mime-type -b "${owner_image}")
+  case "${mime_type}" in
+    image/jpeg) extension="jpg" ;;
+    image/png) extension="png" ;;
+    *) extension="png" ;; # Default for unknown types
+  esac
+  mv "${owner_image}" "${owner_image}.${extension}"
+  owner_image="${owner_image}.${extension}"
 
   sed \
     -e "s/<<github-username>>/${entry_owner}/g" \
