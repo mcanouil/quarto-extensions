@@ -50,7 +50,7 @@ let removeLeadingZeros = function (str) {
   <tr><td>License</td><td class="listing-license"><%= item.license %></td></tr>
   <tr><td>Stars</td><td class="listing-stars">
     [
-      [{{< iconify octicon:star-16 title="Star" label="Star" >}}]{style='color:#dcbe50;'} <%= removeLeadingZeros(item.stars) %>
+      [{{< iconify octicon:star-16 title="Star" label="Star" >}}]{style='color:#dcbe50;'} <%= item.stars %>
     ](<%- item['github-url'] %>/stargazers)
   </td></tr>
   <tr><td>Version</td><td class="listing-version"><%= item.version %></td></tr>
