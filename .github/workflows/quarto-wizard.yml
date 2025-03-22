@@ -70,7 +70,7 @@ jobs:
                   name: .name,
                   title: (.name | split("-|_"; "") | map(select(. != "quarto" and . != "template")) | join(" ") | ascii_upcase),
                   nameWithOwner: (.nameWithOwner | ascii_downcase),
-                  owner: .owner.login,
+                  owner: (.owner.login | ascii_downcase),
                   description: (.description // "No description available."),
                   openGraphImageUrl: .openGraphImageUrl,
                   stargazerCount: (.stargazerCount // 0),
