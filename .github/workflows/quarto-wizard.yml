@@ -59,6 +59,9 @@ jobs:
           echo "*" > .gitignore
           echo "!${JSON_FILE}" > .gitignore
 
+          previous_owner=""
+          previous_author=""
+
           EXTENSION_DETAILS=()
           while IFS=, read -r entry; do
             echo "Processing entry: ${entry}"
@@ -93,9 +96,15 @@ jobs:
                 }'
             )
             owner=$(echo "${repo_info}" | jq -r ".owner")
-            author=$(gh api "users/${owner}" --jq ".name")
-            if [[ -z "${author}" ]]; then
-              author="${owner}"
+            if [[ "${owner}" == "${previous_owner}" ]]; then
+              author="${previous_author}"
+            else
+              author=$(gh api "users/${owner}" --jq ".name")
+              if [[ -z "${author}" ]]; then
+                author="${owner}"
+              fi
+              previous_owner="${owner}"
+              previous_author="${author}"
             fi
             repo_info=$(echo "${repo_info}" | jq --arg author "${author}" '. + {author: $author}')
             repo_info=$(echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}')
