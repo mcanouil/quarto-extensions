@@ -9,7 +9,7 @@ on:
     paths:
       - extensions/quarto-extensions.csv
   schedule:
-    - cron: '0 6 * * *'
+    - cron: "0 6 * * *"
 
 jobs:
   quarto-wizard:
