@@ -12,6 +12,20 @@ let removeLeadingZeros = function (str) {
 
 :::: {.quarto-grid-item .card .h-100 .card-center .hovercard-extension}
 
+<% if (item['github-open-graph']) { %>
+
+<% if (item.image) { %>
+
+::: {.card-img-top}
+
+[![](<%= item.image %>){.card-img-top .thumbnail-image loading="lazy" fig-alt="<%= item['image-alt'] %>"}](<%= item['github-url'] %>){.no-external}
+
+:::
+
+<% } %>
+
+<% } %>
+
 :::: {.card-body .post-contents}
 
 [{{< iconify octicon:mark-github-16 title="GitHub Repository" label="GitHub Repository" >}}](<%- item['github-url'] %>){#github-link .quarto-grid-link style="position: absolute; top: 0; right: 0; padding: 0.5em;"}
