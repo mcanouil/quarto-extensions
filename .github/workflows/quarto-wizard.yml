@@ -71,7 +71,7 @@ jobs:
                   title: (.name | split("-|_"; "") | map(select(. != "quarto" and . != "template")) | join(" ") | ascii_upcase),
                   nameWithOwner: (.nameWithOwner | ascii_downcase),
                   owner: (.owner.login | ascii_downcase),
-                  description: (.description // "No description available."),
+                  description: (if .description == "" then "No description available." else .description end),
                   openGraphImageUrl: .openGraphImageUrl,
                   stargazerCount: (.stargazerCount // 0),
                   licenseInfo: (.licenseInfo.name // "none"),
