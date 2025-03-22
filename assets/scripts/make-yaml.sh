@@ -17,6 +17,12 @@ git restore --source quarto-wizard -- "${json_file}"
 jq -c 'to_entries[]' "${json_file}" | while read -r entry; do
   entry_repo=$(echo "${entry}" | jq -r '.key')
 
+  repo_key=$(echo "${entry}" | jq -r '.key' | cut -d'/' -f1,2)
+  repo_api=$(echo "${entry}" | jq -r '.value.nameWithOwner')
+  if [[ "${repo_api}" != "${repo_key}" ]]; then
+    echo "::error file=${json_file},title=Outdated Entry::Key \"${repo_key}\" does not match repository name \"${repo_key}\""
+  fi
+
   entry_owner=$(echo "${entry}" | jq -r '.value.owner')
   author_listing="authors/${entry_owner}.qmd"
 
