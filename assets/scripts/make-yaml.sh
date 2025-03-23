@@ -57,7 +57,7 @@ jq -c 'to_entries[]' "${json_file}" | while read -r entry; do
       break
     fi
     if [[ "${mime_type}" != "image/png" ]]; then
-      echo "Error: ${entry_repo} image is not a PNG file"
+      echo "Note: ${entry_repo} image is not a PNG file"
       rm -f "${social_image}"
     fi
     attempt=$((attempt + 1))
