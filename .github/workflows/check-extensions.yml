@@ -124,3 +124,26 @@ jobs:
               exit 1
             fi
           fi
+  check-redirection:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for release/tag
+        shell: bash
+        run: |
+          FILE="extensions/quarto-extensions.csv"
+          error=false
+          while IFS=, read -r entry; do
+            repo=$(echo "${repo}" | cut -d'/' -f1-2)
+            if curl -I -s "https://github.com/${repo}" | grep -q "HTTP/.* 30[127]"; then
+              redirection_target=$(curl -Ls -o /dev/null -w "%{url_effective}" "https://github.com/${repo}")
+              redirection_target=${redirection_target#"https://github.com/"}
+              error_message="Repository \"${repo}\" is a redirected to \"${redirection_target}\"\!"
+              lineNumber=$(grep -n "${repo}" ${FILE} | cut -d: -f1)
+              echo "::error file=${FILE},line=${lineNumber},endLine=${lineNumber}::${error_message}"
+              error=true
+            fi
+          done < <(sort -f "${FILE}")
+          if [[ "${error}" = true ]]; then
+            exit 1
+          fi
