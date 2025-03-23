@@ -39,7 +39,7 @@ while IFS=, read -r entry; do
         [.repositoryTopics[].name |
           sub("^quarto-"; "") |
           sub("-template[s]*"; "") |
-          if test("filters$|formats$|journals$") then sub("s$"; "") else . end |
+          if test("filters$|formats$|journals$|templates|shortcodes$|extensions$") then sub("s$"; "") else . end |
           sub("reveal-js"; "reveal.js") |
           sub("revealjs"; "reveal.js") |
           select(test("quarto|extension|template|^pub$") | not)] | unique
