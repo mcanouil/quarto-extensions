@@ -90,16 +90,22 @@ jq -c 'to_entries[]' "${json_file}" | while read -r entry; do
     count_stars=${entry_stars}
   fi
 
-  owner_image="authors/media/${entry_owner}"
-  curl -L -s -o "${owner_image}" "https://github.com/${entry_owner}.png"
-  mime_type=$(file --mime-type -b "${owner_image}")
-  case "${mime_type}" in
-    image/jpeg) extension="jpg" ;;
-    image/png) extension="png" ;;
-    *) extension="png" ;; # Default for unknown types
-  esac
-  mv "${owner_image}" "${owner_image}.${extension}"
-  owner_image="${owner_image}.${extension}"
+  if [[ -f "${owner_image}.png" ]]; then
+    owner_image="${owner_image}.png"
+  elif [[ -f "${owner_image}.jpg" ]]; then
+    owner_image="${owner_image}.jpg"
+  else
+    owner_image="authors/media/${entry_owner}"
+    curl -L -s -o "${owner_image}" "https://github.com/${entry_owner}.png"
+    mime_type=$(file --mime-type -b "${owner_image}")
+    case "${mime_type}" in
+      image/jpeg) extension="jpg" ;;
+      image/png) extension="png" ;;
+      *) extension="png" ;; # Default for unknown types
+    esac
+    mv "${owner_image}" "${owner_image}.${extension}"
+    owner_image="${owner_image}.${extension}"
+  fi
 
   sed \
     -e "s/<<github-username>>/${entry_owner}/g" \
