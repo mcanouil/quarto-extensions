@@ -42,10 +42,11 @@ while IFS=, read -r entry; do
           if test("filters$|formats$|journals$") then sub("s$"; "") else . end |
           sub("reveal-js"; "reveal.js") |
           sub("revealjs"; "reveal.js") |
-          select(test("quarto|extension|^pub$") | not)] | unique
+          select(test("quarto|extension|template|^pub$") | not)] | unique
         end)
       }'
   )
+
   owner=$(echo "${repo_info}" | jq -r ".owner")
   if [[ "${owner}" == "${previous_owner}" ]]; then
     author="${previous_author}"
@@ -58,6 +59,22 @@ while IFS=, read -r entry; do
     previous_author="${author}"
   fi
   repo_info=$(echo "${repo_info}" | jq --arg author "${author}" '. + {author: $author}')
+
+  repo_subdirectory=$(echo "${entry}" | cut -d'/' -f3-)
+  if [[ -n "${repo_subdirectory}" ]]; then
+    repo_subdirectory="${repo_subdirectory}/"
+    repo_recursive="?recursive=1"
+  fi
+  repo_branch=$(echo "${repo_info}" | jq -r ".defaultBranchRef")
+  repo_template=$(
+    gh api \
+    -X GET "repos/${repo}/git/trees/${repo_branch}${repo_recursive}" \
+    --jq ".tree[] | select(.path | endswith(\"${repo_subdirectory}template.qmd\")) | .path"
+  )
+  if [[ "${repo_template}" == "template.qmd" ]]; then
+    repo_info=$(echo "${repo_info}" | jq '. + {template: true} | .repositoryTopics += ["template"]')
+  fi
+
   repo_info=$(echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}')
   EXTENSION_DETAILS+=("${repo_info}")
 done < <(sort -f data/${CSV_FILE})
