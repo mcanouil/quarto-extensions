@@ -2,6 +2,10 @@
 
 set -e
 
+BRANCH=${BRANCH:-"quarto-wizard"}
+COMMIT=${COMMIT:-"ci: update extensions details"}
+CSV_FILE=${CSV_FILE:-"extensions/quarto-extensions.csv"}
+
 JSON_FILE="quarto-extensions.json"
 echo "*" > .gitignore
 echo "!${JSON_FILE}" > .gitignore
