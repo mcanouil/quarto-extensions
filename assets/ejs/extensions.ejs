@@ -39,7 +39,11 @@
 <%= item.description %>
 :::
 
+<% if (item.template === true) { %>
+<% partial("extension-install-modal.ejs", { item }) %><% partial("extension-use-modal.ejs", { item }) %>
+<% } else { %>
 <% partial("extension-install-modal.ejs", { item }) %>
+<% } %>
 
 :::
 

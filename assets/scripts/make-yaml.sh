@@ -35,6 +35,7 @@ jq -c 'to_entries[]' "${json_file}" | while read -r entry; do
   entry_stars=$(echo "${entry}" | jq -r '.value.stargazerCount')
   entry_image=$(echo "${entry}" | jq -r '.value.openGraphImageUrl')
   entry_author=$(echo "${entry}" | jq -r '.value.author')
+  entry_template=$(echo "${entry}" | jq -r '.value.template')
 
   entry_description=$(echo "${entry}" | jq -r '.value.description')
   entry_description=$(echo "${entry_description}" | sed 's/^[[:space:]]*//')
@@ -79,6 +80,7 @@ jq -c 'to_entries[]' "${json_file}" | while read -r entry; do
     " version: \"${entry_release}\"\n" \
     " description: |\n    ${entry_description}\n" \
     " usage: ${yaml_usage_body}\n" \
+    " template: ${entry_template}\n" \
     >"extensions/yaml/${entry_repo//\//--}.yml"
 
   if [[ "${entry_owner}" == "${previous_entry_owner}" ]]; then
