@@ -9,7 +9,7 @@
 <% if (item.image) { %>
 
 ```{=html}
-<a href="<%= item['github-url'] %>" class="no-external">
+<a href="<%= item['github-url'] %>" class="no-external" target="_blank">
   <img src="<%= item.image %>" class="card-img-top thumbnail-image" loading="lazy" fig-alt="<%= item['image-alt'] %>" />
 </a>
 ````
@@ -18,10 +18,10 @@
 
 :::: {.card-body .post-contents}
 
-[{{< iconify octicon:mark-github-16 title="GitHub Repository" label="GitHub Repository" >}}](<%- item['github-url'] %>){#github-link .quarto-grid-link style="position: absolute; top: 0; right: 0; padding: 0.5em;"}
+[{{< iconify octicon:mark-github-16 title="GitHub Repository" label="GitHub Repository" >}}](<%- item['github-url'] %>){#github-link .quarto-grid-link .no-external target="_blank" style="position: absolute; top: 0; right: 0; padding: 0.5em;"}
 
 ```{=html}
-<a href="<%= item['github-url'] %>" class="no-external">
+<a href="<%= item['github-url'] %>" class="no-external" target="_blank">
   <h5 class="no-anchor card-title listing-title"><%= item.title %></h5>
 </a>
 ```
