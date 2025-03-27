@@ -73,7 +73,7 @@ jobs:
               done
             done <<< "${duplicates}"
           fi
-          if [[ "${error}" = true ]]; then
+          if [[ "${error}" == "true" ]]; then
             exit 1
           fi
       - name: End of check
@@ -106,7 +106,7 @@ jobs:
               fi
             done < diff.patch
           fi
-          if [[ "${error}" = true ]]; then
+          if [[ "${error}" == "true" ]]; then
             exit 1
           fi
       - name: End of check
@@ -139,7 +139,7 @@ jobs:
               fi
             done < diff.patch
           fi
-          if [[ "${error}" = true ]]; then
+          if [[ "${error}" == "true" ]]; then
             exit 1
           fi
       - name: End of check
@@ -172,7 +172,7 @@ jobs:
               fi
             done < diff.patch
           fi
-          if [[ "${error}" = true ]]; then
+          if [[ "${error}" == "true" ]]; then
             exit 1
           fi
       - name: End of check
@@ -205,7 +205,7 @@ jobs:
               error=true
             fi
           done < <(sort -f "${CSV_FILE}")
-          if [[ "${error}" = true ]]; then
+          if [[ "${error}" == "true" ]]; then
             exit 1
           fi
       - name: End of check
