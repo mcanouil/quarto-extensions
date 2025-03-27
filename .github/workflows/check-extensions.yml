@@ -36,13 +36,10 @@ jobs:
           base_ref: ${{ github.event.pull_request.base.ref }}
         shell: bash
         run: |
-          diff=$(git diff --name-only ${base_sha} ${head_sha})
-          echo "::notice::Diff: ${diff}"
-          extension_submitted=$(grep "${CSV_FILE}" <<<"${diff}")
-          if [[ -z "${extension_submitted}" ]]; then
-            echo "::notice::No changes to ${CSV_FILE} found."
-            echo "SUBMISSION=false" >>"${GITHUB_OUTPUT}"
-          else
+          extension_submitted=$(
+            git diff --name-only ${base_sha} ${head_sha} | grep "${CSV_FILE}" || false
+          )
+          if [[ "${extension_submitted}" == "true" ]]; then
             echo "::notice::Changes to ${CSV_FILE} found!"
             echo "SUBMISSION=true" >>"${GITHUB_OUTPUT}"
             git fetch origin ${base_ref} --depth=1
@@ -50,6 +47,9 @@ jobs:
               git diff origin/${base_ref} HEAD -- ${CSV_FILE} | grep '^+[^+]' | sed 's/^+//' | base64 --wrap=0
             )
             echo "DIFF=${DIFF}" >>"${GITHUB_OUTPUT}"
+          else
+            echo "::notice::No changes to ${CSV_FILE} found"
+            echo "SUBMISSION=false" >>"${GITHUB_OUTPUT}"
           fi
 
   check-duplicate:
