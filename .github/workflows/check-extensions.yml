@@ -40,9 +40,10 @@ jobs:
             git diff --name-only ${base_sha} ${head_sha} | grep "${CSV_FILE}"
           )
           if [[ -z "${extension_submitted}" ]]; then
+            echo "::notice::No changes to ${CSV_FILE} found."
             echo "SUBMISSION=false" >>"${GITHUB_OUTPUT}"
-            echo "DIFF=false" >>"${GITHUB_OUTPUT}"
           else
+            echo "::notice::Changes to ${CSV_FILE} found!"
             echo "SUBMISSION=true" >>"${GITHUB_OUTPUT}"
             git fetch origin ${base_ref} --depth=1
             DIFF=$(
