@@ -12,126 +12,186 @@ permissions:
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   NUMBER: ${{ github.event.pull_request.number }}
+  CSV_FILE: "extensions/quarto-extensions.csv"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}
   cancel-in-progress: true
 
 jobs:
+  check-submission:
+    runs-on: ubuntu-latest
+    outputs:
+      submission: ${{ steps.check-submission.outputs.SUBMISSION }}
+      diff: ${{ steps.check-submission.outputs.DIFF }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Check for submission
+        id: check-submission
+        env:
+          base_sha: ${{ github.event.pull_request.base.sha }}
+          head_sha: ${{ github.event.pull_request.head.sha }}
+        shell: bash
+        run: |
+          extension_submitted=$(
+            git diff --name-only ${base_sha} ${head_sha} | grep "${CSV_FILE}"
+          )
+          if [[ -z "${extension_submitted}" ]]; then
+            echo "SUBMISSION=false" >> $GITHUB_OUTPUTS
+          else
+            echo "SUBMISSION=true" >> $GITHUB_OUTPUTS
+          fi
+
+          git fetch origin ${{ github.event.pull_request.base.ref }} --depth=1
+          DIFF=$(
+            git diff origin/${{ github.event.pull_request.base.ref }} HEAD -- ${CSV_FILE} | grep '^+' | sed 's/^+//' | base64 --wrap=0
+          )
+          echo "DIFF=${DIFF}" >> $GITHUB_OUTPUT
+
   check-duplicate:
     runs-on: ubuntu-latest
+    needs: check-submission
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
       - name: Check for duplicates
+        if: needs.check-submission.outputs.submission == 'true'
         shell: bash
         run: |
-          FILE="extensions/quarto-extensions.csv"
           error=false
-          add_extension=$(gh pr view "${NUMBER}" --json files --jq ".files[] | select(.path == \"${FILE}\")")
-          if [[ -n "${add_extension}" ]]; then
-            duplicates=$(sort -f "${FILE}" | uniq -di)
-            if [[ -n "${duplicates}" ]]; then
-              while read -r duplicate; do
-                grep -n "${duplicate}" "${FILE}" | tail -n +2 | while read -r line ; do
-                  lineNumber=$(echo ${line} | cut -d: -f1)
-                  echo "::error file=${FILE},line=${lineNumber},endLine=${lineNumber},title=Duplicate Entry::Duplicate value \"${duplicate}\" found"
-                  error=true
-                done
-              done <<< "${duplicates}"
-            fi
-            if [[ "${error}" = true ]]; then
-              exit 1
-            fi
+          duplicates=$(sort -f "${CSV_FILE}" | uniq -di)
+          if [[ -n "${duplicates}" ]]; then
+            while read -r duplicate; do
+              grep -n "${duplicate}" "${CSV_FILE}" | tail -n +2 | while read -r line ; do
+                lineNumber=$(echo ${line} | cut -d: -f1)
+                echo "::error file=${CSV_FILE},line=${lineNumber},endLine=${lineNumber},title=Duplicate Entry::Duplicate value \"${duplicate}\" found"
+                error=true
+              done
+            done <<< "${duplicates}"
           fi
+          if [[ "${error}" = true ]]; then
+            exit 1
+          fi
+      - name: End of check
+        if: needs.check-submission.outputs.submission == 'false'
+        shell: bash
+        run: |
+          echo "No changes to ${CSV_FILE} found"
+          exit 0
+
   check-topics:
     runs-on: ubuntu-latest
+    needs: check-submission
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
       - name: Check for topics
+        if: needs.check-submission.outputs.submission == 'true'
         shell: bash
         run: |
-          FILE="extensions/quarto-extensions.csv"
-          error=false
-          add_extension=$(gh pr view "${NUMBER}" --json files --jq ".files[] | select(.path == \"${FILE}\")")
-          if [[ -n "${add_extension}" ]]; then
-            gh pr diff ${NUMBER} --patch | awk '/\+\+\+ b\/extensions\/quarto-extensions\.csv/{flag=1; next} flag && /^\+/' | sed 's/^+//' > diff.patch
-            if [[ -s diff.patch ]]; then
-              while IFS=, read -r repo; do
-                repo=$(echo "$repo" | cut -d'/' -f1-2)
-                repo_topics=$(gh repo view --json repositoryTopics "${repo}" --jq ".repositoryTopics")
-                if [[ -z "${repo_topics}" ]]; then
-                  lineNumber=$(grep -n "${repo}" ${FILE} | cut -d: -f1)
-                  echo "::error file=${FILE},line=${lineNumber},endLine=${lineNumber}::Repository \"${repo}\" is missing topics!"
-                  error=true
-                fi
-              done < diff.patch
-            fi
-            if [[ "${error}" = true ]]; then
-              exit 1
-            fi
+          echo ${{ needs.check-submission.outputs.diff }} | base64 --decode > diff.patch
+          if [[ -s diff.patch ]]; then
+            while IFS=, read -r repo; do
+              repo=$(echo "$repo" | cut -d'/' -f1-2)
+              repo_topics=$(gh repo view --json repositoryTopics "${repo}" --jq ".repositoryTopics")
+              if [[ -z "${repo_topics}" ]]; then
+                lineNumber=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1)
+                echo "::error file=${CSV_FILE},line=${lineNumber},endLine=${lineNumber}::Repository \"${repo}\" is missing topics!"
+                error=true
+              fi
+            done < diff.patch
           fi
+          if [[ "${error}" = true ]]; then
+            exit 1
+          fi
+      - name: End of check
+        if: needs.check-submission.outputs.submission == 'false'
+        shell: bash
+        run: |
+          echo "No changes to ${CSV_FILE} found"
+          exit 0
+  
   check-description:
     runs-on: ubuntu-latest
+    needs: check-submission
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
       - name: Check for description
+        if: needs.check-submission.outputs.submission == 'true'
         shell: bash
         run: |
-          FILE="extensions/quarto-extensions.csv"
-          error=false
-          add_extension=$(gh pr view "${NUMBER}" --json files --jq ".files[] | select(.path == \"${FILE}\")")
-          if [[ -n "${add_extension}" ]]; then
-            gh pr diff ${NUMBER} --patch | awk '/\+\+\+ b\/extensions\/quarto-extensions\.csv/{flag=1; next} flag && /^\+/' | sed 's/^+//' > diff.patch
-            if [[ -s diff.patch ]]; then
-              while IFS=, read -r repo; do
-                repo=$(echo "$repo" | cut -d'/' -f1-2)
-                repo_description=$(gh repo view --json description "${repo}" --jq ".description")
-                if [[ -z "${repo_description}" ]]; then
-                  lineNumber=$(grep -n "${repo}" ${FILE} | cut -d: -f1)
-                  echo "::error file=${FILE},line=${lineNumber},endLine=${lineNumber}::Repository \"${repo}\" is missing description!"
-                  error=true
-                fi
-              done < diff.patch
-            fi
-            if [[ "${error}" = true ]]; then
-              exit 1
-            fi
+          echo ${{ needs.check-submission.outputs.diff }} | base64 --decode > diff.patch
+          if [[ -s diff.patch ]]; then
+            while IFS=, read -r repo; do
+              repo=$(echo "$repo" | cut -d'/' -f1-2)
+              repo_description=$(gh repo view --json description "${repo}" --jq ".description")
+              if [[ -z "${repo_description}" ]]; then
+                lineNumber=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1)
+                echo "::error file=${CSV_FILE},line=${lineNumber},endLine=${lineNumber}::Repository \"${repo}\" is missing description!"
+                error=true
+              fi
+            done < diff.patch
           fi
+          if [[ "${error}" = true ]]; then
+            exit 1
+          fi
+      - name: End of check
+        if: needs.check-submission.outputs.submission == 'false'
+        shell: bash
+        run: |
+          echo "No changes to ${CSV_FILE} found"
+          exit 0
+  
   check-release:
     runs-on: ubuntu-latest
+    needs: check-submission
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
       - name: Check for release/tag
+        if: needs.check-submission.outputs.submission == 'true'
         shell: bash
         run: |
-          FILE="extensions/quarto-extensions.csv"
-          error=false
-          add_extension=$(gh pr view "${NUMBER}" --json files --jq ".files[] | select(.path == \"${FILE}\")")
-          if [[ -n "${add_extension}" ]]; then
-            gh pr diff ${NUMBER} --patch | awk '/\+\+\+ b\/extensions\/quarto-extensions\.csv/{flag=1; next} flag && /^\+/' | sed 's/^+//' > diff.patch
-            if [[ -s diff.patch ]]; then
-              while IFS=, read -r repo; do
-                repo=$(echo "$repo" | cut -d'/' -f1-2)
-                repo_release=$(gh repo view --json latestRelease "${repo}" --jq ".latestRelease")
-                if [[ -z "${repo_release}" ]]; then
-                  lineNumber=$(grep -n "${repo}" ${FILE} | cut -d: -f1)
-                  echo "::error file=${FILE},line=${lineNumber},endLine=${lineNumber}::Repository \"${repo}\" is missing release/tag!"
-                  error=true
-                fi
-              done < diff.patch
-            fi
-            if [[ "${error}" = true ]]; then
-              exit 1
-            fi
+          echo ${{ needs.check-submission.outputs.diff }} | base64 --decode > diff.patch
+          if [[ -s diff.patch ]]; then
+            while IFS=, read -r repo; do
+              repo=$(echo "$repo" | cut -d'/' -f1-2)
+              repo_release=$(gh repo view --json latestRelease "${repo}" --jq ".latestRelease")
+              if [[ -z "${repo_release}" ]]; then
+                lineNumber=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1)
+                echo "::error file=${CSV_FILE},line=${lineNumber},endLine=${lineNumber}::Repository \"${repo}\" is missing release/tag!"
+                error=true
+              fi
+            done < diff.patch
           fi
+          if [[ "${error}" = true ]]; then
+            exit 1
+          fi
+      - name: End of check
+        if: needs.check-submission.outputs.submission == 'false'
+        shell: bash
+        run: |
+          echo "No changes to ${CSV_FILE} found"
+          exit 0
+
   check-redirection:
     runs-on: ubuntu-latest
+    needs: check-submission
     steps:
       - uses: actions/checkout@v4
-      - name: Check for release/tag
+        with:
+          fetch-depth: 2
+      - name: Check for redirection
+        if: needs.check-submission.outputs.submission == 'true'
         shell: bash
         run: |
-          FILE="extensions/quarto-extensions.csv"
           error=false
           while IFS=, read -r entry; do
             repo=$(echo "${repo}" | cut -d'/' -f1-2)
@@ -139,11 +199,17 @@ jobs:
               redirection_target=$(curl -Ls -o /dev/null -w "%{url_effective}" "https://github.com/${repo}")
               redirection_target=${redirection_target#"https://github.com/"}
               error_message="Repository \"${repo}\" is a redirected to \"${redirection_target}\"\!"
-              lineNumber=$(grep -n "${repo}" ${FILE} | cut -d: -f1)
-              echo "::error file=${FILE},line=${lineNumber},endLine=${lineNumber}::${error_message}"
+              lineNumber=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1)
+              echo "::error file=${CSV_FILE},line=${lineNumber},endLine=${lineNumber}::${error_message}"
               error=true
             fi
-          done < <(sort -f "${FILE}")
+          done < <(sort -f "${CSV_FILE}")
           if [[ "${error}" = true ]]; then
             exit 1
           fi
+      - name: End of check
+        if: needs.check-submission.outputs.submission == 'false'
+        shell: bash
+        run: |
+          echo "No changes to ${CSV_FILE} found"
+          exit 0
