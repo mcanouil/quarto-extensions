@@ -40,7 +40,7 @@ jobs:
           extension_submitted=$(
             git diff --name-only ${base_sha} ${head_sha} | grep "${CSV_FILE}" || false
           )
-          if [[ "${extension_submitted}" == "true" ]]; then
+          if [[ -n "${extension_submitted}" ]]; then
             echo "::notice::Changes to ${CSV_FILE} found!"
             echo "SUBMISSION=true" >>"${GITHUB_OUTPUT}"
             git fetch origin ${base_ref} --depth=1
