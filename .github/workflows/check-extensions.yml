@@ -43,13 +43,12 @@ jobs:
             echo "SUBMISSION=false" >>"${GITHUB_OUTPUT}"
           else
             echo "SUBMISSION=true" >>"${GITHUB_OUTPUT}"
+            git fetch origin ${base_ref} --depth=1
+            DIFF=$(
+              git diff origin/${base_ref} HEAD -- ${CSV_FILE} | grep '^+[^+]' | sed 's/^+//' | base64 --wrap=0
+            )
+            echo "DIFF=${DIFF}" >>"${GITHUB_OUTPUT}"
           fi
-
-          git fetch origin ${base_ref} --depth=1
-          DIFF=$(
-            git diff origin/${base_ref} HEAD -- ${CSV_FILE} | grep '^+[^+]' | sed 's/^+//' | base64 --wrap=0
-          )
-          echo "DIFF=${DIFF}" >>"${GITHUB_OUTPUT}"
 
   check-duplicate:
     runs-on: ubuntu-latest
