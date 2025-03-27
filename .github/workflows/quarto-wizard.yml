@@ -124,12 +124,13 @@ jobs:
             repo_template=$(
               gh api \
               -X GET "repos/${repo}/git/trees/${repo_branch}${repo_recursive}" \
-              --jq ".tree[] | select(.path | endswith(\"${repo_subdirectory}template.qmd\")) | .path"
+              --jq ".tree[] | select(.path | endswith(\"${repo_subdirectory}template.qmd\")) | .url | @sh" | xargs -I {} gh api -X GET {} --jq ".content"
             )
-            if [[ "${repo_template}" == "template.qmd" ]]; then
+            if [[ -n "${repo_template}" ]]; then
               repo_info=$(echo "${repo_info}" | jq '. + {template: true} | .repositoryTopics += ["template"]')
+              repo_info=$(echo "${repo_info}" | jq --arg content "${repo_template}" '. + {templateContent: $content}')
             else
-              repo_info=$(echo "${repo_info}" | jq '. + {template: false}')
+              repo_info=$(echo "${repo_info}" | jq '. + {template: false, templateContent: null}')
             fi
 
             repo_info=$(echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}')
