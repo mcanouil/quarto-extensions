@@ -37,10 +37,8 @@ jobs:
         shell: bash
         run: |
           set -x
-          extension_submitted=$(
-            git diff --name-only ${base_sha} ${head_sha} | grep "${CSV_FILE}"
-          ) || false
-          if [[ "${extension_submitted}" == "false" ]]; then
+          extension_submitted=$(git diff --name-only ${base_sha} ${head_sha} | grep "${CSV_FILE}")
+          if [[ -z "${extension_submitted}" ]]; then
             echo "::notice::No changes to ${CSV_FILE} found"
             echo "SUBMISSION=false" >>"${GITHUB_OUTPUT}"
           else
