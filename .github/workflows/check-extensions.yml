@@ -41,6 +41,7 @@ jobs:
           )
           if [[ -z "${extension_submitted}" ]]; then
             echo "SUBMISSION=false" >>"${GITHUB_OUTPUT}"
+            echo "DIFF=false" >>"${GITHUB_OUTPUT}"
           else
             echo "SUBMISSION=true" >>"${GITHUB_OUTPUT}"
             git fetch origin ${base_ref} --depth=1
