@@ -36,9 +36,9 @@ jobs:
           base_ref: ${{ github.event.pull_request.base.ref }}
         shell: bash
         run: |
-          extension_submitted=$(
-            git diff --name-only ${base_sha} ${head_sha} | grep "${CSV_FILE}"
-          )
+          diff=$(git diff --name-only ${base_sha} ${head_sha})
+          echo "::notice::Diff: ${diff}"
+          extension_submitted=$(grep "${CSV_FILE}" <<<"${diff}")
           if [[ -z "${extension_submitted}" ]]; then
             echo "::notice::No changes to ${CSV_FILE} found."
             echo "SUBMISSION=false" >>"${GITHUB_OUTPUT}"
