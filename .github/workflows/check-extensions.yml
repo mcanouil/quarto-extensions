@@ -73,6 +73,7 @@ jobs:
               done
             done <<< "${duplicates}"
           fi
+          echo "${error}"
           if [[ "${error}" == "true" ]]; then
             echo "Duplicate entries found in ${CSV_FILE}"
             exit 1
