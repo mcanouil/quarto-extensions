@@ -39,16 +39,16 @@ jobs:
             git diff --name-only ${base_sha} ${head_sha} | grep "${CSV_FILE}"
           )
           if [[ -z "${extension_submitted}" ]]; then
-            echo "SUBMISSION=false" >> $GITHUB_OUTPUTS
+            echo "SUBMISSION=false" >>"${GITHUB_OUTPUT}"
           else
-            echo "SUBMISSION=true" >> $GITHUB_OUTPUTS
+            echo "SUBMISSION=true" >>"${GITHUB_OUTPUT}"
           fi
 
           git fetch origin ${{ github.event.pull_request.base.ref }} --depth=1
           DIFF=$(
             git diff origin/${{ github.event.pull_request.base.ref }} HEAD -- ${CSV_FILE} | grep '^+' | sed 's/^+//' | base64 --wrap=0
           )
-          echo "DIFF=${DIFF}" >> $GITHUB_OUTPUT
+          echo "DIFF=${DIFF}" >>"${GITHUB_OUTPUT}"
 
   check-duplicate:
     runs-on: ubuntu-latest
