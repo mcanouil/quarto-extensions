@@ -120,7 +120,12 @@ jobs:
               repo_subdirectory="${repo_subdirectory}/"
               repo_recursive="?recursive=1"
             fi
-            repo_branch=$(echo "${repo_info}" | jq -r ".defaultBranchRef")
+            repo_tag=$(echo "${repo_info}" | jq -r ".latestRelease")
+            if [[ "${repo_tag}" != "none" ]]; then
+              repo_branch="${repo_tag}"
+            else
+              repo_branch=$(echo "${repo_info}" | jq -r ".defaultBranchRef")
+            fi
             repo_template=$(
               gh api \
               -X GET "repos/${repo}/git/trees/${repo_branch}${repo_recursive}" \
@@ -131,6 +136,17 @@ jobs:
               repo_info=$(echo "${repo_info}" | jq --arg content "${repo_template}" '. + {templateContent: $content}')
             else
               repo_info=$(echo "${repo_info}" | jq '. + {template: false, templateContent: null}')
+            fi
+            repo_example=$(
+              gh api \
+              -X GET "repos/${repo}/git/trees/${repo_branch}${repo_recursive}" \
+              --jq ".tree[] | select(.path | endswith(\"${repo_subdirectory}example.qmd\")) | .url | @sh" | xargs -I {} gh api -X GET {} --jq ".content"
+            )
+            if [[ -n "${repo_example}" ]]; then
+              repo_info=$(echo "${repo_info}" | jq '. + {example: true} | .repositoryTopics += ["example"]')
+              repo_info=$(echo "${repo_info}" | jq --arg content "${repo_example}" '. + {exampleContent: $content}')
+            else
+              repo_info=$(echo "${repo_info}" | jq '. + {example: false, exampleContent: null}')
             fi
 
             repo_info=$(echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}')
