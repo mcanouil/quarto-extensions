@@ -4,70 +4,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  update-citation:
-    runs-on: ubuntu-latest
-
-    permissions:
-      contents: write
-      pull-requests: write
-
-    env:
-      BRANCH: ci/update-changelog-release
-      GITHUB_TOKEN: ${{ secrets.github_token }}
-
-    outputs:
-      VERSION: ${{ steps.bump-version.outputs.VERSION }}
-      DATE: ${{ steps.bump-version.outputs.DATE }}
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Bump Version
-        id: bump-version
-        env:
-          GH_TOKEN: ${{ secrets.github_token }}
-          COMMIT: "ci: bump version for release :rocket:"
-        shell: bash
-        run: |
-          git config --local user.name github-actions[bot]
-          git config --local user.email 41898282+github-actions[bot]@users.noreply.github.com
-          if git show-ref --quiet refs/heads/${BRANCH}; then
-            echo "Branch ${BRANCH} already exists."
-            git branch -D "${BRANCH}"
-            git push origin --delete "${BRANCH}"
-          fi
-          git checkout -b "${BRANCH}"
-
-          DATE=$(date +%Y-%m-%d)
-          VERSION=$(date +%Y.%m.%d)
-          echo "VERSION=${VERSION}" >> ${GITHUB_OUTPUT}
-          echo "DATE=${DATE}" >> ${GITHUB_OUTPUT}
-
-          sed -i "s/^version:.*/version: ${VERSION}/" CITATION.cff
-          sed -i "s/^date-released:.*/date-released: \"${DATE}\"/" CITATION.cff
-          git add CITATION.cff || echo "No changes to add"
-          git commit -m "${COMMIT}" || echo "No changes to commit"
-          git push --force origin ${BRANCH} || echo "No changes to push"
-
-      - name: Create Pull Request
-        shell: bash
-        run: |
-          sleep 20
-          gh pr create --fill-first --base "main" --head "${BRANCH}" --label "Type: CI/CD :robot:"
-
-      - name: Merge Pull Request
-        shell: bash
-        run: |
-          sleep 20
-          gh pr merge --auto --squash --delete-branch
-          sleep 10
-
   release:
     runs-on: ubuntu-latest
-
-    needs:
-      - update-citation
 
     permissions:
       contents: write
@@ -86,8 +24,8 @@ jobs:
       - name: Release extension on GitHub
         env:
           GH_TOKEN: ${{ secrets.github_token }}
-          VERSION: ${{ needs.update-citation.outputs.VERSION }}
-          DATE: ${{ needs.update-citation.outputs.DATE }}
         shell: bash
         run: |
+          DATE=$(grep "^date-released:" CITATION.cff | sed 's/date-released: //;s/"//g')
+          VERSION=$(grep "^version:" CITATION.cff | sed 's/version: //;s/"//g')
           gh release create ${VERSION} --title ${DATE} --generate-notes

@@ -1,0 +1,49 @@
+name: Bump Version
+
+on:
+  workflow_dispatch:
+
+jobs:
+  bump-version:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    env:
+      BRANCH: ci/bump-version
+      GITHUB_TOKEN: ${{ secrets.github_token }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Bump Version
+        id: bump-version
+        env:
+          GH_TOKEN: ${{ secrets.github_token }}
+          COMMIT: "ci: bump version for release :rocket:"
+        shell: bash
+        run: |
+          git config --local user.name github-actions[bot]
+          git config --local user.email 41898282+github-actions[bot]@users.noreply.github.com
+          if git show-ref --quiet refs/heads/${BRANCH}; then
+            echo "Branch ${BRANCH} already exists."
+            git branch -D "${BRANCH}"
+            git push origin --delete "${BRANCH}"
+          fi
+          git checkout -b "${BRANCH}"
+          DATE=$(date +%Y-%m-%d)
+          VERSION=$(date +%Y.%m.%d)
+          sed -i "s/^version:.*/version: ${VERSION}/" CITATION.cff
+          sed -i "s/^date-released:.*/date-released: \"${DATE}\"/" CITATION.cff
+          git add CITATION.cff || echo "No changes to add"
+          git commit -m "${COMMIT}" || echo "No changes to commit"
+          git push --force origin ${BRANCH} || echo "No changes to push"
+
+      - name: Create Pull Request
+        shell: bash
+        run: |
+          sleep 20
+          gh pr create --fill-first --base "main" --head "${BRANCH}" --label "Type: CI/CD :robot:"
