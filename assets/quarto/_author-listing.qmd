@@ -1,6 +1,6 @@
 ---
 title: "<<github-name>>"
-image: https://github.com/<<github-username>>.png
+image: "../<<github-username-image>>"
 url: "https://github.com/<<github-username>>"
 stars: <<github-stars>>
 extensions: <<extensions-count>>
@@ -10,19 +10,23 @@ about:
   image-width: 9em
   image-shape: round
   links:
-    - text: "{{< iconify octicon:mark-github-16 >}} GitHub"
+    - text: "{{< iconify octicon:mark-github-16 title='GitHub Profile' label='GitHub Profile' >}} GitHub"
       href: "https://github.com/<<github-username>>"
-    - text: "{{< iconify octicon:star-16 >}} <<github-stars>> Stars"
-    - text: "{{< iconify octicon:repo-16 >}} <<extensions-count>> Extensions"
+    - text: "[{{< iconify octicon:star-16 title='Star' label='Star' >}}]{style='color:#dcbe50;'} <<github-stars>> Stars"
+    - text: "{{< iconify octicon:repo-16 title='GitHub Repository' label='GitHub Repository' >}} <<extensions-count>> Extensions"
 repo-actions: false
 listing:
   id: listing-extensions-<<github-username>>
   template: ../assets/ejs/extensions.ejs
   contents:
     - ../extensions/yaml/<<github-username>>--**.yml
-  sort-ui: [title, date, author, file-modified]
+  sort-ui: [stars, title, author, date, file-modified]
   sort:
     - stars desc
+  field-types:
+    stars: number
+  field-display-names: 
+    stars: Stars
   filter-ui: true
   categories: true
   page-size: 10

@@ -1,7 +1,7 @@
 --[[
 # MIT License
 #
-# Copyright (c) Mickaël Canouil
+# Copyright (c) 2025 Mickaël Canouil
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -139,9 +139,15 @@ return {
         attributes = attributes .. ' rotate="' .. rotate .. '"'
       end
 
+      local inline = pandoc.utils.stringify(kwargs["inline"])
+      if is_empty(inline) or inline ~= "false" then
+        attributes = ' inline ' .. attributes
+      end
+      
+
       return pandoc.RawInline(
         'html',
-        '<iconify-icon inline=true role="img"' .. attributes .. '></iconify-icon>'
+        '<iconify-icon role="img"' .. attributes .. '></iconify-icon>'
       )
     else
       return pandoc.Null()

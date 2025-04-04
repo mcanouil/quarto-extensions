@@ -9,12 +9,19 @@
   margin: 8px;
   padding: 10px 15px;
   position: relative;
-  z-index: 1;
   overflow: hidden;
   min-height: 265px;
   transition: 0.7s;
 
   .card-footer {
     background-color: $light;
+  }
+
+  .card-img-top {
+    padding: 15px 15px 0 15px;
+  }
+
+  #github-link:hover {
+    transform: scale(1.5);
   }
 }

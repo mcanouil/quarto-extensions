@@ -1,0 +1,160 @@
+name: Quarto Wizard
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+  push:
+    branches: main
+    paths:
+      - extensions/quarto-extensions.csv
+  schedule:
+    - cron: "0 6 * * *"
+
+jobs:
+  quarto-wizard:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.github_token }}
+      BRANCH: quarto-wizard
+      COMMIT: "ci: update extensions details"
+      CSV_FILE: "extensions/quarto-extensions.csv"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BRANCH }}
+
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: ${{ env.CSV_FILE }}
+          sparse-checkout-cone-mode: false
+          path: data
+
+      - name: Git Config
+        shell: bash
+        run: |
+          git config --local user.name github-actions[bot]
+          git config --local user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+      - name: Branch Setup
+        if: false
+        shell: bash
+        run: |
+          git fetch --all
+          if git show-ref --verify --quiet refs/heads/"${BRANCH}"; then
+            echo "Branch exists"
+          else
+            echo "Branch does not exist"
+            git checkout --orphan "${BRANCH}"
+            git rm -rf .
+            git commit --allow-empty -m "ci: setup ${BRANCH} branch"
+            git push --force origin "${BRANCH}"
+          fi
+          git checkout "${BRANCH}"
+
+      - name: Get extensions details
+        shell: bash
+        run: |
+          set -e
+
+          BRANCH=${BRANCH:-"quarto-wizard"}
+          COMMIT=${COMMIT:-"ci: update extensions details"}
+          CSV_FILE=${CSV_FILE:-"extensions/quarto-extensions.csv"}
+
+          JSON_FILE="quarto-extensions.json"
+          echo "*" > .gitignore
+          echo "!${JSON_FILE}" > .gitignore
+
+          previous_owner=""
+          previous_author=""
+
+          EXTENSION_DETAILS=()
+          while IFS=, read -r entry; do
+            echo "Processing entry: ${entry}"
+            repo=$(echo "${entry}" | cut -d'/' -f1,2)
+            repo_info=$(
+              gh repo view "${repo}" \
+                --json name,nameWithOwner,owner,description,openGraphImageUrl,stargazerCount,licenseInfo,url,latestRelease,createdAt,updatedAt,repositoryTopics,defaultBranchRef \
+                --jq '{
+                  name: .name,
+                  title: (.name | split("-|_"; "") | map(select(. != "quarto" and . != "template")) | join(" ") | ascii_upcase),
+                  nameWithOwner: (.nameWithOwner | ascii_downcase),
+                  owner: (.owner.login | ascii_downcase),
+                  description: (if .description == "" then "No description available." else .description end),
+                  openGraphImageUrl: .openGraphImageUrl,
+                  stargazerCount: (.stargazerCount // 0),
+                  licenseInfo: (.licenseInfo.name // "none"),
+                  url: .url,
+                  latestRelease: (.latestRelease.tagName // "none"),
+                  latestReleaseUrl: (.latestRelease.url // null),
+                  createdAt: .createdAt,
+                  updatedAt: .updatedAt,
+                  defaultBranchRef: .defaultBranchRef.name,
+                  repositoryTopics: (if .repositoryTopics == null then [] else
+                  [.repositoryTopics[].name |
+                    sub("^quarto-"; "") |
+                    sub("-template[s]*"; "") |
+                    if test("filters$|formats$|journals$|templates|shortcodes$|extensions$") then sub("s$"; "") else . end |
+                    sub("reveal-js"; "reveal.js") |
+                    sub("revealjs"; "reveal.js") |
+                    select(test("quarto|extension|template|^pub$") | not)] | unique
+                  end)
+                }'
+            )
+
+            owner=$(echo "${repo_info}" | jq -r ".owner")
+            if [[ "${owner}" == "${previous_owner}" ]]; then
+              author="${previous_author}"
+            else
+              author=$(gh api "users/${owner}" --jq ".name")
+              if [[ -z "${author}" ]]; then
+                author="${owner}"
+              fi
+              previous_owner="${owner}"
+              previous_author="${author}"
+            fi
+            repo_info=$(echo "${repo_info}" | jq --arg author "${author}" '. + {author: $author}')
+
+            repo_subdirectory=$(echo "${entry}" | cut -d'/' -f3-)
+            if [[ -n "${repo_subdirectory}" ]]; then
+              repo_subdirectory="${repo_subdirectory}/"
+              repo_recursive="?recursive=1"
+            fi
+            repo_tag=$(echo "${repo_info}" | jq -r ".latestRelease")
+            if [[ "${repo_tag}" != "none" ]]; then
+              repo_branch="${repo_tag}"
+            else
+              repo_branch=$(echo "${repo_info}" | jq -r ".defaultBranchRef")
+            fi
+            repo_template=$(
+              gh api \
+              -X GET "repos/${repo}/git/trees/${repo_branch}${repo_recursive}" \
+              --jq ".tree[] | select(.path | endswith(\"${repo_subdirectory}template.qmd\")) | .url | @sh" | xargs -I {} gh api -X GET {} --jq ".content"
+            )
+            if [[ -n "${repo_template}" ]]; then
+              repo_info=$(echo "${repo_info}" | jq '. + {template: true} | .repositoryTopics += ["template"]')
+              repo_info=$(echo "${repo_info}" | jq --arg content "${repo_template}" '. + {templateContent: $content}')
+            else
+              repo_info=$(echo "${repo_info}" | jq '. + {template: false, templateContent: null}')
+            fi
+            repo_example=$(
+              gh api \
+              -X GET "repos/${repo}/git/trees/${repo_branch}${repo_recursive}" \
+              --jq ".tree[] | select(.path | endswith(\"${repo_subdirectory}example.qmd\")) | .url | @sh" | xargs -I {} gh api -X GET {} --jq ".content"
+            )
+            if [[ -n "${repo_example}" ]]; then
+              repo_info=$(echo "${repo_info}" | jq '. + {example: true} | .repositoryTopics += ["example"]')
+              repo_info=$(echo "${repo_info}" | jq --arg content "${repo_example}" '. + {exampleContent: $content}')
+            else
+              repo_info=$(echo "${repo_info}" | jq '. + {example: false, exampleContent: null}')
+            fi
+
+            repo_info=$(echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}')
+            EXTENSION_DETAILS+=("${repo_info}")
+          done < <(sort -f data/${CSV_FILE})
+          json_output=$(printf "%s\n" "${EXTENSION_DETAILS[@]}" | jq -s 'add')
+          echo "${json_output}" > "${JSON_FILE}"
+
+          git add ${JSON_FILE} || echo "No changes to commit"
+          git commit --allow-empty -m "${COMMIT}"
+          git push --force origin ${BRANCH}

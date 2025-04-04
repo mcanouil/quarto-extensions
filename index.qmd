@@ -1,15 +1,23 @@
 ---
 title: "Extensions ({{< var extensions >}})"
+pagetitle: "Extensions"
 repo-actions: false
 listing:
   id: listing-extensions
   template: assets/ejs/extensions.ejs
   contents:
     - extensions/yaml/**.yml
-  sort-ui: [title, date, author, file-modified]
+  sort-ui: [stars, title, author, date, file-modified]
   sort:
     - stars desc
-  filter-ui: true
+  field-types:
+    stars: number
+  field-display-names: 
+    stars: Stars
+  filter-ui:
+    - title
+    - author
+    - description
   categories: true
   page-size: 10
   max-description-length: 500

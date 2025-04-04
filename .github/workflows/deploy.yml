@@ -2,14 +2,10 @@ name: Deploy
 
 on:
   workflow_dispatch:
-  release:
-    types: [published]
-  push:
-    branches: main
-    paths:
-      - extensions/quarto-extensions.csv
-  schedule:
-    - cron: 00 12 1 * *
+  workflow_run:
+    workflows: ["Quarto Wizard"]
+    types:
+      - completed
 
 permissions:
   contents: read
@@ -22,6 +18,7 @@ concurrency:
 
 jobs:
   deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -31,22 +28,22 @@ jobs:
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
-      
+
       - uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: pre-release
-      
+
       - name: Render Quarto Project
         shell: bash
         run: |
           quarto render .
           touch _site/.nojekyll
-      
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: '_site'
+          path: "_site"
 
       - name: Deploy to GitHub Pages
         id: deployment

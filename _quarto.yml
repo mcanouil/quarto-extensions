@@ -27,9 +27,12 @@ website:
   repo-actions: [edit, issue]
   page-footer:
     border: true
+    left: |
+      Powered by [[{{< iconify simple-icons:quarto title='Quarto Logo' label='Quarto Logo' >}}]{style="color:#74aadb;"} Quarto](https://quarto.org).
     center: |
-      &copy; 2024 [Mickaël CANOUIL](https://mickael.canouil.fr/).
-      Powered by [{{< iconify simple-icons:quarto >}} Quarto](https://quarto.org/).
+      &copy; []{#current-year} [Mickaël CANOUIL](https://mickael.canouil.fr/).
+    right: |
+      [[{{< iconify octicon:heart-16 title='Heart Sponsor' label='Heart Sponsor' >}}]{style="color:#c96198;"} Sponsor](https://github.com/sponsors/mcanouil?o=esb).
   navbar:
     logo: "assets/media/quarto-extensions.svg"
     left:
@@ -38,11 +41,11 @@ website:
       - text: Authors
         href: authors.qmd
     right:
-      - text: "{{< iconify octicon:question-16 >}} About"
+      - text: "{{< iconify octicon:question-16 title='Help' label='Help' >}} About"
         href: about.qmd
-      - text: "{{< iconify octicon:mark-github-16 >}}"
+      - text: "{{< iconify octicon:mark-github-16 title='GitHub Source Repository' label='GitHub Source Repository' >}}"
         href: "https://github.com/mcanouil/quarto-extensions"
-      - text: "{{< iconify simple-icons:quarto >}}"
+      - text: "{{< iconify simple-icons:quarto title='Quarto Documentation' label='Quarto Documentation' >}}"
         href: "https://quarto.org/"
 format:
   html:
@@ -53,6 +56,8 @@ format:
       - assets/stylesheets/authors.scss
     include-after-body:
       - file: assets/scripts/ordinal-dates.html
+      - file: assets/scripts/current-year.html
+      - file: assets/scripts/categories-alphabetical.html
     grid:
       sidebar-width: 250px
       body-width: 900px
