@@ -6,6 +6,8 @@ on:
     workflows: ["Quarto Wizard"]
     types:
       - completed
+  release:
+    types: [published]
 
 permissions:
   contents: read
