@@ -90,4 +90,4 @@ jobs:
           DATE: ${{ needs.update-citation.outputs.DATE }}
         shell: bash
         run: |
-          gh release create ${VERSION} --title ${DATE} --notes-file ${CHANGELOG} --generate-notes
+          gh release create ${VERSION} --title ${DATE} --generate-notes
