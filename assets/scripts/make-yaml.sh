@@ -46,7 +46,8 @@ jq -c 'to_entries[]' "${json_file}" | while read -r entry; do
   if [[ "${entry_release}" != "none" ]]; then
     entry_release_url=$(echo "${entry}" | jq -r '.value.latestReleaseUrl')
     yaml_usage_body="${entry_repo}@${entry_release}"
-    entry_release="[${entry_release#v}](${entry_release_url})"
+    entry_release=$(echo "${entry_release}" | sed 's/^[^0-9]*//')
+    entry_release="[${entry_release}](${entry_release_url})"
   fi
 
   social_image="extensions/media/${entry_repo//\//--}.png"
