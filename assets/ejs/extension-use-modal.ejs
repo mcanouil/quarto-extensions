@@ -1,6 +1,6 @@
 ```{=html}
-<button type="button" class="btn btn-secondary" style="text-align: center;" data-bs-toggle="modal" data-bs-target="#useModal">Use Template</button>
-<div class="modal fade" id="useModal" tabindex="-1" aria-labelledby="useModalLabel" aria-hidden="true">
+<button type="button" class="btn btn-secondary" style="text-align: center;" data-bs-toggle="modal" data-bs-target="#useModal-<%= id %>">Use Template</button>
+<div class="modal fade" id="useModal-<%= id %>" tabindex="-1" aria-labelledby="useModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -8,7 +8,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <ul class="list-group list-group-flush"">
+        <ul class="list-group list-group-flush">
           <li class="list-group-item list-group-item-action">
 ```
 
@@ -17,7 +17,7 @@
 :::
 
 ```{.sh filename='Terminal' style="font-size: 0.8em; text-align: left;"}
-quarto use template <%= item.usage %>
+quarto use template <%= usage %>
 ```
 
 ```{=html}
@@ -34,20 +34,20 @@ quarto use template <%= item.usage %>
               <button
                 type="button"
                 class="btn btn-outline-secondary"
-                onclick="window.location.href='vscode://mcanouil.quarto-wizard/use?repo=<%= item.usage %>'"
-                data-bs-toggle="tooltip" title="Use <%= item.usage %> template in Visual Studio Code using Quarto Wizard extension."
+                onclick="window.location.href='vscode://mcanouil.quarto-wizard/use?repo=<%= usage %>'"
+                data-bs-toggle="tooltip" title="Use <%= usage %> template in Visual Studio Code using Quarto Wizard extension."
               >Visual Studio Code</button>
               <button
                 type="button"
                 class="btn btn-outline-secondary"
-                onclick="window.location.href='positron://mcanouil.quarto-wizard/use?repo=<%= item.usage %>'"
-                data-bs-toggle="tooltip" title="Use <%= item.usage %> template in Positron using Quarto Wizard extension."
+                onclick="window.location.href='positron://mcanouil.quarto-wizard/use?repo=<%= usage %>'"
+                data-bs-toggle="tooltip" title="Use <%= usage %> template in Positron using Quarto Wizard extension."
               >Positron</button>
               <button
                 type="button"
                 class="btn btn-outline-secondary"
-                onclick="window.location.href='vscodium://mcanouil.quarto-wizard/use?repo=<%= item.usage %>'"
-                data-bs-toggle="tooltip" title="Use <%= item.usage %> template in VSCodium using Quarto Wizard extension."
+                onclick="window.location.href='vscodium://mcanouil.quarto-wizard/use?repo=<%= usage %>'"
+                data-bs-toggle="tooltip" title="Use <%= usage %> template in VSCodium using Quarto Wizard extension."
               >VSCodium</button>
             </div>
           </li>

@@ -39,11 +39,15 @@
 <%= item.description %>
 :::
 
-<% if (item.template === true) { %>
-<% partial("extension-install-modal.ejs", { item }) %><% partial("extension-use-modal.ejs", { item }) %>
-<% } else { %>
-<% partial("extension-install-modal.ejs", { item }) %>
-<% } %>
+
+<%
+const usage = item.usage;
+const id = utils.b64encode(usage);
+partial("extension-install-modal.ejs", { id, usage });
+if (item.template === true) {
+partial("extension-use-modal.ejs", { id, usage });
+}
+%>
 
 :::
 
