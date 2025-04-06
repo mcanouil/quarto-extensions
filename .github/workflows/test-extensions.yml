@@ -1,0 +1,91 @@
+name: Test Quarto Extensions
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - quarto-wizard
+    paths:
+      - "quarto-extensions.json"
+
+jobs:
+  extensions-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: quarto-wizard
+
+      - name: Extract extensions with examples or templates
+        id: set-matrix
+        run: |
+          EXTENSIONS=$(jq -c '
+            to_entries |
+            map(select(.value.example == true or .value.template == true)) |
+            map({id: .key, content: (if .value.example then "exampleContent" else "templateContent" end)}) |
+            {include: .}' quarto-extensions.json)
+          NUM_EXTENSIONS=$(echo "${EXTENSIONS}" | jq '.include | length')
+          echo "::notice title=Number of Extensions:: ${NUM_EXTENSIONS} extensions found with examples or templates."
+          echo "matrix=${EXTENSIONS}" >> $GITHUB_OUTPUT
+
+  test-release:
+    needs: extensions-matrix
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      max-parallel: 25
+      fail-fast: false
+      matrix: ${{ fromJson(needs.extensions-matrix.outputs.matrix) }}
+
+    steps:
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: release
+
+      - name: Test extension
+        shell: bash
+        run: |
+          EXTENSION_ID="${{ matrix.id }}"
+          CONTENT=$(jq -r --arg id "${EXTENSION_ID}" --arg type "${{ matrix.content }}" '.[$id][$type]' quarto-extensions.json)
+          DIR_NAME="${EXTENSION_ID//\//-}"
+
+          mkdir -p "tmp-${DIR_NAME}"
+          cd "tmp-${DIR_NAME}"
+          quarto add "${EXTENSION_ID}"
+          echo "${CONTENT}" | base64 -d > index.qmd
+          quarto render index.qmd --to all
+
+  test-prerelease:
+    needs: extensions-matrix
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      max-parallel: 25
+      fail-fast: false
+      matrix: ${{ fromJson(needs.extensions-matrix.outputs.matrix) }}
+
+    steps:
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: pre-release
+
+      - name: Test extension
+        shell: bash
+        run: |
+          EXTENSION_ID="${{ matrix.id }}"
+          CONTENT=$(jq -r --arg id "${EXTENSION_ID}" --arg type "${{ matrix.content }}" '.[$id][$type]' quarto-extensions.json)
+          DIR_NAME="${EXTENSION_ID//\//-}"
+
+          mkdir -p "tmp-${DIR_NAME}"
+          cd "tmp-${DIR_NAME}"
+          quarto add "${EXTENSION_ID}"
+          echo "${CONTENT}" | base64 -d > index.qmd
+          quarto render index.qmd --to all
