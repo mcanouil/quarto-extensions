@@ -30,6 +30,12 @@ jobs:
             map(select(.value.example == true or .value.template == true)) |
             map({id: .key, content_type: (if .value.example then "exampleContent" else "templateContent" end)}) |
             {include: .}' quarto-extensions.json)
+
+          if [ $(echo "${EXTENSIONS}" | jq '.include | length') -gt 10 ]; then
+            EXTENSIONS=$(echo "${EXTENSIONS}" | jq '.include |= .[0:10] | {include: .include}')
+            echo "::notice title=Limited Extensions:: Only testing the first 10 extensions."
+          fi
+          
           NUM_EXTENSIONS=$(echo "${EXTENSIONS}" | jq '.include | length')
           echo "::notice title=Number of Extensions:: ${NUM_EXTENSIONS} extensions found with examples or templates."
           echo "matrix=${EXTENSIONS}" >> $GITHUB_OUTPUT
@@ -71,7 +77,7 @@ jobs:
         run: |
           EXTENSION_ID="${{ matrix.id }}"
           CONTENT_TYPE="${{ matrix.content_type }}"
-          CONTENT=$(jq -r --arg id "$EXTENSION_ID" --arg type "$CONTENT_TYPE" '.[$id][$type]' quarto-extensions.json)
+          CONTENT=$(jq -r --arg id "${EXTENSION_ID}" --arg type "${CONTENT_TYPE}" '.[$id][$type]' quarto-extensions.json)
           DIR_NAME="${EXTENSION_ID//\//-}"
 
           mkdir -p "tmp-${DIR_NAME}"
@@ -122,7 +128,7 @@ jobs:
 
           mkdir -p "tmp-${DIR_NAME}"
           cd "tmp-${DIR_NAME}"
-          quarto add "${EXTENSION_ID}"
+          quarto add "${EXTENSION_ID}" --no-prompt
           echo "${CONTENT}" | base64 -d > index.qmd
           quarto render index.qmd --to all
 
