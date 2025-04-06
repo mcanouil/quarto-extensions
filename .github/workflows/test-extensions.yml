@@ -26,7 +26,7 @@ jobs:
           EXTENSIONS=$(jq -c '
             to_entries |
             map(select(.value.example == true or .value.template == true)) |
-            map({id: .key, content: (if .value.example then "exampleContent" else "templateContent" end)}) |
+            map({id: .key, content: (if .value.example then .value.exampleContent else .value.templateContent end)}) |
             {include: .}' quarto-extensions.json)
           NUM_EXTENSIONS=$(echo "${EXTENSIONS}" | jq '.include | length')
           echo "::notice title=Number of Extensions:: ${NUM_EXTENSIONS} extensions found with examples or templates."
@@ -47,6 +47,7 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: release
+          tinytex: true
 
       - name: Test extension
         shell: bash
@@ -76,6 +77,7 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: pre-release
+          tinytex: true
 
       - name: Test extension
         shell: bash
