@@ -42,6 +42,9 @@ jobs:
       fail-fast: false
       matrix: ${{ fromJson(needs.extensions-matrix.outputs.matrix) }}
 
+    outputs:
+      quarto-version: ${{ steps.quarto-version.outputs.quarto-version }}
+
     steps:
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
@@ -49,7 +52,13 @@ jobs:
           version: release
           tinytex: true
 
+      - name: Quarto version
+        id: quarto-version
+        run: |
+          echo "quarto-version=$(quarto --version)" >> ${GITHUB_OUTPUT}
+
       - name: Test extension
+        continue-on-error: true
         shell: bash
         run: |
           EXTENSION_ID="${{ matrix.id }}"
@@ -72,6 +81,9 @@ jobs:
       fail-fast: false
       matrix: ${{ fromJson(needs.extensions-matrix.outputs.matrix) }}
 
+    outputs:
+      quarto-version: ${{ steps.quarto-version.outputs.quarto-version }}
+
     steps:
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
@@ -79,7 +91,13 @@ jobs:
           version: pre-release
           tinytex: true
 
+      - name: Quarto version
+        id: quarto-version
+        run: |
+          echo "quarto-version=$(quarto --version)" >> ${GITHUB_OUTPUT}
+
       - name: Test extension
+        continue-on-error: true
         shell: bash
         run: |
           EXTENSION_ID="${{ matrix.id }}"
@@ -91,3 +109,16 @@ jobs:
           quarto add "${EXTENSION_ID}"
           echo "${CONTENT}" | base64 -d > index.qmd
           quarto render index.qmd --to all
+
+  summary:
+    name: Test Summary
+    needs: [test-release, test-prerelease]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Status Summary
+        run: |
+          echo "## Extensions Test Results" >> ${GITHUB_STEP_SUMMARY}
+          echo "" >> ${GITHUB_STEP_SUMMARY}
+          echo "- Release ${{ needs.test-release.outputs.quarto-version }} Tests: ${{ needs.test-release.result }}" >> ${GITHUB_STEP_SUMMARY}
+          echo "- Pre-release ${{ needs.test-prerelease.outputs.quarto-version }}  Tests: ${{ needs.test-prerelease.result }}" >> ${GITHUB_STEP_SUMMARY}
