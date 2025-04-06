@@ -14,24 +14,36 @@ about:
       aria-label: "Quarto logo linking to quarto.org website"
 ---
 
-::: {#quarto-extensions-about}
-::: {.callout-note title="What is this?"}
+:::: {#quarto-extensions-about}
+
+## What is this?
+
 This is a listing of [{{< iconify simple-icons:quarto title='Quarto Logo' label='Quarto Logo' >}} Quarto](https://quarto.org) extensions using {{< iconify octicon:mark-github-16 title='GitHub Logo' label='GitHub Logo' >}} GitHub API to retrieve information from the repositories.
-:::
+
+## Use with []{.quarto-wizard title="Quarto Wizard Logo" aria-label="Quarto Wizard Logo"} Quarto Wizard
+
+[![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/mcanouil.quarto-wizard?style=flat-square&color=333333&label=Visual%20Studio%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=mcanouil.quarto-wizard)
+[![Open VSX Downloads](https://img.shields.io/open-vsx/dt/mcanouil/quarto-wizard?style=flat-square&color=333333&label=Open%20VSX)](https://open-vsx.org/extension/mcanouil/quarto-wizard)
+[![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/mcanouil/quarto-wizard/total?style=flat-square&color=333333&label=GitHub)](https://github.com/mcanouil/quarto-wizard/releases/latest)
+
+[[]{.quarto-wizard title="Quarto Wizard Logo" aria-label="Quarto Wizard Logo"} Quarto Wizard](https://github.com/mcanouil/quarto-wizard) is a Visual Studio Code extension/Positron/Codium that helps you manage your [{{< iconify simple-icons:quarto title='Quarto Logo' label='Quarto Logo' >}} Quarto](https://quarto.org) projects.  
+It allows you to easily install Quarto extensions directly from the [Quarto Extensions](https://github.com/mcanouil/quarto-extensions) listing repository.  
+This extension provides a user-friendly interface to browse, select, and install Quarto extensions, enhancing your Quarto development experience.
+
 :::
 
-::: {.callout-tip title="How to submit your extension?"}
+## How to submit your extension?
+
 To add your extension to this list, please submit a pull request to this repository by adding your extension repository at the bottom of [`extensions/quarto-extensions.csv`](https://github.com/mcanouil/quarto-extensions/edit/main/extensions/quarto-extensions.csv) following `<owner>/<repository></optional-path>`.
 
-:::: {}
-::: {.callout-important title="Before submitting"}
+:::: {.callout-important title="Before submitting"}
 Please make sure that:
 
 - The extension is not already listed.
 - Your GitHub repository contains a **Description**.
+  - Avoid special characters/strings in the **Description**, such as `'<style>'` instead of `` `<style>` ``.
 - Your GitHub repository contains **Topics**.
-- Avoid special characters/strings in the **Description**, such as `'<style>'` instead of `` `<style>` ``.
-:::
-::::
+- Your GitHub repository has released at least one version.
+- Your GitHub repository has `example.qmd` or `template.qmd` files in the root directory.
 
 :::

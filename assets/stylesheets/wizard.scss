@@ -1,0 +1,15 @@
+/*-- scss:defaults --*/
+
+/*-- scss:rules --*/
+.quarto-wizard {
+  display: inline-block;
+  aspect-ratio: 1 / 1;
+  height: 1em;
+  margin-bottom: -0.15em;
+  mask-image: url('assets/media/quarto-wizard.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  background-color: currentColor;
+  vertical-align: baseline;
+}
