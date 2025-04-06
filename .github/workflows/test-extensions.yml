@@ -32,7 +32,7 @@ jobs:
             {include: .}' quarto-extensions.json)
 
           if [ $(echo "${EXTENSIONS}" | jq '.include | length') -gt 10 ]; then
-            EXTENSIONS=$(echo "${EXTENSIONS}" | jq '.include |= .[0:10] | {include: .include}')
+            EXTENSIONS=$(echo "${EXTENSIONS}" | jq '.include |= .[0:10]')
             echo "::notice title=Limited Extensions:: Only testing the first 10 extensions."
           fi
           
