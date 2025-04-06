@@ -127,7 +127,7 @@ jobs:
           quarto render index.qmd --to all
 
   summary:
-    name: Test Summary
+    name: Tests Summary
     needs: [test-release, test-prerelease]
     if: always()
     runs-on: ubuntu-latest
