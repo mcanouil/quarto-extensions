@@ -77,8 +77,13 @@ jobs:
 
           mkdir -p "tmp-${DIR_NAME}"
           cd "tmp-${DIR_NAME}"
-          quarto add "${EXTENSION_ID}"
-          echo "${CONTENT}" | base64 -d > index.qmd
+          if [[ "${CONTENT_TYPE}" == "templateContent" ]]; then
+            quarto use template "${EXTENSION_ID}" --no-prompt
+            mv *.qmd index.qmd
+          else
+            quarto add "${EXTENSION_ID}" --no-prompt
+            echo "${CONTENT}" | base64 -d > index.qmd
+          fi
           quarto render index.qmd --to all
 
   test-prerelease:
@@ -123,8 +128,13 @@ jobs:
 
           mkdir -p "tmp-${DIR_NAME}"
           cd "tmp-${DIR_NAME}"
-          quarto add "${EXTENSION_ID}" --no-prompt
-          echo "${CONTENT}" | base64 -d > index.qmd
+          if [[ "${CONTENT_TYPE}" == "templateContent" ]]; then
+            quarto use template "${EXTENSION_ID}" --no-prompt
+            mv *.qmd index.qmd
+          else
+            quarto add "${EXTENSION_ID}" --no-prompt
+            echo "${CONTENT}" | base64 -d > index.qmd
+          fi
           quarto render index.qmd --to all
 
   summary:
