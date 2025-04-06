@@ -28,7 +28,7 @@ jobs:
           EXTENSIONS=$(jq -c '
             to_entries |
             map(select(.value.example == true or .value.template == true)) |
-            map({id: .key, content: (if .value.example then .value.exampleContent else .value.templateContent end)}) |
+            map({id: .key, content_type: (if .value.example then "exampleContent" else "templateContent" end)}) |
             {include: .}' quarto-extensions.json)
           NUM_EXTENSIONS=$(echo "${EXTENSIONS}" | jq '.include | length')
           echo "::notice title=Number of Extensions:: ${NUM_EXTENSIONS} extensions found with examples or templates."
@@ -48,6 +48,12 @@ jobs:
       quarto-version: ${{ steps.quarto-version.outputs.quarto-version }}
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: quarto-wizard
+
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
@@ -64,7 +70,8 @@ jobs:
         shell: bash
         run: |
           EXTENSION_ID="${{ matrix.id }}"
-          CONTENT=$(jq -r --arg id "${EXTENSION_ID}" --arg type "${{ matrix.content }}" '.[$id][$type]' quarto-extensions.json)
+          CONTENT_TYPE="${{ matrix.content_type }}"
+          CONTENT=$(jq -r --arg id "$EXTENSION_ID" --arg type "$CONTENT_TYPE" '.[$id][$type]' quarto-extensions.json)
           DIR_NAME="${EXTENSION_ID//\//-}"
 
           mkdir -p "tmp-${DIR_NAME}"
@@ -87,6 +94,12 @@ jobs:
       quarto-version: ${{ steps.quarto-version.outputs.quarto-version }}
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: quarto-wizard
+
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
@@ -103,7 +116,8 @@ jobs:
         shell: bash
         run: |
           EXTENSION_ID="${{ matrix.id }}"
-          CONTENT=$(jq -r --arg id "${EXTENSION_ID}" --arg type "${{ matrix.content }}" '.[$id][$type]' quarto-extensions.json)
+          CONTENT_TYPE="${{ matrix.content_type }}"
+          CONTENT=$(jq -r --arg id "$EXTENSION_ID" --arg type "$CONTENT_TYPE" '.[$id][$type]' quarto-extensions.json)
           DIR_NAME="${EXTENSION_ID//\//-}"
 
           mkdir -p "tmp-${DIR_NAME}"
