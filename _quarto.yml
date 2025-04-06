@@ -45,8 +45,13 @@ website:
         href: about.qmd
       - text: "{{< iconify octicon:mark-github-16 title='GitHub Source Repository' label='GitHub Source Repository' >}}"
         href: "https://github.com/mcanouil/quarto-extensions"
+        target: _blank
       - text: "{{< iconify simple-icons:quarto title='Quarto Documentation' label='Quarto Documentation' >}}"
         href: "https://quarto.org/"
+        target: _blank
+      - text: '[]{.quarto-wizard title="Quarto Wizard" aria-label="Quarto Wizard"}'
+        href: "https://github.com/mcanouil/quarto-wizard"
+        target: _blank
 format:
   html:
     theme:
@@ -54,14 +59,13 @@ format:
       - assets/stylesheets/theme.scss
       - assets/stylesheets/extensions.scss
       - assets/stylesheets/authors.scss
+      - assets/stylesheets/wizard.scss
     include-after-body:
       - file: assets/scripts/ordinal-dates.html
       - file: assets/scripts/current-year.html
       - file: assets/scripts/categories-alphabetical.html
     grid:
-      sidebar-width: 250px
-      body-width: 900px
-      margin-width: 300px
+      body-width: 950px
     highlight-style: github
     anchor-sections: true
     email-obfuscation: javascript
