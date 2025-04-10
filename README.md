@@ -15,4 +15,5 @@ To add your extension to this list, please submit a pull request to this reposit
 > - The extension is not already listed.
 > - Your GitHub repository contains a **Description**.
 > - Your GitHub repository contains **Topics**.
+> - Your GitHub repository contains a **Release** with **Tag**.
 > - Avoid special characters/strings in the **Description**, such as `'<style>'` instead of `` `<style>` ``.
