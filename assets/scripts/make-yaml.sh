@@ -52,7 +52,7 @@ jq -c 'to_entries[]' "${json_file}" | while read -r entry; do
 
   social_image="extensions/media/${entry_repo//\//--}.png"
   attempt=0
-  while [[ ${attempt} -lt 4 ]]; do
+  while [[ ${attempt} -lt 3 ]]; do
     curl -s -o "${social_image}" "${entry_image}"
     mime_type=$(file --mime-type -b "${social_image}")
     if [[ "${mime_type}" == "image/png" ]]; then
@@ -65,6 +65,12 @@ jq -c 'to_entries[]' "${json_file}" | while read -r entry; do
     attempt=$((attempt + 1))
     sleep 0.5
   done
+
+  if [[ -z "${social_image}"]]; then
+    echo "::warning file=${json_file},title=Social Image Download::Failed to download social image for ${entry_repo}."
+    # cp assets/media/github-placeholder.png "${social_image}"
+    social_image="assets/media/github-placeholder.png"
+  fi
 
   echo -e \
     "- title: ${entry_title}\n" \
