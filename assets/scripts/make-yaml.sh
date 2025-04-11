@@ -52,18 +52,18 @@ jq -c 'to_entries[]' "${json_file}" | while read -r entry; do
 
   social_image="extensions/media/${entry_repo//\//--}.png"
   attempt=0
-  while [[ $attempt -lt 3 ]]; do
+  while [[ ${attempt} -lt 4 ]]; do
     curl -s -o "${social_image}" "${entry_image}"
     mime_type=$(file --mime-type -b "${social_image}")
     if [[ "${mime_type}" == "image/png" ]]; then
       break
     fi
     if [[ "${mime_type}" != "image/png" ]]; then
-      echo "Note: ${entry_repo} image is not a PNG file"
+      echo "Note: ${entry_repo} image is not a PNG file. ${attempt} attempt(s) to download."
       rm -f "${social_image}"
     fi
     attempt=$((attempt + 1))
-    sleep 1
+    sleep 0.5
   done
 
   echo -e \
