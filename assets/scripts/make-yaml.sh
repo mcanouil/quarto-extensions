@@ -66,7 +66,7 @@ jq -c 'to_entries[]' "${json_file}" | while read -r entry; do
     sleep 0.5
   done
 
-  if [[ -z "${social_image}"]]; then
+  if [[ -z "${social_image}" ]]; then
     echo "::warning file=${json_file},title=Social Image Download::Failed to download social image for ${entry_repo}."
     # cp assets/media/github-placeholder.png "${social_image}"
     social_image="assets/media/github-placeholder.png"
