@@ -59,14 +59,14 @@ jq -c 'to_entries[]' "${json_file}" | while read -r entry; do
       break
     fi
     if [[ "${mime_type}" != "image/png" ]]; then
-      echo "Note: ${entry_repo} image is not a PNG file. ${attempt} attempt(s) to download."
+      echo "Note: ${entry_repo} image is not a PNG file. $((attempt + 1)) attempt(s) to download."
       rm -f "${social_image}"
     fi
     attempt=$((attempt + 1))
-    sleep 0.5
+    sleep 1
   done
 
-  if [[ -z "${social_image}" ]]; then
+  if [[ -z "${social_image}" || "${mime_type}" != "image/png" ]]; then
     echo "::warning file=${json_file},title=Social Image Download::Failed to download social image for ${entry_repo}."
     # cp assets/media/github-placeholder.png "${social_image}"
     social_image="assets/media/github-placeholder.png"
