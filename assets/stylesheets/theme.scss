@@ -11,8 +11,6 @@
 
 .category {
   text-transform: uppercase;
-  color: mix($link-color, $body-bg, 50%);
-  border: solid 1px $body-color;
 }
 
 .category:hover {
@@ -20,9 +18,22 @@
   font-weight: bold;
 }
 
+.quarto-grid-item .listing-categories .listing-category {
+  color: mix($link-color, $body-bg, 50%);
+  border: solid 1px $body-color;
+}
 .quarto-grid-item .listing-categories .listing-category:hover {
   color: $link-color;
   border: solid 1px $link-color;
+}
+
+.quarto-about-trestles .about-entity .about-link {
+  color: mix($link-color, $body-bg, 50%);
+  border: solid 1px $body-color;
+}
+.quarto-about-trestles .about-entity .about-link:hover {
+  color: $link-color;
+  font-weight: bold;
 }
 
 .listing-author a,
@@ -70,15 +81,6 @@
 #quarto-back-to-top {
   z-index: 100; /* Make sure it's above everything else */
   color: $body-color;
-}
-
-div.quarto-about-trestles .about-entity .about-link {
-  color: mix($link-color, $body-bg, 50%);
-  border: solid 1px $body-color;
-}
-div.quarto-about-trestles .about-entity .about-link:hover {
-  color: $link-color;
-  font-weight: bold;
 }
 
 .page-item.active .page-link,
