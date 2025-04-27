@@ -1,0 +1,15 @@
+color:
+  background: "#fafafa"
+  foreground: "#333333"
+  light: "#fafafa"
+  dark: "#333333"
+typography:
+  link:
+    color: foreground
+defaults:
+  bootstrap:
+    rules: |
+      div.sourceCode {
+        background-color: darken($background, 5%) !important;
+      }
+      
