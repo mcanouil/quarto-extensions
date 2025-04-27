@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+if [ -z "${QUARTO_PROJECT_RENDER_ALL}" ]; then
+  exit 0
+fi
+
 set -e
 
 mkdir -p extensions/yaml
