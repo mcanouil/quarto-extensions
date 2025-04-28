@@ -1,4 +1,4 @@
-# Quarto Extensions Listing
+# Quarto Extensions Listing <img src="assets/media/quarto-extensions.svg" align="right" width="120" alt="Quarto extensions logo"/>
 
 This is a listing of Quarto extensions using GitHub API to retrieve information from the repositories.
 
