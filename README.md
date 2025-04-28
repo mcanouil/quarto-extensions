@@ -17,5 +17,5 @@ To add your extension to this list, please submit a pull request to this reposit
 >   - Avoid special characters/strings in the **Description**, such as `'<style>'` instead of `` `<style>` ``.
 > - Your GitHub repository contains **Topics**.
 > - Your GitHub repository contains a **Release** with **Tag**.
-> - Your GitHub repository has `example.qmd` or `template.qmd` files in the root directory.
-> - Your GitHub repository has only one extension or set of extensions at the root level.
+> - Your GitHub repository has `example.qmd` or `template.qmd` file.
+> - Your GitHub repository has only one extension or a set of extensions.
