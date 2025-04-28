@@ -2,7 +2,7 @@
 
 This is a listing of Quarto extensions using GitHub API to retrieve information from the repositories.
 
-To add your extension to this list, please submit a pull request to this repository by adding your extension repository at the bottom of [`extensions/quarto-extensions.csv`](https://github.com/mcanouil/quarto-extensions/edit/main/extensions/quarto-extensions.csv).
+To add your extension to this list, please submit a pull request to this repository by adding your extension repository at the bottom of [`extensions/quarto-extensions.csv`](https://github.com/mcanouil/quarto-extensions/edit/main/extensions/quarto-extensions.csv) following `<owner>/<repository></optional-path>`.
 
 ```md
 <owner>/<repository>
@@ -14,6 +14,8 @@ To add your extension to this list, please submit a pull request to this reposit
 >
 > - The extension is not already listed.
 > - Your GitHub repository contains a **Description**.
+>   - Avoid special characters/strings in the **Description**, such as `'<style>'` instead of `` `<style>` ``.
 > - Your GitHub repository contains **Topics**.
 > - Your GitHub repository contains a **Release** with **Tag**.
-> - Avoid special characters/strings in the **Description**, such as `'<style>'` instead of `` `<style>` ``.
+> - Your GitHub repository has `example.qmd` or `template.qmd` files in the root directory.
+> - Your GitHub repository has a only one extension or set of extensions at the root level.
