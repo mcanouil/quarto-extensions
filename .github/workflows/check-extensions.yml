@@ -133,6 +133,7 @@ jobs:
               fi
             done < diff.patch
           fi
+          echo "${errors_json}"
           echo "errors=${errors_json}" >> $GITHUB_OUTPUT
           if [[ "${error}" == "true" ]]; then
             exit 1
