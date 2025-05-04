@@ -91,7 +91,7 @@ jobs:
         id: store-errors
         shell: bash
         run: |
-          errors="${{ steps.check.outputs.errors }}"
+          errors='${{ steps.check.outputs.errors }}'
           if [[ -z "${errors}" ]]; then
             errors="[]"
           fi
@@ -142,7 +142,7 @@ jobs:
         id: store-errors
         shell: bash
         run: |
-          errors="${{ steps.check.outputs.errors }}"
+          errors='${{ steps.check.outputs.errors }}'
           if [[ -z "${errors}" ]]; then
             errors="[]"
           fi
@@ -193,7 +193,7 @@ jobs:
         id: store-errors
         shell: bash
         run: |
-          errors="${{ steps.check.outputs.errors }}"
+          errors='${{ steps.check.outputs.errors }}'
           if [[ -z "${errors}" ]]; then
             errors="[]"
           fi
@@ -244,7 +244,7 @@ jobs:
         id: store-errors
         shell: bash
         run: |
-          errors="${{ steps.check.outputs.errors }}"
+          errors='${{ steps.check.outputs.errors }}'
           if [[ -z "${errors}" ]]; then
             errors="[]"
           fi
@@ -293,7 +293,7 @@ jobs:
         id: store-errors
         shell: bash
         run: |
-          errors="${{ steps.check.outputs.errors }}"
+          errors='${{ steps.check.outputs.errors }}'
           if [[ -z "${errors}" ]]; then
             errors="[]"
           fi
