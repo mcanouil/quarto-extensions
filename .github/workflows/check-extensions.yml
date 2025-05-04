@@ -370,7 +370,7 @@ jobs:
                 done < <(echo "${errors_json}" | jq -c '.[]')
               fi
             done
-            echo "The following issues were found in [\`${CSV_FILE}\`](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/blob/${github.event.pull_request.head.ref}/${CSV_FILE}):" >> $GITHUB_STEP_SUMMARY
+            echo "The following issues were found in [\`${CSV_FILE}\`](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/blob/${{github.event.pull_request.head.ref}}/${CSV_FILE}):" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
 
             CSV_FILE_ENCODED=$(echo -n "${CSV_FILE}" | hexdump -v -e '/1 "%02x"' | sed 's/\(..\)/%\1/g')
