@@ -76,7 +76,7 @@ jobs:
                 line_number=${line%%:*}
                 error_message="Duplicate value \"${duplicate}\" found"
                 echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number},title=Duplicate Entry::${error_message}"
-                errors_json=$(echo ${errors_json} | jq --arg line "${line_number}" --arg msg "${error_message}" '. += [{"line": $line, "message": $msg}]')
+                errors_json=$(echo ${errors_json} | jq --arg ext "${repo}" --arg line "${line_number}" '. += [{"extension": $ext, "line": $line, "message": "Repository is duplicated."}]')
                 error=true
               done < duplicate_lines.txt
             done < duplicates.txt
@@ -128,7 +128,7 @@ jobs:
                 line_number=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1)
                 error_message="Repository \"${repo}\" is missing topics!"
                 echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
-                errors_json=$(echo ${errors_json} | jq --arg line "${line_number}" --arg msg "${error_message}" '. += [{"line": $line, "message": $msg}]')
+                errors_json=$(echo ${errors_json} | jq --arg ext "${repo}" --arg line "${line_number}" '. += [{"extension": $ext, "line": $line, "message": "Repository is missing topics."}]')
                 error=true
               fi
             done < diff.patch
@@ -179,7 +179,7 @@ jobs:
                 line_number=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1)
                 error_message="Repository \"${repo}\" is missing description!"
                 echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
-                errors_json=$(echo ${errors_json} | jq --arg line "${line_number}" --arg msg "${error_message}" '. += [{"line": $line, "message": $msg}]')
+                errors_json=$(echo ${errors_json} | jq --arg ext "${repo}" --arg line "${line_number}" '. += [{"extension": $ext, "line": $line, "message": "Repository is missing description."}]')
                 error=true
               fi
             done < diff.patch
@@ -230,7 +230,7 @@ jobs:
                 line_number=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1)
                 error_message="Repository \"${repo}\" is missing release/tag!"
                 echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
-                errors_json=$(echo ${errors_json} | jq --arg line "${line_number}" --arg msg "${error_message}" '. += [{"line": $line, "message": $msg}]')
+                errors_json=$(echo ${errors_json} | jq --arg ext "${repo}" --arg line "${line_number}" '. += [{"extension": $ext, "line": $line, "message": "Repository is missing release/tag."}]')
                 error=true
               fi
             done < diff.patch
@@ -280,7 +280,7 @@ jobs:
               error_message="Repository \"${repo}\" is redirected to \"${redirection_target}\"!"
               line_number=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1)
               echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
-              errors_json=$(echo ${errors_json} | jq --arg line "${line_number}" --arg msg "${error_message}" '. += [{"line": $line, "message": $msg}]')
+              errors_json=$(echo ${errors_json} | jq --arg ext "${repo}" --arg line "${line_number}" '. += [{"extension": $ext, "line": $line, "message": "Repository is redirected."}]')
               error=true
             fi
           done < <(sort -f "${CSV_FILE}")
