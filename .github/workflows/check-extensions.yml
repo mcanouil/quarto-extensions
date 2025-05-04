@@ -314,7 +314,6 @@ jobs:
       - check-description
       - check-release
       - check-redirection
-    if: always() && needs.check-submission.outputs.submission == 'true'
     steps:
       - uses: actions/checkout@v4
         with:
