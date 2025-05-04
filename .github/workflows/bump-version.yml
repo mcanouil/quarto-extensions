@@ -13,21 +13,38 @@ jobs:
 
     env:
       BRANCH: ci/bump-version
-      GITHUB_TOKEN: ${{ secrets.github_token }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Create GitHub App token
+        uses: actions/create-github-app-token@v2
+        id: app-token
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_KEY }}
+
+      - name: Get GitHub App User ID
+        id: get-user-id
+        shell: bash
+        run: echo "user-id=$(gh api "/users/${{ steps.app-token.outputs.app-slug }}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - name: Git Config
+        shell: bash
+        run: |
+          git config --global user.name '${{ steps.app-token.outputs.app-slug }}[bot]'
+          git config --global user.email '${{ steps.get-user-id.outputs.user-id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com'
+
       - name: Bump Version
         id: bump-version
         env:
-          GH_TOKEN: ${{ secrets.github_token }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
           COMMIT: "ci: bump version for release :rocket:"
         shell: bash
         run: |
-          git config --local user.name github-actions[bot]
-          git config --local user.email 41898282+github-actions[bot]@users.noreply.github.com
           if git show-ref --quiet refs/heads/${BRANCH}; then
             echo "Branch ${BRANCH} already exists."
             git branch -D "${BRANCH}"
@@ -44,6 +61,8 @@ jobs:
 
       - name: Create Pull Request
         shell: bash
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           sleep 20
           gh pr create --fill-first --base "main" --head "${BRANCH}" --label "Type: CI/CD :robot:"

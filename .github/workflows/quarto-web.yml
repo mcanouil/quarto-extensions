@@ -2,7 +2,7 @@ name: Get Extensions from Quarto Website
 
 on:
   schedule:
-    - cron: '0 1 * * 0'
+    - cron: "0 1 * * 0"
   workflow_dispatch:
 
 permissions:
@@ -13,20 +13,36 @@ jobs:
   quarto-web:
     runs-on: ubuntu-latest
     env:
-      GH_TOKEN: ${{ secrets.github_token }}
       BRANCH: ci/get-quarto-web-extensions
       COMMIT: "ci: get quarto-web extensions"
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create GitHub App token
+        uses: actions/create-github-app-token@v2
+        id: app-token
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_KEY }}
+
+      - name: Get GitHub App User ID
+        id: get-user-id
+        shell: bash
+        run: echo "user-id=$(gh api "/users/${{ steps.app-token.outputs.app-slug }}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
 
       - name: Git Config
         shell: bash
         run: |
-          git config --local user.name github-actions[bot]
-          git config --local user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git config --global user.name '${{ steps.app-token.outputs.app-slug }}[bot]'
+          git config --global user.email '${{ steps.get-user-id.outputs.user-id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com'
 
       - name: Get extensions from Quarto Website and commit
         shell: bash
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           CSV_FILE="extensions/quarto-extensions.csv"
           git clone --quiet --filter=blob:none --no-checkout https://github.com/quarto-dev/quarto-web _quarto-web
@@ -37,7 +53,7 @@ jobs:
             -exec grep -o 'path: https://github.com/.*' {} \; \
             | sed 's/path: https:\/\/github.com\///' | sed 's/blob\/[^/]*\///' > _quarto-web/quarto-web-extensions.csv
           cat "${CSV_FILE}" > _quarto-web/quarto-extensions.csv
-          echo "gadenbuie/countdown" >> _quarto-web/quarto-extensions.csv
+          echo "gadenbuie/countdown" >> _quarto-web/quarto-extensions.csv # Don't add this extension as not available through tag
           extensions_to_add=$(grep -Fvxi -f _quarto-web/quarto-extensions.csv _quarto-web/quarto-web-extensions.csv || true)
           rm -rf _quarto-web
 
@@ -45,26 +61,28 @@ jobs:
             echo "No new extensions to add."
             exit 0
           fi
-          if git show-ref --quiet refs/heads/${{ env.BRANCH }}; then
-            echo "Branch ${{ env.BRANCH }} already exists."
-            git branch -D "${{ env.BRANCH }}"
-            git push origin --delete "${{ env.BRANCH }}"
+          if git show-ref --quiet refs/heads/${BRANCH}; then
+            echo "Branch ${BRANCH} already exists."
+            git branch -D "${BRANCH}"
+            git push origin --delete "${BRANCH}"
           fi
-          git checkout -b "${{ env.BRANCH }}"
+          git checkout -b "${BRANCH}"
           echo "${extensions_to_add}" >> "${CSV_FILE}"
           git add "${CSV_FILE}"
           git commit -m "${{ env.COMMIT }}"
-          git push --force origin ${{ env.BRANCH }}
+          git push --force origin ${BRANCH}
 
           gh pr create \
             --fill-first \
             --base "main" \
-            --head "${{ env.BRANCH }}" \
+            --head "${BRANCH}" \
             --label "Type: CI/CD :robot:" \
             --reviewer "${{ github.repository_owner }}"
 
       - name: Merge Pull Request
         if: false
         shell: bash
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           gh pr merge --auto --squash --delete-branch

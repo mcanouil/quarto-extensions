@@ -25,7 +25,8 @@ jobs:
       submission: ${{ steps.check-submission.outputs.SUBMISSION }}
       diff: ${{ steps.check-submission.outputs.DIFF }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 2
       - name: Check for submission
@@ -58,7 +59,8 @@ jobs:
     outputs:
       errors: ${{ steps.store-errors.outputs.errors }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 2
       - name: Check for duplicates
@@ -109,7 +111,8 @@ jobs:
     outputs:
       errors: ${{ steps.store-errors.outputs.errors }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 2
       - name: Check for topics
@@ -160,7 +163,8 @@ jobs:
     outputs:
       errors: ${{ steps.store-errors.outputs.errors }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 2
       - name: Check for description
@@ -211,7 +215,8 @@ jobs:
     outputs:
       errors: ${{ steps.store-errors.outputs.errors }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 2
       - name: Check for release/tag
@@ -262,7 +267,8 @@ jobs:
     outputs:
       errors: ${{ steps.store-errors.outputs.errors }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 2
       - name: Check for redirection
@@ -316,7 +322,8 @@ jobs:
       - check-redirection
     if: always()
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 2
       - name: Create GitHub App token
