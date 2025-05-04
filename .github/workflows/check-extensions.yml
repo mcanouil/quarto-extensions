@@ -360,7 +360,7 @@ jobs:
             echo "" >> $GITHUB_STEP_SUMMARY
 
             for line_number in $(echo "${!file_line_errors[@]}" | tr ' ' '\n' | sort -n); do
-              entry=$(sed -n "${line_number}" ${CSV_FILE})
+              entry=$(sed -n "${line_number}p" ${CSV_FILE})
               echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::Submission error"
               echo "### Line ${line_number}: \`${entry}\`" >> $GITHUB_STEP_SUMMARY
               echo "" >> $GITHUB_STEP_SUMMARY
