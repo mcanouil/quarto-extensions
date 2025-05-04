@@ -134,6 +134,7 @@ jobs:
             done < diff.patch
           fi
           echo "errors=${errors_json}" >> $GITHUB_OUTPUT
+          echo "${errors_json}"
           if [[ "${error}" == "true" ]]; then
             exit 1
           fi
@@ -143,6 +144,7 @@ jobs:
         shell: bash
         run: |
           errors="${{ steps.check.outputs.errors }}"
+          echo "${errors}"
           if [[ -z "${errors}" ]]; then
             errors="[]"
           fi
@@ -351,7 +353,7 @@ jobs:
               fi
             fi
           }
-          echo '${{ needs.check-duplicate.outputs.errors }}'
+
           process_errors "check-duplicate" '${{ needs.check-duplicate.outputs.errors }}' '${{ needs.check-duplicate.result }}'
           process_errors "check-topics" '${{ needs.check-topics.outputs.errors }}' '${{ needs.check-topics.result }}'
           process_errors "check-description" '${{ needs.check-description.outputs.errors }}' '${{ needs.check-description.result }}'
