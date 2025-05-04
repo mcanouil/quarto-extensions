@@ -363,9 +363,9 @@ jobs:
                   message=$(echo "${error_obj}" | jq -r '.message')
                   
                   if [[ -z "${file_line_errors[$line]}" ]]; then
-                    file_line_errors["$line"]="- ${message}"
+                    file_line_errors["$line"]="- ❌ ${message}"
                   else
-                    file_line_errors["$line"]+=$'\n- '"${message}"
+                    file_line_errors["$line"]+=$'\n- ❌ '"${message}"
                   fi
                 done < <(echo "${errors_json}" | jq -c '.[]')
               fi
@@ -377,13 +377,15 @@ jobs:
             for line_number in $(echo "${!file_line_errors[@]}" | tr ' ' '\n' | sort -n); do
               entry=$(sed -n "${line_number}p" ${CSV_FILE})
               echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::Submission error\n${file_line_errors[$line_number]}"
-              echo "### [Line ${line_number}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/pull/${NUMBER}/files#diff-${CSV_FILE_ENCODED}L${line_number}): [\`${entry}\`](${GITHUB_SERVER_URL}/${entry})" >> $GITHUB_STEP_SUMMARY
+              echo "### Line [${line_number}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/pull/${NUMBER}/files#diff-${CSV_FILE_ENCODED}L${line_number}): [\`${entry}\`](${GITHUB_SERVER_URL}/${entry})" >> $GITHUB_STEP_SUMMARY
               echo "" >> $GITHUB_STEP_SUMMARY
               echo -e "${file_line_errors[$line_number]}" >> $GITHUB_STEP_SUMMARY
               echo "" >> $GITHUB_STEP_SUMMARY
             done
           else
             echo "✅ All checks passed successfully!" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "🔍 [View workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})" >> $GITHUB_STEP_SUMMARY
           fi
           git config --global user.name '${{ steps.app-token.outputs.app-slug }}[bot]'
           git config --global user.email '${{ steps.get-user-id.outputs.user-id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com'
