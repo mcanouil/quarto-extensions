@@ -66,3 +66,5 @@ jobs:
         run: |
           sleep 20
           gh pr create --fill-first --base "main" --head "${BRANCH}" --label "Type: CI/CD :robot:"
+          sleep 5
+          gh pr merge --auto --squash --delete-branch
