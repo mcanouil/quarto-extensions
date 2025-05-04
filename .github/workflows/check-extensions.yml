@@ -326,39 +326,36 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
 
           errors_found=false
-          declare -A file_line_errors
-
-          process_errors() {
-            local job_name=$1
-            local job_errors=$2
-            local job_result=$3
-
-            if [[ "${job_result}" == "failure" || "${job_result}" == "success" ]]; then
-              if [[ -n "${job_errors}" && "${job_errors}" != "[]" ]]; then
-                errors_found=true
-
-                echo "${job_errors}" | jq -c '.[]' | while read -r error; do
-                  line_number=$(echo "${error}" | jq -r '.line')
-                  error_message=$(echo "${error}" | jq -r '.message')
-
-                  key="${line_number}"
-                  if [[ -z "${file_line_errors[$key]}" ]]; then
-                    file_line_errors[$key]="- ${error_message}"
-                  else
-                    file_line_errors[$key]="${file_line_errors[$key]}\n  - ${error_message}"
-                  fi
-                done
-              fi
-            fi
-          }
-
-          process_errors "check-duplicate" '${{ needs.check-duplicate.outputs.errors }}' '${{ needs.check-duplicate.result }}'
-          process_errors "check-topics" '${{ needs.check-topics.outputs.errors }}' '${{ needs.check-topics.result }}'
-          process_errors "check-description" '${{ needs.check-description.outputs.errors }}' '${{ needs.check-description.result }}'
-          process_errors "check-release" '${{ needs.check-release.outputs.errors }}' '${{ needs.check-release.result }}'
-          process_errors "check-redirection" '${{ needs.check-redirection.outputs.errors }}' '${{ needs.check-redirection.result }}'
+          if [[ '${{ needs.check-duplicate.result }}' == "failure" || \
+                '${{ needs.check-topics.result }}' == "failure" || \
+                '${{ needs.check-description.result }}' == "failure" || \
+                '${{ needs.check-release.result }}' == "failure" || \
+                '${{ needs.check-redirection.result }}' == "failure" ]]; then
+            errors_found=true
+          fi
 
           if [[ "${errors_found}" == "true" ]]; then
+            declare -A file_line_errors
+            
+            for errors_json in \
+            '${{ needs.check-duplicate.outputs.errors }}' \
+            '${{ needs.check-topics.outputs.errors }}' \
+            '${{ needs.check-description.outputs.errors }}' \
+            '${{ needs.check-release.outputs.errors }}' \
+            '${{ needs.check-redirection.outputs.errors }}'; do
+              if [[ "${errors_json}" != "[]" && "${errors_json}" != "" ]]; then
+                while read -r error_obj; do
+                  line=$(echo "${error_obj}" | jq -r '.line')
+                  message=$(echo "${error_obj}" | jq -r '.message')
+                  
+                  if [[ -z "${file_line_errors[$line]}" ]]; then
+                    file_line_errors["$line"]="- ${message}"
+                  else
+                    file_line_errors["$line"]+=$'\n- '"${message}"
+                  fi
+                done < <(echo "${errors_json}" | jq -c '.[]')
+              fi
+            done
             echo "The following issues were found in \`${CSV_FILE}\`:" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
 
