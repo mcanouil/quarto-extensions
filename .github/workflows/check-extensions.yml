@@ -314,6 +314,7 @@ jobs:
       - check-description
       - check-release
       - check-redirection
+    if: always()
     steps:
       - uses: actions/checkout@v4
         with:
