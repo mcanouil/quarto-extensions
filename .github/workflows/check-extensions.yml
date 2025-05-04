@@ -75,8 +75,8 @@ jobs:
               while IFS= read -r line; do
                 line_number=${line%%:*}
                 error_message="Duplicate value \"${duplicate}\" found"
-                echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number},title=Duplicate Entry::${error_message}"
-                errors_json=$(echo ${errors_json} | jq --compact-output --arg ext "${repo}" --arg line "${line_number}" '. += [{"extension": $ext, "line": $line, "message": "Repository is duplicated."}]')
+                # echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number},title=Duplicate Entry::${error_message}"
+                errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "Repository is duplicated."}]')
                 error=true
               done < duplicate_lines.txt
             done < duplicates.txt
@@ -127,8 +127,8 @@ jobs:
               if [[ -z "${repo_topics}" ]]; then
                 line_number=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1)
                 error_message="Repository \"${repo}\" is missing topics!"
-                echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
-                errors_json=$(echo ${errors_json} | jq --compact-output --arg ext "${repo}" --arg line "${line_number}" '. += [{"extension": $ext, "line": $line, "message": "Repository is missing topics."}]')
+                # echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
+                errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "Repository is missing topics."}]')
                 error=true
               fi
             done < diff.patch
@@ -178,8 +178,8 @@ jobs:
               if [[ -z "${repo_description}" ]]; then
                 line_number=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1)
                 error_message="Repository \"${repo}\" is missing description!"
-                echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
-                errors_json=$(echo ${errors_json} | jq --compact-output --arg ext "${repo}" --arg line "${line_number}" '. += [{"extension": $ext, "line": $line, "message": "Repository is missing description."}]')
+                # echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
+                errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "Repository is missing description."}]')
                 error=true
               fi
             done < diff.patch
@@ -229,8 +229,8 @@ jobs:
               if [[ -z "${repo_release}" ]]; then
                 line_number=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1)
                 error_message="Repository \"${repo}\" is missing release/tag!"
-                echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
-                errors_json=$(echo ${errors_json} | jq --compact-output --arg ext "${repo}" --arg line "${line_number}" '. += [{"extension": $ext, "line": $line, "message": "Repository is missing release/tag."}]')
+                # echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
+                errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "Repository is missing release/tag."}]')
                 error=true
               fi
             done < diff.patch
@@ -279,8 +279,8 @@ jobs:
               redirection_target=${redirection_target#"https://github.com/"}
               error_message="Repository \"${repo}\" is redirected to \"${redirection_target}\"!"
               line_number=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1)
-              echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
-              errors_json=$(echo ${errors_json} | jq --compact-output --arg ext "${repo}" --arg line "${line_number}" '. += [{"extension": $ext, "line": $line, "message": "Repository is redirected."}]')
+              # echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
+              errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "Repository is redirected."}]')
               error=true
             fi
           done < <(sort -f "${CSV_FILE}")
@@ -363,7 +363,8 @@ jobs:
             echo "" >> $GITHUB_STEP_SUMMARY
 
             for line_number in $(echo "${!file_line_errors[@]}" | tr ' ' '\n' | sort -n); do
-              entry=$(sed -n "${line_number}p" ${CSV_FILE})
+              entry=$(sed -n "${line_number}" ${CSV_FILE})
+              echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::Submission error"
               echo "### Line ${line_number}: \`${entry}\`" >> $GITHUB_STEP_SUMMARY
               echo "" >> $GITHUB_STEP_SUMMARY
               echo -e "${file_line_errors[$line_number]}" >> $GITHUB_STEP_SUMMARY
