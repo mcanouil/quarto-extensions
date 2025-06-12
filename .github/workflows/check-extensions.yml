@@ -322,17 +322,6 @@ jobs:
       - check-redirection
     if: always()
     steps:
-      - name: Create GitHub App token
-        uses: actions/create-github-app-token@v2
-        id: app-token
-        with:
-          app-id: ${{ vars.APP_ID }}
-          private-key: ${{ secrets.APP_KEY }}
-      - name: Get GitHub App User ID
-        id: get-user-id
-        run: echo "user-id=$(gh api "/users/${{ steps.app-token.outputs.app-slug }}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
@@ -340,7 +329,6 @@ jobs:
       - name: Generate summary report
         env:
           NUMBER: ${{ github.event.pull_request.number }}
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
           PR_BRANCH: ${{ github.event.pull_request.head.ref }}
         shell: bash
         run: |
