@@ -3,8 +3,6 @@ name: Check Extensions
 on:
   workflow_dispatch:
   pull_request:
-    paths:
-      - "extensions/quarto-extensions.csv"
 
 permissions:
   pull-requests: write
