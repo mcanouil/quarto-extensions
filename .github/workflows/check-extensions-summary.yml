@@ -73,3 +73,4 @@ jobs:
             --create-if-none \
             --edit-last \
             --repo ${{ github.repository }}
+          cat ${{ runner.temp }}/artifacts/extensions-check-summary/summary.md  >> $GITHUB_STEP_SUMMARY
