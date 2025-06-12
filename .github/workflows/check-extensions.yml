@@ -383,3 +383,11 @@ jobs:
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "🔍 [View workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})" >> $GITHUB_STEP_SUMMARY
           fi
+
+          mkdir -p ./extensions-check-summary
+          echo ${NUMBER} > ./extensions-check-summary/pr_number
+          cp ${GITHUB_STEP_SUMMARY} ./extensions-check-summary/summary.md 
+      - uses: actions/upload-artifact@v4
+        with:
+          name: extensions-check-summary
+          path: ./extensions-check-summary
