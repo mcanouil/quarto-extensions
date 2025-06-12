@@ -71,4 +71,5 @@ jobs:
           gh pr comment "$(cat ${{ runner.temp }}/artifacts/extensions-check-summary/pr_number)" \
             --body ${{ runner.temp }}/artifacts/extensions-check-summary/summary.md \
             --create-if-none \
-            --edit-last
+            --edit-last \
+            --repo ${{ github.repository }}
