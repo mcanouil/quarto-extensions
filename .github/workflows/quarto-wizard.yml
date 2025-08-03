@@ -29,8 +29,10 @@ jobs:
     outputs:
       updated-count: ${{ steps.get-extensions-details.outputs.updated-count }}
       skipped-count: ${{ steps.get-extensions-details.outputs.skipped-count }}
+      outdated-count: ${{ steps.get-extensions-details.outputs.outdated-count }}
       updated-extensions: ${{ steps.get-extensions-details.outputs.updated-extensions }}
       skipped-extensions: ${{ steps.get-extensions-details.outputs.skipped-extensions }}
+      outdated-extensions: ${{ steps.get-extensions-details.outputs.outdated-extensions }}
     env:
       BRANCH: quarto-wizard
       COMMIT: "ci: update extensions details"
