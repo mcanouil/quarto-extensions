@@ -27,10 +27,10 @@ jobs:
   get-extensions:
     runs-on: ubuntu-latest
     outputs:
-      updated-count: ${{ steps.summary.outputs.updated-count }}
-      skipped-count: ${{ steps.summary.outputs.skipped-count }}
-      updated-extensions: ${{ steps.summary.outputs.updated-extensions }}
-      skipped-extensions: ${{ steps.summary.outputs.skipped-extensions }}
+      updated-count: ${{ steps.get-extensions-details.outputs.updated-count }}
+      skipped-count: ${{ steps.get-extensions-details.outputs.skipped-count }}
+      updated-extensions: ${{ steps.get-extensions-details.outputs.updated-extensions }}
+      skipped-extensions: ${{ steps.get-extensions-details.outputs.skipped-extensions }}
     env:
       BRANCH: quarto-wizard
       COMMIT: "ci: update extensions details"
@@ -99,7 +99,7 @@ jobs:
           EXTENSIONS_DIR="extensions"
           mkdir -p "${EXTENSIONS_DIR}"
           echo "*" > .gitignore
-          echo "!${EXTENSIONS_DIR}/" >> .gitignore
+          echo "!**/extension.json" >> .gitignore
           echo "!quarto-extensions.json" >> .gitignore
 
           previous_owner=""
@@ -230,7 +230,7 @@ jobs:
           # Display the number and list of updated extensions using notice workflow command
           UPDATED_COUNT=${#updated_extensions[@]}
           UPDATED_LIST=$(printf '%s,' "${updated_extensions[@]}" | sed 's/,$//')
-          echo "::notice title=Updated Extensions::Count: ${UPDATED_COUNT}\nList: ${UPDATED_LIST}"
+          echo "::notice title=Updated Extensions::Count: ${UPDATED_COUNT} List: ${UPDATED_LIST}"
 
           JSON_FILE="quarto-extensions.json"
           find "${EXTENSIONS_DIR}" -type f -path "${EXTENSIONS_DIR}/*/*/extension.json" | \
