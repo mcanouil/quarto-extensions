@@ -243,9 +243,13 @@ jobs:
           xargs cat | \
           jq -s 'add' > "${JSON_FILE}"
 
-          git add "${JSON_FILE}" || echo "No changes to commit"
-          git commit --allow-empty -m "${COMMIT}"
-          git push --force origin ${BRANCH}
+          if [[ -n $(git status --porcelain) ]]; then
+            git add "${JSON_FILE}"
+            git commit --allow-empty -m "${COMMIT}"
+            git push --force origin ${BRANCH}
+          else
+            echo "No changes detected, skipping commit"
+          fi
 
   summary:
     runs-on: ubuntu-latest
