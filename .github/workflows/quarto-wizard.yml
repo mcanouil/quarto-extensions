@@ -93,6 +93,7 @@ jobs:
         run: |
           set -e
 
+          DEBUG_MODE=${1:-false}
           JSON_FILE=${JSON_FILE:-"quarto-extensions.json"}
           BRANCH=${BRANCH:-"quarto-wizard"}
           COMMIT=${COMMIT:-"ci: update extensions details"}
@@ -106,10 +107,10 @@ jobs:
           updated_extensions=()
           skipped_extensions=()
 
-          if [[ "${{ github.event.inputs.debug }}" == "true" ]]; then
-            CSV_ENTRIES=$(head -n 5 data/${CSV_FILE})
+          if [[ "${DEBUG_MODE}" == "true" ]]; then
+            CSV_ENTRIES=$(head -n 5 "data/${CSV_FILE}")
           else
-            CSV_ENTRIES=$(cat data/${CSV_FILE})
+            CSV_ENTRIES=$(cat "data/${CSV_FILE}")
           fi
 
           while IFS=, read -r entry; do
@@ -146,13 +147,16 @@ jobs:
                 }'
             )
 
-            # Check if existing JSON file has same updatedAt date
             nameWithOwner=$(echo "${repo_info}" | jq -r ".nameWithOwner")
             owner=$(echo "${repo_info}" | jq -r ".owner")
-            extension_json_file="${EXTENSIONS_DIR}/${nameWithOwner}/extension.json"
-            author_json_file="${EXTENSIONS_DIR}/${owner}/author.json"
 
-            owner=$(echo "${repo_info}" | jq -r ".owner")
+            author_json_file="${EXTENSIONS_DIR}/${owner}/author.json"
+            author_png_file="${EXTENSIONS_DIR}/${owner}/author"
+            extension_json_file="${EXTENSIONS_DIR}/${nameWithOwner}/extension.json"
+            extension_png_file="${EXTENSIONS_DIR}/${nameWithOwner}/extension.png"
+            extension_yaml_file="${EXTENSIONS_DIR}/${nameWithOwner}/extension.yml"
+
+            # --- Begin: Retrieve and process JSON for this extension ---
             if [[ "${owner}" == "${previous_owner}" ]]; then
               author="${previous_author}"
             else
@@ -171,9 +175,25 @@ jobs:
                 fi
               fi
               if [[ "${update_author_json}" == "true" ]]; then
-                mkdir -p "$(dirname \"${author_json_file}\")"
+                mkdir -p "$(dirname "${author_json_file}")"
                 echo "${author_payload}" > "${author_json_file}"
                 git add "${author_json_file}" || echo "No changes detected, skipping commit"
+                if [[ -f "${author_png_file}.png" ]]; then
+                  author_png_file="${author_png_file}.png"
+                elif [[ -f "${author_png_file}.jpg" ]]; then
+                  author_png_file="${author_png_file}.jpg"
+                else
+                  curl -L -s -o "${author_png_file}" "https://github.com/${owner}.png"
+                  mime_type=$(file --mime-type -b "${author_png_file}")
+                  case "${mime_type}" in
+                    image/jpeg) extension="jpg" ;;
+                    image/png) extension="png" ;;
+                    *) extension="png" ;; # Default for unknown types
+                  esac
+                  mv "${author_png_file}" "${author_png_file}.${extension}"
+                  author_png_file="${author_png_file}.${extension}"
+                fi
+                git add "${author_png_file}" || echo "No changes detected, skipping commit"
               fi
               previous_owner="${owner}"
               previous_author="${author}"
@@ -232,6 +252,71 @@ jobs:
             echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}' > "${extension_json_file}"
             updated_extensions+=("${entry}")
             git add "${extension_json_file}" || echo "No changes detected, skipping commit"
+            # --- End: Retrieve and process JSON for this extension ---
+
+            # --- Begin: Generate YAML and author listing for this extension ---
+            entry_title=$(echo "${repo_info}" | jq -r '.title')
+            entry_created=$(echo "${repo_info}" | jq -r '.createdAt')
+            entry_updated=$(echo "${repo_info}" | jq -r '.updatedAt')
+            entry_url=$(echo "${repo_info}" | jq -r '.url')
+            entry_topics=$(echo "${repo_info}" | jq -r '.repositoryTopics' | jq -c 'unique')
+            entry_license=$(echo "${repo_info}" | jq -r '.licenseInfo')
+            entry_stars=$(echo "${repo_info}" | jq -r '.stargazerCount')
+            entry_image=$(echo "${repo_info}" | jq -r '.openGraphImageUrl')
+            entry_author=$(echo "${repo_info}" | jq -r '.author')
+            entry_template=$(echo "${repo_info}" | jq -r '.template')
+            entry_description=$(echo "${repo_info}" | jq -r '.description')
+            entry_description=$(echo "${entry_description}" | sed 's/^[[:space:]]*//')
+            entry_description=$(echo "${entry_description}" | sed -E 's/([^`])(<[^<>]+>)([^`])/\1`\2`\3/g')
+            entry_release=$(echo "${repo_info}" | jq -r '.latestRelease')
+            yaml_usage_body="${nameWithOwner}"
+            if [[ "${entry_release}" != "none" ]]; then
+              entry_release_url=$(echo "${repo_info}" | jq -r '.latestReleaseUrl')
+              yaml_usage_body="${nameWithOwner}@${entry_release}"
+              entry_release=$(echo "${entry_release}" | sed 's/^[^0-9]*//')
+              entry_release="[${entry_release}](${entry_release_url})"
+            fi
+
+            attempt=0
+            while [[ ${attempt} -lt 3 ]]; do
+              curl -s -o "${extension_png_file}" "${entry_image}"
+              mime_type=$(file --mime-type -b "${extension_png_file}")
+              if [[ "${mime_type}" == "image/png" ]]; then
+                break
+              fi
+              if [[ "${mime_type}" != "image/png" ]]; then
+                echo "Note: ${nameWithOwner} image is not a PNG file. $((attempt + 1)) attempt(s) to download."
+                rm -f "${extension_png_file}"
+              fi
+              attempt=$((attempt + 1))
+              sleep 1
+            done
+            if [[ -z "${extension_png_file}" || "${mime_type}" != "image/png" ]]; then
+              echo "::warning title=Social Image Download::Failed to download social image for ${nameWithOwner}."
+              extension_png_file="assets/media/github-placeholder.png"
+            fi
+
+            echo -e \
+              "- title: ${entry_title}\n" \
+              " image: \"/${extension_png_file}\"\n" \
+              " image-alt: \"GitHub repository OpenGraph image for ${entry_url}\"\n" \
+              " github-url: ${entry_url}\n" \
+              " author: \"${entry_author}\"\n" \
+              " author-url: \"/authors/${owner}.qmd\"\n" \
+              " date: \"${entry_created}\"\n" \
+              " file-modified: \"${entry_updated}\"\n" \
+              " categories: ${entry_topics}\n" \
+              " license: \"${entry_license}\"\n" \
+              " stars: $(printf "%05d\n" "${entry_stars}")\n" \
+              " version: \"${entry_release}\"\n" \
+              " description: |\n    ${entry_description}\n" \
+              " usage: ${yaml_usage_body}\n" \
+              " template: ${entry_template}\n" \
+              >"${extension_yaml_file}"
+
+            git add "${extension_png_file}" || echo "No changes detected, skipping commit"
+            git add "${extension_yaml_file}" || echo "No changes detected, skipping commit"
+            # --- End: Generate YAML and author listing for this extension ---
           done < <(echo "$CSV_ENTRIES" | sort -f)
 
           # Save summary data as job outputs
@@ -244,12 +329,12 @@ jobs:
 
           echo "::notice title=Updated Extensions::Count: ${#updated_extensions[@]}"
 
-          find "${EXTENSIONS_DIR}" -type f -path "${EXTENSIONS_DIR}/*/*/extension.json" | xargs cat | jq -s 'add' > "${JSON_FILE}"
+          find "${EXTENSIONS_DIR}" -type f -path "${EXTENSIONS_DIR}/*/*/extension.json" -print0 | xargs -0 cat | jq -s 'add' > "${JSON_FILE}"
 
           git add "${JSON_FILE}" || echo "No changes detected, skipping commit"
           git commit --allow-empty -m "${COMMIT}"
-          if [[ "${{ github.event.inputs.debug }}" == "false" ]]; then
-            git push --force origin ${BRANCH}
+          if [[ "${DEBUG_MODE}" == "false" ]]; then
+            git push --force origin "${BRANCH}"
           else
             echo "Debug mode is enabled, skipping push"
           fi
@@ -274,7 +359,6 @@ jobs:
       - name: Generate workflow summary
         shell: bash
         run: |
-          # Use environment variables from job outputs
           UPDATED_COUNT=${UPDATED_COUNT:-0}
           SKIPPED_COUNT=${SKIPPED_COUNT:-0}
           if [[ "${{ github.event.inputs.debug }}" == "true" ]]; then
@@ -287,18 +371,26 @@ jobs:
           if [[ "${UPDATED_COUNT}" -eq 0 ]]; then
             echo "No extensions were updated." >> "${GITHUB_STEP_SUMMARY}"
           else
+            echo "<details><summary>Show updated extensions</summary>" >> "${GITHUB_STEP_SUMMARY}"
+            echo "" >> "${GITHUB_STEP_SUMMARY}"
             IFS=',' read -ra EXTENSIONS <<< "${UPDATED_EXTENSIONS}"
             for ext in "${EXTENSIONS[@]}"; do
               [[ -n "${ext}" ]] && echo "- ${ext}" >> "${GITHUB_STEP_SUMMARY}"
             done
+            echo "" >> "${GITHUB_STEP_SUMMARY}"
+            echo "</details>" >> "${GITHUB_STEP_SUMMARY}"
           fi
           echo "" >> "${GITHUB_STEP_SUMMARY}"
           echo "### Skipped Extensions (${SKIPPED_COUNT})" >> "${GITHUB_STEP_SUMMARY}"
           if [[ "${SKIPPED_COUNT}" -eq 0 ]]; then
             echo "No extensions were skipped." >> "${GITHUB_STEP_SUMMARY}"
           else
+            echo "<details><summary>Show skipped extensions</summary>" >> "${GITHUB_STEP_SUMMARY}"
+            echo "" >> "${GITHUB_STEP_SUMMARY}"
             IFS=',' read -ra EXTENSIONS <<< "${SKIPPED_EXTENSIONS}"
             for ext in "${EXTENSIONS[@]}"; do
               [[ -n "${ext}" ]] && echo "- ${ext}" >> "${GITHUB_STEP_SUMMARY}"
             done
+            echo "" >> "${GITHUB_STEP_SUMMARY}"
+            echo "</details>" >> "${GITHUB_STEP_SUMMARY}"
           fi
