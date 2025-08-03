@@ -248,6 +248,8 @@ jobs:
                 rm -rf "${owner_dir}"
               fi
             done
+            git commit --allow-empty -m "ci: cleanup outdated extensions directories"
+            git push --force origin "${BRANCH}"
             echo "::endgroup::"
           }
 
@@ -417,10 +419,10 @@ jobs:
           
           process_extensions "$CSV_ENTRIES"
 
-          github_cleanup_extensions_dir "${EXTENSIONS_DIR}" "${valid_dirs[@]}"
-
           find "${EXTENSIONS_DIR}" -type f -path "${EXTENSIONS_DIR}/*/*/extension.json" -print0 | xargs -0 cat | jq -s 'add' > "${JSON_FILE}"
           git_stage_and_commit "${JSON_FILE}"
+
+          github_cleanup_extensions_dir "${EXTENSIONS_DIR}" "${valid_dirs[@]}"
 
           {
             echo "updated-count=${#updated_extensions[@]}"
