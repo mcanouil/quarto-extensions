@@ -204,6 +204,7 @@ jobs:
             mkdir -p "$(dirname "${extension_json_file}")"
             echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}' > "${extension_json_file}"
             updated_extensions+=("${entry}")
+            git add "${extension_json_file}" || echo "No changes detected, skipping commit"
           done < <(sort -f data/${CSV_FILE})
 
           # Save summary data as job outputs
@@ -219,7 +220,7 @@ jobs:
           xargs cat | \
           jq -s 'add' > "${JSON_FILE}"
 
-          git add "${JSON_FILE}" "${EXTENSIONS_DIR}" || echo "No changes detected, skipping commit"
+          git add "${JSON_FILE}" || echo "No changes detected, skipping commit"
           git commit --allow-empty -m "${COMMIT}"
           git push --force origin ${BRANCH}
 
