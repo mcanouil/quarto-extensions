@@ -219,6 +219,36 @@ jobs:
             fi
           }
 
+          # Function to cleanup extensions directory
+          github_cleanup_extensions_dir() {
+            local EXTENSIONS_DIR="${1}"
+            shift
+            local valid_dirs=("${@}")
+
+            find "${EXTENSIONS_DIR}" -mindepth 2 -maxdepth 2 -type d | while read -r dir; do
+              local keep=false
+              for valid in "${valid_dirs[@]}"; do
+                if [[ "${dir}" == "${valid}" ]]; then
+                  keep=true
+                  break
+                fi
+              done
+              if [[ "${keep}" == false ]]; then
+                echo "::notice title=Cleanup::Removing ${dir}"
+                git rm -rf "${dir}"
+                rm -rf "${dir}"
+              fi
+            done
+
+            find "${EXTENSIONS_DIR}" -mindepth 1 -maxdepth 1 -type d | while read -r owner_dir; do
+              if [[ -z $(find "${owner_dir}" -mindepth 1 -type d) ]]; then
+                echo "::notice title=Cleanup::Removing empty owner directory ${owner_dir}"
+                git rm -rf "${owner_dir}"
+                rm -rf "${owner_dir}"
+              fi
+            done
+          }
+
           # Main function to process extensions
           process_extensions() {
             local CSV_ENTRIES="$1"
@@ -382,28 +412,7 @@ jobs:
 
           process_extensions "$CSV_ENTRIES"
 
-          # Cleanup: remove directories not matching valid nameWithOwner
-          find "${EXTENSIONS_DIR}" -mindepth 1 -maxdepth 1 -type d | while read -r dir; do
-            keep=false
-            for valid in "${valid_dirs[@]}"; do
-              if [[ "$(basename "${dir}")" == "$valid" ]]; then
-                keep=true
-                break
-              fi
-            done
-            if [[ "${keep}" == false ]]; then
-              echo "::notice title=Cleanup::Removing ${dir}"
-              git rm -rf "${dir}"
-              rm -rf "${dir}"
-            fi
-          done
-          find "${EXTENSIONS_DIR}" -mindepth 1 -maxdepth 1 -type d | while read -r owner_dir; do
-            if [[ -z $(find "${owner_dir}" -mindepth 1 -type d) ]]; then
-              echo "::notice title=Cleanup::Removing empty owner directory ${owner_dir}"
-              git rm -rf "${owner_dir}"
-              rm -rf "${owner_dir}"
-            fi
-          done
+          github_cleanup_extensions_dir "${EXTENSIONS_DIR}" "${valid_dirs[@]}"
 
           find "${EXTENSIONS_DIR}" -type f -path "${EXTENSIONS_DIR}/*/*/extension.json" -print0 | xargs -0 cat | jq -s 'add' > "${JSON_FILE}"
           git_stage_and_commit "${JSON_FILE}"
