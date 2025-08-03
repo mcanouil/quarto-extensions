@@ -2,6 +2,7 @@ name: Quarto Wizard
 
 on:
   workflow_dispatch:
+  repository_dispatch:
   release:
     types: [published]
   push:
