@@ -239,7 +239,11 @@ jobs:
 
           git add "${JSON_FILE}" || echo "No changes detected, skipping commit"
           git commit --allow-empty -m "${COMMIT}"
-          git push --force origin ${BRANCH}
+          if [[ "${{ github.event.inputs.debug }}" == "false" ]]; then
+            git push --force origin ${BRANCH}
+          else
+            echo "Debug mode is enabled, skipping push"
+          fi
 
   summary:
     runs-on: ubuntu-latest
@@ -264,7 +268,11 @@ jobs:
           # Use environment variables from job outputs
           UPDATED_COUNT=${UPDATED_COUNT:-0}
           SKIPPED_COUNT=${SKIPPED_COUNT:-0}
-          echo "## Extension Processing Summary" >> "${GITHUB_STEP_SUMMARY}"
+          if [[ "${{ github.event.inputs.debug }}" == "true" ]]; then
+            echo "## Extension Processing Summary (Debug Mode)" >> "${GITHUB_STEP_SUMMARY}"
+          else
+            echo "## Extension Processing Summary" >> "${GITHUB_STEP_SUMMARY}"
+          fi
           echo "" >> "${GITHUB_STEP_SUMMARY}"
           echo "### Updated Extensions (${UPDATED_COUNT})" >> "${GITHUB_STEP_SUMMARY}"
           if [[ "${UPDATED_COUNT}" -eq 0 ]]; then
