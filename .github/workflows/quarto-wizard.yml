@@ -38,6 +38,7 @@ jobs:
       COMMIT: "ci: update extensions details"
       CSV_FILE: "extensions/quarto-extensions.csv"
       JSON_FILE: "quarto-extensions.json"
+      EXTENSIONS_DIR: "extensions"
       DEBUG_MODE: ${{ github.event.inputs.debug }}
     steps:
       - name: Checkout repository
@@ -97,12 +98,12 @@ jobs:
           set -e
 
           DEBUG_MODE=${DEBUG_MODE:-"false"}
+          EXTENSIONS_DIR=${EXTENSIONS_DIR:-"extensions"}
           JSON_FILE=${JSON_FILE:-"quarto-extensions.json"}
           BRANCH=${BRANCH:-"quarto-wizard"}
           COMMIT=${COMMIT:-"ci: update extensions details"}
           CSV_FILE=${CSV_FILE:-"extensions/quarto-extensions.csv"}
 
-          EXTENSIONS_DIR="extensions"
           mkdir -p "${EXTENSIONS_DIR}"
 
           previous_owner=""
@@ -110,6 +111,8 @@ jobs:
           updated_extensions=()
           skipped_extensions=()
           outdated_extensions=()
+
+          valid_dirs=()
 
           # Function to download and determine author image file
           author_image_file() {
@@ -258,6 +261,7 @@ jobs:
               fi
 
               mkdir -p "${EXTENSIONS_DIR}/${nameWithOwner}"
+              valid_dirs+=("${nameWithOwner}")
 
               author_json_file="${EXTENSIONS_DIR}/${owner}/author.json"
               author_png_file="${EXTENSIONS_DIR}/${owner}/author"
@@ -377,6 +381,30 @@ jobs:
           fi
 
           process_extensions "$CSV_ENTRIES"
+
+          # Cleanup: remove directories not matching valid nameWithOwner
+          find "${EXTENSIONS_DIR}" -mindepth 1 -maxdepth 1 -type d | while read -r dir; do
+            keep=false
+            for valid in "${valid_dirs[@]}"; do
+              if [[ "$(basename "${dir}")" == "$valid" ]]; then
+                keep=true
+                break
+              fi
+            done
+            if [[ "${keep}" == false ]]; then
+              echo "::notice title=Cleanup::Removing ${dir}"
+              git rm -rf "${dir}"
+              rm -rf "${dir}"
+            fi
+          done
+          find "${EXTENSIONS_DIR}" -mindepth 1 -maxdepth 1 -type d | while read -r owner_dir; do
+            if [[ -z $(find "${owner_dir}" -mindepth 1 -type d) ]]; then
+              echo "::notice title=Cleanup::Removing empty owner directory ${owner_dir}"
+              git rm -rf "${owner_dir}"
+              rm -rf "${owner_dir}"
+            fi
+          done
+
           find "${EXTENSIONS_DIR}" -type f -path "${EXTENSIONS_DIR}/*/*/extension.json" -print0 | xargs -0 cat | jq -s 'add' > "${JSON_FILE}"
           git_stage_and_commit "${JSON_FILE}"
 
