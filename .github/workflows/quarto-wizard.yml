@@ -249,7 +249,11 @@ jobs:
               fi
             done
             git commit --allow-empty -m "ci: cleanup outdated extensions directories"
-            git push --force origin "${BRANCH}"
+            if [[ "${DEBUG_MODE}" == "false" ]]; then
+              git push --force origin "${BRANCH}"
+            else
+              echo "Debug mode is enabled, skipping push"
+            fi
             echo "::endgroup::"
           }
 
