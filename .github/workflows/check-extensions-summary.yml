@@ -34,6 +34,7 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
       - name: Download artifact
+        id: download-artifact
         uses: actions/github-script@v7
         with:
           script: |
@@ -45,6 +46,15 @@ jobs:
             let matchArtifact = allArtifacts.data.artifacts.filter((artifact) => {
               return artifact.name == "extensions-check-summary"
             })[0];
+            
+            if (!matchArtifact) {
+              console.log('No extensions-check-summary artifact found, skipping remaining steps');
+              core.setOutput('artifact-found', 'false');
+              return;
+            }
+            
+            core.setOutput('artifact-found', 'true');
+            
             let download = await github.rest.actions.downloadArtifact({
                owner: context.repo.owner,
                repo: context.repo.repo,
@@ -59,9 +69,11 @@ jobs:
             }
             fs.writeFileSync(path.join(temp, 'extensions-check-summary.zip'), Buffer.from(download.data));
       - name: Unzip artifact
+        if: steps.download-artifact.outputs.artifact-found == 'true'
         run: |
           unzip -o "${{ runner.temp }}/artifacts/extensions-check-summary.zip" -d "${{ runner.temp }}/artifacts/extensions-check-summary"
       - name: Generate summary report
+        if: steps.download-artifact.outputs.artifact-found == 'true'
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         shell: bash
@@ -74,3 +86,9 @@ jobs:
             --edit-last \
             --repo ${{ github.repository }}
           cat ${{ runner.temp }}/artifacts/extensions-check-summary/summary.md  >> $GITHUB_STEP_SUMMARY
+      - name: Workflow completion
+        run: |
+          if [[ "${{ steps.download-artifact.outputs.artifact-found }}" == "false" ]]; then
+            echo "ℹ️ No artifacts found, workflow completed successfully"
+            echo "ℹ️ No artifacts found, workflow completed successfully" >> $GITHUB_STEP_SUMMARY
+          fi
