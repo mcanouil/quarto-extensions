@@ -36,6 +36,7 @@ jobs:
       COMMIT: "ci: update extensions details"
       CSV_FILE: "extensions/quarto-extensions.csv"
       JSON_FILE: "quarto-extensions.json"
+      DEBUG_MODE: ${{ github.event.inputs.debug }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -93,7 +94,7 @@ jobs:
         run: |
           set -e
 
-          DEBUG_MODE=${1:-false}
+          DEBUG_MODE=${DEBUG_MODE:-"false"}
           JSON_FILE=${JSON_FILE:-"quarto-extensions.json"}
           BRANCH=${BRANCH:-"quarto-wizard"}
           COMMIT=${COMMIT:-"ci: update extensions details"}
