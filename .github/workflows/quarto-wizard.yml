@@ -248,7 +248,7 @@ jobs:
               nameWithOwner=$(echo "${repo_info}" | jq -r ".nameWithOwner")
               owner=$(echo "${repo_info}" | jq -r ".owner")
 
-              mkdir -p "${EXTENSIONS_DIR}/${owner}"
+              mkdir -p "${EXTENSIONS_DIR}/${nameWithOwner}"
 
               author_json_file="${EXTENSIONS_DIR}/${owner}/author.json"
               author_png_file="${EXTENSIONS_DIR}/${owner}/author"
