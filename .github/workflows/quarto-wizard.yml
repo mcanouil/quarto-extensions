@@ -149,6 +149,8 @@ jobs:
                 skipped_extensions+=("${entry}")
                 continue
               fi
+            else
+              echo "Processing ${entry}: JSON file does not exist, will create new record"
             fi
 
             owner=$(echo "${repo_info}" | jq -r ".owner")
@@ -206,8 +208,8 @@ jobs:
 
           # Save summary data as job outputs
           {
-            echo "updated-count=${#updated_extensions[@]}"
-            echo "skipped-count=${#skipped_extensions[@]}"
+            echo "updated-count=${#updated_extensions[@]:-0}"
+            echo "skipped-count=${#skipped_extensions[@]:-0}"
             echo "updated-extensions=$(printf '%s,' "${updated_extensions[@]}" | sed 's/,$//')"
             echo "skipped-extensions=$(printf '%s,' "${skipped_extensions[@]}" | sed 's/,$//')"
           } >> "${GITHUB_OUTPUT}"
@@ -271,6 +273,8 @@ jobs:
         shell: bash
         run: |
           # Use environment variables from job outputs
+          UPDATED_COUNT=${UPDATED_COUNT:-0}
+          SKIPPED_COUNT=${SKIPPED_COUNT:-0}
           echo "## Extension Processing Summary" >> "${GITHUB_STEP_SUMMARY}"
           echo "" >> "${GITHUB_STEP_SUMMARY}"
           echo "### Updated Extensions (${UPDATED_COUNT})" >> "${GITHUB_STEP_SUMMARY}"
