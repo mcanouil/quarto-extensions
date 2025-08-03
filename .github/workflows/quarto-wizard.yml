@@ -201,7 +201,7 @@ jobs:
             fi
 
             # Create owner directory and save individual JSON file
-            mkdir -p "${EXTENSIONS_DIR}/${owner}"
+            mkdir -p "$(dirname "${extension_json_file}")"
             echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}' > "${extension_json_file}"
             updated_extensions+=("${entry}")
           done < <(sort -f data/${CSV_FILE})
