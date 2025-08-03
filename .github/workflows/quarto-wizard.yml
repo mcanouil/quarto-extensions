@@ -255,7 +255,7 @@ jobs:
               nameWithOwner=$(echo "${repo_info}" | jq -r ".nameWithOwner")
               owner=$(echo "${repo_info}" | jq -r ".owner")
 
-              if [[ "${repo}" != "${nameWithOwner}" ]]; then
+              if [[ "${repo,,}" != "${nameWithOwner}" ]]; then
                 outdated_extensions+=("${entry}")
                 echo "::error title=Outdated Repository::\"${repo}\" does not match current repository name \"${nameWithOwner}\""
               fi
