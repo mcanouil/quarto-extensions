@@ -152,19 +152,6 @@ jobs:
             extension_json_file="${EXTENSIONS_DIR}/${nameWithOwner}/extension.json"
             author_json_file="${EXTENSIONS_DIR}/${owner}/author.json"
 
-            if [[ -f "${extension_json_file}" ]]; then
-              existing_updated_at=$(jq -r ".[\"${entry,,}\"].updatedAt // empty" "${extension_json_file}")
-              current_updated_at=$(echo "${repo_info}" | jq -r ".updatedAt")
-
-              if [[ -n "${existing_updated_at}" && "${existing_updated_at}" == "${current_updated_at}" ]]; then
-                echo "Skipping ${entry}: updatedAt matches existing record (${existing_updated_at})"
-                skipped_extensions+=("${entry}")
-                continue
-              fi
-            else
-              echo "Processing ${entry}: JSON file does not exist, will create new record"
-            fi
-
             owner=$(echo "${repo_info}" | jq -r ".owner")
             if [[ "${owner}" == "${previous_owner}" ]]; then
               author="${previous_author}"
@@ -192,6 +179,19 @@ jobs:
               previous_author="${author}"
             fi
             repo_info=$(echo "${repo_info}" | jq --arg author "${author}" '. + {author: $author}')
+
+            if [[ -f "${extension_json_file}" ]]; then
+              existing_updated_at=$(jq -r ".[\"${entry,,}\"].updatedAt // empty" "${extension_json_file}")
+              current_updated_at=$(echo "${repo_info}" | jq -r ".updatedAt")
+
+              if [[ -n "${existing_updated_at}" && "${existing_updated_at}" == "${current_updated_at}" ]]; then
+                echo "Skipping ${entry}: updatedAt matches existing record (${existing_updated_at})"
+                skipped_extensions+=("${entry}")
+                continue
+              fi
+            else
+              echo "Processing ${entry}: JSON file does not exist, will create new record"
+            fi
 
             repo_subdirectory=$(echo "${entry}" | cut -d'/' -f3-)
             if [[ -n "${repo_subdirectory}" ]]; then
