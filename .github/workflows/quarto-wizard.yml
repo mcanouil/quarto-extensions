@@ -98,9 +98,6 @@ jobs:
 
           EXTENSIONS_DIR="extensions"
           mkdir -p "${EXTENSIONS_DIR}"
-          echo "*" > .gitignore
-          echo "!**/extension.json" >> .gitignore
-          echo "!quarto-extensions.json" >> .gitignore
 
           previous_owner=""
           previous_author=""
