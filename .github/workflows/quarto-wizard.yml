@@ -221,6 +221,7 @@ jobs:
 
           # Function to cleanup extensions directory
           github_cleanup_extensions_dir() {
+            echo "::group::Cleaning up extensions directory"
             local EXTENSIONS_DIR="${1}"
             shift
             local valid_dirs=("${@}")
@@ -247,13 +248,15 @@ jobs:
                 rm -rf "${owner_dir}"
               fi
             done
+            echo "::endgroup::"
           }
 
           # Main function to process extensions
           process_extensions() {
+            echo "::group::Processing Extensions"
             local CSV_ENTRIES="$1"
             while IFS=, read -r entry; do
-              echo "Processing entry: ${entry}"
+              echo "::group::Processing entry: ${entry}"
               repo=$(echo "${entry}" | cut -d'/' -f1,2)
               repo_info=$(gh repo view "${repo}" \
                 --json name,nameWithOwner,owner,description,openGraphImageUrl,stargazerCount,licenseInfo,url,latestRelease,createdAt,updatedAt,repositoryTopics,defaultBranchRef \
@@ -291,7 +294,7 @@ jobs:
               fi
 
               mkdir -p "${EXTENSIONS_DIR}/${nameWithOwner}"
-              valid_dirs+=("${nameWithOwner}")
+              valid_dirs+=("${EXTENSIONS_DIR}/${nameWithOwner}")
 
               author_json_file="${EXTENSIONS_DIR}/${owner}/author.json"
               author_png_file="${EXTENSIONS_DIR}/${owner}/author"
@@ -401,7 +404,9 @@ jobs:
               fi
               git_stage_and_commit "${files_to_commit[@]}"
               updated_extensions+=("${entry}")
+            echo "::endgroup::"
             done < <(echo "$CSV_ENTRIES" | sort -f)
+            echo "::endgroup::"
           }
 
           if [[ "${DEBUG_MODE}" == "true" ]]; then
@@ -409,7 +414,7 @@ jobs:
           else
             CSV_ENTRIES=$(cat "data/${CSV_FILE}")
           fi
-
+          
           process_extensions "$CSV_ENTRIES"
 
           github_cleanup_extensions_dir "${EXTENSIONS_DIR}" "${valid_dirs[@]}"
