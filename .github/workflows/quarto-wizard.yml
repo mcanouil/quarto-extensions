@@ -2,6 +2,12 @@ name: Quarto Wizard
 
 on:
   workflow_dispatch:
+    inputs:
+      debug:
+        description: "Enable debug mode"
+        required: false
+        default: false
+        type: boolean
   repository_dispatch:
   release:
     types: [published]
@@ -100,6 +106,12 @@ jobs:
           previous_author=""
           updated_extensions=()
           skipped_extensions=()
+
+          if [[ "${{ github.event.inputs.debug }}" == "true" ]]; then
+            CSV_ENTRIES=$(head -n 5 data/${CSV_FILE})
+          else
+            CSV_ENTRIES=$(cat data/${CSV_FILE})
+          fi
 
           while IFS=, read -r entry; do
             echo "Processing entry: ${entry}"
@@ -205,7 +217,7 @@ jobs:
             echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}' > "${extension_json_file}"
             updated_extensions+=("${entry}")
             git add "${extension_json_file}" || echo "No changes detected, skipping commit"
-          done < <(sort -f data/${CSV_FILE})
+          done < <(echo "$CSV_ENTRIES" | sort -f)
 
           # Save summary data as job outputs
           {
