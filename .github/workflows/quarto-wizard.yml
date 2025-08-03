@@ -104,7 +104,7 @@ jobs:
           while IFS=, read -r entry; do
             echo "Processing entry: ${entry}"
             repo=$(echo "${entry}" | cut -d'/' -f1,2)
-            
+
             repo_info=$(
               gh repo view "${repo}" \
                 --json name,nameWithOwner,owner,description,openGraphImageUrl,stargazerCount,licenseInfo,url,latestRelease,createdAt,updatedAt,repositoryTopics,defaultBranchRef \
@@ -138,12 +138,12 @@ jobs:
             # Check if existing JSON file has same updatedAt date
             nameWithOwner=$(echo "${repo_info}" | jq -r ".nameWithOwner")
             owner=$(echo "${repo_info}" | jq -r ".owner")
-            extension_json_file="${EXTENSIONS_DIR}/${owner}/${nameWithOwner}.json"
-            
+            extension_json_file="${EXTENSIONS_DIR}/${owner}/${nameWithOwner}/${nameWithOwner}.json"
+
             if [[ -f "${extension_json_file}" ]]; then
               existing_updated_at=$(jq -r ".[\"${entry,,}\"].updatedAt // empty" "${extension_json_file}")
               current_updated_at=$(echo "${repo_info}" | jq -r ".updatedAt")
-              
+
               if [[ -n "${existing_updated_at}" && "${existing_updated_at}" == "${current_updated_at}" ]]; then
                 echo "Skipping ${entry}: updatedAt matches existing record (${existing_updated_at})"
                 skipped_extensions+=("${entry}")
@@ -214,48 +214,19 @@ jobs:
             echo "skipped-extensions=$(printf '%s,' "${skipped_extensions[@]}" | sed 's/,$//')"
           } >> "${GITHUB_OUTPUT}"
 
-          if [[ -n $(git status --porcelain) ]]; then
-            git add "${EXTENSIONS_DIR}"
-            git commit -m "${COMMIT}"
-            git push --force origin ${BRANCH}
-          else
-            echo "No changes detected, skipping commit"
-          fi
-
-  aggregate-extensions:
-    runs-on: ubuntu-latest
-    needs: get-extensions
-    env:
-      BRANCH: quarto-wizard
-      COMMIT: "ci: update extensions details"
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ env.BRANCH }}
-
-      - name: Aggregate extensions
-        shell: bash
-        run: |
           JSON_FILE="quarto-extensions.json"
-          EXTENSIONS_DIR="extensions"
-          
-          # Find all JSON files and aggregate them
-          find "${EXTENSIONS_DIR}" -name "*.json" -type f | \
+          find "${EXTENSIONS_DIR}" -type f -path "${EXTENSIONS_DIR}/*/*/*.json" | \
           xargs cat | \
           jq -s 'add' > "${JSON_FILE}"
 
-          if [[ -n $(git status --porcelain) ]]; then
-            git add "${JSON_FILE}"
-            git commit --allow-empty -m "${COMMIT}"
-            git push --force origin ${BRANCH}
-          else
-            echo "No changes detected, skipping commit"
-          fi
+          git add "${JSON_FILE}" "${EXTENSIONS_DIR}" || echo "No changes detected, skipping commit"
+          git commit --allow-empty -m "${COMMIT}"
+          git push --force origin ${BRANCH}
 
   summary:
     runs-on: ubuntu-latest
-    needs: [get-extensions, aggregate-extensions]
+    needs:
+      - get-extensions
     if: always()
     env:
       BRANCH: quarto-wizard
