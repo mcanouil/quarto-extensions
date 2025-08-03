@@ -35,6 +35,7 @@ jobs:
       BRANCH: quarto-wizard
       COMMIT: "ci: update extensions details"
       CSV_FILE: "extensions/quarto-extensions.csv"
+      JSON_FILE: "quarto-extensions.json"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -92,6 +93,7 @@ jobs:
         run: |
           set -e
 
+          JSON_FILE=${JSON_FILE:-"quarto-extensions.json"}
           BRANCH=${BRANCH:-"quarto-wizard"}
           COMMIT=${COMMIT:-"ci: update extensions details"}
           CSV_FILE=${CSV_FILE:-"extensions/quarto-extensions.csv"}
@@ -148,6 +150,7 @@ jobs:
             nameWithOwner=$(echo "${repo_info}" | jq -r ".nameWithOwner")
             owner=$(echo "${repo_info}" | jq -r ".owner")
             extension_json_file="${EXTENSIONS_DIR}/${nameWithOwner}/extension.json"
+            author_json_file="${EXTENSIONS_DIR}/${owner}/author.json"
 
             if [[ -f "${extension_json_file}" ]]; then
               existing_updated_at=$(jq -r ".[\"${entry,,}\"].updatedAt // empty" "${extension_json_file}")
@@ -166,9 +169,24 @@ jobs:
             if [[ "${owner}" == "${previous_owner}" ]]; then
               author="${previous_author}"
             else
-              author=$(gh api "users/${owner}" --jq ".name")
+              author_payload=$(gh api "users/${owner}")
+              author=$(echo "${author_payload}" | jq -r ".name")
               if [[ -z "${author}" ]]; then
                 author="${owner}"
+              fi
+              author_updated_at=$(echo "${author_payload}" | jq -r ".updated_at")
+              update_author_json=true
+              if [[ -f "${author_json_file}" ]]; then
+                existing_author_updated_at=$(jq -r ".updated_at // empty" "${author_json_file}")
+                if [[ -n "${existing_author_updated_at}" && "${existing_author_updated_at}" == "${author_updated_at}" ]]; then
+                  echo "Skipping author.json for ${owner}: updated_at matches existing record (${existing_author_updated_at})"
+                  update_author_json=false
+                fi
+              fi
+              if [[ "${update_author_json}" == "true" ]]; then
+                mkdir -p "$(dirname \"${author_json_file}\")"
+                echo "${author_payload}" > "${author_json_file}"
+                git add "${author_json_file}" || echo "No changes detected, skipping commit"
               fi
               previous_owner="${owner}"
               previous_author="${author}"
@@ -224,15 +242,9 @@ jobs:
             echo "skipped-extensions=$(printf '%s,' "${skipped_extensions[@]}" | sed 's/,$//')"
           } >> "${GITHUB_OUTPUT}"
 
-          # Display the number and list of updated extensions using notice workflow command
-          UPDATED_COUNT=${#updated_extensions[@]}
-          UPDATED_LIST=$(printf '%s,' "${updated_extensions[@]}" | sed 's/,$//')
-          echo "::notice title=Updated Extensions::Count: ${UPDATED_COUNT} List: ${UPDATED_LIST}"
+          echo "::notice title=Updated Extensions::Count: ${#updated_extensions[@]}"
 
-          JSON_FILE="quarto-extensions.json"
-          find "${EXTENSIONS_DIR}" -type f -path "${EXTENSIONS_DIR}/*/*/extension.json" | \
-          xargs cat | \
-          jq -s 'add' > "${JSON_FILE}"
+          find "${EXTENSIONS_DIR}" -type f -path "${EXTENSIONS_DIR}/*/*/extension.json" | xargs cat | jq -s 'add' > "${JSON_FILE}"
 
           git add "${JSON_FILE}" || echo "No changes detected, skipping commit"
           git commit --allow-empty -m "${COMMIT}"
