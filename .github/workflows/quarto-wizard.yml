@@ -215,6 +215,11 @@ jobs:
             echo "skipped-extensions=$(printf '%s,' "${skipped_extensions[@]}" | sed 's/,$//')"
           } >> "${GITHUB_OUTPUT}"
 
+          # Display the number and list of updated extensions using notice workflow command
+          UPDATED_COUNT=${#updated_extensions[@]}
+          UPDATED_LIST=$(printf '%s,' "${updated_extensions[@]}" | sed 's/,$//')
+          ::notice title=Updated Extensions::Count: ${UPDATED_COUNT}\nList: ${UPDATED_LIST}
+
           JSON_FILE="quarto-extensions.json"
           find "${EXTENSIONS_DIR}" -type f -path "${EXTENSIONS_DIR}/*/*/extension.json" | \
           xargs cat | \
