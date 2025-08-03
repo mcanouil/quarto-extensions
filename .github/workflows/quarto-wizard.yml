@@ -20,6 +20,11 @@ permissions:
 jobs:
   get-extensions:
     runs-on: ubuntu-latest
+    outputs:
+      updated-count: ${{ steps.summary.outputs.updated-count }}
+      skipped-count: ${{ steps.summary.outputs.skipped-count }}
+      updated-extensions: ${{ steps.summary.outputs.updated-extensions }}
+      skipped-extensions: ${{ steps.summary.outputs.skipped-extensions }}
     env:
       BRANCH: quarto-wizard
       COMMIT: "ci: update extensions details"
@@ -74,6 +79,7 @@ jobs:
           git checkout "${BRANCH}"
 
       - name: Get extensions details
+        id: get-extensions-details
         shell: bash
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
@@ -92,10 +98,13 @@ jobs:
 
           previous_owner=""
           previous_author=""
+          updated_extensions=()
+          skipped_extensions=()
 
           while IFS=, read -r entry; do
             echo "Processing entry: ${entry}"
             repo=$(echo "${entry}" | cut -d'/' -f1,2)
+            
             repo_info=$(
               gh repo view "${repo}" \
                 --json name,nameWithOwner,owner,description,openGraphImageUrl,stargazerCount,licenseInfo,url,latestRelease,createdAt,updatedAt,repositoryTopics,defaultBranchRef \
@@ -125,6 +134,22 @@ jobs:
                   end)
                 }'
             )
+
+            # Check if existing JSON file has same updatedAt date
+            nameWithOwner=$(echo "${repo_info}" | jq -r ".nameWithOwner")
+            owner=$(echo "${repo_info}" | jq -r ".owner")
+            extension_json_file="${EXTENSIONS_DIR}/${owner}/${nameWithOwner}.json"
+            
+            if [[ -f "${extension_json_file}" ]]; then
+              existing_updated_at=$(jq -r ".[\"${entry,,}\"].updatedAt // empty" "${extension_json_file}")
+              current_updated_at=$(echo "${repo_info}" | jq -r ".updatedAt")
+              
+              if [[ -n "${existing_updated_at}" && "${existing_updated_at}" == "${current_updated_at}" ]]; then
+                echo "Skipping ${entry}: updatedAt matches existing record (${existing_updated_at})"
+                skipped_extensions+=("${entry}")
+                continue
+              fi
+            fi
 
             owner=$(echo "${repo_info}" | jq -r ".owner")
             if [[ "${owner}" == "${previous_owner}" ]]; then
@@ -174,14 +199,26 @@ jobs:
             fi
 
             # Create owner directory and save individual JSON file
-            nameWithOwner=$(echo "${repo_info}" | jq -r ".nameWithOwner")
             mkdir -p "${EXTENSIONS_DIR}/${owner}"
-            echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}' > "${EXTENSIONS_DIR}/${owner}/${nameWithOwner}.json"
+            echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}' > "${extension_json_file}"
+            updated_extensions+=("${entry}")
           done < <(sort -f data/${CSV_FILE})
 
-          git add "${EXTENSIONS_DIR}" || echo "No changes to commit"
-          git commit --allow-empty -m "${COMMIT}"
-          git push --force origin ${BRANCH}
+          # Save summary data as job outputs
+          {
+            echo "updated-count=${#updated_extensions[@]}"
+            echo "skipped-count=${#skipped_extensions[@]}"
+            echo "updated-extensions=$(printf '%s,' "${updated_extensions[@]}" | sed 's/,$//')"
+            echo "skipped-extensions=$(printf '%s,' "${skipped_extensions[@]}" | sed 's/,$//')"
+          } >> "${GITHUB_OUTPUT}"
+
+          if [[ -n $(git status --porcelain) ]]; then
+            git add "${EXTENSIONS_DIR}"
+            git commit -m "${COMMIT}"
+            git push --force origin ${BRANCH}
+          else
+            echo "No changes detected, skipping commit"
+          fi
 
   aggregate-extensions:
     runs-on: ubuntu-latest
@@ -209,3 +246,45 @@ jobs:
           git add "${JSON_FILE}" || echo "No changes to commit"
           git commit --allow-empty -m "${COMMIT}"
           git push --force origin ${BRANCH}
+
+  summary:
+    runs-on: ubuntu-latest
+    needs: [get-extensions, aggregate-extensions]
+    if: always()
+    env:
+      BRANCH: quarto-wizard
+      UPDATED_COUNT: ${{ needs.get-extensions.outputs.updated-count }}
+      SKIPPED_COUNT: ${{ needs.get-extensions.outputs.skipped-count }}
+      UPDATED_EXTENSIONS: ${{ needs.get-extensions.outputs.updated-extensions }}
+      SKIPPED_EXTENSIONS: ${{ needs.get-extensions.outputs.skipped-extensions }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BRANCH }}
+
+      - name: Generate workflow summary
+        shell: bash
+        run: |
+          # Use environment variables from job outputs
+          echo "## Extension Processing Summary" >> "${GITHUB_STEP_SUMMARY}"
+          echo "" >> "${GITHUB_STEP_SUMMARY}"
+          echo "### Updated Extensions (${UPDATED_COUNT})" >> "${GITHUB_STEP_SUMMARY}"
+          if [[ "${UPDATED_COUNT}" -eq 0 ]]; then
+            echo "No extensions were updated." >> "${GITHUB_STEP_SUMMARY}"
+          else
+            IFS=',' read -ra EXTENSIONS <<< "${UPDATED_EXTENSIONS}"
+            for ext in "${EXTENSIONS[@]}"; do
+              [[ -n "${ext}" ]] && echo "- ${ext}" >> "${GITHUB_STEP_SUMMARY}"
+            done
+          fi
+          echo "" >> "${GITHUB_STEP_SUMMARY}"
+          echo "### Skipped Extensions (${SKIPPED_COUNT})" >> "${GITHUB_STEP_SUMMARY}"
+          if [[ "${SKIPPED_COUNT}" -eq 0 ]]; then
+            echo "No extensions were skipped." >> "${GITHUB_STEP_SUMMARY}"
+          else
+            IFS=',' read -ra EXTENSIONS <<< "${SKIPPED_EXTENSIONS}"
+            for ext in "${EXTENSIONS[@]}"; do
+              [[ -n "${ext}" ]] && echo "- ${ext}" >> "${GITHUB_STEP_SUMMARY}"
+            done
+          fi
