@@ -248,6 +248,8 @@ jobs:
               nameWithOwner=$(echo "${repo_info}" | jq -r ".nameWithOwner")
               owner=$(echo "${repo_info}" | jq -r ".owner")
 
+              mkdir -p "${EXTENSIONS_DIR}/${owner}"
+
               author_json_file="${EXTENSIONS_DIR}/${owner}/author.json"
               author_png_file="${EXTENSIONS_DIR}/${owner}/author"
               extension_json_file="${EXTENSIONS_DIR}/${nameWithOwner}/extension.json"
@@ -272,7 +274,6 @@ jobs:
                   fi
                 fi
                 if [[ "${update_author_json}" == "true" ]]; then
-                  mkdir -p "$(dirname "${author_json_file}")"
                   echo "${author_payload}" > "${author_json_file}"
                   git add "${author_json_file}" || echo "No changes detected, skipping commit"
                   author_png_file=$(author_image_file "${author_png_file}" "${owner}")
@@ -347,7 +348,7 @@ jobs:
 
               extension_png_file=$(extension_image_file "${entry_image}" "${extension_png_file}")
               generate_extension_yaml "${extension_yaml_file}" "${entry_title}" "${extension_png_file}" "${entry_url}" "${entry_author}" "${owner}" "${entry_created}" "${entry_updated}" "${entry_topics}" "${entry_license}" "${entry_stars}" "${entry_release}" "${entry_description}" "${yaml_usage_body}" "${entry_template}"
-              mkdir -p "$(dirname "${extension_json_file}")"
+
               echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}' > "${extension_json_file}"
 
               # Gather all files to stage and commit
@@ -369,7 +370,6 @@ jobs:
           process_extensions "$CSV_ENTRIES"
           find "${EXTENSIONS_DIR}" -type f -path "${EXTENSIONS_DIR}/*/*/extension.json" -print0 | xargs -0 cat | jq -s 'add' > "${JSON_FILE}"
           git_stage_and_commit "${JSON_FILE}"
-
 
           {
             echo "updated-count=${#updated_extensions[@]}"
