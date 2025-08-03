@@ -107,6 +107,7 @@ jobs:
           previous_author=""
           updated_extensions=()
           skipped_extensions=()
+          outdated_extensions=()
 
           # Function to download and determine author image file
           author_image_file() {
@@ -249,6 +250,11 @@ jobs:
               nameWithOwner=$(echo "${repo_info}" | jq -r ".nameWithOwner")
               owner=$(echo "${repo_info}" | jq -r ".owner")
 
+              if [[ "${repo}" != "${nameWithOwner}" ]]; then
+                outdated_extensions+=("${entry}")
+                echo "::error title=Outdated Repository::\"${repo}\" does not match current repository name \"${nameWithOwner}\""
+              fi
+
               mkdir -p "${EXTENSIONS_DIR}/${nameWithOwner}"
 
               author_json_file="${EXTENSIONS_DIR}/${owner}/author.json"
@@ -375,11 +381,17 @@ jobs:
           {
             echo "updated-count=${#updated_extensions[@]}"
             echo "skipped-count=${#skipped_extensions[@]}"
+            echo "outdated-count=${#outdated_extensions[@]}"
             echo "updated-extensions=$(printf '%s,' "${updated_extensions[@]}" | sed 's/,$//')"
             echo "skipped-extensions=$(printf '%s,' "${skipped_extensions[@]}" | sed 's/,$//')"
+            echo "outdated-extensions=$(printf '%s,' "${outdated_extensions[@]}" | sed 's/,$//')"
           } >> "${GITHUB_OUTPUT}"
 
           echo "::notice title=Updated Extensions::Count: ${#updated_extensions[@]}"
+          if [[ ${#outdated_extensions[@]} -gt 0 ]]; then
+            echo "::error title=Outdated Extensions::Count: ${#outdated_extensions[@]}"
+            exit 1
+          fi
 
   summary:
     runs-on: ubuntu-latest
@@ -390,8 +402,10 @@ jobs:
       BRANCH: quarto-wizard
       UPDATED_COUNT: ${{ needs.get-extensions.outputs.updated-count }}
       SKIPPED_COUNT: ${{ needs.get-extensions.outputs.skipped-count }}
+      OUTDATED_COUNT: ${{ needs.get-extensions.outputs.outdated-count }}
       UPDATED_EXTENSIONS: ${{ needs.get-extensions.outputs.updated-extensions }}
       SKIPPED_EXTENSIONS: ${{ needs.get-extensions.outputs.skipped-extensions }}
+      OUTDATED_EXTENSIONS: ${{ needs.get-extensions.outputs.outdated-extensions }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -403,11 +417,14 @@ jobs:
         run: |
           UPDATED_COUNT=${UPDATED_COUNT:-0}
           SKIPPED_COUNT=${SKIPPED_COUNT:-0}
+          OUTDATED_COUNT=${OUTDATED_COUNT:-0}
+
           if [[ "${{ github.event.inputs.debug }}" == "true" ]]; then
             echo "## Extension Processing Summary (Debug Mode)" >> "${GITHUB_STEP_SUMMARY}"
           else
             echo "## Extension Processing Summary" >> "${GITHUB_STEP_SUMMARY}"
           fi
+
           echo "" >> "${GITHUB_STEP_SUMMARY}"
           echo "### Updated Extensions (${UPDATED_COUNT})" >> "${GITHUB_STEP_SUMMARY}"
           if [[ "${UPDATED_COUNT}" -eq 0 ]]; then
@@ -422,6 +439,7 @@ jobs:
             echo "" >> "${GITHUB_STEP_SUMMARY}"
             echo "</details>" >> "${GITHUB_STEP_SUMMARY}"
           fi
+
           echo "" >> "${GITHUB_STEP_SUMMARY}"
           echo "### Skipped Extensions (${SKIPPED_COUNT})" >> "${GITHUB_STEP_SUMMARY}"
           if [[ "${SKIPPED_COUNT}" -eq 0 ]]; then
@@ -430,6 +448,21 @@ jobs:
             echo "<details><summary>Show skipped extensions</summary>" >> "${GITHUB_STEP_SUMMARY}"
             echo "" >> "${GITHUB_STEP_SUMMARY}"
             IFS=',' read -ra EXTENSIONS <<< "${SKIPPED_EXTENSIONS}"
+            for ext in "${EXTENSIONS[@]}"; do
+              [[ -n "${ext}" ]] && echo "- ${ext}" >> "${GITHUB_STEP_SUMMARY}"
+            done
+            echo "" >> "${GITHUB_STEP_SUMMARY}"
+            echo "</details>" >> "${GITHUB_STEP_SUMMARY}"
+          fi
+
+          echo "" >> "${GITHUB_STEP_SUMMARY}"
+          echo "### Outdated Extensions (${OUTDATED_COUNT})" >> "${GITHUB_STEP_SUMMARY}"
+          if [[ "${OUTDATED_COUNT}" -eq 0 ]]; then
+            echo "No extensions were outdated." >> "${GITHUB_STEP_SUMMARY}"
+          else
+            echo "<details><summary>Show outdated extensions</summary>" >> "${GITHUB_STEP_SUMMARY}"
+            echo "" >> "${GITHUB_STEP_SUMMARY}"
+            IFS=',' read -ra EXTENSIONS <<< "${OUTDATED_EXTENSIONS}"
             for ext in "${EXTENSIONS[@]}"; do
               [[ -n "${ext}" ]] && echo "- ${ext}" >> "${GITHUB_STEP_SUMMARY}"
             done
