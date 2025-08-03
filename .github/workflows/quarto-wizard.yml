@@ -208,8 +208,8 @@ jobs:
 
           # Save summary data as job outputs
           {
-            echo "updated-count=${#updated_extensions[@]:-0}"
-            echo "skipped-count=${#skipped_extensions[@]:-0}"
+            echo "updated-count=$(if [[ -z ${updated_extensions[@]} ]]; then echo 0; else echo ${#updated_extensions[@]}; fi)"
+            echo "skipped-count=$(if [[ -z ${skipped_extensions[@]} ]]; then echo 0; else echo ${#skipped_extensions[@]}; fi)"
             echo "updated-extensions=$(printf '%s,' "${updated_extensions[@]}" | sed 's/,$//')"
             echo "skipped-extensions=$(printf '%s,' "${skipped_extensions[@]}" | sed 's/,$//')"
           } >> "${GITHUB_OUTPUT}"
