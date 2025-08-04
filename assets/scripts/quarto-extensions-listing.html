@@ -1,0 +1,263 @@
+<!-- Custom JavaScript for enhanced functionality -->
+<script id="quarto-extensions-listing" type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+  // Store original order for reset functionality
+  let originalListOrder = [];
+  let originalGridOrder = [];
+  
+  // Store original order on page load
+  const initialListContainer = document.querySelector('#list-view-container .list-group');
+  const initialGridContainer = document.querySelector('#grid-view-container .row');
+  
+  if (initialListContainer) {
+    originalListOrder = Array.from(initialListContainer.querySelectorAll('.list-group-item'));
+  }
+  
+  if (initialGridContainer) {
+    originalGridOrder = Array.from(initialGridContainer.querySelectorAll('.col-sm-6, .col-lg-4'));
+  }
+  
+  // Function definitions (moved up for early initialization)
+  function sortExtensions(field, direction) {
+    const listContainer = document.querySelector('#list-view-container .list-group');
+    const gridContainer = document.querySelector('#grid-view-container .row');
+    
+    // Sort list view
+    if (listContainer) {
+      const listItems = Array.from(listContainer.querySelectorAll('.list-group-item'));
+      sortItems(listItems, field, direction);
+      listItems.forEach(item => listContainer.appendChild(item));
+    }
+    
+    // Sort grid view
+    if (gridContainer) {
+      const gridItems = Array.from(gridContainer.querySelectorAll('.col-sm-6, .col-lg-4'));
+      sortItems(gridItems, field, direction);
+      gridItems.forEach(item => gridContainer.appendChild(item));
+    }
+  }
+  
+  function sortItems(items, field, direction) {
+    items.sort((a, b) => {
+      // For list view, the data is on the .list-group-item itself (which has .extension-item class)
+      // For grid view, the data is on the .extension-card inside the .col-* container
+      const extA = a.classList.contains('list-group-item') ? a : a.querySelector('.extension-card');
+      const extB = b.classList.contains('list-group-item') ? b : b.querySelector('.extension-card');
+      
+      let valueA, valueB;
+      
+      if (field === 'modified') {
+        valueA = new Date(extA.dataset.modified || 0);
+        valueB = new Date(extB.dataset.modified || 0);
+      } else if (field === 'stars') {
+        valueA = parseInt(extA.dataset.stars || 0);
+        valueB = parseInt(extB.dataset.stars || 0);
+      }
+      
+      if (direction === 'desc') {
+        return valueB - valueA;
+      } else {
+        return valueA - valueB;
+      }
+    });
+  }
+  
+  // Apply default sorting (Recently Updated - most recent first)
+  const defaultSortField = 'modified';
+  const defaultSortDirection = 'desc';
+  sortExtensions(defaultSortField, defaultSortDirection);
+  
+  // Update the Recently Updated chip to show it's active with down arrow
+  const recentChip = document.querySelector('.filter-chip[data-filter="recent"]');
+  if (recentChip) {
+    const icon = document.createElement('i');
+    icon.className = 'sort-icon ms-1 bi bi-arrow-down';
+    recentChip.appendChild(icon);
+  }
+  
+  // Initialize sort state
+  let sortState = { field: defaultSortField, direction: defaultSortDirection };
+  
+  // View toggle functionality
+  const listViewBtn = document.getElementById('list-view');
+  const gridViewBtn = document.getElementById('grid-view');
+  const listContainer = document.getElementById('list-view-container');
+  const gridContainer = document.getElementById('grid-view-container');
+  
+  listViewBtn.addEventListener('change', function() {
+    if (this.checked) {
+      listContainer.classList.remove('d-none');
+      gridContainer.classList.add('d-none');
+    }
+  });
+  
+  gridViewBtn.addEventListener('change', function() {
+    if (this.checked) {
+      gridContainer.classList.remove('d-none');
+      listContainer.classList.add('d-none');
+    }
+  });
+  
+  // Search functionality
+  const searchInput = document.getElementById('extension-search');
+  searchInput.addEventListener('input', debounce(performSearch, 300));
+  
+  function performSearch() {
+    const query = searchInput.value.toLowerCase();
+    const extensions = document.querySelectorAll('.extension-item, .extension-card');
+    
+    extensions.forEach(ext => {
+      const title = ext.querySelector('.extension-title, .card-title').textContent.toLowerCase();
+      const description = ext.querySelector('.extension-description, .card-text').textContent.toLowerCase();
+      const author = ext.dataset.author.toLowerCase();
+      const categories = ext.dataset.categories.toLowerCase();
+      
+      const matches = title.includes(query) || 
+                     description.includes(query) || 
+                     author.includes(query) || 
+                     categories.includes(query);
+      
+      ext.closest('.list-group-item, .col-sm-6, .col-lg-4').style.display = matches ? '' : 'none';
+    });
+  }
+  
+  // Filter chip functionality
+  const filterChips = document.querySelectorAll('.filter-chip');
+  let activeFilters = new Set();
+  // sortState is already declared above with default values
+  
+  filterChips.forEach(chip => {
+    chip.addEventListener('click', function() {
+      const filter = this.dataset.filter;
+      
+      // Handle sorting for Recently Updated and Popular
+      if (filter === 'recent') {
+        handleSorting('modified', this);
+        return;
+      } else if (filter === 'popular') {
+        handleSorting('stars', this);
+        return;
+      }
+      
+      // Handle regular filters
+      if (this.classList.contains('active')) {
+        this.classList.remove('active');
+        activeFilters.delete(filter);
+      } else {
+        this.classList.add('active');
+        activeFilters.add(filter);
+      }
+      
+      applyFilters();
+    });
+  });
+  
+  // Clear filters
+  document.getElementById('clear-filters').addEventListener('click', function() {
+    filterChips.forEach(chip => {
+      chip.classList.remove('active');
+      // Remove sort icons
+      const icon = chip.querySelector('.sort-icon');
+      if (icon) icon.remove();
+    });
+    activeFilters.clear();
+    sortState = { field: null, direction: 'desc' };
+    applyFilters();
+    resetSort();
+  });
+  
+  function handleSorting(field, chip) {
+    // Toggle sort direction if same field, otherwise set to descending
+    if (sortState.field === field) {
+      sortState.direction = sortState.direction === 'desc' ? 'asc' : 'desc';
+    } else {
+      sortState.field = field;
+      sortState.direction = 'desc';
+    }
+    
+    // Update visual indicators
+    updateSortIcons(chip, sortState.direction);
+    
+    // Apply sorting
+    sortExtensions(field, sortState.direction);
+  }
+  
+  function updateSortIcons(activeChip, direction) {
+    // Remove all existing sort icons
+    filterChips.forEach(chip => {
+      const existingIcon = chip.querySelector('.sort-icon');
+      if (existingIcon) existingIcon.remove();
+    });
+    
+    // Add icon to active chip
+    const icon = document.createElement('i');
+    icon.className = `sort-icon ms-1 bi bi-arrow-${direction === 'desc' ? 'down' : 'up'}`;
+    activeChip.appendChild(icon);
+  }
+  
+  function resetSort() {
+    // Reset to original order using stored arrays
+    const listContainer = document.querySelector('#list-view-container .list-group');
+    const gridContainer = document.querySelector('#grid-view-container .row');
+    
+    if (listContainer && originalListOrder.length > 0) {
+      originalListOrder.forEach(item => listContainer.appendChild(item));
+    }
+    
+    if (gridContainer && originalGridOrder.length > 0) {
+      originalGridOrder.forEach(item => gridContainer.appendChild(item));
+    }
+  }
+  
+  function applyFilters() {
+    const extensions = document.querySelectorAll('.extension-item, .extension-card');
+    
+    extensions.forEach(ext => {
+      let show = true;
+      
+      // Category filters
+      if (activeFilters.has('template') && ext.dataset.template !== 'true') {
+        show = false;
+      }
+      if (activeFilters.has('format') && !ext.dataset.categories.toLowerCase().includes('format')) {
+        show = false;
+      }
+      if (activeFilters.has('shortcode') && !ext.dataset.categories.toLowerCase().includes('shortcode')) {
+        show = false;
+      }
+      if (activeFilters.has('project') && !ext.dataset.categories.toLowerCase().includes('project')) {
+        show = false;
+      }
+      if (activeFilters.has('filter') && !ext.dataset.categories.toLowerCase().includes('filter')) {
+        show = false;
+      }
+      
+      ext.closest('.list-group-item, .col-sm-6, .col-lg-4').style.display = show ? '' : 'none';
+    });
+  }
+  
+  // Utility function for debouncing
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+  
+  // Modal functions (global scope)
+  window.showInstallModal = function(id) {
+    const modal = new bootstrap.Modal(document.getElementById('install-modal-' + id));
+    modal.show();
+  };
+  
+  window.showUseModal = function(id) {
+    const modal = new bootstrap.Modal(document.getElementById('use-modal-' + id));
+    modal.show();
+  };
+});
+</script>

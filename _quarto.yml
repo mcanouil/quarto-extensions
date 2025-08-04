@@ -39,8 +39,6 @@ website:
     left:
       - text: Extensions
         href: index.qmd
-      - text: Authors
-        href: authors.qmd
     right:
       - text: "{{< iconify octicon:question-16 title='Help' label='Help' >}} About"
         href: about.qmd
@@ -62,15 +60,11 @@ format:
       light:
         - cosmo
         - assets/stylesheets/theme.scss
-        - assets/stylesheets/extensions.scss
-        - assets/stylesheets/authors.scss
         - assets/stylesheets/wizard.scss
         - brand
       dark:
         - cosmo
         - assets/stylesheets/theme.scss
-        - assets/stylesheets/extensions.scss
-        - assets/stylesheets/authors.scss
         - assets/stylesheets/wizard.scss
         - brand
     highlight-style: github

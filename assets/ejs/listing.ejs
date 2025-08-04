@@ -129,7 +129,6 @@ if (diffDays === 1) {
       </div>
       
       <!-- Header Metrics -->
-      <!-- Header Metrics -->
       <div class="extension-metrics-header">
         <div class="d-flex gap-3 align-items-center">
           <span class="text-muted small">
@@ -367,141 +366,7 @@ if (isTemplate || isExample) {
 :::
 ::::
 
-<!-- Custom JavaScript for enhanced functionality -->
 ```{=html}
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // View toggle functionality
-  const listViewBtn = document.getElementById('list-view');
-  const gridViewBtn = document.getElementById('grid-view');
-  const listContainer = document.getElementById('list-view-container');
-  const gridContainer = document.getElementById('grid-view-container');
-  
-  listViewBtn.addEventListener('change', function() {
-    if (this.checked) {
-      listContainer.classList.remove('d-none');
-      gridContainer.classList.add('d-none');
-    }
-  });
-  
-  gridViewBtn.addEventListener('change', function() {
-    if (this.checked) {
-      gridContainer.classList.remove('d-none');
-      listContainer.classList.add('d-none');
-    }
-  });
-  
-  // Search functionality
-  const searchInput = document.getElementById('extension-search');
-  searchInput.addEventListener('input', debounce(performSearch, 300));
-  
-  function performSearch() {
-    const query = searchInput.value.toLowerCase();
-    const extensions = document.querySelectorAll('.extension-item, .extension-card');
-    
-    extensions.forEach(ext => {
-      const title = ext.querySelector('.extension-title, .card-title').textContent.toLowerCase();
-      const description = ext.querySelector('.extension-description, .card-text').textContent.toLowerCase();
-      const author = ext.dataset.author.toLowerCase();
-      const categories = ext.dataset.categories.toLowerCase();
-      
-      const matches = title.includes(query) || 
-                     description.includes(query) || 
-                     author.includes(query) || 
-                     categories.includes(query);
-      
-      ext.closest('.list-group-item, .col-sm-6, .col-lg-4').style.display = matches ? '' : 'none';
-    });
-  }
-  
-  // Filter chip functionality
-  const filterChips = document.querySelectorAll('.filter-chip');
-  let activeFilters = new Set();
-  
-  filterChips.forEach(chip => {
-    chip.addEventListener('click', function() {
-      const filter = this.dataset.filter;
-      
-      if (this.classList.contains('active')) {
-        this.classList.remove('active');
-        activeFilters.delete(filter);
-      } else {
-        this.classList.add('active');
-        activeFilters.add(filter);
-      }
-      
-      applyFilters();
-    });
-  });
-  
-  // Clear filters
-  document.getElementById('clear-filters').addEventListener('click', function() {
-    filterChips.forEach(chip => chip.classList.remove('active'));
-    activeFilters.clear();
-    applyFilters();
-  });
-  
-  function applyFilters() {
-    const extensions = document.querySelectorAll('.extension-item, .extension-card');
-    
-    extensions.forEach(ext => {
-      let show = true;
-      
-      if (activeFilters.has('template') && ext.dataset.template !== 'true') {
-        show = false;
-      }
-      if (activeFilters.has('format') && !ext.dataset.categories.includes('format')) {
-        show = false;
-      }
-      if (activeFilters.has('shortcode') && !ext.dataset.categories.includes('shortcode')) {
-        show = false;
-      }
-      if (activeFilters.has('project') && !ext.dataset.categories.includes('project')) {
-        show = false;
-      }
-      if (activeFilters.has('filter') && !ext.dataset.categories.includes('filter')) {
-        show = false;
-      }
-      if (activeFilters.has('recent')) {
-        const modified = new Date(ext.dataset.modified);
-        const weekAgo = new Date();
-        weekAgo.setDate(weekAgo.getDate() - 7);
-        if (modified < weekAgo) show = false;
-      }
-      if (activeFilters.has('popular') && parseInt(ext.dataset.stars) < 10) {
-        show = false;
-      }
-      
-      ext.closest('.list-group-item, .col-sm-6, .col-lg-4').style.display = show ? '' : 'none';
-    });
-  }
-  
-  // Utility function for debouncing
-  function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-      const later = () => {
-        clearTimeout(timeout);
-        func(...args);
-      };
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-    };
-  }
-  
-  // Modal functions (global scope)
-  window.showInstallModal = function(id) {
-    const modal = new bootstrap.Modal(document.getElementById('install-modal-' + id));
-    modal.show();
-  };
-  
-  window.showUseModal = function(id) {
-    const modal = new bootstrap.Modal(document.getElementById('use-modal-' + id));
-    modal.show();
-  };
-});
-</script>
-
 <style>
 /* Enhanced Extension Listing Styles */
 .extension-title {
