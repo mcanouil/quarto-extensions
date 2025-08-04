@@ -186,6 +186,7 @@ jobs:
               " image: \"/${extension_png_file}\"\n" \
               " image-alt: \"GitHub repository OpenGraph image for ${entry_url}\"\n" \
               " github-url: ${entry_url}\n" \
+              " login: ${owner}\n" \
               " author: \"${entry_author}\"\n" \
               " author-url: \"/authors/${owner}.qmd\"\n" \
               " date: \"${entry_created}\"\n" \
