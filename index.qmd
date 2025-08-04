@@ -7,7 +7,7 @@ listing:
   id: listing-extensions
   template: assets/ejs/extensions.ejs
   contents:
-    - extensions/yaml/**.yml
+    - extensions/**/extension.yml
   sort-ui: [stars, title, author, date, file-modified]
   sort:
     - stars desc
@@ -25,5 +25,5 @@ listing:
   image-placeholder: /assets/media/github-placeholder.png
 ---
 
-::: {#listing-extensions}
+:::: {#listing-extensions}
 :::
