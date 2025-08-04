@@ -1,0 +1,57 @@
+<!-- Search Bar -->
+:::: {.grid .align-items-center .mb-3}
+::: {.g-col-8}
+```{=html}
+<div class="input-group">
+  <span class="input-group-text"><i class="bi bi-search"></i></span>
+  <input type="text" id="extension-search" class="form-control" placeholder="Search extensions, authors, categories..." aria-label="Search extensions">
+</div>
+```
+:::
+::: {.g-col-4 .text-end}
+```{=html}
+<div class="btn-group" role="group" aria-label="View toggle">
+  <input type="radio" class="btn-check" name="view-toggle" id="list-view">
+  <label class="btn btn-outline-dark" for="list-view">
+    <i class="bi bi-list-ul"></i> List
+  </label>
+  <input type="radio" class="btn-check" name="view-toggle" id="grid-view" checked>
+  <label class="btn btn-outline-dark" for="grid-view">
+    <i class="bi bi-grid-3x3-gap"></i> Grid
+  </label>
+</div>
+```
+:::
+::::
+
+<!-- Quick Filter Chips -->
+:::: {.quick-filters .mb-3}
+```{=html}
+<div class="d-flex flex-wrap gap-2">
+  <button class="btn btn-sm btn-outline-success filter-chip" data-filter="recent">
+    <i class="bi bi-clock-history"></i> Recently Updated
+  </button>
+  <button class="btn btn-sm btn-outline-warning filter-chip" data-filter="popular">
+    <i class="bi bi-star-fill"></i> Popular
+  </button>
+  <button class="btn btn-sm btn-outline-primary filter-chip" data-filter="template">
+    <i class="bi bi-file-earmark-text"></i> Templates
+  </button>
+  <button class="btn btn-sm btn-outline-primary filter-chip" data-filter="format">
+    <i class="bi bi-file-earmark-code"></i> Formats
+  </button>
+  <button class="btn btn-sm btn-outline-primary filter-chip" data-filter="shortcode">
+    <i class="bi bi-code-square"></i> Shortcodes
+  </button>
+  <button class="btn btn-sm btn-outline-primary filter-chip" data-filter="filter">
+    <i class="bi bi-funnel"></i> Filters
+  </button>
+  <button class="btn btn-sm btn-outline-primary filter-chip" data-filter="project">
+    <i class="bi bi-folder"></i> Projects
+  </button>
+  <button class="btn btn-sm btn-outline-dark" id="clear-filters">
+    <i class="bi bi-x-circle"></i> Clear All
+  </button>
+</div>
+```
+::::

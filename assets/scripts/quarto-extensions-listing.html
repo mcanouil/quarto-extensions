@@ -7,20 +7,20 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Store original order on page load
   const initialListContainer = document.querySelector('#list-view-container .list-group');
-  const initialGridContainer = document.querySelector('#grid-view-container .row');
+  const initialGridContainer = document.querySelector('#grid-view-container .grid');
   
   if (initialListContainer) {
     originalListOrder = Array.from(initialListContainer.querySelectorAll('.list-group-item'));
   }
   
   if (initialGridContainer) {
-    originalGridOrder = Array.from(initialGridContainer.querySelectorAll('.col-sm-6, .col-lg-4'));
+    originalGridOrder = Array.from(initialGridContainer.querySelectorAll('.g-col-sm-6, .g-col-lg-4'));
   }
   
   // Function definitions (moved up for early initialization)
   function sortExtensions(field, direction) {
     const listContainer = document.querySelector('#list-view-container .list-group');
-    const gridContainer = document.querySelector('#grid-view-container .row');
+    const gridContainer = document.querySelector('#grid-view-container .grid');
     
     // Sort list view
     if (listContainer) {
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Sort grid view
     if (gridContainer) {
-      const gridItems = Array.from(gridContainer.querySelectorAll('.col-sm-6, .col-lg-4'));
+      const gridItems = Array.from(gridContainer.querySelectorAll('.g-col-sm-6, .g-col-lg-4'));
       sortItems(gridItems, field, direction);
       gridItems.forEach(item => gridContainer.appendChild(item));
     }
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function sortItems(items, field, direction) {
     items.sort((a, b) => {
       // For list view, the data is on the .list-group-item itself (which has .extension-item class)
-      // For grid view, the data is on the .extension-card inside the .col-* container
+      // For grid view, the data is on the .extension-card inside the .g-col-* container
       const extA = a.classList.contains('list-group-item') ? a : a.querySelector('.extension-card');
       const extB = b.classList.contains('list-group-item') ? b : b.querySelector('.extension-card');
       
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
                      author.includes(query) || 
                      categories.includes(query);
       
-      ext.closest('.list-group-item, .col-sm-6, .col-lg-4').style.display = matches ? '' : 'none';
+      ext.closest('.list-group-item, .g-col-sm-6, .g-col-lg-4').style.display = matches ? '' : 'none';
     });
   }
   
@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function resetSort() {
     // Reset to original order using stored arrays
     const listContainer = document.querySelector('#list-view-container .list-group');
-    const gridContainer = document.querySelector('#grid-view-container .row');
+    const gridContainer = document.querySelector('#grid-view-container .grid');
     
     if (listContainer && originalListOrder.length > 0) {
       originalListOrder.forEach(item => listContainer.appendChild(item));
@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (activeFilters.has('filter') && !ext.dataset.categories.toLowerCase().includes('filter')) {
         show = false;
       }
-      ext.closest('.list-group-item, .col-sm-6, .col-lg-4').style.display = show ? '' : 'none';
+      ext.closest('.list-group-item, .g-col-sm-6, .g-col-lg-4').style.display = show ? '' : 'none';
     });
   }
   
