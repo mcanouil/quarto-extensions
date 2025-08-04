@@ -1,0 +1,19 @@
+---
+title: "Extensions ({{< var extensions >}})"
+pagetitle: "Extensions"
+repo-actions: false
+image: "assets/media/quarto-extensions.png"
+date-format: iso
+listing:
+  id: listing-extensions-new
+  template: assets/ejs/listing.ejs
+  contents:
+    - extensions/**/extension.yml
+  sort-ui: false
+  filter-ui: false
+  categories: false
+  image-placeholder: /assets/media/github-placeholder.png
+---
+
+:::: {#listing-extensions-new}
+:::

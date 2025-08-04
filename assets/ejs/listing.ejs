@@ -1,0 +1,780 @@
+:::: {#extensions-listing-container}
+
+:::: {#listing-controls .mb-4}
+<!-- Search Bar -->
+:::: {.row .align-items-center .mb-3}
+::: {.col-md-8}
+```{=html}
+<div class="input-group">
+  <span class="input-group-text"><i class="bi bi-search"></i></span>
+  <input type="text" id="extension-search" class="form-control" placeholder="Search extensions, authors, categories..." aria-label="Search extensions">
+</div>
+```
+:::
+::: {.col-md-4 .text-end}
+```{=html}
+<div class="btn-group" role="group" aria-label="View toggle">
+  <input type="radio" class="btn-check" name="view-toggle" id="list-view" checked>
+  <label class="btn btn-outline-secondary" for="list-view">
+    <i class="bi bi-list-ul"></i> List
+  </label>
+  <input type="radio" class="btn-check" name="view-toggle" id="grid-view">
+  <label class="btn btn-outline-secondary" for="grid-view">
+    <i class="bi bi-grid-3x3-gap"></i> Grid
+  </label>
+</div>
+```
+:::
+::::
+
+<!-- Quick Filter Chips -->
+:::: {.quick-filters .mb-3}
+```{=html}
+<div class="d-flex flex-wrap gap-2">
+  <button class="btn btn-sm btn-outline-success filter-chip" data-filter="recent">
+    <i class="bi bi-clock-history"></i> Recently Updated
+  </button>
+  <button class="btn btn-sm btn-outline-warning filter-chip" data-filter="popular">
+    <i class="bi bi-star-fill"></i> Popular
+  </button>
+  <button class="btn btn-sm btn-outline-primary filter-chip" data-filter="template">
+    <i class="bi bi-file-earmark-text"></i> Templates
+  </button>
+  <button class="btn btn-sm btn-outline-primary filter-chip" data-filter="format">
+    <i class="bi bi-file-earmark-code"></i> Formats
+  </button>
+  <button class="btn btn-sm btn-outline-primary filter-chip" data-filter="shortcode">
+    <i class="bi bi-code-square"></i> Shortcodes
+  </button>
+  <button class="btn btn-sm btn-outline-primary filter-chip" data-filter="project">
+    <i class="bi bi-folder"></i> Projects
+  </button>
+  <button class="btn btn-sm btn-outline-primary filter-chip" data-filter="filter">
+    <i class="bi bi-funnel"></i> Filters
+  </button>
+  <button class="btn btn-sm btn-outline-secondary" id="clear-filters">
+    <i class="bi bi-x-circle"></i> Clear All
+  </button>
+</div>
+```
+::::
+::::
+
+<!-- Main Content Area -->
+:::: {.row}
+
+<!-- Sidebar Filters -->
+::: {.col-lg-3 .d-none .d-lg-block}
+:::: {#sidebar-filters .sticky-top}
+```{=html}
+<div class="card">
+  <div class="card-header">
+    <h6 class="mb-0"><i class="bi bi-funnel"></i> Filters</h6>
+  </div>
+  <div class="card-body">
+    <!-- Categories Filter -->
+    <div class="filter-section mb-3">
+      <h6 class="filter-title">Categories</h6>
+      <div class="filter-options" id="category-filters">
+        <!-- Populated by JavaScript -->
+      </div>
+    </div>
+    
+    <!-- Authors Filter -->
+    <div class="filter-section mb-3">
+      <h6 class="filter-title">Authors</h6>
+      <div class="filter-options" id="author-filters">
+        <!-- Populated by JavaScript -->
+      </div>
+    </div>
+    
+    <!-- License Filter -->
+    <div class="filter-section mb-3">
+      <h6 class="filter-title">License</h6>
+      <div class="filter-options" id="license-filters">
+        <!-- Populated by JavaScript -->
+      </div>
+    </div>
+    
+    <!-- Sort Options -->
+    <div class="filter-section">
+      <h6 class="filter-title">Sort By</h6>
+      <select class="form-select form-select-sm" id="sort-options">
+        <option value="alphabetical">Alphabetical</option>
+        <option value="stars">Most Stars</option>
+        <option value="recent">Recently Updated</option>
+        <option value="author">Author</option>
+      </select>
+    </div>
+  </div>
+</div>
+```
+::::
+:::
+
+<!-- Extensions List -->
+::: {.col-lg-9}
+:::: {#extensions-container}
+
+<!-- List View -->
+:::: {#list-view-container .view-container}
+```{=html}
+<div id="extensions-list" class="list-group">
+```
+
+<% for (const item of items) { %>
+<%
+const usage = item.usage;
+const id = utils.b64encode(usage);
+const isTemplate = item.template === true;
+const isExample = item.categories && item.categories.includes('example');
+
+// Parse the ISO date format and create a more readable relative time
+const modifiedDate = new Date(item['file-modified']);
+const now = new Date();
+const diffTime = Math.abs(now - modifiedDate);
+const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+let relativeTime;
+if (diffDays === 1) {
+  relativeTime = '1 day ago';
+} else if (diffDays < 7) {
+  relativeTime = `${diffDays} days ago`;
+} else if (diffDays < 30) {
+  const weeks = Math.floor(diffDays / 7);
+  relativeTime = weeks === 1 ? '1 week ago' : `${weeks} weeks ago`;
+} else if (diffDays < 365) {
+  const months = Math.floor(diffDays / 30);
+  relativeTime = months === 1 ? '1 month ago' : `${months} months ago`;
+} else {
+  const years = Math.floor(diffDays / 365);
+  relativeTime = years === 1 ? '1 year ago' : `${years} years ago`;
+}
+%>
+
+```{=html}
+  <div class="list-group-item extension-item" 
+       data-categories="<%= item.categories.join(',') %>"
+       data-author="<%= item.author %>"
+       data-license="<%= item.license %>"
+       data-stars="<%= item.stars %>"
+       data-modified="<%= item['file-modified'] %>"
+       data-template="<%= isTemplate %>">
+    
+    <!-- Extension Header -->
+    <div class="extension-header d-flex justify-content-between align-items-center mb-2">
+      <div class="extension-title-section">
+        <h5 class="extension-title mb-0">
+          <a href="<%= item['github-url'] %>" target="_blank" class="text-decoration-none">
+            <%= item.title %>
+          </a>
+          <% if (isTemplate) { %>
+          <span class="badge bg-success ms-2">Template</span>
+          <% } %>
+          <% if (isExample) { %>
+          <span class="badge bg-info ms-2">Example</span>
+          <% } %>
+        </h5>
+      </div>
+      
+      <!-- Header Metrics -->
+      <!-- Header Metrics -->
+      <div class="extension-metrics-header">
+        <div class="d-flex gap-3 align-items-center">
+          <span class="text-muted small">
+            <i class="bi bi-star-fill text-warning"></i> <%= item.stars %>
+          </span>
+          <span class="text-muted small">
+            <i class="bi bi-clock"></i> <%= relativeTime %>
+          </span>
+          <% if (item.license && item.license !== 'none') { %>
+          <span class="text-muted small">
+            <i class="bi bi-file-text"></i> <%= item.license %>
+          </span>
+          <% } %>
+          <a href="<%= item['github-url'] %>" target="_blank" class="btn btn-outline-secondary btn-sm">
+            <i class="bi bi-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Extension Content -->
+    <div class="extension-content">
+      <div class="extension-author mb-1">
+        <a href="<%= item['author-url'] %>" class="text-muted text-decoration-none">
+          <i class="bi bi-person"></i> <%= item.author %>
+        </a>
+      </div>
+      <div class="extension-description mb-2">
+        <%= item.description %>
+      </div>
+    </div>
+    
+    <!-- Extension Footer -->
+    <div class="extension-footer d-flex justify-content-between align-items-center">
+      <div class="extension-categories">
+        <% 
+        const filteredCategories = item.categories.filter(cat => cat !== 'example' && cat !== 'template');
+        filteredCategories.slice(0, 3).forEach(category => { %>
+        <span class="badge bg-light text-dark me-1"><%= category %></span>
+        <% }); %>
+        <% if (filteredCategories.length > 3) { %>
+        <span class="text-muted small">+<%= filteredCategories.length - 3 %> more</span>
+        <% } %>
+      </div>
+      
+      <div class="extension-actions">
+        <button class="btn btn-primary btn-sm" onclick="showInstallModal('<%= id %>')">
+          <i class="bi bi-download"></i> Install
+        </button>
+        <% if (isTemplate) { %>
+        <button class="btn btn-outline-success btn-sm" onclick="showUseModal('<%= id %>')">
+          <i class="bi bi-file-plus"></i> Use
+        </button>
+        <% } %>
+        <% if (isExample) { %>
+        <button class="btn btn-outline-info btn-sm" onclick="showUseModal('<%= id %>')">
+          <i class="bi bi-eye"></i> Use
+        </button>
+        <% } %>
+      </div>
+    </div>
+  </div>
+```
+
+<% } %>
+
+```{=html}
+</div>
+```
+::::
+
+<!-- Grid View -->
+:::: {#grid-view-container .view-container .d-none}
+```{=html}
+<div id="extensions-grid" class="row g-3">
+```
+
+<% for (const item of items) { %>
+<%
+const usage = item.usage;
+const id = utils.b64encode(usage);
+const isTemplate = item.template === true;
+const isExample = item.categories && item.categories.includes('example');
+
+// Parse the ISO date format and create a more readable relative time
+const modifiedDate = new Date(item['file-modified']);
+const now = new Date();
+const diffTime = Math.abs(now - modifiedDate);
+const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+let relativeTime;
+if (diffDays === 1) {
+  relativeTime = '1 day ago';
+} else if (diffDays < 7) {
+  relativeTime = `${diffDays} days ago`;
+} else if (diffDays < 30) {
+  const weeks = Math.floor(diffDays / 7);
+  relativeTime = weeks === 1 ? '1 week ago' : `${weeks} weeks ago`;
+} else if (diffDays < 365) {
+  const months = Math.floor(diffDays / 30);
+  relativeTime = months === 1 ? '1 month ago' : `${months} months ago`;
+} else {
+  const years = Math.floor(diffDays / 365);
+  relativeTime = years === 1 ? '1 year ago' : `${years} years ago`;
+}
+%>
+
+```{=html}
+  <div class="col-sm-6 col-lg-4">
+    <div class="card extension-card h-100" 
+         data-categories="<%= item.categories.join(',') %>"
+         data-author="<%= item.author %>"
+         data-license="<%= item.license %>"
+         data-stars="<%= item.stars %>"
+         data-modified="<%= item['file-modified'] %>"
+         data-template="<%= isTemplate %>">
+      
+      <!-- Card Header with Image -->
+      <% if (item.image) { %>
+      <div class="card-img-wrapper">
+        <img src="<%= item.image %>" alt="<%= item['image-alt'] %>" class="card-img-top">
+        <div class="card-img-overlay-actions">
+          <a href="<%= item['github-url'] %>" target="_blank" class="btn btn-light btn-sm">
+            <i class="bi bi-github"></i>
+          </a>
+        </div>
+      </div>
+      <% } else { %>
+      <div class="card-img-placeholder">
+        <% if (isTemplate) { %>
+        <i class="bi bi-file-earmark-text"></i>
+        <% } else { %>
+        <i class="bi bi-puzzle"></i>
+        <% } %>
+      </div>
+      <% } %>
+      
+      <!-- Card Body -->
+      <div class="card-body d-flex flex-column">
+        <h6 class="card-title">
+          <a href="<%= item['github-url'] %>" target="_blank" class="text-decoration-none">
+            <%= item.title %>
+          </a>
+          <% if (isTemplate) { %>
+          <span class="badge bg-success ms-1">Template</span>
+          <% } %>
+          <% if (isExample) { %>
+          <span class="badge bg-info ms-1">Example</span>
+          <% } %>
+        </h6>
+        
+        <p class="card-text small text-muted mb-2">
+          <i class="bi bi-person"></i> 
+          <a href="<%= item['author-url'] %>" class="text-muted text-decoration-none">
+            <%= item.author %>
+          </a>
+        </p>
+        
+        <p class="card-text flex-grow-1">
+          <%= item.description.length > 100 ? item.description.substring(0, 100) + '...' : item.description %>
+        </p>
+        
+        <!-- Categories -->
+        <div class="card-categories mb-2">
+          <% 
+          const filteredCategories = item.categories.filter(cat => cat !== 'example' && cat !== 'template');
+          filteredCategories.slice(0, 2).forEach(category => { %>
+          <span class="badge bg-light text-dark me-1"><%= category %></span>
+          <% }); %>
+          <% if (filteredCategories.length > 2) { %>
+          <span class="text-muted small">+<%= filteredCategories.length - 2 %></span>
+          <% } %>
+        </div>
+        
+        <!-- Card Footer Info -->
+        <div class="card-footer-info d-flex justify-content-between align-items-center small text-muted">
+          <span>
+            <i class="bi bi-star-fill text-warning"></i> <%= item.stars %>
+          </span>
+          <span>
+            <i class="bi bi-clock"></i> <%= relativeTime %>
+          </span>
+          <% if (item.license && item.license !== 'none') { %>
+          <span>
+            <i class="bi bi-file-text"></i> <%= item.license %>
+          </span>
+          <% } %>
+        </div>
+      </div>
+      
+      <!-- Card Footer with Actions -->
+      <div class="card-footer bg-transparent">
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary btn-sm" onclick="showInstallModal('<%= id %>')">
+            <i class="bi bi-download"></i> Install
+          </button>
+          <% if (isTemplate) { %>
+          <button class="btn btn-outline-success btn-sm" onclick="showUseModal('<%= id %>')">
+            <i class="bi bi-file-plus"></i> Use Template
+          </button>
+          <% } %>
+          <% if (isExample) { %>
+          <button class="btn btn-outline-info btn-sm" onclick="showUseModal('<%= id %>')">
+            <i class="bi bi-eye"></i> Use Example
+          </button>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+```
+
+<% } %>
+
+```{=html}
+</div>
+```
+::::
+
+<!-- Include modals for each extension -->
+<% for (const item of items) { %>
+<%
+const usage = item.usage;
+const id = utils.b64encode(usage);
+const isTemplate = item.template === true;
+const isExample = item.categories && item.categories.includes('example');
+partial("extension-install-modal.ejs", { id, usage });
+if (isTemplate || isExample) {
+  partial("extension-use-modal.ejs", { id, usage });
+}
+%>
+<% } %>
+
+::::
+:::
+::::
+
+<!-- Custom JavaScript for enhanced functionality -->
+```{=html}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // View toggle functionality
+  const listViewBtn = document.getElementById('list-view');
+  const gridViewBtn = document.getElementById('grid-view');
+  const listContainer = document.getElementById('list-view-container');
+  const gridContainer = document.getElementById('grid-view-container');
+  
+  listViewBtn.addEventListener('change', function() {
+    if (this.checked) {
+      listContainer.classList.remove('d-none');
+      gridContainer.classList.add('d-none');
+    }
+  });
+  
+  gridViewBtn.addEventListener('change', function() {
+    if (this.checked) {
+      gridContainer.classList.remove('d-none');
+      listContainer.classList.add('d-none');
+    }
+  });
+  
+  // Search functionality
+  const searchInput = document.getElementById('extension-search');
+  searchInput.addEventListener('input', debounce(performSearch, 300));
+  
+  function performSearch() {
+    const query = searchInput.value.toLowerCase();
+    const extensions = document.querySelectorAll('.extension-item, .extension-card');
+    
+    extensions.forEach(ext => {
+      const title = ext.querySelector('.extension-title, .card-title').textContent.toLowerCase();
+      const description = ext.querySelector('.extension-description, .card-text').textContent.toLowerCase();
+      const author = ext.dataset.author.toLowerCase();
+      const categories = ext.dataset.categories.toLowerCase();
+      
+      const matches = title.includes(query) || 
+                     description.includes(query) || 
+                     author.includes(query) || 
+                     categories.includes(query);
+      
+      ext.closest('.list-group-item, .col-sm-6, .col-lg-4').style.display = matches ? '' : 'none';
+    });
+  }
+  
+  // Filter chip functionality
+  const filterChips = document.querySelectorAll('.filter-chip');
+  let activeFilters = new Set();
+  
+  filterChips.forEach(chip => {
+    chip.addEventListener('click', function() {
+      const filter = this.dataset.filter;
+      
+      if (this.classList.contains('active')) {
+        this.classList.remove('active');
+        activeFilters.delete(filter);
+      } else {
+        this.classList.add('active');
+        activeFilters.add(filter);
+      }
+      
+      applyFilters();
+    });
+  });
+  
+  // Clear filters
+  document.getElementById('clear-filters').addEventListener('click', function() {
+    filterChips.forEach(chip => chip.classList.remove('active'));
+    activeFilters.clear();
+    applyFilters();
+  });
+  
+  function applyFilters() {
+    const extensions = document.querySelectorAll('.extension-item, .extension-card');
+    
+    extensions.forEach(ext => {
+      let show = true;
+      
+      if (activeFilters.has('template') && ext.dataset.template !== 'true') {
+        show = false;
+      }
+      if (activeFilters.has('format') && !ext.dataset.categories.includes('format')) {
+        show = false;
+      }
+      if (activeFilters.has('shortcode') && !ext.dataset.categories.includes('shortcode')) {
+        show = false;
+      }
+      if (activeFilters.has('project') && !ext.dataset.categories.includes('project')) {
+        show = false;
+      }
+      if (activeFilters.has('filter') && !ext.dataset.categories.includes('filter')) {
+        show = false;
+      }
+      if (activeFilters.has('recent')) {
+        const modified = new Date(ext.dataset.modified);
+        const weekAgo = new Date();
+        weekAgo.setDate(weekAgo.getDate() - 7);
+        if (modified < weekAgo) show = false;
+      }
+      if (activeFilters.has('popular') && parseInt(ext.dataset.stars) < 10) {
+        show = false;
+      }
+      
+      ext.closest('.list-group-item, .col-sm-6, .col-lg-4').style.display = show ? '' : 'none';
+    });
+  }
+  
+  // Utility function for debouncing
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+  
+  // Modal functions (global scope)
+  window.showInstallModal = function(id) {
+    const modal = new bootstrap.Modal(document.getElementById('install-modal-' + id));
+    modal.show();
+  };
+  
+  window.showUseModal = function(id) {
+    const modal = new bootstrap.Modal(document.getElementById('use-modal-' + id));
+    modal.show();
+  };
+});
+</script>
+
+<style>
+/* Enhanced Extension Listing Styles */
+.extension-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.extension-description {
+  max-width: none;
+  line-height: 1.4;
+}
+
+.extension-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid #e9ecef;
+  box-shadow: none;
+}
+
+.extension-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-color: #dee2e6;
+}
+
+
+.extension-card .card-footer {
+  border-top: 1px solid #f8f9fa;
+}
+
+.card-img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-img-wrapper .card-img-top {
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-img-overlay-actions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.card-img-wrapper:hover .card-img-overlay-actions {
+  opacity: 1;
+}
+
+.card-img-placeholder {
+  height: 180px;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: #6c757d;
+}
+
+.filter-chip.active {
+  background-color: var(--bs-primary);
+  color: white;
+  border-color: var(--bs-primary);
+}
+
+.filter-section {
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 1rem;
+}
+
+.filter-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.filter-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+
+.list-group-item {
+  border: none;
+  border-bottom: 1px solid #e9ecef;
+  margin-bottom: 0;
+  border-radius: 0;
+  transition: all 0.2s ease;
+  padding: 1.25rem 0;
+}
+
+.list-group-item:last-child {
+  border-bottom: none;
+}
+
+.extension-metrics {
+  min-width: 260px;
+  flex-shrink: 0;
+}
+
+.extension-metrics .d-flex {
+  white-space: nowrap !important;
+  flex-wrap: nowrap !important;
+}
+
+.extension-metrics .d-flex span,
+.extension-metrics span {
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+/* New header structure styles */
+.extension-header {
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 0.5rem;
+}
+
+.extension-metrics-header {
+  flex-shrink: 0;
+  min-width: 300px;
+}
+
+.extension-metrics-header .d-flex {
+  white-space: nowrap !important;
+  flex-wrap: nowrap !important;
+  justify-content: flex-end;
+}
+
+.extension-metrics-header .d-flex span {
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+.extension-content {
+  padding: 0.5rem 0;
+}
+
+.extension-footer {
+  padding-top: 0.5rem;
+  border-top: 1px solid #f8f9fa;
+}
+
+.extension-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.card-footer-info {
+  white-space: nowrap !important;
+  flex-wrap: nowrap !important;
+}
+
+.card-footer-info span {
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+/* Ensure all metric text stays on one line */
+.extension-metrics .text-muted,
+.extension-metrics-header .text-muted,
+.card-footer-info .text-muted {
+  white-space: nowrap !important;
+}
+
+/* Override Bootstrap flex utilities */
+.extension-metrics .d-flex.gap-3,
+.extension-metrics-header .d-flex.gap-3 {
+  flex-wrap: nowrap !important;
+}
+
+.card-footer-info.d-flex {
+  flex-wrap: nowrap !important;
+}
+
+@media (max-width: 768px) {
+  .extension-metrics,
+  .extension-metrics-header {
+    min-width: auto;
+    margin-top: 0.5rem;
+  }
+  
+  .extension-header {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+  
+  .extension-metrics-header {
+    width: 100%;
+    margin-top: 0.75rem;
+  }
+  
+  .extension-metrics-header .d-flex {
+    justify-content: flex-start !important;
+  }
+  
+  .extension-actions {
+    margin-top: 0.5rem;
+  }
+  
+  .extension-footer {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .extension-metrics .d-flex,
+  .extension-metrics-header .d-flex {
+    flex-direction: column;
+    gap: 0.5rem !important;
+    align-items: flex-start !important;
+  }
+  
+  .extension-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+}
+</style>
+```
+
+::::
