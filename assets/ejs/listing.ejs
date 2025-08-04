@@ -214,7 +214,7 @@ if (diffDays === 1) {
 <!-- Grid View -->
 :::: {#grid-view-container .view-container .d-none}
 ```{=html}
-<div id="extensions-grid" class="row g-3">
+<div id="extensions-grid" class="grid">
 ```
 
 <% for (const item of items) { %>
@@ -248,7 +248,7 @@ if (diffDays === 1) {
 %>
 
 ```{=html}
-  <div class="col-sm-6 col-lg-4">
+  <div class="g-col-sm-6 g-col-lg-4">
     <div class="card extension-card h-100" 
          data-categories="<%= item.categories.join(',') %>"
          data-author="<%= item.author %>"
@@ -415,6 +415,7 @@ if (isTemplate || isExample) {
 
 .card-img-wrapper .card-img-top {
   height: 180px;
+  width: 100%;
   object-fit: cover;
 }
 
