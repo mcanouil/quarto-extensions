@@ -15,11 +15,11 @@
 ```{=html}
 <div class="btn-group" role="group" aria-label="View toggle">
   <input type="radio" class="btn-check" name="view-toggle" id="list-view" checked>
-  <label class="btn btn-outline-secondary" for="list-view">
+  <label class="btn btn-outline-dark" for="list-view">
     <i class="bi bi-list-ul"></i> List
   </label>
   <input type="radio" class="btn-check" name="view-toggle" id="grid-view">
-  <label class="btn btn-outline-secondary" for="grid-view">
+  <label class="btn btn-outline-dark" for="grid-view">
     <i class="bi bi-grid-3x3-gap"></i> Grid
   </label>
 </div>
@@ -52,7 +52,7 @@
   <button class="btn btn-sm btn-outline-primary filter-chip" data-filter="project">
     <i class="bi bi-folder"></i> Projects
   </button>
-  <button class="btn btn-sm btn-outline-secondary" id="clear-filters">
+  <button class="btn btn-sm btn-outline-dark" id="clear-filters">
     <i class="bi bi-x-circle"></i> Clear All
   </button>
 </div>
@@ -117,7 +117,7 @@ if (diffDays === 1) {
     <div class="extension-header d-flex justify-content-between align-items-center mb-2">
       <div class="extension-title-section">
         <h5 class="extension-title mb-0">
-          <a href="<%= item['github-url'] %>" target="_blank" class="text-decoration-none">
+          <a href="<%= item['github-url'] %>" target="_blank">
             <%= item.title %>
           </a>
           <% if (isTemplate) { %>
@@ -143,7 +143,7 @@ if (diffDays === 1) {
             <i class="bi bi-file-text"></i> <%= item.license %>
           </span>
           <% } %>
-          <a href="<%= item['github-url'] %>" target="_blank" class="btn btn-outline-secondary btn-sm">
+          <a href="<%= item['github-url'] %>" target="_blank" class="btn btn-outline-dark btn-sm">
             <i class="bi bi-github"></i>
           </a>
         </div>
@@ -167,11 +167,21 @@ if (diffDays === 1) {
       <div class="extension-categories">
         <% 
         const filteredCategories = item.categories.filter(cat => cat !== 'example' && cat !== 'template');
-        filteredCategories.slice(0, 3).forEach(category => { %>
-        <span class="badge bg-light text-dark me-1"><%= category %></span>
+        const mainCategories = filteredCategories.slice(0, 3);
+        const extraCategories = filteredCategories.slice(3);
+        %>
+        <% mainCategories.forEach(category => { %>
+          <span class="badge bg-light text-dark me-1"><%= category %></span>
         <% }); %>
-        <% if (filteredCategories.length > 3) { %>
-        <span class="text-muted small">+<%= filteredCategories.length - 3 %> more</span>
+        <% if (extraCategories.length > 0) { %>
+          <button class="btn btn-link btn-sm p-0 text-muted category-expand-toggle" type="button" data-id="cat-<%= id %>">
+            +<%= extraCategories.length %> more
+          </button>
+          <span id="cat-<%= id %>" class="d-none">
+            <% extraCategories.forEach(category => { %>
+              <span class="badge bg-light text-dark me-1"><%= category %></span>
+            <% }); %>
+          </span>
         <% } %>
       </div>
       
@@ -283,7 +293,7 @@ if (diffDays === 1) {
         
         <p class="card-text small text-muted mb-2">
           <i class="bi bi-person"></i>
-          <button class="btn btn-link p-0 text-muted text-decoration-none filter-chip" data-filter="author" data-author="<%= item.author ? item.author : item.login %>">
+          <button class="btn btn-link p-0 text-muted text-decoration-none filter-chip" data-filter="author" data-author="<%= item.login %>">
             <%= item.author ? item.author : item.login %>
           </button>
         </p>
@@ -590,6 +600,18 @@ if (isTemplate || isExample) {
     gap: 0.5rem;
     flex-wrap: wrap;
   }
+}
+
+.extension-categories {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.category-expand-toggle {
+  margin-left: auto;
+  white-space: nowrap;
+  box-shadow: none;
 }
 </style>
 ```

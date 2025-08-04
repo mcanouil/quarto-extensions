@@ -273,5 +273,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const modal = new bootstrap.Modal(document.getElementById('use-modal-' + id));
     modal.show();
   };
+  
+  // Category expansion for list view
+  document.querySelectorAll('.category-expand-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const targetId = btn.getAttribute('data-id');
+      const target = document.getElementById(targetId);
+      if (target) {
+        target.classList.remove('d-none');
+        btn.classList.add('category-expanded');
+        btn.style.display = 'none'; // Hide button when expanded
+      }
+    });
+  });
+
+  // Collapse expanded categories when clicking elsewhere
+  document.addEventListener('click', function(e) {
+    document.querySelectorAll('.category-expand-toggle.category-expanded').forEach(function(btn) {
+      const targetId = btn.getAttribute('data-id');
+      const target = document.getElementById(targetId);
+      if (target && !btn.contains(e.target) && !target.contains(e.target)) {
+        target.classList.add('d-none');
+        btn.classList.remove('category-expanded');
+        btn.style.display = ''; // Show button when collapsed
+      }
+    });
+  });
 });
 </script>
