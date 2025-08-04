@@ -8,12 +8,12 @@ set -e
 
 EXTENSIONS_DIR="extensions"
 
-echo -e "extensions: $(wc -l < "${EXTENSIONS_DIR}/quarto-extensions.csv" | tr -d ' ')\nauthors: $(ls -1 authors | wc -l | tr -d ' ')" > _variables.yml
-
 git fetch origin quarto-wizard:quarto-wizard
 git restore --source=quarto-wizard --worktree "${EXTENSIONS_DIR}"
 
 mkdir -p authors
+
+echo -e "extensions: $(find extensions -name "extension.json" | wc -l | tr -d ' ')\nauthors: $(find extensions -name "author.json" | wc -l | tr -d ' ')" > _variables.yml
 
 for owner in ${EXTENSIONS_DIR}/*/; do
   owner=$(basename "${owner}")
