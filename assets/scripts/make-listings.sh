@@ -11,7 +11,7 @@ EXTENSIONS_DIR="extensions"
 echo -e "extensions: $(wc -l < extensions/quarto-extensions.csv | tr -d ' ')\nauthors: $(ls -1 authors | wc -l | tr -d ' ')" > _variables.yml
 
 git fetch origin quarto-wizard:quarto-wizard
-git checkout quarto-wizard -- extensions
+git restore --source=quarto-wizard --worktree "${EXTENSIONS_DIR}"
 
 mkdir -p authors
 
