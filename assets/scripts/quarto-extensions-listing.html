@@ -124,12 +124,23 @@ document.addEventListener('DOMContentLoaded', function() {
   // Filter chip functionality
   const filterChips = document.querySelectorAll('.filter-chip');
   let activeFilters = new Set();
-  // sortState is already declared above with default values
-  
+  let activeAuthorLogin = null;
+
   filterChips.forEach(chip => {
     chip.addEventListener('click', function() {
       const filter = this.dataset.filter;
-      
+      // Author filter logic
+      if (filter === 'author' && this.dataset.login) {
+        // Remove active state from all author filter chips
+        document.querySelectorAll('.filter-chip[data-filter="author"][data-login]').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        // Set active state for clicked chip
+        this.classList.add('active');
+        activeAuthorLogin = this.dataset.login;
+        applyFilters();
+        return;
+      }
       // Handle sorting for Recently Updated and Popular
       if (filter === 'recent') {
         handleSorting('modified', this);
@@ -138,7 +149,6 @@ document.addEventListener('DOMContentLoaded', function() {
         handleSorting('stars', this);
         return;
       }
-      
       // Handle regular filters
       if (this.classList.contains('active')) {
         this.classList.remove('active');
@@ -147,11 +157,10 @@ document.addEventListener('DOMContentLoaded', function() {
         this.classList.add('active');
         activeFilters.add(filter);
       }
-      
       applyFilters();
     });
   });
-  
+
   // Clear filters
   document.getElementById('clear-filters').addEventListener('click', function() {
     filterChips.forEach(chip => {
@@ -161,11 +170,12 @@ document.addEventListener('DOMContentLoaded', function() {
       if (icon) icon.remove();
     });
     activeFilters.clear();
+    activeAuthorLogin = null;
     sortState = { field: null, direction: 'desc' };
     applyFilters();
     resetSort();
   });
-  
+
   function handleSorting(field, chip) {
     // Toggle sort direction if same field, otherwise set to descending
     if (sortState.field === field) {
@@ -211,10 +221,15 @@ document.addEventListener('DOMContentLoaded', function() {
   
   function applyFilters() {
     const extensions = document.querySelectorAll('.extension-item, .extension-card');
-    
     extensions.forEach(ext => {
       let show = true;
-      
+      // Author filter
+      if (activeAuthorLogin) {
+        const extLogin = ext.getAttribute('data-login');
+        if (extLogin !== activeAuthorLogin) {
+          show = false;
+        }
+      }
       // Category filters
       if (activeFilters.has('template') && ext.dataset.template !== 'true') {
         show = false;
@@ -231,7 +246,6 @@ document.addEventListener('DOMContentLoaded', function() {
       if (activeFilters.has('filter') && !ext.dataset.categories.toLowerCase().includes('filter')) {
         show = false;
       }
-      
       ext.closest('.list-group-item, .col-sm-6, .col-lg-4').style.display = show ? '' : 'none';
     });
   }

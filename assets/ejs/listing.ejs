@@ -107,6 +107,7 @@ if (diffDays === 1) {
   <div class="list-group-item extension-item" 
        data-categories="<%= item.categories.join(',') %>"
        data-author="<%= item.author %>"
+       data-login="<%= item.login %>"
        data-license="<%= item.license %>"
        data-stars="<%= item.stars %>"
        data-modified="<%= item['file-modified'] %>"
@@ -152,9 +153,9 @@ if (diffDays === 1) {
     <!-- Extension Content -->
     <div class="extension-content">
       <div class="extension-author mb-1">
-        <a href="<%= item['author-url'] %>" class="text-muted text-decoration-none">
-          <i class="bi bi-person"></i> <%= item.author %>
-        </a>
+        <button class="btn btn-link p-0 text-muted text-decoration-none filter-chip" data-filter="author" data-login="<%= item.login %>">
+          <i class="bi bi-person"></i> <%= item.author ? item.author : item.login %>
+        </button>
       </div>
       <div class="extension-description mb-2">
         <%= item.description %>
@@ -281,10 +282,10 @@ if (diffDays === 1) {
         </h6>
         
         <p class="card-text small text-muted mb-2">
-          <i class="bi bi-person"></i> 
-          <a href="<%= item['author-url'] %>" class="text-muted text-decoration-none">
-            <%= item.author %>
-          </a>
+          <i class="bi bi-person"></i>
+          <button class="btn btn-link p-0 text-muted text-decoration-none filter-chip" data-filter="author" data-author="<%= item.author ? item.author : item.login %>">
+            <%= item.author ? item.author : item.login %>
+          </button>
         </p>
         
         <p class="card-text flex-grow-1">
