@@ -20,7 +20,7 @@ for owner in ${EXTENSIONS_DIR}/*/; do
   owner_image=$(find "${EXTENSIONS_DIR}/${owner}" -type f \( -name "author.jpg" -o -name "author.png" \) | head -n 1)
   count_stars=$(find "${EXTENSIONS_DIR}/${owner}/" -mindepth 2 -name "extension.json" -exec jq '.[].stargazerCount' {} + | awk '{s+=$1} END {print s}')
   count_extensions=$(find "${EXTENSIONS_DIR}/${owner}/" -name "extension.json" | wc -l | tr -d ' ')
-  author=$(jq -r '.name' "${EXTENSIONS_DIR}/${owner}/author.json")
+  author=$(jq -r '.name // .login' "${EXTENSIONS_DIR}/${owner}/author.json")
 
   sed \
     -e "s/<<github-username>>/${owner}/g" \
