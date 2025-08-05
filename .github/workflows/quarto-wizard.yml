@@ -348,7 +348,12 @@ jobs:
               if [[ -f "${extension_json_file}" ]]; then
                 existing_updated_at=$(jq -r ".[\"${entry,,}\"].updatedAt // empty" "${extension_json_file}")
                 current_updated_at=$(echo "${repo_info}" | jq -r ".updatedAt")
-                if [[ -n "${existing_updated_at}" && "${existing_updated_at}" == "${current_updated_at}" ]]; then
+                files=( "${extension_json_file}" "${extension_png_file}" "${extension_yaml_file}" )
+                all_exist=true
+                for file in "${files[@]}"; do
+                  [[ -f "${file}" ]] || all_exist=false
+                done
+                if [[ -n "${existing_updated_at}" && "${existing_updated_at}" == "${current_updated_at}" && "${all_exist}" == true ]]; then
                   echo "Skipping ${entry}: updatedAt matches existing record (${existing_updated_at})"
                   skipped_extensions+=("${entry}")
                   continue
