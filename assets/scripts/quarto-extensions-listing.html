@@ -247,15 +247,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // Generalised category filters
       filterChipValues.forEach(function(filter) {
         if (activeFilters.has(filter)) {
-          // For 'revealjs-plugins' and 'metadata', check for exact match in categories
-          if (filter === 'revealjs-plugins' || filter === 'metadata') {
-            if (!ext.dataset.categories.toLowerCase().split(',').map(c => c.trim()).includes(filter)) {
-              show = false;
-            }
-          } else {
-            if (!ext.dataset.categories.toLowerCase().includes(filter)) {
-              show = false;
-            }
+          if (!ext.dataset.contributes.toLowerCase().split(',').map(c => c.trim()).includes(filter)) {
+            show = false;
           }
         }
       });
