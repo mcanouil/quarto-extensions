@@ -61,10 +61,16 @@ if (isTemplate || isExample) {
   background-color: unset;
 }
 .extension-card {
-  border-color: unset;
+  border-color: var(--bs-border-colour, #dee2e6);
 }
 .card-footer {
-  border-color: unset;
+  border-color: var(--bs-border-colour, #dee2e6);
+}
+.list-group-item.extension-item {
+  border-top: 1px solid var(--bs-border-colour, #dee2e6);
+}
+.list-group-item.extension-item:not([hidden]):first-of-type {
+  border-top: 1px solid var(--bs-border-colour, #dee2e6);
 }
 </style>
 ```
