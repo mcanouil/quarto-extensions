@@ -157,10 +157,10 @@ jobs:
               attempt=$((attempt + 1))
               sleep 1
             done
-            if [[ -z "${output_file}" || "${mime_type}" != "image/png" ]]; then
-              echo "assets/media/github-placeholder.png"
-            else
+            if [[ -f "${output_file}" && "${mime_type}" == "image/png" ]]; then
               echo "${output_file}"
+            else
+              echo "assets/media/github-placeholder.png"
             fi
           }
 
@@ -181,23 +181,32 @@ jobs:
             local entry_description="${13}"
             local yaml_usage_body="${14}"
             local entry_template="${15}"
+            local entry_example="${16}"
+            local entry_contributes="${17}"
+            if [[ -z "${entry_author}" ]]; then
+              author_field="author: ${entry_author}"
+            else
+              author_field="author: \"${entry_author}\""
+            fi
             echo -e \
               "- title: ${entry_title}\n" \
               " image: \"/${extension_png_file}\"\n" \
               " image-alt: \"GitHub repository OpenGraph image for ${entry_url}\"\n" \
               " github-url: ${entry_url}\n" \
               " login: ${owner}\n" \
-              " author: \"${entry_author}\"\n" \
+              " ${author_field}\n" \
               " author-url: \"/authors/${owner}.qmd\"\n" \
               " date: \"${entry_created}\"\n" \
               " file-modified: \"${entry_updated}\"\n" \
               " categories: ${entry_topics}\n" \
+              " contributes: ${entry_contributes}\n" \
               " license: \"${entry_license}\"\n" \
               " stars: $(printf "%05d\n" "${entry_stars}")\n" \
               " version: \"${entry_release}\"\n" \
               " description: |\n    ${entry_description}\n" \
               " usage: ${yaml_usage_body}\n" \
               " template: ${entry_template}\n" \
+              " example: ${entry_example}\n" \
               >"${extension_yaml_file}"
           }
 
@@ -339,7 +348,12 @@ jobs:
               if [[ -f "${extension_json_file}" ]]; then
                 existing_updated_at=$(jq -r ".[\"${entry,,}\"].updatedAt // empty" "${extension_json_file}")
                 current_updated_at=$(echo "${repo_info}" | jq -r ".updatedAt")
-                if [[ -n "${existing_updated_at}" && "${existing_updated_at}" == "${current_updated_at}" ]]; then
+                files=( "${extension_json_file}" "${extension_png_file}" "${extension_yaml_file}" )
+                all_exist=true
+                for file in "${files[@]}"; do
+                  [[ -f "${file}" ]] || all_exist=false
+                done
+                if [[ -n "${existing_updated_at}" && "${existing_updated_at}" == "${current_updated_at}" && "${all_exist}" == true ]]; then
                   echo "Skipping ${entry}: updatedAt matches existing record (${existing_updated_at})"
                   skipped_extensions+=("${entry}")
                   continue
@@ -377,16 +391,28 @@ jobs:
                 repo_info=$(echo "${repo_info}" | jq '. + {example: false, exampleContent: null}')
               fi
 
+              repo_extension_contributes=$(gh api \
+                -X GET "repos/${repo}/git/trees/${repo_branch}?recursive=1" \
+                --jq ".tree[] | select(.path | test(\"${repo_subdirectory}_extensions/.*/_extension\\\\.ya?ml$\")) | .url | @sh" | xargs -I {} gh api -X GET {} --jq ".content")
+                if [[ -n "${repo_extension_contributes}" ]]; then
+                repo_extension_contributes=$(echo "${repo_extension_contributes}" | base64 --decode | yq -o json '.contributes | keys' | jq -c)
+                repo_info=$(echo "${repo_info}" | jq --argjson contributes "${repo_extension_contributes}" '. + {contributes: $contributes}')
+              else
+                repo_info=$(echo "${repo_info}" | jq '. + {contributes: null}')
+              fi
+
               entry_title=$(echo "${repo_info}" | jq -r '.title')
               entry_created=$(echo "${repo_info}" | jq -r '.createdAt')
               entry_updated=$(echo "${repo_info}" | jq -r '.updatedAt')
               entry_url=$(echo "${repo_info}" | jq -r '.url')
               entry_topics=$(echo "${repo_info}" | jq -r '.repositoryTopics' | jq -c 'unique')
+              entry_contributes=$(echo "${repo_info}" | jq -r '.contributes' | jq -c 'unique')
               entry_license=$(echo "${repo_info}" | jq -r '.licenseInfo')
               entry_stars=$(echo "${repo_info}" | jq -r '.stargazerCount')
               entry_image=$(echo "${repo_info}" | jq -r '.openGraphImageUrl')
               entry_author=$(echo "${repo_info}" | jq -r '.author')
               entry_template=$(echo "${repo_info}" | jq -r '.template')
+              entry_example=$(echo "${repo_info}" | jq -r '.example')
               entry_description=$(echo "${repo_info}" | jq -r '.description')
               entry_description=$(echo "${entry_description}" | sed 's/^[[:space:]]*//')
               entry_description=$(echo "${entry_description}" | sed -E 's/([^`])(<[^<>]+>)([^`])/\1`\2`\3/g')
@@ -400,7 +426,11 @@ jobs:
               fi
 
               extension_png_file=$(extension_image_file "${entry_image}" "${extension_png_file}")
-              generate_extension_yaml "${extension_yaml_file}" "${entry_title}" "${extension_png_file}" "${entry_url}" "${entry_author}" "${owner}" "${entry_created}" "${entry_updated}" "${entry_topics}" "${entry_license}" "${entry_stars}" "${entry_release}" "${entry_description}" "${yaml_usage_body}" "${entry_template}"
+              generate_extension_yaml \
+                "${extension_yaml_file}" "${entry_title}" "${extension_png_file}" "${entry_url}" \
+                "${entry_author}" "${owner}" "${entry_created}" "${entry_updated}" "${entry_topics}" \
+                "${entry_license}" "${entry_stars}" "${entry_release}" "${entry_description}" \
+                "${yaml_usage_body}" "${entry_template}" "${entry_example}" "${entry_contributes}"
 
               echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}' > "${extension_json_file}"
 
