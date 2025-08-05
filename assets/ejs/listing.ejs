@@ -42,10 +42,10 @@ partial("_grid.ejs", { items, excludeCategories, utils })
 const usage = item.usage;
 const id = utils.b64encode(usage);
 const isTemplate = item.template === true;
-const isExample = item.categories && item.categories.includes('example');
-partial("extension-install-modal.ejs", { id, usage });
+const isExample = item.example === true;
+partial("_modal-install.ejs", { id, usage });
 if (isTemplate || isExample) {
-  partial("extension-use-modal.ejs", { id, usage });
+  partial("_modal-use.ejs", { id, usage });
 }
 %>
 <% } %>

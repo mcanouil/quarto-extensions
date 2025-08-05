@@ -263,17 +263,6 @@ document.addEventListener('DOMContentLoaded', function() {
     };
   }
   
-  // Modal functions (global scope)
-  window.showInstallModal = function(id) {
-    const modal = new bootstrap.Modal(document.getElementById('install-modal-' + id));
-    modal.show();
-  };
-  
-  window.showUseModal = function(id) {
-    const modal = new bootstrap.Modal(document.getElementById('use-modal-' + id));
-    modal.show();
-  };
-  
   // Category expansion for list view
   document.querySelectorAll('.category-expand-toggle').forEach(function(btn) {
     btn.addEventListener('click', function(e) {

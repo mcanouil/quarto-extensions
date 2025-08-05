@@ -7,7 +7,7 @@
 const usage = item.usage;
 const id = utils.b64encode(usage);
 const isTemplate = item.template === true;
-const isExample = item.categories && item.categories.includes('example');
+const isExample = item.example === true;
 
 // Parse the ISO date format and create a more readable relative time
 const modifiedDate = new Date(item['file-modified']);
@@ -41,7 +41,8 @@ if (diffDays === 1) {
          data-license="<%= item.license %>"
          data-stars="<%= item.stars %>"
          data-modified="<%= item['file-modified'] %>"
-         data-template="<%= isTemplate %>">
+         data-template="<%= isTemplate %>"
+         data-example="<%= isExample %>">
       
       <!-- Card Header with Image -->
       <% if (item.image) { %>
@@ -124,16 +125,16 @@ if (diffDays === 1) {
       <!-- Card Footer with Actions -->
       <div class="card-footer bg-transparent">
         <div class="d-flex gap-2 flex-wrap flex-sm-nowrap">
-          <button class="btn btn-primary btn-sm flex-fill" onclick="showInstallModal('<%= id %>')">
+          <button class="btn btn-primary btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#install-modal-<%= id %>">
             <i class="bi bi-download"></i> Install
           </button>
           <% if (isTemplate) { %>
-          <button class="btn btn-outline-success btn-sm flex-fill" onclick="showUseModal('<%= id %>')">
+          <button class="btn btn-outline-success btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#use-modal-<%= id %>">
             <i class="bi bi-file-plus"></i> Use
           </button>
           <% } %>
           <% if (isExample) { %>
-          <button class="btn btn-outline-info btn-sm flex-fill" onclick="showUseModal('<%= id %>')">
+          <button class="btn btn-outline-info btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#use-modal-<%= id %>">
             <i class="bi bi-eye"></i> Use
           </button>
           <% } %>
