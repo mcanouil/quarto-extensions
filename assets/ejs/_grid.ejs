@@ -46,24 +46,22 @@ if (diffDays === 1) {
          data-example="<%= isExample %>">
       
       <!-- Card Header with Image -->
-      <% if (item.image) { %>
+      <%
+        let image = item.image;
+        let imageAlt = item['image-alt'];
+        if (!image) {
+          image = "assets/media/github-placeholder.png";
+          imageAlt = "GitHub Placeholder Image";
+        }
+      %>
       <div class="card-img-wrapper">
-        <img src="<%= item.image %>" alt="<%= item['image-alt'] %>" class="card-img-top">
+        <img src="<%= image %>" alt="<%= imageAlt %>" class="card-img-top">
         <div class="card-img-overlay-actions">
           <a href="<%= item['github-url'] %>" target="_blank" class="btn btn-light btn-sm">
             <i class="bi bi-github"></i>
           </a>
         </div>
       </div>
-      <% } else { %>
-      <div class="card-img-placeholder">
-        <% if (isTemplate) { %>
-        <i class="bi bi-file-earmark-text"></i>
-        <% } else { %>
-        <i class="bi bi-puzzle"></i>
-        <% } %>
-      </div>
-      <% } %>
       
       <!-- Card Body -->
       <div class="card-body d-flex flex-column">
