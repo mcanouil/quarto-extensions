@@ -56,25 +56,23 @@ if (diffDays === 1) {
       %>
       <div class="card-img-wrapper">
         <img src="<%= image %>" alt="<%= imageAlt %>" class="card-img-top">
-        <div class="card-img-overlay-actions">
-          <a href="<%= item['github-url'] %>" target="_blank" class="btn btn-light btn-sm">
-            <i class="bi bi-github"></i>
-          </a>
-        </div>
       </div>
       
       <!-- Card Body -->
       <div class="card-body d-flex flex-column">
-        <h6 class="card-title">
-          <a href="<%= item['github-url'] %>" target="_blank">
-            <%= item.title %>
-          </a>
-          <% if (isTemplate) { %>
-          <span class="badge bg-success ms-1">Template</span>
-          <% } %>
-          <% if (isExample) { %>
-          <span class="badge bg-info ms-1">Example</span>
-          <% } %>
+        <h6 class="card-title d-flex align-items-center justify-content-between no-anchor">
+          <span>
+            <a href="<%= item['github-url'] %>" target="_blank">
+              <%= item.title %>
+            </a>
+            <% if (isTemplate) { %>
+            <span class="badge bg-success ms-1">Template</span>
+            <% } %>
+            <% if (isExample) { %>
+            <span class="badge bg-info ms-1">Example</span>
+            <% } %>
+          </span>
+          <a href="<%= item['github-url'] %>" target="_blank" class="btn btn-light btn-sm ms-auto"><i class="bi bi-github"></i></a>
         </h6>
         
         <p class="card-text small text-muted mb-2">
