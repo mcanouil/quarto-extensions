@@ -22,17 +22,17 @@ partial("_controls.ejs")
 ::: {.g-col-12}
 :::: {#extensions-container}
 
-<!-- List View -->
-:::: {#list-view-container .view-container}
+<!-- Grid View -->
+:::: {#grid-view-container .view-container}
 <%
-partial("_list.ejs", { items, excludeCategories, utils })
+partial("_grid.ejs", { items, excludeCategories, utils })
 %>
 ::::
 
-<!-- Grid View -->
-:::: {#grid-view-container .view-container .d-none}
+<!-- List View -->
+:::: {#list-view-container .view-container .d-none}
 <%
-partial("_grid.ejs", { items, excludeCategories, utils })
+partial("_list.ejs", { items, excludeCategories, utils })
 %>
 ::::
 

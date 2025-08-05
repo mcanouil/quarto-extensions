@@ -11,13 +11,13 @@
 ::: {.g-col-4 .text-end}
 ```{=html}
 <div class="btn-group" role="group" aria-label="View toggle">
-  <input type="radio" class="btn-check" name="view-toggle" id="list-view" checked>
-  <label class="btn btn-outline-dark" for="list-view">
-    <i class="bi bi-list-ul"></i> List
-  </label>
-  <input type="radio" class="btn-check" name="view-toggle" id="grid-view">
+  <input type="radio" class="btn-check" name="view-toggle" id="grid-view" checked>
   <label class="btn btn-outline-dark" for="grid-view">
     <i class="bi bi-grid-3x3-gap"></i> Grid
+  </label>
+  <input type="radio" class="btn-check d-none d-md-inline" name="view-toggle" id="list-view">
+  <label class="btn btn-outline-dark d-none d-md-inline" for="list-view">
+    <i class="bi bi-list-ul"></i> List
   </label>
 </div>
 ```

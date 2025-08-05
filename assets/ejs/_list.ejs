@@ -33,7 +33,7 @@ if (diffDays === 1) {
 %>
 
 ```{=html}
-  <div class="list-group-item extension-item d-flex align-items-start" 
+  <div class="list-group-item extension-item d-flex flex-column flex-md-row align-items-start" 
        data-categories="<%= item.categories.join(',') %>"
        data-contributes="<%= item.contributes.join(',') %>"
        data-author="<%= item.author %>"
@@ -46,7 +46,7 @@ if (diffDays === 1) {
 
     <!-- Extension Image -->
     <% let image = item.image; let imageAlt = item['image-alt']; if (!image) { image = "assets/media/github-placeholder.png"; imageAlt = "GitHub Placeholder Image"; } %>
-    <div class="extension-image me-3 flex-shrink-0" style="width:150px;">
+    <div class="extension-image me-0 mb-3 mb-md-0 me-md-3 flex-shrink-0" style="width:150px;">
       <img src="<%= image %>" alt="<%= imageAlt %>" class="img-fluid rounded" style="max-width:150px;">
     </div>
 
