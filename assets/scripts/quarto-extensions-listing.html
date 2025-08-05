@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Generalised category filters
       filterChipValues.forEach(function(filter) {
         if (activeFilters.has(filter)) {
-          if (!ext.dataset.contributes.toLowerCase().split(',').map(c => c.trim()).includes(filter)) {
+          if (!ext.dataset.contributes.toLowerCase().split(',').some(function(val) { return val.trim().startsWith(filter); })) {
             show = false;
           }
         }
