@@ -90,15 +90,15 @@ if (isTemplate || isExample) {
 }
 
 .card-img-wrapper .card-img-top {
-  height: 180px;
-  width: 100%;
-  object-fit: cover;
+  height: 100%;
+  /* width: 100%; */
+  object-fit: contain;
 }
 
 .card-img-overlay-actions {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  bottom: 20px;
+  right: 10px;
   opacity: 0;
   transition: opacity 0.2s;
 }
@@ -108,7 +108,7 @@ if (isTemplate || isExample) {
 }
 
 .card-img-placeholder {
-  height: 180px;
+  height: 100%;
   background: #f8f9fa;
   display: flex;
   align-items: center;
