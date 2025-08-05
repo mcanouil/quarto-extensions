@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   if (initialGridContainer) {
-    originalGridOrder = Array.from(initialGridContainer.querySelectorAll('.g-col-sm-6, .g-col-lg-4'));
+    originalGridOrder = Array.from(initialGridContainer.querySelectorAll('.g-col-12, .g-col-sm-6, .g-col-lg-4'));
   }
   
   // Function definitions (moved up for early initialization)
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Sort grid view
     if (gridContainer) {
-      const gridItems = Array.from(gridContainer.querySelectorAll('.g-col-sm-6, .g-col-lg-4'));
+      const gridItems = Array.from(gridContainer.querySelectorAll('.g-col-12, .g-col-sm-6, .g-col-lg-4'));
       sortItems(gridItems, field, direction);
       gridItems.forEach(item => gridContainer.appendChild(item));
     }
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
                      categories.includes(query) || 
                      contributes.includes(query);
       
-      ext.closest('.list-group-item, .g-col-sm-6, .g-col-lg-4').style.display = matches ? '' : 'none';
+      ext.closest('.list-group-item, .g-col-12, .g-col-sm-6, .g-col-lg-4').style.display = matches ? '' : 'none';
     });
   }
   
@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         }
       });
-      ext.closest('.list-group-item, .g-col-sm-6, .g-col-lg-4').style.display = show ? '' : 'none';
+      ext.closest('.list-group-item, .g-col-12, .g-col-sm-6, .g-col-lg-4').style.display = show ? '' : 'none';
     });
   }
   
