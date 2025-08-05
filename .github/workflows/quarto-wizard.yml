@@ -157,10 +157,10 @@ jobs:
               attempt=$((attempt + 1))
               sleep 1
             done
-            if [[ -z "${output_file}" || "${mime_type}" != "image/png" ]]; then
-              echo "assets/media/github-placeholder.png"
-            else
+            if [[ -f "${output_file}" && "${mime_type}" == "image/png" ]]; then
               echo "${output_file}"
+            else
+              echo "assets/media/github-placeholder.png"
             fi
           }
 
