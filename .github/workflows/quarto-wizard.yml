@@ -182,17 +182,24 @@ jobs:
             local yaml_usage_body="${14}"
             local entry_template="${15}"
             local entry_example="${16}"
+            local entry_contributes="${17}"
+            if [[ -z "${entry_author}" ]]; then
+              author_field="author: ${entry_author}"
+            else
+              author_field="author: \"${entry_author}\""
+            fi
             echo -e \
               "- title: ${entry_title}\n" \
               " image: \"/${extension_png_file}\"\n" \
               " image-alt: \"GitHub repository OpenGraph image for ${entry_url}\"\n" \
               " github-url: ${entry_url}\n" \
               " login: ${owner}\n" \
-              " author: \"${entry_author}\"\n" \
+              " ${author_field}\n" \
               " author-url: \"/authors/${owner}.qmd\"\n" \
               " date: \"${entry_created}\"\n" \
               " file-modified: \"${entry_updated}\"\n" \
               " categories: ${entry_topics}\n" \
+              " contributes: ${entry_contributes}\n" \
               " license: \"${entry_license}\"\n" \
               " stars: $(printf "%05d\n" "${entry_stars}")\n" \
               " version: \"${entry_release}\"\n" \
@@ -379,11 +386,22 @@ jobs:
                 repo_info=$(echo "${repo_info}" | jq '. + {example: false, exampleContent: null}')
               fi
 
+              repo_extension_contributes=$(gh api \
+                -X GET "repos/${repo}/git/trees/${repo_branch}?recursive=1" \
+                --jq ".tree[] | select(.path | test(\"${repo_subdirectory}_extensions/.*/_extension\\\\.ya?ml$\")) | .url | @sh" | xargs -I {} gh api -X GET {} --jq ".content")
+                if [[ -n "${repo_extension_contributes}" ]]; then
+                repo_extension_contributes=$(echo "${repo_extension_contributes}" | base64 --decode | yq -o json '.contributes | keys' | jq -c)
+                repo_info=$(echo "${repo_info}" | jq --argjson contributes "${repo_extension_contributes}" '. + {contributes: $contributes}')
+              else
+                repo_info=$(echo "${repo_info}" | jq '. + {contributes: null}')
+              fi
+
               entry_title=$(echo "${repo_info}" | jq -r '.title')
               entry_created=$(echo "${repo_info}" | jq -r '.createdAt')
               entry_updated=$(echo "${repo_info}" | jq -r '.updatedAt')
               entry_url=$(echo "${repo_info}" | jq -r '.url')
               entry_topics=$(echo "${repo_info}" | jq -r '.repositoryTopics' | jq -c 'unique')
+              entry_contributes=$(echo "${repo_info}" | jq -r '.contributes' | jq -c 'unique')
               entry_license=$(echo "${repo_info}" | jq -r '.licenseInfo')
               entry_stars=$(echo "${repo_info}" | jq -r '.stargazerCount')
               entry_image=$(echo "${repo_info}" | jq -r '.openGraphImageUrl')
@@ -407,7 +425,7 @@ jobs:
                 "${extension_yaml_file}" "${entry_title}" "${extension_png_file}" "${entry_url}" \
                 "${entry_author}" "${owner}" "${entry_created}" "${entry_updated}" "${entry_topics}" \
                 "${entry_license}" "${entry_stars}" "${entry_release}" "${entry_description}" \
-                "${yaml_usage_body}" "${entry_template}" "${entry_example}"
+                "${yaml_usage_body}" "${entry_template}" "${entry_example}" "${entry_contributes}"
 
               echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}' > "${extension_json_file}"
 
