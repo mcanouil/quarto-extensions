@@ -111,11 +111,13 @@ document.addEventListener('DOMContentLoaded', function() {
       const description = ext.querySelector('.extension-description, .card-text').textContent.toLowerCase();
       const author = ext.dataset.author.toLowerCase();
       const categories = ext.dataset.categories.toLowerCase();
-      
+      const contributes = ext.dataset.contributes.toLowerCase();
+
       const matches = title.includes(query) || 
                      description.includes(query) || 
                      author.includes(query) || 
-                     categories.includes(query);
+                     categories.includes(query) || 
+                     contributes.includes(query);
       
       ext.closest('.list-group-item, .g-col-sm-6, .g-col-lg-4').style.display = matches ? '' : 'none';
     });
@@ -221,6 +223,14 @@ document.addEventListener('DOMContentLoaded', function() {
   
   function applyFilters() {
     const extensions = document.querySelectorAll('.extension-item, .extension-card');
+    const filterChipValues = [
+      'shortcode',
+      'filter',
+      'format',
+      'project',
+      'revealjs-plugins',
+      'metadata'
+    ];
     extensions.forEach(ext => {
       let show = true;
       // Author filter
@@ -230,22 +240,25 @@ document.addEventListener('DOMContentLoaded', function() {
           show = false;
         }
       }
-      // Category filters
+      // Template filter
       if (activeFilters.has('template') && ext.dataset.template !== 'true') {
         show = false;
       }
-      if (activeFilters.has('format') && !ext.dataset.categories.toLowerCase().includes('format')) {
-        show = false;
-      }
-      if (activeFilters.has('shortcode') && !ext.dataset.categories.toLowerCase().includes('shortcode')) {
-        show = false;
-      }
-      if (activeFilters.has('project') && !ext.dataset.categories.toLowerCase().includes('project')) {
-        show = false;
-      }
-      if (activeFilters.has('filter') && !ext.dataset.categories.toLowerCase().includes('filter')) {
-        show = false;
-      }
+      // Generalised category filters
+      filterChipValues.forEach(function(filter) {
+        if (activeFilters.has(filter)) {
+          // For 'revealjs-plugins' and 'metadata', check for exact match in categories
+          if (filter === 'revealjs-plugins' || filter === 'metadata') {
+            if (!ext.dataset.categories.toLowerCase().split(',').map(c => c.trim()).includes(filter)) {
+              show = false;
+            }
+          } else {
+            if (!ext.dataset.categories.toLowerCase().includes(filter)) {
+              show = false;
+            }
+          }
+        }
+      });
       ext.closest('.list-group-item, .g-col-sm-6, .g-col-lg-4').style.display = show ? '' : 'none';
     });
   }

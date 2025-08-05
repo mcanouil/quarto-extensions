@@ -11,11 +11,11 @@
 ::: {.g-col-4 .text-end}
 ```{=html}
 <div class="btn-group" role="group" aria-label="View toggle">
-  <input type="radio" class="btn-check" name="view-toggle" id="list-view">
+  <input type="radio" class="btn-check" name="view-toggle" id="list-view" checked>
   <label class="btn btn-outline-dark" for="list-view">
     <i class="bi bi-list-ul"></i> List
   </label>
-  <input type="radio" class="btn-check" name="view-toggle" id="grid-view" checked>
+  <input type="radio" class="btn-check" name="view-toggle" id="grid-view">
   <label class="btn btn-outline-dark" for="grid-view">
     <i class="bi bi-grid-3x3-gap"></i> Grid
   </label>
@@ -37,18 +37,19 @@
   <button class="btn btn-sm btn-outline-primary filter-chip" data-filter="template">
     <i class="bi bi-file-earmark-text"></i> Templates
   </button>
-  <button class="btn btn-sm btn-outline-primary filter-chip" data-filter="format">
-    <i class="bi bi-file-earmark-code"></i> Formats
+<% const filterChips = [
+  { value: 'shortcode', label: 'Shortcodes', icon: 'bi-code-square' },
+  { value: 'filter', label: 'Filters', icon: 'bi-funnel' },
+  { value: 'format', label: 'Formats', icon: 'bi-file-earmark-code' },
+  { value: 'project', label: 'Projects', icon: 'bi-folder' },
+  { value: 'revealjs-plugins', label: 'Reveal.js Plugins', icon: 'bi-sliders' },
+  { value: 'metadata', label: 'Metadata', icon: 'bi-info-circle' }
+]; %>
+<% filterChips.forEach(function(chip) { %>
+  <button class="btn btn-sm btn-outline-primary filter-chip" data-filter="<%= chip.value %>">
+    <i class="bi <%= chip.icon %>"></i> <%= chip.label %>
   </button>
-  <button class="btn btn-sm btn-outline-primary filter-chip" data-filter="shortcode">
-    <i class="bi bi-code-square"></i> Shortcodes
-  </button>
-  <button class="btn btn-sm btn-outline-primary filter-chip" data-filter="filter">
-    <i class="bi bi-funnel"></i> Filters
-  </button>
-  <button class="btn btn-sm btn-outline-primary filter-chip" data-filter="project">
-    <i class="bi bi-folder"></i> Projects
-  </button>
+<% }); %>
   <button class="btn btn-sm btn-outline-dark" id="clear-filters">
     <i class="bi bi-x-circle"></i> Clear All
   </button>
