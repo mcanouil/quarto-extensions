@@ -81,7 +81,7 @@ if (diffDays === 1) {
                 <i class="bi bi-file-text"></i> <%= item.license %>
               </span>
               <% } %>
-              <a href="<%= item['github-url'] %>" target="_blank" class="btn btn-outline-dark btn-sm">
+              <a href="<%= item['github-url'] %>" target="_blank" class="btn btn-outline-light btn-sm">
                 <i class="bi bi-github"></i>
               </a>
             </div>
@@ -110,7 +110,7 @@ if (diffDays === 1) {
             const extraCategories = filteredCategories.slice(3);
             %>
             <% mainCategories.forEach(category => { %>
-              <span class="badge bg-light text-dark me-1"><%= category %></span>
+              <span class="badge bg-dark text-light me-1"><%= category %></span>
             <% }); %>
             <% if (extraCategories.length > 0) { %>
               <button class="btn btn-link btn-sm p-0 text-muted category-expand-toggle" type="button" data-id="cat-<%= id %>">
@@ -118,7 +118,7 @@ if (diffDays === 1) {
               </button>
               <span id="cat-<%= id %>" class="d-none">
                 <% extraCategories.forEach(category => { %>
-                  <span class="badge bg-light text-dark me-1"><%= category %></span>
+                  <span class="badge bg-dark text-light me-1"><%= category %></span>
                 <% }); %>
               </span>
             <% } %>
