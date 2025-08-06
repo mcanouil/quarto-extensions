@@ -5,7 +5,7 @@ repo-actions: false
 image: "assets/media/quarto-extensions.png"
 date-format: iso
 listing:
-  id: listing-extensions
+  id: extensions-listings
   template: assets/ejs/listing.ejs
   contents:
     - extensions/**/extension.yml
@@ -16,5 +16,5 @@ include-after-body:
   - file: assets/scripts/quarto-extensions-listing.html
 ---
 
-:::: {#listing-extensions}
+:::: {#extensions-listings}
 :::
