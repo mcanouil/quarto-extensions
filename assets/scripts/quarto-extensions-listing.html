@@ -173,9 +173,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     activeFilters.clear();
     activeAuthorLogin = null;
-    sortState = { field: null, direction: 'desc' };
+    // Restore default sort state
+    sortState = { field: defaultSortField, direction: defaultSortDirection };
+    // Apply default sorting
+    sortExtensions(defaultSortField, defaultSortDirection);
+    // Restore visual indicator for 'Recently Updated' chip
+    const recentChip = document.querySelector('.filter-chip[data-filter="recent"]');
+    if (recentChip) {
+      const icon = document.createElement('i');
+      icon.className = 'sort-icon ms-1 bi bi-arrow-down';
+      recentChip.appendChild(icon);
+    }
     applyFilters();
-    resetSort();
   });
 
   function handleSorting(field, chip) {
