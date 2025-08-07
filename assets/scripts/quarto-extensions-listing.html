@@ -78,6 +78,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize sort state
   let sortState = { field: defaultSortField, direction: defaultSortDirection };
 
+  // Initialize counter on page load
+  updateExtensionsCounter();
+
   // View toggle functionality
   const listViewBtn = document.getElementById('list-view');
   const gridViewBtn = document.getElementById('grid-view');
@@ -121,6 +124,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
       ext.closest('.list-group-item, .g-col-12, .g-col-sm-6, .g-col-lg-4').style.display = matches ? '' : 'none';
     });
+
+    // Update counter after search
+    updateExtensionsCounter();
   }
 
   // Filter chip functionality
@@ -259,6 +265,35 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       ext.closest('.list-group-item, .g-col-12, .g-col-sm-6, .g-col-lg-4').style.display = show ? '' : 'none';
     });
+
+    // Update counter after applying filters
+    updateExtensionsCounter();
+  }
+
+  // Function to update extensions counter
+  function updateExtensionsCounter() {
+    const gridCounterElement = document.getElementById('grid-extensions-count');
+    const listCounterElement = document.getElementById('list-extensions-count');
+    
+    if (gridCounterElement) {
+      // Count visible extensions in grid view
+      const gridExtensions = document.querySelectorAll('#grid-view-container .extension-card');
+      const visibleGridExtensions = Array.from(gridExtensions).filter(ext => {
+        const container = ext.closest('.g-col-12, .g-col-sm-6, .g-col-lg-4');
+        return container && container.style.display !== 'none';
+      });
+      gridCounterElement.textContent = visibleGridExtensions.length;
+    }
+
+    if (listCounterElement) {
+      // Count visible extensions in list view
+      const listExtensions = document.querySelectorAll('#list-view-container .extension-item');
+      const visibleListExtensions = Array.from(listExtensions).filter(ext => {
+        const container = ext.closest('.list-group-item');
+        return container && container.style.display !== 'none';
+      });
+      listCounterElement.textContent = visibleListExtensions.length;
+    }
   }
 
   // Utility function for debouncing
