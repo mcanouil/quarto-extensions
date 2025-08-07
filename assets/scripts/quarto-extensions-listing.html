@@ -249,10 +249,6 @@ document.addEventListener('DOMContentLoaded', function() {
           show = false;
         }
       }
-      // Template filter
-      if (activeFilters.has('template') && ext.dataset.template !== 'true') {
-        show = false;
-      }
       // Generalised category filters
       filterChipValues.forEach(function(filter) {
         if (activeFilters.has(filter)) {
