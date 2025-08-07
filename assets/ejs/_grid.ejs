@@ -53,7 +53,7 @@ if (diffDays === 1) {
       <!-- Card Header with Image -->
       <% let image = item.image; let imageAlt = item['image-alt']; if (!image) { image = "assets/media/github-placeholder.png"; imageAlt = "GitHub Placeholder Image"; } %>
       <div class="card-img-wrapper">
-        <img src="<%= image %>" alt="<%= imageAlt %>" class="card-img-top">
+        <img src="<%= image %>" loading="lazy" alt="<%= imageAlt %>" class="card-img-top">
       </div>
       
       <!-- Card Body -->
@@ -93,12 +93,12 @@ if (diffDays === 1) {
           %>
           <span class="category-badges">
             <% mainCategories.forEach(category => { %>
-              <span class="badge bg-dark text-light me-1"><%= category %></span>
+              <span class="badge bg-light text-dark me-1"><%= category %></span>
             <% }); %>
             <% if (extraCategories.length > 0) { %>
               <% const gridCatId = `grid-cat-${id}`; %>
               <% extraCategories.forEach(category => { %>
-                <span class="badge bg-dark text-light me-1 extra-category d-none" data-extra="<%= gridCatId %>"><%= category %></span>
+                <span class="badge bg-light text-dark me-1 extra-category d-none" data-extra="<%= gridCatId %>"><%= category %></span>
               <% }); %>
               <button class="btn btn-link btn-sm p-0 text-muted category-expand-toggle" type="button" data-id="<%= gridCatId %>">
                 +<%= extraCategories.length %>

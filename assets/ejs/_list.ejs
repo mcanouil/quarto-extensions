@@ -52,7 +52,7 @@ if (diffDays === 1) {
       <!-- Extension Image -->
       <% let image = item.image; let imageAlt = item['image-alt']; if (!image) { image = "assets/media/github-placeholder.png"; imageAlt = "GitHub Placeholder Image"; } %>
       <div class="extension-image me-0 mb-3 mb-md-0 me-md-3 flex-shrink-0" style="width:150px;">
-        <img src="<%= image %>" alt="<%= imageAlt %>" class="img-fluid rounded" style="max-width:150px;">
+        <img src="<%= image %>" loading="lazy" alt="<%= imageAlt %>" class="img-fluid rounded" style="max-width:150px;">
       </div>
 
       <div class="flex-grow-1">
@@ -116,12 +116,12 @@ if (diffDays === 1) {
             %>
             <span class="category-badges">
               <% mainCategories.forEach(category => { %>
-                <span class="badge bg-dark text-light me-1"><%= category %></span>
+                <span class="badge bg-light text-dark me-1"><%= category %></span>
               <% }); %>
               <% if (extraCategories.length > 0) { %>
                 <% const listCatId = `list-cat-${id}`; %>
                 <% extraCategories.forEach(category => { %>
-                  <span class="badge bg-dark text-light me-1 extra-category d-none" data-extra="<%= listCatId %>"><%= category %></span>
+                  <span class="badge bg-light text-dark me-1 extra-category d-none" data-extra="<%= listCatId %>"><%= category %></span>
                 <% }); %>
                 <button class="btn btn-link btn-sm p-0 text-muted category-expand-toggle" type="button" data-id="<%= listCatId %>">
                   +<%= extraCategories.length %> more
