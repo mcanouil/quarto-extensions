@@ -1,39 +1,43 @@
 <!-- Custom JavaScript for enhanced functionality -->
 <script id="quarto-extensions-listing" type="text/javascript">
-document.addEventListener('DOMContentLoaded', function() {
-  // Store original order for reset functionality
-  let originalListOrder = [];
-  let originalGridOrder = [];
 
-  // Store original order on page load
+document.addEventListener('DOMContentLoaded', function() {
+  // Cache DOM elements
   const initialListContainer = document.querySelector('#list-view-container .list-group');
   const initialGridContainer = document.querySelector('#grid-view-container .grid');
+  const listViewBtn = document.getElementById('list-view');
+  const gridViewBtn = document.getElementById('grid-view');
+  const listContainer = document.getElementById('list-view-container');
+  const gridContainer = document.getElementById('grid-view-container');
+  const searchInput = document.getElementById('extension-search');
+  const filterChips = document.querySelectorAll('.filter-chip');
+  const clearFiltersBtn = document.getElementById('clear-filters');
+  const gridCounterElement = document.getElementById('grid-extensions-count');
+  const listCounterElement = document.getElementById('list-extensions-count');
 
-  if (initialListContainer) {
-    originalListOrder = Array.from(initialListContainer.querySelectorAll('.list-group-item'));
+  // Defensive: check required elements
+  if (!initialListContainer || !initialGridContainer || !listViewBtn || !gridViewBtn || !listContainer || !gridContainer || !searchInput || !clearFiltersBtn) {
+    // Optionally log error
+    return;
   }
 
-  if (initialGridContainer) {
-    originalGridOrder = Array.from(initialGridContainer.querySelectorAll('.g-col-12, .g-col-sm-6, .g-col-lg-4'));
-  }
+  // Store original order for reset functionality
+  let originalListOrder = Array.from(initialListContainer.querySelectorAll('.list-group-item'));
+  let originalGridOrder = Array.from(initialGridContainer.querySelectorAll('.g-col-12, .g-col-sm-6, .g-col-lg-4'));
 
   // Function definitions (moved up for early initialization)
   function sortExtensions(field, direction) {
-    const listContainer = document.querySelector('#list-view-container .list-group');
-    const gridContainer = document.querySelector('#grid-view-container .grid');
-
     // Sort list view
-    if (listContainer) {
-      const listItems = Array.from(listContainer.querySelectorAll('.list-group-item'));
+    if (initialListContainer) {
+      const listItems = Array.from(initialListContainer.querySelectorAll('.list-group-item'));
       sortItems(listItems, field, direction);
-      listItems.forEach(item => listContainer.appendChild(item));
+      listItems.forEach(item => initialListContainer.appendChild(item));
     }
-
     // Sort grid view
-    if (gridContainer) {
-      const gridItems = Array.from(gridContainer.querySelectorAll('.g-col-12, .g-col-sm-6, .g-col-lg-4'));
+    if (initialGridContainer) {
+      const gridItems = Array.from(initialGridContainer.querySelectorAll('.g-col-12, .g-col-sm-6, .g-col-lg-4'));
       sortItems(gridItems, field, direction);
-      gridItems.forEach(item => gridContainer.appendChild(item));
+      gridItems.forEach(item => initialGridContainer.appendChild(item));
     }
   }
 
@@ -82,18 +86,13 @@ document.addEventListener('DOMContentLoaded', function() {
   updateExtensionsCounter();
 
   // View toggle functionality
-  const listViewBtn = document.getElementById('list-view');
-  const gridViewBtn = document.getElementById('grid-view');
-  const listContainer = document.getElementById('list-view-container');
-  const gridContainer = document.getElementById('grid-view-container');
-
+  // View toggle functionality
   listViewBtn.addEventListener('change', function() {
     if (this.checked) {
       listContainer.classList.remove('d-none');
       gridContainer.classList.add('d-none');
     }
   });
-
   gridViewBtn.addEventListener('change', function() {
     if (this.checked) {
       gridContainer.classList.remove('d-none');
@@ -102,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Search functionality
-  const searchInput = document.getElementById('extension-search');
+  // Search functionality
   searchInput.addEventListener('input', debounce(performSearch, 300));
 
   function performSearch() {
@@ -130,7 +129,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Filter chip functionality
-  const filterChips = document.querySelectorAll('.filter-chip');
   let activeFilters = new Set();
   let activeAuthorLogin = null;
 
@@ -170,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Clear filters
-  document.getElementById('clear-filters').addEventListener('click', function() {
+  clearFiltersBtn.addEventListener('click', function() {
     filterChips.forEach(chip => {
       chip.classList.remove('active');
       // Remove sort icons
@@ -272,9 +270,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Function to update extensions counter
   function updateExtensionsCounter() {
-    const gridCounterElement = document.getElementById('grid-extensions-count');
-    const listCounterElement = document.getElementById('list-extensions-count');
-    
     if (gridCounterElement) {
       // Count visible extensions in grid view
       const gridExtensions = document.querySelectorAll('#grid-view-container .extension-card');
@@ -283,8 +278,9 @@ document.addEventListener('DOMContentLoaded', function() {
         return container && container.style.display !== 'none';
       });
       gridCounterElement.textContent = visibleGridExtensions.length;
+      gridCounterElement.setAttribute('aria-live', 'polite');
+      gridCounterElement.setAttribute('aria-label', `${visibleGridExtensions.length} extensions shown`);
     }
-
     if (listCounterElement) {
       // Count visible extensions in list view
       const listExtensions = document.querySelectorAll('#list-view-container .extension-item');
@@ -293,6 +289,8 @@ document.addEventListener('DOMContentLoaded', function() {
         return container && container.style.display !== 'none';
       });
       listCounterElement.textContent = visibleListExtensions.length;
+      listCounterElement.setAttribute('aria-live', 'polite');
+      listCounterElement.setAttribute('aria-label', `${visibleListExtensions.length} extensions shown`);
     }
   }
 
@@ -310,8 +308,10 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Category expansion for list view
-  document.querySelectorAll('.category-expand-toggle').forEach(function(btn) {
-    btn.addEventListener('click', function(e) {
+  // Event delegation for category expansion (improves performance for many items)
+  document.body.addEventListener('click', function(e) {
+    const btn = e.target.closest('.category-expand-toggle');
+    if (btn) {
       e.stopPropagation();
       const targetId = btn.getAttribute('data-id');
       // For inline badges (list view):
@@ -331,7 +331,7 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.classList.add('category-expanded');
         btn.style.display = 'none';
       }
-    });
+    }
   });
 
   // Collapse expanded categories when clicking elsewhere
