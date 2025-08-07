@@ -91,19 +91,20 @@ if (diffDays === 1) {
           const mainCategories = filteredCategories.slice(0, 2);
           const extraCategories = filteredCategories.slice(2);
           %>
-          <% mainCategories.forEach(category => { %>
-            <span class="badge bg-dark text-light me-1"><%= category %></span>
-          <% }); %>
-          <% if (extraCategories.length > 0) { %>
-            <button class="btn btn-link btn-sm p-0 text-muted category-expand-toggle" type="button" data-id="cat-<%= id %>">
-              +<%= extraCategories.length %>
-            </button>
-            <span id="cat-<%= id %>" class="d-none">
+          <span class="category-badges">
+            <% mainCategories.forEach(category => { %>
+              <span class="badge bg-dark text-light me-1"><%= category %></span>
+            <% }); %>
+            <% if (extraCategories.length > 0) { %>
+              <% const gridCatId = `grid-cat-${id}`; %>
               <% extraCategories.forEach(category => { %>
-                <span class="badge bg-dark text-light me-1"><%= category %></span>
+                <span class="badge bg-dark text-light me-1 extra-category d-none" data-extra="<%= gridCatId %>"><%= category %></span>
               <% }); %>
-            </span>
-          <% } %>
+              <button class="btn btn-link btn-sm p-0 text-muted category-expand-toggle" type="button" data-id="<%= gridCatId %>">
+                +<%= extraCategories.length %>
+              </button>
+            <% } %>
+          </span>
         </div>
         
         <!-- Card Footer Info -->

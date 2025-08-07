@@ -114,19 +114,20 @@ if (diffDays === 1) {
             const mainCategories = filteredCategories.slice(0, 3);
             const extraCategories = filteredCategories.slice(3);
             %>
-            <% mainCategories.forEach(category => { %>
-              <span class="badge bg-dark text-light me-1"><%= category %></span>
-            <% }); %>
-            <% if (extraCategories.length > 0) { %>
-              <button class="btn btn-link btn-sm p-0 text-muted category-expand-toggle" type="button" data-id="cat-<%= id %>">
-                +<%= extraCategories.length %> more
-              </button>
-              <span id="cat-<%= id %>" class="d-none">
+            <span class="category-badges">
+              <% mainCategories.forEach(category => { %>
+                <span class="badge bg-dark text-light me-1"><%= category %></span>
+              <% }); %>
+              <% if (extraCategories.length > 0) { %>
+                <% const listCatId = `list-cat-${id}`; %>
                 <% extraCategories.forEach(category => { %>
-                  <span class="badge bg-dark text-light me-1"><%= category %></span>
+                  <span class="badge bg-dark text-light me-1 extra-category d-none" data-extra="<%= listCatId %>"><%= category %></span>
                 <% }); %>
-              </span>
-            <% } %>
+                <button class="btn btn-link btn-sm p-0 text-muted category-expand-toggle" type="button" data-id="<%= listCatId %>">
+                  +<%= extraCategories.length %> more
+                </button>
+              <% } %>
+            </span>
           </div>
           
           <div class="extension-actions">

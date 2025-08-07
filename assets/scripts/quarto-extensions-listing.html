@@ -314,11 +314,22 @@ document.addEventListener('DOMContentLoaded', function() {
     btn.addEventListener('click', function(e) {
       e.stopPropagation();
       const targetId = btn.getAttribute('data-id');
+      // For inline badges (list view):
+      const extraBadges = document.querySelectorAll('.extra-category[data-extra="' + targetId + '"]');
+      if (extraBadges.length > 0) {
+        extraBadges.forEach(function(badge) {
+          badge.classList.remove('d-none');
+        });
+        btn.classList.add('category-expanded');
+        btn.style.display = 'none';
+        return;
+      }
+      // For grid view fallback (span block):
       const target = document.getElementById(targetId);
       if (target) {
         target.classList.remove('d-none');
         btn.classList.add('category-expanded');
-        btn.style.display = 'none'; // Hide button when expanded
+        btn.style.display = 'none';
       }
     });
   });
@@ -327,11 +338,31 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('click', function(e) {
     document.querySelectorAll('.category-expand-toggle.category-expanded').forEach(function(btn) {
       const targetId = btn.getAttribute('data-id');
+      // Find the closest container (list-group-item or .extension-card)
+      let container = btn.closest('.list-group-item, .extension-card');
+      let clickedInside = btn.contains(e.target);
+      // For inline badges (list/grid):
+      if (container) {
+        const extraBadges = container.querySelectorAll('.extra-category[data-extra="' + targetId + '"]');
+        // If click is inside any badge, do not collapse
+        extraBadges.forEach(function(badge) {
+          if (badge.contains(e.target)) clickedInside = true;
+        });
+        if (!clickedInside && extraBadges.length > 0) {
+          extraBadges.forEach(function(badge) {
+            badge.classList.add('d-none');
+          });
+          btn.classList.remove('category-expanded');
+          btn.style.display = '';
+        }
+        return;
+      }
+      // For grid view fallback (span block):
       const target = document.getElementById(targetId);
       if (target && !btn.contains(e.target) && !target.contains(e.target)) {
         target.classList.add('d-none');
         btn.classList.remove('category-expanded');
-        btn.style.display = ''; // Show button when collapsed
+        btn.style.display = '';
       }
     });
   });
