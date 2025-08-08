@@ -2,8 +2,11 @@ name: Deploy
 
 on:
   workflow_dispatch:
-  release:
-    types: [published]
+  workflow_run:
+    workflows:
+      - "Quarto Wizard"
+    types:
+      - completed
   schedule:
     - cron: "0 8 * * *"
 
