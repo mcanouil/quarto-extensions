@@ -42,10 +42,12 @@
   { value: 'revealjs-plugins', label: 'Reveal.js Plugins', icon: 'bi-sliders' },
   { value: 'metadata', label: 'Metadata', icon: 'bi-info-circle' }
 ]; %>
-  <div class="btn-group" role="group" aria-label="Category filters">
+  <div class="btn-group flex-wrap" role="group" aria-label="Category filters" style="max-width: 100%;">
 <% filterChips.forEach(function(chip) { %>
     <button class="btn btn-sm btn-outline-primary filter-chip" data-filter="<%= chip.value %>">
-      <i class="bi <%= chip.icon %>"></i> <%= chip.label %>
+      <i class="bi <%= chip.icon %>"></i> 
+      <span class="d-none d-sm-inline"><%= chip.label %></span>
+      <span class="d-inline d-sm-none" aria-label="<%= chip.label %>"><%= chip.label.charAt(0) %></span>
     </button>
 <% }); %>
   </div>
