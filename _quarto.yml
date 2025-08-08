@@ -33,11 +33,12 @@ website:
     center: |
       &copy; []{#current-year} [Mickaël CANOUIL](https://mickael.canouil.fr/).
     right: |
-      [[{{< iconify octicon:heart-16 title='Heart Sponsor' label='Heart Sponsor' >}}]{style="color:#c96198;"} Sponsor](https://github.com/sponsors/mcanouil?o=esb).
+      [{{< iconify octicon:heart-16 title='Heart Sponsor' label='Heart Sponsor' style='color:#c96198;' >}} Sponsor](https://github.com/sponsors/mcanouil?o=esb).
   navbar:
     logo: "assets/media/quarto-extensions.svg"
     logo-alt: "Quarto Extensions Logo"
     background: dark
+    search: false
     left:
       - text: Extensions
         href: index.qmd
