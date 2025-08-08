@@ -191,16 +191,41 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   function handleAuthorFilter(chip) {
-    // Remove active state from all author filter chips
-    document.querySelectorAll('.filter-chip[data-filter="author"][data-login]').forEach(btn => {
-      btn.classList.remove('active');
-      btn.setAttribute('aria-pressed', 'false');
-    });
-    // Set active state for clicked chip
-    chip.classList.add('active');
-    chip.setAttribute('aria-pressed', 'true');
-    activeAuthorLogin = chip.dataset.login;
+    const clickedLogin = chip.dataset.login;
+    
+    // Check if this author is already active (toggle behavior)
+    if (activeAuthorLogin === clickedLogin) {
+      // Deactivate the current author filter
+      chip.classList.remove('active');
+      chip.setAttribute('aria-pressed', 'false');
+      activeAuthorLogin = null;
+      // Remove bold styling from all author elements with this login
+      updateAuthorStyling(null);
+    } else {
+      // Remove active state from all author filter chips
+      document.querySelectorAll('.filter-chip[data-filter="author"][data-login]').forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-pressed', 'false');
+      });
+      // Set active state for clicked chip
+      chip.classList.add('active');
+      chip.setAttribute('aria-pressed', 'true');
+      activeAuthorLogin = clickedLogin;
+      // Apply bold styling to all author elements with this login
+      updateAuthorStyling(clickedLogin);
+    }
     applyFilters();
+  }
+
+  function updateAuthorStyling(activeLogin) {
+    // Update styling for all author filter chips (including those in extension items)
+    document.querySelectorAll('.filter-chip[data-filter="author"][data-login]').forEach(btn => {
+      if (activeLogin && btn.dataset.login === activeLogin) {
+        btn.style.fontWeight = 'bold';
+      } else {
+        btn.style.fontWeight = '';
+      }
+    });
   }
 
   function handleRegularFilter(chip, filter) {
@@ -230,6 +255,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Clear filter state
     activeFilters.clear();
     activeAuthorLogin = null;
+    
+    // Reset all author styling
+    updateAuthorStyling(null);
     
     // Restore default sort state
     sortState = { field: defaultSortField, direction: defaultSortDirection };
