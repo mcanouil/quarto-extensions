@@ -1,0 +1,59 @@
+<!-- Search Bar -->
+:::: {.grid .align-items-center .mb-3}
+::: {.g-col-8}
+```{=html}
+<div class="input-group">
+  <span class="input-group-text"><i class="bi bi-search"></i></span>
+  <input type="text" id="extension-search" class="form-control" placeholder="Search extensions, authors, categories..." aria-label="Search extensions">
+</div>
+```
+:::
+::: {.g-col-4 .text-end}
+```{=html}
+<div class="btn-group" role="group" aria-label="View toggle">
+  <input type="radio" class="btn-check" name="view-toggle" id="grid-view" checked>
+  <label class="btn btn-outline-light" for="grid-view">
+    <i class="bi bi-grid-3x3-gap"></i> Grid
+  </label>
+  <input type="radio" class="btn-check d-none d-md-inline" name="view-toggle" id="list-view">
+  <label class="btn btn-outline-light d-none d-md-inline" for="list-view">
+    <i class="bi bi-list-ul"></i> List
+  </label>
+</div>
+```
+:::
+::::
+
+<!-- Quick Filter Chips -->
+:::: {.quick-filters .mb-3}
+```{=html}
+<div class="d-flex flex-wrap gap-2 justify-content-center">
+  <button class="btn btn-sm btn-outline-success filter-chip" data-filter="recent">
+    <i class="bi bi-clock-history"></i> Recently Updated
+  </button>
+  <button class="btn btn-sm btn-outline-warning filter-chip" data-filter="popular">
+    <i class="bi bi-star-fill"></i> Popular
+  </button>
+<% const filterChips = [
+  { value: 'shortcode', label: 'Shortcodes', icon: 'bi-code-square' },
+  { value: 'filter', label: 'Filters', icon: 'bi-funnel' },
+  { value: 'format', label: 'Formats', icon: 'bi-file-earmark-code' },
+  { value: 'project', label: 'Projects', icon: 'bi-folder' },
+  { value: 'revealjs-plugins', label: 'Reveal.js Plugins', icon: 'bi-sliders' },
+  { value: 'metadata', label: 'Metadata', icon: 'bi-info-circle' }
+]; %>
+  <div class="btn-group flex-wrap" role="group" aria-label="Category filters" style="max-width: 100%;">
+<% filterChips.forEach(function(chip) { %>
+    <button class="btn btn-sm btn-outline-primary filter-chip" data-filter="<%= chip.value %>">
+      <i class="bi <%= chip.icon %>"></i> 
+      <span class="d-none d-sm-inline"><%= chip.label %></span>
+      <span class="d-inline d-sm-none" aria-label="<%= chip.label %>"><%= chip.label.charAt(0) %></span>
+    </button>
+<% }); %>
+  </div>
+  <button class="btn btn-sm btn-outline-light" id="clear-filters">
+    <i class="bi bi-x-circle"></i> Clear
+  </button>
+</div>
+```
+::::

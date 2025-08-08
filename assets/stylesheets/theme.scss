@@ -9,24 +9,6 @@
   display: none !important;
 }
 
-.category {
-  text-transform: uppercase;
-}
-
-.category:hover {
-  color: $link-color;
-  font-weight: bold;
-}
-
-.quarto-grid-item .listing-categories .listing-category {
-  color: mix($link-color, $body-bg, 50%);
-  border: solid 1px $body-color;
-}
-.quarto-grid-item .listing-categories .listing-category:hover {
-  color: $link-color;
-  border: solid 1px $link-color;
-}
-
 .quarto-about-trestles .about-entity .about-link {
   color: mix($link-color, $body-bg, 50%);
   border: solid 1px $body-color;
@@ -34,53 +16,6 @@
 .quarto-about-trestles .about-entity .about-link:hover {
   color: $link-color;
   font-weight: bold;
-}
-
-.listing-author a,
-.listing-version a {
-  color: $link-color;
-}
-
-.listing-author:hover a,
-.listing-version:hover a {
-  color: $link-color;
-  font-weight: bold;
-}
-
-.listing-stars a {
-  color: $link-color;
-  text-decoration: none;
-}
-
-.listing-stars:hover a {
-  color: #dcbe50;
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-.quarto-grid-item .card-title {
-  font-size: 1.5em;
-  font-weight: 600;
-  margin-bottom: 0.5em;
-  text-transform: uppercase;
-}
-
-.quarto-grid-item .card-other-values tr>td:first-of-type {
-  font-weight: 600;
-  padding-right: 1em;
-  padding-left: 1em;
-  vertical-align: top;
-  text-transform: capitalize;
-}
-
-.quarto-grid-link:hover {
-  color: $link-color;
-  text-decoration: underline;
-}
-
-#quarto-back-to-top {
-  z-index: 100; /* Make sure it's above everything else */
-  color: $body-color;
 }
 
 .page-item.active .page-link,

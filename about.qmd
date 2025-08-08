@@ -9,6 +9,9 @@ about:
     - text: "{{< iconify octicon:mark-github-16 title='GitHub Source Repository' label='GitHub Source Repository' >}} GitHub"
       href: "https://github.com/mcanouil/quarto-extensions"
       aria-label: "GitHub logo linking to mcanouil/quarto-extensions repository"
+    - text: "{{< iconify octicon:heart-16 title='Heart Sponsor' label='Heart Sponsor' style='color:#c96198;' >}} Sponsor"
+      href: "https://github.com/sponsors/mcanouil?o=esb"
+      aria-label: "Heart Sponsor logo linking to mcanouil's GitHub Sponsors page"
     - text: "{{< iconify simple-icons:quarto title='Quarto Documentation' label='Quarto Documentation' >}} Quarto"
       href: "https://quarto.org/"
       aria-label: "Quarto logo linking to quarto.org website"
@@ -46,6 +49,14 @@ Please make sure that:
 - Your GitHub repository contains **Topics**.
 - Your GitHub repository contains a **Release** with **Tag**.
 - Your GitHub repository has `example.qmd` or `template.qmd` file.
-- Your GitHub repository has only one extension or a set of extensions.
+- Your GitHub repository has only one extension under `_extensions`.
 
 :::
+
+## Disclaimer
+
+This project is an independent community resource and is not affiliated with or endorsed by Quarto or its maintainers.
+
+## Support
+
+If you find this project helpful, please consider [sponsoring it](https://github.com/sponsors/mcanouil?o=esb) to support ongoing development and maintenance.

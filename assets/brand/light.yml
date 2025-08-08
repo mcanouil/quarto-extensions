@@ -1,15 +1,37 @@
 color:
   background: "#fafafa"
   foreground: "#333333"
-  light: "#fafafa"
-  dark: "#333333"
+  dark: "#fafafa"
+  light: "#333333"
 typography:
+  # fonts:
+  #   - family: Alegreya Sans
+  #     source: google
+  # base: Alegreya Sans
+  # headings: Alegreya Sans
   link:
     color: foreground
 defaults:
   bootstrap:
     rules: |
       div.sourceCode {
-        background-color: darken($background, 5%) !important;
+        background-color: darken($dark, 5%) !important;
       }
-      
+      #quarto-back-to-top {
+        box-shadow: 0 .2rem .5rem lighten($light, 5%),0 0 .05rem lighten($light, 5%);
+        color: lighten($light, 5%);
+      }
+      .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+        color: lighten($light, 5%);
+        font-weight: 600;
+      }
+      .quarto-title-breadcrumbs .breadcrumb li:last-of-type a {
+        color: lighten($light, 5%);
+        font-weight: 600;
+      }
+      .code-annotated .code-copy-button {
+        margin-right: 1.5em;
+      }
+      .navbar {
+        border-bottom: 1px solid #dee2e6;
+      }

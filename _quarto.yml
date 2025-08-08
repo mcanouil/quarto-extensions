@@ -12,6 +12,8 @@ date-format: "dddd[, the] Do [of] MMMM, YYYY"
 website:
   site-url: https://m.canouil.dev/quarto-extensions/
   repo-url: https://github.com/mcanouil/quarto-extensions
+  repo-actions: [edit, issue]
+  repo-link-target: _blank
   title: Quarto Extensions
   description: |
     Explore the 'Quarto Extensions' website, a comprehensive repository of extensions designed to enhance your Quarto experience.
@@ -24,7 +26,6 @@ website:
   back-to-top-navigation: true
   open-graph: true
   twitter-card: true
-  repo-actions: [edit, issue]
   page-footer:
     border: true
     left: |
@@ -32,15 +33,15 @@ website:
     center: |
       &copy; []{#current-year} [Mickaël CANOUIL](https://mickael.canouil.fr/).
     right: |
-      [[{{< iconify octicon:heart-16 title='Heart Sponsor' label='Heart Sponsor' >}}]{style="color:#c96198;"} Sponsor](https://github.com/sponsors/mcanouil?o=esb).
+      [{{< iconify octicon:heart-16 title='Heart Sponsor' label='Heart Sponsor' style='color:#c96198;' >}} Sponsor](https://github.com/sponsors/mcanouil?o=esb).
   navbar:
     logo: "assets/media/quarto-extensions.svg"
+    logo-alt: "Quarto Extensions Logo"
     background: dark
+    search: false
     left:
       - text: Extensions
         href: index.qmd
-      - text: Authors
-        href: authors.qmd
     right:
       - text: "{{< iconify octicon:question-16 title='Help' label='Help' >}} About"
         href: about.qmd
@@ -53,31 +54,28 @@ website:
       - text: '[]{.quarto-wizard title="Quarto Wizard" aria-label="Quarto Wizard"}'
         href: "https://github.com/mcanouil/quarto-wizard"
         target: _blank
+
 brand:
   light: assets/brand/light.yml
   dark: assets/brand/dark.yml
+
 format:
   html:
     theme:
       light:
         - cosmo
         - assets/stylesheets/theme.scss
-        - assets/stylesheets/extensions.scss
-        - assets/stylesheets/authors.scss
         - assets/stylesheets/wizard.scss
         - brand
       dark:
         - cosmo
         - assets/stylesheets/theme.scss
-        - assets/stylesheets/extensions.scss
-        - assets/stylesheets/authors.scss
         - assets/stylesheets/wizard.scss
         - brand
     highlight-style: github
     include-after-body:
       - file: assets/scripts/ordinal-dates.html
       - file: assets/scripts/current-year.html
-      - file: assets/scripts/categories-alphabetical.html
     grid:
       body-width: 950px
     anchor-sections: true
