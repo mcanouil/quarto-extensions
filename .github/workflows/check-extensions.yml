@@ -324,25 +324,28 @@ jobs:
         id: check
         shell: bash
         run: |
+          echo ${{ needs.check-submission.outputs.diff }} | base64 --decode > diff.patch
           error=false
           errors_json="[]"
-          while IFS=, read -r entry; do
-            repo=$(echo "${entry}" | cut -d'/' -f1-2)
-            repo_branch=$(gh repo view "${repo}" --json defaultBranchRef --jq '.defaultBranchRef.name')
-            extension_contributes=$(gh api \
-              -X GET "repos/${repo}/git/trees/${repo_branch}?recursive=1" \
-              --jq ".tree[] | select(.path | test(\"_extensions/.*/_extension\\\\.ya?ml$\")) | .url | @sh" \
-              | xargs -I {} gh api -X GET {} --jq ".content" \
-              | base64 --decode \
-              | grep -c '^contributes:')
+          if [[ -s diff.patch ]]; then
+            while IFS=, read -r entry; do
+              repo=$(echo "${entry}" | cut -d'/' -f1-2)
+              repo_branch=$(gh repo view "${repo}" --json defaultBranchRef --jq '.defaultBranchRef.name')
+              extension_contributes=$(gh api \
+                -X GET "repos/${repo}/git/trees/${repo_branch}?recursive=1" \
+                --jq ".tree[] | select(.path | test(\"_extensions/.*/_extension\\\\.ya?ml$\")) | .url | @sh" \
+                | xargs -I {} gh api -X GET {} --jq ".content" \
+                | base64 --decode \
+                | grep -c '^contributes:')
 
-            if [ ! "${extension_contributes}" -eq 1 ]; then
-              line_number=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1)
-              error_message="Repository \"${repo}\" does not have exactly one extension manifest"
-              errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "More than one extension manifest found."}]')
-              error=true
-            fi
-          done < <(sort -f "${CSV_FILE}")
+              if [ ! "${extension_contributes}" -eq 1 ]; then
+                line_number=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1)
+                error_message="Repository \"${repo}\" does not have exactly one extension manifest"
+                errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "More than one extension manifest found."}]')
+                error=true
+              fi
+            done < diff.patch
+          fi
           echo "errors=${errors_json}" >> $GITHUB_OUTPUT
           if [[ "${error}" == "true" ]]; then
             exit 1
