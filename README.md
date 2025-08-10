@@ -20,7 +20,7 @@ To add your extension to this list, please submit a pull request to this reposit
 > - Your GitHub repository contains **Topics**.
 > - Your GitHub repository contains a **Release** with **Tag**.
 > - Your GitHub repository has `example.qmd` or `template.qmd` file.
-> - Your GitHub repository has only one extension  under `_extensions`.
+> - Your GitHub repository has only one extension or a set of extensions under `_extensions`.
 
 ## Disclaimer
 
