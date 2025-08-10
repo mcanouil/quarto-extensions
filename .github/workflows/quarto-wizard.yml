@@ -393,9 +393,14 @@ jobs:
 
               repo_extension_contributes=$(gh api \
                 -X GET "repos/${repo}/git/trees/${repo_branch}?recursive=1" \
-                --jq ".tree[] | select(.path | test(\"${repo_subdirectory}_extensions/.*/_extension\\\\.ya?ml$\")) | .url | @sh" | xargs -I {} gh api -X GET {} --jq ".content")
+                --jq ".tree[] | select(.path | test(\"${repo_subdirectory}_extensions/.*/_extension\\\\.ya?ml$\")) | .url")
               if [[ -n "${repo_extension_contributes}" ]]; then
-                repo_extension_contributes=$(echo "${repo_extension_contributes}" | base64 --decode | yq -o json '.contributes | keys' | jq -c)
+                repo_extension_contributes=$(
+                  echo "${repo_extension_contributes}" |
+                    while read -r url; do
+                      gh api "${url}" --jq '.content' | base64 --decode | yq -o json '.contributes | keys'
+                    done | jq -s 'add | unique' | jq -c
+                )
                 repo_info=$(echo "${repo_info}" | jq --argjson contributes "${repo_extension_contributes}" '. + {contributes: $contributes}')
               else
                 repo_info=$(echo "${repo_info}" | jq '. + {contributes: null}')
