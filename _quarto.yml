@@ -2,7 +2,8 @@ project:
   type: website
   output-dir: _site
   pre-render:
-    - assets/scripts/make-listings.sh
+    - git fetch origin quarto-wizard:quarto-wizard
+    - git restore --source=quarto-wizard --worktree "extensions"
 
 author-meta: "Mickaël CANOUIL"
 date-meta: 2023-12-09
