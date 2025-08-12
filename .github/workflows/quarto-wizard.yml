@@ -42,12 +42,12 @@ jobs:
       DEBUG_MODE: ${{ github.event.inputs.debug }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ env.BRANCH }}
 
       - name: Checkout repository with sparse checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           sparse-checkout: ${{ env.CSV_FILE }}
           sparse-checkout-cone-mode: false
@@ -494,7 +494,7 @@ jobs:
       OUTDATED_EXTENSIONS: ${{ needs.get-extensions.outputs.outdated-extensions }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ env.BRANCH }}
 
