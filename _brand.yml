@@ -1,15 +1,24 @@
 meta:
   name: Mickaël CANOUIL
+  license: CC BY-SA 4.0
   link:
     home: https://mickael.canouil.fr
     github: https://github.com/mcanouil
     bluesky: https://bsky.app/profile/mickael.canouil.fr
     linkedin: https://www.linkedin.com/in/MickaelCanouil
 color:
-  background: "#333333"
-  foreground: "#fafafa"
-  dark: "#333333"
-  light: "#fafafa"
+  background:
+    dark: "#333333"
+    light: "#fafafa"
+  foreground:
+    dark: "#fafafa"
+    light: "#333333"
+  dark:
+    dark: "#333333"
+    light: "#fafafa"
+  light:
+    dark: "#fafafa"
+    light: "#333333"
 typography:
   # fonts:
   #   - family: Alegreya Sans
@@ -21,8 +30,7 @@ typography:
 defaults:
   bootstrap:
     defaults:
-      theme: coeos
-      color-scheme: dark
+      theme: mcanouil
       tooltip-color: $background
       tooltip-bg: $foreground
       btn-close-color: $foreground
@@ -55,8 +63,9 @@ defaults:
         }
       }
 
-      .quarto-title-breadcrumbs .breadcrumb li:last-of-type a {
-        color: body-mix(95%);
+      .quarto-title-breadcrumbs .breadcrumb li:last-of-type a,
+      .quarto-secondary-nav nav.quarto-page-breadcrumbs .breadcrumb li:last-of-type a {
+        color: body-mix(50%);
         font-weight: 600;
       }
 
@@ -100,6 +109,12 @@ defaults:
       p code:not(.sourceCode),
       li code:not(.sourceCode) {
         background-color: $foreground;
+      }
+
+      nav p code:not(.sourceCode),
+      nav li code:not(.sourceCode),
+      nav td code:not(.sourceCode) {
+        background-color: $foreground !important;
       }
 
       div.sourceCode {
@@ -460,4 +475,45 @@ defaults:
       // Footer Link
       .footer a:hover {
         color: $link-color;
+      }
+
+      // Custom Styles
+
+      .picture {
+        border-style: solid;
+        border-width: 3pt;
+        border-color: $background;
+        border-radius: 50%;
+        padding: 5pt;
+        height: 50%;
+        width: auto;
+        max-width: 200px !important;
+        min-width: 100px;
+      }
+
+      @media (max-width: 768px) {
+        .quarto-layout-row {
+          flex-direction: column;
+        }
+
+        .quarto-layout-cell {
+          flex-basis: 100% !important;
+          margin-bottom: 1rem;
+        }
+
+        .quarto-figure-spacer {
+          display: none;
+        }
+      }
+
+      .quarto-alternate-formats,
+      .quarto-code-links,
+      .quarto-other-links {
+        h2 {
+          display: none;
+        }
+        
+        ul {
+          margin-bottom: 0;
+        }
       }
