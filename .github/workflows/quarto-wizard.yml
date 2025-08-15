@@ -144,6 +144,7 @@ jobs:
             local output_file="$2"
             local attempt=0
             local mime_type=""
+            local placeholder_file="assets/media/github-placeholder.png"
             while [[ ${attempt} -lt 3 ]]; do
               curl -s -o "${output_file}" "${image_url}"
               mime_type=$(file --mime-type -b "${output_file}")
@@ -158,9 +159,21 @@ jobs:
               sleep 1
             done
             if [[ -f "${output_file}" && "${mime_type}" == "image/png" ]]; then
-              echo "${output_file}"
+              if cmp -s "${output_file}" "${placeholder_file}"; then
+                echo "Downloaded image is identical to placeholder, undoing changes"
+                git rm --cached "${output_file}" 2>/dev/null || true
+                rm -f "${output_file}"
+                if [[ -f "${output_file}" ]] && cmp -s "${output_file}" "${placeholder_file}"; then
+                  echo "Output file is still identical to placeholder, removing"
+                  git rm --cached "${output_file}" 2>/dev/null || true
+                  rm -f "${output_file}"
+                fi
+                echo "${placeholder_file}"
+              else
+                echo "${output_file}"
+              fi
             else
-              echo "assets/media/github-placeholder.png"
+              echo "${placeholder_file}"
             fi
           }
 
