@@ -168,7 +168,11 @@ jobs:
                   git rm --cached "${output_file}" 2>/dev/null || true
                   rm -f "${output_file}"
                 fi
-                echo "${placeholder_file}"
+                if [[ -f "${output_file}" ]]; then
+                  echo "${output_file}"
+                else
+                  echo "${placeholder_file}"
+                fi
               else
                 echo "${output_file}"
               fi
