@@ -1,0 +1,181 @@
+name: Test Quarto Extensions
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - quarto-wizard
+    paths:
+      - "quarto-extensions.json"
+
+jobs:
+  extensions-matrix:
+    runs-on: ubuntu-latest
+
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: quarto-wizard
+
+      - name: Extract extensions with examples or templates
+        id: set-matrix
+        run: |
+          EXTENSIONS=$(jq -c '
+            to_entries |
+            map(select(.value.example == true or .value.template == true)) |
+            map({id: .key, content_type: (if .value.example then "exampleContent" else "templateContent" end)}) |
+            {include: .}' quarto-extensions.json)
+          
+          NUM_EXTENSIONS=$(echo "${EXTENSIONS}" | jq '.include | length')
+          echo "::notice title=Number of Extensions:: ${NUM_EXTENSIONS} extensions found with examples or templates."
+          echo "matrix=${EXTENSIONS}" >> $GITHUB_OUTPUT
+
+  test-release:
+    needs: extensions-matrix
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      max-parallel: 10
+      fail-fast: false
+      matrix: ${{ fromJson(needs.extensions-matrix.outputs.matrix) }}
+
+    outputs:
+      quarto-version: ${{ steps.quarto-version.outputs.quarto-version }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: quarto-wizard
+
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: release
+          tinytex: true
+
+      - name: Quarto version
+        id: quarto-version
+        run: |
+          echo "quarto-version=$(quarto --version)" >> ${GITHUB_OUTPUT}
+
+      - name: Test extension
+        shell: bash
+        run: |
+          EXTENSION_ID="${{ matrix.id }}"
+          CONTENT_TYPE="${{ matrix.content_type }}"
+          CONTENT=$(jq -r --arg id "${EXTENSION_ID}" --arg type "${CONTENT_TYPE}" '.[$id][$type]' quarto-extensions.json)
+          DIR_NAME="${EXTENSION_ID//\//-}"
+
+          mkdir -p "tmp-${DIR_NAME}"
+          cd "tmp-${DIR_NAME}"
+          if [[ "${CONTENT_TYPE}" == "templateContent" ]]; then
+            quarto use template "${EXTENSION_ID}" --no-prompt
+            mv *.qmd index.qmd
+          else
+            quarto add "${EXTENSION_ID}" --no-prompt
+            echo "${CONTENT}" | base64 -d > index.qmd
+          fi
+          quarto render index.qmd --to all
+
+  test-prerelease:
+    needs: extensions-matrix
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      max-parallel: 10
+      fail-fast: false
+      matrix: ${{ fromJson(needs.extensions-matrix.outputs.matrix) }}
+
+    outputs:
+      quarto-version: ${{ steps.quarto-version.outputs.quarto-version }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: quarto-wizard
+
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: pre-release
+          tinytex: true
+
+      - name: Quarto version
+        id: quarto-version
+        run: |
+          echo "quarto-version=$(quarto --version)" >> ${GITHUB_OUTPUT}
+
+      - name: Test extension
+        shell: bash
+        run: |
+          EXTENSION_ID="${{ matrix.id }}"
+          CONTENT_TYPE="${{ matrix.content_type }}"
+          CONTENT=$(jq -r --arg id "${EXTENSION_ID}" --arg type "${CONTENT_TYPE}" '.[$id][$type]' quarto-extensions.json)
+          DIR_NAME="${EXTENSION_ID//\//-}"
+
+          mkdir -p "tmp-${DIR_NAME}"
+          cd "tmp-${DIR_NAME}"
+          if [[ "${CONTENT_TYPE}" == "templateContent" ]]; then
+            quarto use template "${EXTENSION_ID}" --no-prompt
+            mv *.qmd index.qmd
+          else
+            quarto add "${EXTENSION_ID}" --no-prompt
+            echo "${CONTENT}" | base64 -d > index.qmd
+          fi
+          quarto render index.qmd --to all
+
+  summary:
+    name: Tests Summary
+    needs: [test-release, test-prerelease]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Status Summary
+        run: |
+          RELEASE="${{ needs.test-release.outputs.quarto-version }}"
+          PRERELEASE="${{ needs.test-prerelease.outputs.quarto-version }}"
+          echo "## Extensions Test Results" >> ${GITHUB_STEP_SUMMARY}
+          echo "" >> ${GITHUB_STEP_SUMMARY}
+          echo "- Release ${RELEASE} Tests: ${{ needs.test-release.result }}" >> ${GITHUB_STEP_SUMMARY}
+          echo "- Pre-release ${PRERELEASE} Tests: ${{ needs.test-prerelease.result }}" >> ${GITHUB_STEP_SUMMARY}
+          
+          echo "" >> ${GITHUB_STEP_SUMMARY}
+          echo "### Failed Extensions" >> ${GITHUB_STEP_SUMMARY}
+          
+          echo "#### Release Version" >> ${GITHUB_STEP_SUMMARY}
+          if [[ "${{ needs.test-release.result }}" == "failure" ]]; then
+            echo "The following extensions failed with release version ${RELEASE}:" >> ${GITHUB_STEP_SUMMARY}
+            echo "" >> ${GITHUB_STEP_SUMMARY}
+            for job_id in ${{ join(needs.test-release.*.job_id, ' ') }}; do
+              if [[ "${{ needs.test-release.jobs[job_id].result }}" == "failure" ]]; then
+                echo "- ${{ needs.test-release.jobs[job_id].matrix.id }}" >> ${GITHUB_STEP_SUMMARY}
+              fi
+            done
+          else
+            echo "No extensions failed with release version." >> ${GITHUB_STEP_SUMMARY}
+          fi
+          
+          echo "" >> ${GITHUB_STEP_SUMMARY}
+          echo "#### Pre-release Version" >> ${GITHUB_STEP_SUMMARY}
+          if [[ "${{ needs.test-prerelease.result }}" == "failure" ]]; then
+            echo "The following extensions failed with pre-release version ${PRERELEASE}:" >> ${GITHUB_STEP_SUMMARY}
+            echo "" >> ${GITHUB_STEP_SUMMARY}
+            for job_id in ${{ join(needs.test-prerelease.*.job_id, ' ') }}; do
+              if [[ "${{ needs.test-prerelease.jobs[job_id].result }}" == "failure" ]]; then
+                echo "- ${{ needs.test-prerelease.jobs[job_id].matrix.id }}" >> ${GITHUB_STEP_SUMMARY}
+              fi
+            done
+          else
+            echo "No extensions failed with pre-release version." >> ${GITHUB_STEP_SUMMARY}
+          fi
