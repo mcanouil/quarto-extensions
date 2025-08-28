@@ -137,12 +137,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const title = titleEl ? titleEl.textContent.toLowerCase() : '';
         const description = descEl ? descEl.textContent.toLowerCase() : '';
         const author = (ext.dataset.author || '').toLowerCase();
+        const login = (ext.dataset.login || '').toLowerCase();
         const categories = (ext.dataset.categories || '').toLowerCase();
         const contributes = (ext.dataset.contributes || '').toLowerCase();
 
         const matches = title.includes(query) ||
                        description.includes(query) ||
                        author.includes(query) ||
+                       login.includes(query) ||
                        categories.includes(query) ||
                        contributes.includes(query);
 
