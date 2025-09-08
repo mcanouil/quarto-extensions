@@ -35,7 +35,7 @@ jobs:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
       - name: Download artifact
         id: download-artifact
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             let allArtifacts = await github.rest.actions.listWorkflowRunArtifacts({
