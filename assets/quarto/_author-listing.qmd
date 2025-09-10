@@ -19,7 +19,7 @@ listing:
   id: listing-extensions-<<github-username>>
   template: ../assets/ejs/extensions.ejs
   contents:
-    - ../extensions/yaml/<<github-username>>--**.yml
+    - ../extensions/<<github-username>>/**/extension.yml
   sort-ui: [stars, title, author, date, file-modified]
   sort:
     - stars desc
@@ -33,8 +33,8 @@ listing:
   max-description-length: 500
 ---
 
-::: {#about-<<github-username>>}
+:::: {#about-<<github-username>>}
 :::
 
-::: {#listing-extensions-<<github-username>>}
+:::: {#listing-extensions-<<github-username>>}
 :::

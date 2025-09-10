@@ -1,29 +1,18 @@
 ---
-title: "Extensions ({{< var extensions >}})"
-pagetitle: "Extensions"
 repo-actions: false
 image: "assets/media/quarto-extensions.png"
+date-format: iso
 listing:
-  id: listing-extensions
-  template: assets/ejs/extensions.ejs
+  id: extensions-listings
+  template: assets/ejs/listing.ejs
   contents:
-    - extensions/yaml/**.yml
-  sort-ui: [stars, title, author, date, file-modified]
-  sort:
-    - stars desc
-  field-types:
-    stars: number
-  field-display-names: 
-    stars: Stars
-  filter-ui:
-    - title
-    - author
-    - description
-  categories: true
-  page-size: 10
-  max-description-length: 500
-  image-placeholder: /assets/media/github-placeholder.png
+    - extensions/**/extension.yml
+  sort-ui: false
+  filter-ui: false
+  categories: false
+include-after-body:
+  - file: assets/scripts/quarto-extensions-listing.html
 ---
 
-::: {#listing-extensions}
+:::: {#extensions-listings}
 :::
