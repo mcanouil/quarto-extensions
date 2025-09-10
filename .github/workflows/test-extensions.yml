@@ -22,6 +22,7 @@ jobs:
 
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
+      skipped: ${{ steps.set-matrix.outputs.skipped }}
 
     steps:
       - name: Checkout repository
@@ -60,8 +61,12 @@ jobs:
           fi
 
           NUM_ENTRIES=$(echo "${MATRIX}" | jq '.include | length')
+          # Compute skipped extensions (those without example or template)
+          SKIPPED=$(jq -c 'to_entries | map(select(.value.example != true and .value.template != true) | .key)' quarto-extensions.json)
+
           echo "::notice title=Number of Matrix Entries:: ${NUM_ENTRIES} matrix entries generated (extensions × quarto versions)."
           echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
+          echo "skipped=${SKIPPED}" >> $GITHUB_OUTPUT
 
   test-extensions:
     needs: extensions-matrix
@@ -186,7 +191,7 @@ jobs:
             ${{ steps.san.outputs.san_name }}/quarto-version.txt
 
   summarise-results:
-    needs: test-extensions
+    needs: [extensions-matrix, test-extensions]
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -194,6 +199,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
+
+      - name: Prepare skipped list
+        id: prep-skipped
+        run: |
+          SKIPPED_JSON='${{ needs.extensions-matrix.outputs.skipped }}'
+          echo "skipped=${SKIPPED_JSON}" >> ${GITHUB_OUTPUT}
 
       - name: Download all render-artefacts
         uses: actions/download-artifact@v4
@@ -203,6 +214,15 @@ jobs:
       - name: Summarise render failures
         shell: bash
         run: |
+          # Print skipped extensions (those without example/template)
+          SKIPPED='${{ needs.extensions-matrix.outputs.skipped }}'
+          if [ -n "${SKIPPED}" ] && [ "${SKIPPED}" != 'null' ]; then
+            echo "# Skipped extensions (no example/template)" >> $GITHUB_STEP_SUMMARY
+            echo "${SKIPPED}" | jq -r '.[]' | sed 's/^/- /' >> $GITHUB_STEP_SUMMARY || true
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Skipped extensions:\n${SKIPPED}"
+          fi
+
           set -euo pipefail
           cd artefacts || exit 0
 
