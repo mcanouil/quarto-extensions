@@ -201,6 +201,19 @@ jobs:
             else
               author_field="author: \"${entry_author}\""
             fi
+            escape_bash() {
+              local input="${1}"
+              local escaped
+
+              # escape backslash first
+              escaped="${input//\\/\\\\}"
+              # then backtick, dollar and double-quote
+              escaped="${escaped//\`/\\\`}"
+              escaped="${escaped//\$/\\\$}"
+              escaped="${escaped//\"/\\\"}"
+
+              printf '%s' "${escaped}"
+            }
             echo -e \
               "- title: ${entry_title}\n" \
               " image: \"/${extension_png_file}\"\n" \
@@ -434,6 +447,7 @@ jobs:
               entry_description=$(echo "${repo_info}" | jq -r '.description')
               entry_description=$(echo "${entry_description}" | sed 's/^[[:space:]]*//')
               entry_description=$(echo "${entry_description}" | sed -E 's/([^`])(<[^<>]+>)([^`])/\1`\2`\3/g')
+              entry_description=$(escape_bash "${entry_description}")
               entry_release=$(echo "${repo_info}" | jq -r '.latestRelease')
               yaml_usage_body="${nameWithOwner}"
               if [[ "${entry_release}" != "none" ]]; then
