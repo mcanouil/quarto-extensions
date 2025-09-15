@@ -201,19 +201,6 @@ jobs:
             else
               author_field="author: \"${entry_author}\""
             fi
-            escape_bash() {
-              local input="${1}"
-              local escaped
-
-              # escape backslash first
-              escaped="${input//\\/\\\\}"
-              # then backtick, dollar and double-quote
-              escaped="${escaped//\`/\\\`}"
-              escaped="${escaped//\$/\\\$}"
-              escaped="${escaped//\"/\\\"}"
-
-              printf '%s' "${escaped}"
-            }
             echo -e \
               "- title: ${entry_title}\n" \
               " image: \"/${extension_png_file}\"\n" \
@@ -432,6 +419,20 @@ jobs:
                 repo_info=$(echo "${repo_info}" | jq '. + {contributes: null}')
               fi
 
+              escape_bash() {
+                local input="${1}"
+                local escaped
+
+                # escape backslash first
+                escaped="${input//\\/\\\\}"
+                # then backtick, dollar and double-quote
+                escaped="${escaped//\`/\\\`}"
+                escaped="${escaped//\$/\\\$}"
+                escaped="${escaped//\"/\\\"}"
+
+                printf '%s' "${escaped}"
+              }
+
               entry_title=$(echo "${repo_info}" | jq -r '.title')
               entry_created=$(echo "${repo_info}" | jq -r '.createdAt')
               entry_updated=$(echo "${repo_info}" | jq -r '.updatedAt')
@@ -483,7 +484,7 @@ jobs:
           else
             CSV_ENTRIES=$(cat "data/${CSV_FILE}")
           fi
-          
+
           process_extensions "$CSV_ENTRIES"
 
           find "${EXTENSIONS_DIR}" -type f -path "${EXTENSIONS_DIR}/*/*/extension.json" -print0 | xargs -0 cat | jq -s 'add' > "${JSON_FILE}"
