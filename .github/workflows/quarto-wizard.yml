@@ -74,8 +74,8 @@ jobs:
           USER_ID: ${{ steps.get-user-id.outputs.user-id }}
         shell: bash
         run: |
-          git config --global user.name '${APP_SLUG}[bot]'
-          git config --global user.email '${USER_ID}+${APP_SLUG}[bot]@users.noreply.github.com'
+          git config --global user.name "${APP_SLUG}[bot]"
+          git config --global user.email "${USER_ID}+${APP_SLUG}[bot]@users.noreply.github.com"
 
       - name: Branch Setup
         if: false
