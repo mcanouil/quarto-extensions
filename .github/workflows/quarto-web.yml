@@ -82,11 +82,5 @@ jobs:
             --head "${BRANCH}" \
             --label "Type: CI/CD :robot:" \
             --reviewer "${GITHUB_REPOSITORY_OWNER}"
-
-      - name: Merge Pull Request
-        if: false
-        shell: bash
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        run: |
+          sleep 5
           gh pr merge --auto --squash --delete-branch
