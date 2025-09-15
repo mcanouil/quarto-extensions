@@ -357,27 +357,17 @@ jobs:
           USER_ID: ${{ steps.get-user-id.outputs.user-id }}
           NUMBER: ${{ github.event.pull_request.number }}
           PR_BRANCH: ${{ github.event.pull_request.head.ref }}
-          DUPLICATE_RESULT: ${{ needs.check-duplicate.result }}
-          TOPICS_RESULT: ${{ needs.check-topics.result }}
-          DESCRIPTION_RESULT: ${{ needs.check-description.result }}
-          RELEASE_RESULT: ${{ needs.check-release.result }}
-          REDIRECTION_RESULT: ${{ needs.check-redirection.result }}
-          DUPLICATE_ERRORS: ${{ needs.check-duplicate.outputs.errors }}
-          TOPICS_ERRORS: ${{ needs.check-topics.outputs.errors }}
-          DESCRIPTION_ERRORS: ${{ needs.check-description.outputs.errors }}
-          RELEASE_ERRORS: ${{ needs.check-release.outputs.errors }}
-          REDIRECTION_ERRORS: ${{ needs.check-redirection.outputs.errors }}
         shell: bash
         run: |
-          echo "## Extension Check Summary" >> ${GITHUB_STEP_SUMMARY}
-          echo "" >> ${GITHUB_STEP_SUMMARY}
+          echo "## Extension Check Summary" >> "${GITHUB_STEP_SUMMARY}"
+          echo "" >> "${GITHUB_STEP_SUMMARY}"
 
           errors_found=false
-          if [[ "${DUPLICATE_RESULT}" == "failure" || \
-                "${TOPICS_RESULT}" == "failure" || \
-                "${DESCRIPTION_RESULT}" == "failure" || \
-                "${RELEASE_RESULT}" == "failure" || \
-                "${REDIRECTION_RESULT}" == "failure" ]]; then
+          if [[ '${{ needs.check-duplicate.result }}' == "failure" || \
+                '${{ needs.check-topics.result }}' == "failure" || \
+                '${{ needs.check-description.result }}' == "failure" || \
+                '${{ needs.check-release.result }}' == "failure" || \
+                '${{ needs.check-redirection.result }}' == "failure" ]]; then
             errors_found=true
           fi
 
@@ -385,41 +375,41 @@ jobs:
             declare -A file_line_errors
 
             for errors_json in \
-            "${DUPLICATE_ERRORS}" \
-            "${TOPICS_ERRORS}" \
-            "${DESCRIPTION_ERRORS}" \
-            "${RELEASE_ERRORS}" \
-            "${REDIRECTION_ERRORS}"; do
+            '${{ needs.check-duplicate.outputs.errors }}' \
+            '${{ needs.check-topics.outputs.errors }}' \
+            '${{ needs.check-description.outputs.errors }}' \
+            '${{ needs.check-release.outputs.errors }}' \
+            '${{ needs.check-redirection.outputs.errors }}'; do
               if [[ "${errors_json}" != "[]" && "${errors_json}" != "" ]]; then
                 while read -r error_obj; do
-                  line=$(echo "${error_obj}" | jq -r ".line")
-                  message=$(echo "${error_obj}" | jq -r ".message")
+                  line=$(echo "${error_obj}" | jq -r '.line')
+                  message=$(echo "${error_obj}" | jq -r '.message')
 
                   if [[ -z "${file_line_errors[$line]}" ]]; then
                     file_line_errors["$line"]="- ❌ ${message}"
                   else
                     file_line_errors["$line"]+=$'\n- ❌ '"${message}"
                   fi
-                done < <(echo "${errors_json}" | jq -c ".[]")
+                done < <(echo "${errors_json}" | jq -c '.[]')
               fi
             done
-            echo "The following issues were found in [\`${CSV_FILE}\`](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/blob/${PR_BRANCH}/${CSV_FILE}):" >> ${GITHUB_STEP_SUMMARY}
-            echo "" >> ${GITHUB_STEP_SUMMARY}
+            echo "The following issues were found in [\`${CSV_FILE}\`](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/blob/${PR_BRANCH}/${CSV_FILE}):" >> "${GITHUB_STEP_SUMMARY}"
+            echo "" >> "${GITHUB_STEP_SUMMARY}"
 
             CSV_FILE_ENCODED=$(echo -n "${CSV_FILE}" | hexdump -v -e '/1 "%02x"' | sed 's/\(..\)/%\1/g')
             for line_number in $(echo "${!file_line_errors[@]}" | tr ' ' '\n' | sort -n); do
               entry=$(sed -n "${line_number}p" ${CSV_FILE})
-              echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::Submission error\n${file_line_errors[${line_number}]}"
-              echo "### Line [${line_number}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/pull/${NUMBER}/files#diff-${CSV_FILE_ENCODED}L${line_number}): [\`${entry}\`](${GITHUB_SERVER_URL}/${entry})" >> ${GITHUB_STEP_SUMMARY}
-              echo "" >> ${GITHUB_STEP_SUMMARY}
-              echo -e "${file_line_errors[${line_number}]}" >> ${GITHUB_STEP_SUMMARY}
-              echo "" >> ${GITHUB_STEP_SUMMARY}
+              echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::Submission error\n${file_line_errors[$line_number]}"
+              echo "### Line [${line_number}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/pull/${NUMBER}/files#diff-${CSV_FILE_ENCODED}L${line_number}): [\`${entry}\`](${GITHUB_SERVER_URL}/${entry})" >> "${GITHUB_STEP_SUMMARY}"
+              echo "" >> "${GITHUB_STEP_SUMMARY}"
+              echo -e "${file_line_errors[$line_number]}" >> "${GITHUB_STEP_SUMMARY}"
+              echo "" >> "${GITHUB_STEP_SUMMARY}"
             done
           else
-            echo "✅ All checks passed successfully!" >> ${GITHUB_STEP_SUMMARY}
-            echo "" >> ${GITHUB_STEP_SUMMARY}
-            echo "🔍 [View workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})" >> ${GITHUB_STEP_SUMMARY}
+            echo "✅ All checks passed successfully!" >> "${GITHUB_STEP_SUMMARY}"
           fi
+          echo "" >> "${GITHUB_STEP_SUMMARY}"
+          echo "🔍 [View workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})" >> "${GITHUB_STEP_SUMMARY}"
 
           git config --global user.name "${APP_SLUG}[bot]"
           git config --global user.email "${USER_ID}+${APP_SLUG}[bot]@users.noreply.github.com"
