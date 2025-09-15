@@ -322,7 +322,7 @@ jobs:
           echo "No changes to ${CSV_FILE} found"
           exit 0
 
-  check-summary:
+  summary:
     runs-on: ubuntu-latest
     needs:
       - check-submission
@@ -394,6 +394,7 @@ jobs:
                 while read -r error_obj; do
                   line=$(echo "${error_obj}" | jq -r ".line")
                   message=$(echo "${error_obj}" | jq -r ".message")
+                  echo "Found error on line ${line}: ${message}"
 
                   if [[ -z "${file_line_errors[${line}]}" ]]; then
                     file_line_errors["${line}"]="- ❌ ${message}"
