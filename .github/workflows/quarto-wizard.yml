@@ -426,9 +426,9 @@ jobs:
                 # escape backslash first
                 escaped="${input//\\/\\\\}"
                 # then backtick, dollar and double-quote
-                escaped="${escaped//\`/\\\`}"
-                escaped="${escaped//\$/\\\$}"
-                escaped="${escaped//\"/\\\"}"
+                # escaped="${escaped//\`/\\\`}"
+                # escaped="${escaped//\$/\\\$}"
+                # escaped="${escaped//\"/\\\"}"
 
                 printf '%s' "${escaped}"
               }
