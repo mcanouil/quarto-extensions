@@ -405,11 +405,12 @@ jobs:
             done
             echo "The following issues were found in [\`${CSV_FILE}\`](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/blob/${PR_BRANCH}/${CSV_FILE}):" >> "${GITHUB_STEP_SUMMARY}"
             echo "" >> "${GITHUB_STEP_SUMMARY}"
+            echo "🔍 [View workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})" >> "${GITHUB_STEP_SUMMARY}"
+            echo "" >> "${GITHUB_STEP_SUMMARY}"
 
             CSV_FILE_ENCODED=$(echo -n "${CSV_FILE}" | hexdump -v -e '/1 "%02x"' | sed 's/\(..\)/%\1/g')
             for line_number in $(echo "${!file_line_errors[@]}" | tr ' ' '\n' | sort -n); do
               entry=$(sed -n "${line_number}p" ${CSV_FILE})
-              echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::Submission error\n${file_line_errors[${line_number}]}"
               echo "### Line [${line_number}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/pull/${NUMBER}/files#diff-${CSV_FILE_ENCODED}L${line_number}): [\`${entry}\`](${GITHUB_SERVER_URL}/${entry})" >> "${GITHUB_STEP_SUMMARY}"
               echo "" >> "${GITHUB_STEP_SUMMARY}"
               echo -e "${file_line_errors[${line_number}]}" >> "${GITHUB_STEP_SUMMARY}"
@@ -417,9 +418,9 @@ jobs:
             done
           else
             echo "✅ All checks passed successfully!" >> "${GITHUB_STEP_SUMMARY}"
+            echo "" >> "${GITHUB_STEP_SUMMARY}"
+            echo "🔍 [View workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})" >> "${GITHUB_STEP_SUMMARY}"
           fi
-          echo "" >> "${GITHUB_STEP_SUMMARY}"
-          echo "🔍 [View workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})" >> "${GITHUB_STEP_SUMMARY}"
 
           git config --global user.name "${APP_SLUG}[bot]"
           git config --global user.email "${USER_ID}+${APP_SLUG}[bot]@users.noreply.github.com"
