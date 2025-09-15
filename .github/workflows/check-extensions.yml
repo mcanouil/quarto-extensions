@@ -3,6 +3,8 @@ name: Check Extensions
 on:
   workflow_dispatch:
   pull_request:
+    branches:
+      - main
 
 permissions:
   pull-requests: write
@@ -39,15 +41,15 @@ jobs:
           extension_submitted=$(git diff --name-only ${base_sha} ${head_sha} | grep "${CSV_FILE}" || true)
           if [[ -z "${extension_submitted}" ]]; then
             echo "::notice::No changes to ${CSV_FILE} found"
-            echo "SUBMISSION=false" >>"${GITHUB_OUTPUT}"
+            echo "SUBMISSION=false" >>${GITHUB_OUTPUT}
           else
             echo "::notice::Changes to ${CSV_FILE} found!"
-            echo "SUBMISSION=true" >>"${GITHUB_OUTPUT}"
+            echo "SUBMISSION=true" >>${GITHUB_OUTPUT}
             git fetch origin ${base_ref} --depth=1
             DIFF=$(
               git diff origin/${base_ref} HEAD -- ${CSV_FILE} | grep '^+[^+]' | sed 's/^+//' | base64 --wrap=0
             )
-            echo "DIFF=${DIFF}" >>"${GITHUB_OUTPUT}"
+            echo "DIFF=${DIFF}" >>${GITHUB_OUTPUT}
           fi
           exit 0
 
@@ -82,7 +84,7 @@ jobs:
             done < duplicates.txt
           fi
           rm -f duplicates.txt duplicate_lines.txt
-          echo "errors=${errors_json}" >> "${GITHUB_OUTPUT}"
+          echo "errors=${errors_json}" >> ${GITHUB_OUTPUT}
           if [[ "${error}" == "true" ]]; then
             exit 1
           fi
@@ -96,7 +98,7 @@ jobs:
           if [[ -z "${errors}" ]]; then
             errors="[]"
           fi
-          echo "errors=${errors}" >> "${GITHUB_OUTPUT}"
+          echo "errors=${errors}" >> ${GITHUB_OUTPUT}
       - name: End of check
         if: needs.check-submission.outputs.submission == 'false'
         shell: bash
@@ -137,7 +139,7 @@ jobs:
               fi
             done < diff.patch
           fi
-          echo "errors=${errors_json}" >> "${GITHUB_OUTPUT}"
+          echo "errors=${errors_json}" >> ${GITHUB_OUTPUT}
           if [[ "${error}" == "true" ]]; then
             exit 1
           fi
@@ -151,7 +153,7 @@ jobs:
           if [[ -z "${errors}" ]]; then
             errors="[]"
           fi
-          echo "errors=${errors}" >> "${GITHUB_OUTPUT}"
+          echo "errors=${errors}" >> ${GITHUB_OUTPUT}
       - name: End of check
         if: needs.check-submission.outputs.submission == 'false'
         shell: bash
@@ -192,7 +194,7 @@ jobs:
               fi
             done < diff.patch
           fi
-          echo "errors=${errors_json}" >> "${GITHUB_OUTPUT}"
+          echo "errors=${errors_json}" >> ${GITHUB_OUTPUT}
           if [[ "${error}" == "true" ]]; then
             exit 1
           fi
@@ -206,7 +208,7 @@ jobs:
           if [[ -z "${errors}" ]]; then
             errors="[]"
           fi
-          echo "errors=${errors}" >> "${GITHUB_OUTPUT}"
+          echo "errors=${errors}" >> ${GITHUB_OUTPUT}
       - name: End of check
         if: needs.check-submission.outputs.submission == 'false'
         shell: bash
@@ -247,7 +249,7 @@ jobs:
               fi
             done < diff.patch
           fi
-          echo "errors=${errors_json}" >> "${GITHUB_OUTPUT}"
+          echo "errors=${errors_json}" >> ${GITHUB_OUTPUT}
           if [[ "${error}" == "true" ]]; then
             exit 1
           fi
@@ -261,7 +263,7 @@ jobs:
           if [[ -z "${errors}" ]]; then
             errors="[]"
           fi
-          echo "errors=${errors}" >> "${GITHUB_OUTPUT}"
+          echo "errors=${errors}" >> ${GITHUB_OUTPUT}
       - name: End of check
         if: needs.check-submission.outputs.submission == 'false'
         shell: bash
@@ -298,7 +300,7 @@ jobs:
               error=true
             fi
           done < <(sort -f "${CSV_FILE}")
-          echo "errors=${errors_json}" >> "${GITHUB_OUTPUT}"
+          echo "errors=${errors_json}" >> ${GITHUB_OUTPUT}
           if [[ "${error}" == "true" ]]; then
             exit 1
           fi
@@ -312,7 +314,7 @@ jobs:
           if [[ -z "${errors}" ]]; then
             errors="[]"
           fi
-          echo "errors=${errors}" >> "${GITHUB_OUTPUT}"
+          echo "errors=${errors}" >> ${GITHUB_OUTPUT}
       - name: End of check
         if: needs.check-submission.outputs.submission == 'false'
         shell: bash
@@ -352,8 +354,8 @@ jobs:
           REDIRECTION_ERRORS: ${{ needs.check-redirection.outputs.errors }}
         shell: bash
         run: |
-          echo "## Extension Check Summary" >> "${GITHUB_STEP_SUMMARY}"
-          echo "" >> "${GITHUB_STEP_SUMMARY}"
+          echo "## Extension Check Summary" >> ${GITHUB_STEP_SUMMARY}
+          echo "" >> ${GITHUB_STEP_SUMMARY}
 
           errors_found=false
           if [[ '${DUPLICATE_RESULT}' == "failure" || \
@@ -386,30 +388,53 @@ jobs:
                 done < <(echo "${errors_json}" | jq -c '.[]')
               fi
             done
-            echo "The following issues were found in [\`${CSV_FILE}\`](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/blob/${PR_BRANCH}/${CSV_FILE}):" >> "${GITHUB_STEP_SUMMARY}"
-            echo "" >> "${GITHUB_STEP_SUMMARY}"
+            echo "The following issues were found in [\`${CSV_FILE}\`](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/blob/${PR_BRANCH}/${CSV_FILE}):" >> ${GITHUB_STEP_SUMMARY}
+            echo "" >> ${GITHUB_STEP_SUMMARY}
 
             CSV_FILE_ENCODED=$(echo -n "${CSV_FILE}" | hexdump -v -e '/1 "%02x"' | sed 's/\(..\)/%\1/g')
             for line_number in $(echo "${!file_line_errors[@]}" | tr ' ' '\n' | sort -n); do
               entry=$(sed -n "${line_number}p" ${CSV_FILE})
               echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::Submission error\n${file_line_errors[${line_number}]}"
-              echo "### Line [${line_number}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/pull/${NUMBER}/files#diff-${CSV_FILE_ENCODED}L${line_number}): [\`${entry}\`](${GITHUB_SERVER_URL}/${entry})" >> "${GITHUB_STEP_SUMMARY}"
-              echo "" >> "${GITHUB_STEP_SUMMARY}"
-              echo -e "${file_line_errors[${line_number}]}" >> "${GITHUB_STEP_SUMMARY}"
-              echo "" >> "${GITHUB_STEP_SUMMARY}"
+              echo "### Line [${line_number}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/pull/${NUMBER}/files#diff-${CSV_FILE_ENCODED}L${line_number}): [\`${entry}\`](${GITHUB_SERVER_URL}/${entry})" >> ${GITHUB_STEP_SUMMARY}
+              echo "" >> ${GITHUB_STEP_SUMMARY}
+              echo -e "${file_line_errors[${line_number}]}" >> ${GITHUB_STEP_SUMMARY}
+              echo "" >> ${GITHUB_STEP_SUMMARY}
             done
           else
-            echo "✅ All checks passed successfully!" >> "${GITHUB_STEP_SUMMARY}"
-            echo "" >> "${GITHUB_STEP_SUMMARY}"
-            echo "🔍 [View workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})" >> "${GITHUB_STEP_SUMMARY}"
+            echo "✅ All checks passed successfully!" >> ${GITHUB_STEP_SUMMARY}
+            echo "" >> ${GITHUB_STEP_SUMMARY}
+            echo "🔍 [View workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})" >> ${GITHUB_STEP_SUMMARY}
           fi
 
           mkdir -p ./extensions-check-summary
           echo ${NUMBER} > ./extensions-check-summary/pr_number
-          cp "${GITHUB_STEP_SUMMARY}" ./extensions-check-summary/summary.md
+          cp ${GITHUB_STEP_SUMMARY} ./extensions-check-summary/summary.md
 
-      - uses: actions/upload-artifact@v4
-        if: needs.check-submission.outputs.submission == 'true'
+      - name: Create GitHub App token
+        uses: actions/create-github-app-token@v2
+        id: app-token
         with:
-          name: extensions-check-summary
-          path: extensions-check-summary/
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_KEY }}
+
+      - name: Get GitHub App User ID
+        id: get-user-id
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
+        run: echo "user-id=$(gh api "/users/${APP_SLUG}[bot]" --jq .id)" >> "${GITHUB_OUTPUT}"
+
+      - name: Generate summary report
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
+          USER_ID: ${{ steps.get-user-id.outputs.user-id }}
+        shell: bash
+        run: |
+          git config --global user.name '${APP_SLUG}[bot]'
+          git config --global user.email '${USER_ID}+${APP_SLUG}[bot]@users.noreply.github.com'
+          gh pr comment "$(cat ./extensions-check-summary/pr_number)" \
+            --body-file ./extensions-check-summary/summary.md \
+            --create-if-none \
+            --edit-last \
+            --repo ${GITHUB_REPOSITORY}
