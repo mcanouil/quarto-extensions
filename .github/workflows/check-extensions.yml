@@ -395,10 +395,10 @@ jobs:
                   line=$(echo "${error_obj}" | jq -r ".line")
                   message=$(echo "${error_obj}" | jq -r ".message")
 
-                  if [[ -z "${file_line_errors[${line}]}" ]]; then
-                    file_line_errors["${line}"]="- ❌ ${message}"
+                  if [[ -z "${file_line_errors[$line]}" ]]; then
+                    file_line_errors["$line"]="- ❌ ${message}"
                   else
-                    file_line_errors["${line}"]+=$'\n- ❌ '"${message}"
+                    file_line_errors["$line"]+=$'\n- ❌ '"${message}"
                   fi
                 done < <(echo "${errors_json}" | jq -c ".[]")
               fi
