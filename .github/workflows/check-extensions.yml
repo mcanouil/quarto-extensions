@@ -373,11 +373,11 @@ jobs:
           echo "" >> ${GITHUB_STEP_SUMMARY}
 
           errors_found=false
-          if [[ '${DUPLICATE_RESULT}' == "failure" || \
-                '${TOPICS_RESULT}' == "failure" || \
-                '${DESCRIPTION_RESULT}' == "failure" || \
-                '${RELEASE_RESULT}' == "failure" || \
-                '${REDIRECTION_RESULT}' == "failure" ]]; then
+          if [[ "${DUPLICATE_RESULT}" == "failure" || \
+                "${TOPICS_RESULT}" == "failure" || \
+                "${DESCRIPTION_RESULT}" == "failure" || \
+                "${RELEASE_RESULT}" == "failure" || \
+                "${REDIRECTION_RESULT}" == "failure" ]]; then
             errors_found=true
           fi
 
@@ -385,22 +385,22 @@ jobs:
             declare -A file_line_errors
 
             for errors_json in \
-            '${DUPLICATE_ERRORS}' \
-            '${TOPICS_ERRORS}' \
-            '${DESCRIPTION_ERRORS}' \
-            '${RELEASE_ERRORS}' \
-            '${REDIRECTION_ERRORS}'; do
+            "${DUPLICATE_ERRORS}" \
+            "${TOPICS_ERRORS}" \
+            "${DESCRIPTION_ERRORS}" \
+            "${RELEASE_ERRORS}" \
+            "${REDIRECTION_ERRORS}"; do
               if [[ "${errors_json}" != "[]" && "${errors_json}" != "" ]]; then
                 while read -r error_obj; do
-                  line=$(echo "${error_obj}" | jq -r '.line')
-                  message=$(echo "${error_obj}" | jq -r '.message')
+                  line=$(echo "${error_obj}" | jq -r ".line")
+                  message=$(echo "${error_obj}" | jq -r ".message")
 
                   if [[ -z "${file_line_errors[${line}]}" ]]; then
                     file_line_errors["${line}"]="- ❌ ${message}"
                   else
                     file_line_errors["${line}"]+=$'\n- ❌ '"${message}"
                   fi
-                done < <(echo "${errors_json}" | jq -c '.[]')
+                done < <(echo "${errors_json}" | jq -c ".[]")
               fi
             done
             echo "The following issues were found in [\`${CSV_FILE}\`](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/blob/${PR_BRANCH}/${CSV_FILE}):" >> ${GITHUB_STEP_SUMMARY}
@@ -421,8 +421,8 @@ jobs:
             echo "🔍 [View workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})" >> ${GITHUB_STEP_SUMMARY}
           fi
 
-          git config --global user.name '${APP_SLUG}[bot]'
-          git config --global user.email '${USER_ID}+${APP_SLUG}[bot]@users.noreply.github.com'
+          git config --global user.name "${APP_SLUG}[bot]"
+          git config --global user.email "${USER_ID}+${APP_SLUG}[bot]@users.noreply.github.com"
           cp ${GITHUB_STEP_SUMMARY} ./summary.md
           gh pr comment "${NUMBER}" \
             --body-file ./summary.md \
