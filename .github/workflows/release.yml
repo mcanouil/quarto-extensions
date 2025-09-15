@@ -46,8 +46,6 @@ jobs:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           COMMIT: "ci: bump version for release :rocket:"
           BRANCH: ci/bump-version
-        outputs:
-          version: ${{ steps.bump-version.outputs.version }}
         shell: bash
         run: |
           if git show-ref --quiet refs/heads/${BRANCH}; then
@@ -67,15 +65,5 @@ jobs:
           gh pr create --fill-first --base "main" --head "${BRANCH}" --label "Type: CI/CD :robot:"
           sleep 5
           gh pr merge --auto --squash --delete-branch
-          echo "version=${VERSION}" >> "${GITHUB_OUTPUT}"
-          echo "date=${DATE}" >> "${GITHUB_OUTPUT}"
-
-      - name: Release extension on GitHub
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-          VERSION: ${{ steps.bump-version.outputs.version }}
-          DATE: ${{ steps.bump-version.outputs.date }}
-        shell: bash
-        run: |
           sleep 5
           gh release create ${VERSION} --title ${DATE} --generate-notes
