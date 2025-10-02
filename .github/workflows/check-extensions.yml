@@ -335,24 +335,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
-      - name: Create GitHub App token
-        uses: actions/create-github-app-token@v2
-        id: app-token
         with:
-          app-id: ${{ vars.APP_ID }}
-          private-key: ${{ secrets.APP_KEY }}
-      - name: Get GitHub App User ID
-        id: get-user-id
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
-        run: echo "user-id=$(gh api "/users/${APP_SLUG}[bot]" --jq .id)" >> "${GITHUB_OUTPUT}"
+          fetch-depth: 2
       - name: Generate summary report
         if: needs.check-submission.outputs.submission == 'true'
         env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
-          USER_ID: ${{ steps.get-user-id.outputs.user-id }}
           NUMBER: ${{ github.event.pull_request.number }}
           PR_BRANCH: ${{ github.event.pull_request.head.ref }}
           DUPLICATE_RESULT: ${{ needs.check-duplicate.result }}
@@ -420,11 +407,12 @@ jobs:
             echo "🔍 [View workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})" >> "${GITHUB_STEP_SUMMARY}"
           fi
 
-          git config --global user.name "${APP_SLUG}[bot]"
-          git config --global user.email "${USER_ID}+${APP_SLUG}[bot]@users.noreply.github.com"
-          cp "${GITHUB_STEP_SUMMARY}" ./summary.md
-          gh pr comment "${NUMBER}" \
-            --body-file ./summary.md \
-            --create-if-none \
-            --edit-last \
-            --repo ${GITHUB_REPOSITORY}
+          mkdir -p ./extensions-check-summary
+          echo ${NUMBER} > ./extensions-check-summary/pr_number
+          cp ${GITHUB_STEP_SUMMARY} ./extensions-check-summary/summary.md
+
+      - uses: actions/upload-artifact@v4
+        if: needs.check-submission.outputs.submission == 'true'
+        with:
+          name: extensions-check-summary
+          path: extensions-check-summary/

@@ -141,6 +141,11 @@ defaults:
         margin-left: unset;
         width: 100%;
       }
+      #code-annotation-line-highlight-gutter,
+      .code-annotation-gutter-bg,
+      .code-annotation-gutter {
+        all: unset;
+      }
 
       // List Groups
       .list-group-item-action {
