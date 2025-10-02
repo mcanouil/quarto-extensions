@@ -333,6 +333,8 @@ jobs:
       - check-redirection
     if: always()
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
       - name: Create GitHub App token
         uses: actions/create-github-app-token@v2
         id: app-token
@@ -345,10 +347,6 @@ jobs:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
         run: echo "user-id=$(gh api "/users/${APP_SLUG}[bot]" --jq .id)" >> "${GITHUB_OUTPUT}"
-      - name: Checkout repository
-        uses: actions/checkout@v5
-        with:
-          fetch-depth: 2
       - name: Generate summary report
         if: needs.check-submission.outputs.submission == 'true'
         env:
