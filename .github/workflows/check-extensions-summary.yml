@@ -34,49 +34,15 @@ jobs:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
         run: echo "user-id=$(gh api "/users/${APP_SLUG}[bot]" --jq .id)" >> "${GITHUB_OUTPUT}"
-      # - name: Download artifact
-      #   id: download-artifact
-      #   continue-on-error: true
-      #   uses: actions/download-artifact@v5
-      #   with:
-      #     name: extensions-check-summary
-      #     path: "${{ runner.temp }}/artifacts/"
-      #     run-id: ${{ github.event.workflow_run.id }}
       - name: Download artifact
         id: download-artifact
-        uses: actions/github-script@v8
+        continue-on-error: true
+        uses: actions/download-artifact@v5
         with:
-          script: |
-            let allArtifacts = await github.rest.actions.listWorkflowRunArtifacts({
-               owner: context.repo.owner,
-               repo: context.repo.repo,
-               run_id: context.payload.workflow_run.id,
-            });
-            let matchArtifact = allArtifacts.data.artifacts.filter((artifact) => {
-              return artifact.name == "extensions-check-summary"
-            })[0];
-            
-            if (!matchArtifact) {
-              console.log('No extensions-check-summary artifact found, skipping remaining steps');
-              core.setOutput('artifact-found', 'false');
-              return;
-            }
-            
-            core.setOutput('artifact-found', 'true');
-            
-            let download = await github.rest.actions.downloadArtifact({
-               owner: context.repo.owner,
-               repo: context.repo.repo,
-               artifact_id: matchArtifact.id,
-               archive_format: 'zip',
-            });
-            const fs = require('fs');
-            const path = require('path');
-            const temp = '${{ runner.temp }}/artifacts';
-            if (!fs.existsSync(temp)){
-              fs.mkdirSync(temp);
-            }
-            fs.writeFileSync(path.join(temp, 'extensions-check-summary.zip'), Buffer.from(download.data));/artifacts/extensions-check-summary.zip" -d "${{ runner.temp }}/artifacts/extensions-check-summary"
+          name: extensions-check-summary
+          path: "${{ runner.temp }}/artifacts/"
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GH_TOKEN }}
       - name: Unzip artifact
         if: steps.download-artifact.outputs.download-path != ''
         run: |
