@@ -42,7 +42,7 @@ jobs:
           name: extensions-check-summary
           path: "${{ runner.temp }}/artifacts/"
           run-id: ${{ github.event.workflow_run.id }}
-          github-token: ${{ secrets.GH_TOKEN }}
+          github-token: ${{ steps.app-token.outputs.token }}
       - name: Unzip artifact
         if: steps.download-artifact.outputs.download-path != ''
         run: |
