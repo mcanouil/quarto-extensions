@@ -62,16 +62,20 @@ jobs:
 
       - name: Get GitHub App User ID
         id: get-user-id
-        shell: bash
-        run: echo "user-id=$(gh api "/users/${{ steps.app-token.outputs.app-slug }}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
+        shell: bash
+        run: echo "user-id=$(gh api "/users/${APP_SLUG}[bot]" --jq .id)" >> "${GITHUB_OUTPUT}"
 
       - name: Git Config
+        env:
+          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
+          USER_ID: ${{ steps.get-user-id.outputs.user-id }}
         shell: bash
         run: |
-          git config --global user.name '${{ steps.app-token.outputs.app-slug }}[bot]'
-          git config --global user.email '${{ steps.get-user-id.outputs.user-id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com'
+          git config --global user.name "${APP_SLUG}[bot]"
+          git config --global user.email "${USER_ID}+${APP_SLUG}[bot]@users.noreply.github.com"
 
       - name: Branch Setup
         if: false
@@ -419,6 +423,20 @@ jobs:
                 repo_info=$(echo "${repo_info}" | jq '. + {contributes: null}')
               fi
 
+              escape_bash() {
+                local input="${1}"
+                local escaped
+
+                # escape backslash first
+                escaped="${input//\\/\\\\}"
+                # then backtick, dollar and double-quote
+                # escaped="${escaped//\`/\\\`}"
+                # escaped="${escaped//\$/\\\$}"
+                # escaped="${escaped//\"/\\\"}"
+
+                printf '%s' "${escaped}"
+              }
+
               entry_title=$(echo "${repo_info}" | jq -r '.title')
               entry_created=$(echo "${repo_info}" | jq -r '.createdAt')
               entry_updated=$(echo "${repo_info}" | jq -r '.updatedAt')
@@ -434,6 +452,7 @@ jobs:
               entry_description=$(echo "${repo_info}" | jq -r '.description')
               entry_description=$(echo "${entry_description}" | sed 's/^[[:space:]]*//')
               entry_description=$(echo "${entry_description}" | sed -E 's/([^`])(<[^<>]+>)([^`])/\1`\2`\3/g')
+              entry_description=$(escape_bash "${entry_description}")
               entry_release=$(echo "${repo_info}" | jq -r '.latestRelease')
               yaml_usage_body="${nameWithOwner}"
               if [[ "${entry_release}" != "none" ]]; then
@@ -469,7 +488,7 @@ jobs:
           else
             CSV_ENTRIES=$(cat "data/${CSV_FILE}")
           fi
-          
+
           process_extensions "$CSV_ENTRIES"
 
           find "${EXTENSIONS_DIR}" -type f -path "${EXTENSIONS_DIR}/*/*/extension.json" -print0 | xargs -0 cat | jq -s 'add' > "${JSON_FILE}"
@@ -512,13 +531,15 @@ jobs:
           ref: ${{ env.BRANCH }}
 
       - name: Generate workflow summary
+        env:
+          DEBUG_MODE: ${{ github.event.inputs.debug }}
         shell: bash
         run: |
           UPDATED_COUNT=${UPDATED_COUNT:-0}
           SKIPPED_COUNT=${SKIPPED_COUNT:-0}
           OUTDATED_COUNT=${OUTDATED_COUNT:-0}
 
-          if [[ "${{ github.event.inputs.debug }}" == "true" ]]; then
+          if [[ "${DEBUG_MODE}" == "true" ]]; then
             echo "## Extension Processing Summary (Debug Mode)" >> "${GITHUB_STEP_SUMMARY}"
           else
             echo "## Extension Processing Summary" >> "${GITHUB_STEP_SUMMARY}"

@@ -3,6 +3,8 @@ name: Check Extensions
 on:
   workflow_dispatch:
   pull_request:
+    branches:
+      - main
 
 permissions:
   pull-requests: write
@@ -39,15 +41,15 @@ jobs:
           extension_submitted=$(git diff --name-only ${base_sha} ${head_sha} | grep "${CSV_FILE}" || true)
           if [[ -z "${extension_submitted}" ]]; then
             echo "::notice::No changes to ${CSV_FILE} found"
-            echo "SUBMISSION=false" >>"${GITHUB_OUTPUT}"
+            echo "SUBMISSION=false" >>${GITHUB_OUTPUT}
           else
             echo "::notice::Changes to ${CSV_FILE} found!"
-            echo "SUBMISSION=true" >>"${GITHUB_OUTPUT}"
+            echo "SUBMISSION=true" >>${GITHUB_OUTPUT}
             git fetch origin ${base_ref} --depth=1
             DIFF=$(
               git diff origin/${base_ref} HEAD -- ${CSV_FILE} | grep '^+[^+]' | sed 's/^+//' | base64 --wrap=0
             )
-            echo "DIFF=${DIFF}" >>"${GITHUB_OUTPUT}"
+            echo "DIFF=${DIFF}" >>${GITHUB_OUTPUT}
           fi
           exit 0
 
@@ -82,20 +84,21 @@ jobs:
             done < duplicates.txt
           fi
           rm -f duplicates.txt duplicate_lines.txt
-          echo "errors=${errors_json}" >> $GITHUB_OUTPUT
+          echo "errors=${errors_json}" >> ${GITHUB_OUTPUT}
           if [[ "${error}" == "true" ]]; then
             exit 1
           fi
       - name: Store errors
         if: always() && needs.check-submission.outputs.submission == 'true'
         id: store-errors
+        env:
+          errors: ${{ steps.check.outputs.errors }}
         shell: bash
         run: |
-          errors='${{ steps.check.outputs.errors }}'
           if [[ -z "${errors}" ]]; then
             errors="[]"
           fi
-          echo "errors=${errors}" >> $GITHUB_OUTPUT
+          echo "errors=${errors}" >> ${GITHUB_OUTPUT}
       - name: End of check
         if: needs.check-submission.outputs.submission == 'false'
         shell: bash
@@ -116,9 +119,11 @@ jobs:
       - name: Check for topics
         if: needs.check-submission.outputs.submission == 'true'
         id: check
+        env:
+          DIFF: ${{ needs.check-submission.outputs.diff }}
         shell: bash
         run: |
-          echo ${{ needs.check-submission.outputs.diff }} | base64 --decode > diff.patch
+          echo ${DIFF} | base64 --decode > diff.patch
           error=false
           errors_json="[]"
           if [[ -s diff.patch ]]; then
@@ -126,7 +131,7 @@ jobs:
               repo=$(echo "${repo}" | cut -d'/' -f1-2)
                 repo_topics=$(gh repo view --json repositoryTopics "${repo}" --jq ".repositoryTopics")
               if [[ -z "${repo_topics}" ]]; then
-                line_number=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1)
+                line_number=$(grep -n "${repo}" ${CSV_FILE} | tail -n +2 | cut -d: -f1)
                 error_message="Repository \"${repo}\" is missing topics!"
                 # echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
                 errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "Repository is missing topics."}]')
@@ -134,20 +139,21 @@ jobs:
               fi
             done < diff.patch
           fi
-          echo "errors=${errors_json}" >> $GITHUB_OUTPUT
+          echo "errors=${errors_json}" >> ${GITHUB_OUTPUT}
           if [[ "${error}" == "true" ]]; then
             exit 1
           fi
       - name: Store errors
         if: always() && needs.check-submission.outputs.submission == 'true'
         id: store-errors
+        env:
+          errors: ${{ steps.check.outputs.errors }}
         shell: bash
         run: |
-          errors='${{ steps.check.outputs.errors }}'
           if [[ -z "${errors}" ]]; then
             errors="[]"
           fi
-          echo "errors=${errors}" >> $GITHUB_OUTPUT
+          echo "errors=${errors}" >> ${GITHUB_OUTPUT}
       - name: End of check
         if: needs.check-submission.outputs.submission == 'false'
         shell: bash
@@ -168,9 +174,11 @@ jobs:
       - name: Check for description
         if: needs.check-submission.outputs.submission == 'true'
         id: check
+        env:
+          DIFF: ${{ needs.check-submission.outputs.diff }}
         shell: bash
         run: |
-          echo ${{ needs.check-submission.outputs.diff }} | base64 --decode > diff.patch
+          echo ${DIFF} | base64 --decode > diff.patch
           error=false
           errors_json="[]"
           if [[ -s diff.patch ]]; then
@@ -178,7 +186,7 @@ jobs:
               repo=$(echo "${repo}" | cut -d'/' -f1-2)
               repo_description=$(gh repo view --json description "${repo}" --jq ".description")
               if [[ -z "${repo_description}" ]]; then
-                line_number=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1)
+                line_number=$(grep -n "${repo}" ${CSV_FILE} | tail -n +2 | cut -d: -f1)
                 error_message="Repository \"${repo}\" is missing description!"
                 # echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
                 errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "Repository is missing description."}]')
@@ -186,20 +194,21 @@ jobs:
               fi
             done < diff.patch
           fi
-          echo "errors=${errors_json}" >> $GITHUB_OUTPUT
+          echo "errors=${errors_json}" >> ${GITHUB_OUTPUT}
           if [[ "${error}" == "true" ]]; then
             exit 1
           fi
       - name: Store errors
         if: always() && needs.check-submission.outputs.submission == 'true'
         id: store-errors
+        env:
+          errors: ${{ steps.check.outputs.errors }}
         shell: bash
         run: |
-          errors='${{ steps.check.outputs.errors }}'
           if [[ -z "${errors}" ]]; then
             errors="[]"
           fi
-          echo "errors=${errors}" >> $GITHUB_OUTPUT
+          echo "errors=${errors}" >> ${GITHUB_OUTPUT}
       - name: End of check
         if: needs.check-submission.outputs.submission == 'false'
         shell: bash
@@ -220,9 +229,11 @@ jobs:
       - name: Check for release/tag
         if: needs.check-submission.outputs.submission == 'true'
         id: check
+        env:
+          DIFF: ${{ needs.check-submission.outputs.diff }}
         shell: bash
         run: |
-          echo ${{ needs.check-submission.outputs.diff }} | base64 --decode > diff.patch
+          echo ${DIFF} | base64 --decode > diff.patch
           error=false
           errors_json="[]"
           if [[ -s diff.patch ]]; then
@@ -230,7 +241,7 @@ jobs:
               repo=$(echo "${repo}" | cut -d'/' -f1-2)
               repo_release=$(gh repo view --json latestRelease "${repo}" --jq ".latestRelease")
               if [[ -z "${repo_release}" ]]; then
-                line_number=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1)
+                line_number=$(grep -n "${repo}" ${CSV_FILE} | tail -n +2 | cut -d: -f1)
                 error_message="Repository \"${repo}\" is missing release/tag!"
                 # echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
                 errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "Repository is missing release/tag."}]')
@@ -238,20 +249,21 @@ jobs:
               fi
             done < diff.patch
           fi
-          echo "errors=${errors_json}" >> $GITHUB_OUTPUT
+          echo "errors=${errors_json}" >> ${GITHUB_OUTPUT}
           if [[ "${error}" == "true" ]]; then
             exit 1
           fi
       - name: Store errors
         if: always() && needs.check-submission.outputs.submission == 'true'
         id: store-errors
+        env:
+          errors: ${{ steps.check.outputs.errors }}
         shell: bash
         run: |
-          errors='${{ steps.check.outputs.errors }}'
           if [[ -z "${errors}" ]]; then
             errors="[]"
           fi
-          echo "errors=${errors}" >> $GITHUB_OUTPUT
+          echo "errors=${errors}" >> ${GITHUB_OUTPUT}
       - name: End of check
         if: needs.check-submission.outputs.submission == 'false'
         shell: bash
@@ -282,26 +294,27 @@ jobs:
               redirection_target=$(curl -Ls -o /dev/null -w "%{url_effective}" "https://github.com/${repo}")
               redirection_target=${redirection_target#"https://github.com/"}
               error_message="Repository \"${repo}\" is redirected to \"${redirection_target}\"!"
-              line_number=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1)
+              line_number=$(grep -n "${repo}" ${CSV_FILE} | tail -n +2 | cut -d: -f1)
               # echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
               errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "Repository is redirected."}]')
               error=true
             fi
           done < <(sort -f "${CSV_FILE}")
-          echo "errors=${errors_json}" >> $GITHUB_OUTPUT
+          echo "errors=${errors_json}" >> ${GITHUB_OUTPUT}
           if [[ "${error}" == "true" ]]; then
             exit 1
           fi
       - name: Store errors
         if: always() && needs.check-submission.outputs.submission == 'true'
         id: store-errors
+        env:
+          errors: ${{ steps.check.outputs.errors }}
         shell: bash
         run: |
-          errors='${{ steps.check.outputs.errors }}'
           if [[ -z "${errors}" ]]; then
             errors="[]"
           fi
-          echo "errors=${errors}" >> $GITHUB_OUTPUT
+          echo "errors=${errors}" >> ${GITHUB_OUTPUT}
       - name: End of check
         if: needs.check-submission.outputs.submission == 'false'
         shell: bash
@@ -309,7 +322,7 @@ jobs:
           echo "No changes to ${CSV_FILE} found"
           exit 0
 
-  check-summary:
+  summary:
     runs-on: ubuntu-latest
     needs:
       - check-submission
@@ -322,25 +335,47 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
+      - name: Create GitHub App token
+        uses: actions/create-github-app-token@v2
+        id: app-token
         with:
-          fetch-depth: 2
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_KEY }}
+      - name: Get GitHub App User ID
+        id: get-user-id
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
+        run: echo "user-id=$(gh api "/users/${APP_SLUG}[bot]" --jq .id)" >> "${GITHUB_OUTPUT}"
       - name: Generate summary report
         if: needs.check-submission.outputs.submission == 'true'
         env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
+          USER_ID: ${{ steps.get-user-id.outputs.user-id }}
           NUMBER: ${{ github.event.pull_request.number }}
           PR_BRANCH: ${{ github.event.pull_request.head.ref }}
+          DUPLICATE_RESULT: ${{ needs.check-duplicate.result }}
+          TOPICS_RESULT: ${{ needs.check-topics.result }}
+          DESCRIPTION_RESULT: ${{ needs.check-description.result }}
+          RELEASE_RESULT: ${{ needs.check-release.result }}
+          REDIRECTION_RESULT: ${{ needs.check-redirection.result }}
+          DUPLICATE_ERRORS: ${{ needs.check-duplicate.outputs.errors }}
+          TOPICS_ERRORS: ${{ needs.check-topics.outputs.errors }}
+          DESCRIPTION_ERRORS: ${{ needs.check-description.outputs.errors }}
+          RELEASE_ERRORS: ${{ needs.check-release.outputs.errors }}
+          REDIRECTION_ERRORS: ${{ needs.check-redirection.outputs.errors }}
         shell: bash
         run: |
-          echo "## Extension Check Summary" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Extension Check Summary" >> "${GITHUB_STEP_SUMMARY}"
+          echo "" >> "${GITHUB_STEP_SUMMARY}"
 
           errors_found=false
-          if [[ '${{ needs.check-duplicate.result }}' == "failure" || \
-                '${{ needs.check-topics.result }}' == "failure" || \
-                '${{ needs.check-description.result }}' == "failure" || \
-                '${{ needs.check-release.result }}' == "failure" || \
-                '${{ needs.check-redirection.result }}' == "failure" || \
-                '${{ needs.check-contributes.result }}' == "failure" ]]; then
+          if [[ "${DUPLICATE_RESULT}" == "failure" || \
+                "${TOPICS_RESULT}" == "failure" || \
+                "${DESCRIPTION_RESULT}" == "failure" || \
+                "${RELEASE_RESULT}" == "failure" || \
+                "${REDIRECTION_RESULT}" == "failure" ]]; then
             errors_found=true
           fi
 
@@ -348,49 +383,48 @@ jobs:
             declare -A file_line_errors
 
             for errors_json in \
-            '${{ needs.check-duplicate.outputs.errors }}' \
-            '${{ needs.check-topics.outputs.errors }}' \
-            '${{ needs.check-description.outputs.errors }}' \
-            '${{ needs.check-release.outputs.errors }}' \
-            '${{ needs.check-redirection.outputs.errors }}' \
-            '${{ needs.check-contributes.outputs.errors }}'; do
+            "${DUPLICATE_ERRORS}" \
+            "${TOPICS_ERRORS}" \
+            "${DESCRIPTION_ERRORS}" \
+            "${RELEASE_ERRORS}" \
+            "${REDIRECTION_ERRORS}"; do
               if [[ "${errors_json}" != "[]" && "${errors_json}" != "" ]]; then
                 while read -r error_obj; do
-                  line=$(echo "${error_obj}" | jq -r '.line')
-                  message=$(echo "${error_obj}" | jq -r '.message')
+                  line=$(echo "${error_obj}" | jq -r ".line")
+                  message=$(echo "${error_obj}" | jq -r ".message")
 
-                  if [[ -z "${file_line_errors[$line]}" ]]; then
-                    file_line_errors["$line"]="- ❌ ${message}"
+                  if [[ -z "${file_line_errors[${line}]}" ]]; then
+                    file_line_errors["${line}"]="- ❌ ${message}"
                   else
-                    file_line_errors["$line"]+=$'\n- ❌ '"${message}"
+                    file_line_errors["${line}"]+=$'\n- ❌ '"${message}"
                   fi
-                done < <(echo "${errors_json}" | jq -c '.[]')
+                done < <(echo "${errors_json}" | jq -c ".[]")
               fi
             done
-            echo "The following issues were found in [\`${CSV_FILE}\`](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/blob/${PR_BRANCH}/${CSV_FILE}):" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "The following issues were found in [\`${CSV_FILE}\`](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/blob/${PR_BRANCH}/${CSV_FILE}):" >> "${GITHUB_STEP_SUMMARY}"
+            echo "" >> "${GITHUB_STEP_SUMMARY}"
+            echo "🔍 [View workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})" >> "${GITHUB_STEP_SUMMARY}"
+            echo "" >> "${GITHUB_STEP_SUMMARY}"
 
             CSV_FILE_ENCODED=$(echo -n "${CSV_FILE}" | hexdump -v -e '/1 "%02x"' | sed 's/\(..\)/%\1/g')
             for line_number in $(echo "${!file_line_errors[@]}" | tr ' ' '\n' | sort -n); do
               entry=$(sed -n "${line_number}p" ${CSV_FILE})
-              echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::Submission error\n${file_line_errors[$line_number]}"
-              echo "### Line [${line_number}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/pull/${NUMBER}/files#diff-${CSV_FILE_ENCODED}L${line_number}): [\`${entry}\`](${GITHUB_SERVER_URL}/${entry})" >> $GITHUB_STEP_SUMMARY
-              echo "" >> $GITHUB_STEP_SUMMARY
-              echo -e "${file_line_errors[$line_number]}" >> $GITHUB_STEP_SUMMARY
-              echo "" >> $GITHUB_STEP_SUMMARY
+              echo "### Line [${line_number}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/pull/${NUMBER}/files#diff-${CSV_FILE_ENCODED}L${line_number}): [\`${entry}\`](${GITHUB_SERVER_URL}/${entry})" >> "${GITHUB_STEP_SUMMARY}"
+              echo "" >> "${GITHUB_STEP_SUMMARY}"
+              echo -e "${file_line_errors[${line_number}]}" >> "${GITHUB_STEP_SUMMARY}"
+              echo "" >> "${GITHUB_STEP_SUMMARY}"
             done
           else
-            echo "✅ All checks passed successfully!" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "🔍 [View workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})" >> $GITHUB_STEP_SUMMARY
+            echo "✅ All checks passed successfully!" >> "${GITHUB_STEP_SUMMARY}"
+            echo "" >> "${GITHUB_STEP_SUMMARY}"
+            echo "🔍 [View workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})" >> "${GITHUB_STEP_SUMMARY}"
           fi
 
-          mkdir -p ./extensions-check-summary
-          echo ${NUMBER} > ./extensions-check-summary/pr_number
-          cp ${GITHUB_STEP_SUMMARY} ./extensions-check-summary/summary.md
-
-      - uses: actions/upload-artifact@v4
-        if: needs.check-submission.outputs.submission == 'true'
-        with:
-          name: extensions-check-summary
-          path: extensions-check-summary/
+          git config --global user.name "${APP_SLUG}[bot]"
+          git config --global user.email "${USER_ID}+${APP_SLUG}[bot]@users.noreply.github.com"
+          cp "${GITHUB_STEP_SUMMARY}" ./summary.md
+          gh pr comment "${NUMBER}" \
+            --body-file ./summary.md \
+            --create-if-none \
+            --edit-last \
+            --repo ${GITHUB_REPOSITORY}
