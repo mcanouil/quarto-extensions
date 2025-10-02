@@ -46,10 +46,10 @@ jobs:
       - name: Unzip artifact
         if: steps.download-artifact.outputs.download-path != ''
         env:
-          DOWNLOAD_PATH: "${{ steps.download-artifact.outputs.download-path }}/extensions-check-summary.zip"
+          DOWNLOAD_PATH: "${{ steps.download-artifact.outputs.download-path }}/"
         run: |
           ls -la "${DOWNLOAD_PATH}"
-          unzip -o "${DOWNLOAD_PATH}" -d "extensions-check-summary"
+          unzip -o "${DOWNLOAD_PATH}extensions-check-summary.zip" -d "extensions-check-summary"
       - name: Generate summary report
         if: steps.download-artifact.outputs.download-path != ''
         env:
