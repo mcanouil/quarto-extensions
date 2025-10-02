@@ -36,6 +36,7 @@ jobs:
         run: echo "user-id=$(gh api "/users/${APP_SLUG}[bot]" --jq .id)" >> "${GITHUB_OUTPUT}"
       - name: Download artifact
         id: download-artifact
+        continue-on-error: true
         uses: actions/download-artifact@v5
         with:
           name: extensions-check-summary
