@@ -43,29 +43,23 @@ jobs:
           path: "${{ runner.temp }}/artifacts/"
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ steps.app-token.outputs.token }}
-      - name: Unzip artifact
-        if: steps.download-artifact.outputs.download-path != ''
-        env:
-          DOWNLOAD_PATH: "${{ steps.download-artifact.outputs.download-path }}/"
-        run: |
-          ls -la "${DOWNLOAD_PATH}"
-          unzip -o "${DOWNLOAD_PATH}extensions-check-summary.zip" -d "extensions-check-summary"
       - name: Generate summary report
         if: steps.download-artifact.outputs.download-path != ''
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
           USER_ID: ${{ steps.get-user-id.outputs.user-id }}
+          DOWNLOAD_PATH: ${{ steps.download-artifact.outputs.download-path }}
         shell: bash
         run: |
           git config --global user.name '${APP_SLUG}[bot]'
           git config --global user.email '${USER_ID}+${APP_SLUG}[bot]@users.noreply.github.com'
-          gh pr comment "$(cat extensions-check-summary/pr_number)" \
-            --body-file extensions-check-summary/summary.md \
+          gh pr comment "$(cat ${DOWNLOAD_PATH}/pr_number)" \
+            --body-file ${DOWNLOAD_PATH}/summary.md \
             --create-if-none \
             --edit-last \
             --repo ${GITHUB_REPOSITORY}
-          cat extensions-check-summary/summary.md  >> "${GITHUB_STEP_SUMMARY}"
+          cat ${DOWNLOAD_PATH}/summary.md  >> "${GITHUB_STEP_SUMMARY}"
       - name: Workflow completion
         env:
           DOWNLOAD_PATH: ${{ steps.download-artifact.outputs.download-path }}
