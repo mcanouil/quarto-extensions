@@ -130,8 +130,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     extensions.forEach(ext => {
       try {
-        const titleEl = ext.querySelector('.extension-title, .card-title');
-        const descEl = ext.querySelector('.extension-description, .card-text');
+        const titleEl = ext.querySelector('.extension-title');
+        const descEl = ext.querySelector('.extension-description');
         
         // Defensive checks for missing elements
         const title = titleEl ? titleEl.textContent.toLowerCase() : '';
