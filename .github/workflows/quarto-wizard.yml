@@ -149,6 +149,7 @@ jobs:
             local attempt=0
             local mime_type=""
             local placeholder_file="assets/media/github-placeholder.png"
+            local original_file="${output_file}"
             while [[ ${attempt} -lt 3 ]]; do
               curl -s -o "${output_file}" "${image_url}"
               mime_type=$(file --mime-type -b "${output_file}")
@@ -176,6 +177,8 @@ jobs:
             fi
             if [[ -f "${output_file}" ]]; then
               echo "${output_file}"
+            else if [[ -f "${original_file}" ]]; then
+              echo "${original_file}"
             else
               echo "${placeholder_file}"
             fi
