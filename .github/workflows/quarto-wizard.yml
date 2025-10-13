@@ -292,7 +292,7 @@ jobs:
               echo "::group::Processing entry: ${entry}"
               repo=$(echo "${entry}" | cut -d'/' -f1,2)
               repo_info=$(gh repo view "${repo}" \
-                --json name,nameWithOwner,owner,description,openGraphImageUrl,stargazerCount,licenseInfo,url,latestRelease,createdAt,updatedAt,repositoryTopics,defaultBranchRef \
+                --json name,nameWithOwner,owner,description,openGraphImageUrl,stargazerCount,licenseInfo,url,latestRelease,createdAt,updatedAt,pushedAt,repositoryTopics,defaultBranchRef \
                 --jq '{
                   name: .name,
                   title: (.name | split("-|_"; "") | map(select(. != "quarto" and . != "template")) | join(" ") | ascii_upcase),
@@ -307,6 +307,7 @@ jobs:
                   latestReleaseUrl: (.latestRelease.url // null),
                   createdAt: .createdAt,
                   updatedAt: .updatedAt,
+                  pushedAt: .pushedAt,
                   defaultBranchRef: .defaultBranchRef.name,
                   repositoryTopics: (if .repositoryTopics == null then [] else
                   [.repositoryTopics[].name |
@@ -439,7 +440,7 @@ jobs:
 
               entry_title=$(echo "${repo_info}" | jq -r '.title')
               entry_created=$(echo "${repo_info}" | jq -r '.createdAt')
-              entry_updated=$(echo "${repo_info}" | jq -r '.updatedAt')
+              entry_updated=$(echo "${repo_info}" | jq -r '.pushedAt')
               entry_url=$(echo "${repo_info}" | jq -r '.url')
               entry_topics=$(echo "${repo_info}" | jq -r '.repositoryTopics' | jq -c 'unique')
               entry_contributes=$(echo "${repo_info}" | jq -r '.contributes' | jq -c 'unique')
