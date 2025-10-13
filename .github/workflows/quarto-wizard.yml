@@ -177,7 +177,7 @@ jobs:
             fi
             if [[ -f "${output_file}" ]]; then
               echo "${output_file}"
-            else if [[ -f "${original_file}" ]]; then
+            elif [[ -f "${original_file}" ]]; then
               echo "${original_file}"
             else
               echo "${placeholder_file}"
@@ -357,7 +357,7 @@ jobs:
                   fi
                 fi
                 if [[ "${update_author_json}" == "true" ]]; then
-                  echo "${author_payload}" > "${author_json_file}"
+                  echo "${author_payload}" >"${author_json_file}"
                   git add "${author_json_file}" || echo "No changes detected, skipping commit"
                   author_png_file=$(author_image_file "${author_png_file}" "${owner}")
                   git add "${author_png_file}" || echo "No changes detected, skipping commit"
@@ -369,7 +369,7 @@ jobs:
               if [[ -f "${extension_json_file}" ]]; then
                 existing_updated_at=$(jq -r ".[\"${entry,,}\"].updatedAt // empty" "${extension_json_file}")
                 current_updated_at=$(echo "${repo_info}" | jq -r ".updatedAt")
-                files=( "${extension_json_file}" "${extension_png_file}" "${extension_yaml_file}" )
+                files=("${extension_json_file}" "${extension_png_file}" "${extension_yaml_file}")
                 all_exist=true
                 for file in "${files[@]}"; do
                   [[ -f "${file}" ]] || all_exist=false
@@ -473,7 +473,7 @@ jobs:
                 "${entry_license}" "${entry_stars}" "${entry_release}" "${entry_description}" \
                 "${yaml_usage_body}" "${entry_template}" "${entry_example}" "${entry_contributes}"
 
-              echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}' > "${extension_json_file}"
+              echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}' >"${extension_json_file}"
 
               # Gather all files to stage and commit
               local files_to_commit=("${extension_json_file}" "${extension_yaml_file}" "${extension_png_file}")
@@ -482,7 +482,7 @@ jobs:
               fi
               git_stage_and_commit "${files_to_commit[@]}"
               updated_extensions+=("${entry}")
-            echo "::endgroup::"
+              echo "::endgroup::"
             done < <(echo "$CSV_ENTRIES" | sort -f)
             echo "::endgroup::"
           }
@@ -495,7 +495,7 @@ jobs:
 
           process_extensions "$CSV_ENTRIES"
 
-          find "${EXTENSIONS_DIR}" -type f -path "${EXTENSIONS_DIR}/*/*/extension.json" -print0 | xargs -0 cat | jq -s 'add' > "${JSON_FILE}"
+          find "${EXTENSIONS_DIR}" -type f -path "${EXTENSIONS_DIR}/*/*/extension.json" -print0 | xargs -0 cat | jq -s 'add' >"${JSON_FILE}"
           git_stage_and_commit "${JSON_FILE}"
 
           github_cleanup_extensions_dir "${EXTENSIONS_DIR}" "${valid_dirs[@]}"
@@ -507,7 +507,7 @@ jobs:
             echo "updated-extensions=$(printf '%s,' "${updated_extensions[@]}" | sed 's/,$//')"
             echo "skipped-extensions=$(printf '%s,' "${skipped_extensions[@]}" | sed 's/,$//')"
             echo "outdated-extensions=$(printf '%s,' "${outdated_extensions[@]}" | sed 's/,$//')"
-          } >> "${GITHUB_OUTPUT}"
+          } >>"${GITHUB_OUTPUT}"
 
           echo "::notice title=Updated Extensions::Count: ${#updated_extensions[@]}"
           if [[ ${#outdated_extensions[@]} -gt 0 ]]; then
