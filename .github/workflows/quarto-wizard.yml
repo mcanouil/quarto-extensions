@@ -149,7 +149,17 @@ jobs:
             local attempt=0
             local mime_type=""
             local placeholder_file="assets/media/github-placeholder.png"
-            local original_file="${output_file}"
+
+            # Step 1: Delete existing extension.png if it's the same as placeholder
+            if [[ -f "${output_file}" ]]; then
+              if cmp -s "${output_file}" "${placeholder_file}"; then
+                echo "Existing image is identical to placeholder, removing"
+                git rm --cached "${output_file}" 2>/dev/null || true
+                rm -f "${output_file}"
+              fi
+            fi
+
+            # Step 2: Try to download and update extension.png
             while [[ ${attempt} -lt 3 ]]; do
               curl -s -o "${output_file}" "${image_url}"
               mime_type=$(file --mime-type -b "${output_file}")
@@ -163,22 +173,19 @@ jobs:
               attempt=$((attempt + 1))
               sleep 1
             done
+
+            # Step 2 continued: Only keep downloaded image if it's not the same as placeholder
             if [[ -f "${output_file}" && "${mime_type}" == "image/png" ]]; then
               if cmp -s "${output_file}" "${placeholder_file}"; then
-                echo "Downloaded image is identical to placeholder, undoing changes"
+                echo "Downloaded image is identical to placeholder, removing"
                 git rm --cached "${output_file}" 2>/dev/null || true
                 rm -f "${output_file}"
-                if [[ -f "${output_file}" ]] && cmp -s "${output_file}" "${placeholder_file}"; then
-                  echo "Output file is still identical to placeholder, removing"
-                  git rm --cached "${output_file}" 2>/dev/null || true
-                  rm -f "${output_file}"
-                fi
               fi
             fi
+
+            # Step 3: Return extension.png if it exists, otherwise return placeholder location
             if [[ -f "${output_file}" ]]; then
               echo "${output_file}"
-            elif [[ -f "${original_file}" ]]; then
-              echo "${original_file}"
             else
               echo "${placeholder_file}"
             fi
