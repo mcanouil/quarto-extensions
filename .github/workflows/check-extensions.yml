@@ -26,7 +26,7 @@ jobs:
       diff: ${{ steps.check-submission.outputs.DIFF }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 2
       - name: Check for submission
@@ -60,7 +60,7 @@ jobs:
       errors: ${{ steps.store-errors.outputs.errors }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 2
       - name: Check for duplicates
@@ -113,7 +113,7 @@ jobs:
       errors: ${{ steps.store-errors.outputs.errors }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 2
       - name: Check for topics
@@ -168,7 +168,7 @@ jobs:
       errors: ${{ steps.store-errors.outputs.errors }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 2
       - name: Check for description
@@ -223,7 +223,7 @@ jobs:
       errors: ${{ steps.store-errors.outputs.errors }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 2
       - name: Check for release/tag
@@ -278,7 +278,7 @@ jobs:
       errors: ${{ steps.store-errors.outputs.errors }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 2
       - name: Check for redirection
@@ -334,7 +334,7 @@ jobs:
     if: always()
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 2
       - name: Generate summary report
