@@ -35,6 +35,21 @@ if (diffDays === 1) {
   const years = Math.floor(diffDays / 365);
   relativeTime = years === 1 ? '1 year ago' : `${years} years ago`;
 }
+
+// Check for status keywords (priority: superseded > deprecated > archived > experimental > stable)
+const categories = item.categories.map(c => c.toLowerCase());
+let statusBanner = null;
+if (categories.includes('superseded')) {
+  statusBanner = { type: 'superseded', text: 'Superseded', class: 'warning' };
+} else if (categories.includes('deprecated')) {
+  statusBanner = { type: 'deprecated', text: 'Deprecated', class: 'warning' };
+} else if (categories.includes('archived')) {
+  statusBanner = { type: 'archived', text: 'Archived', class: 'secondary' };
+} else if (categories.includes('experimental')) {
+  statusBanner = { type: 'experimental', text: 'Experimental', class: 'info' };
+} else if (categories.includes('stable')) {
+  statusBanner = { type: 'stable', text: 'Stable', class: 'success' };
+}
 %>
 
 ```{=html}
@@ -53,6 +68,12 @@ if (diffDays === 1) {
       <% let image = item.image; let imageAlt = item['image-alt']; if (!image) { image = "assets/media/github-placeholder.png"; imageAlt = "GitHub Placeholder Image"; } %>
       <div class="extension-image me-0 mb-3 mb-md-0 me-md-3 flex-shrink-0" style="width:150px;">
         <img src="<%= image %>" loading="lazy" alt="<%= imageAlt %>" class="img-fluid rounded" style="max-width:150px;">
+        <% if (statusBanner) { %>
+        <!-- Status Banner -->
+        <div class="alert alert-<%= statusBanner.class %> status-banner mb-0 mt-2 rounded text-center py-1 px-2 small" role="alert">
+          <i class="bi bi-exclamation-triangle-fill"></i> <strong><%= statusBanner.text %></strong>
+        </div>
+        <% } %>
       </div>
 
       <div class="flex-grow-1">

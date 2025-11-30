@@ -22,6 +22,19 @@ To add your extension to this list, please submit a pull request to this reposit
 > - Your GitHub repository has `example.qmd` or `template.qmd` file.
 > - Your GitHub repository has only one extension or a set of extensions under `_extensions`.
 
+## Extension Status Indicators
+
+Extensions can display status banners to indicate their maintenance or development state.
+Add one of the following topics to your GitHub repository to display a status banner:
+
+- **`superseded`** - For extensions that have been replaced by a newer version or alternative.
+- **`deprecated`** - For extensions that are outdated and should not be used in new projects.
+- **`archived`** - For extensions that are no longer actively maintained.
+- **`experimental`** - For extensions that are in early development or testing phase.
+- **`stable`** - For extensions that are production-ready and actively maintained.
+
+If multiple status topics are present, the priority order is: `superseded` > `deprecated` > `archived` > `experimental` > `stable`.
+
 ## Disclaimer
 
 This project is an independent community resource and is not affiliated with or endorsed by Quarto or its maintainers.
