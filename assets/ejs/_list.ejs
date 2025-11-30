@@ -36,20 +36,8 @@ if (diffDays === 1) {
   relativeTime = years === 1 ? '1 year ago' : `${years} years ago`;
 }
 
-// Check for status keywords (priority: superseded > deprecated > archived > experimental > stable)
-const categories = item.categories.map(c => c.toLowerCase());
-let statusBanner = null;
-if (categories.includes('superseded')) {
-  statusBanner = { type: 'superseded', text: 'Superseded', class: 'warning' };
-} else if (categories.includes('deprecated')) {
-  statusBanner = { type: 'deprecated', text: 'Deprecated', class: 'warning' };
-} else if (categories.includes('archived')) {
-  statusBanner = { type: 'archived', text: 'Archived', class: 'secondary' };
-} else if (categories.includes('experimental')) {
-  statusBanner = { type: 'experimental', text: 'Experimental', class: 'info' };
-} else if (categories.includes('stable')) {
-  statusBanner = { type: 'stable', text: 'Stable', class: 'success' };
-}
+// Get status banner using shared function
+const statusBanner = getStatusBanner(item.categories);
 %>
 
 ```{=html}
@@ -71,7 +59,10 @@ if (categories.includes('superseded')) {
         <% if (statusBanner) { %>
         <!-- Status Banner -->
         <div class="alert alert-<%= statusBanner.class %> status-banner mb-0 mt-2 rounded text-center py-1 px-2 small" role="alert">
-          <i class="bi bi-exclamation-triangle-fill"></i> <strong><%= statusBanner.text %></strong>
+          <% if (statusBanner.icon) { %>
+          <i class="bi <%= statusBanner.icon %>"></i>
+          <% } %>
+          <strong><%= statusBanner.text %></strong>
         </div>
         <% } %>
       </div>
