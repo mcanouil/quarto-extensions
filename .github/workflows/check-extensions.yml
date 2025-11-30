@@ -42,14 +42,21 @@ jobs:
           if [[ -z "${extension_submitted}" ]]; then
             echo "::notice::No changes to ${CSV_FILE} found"
             echo "SUBMISSION=false" >>${GITHUB_OUTPUT}
+            echo "DIFF=" >>${GITHUB_OUTPUT}
           else
             echo "::notice::Changes to ${CSV_FILE} found!"
-            echo "SUBMISSION=true" >>${GITHUB_OUTPUT}
             git fetch origin ${base_ref} --depth=1
             DIFF=$(
               git diff origin/${base_ref} HEAD -- ${CSV_FILE} | grep '^+[^+]' | sed 's/^+//' | base64 --wrap=0
             )
-            echo "DIFF=${DIFF}" >>${GITHUB_OUTPUT}
+            if [[ -z "${DIFF}" ]]; then
+              echo "::notice::No additions to ${CSV_FILE} found"
+              echo "SUBMISSION=false" >>${GITHUB_OUTPUT}
+              echo "DIFF=" >>${GITHUB_OUTPUT}
+            else
+              echo "SUBMISSION=true" >>${GITHUB_OUTPUT}
+              echo "DIFF=${DIFF}" >>${GITHUB_OUTPUT}
+            fi
           fi
           exit 0
 
