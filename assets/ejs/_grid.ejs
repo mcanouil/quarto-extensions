@@ -35,6 +35,17 @@ if (diffDays === 1) {
   const years = Math.floor(diffDays / 365);
   relativeTime = years === 1 ? '1 year ago' : `${years} years ago`;
 }
+
+// Check for status keywords (priority: superseded > deprecated > archived)
+const categories = item.categories.map(c => c.toLowerCase());
+let statusBanner = null;
+if (categories.includes('superseded')) {
+  statusBanner = { type: 'superseded', text: 'Superseded', class: 'warning' };
+} else if (categories.includes('deprecated')) {
+  statusBanner = { type: 'deprecated', text: 'Deprecated', class: 'warning' };
+} else if (categories.includes('archived')) {
+  statusBanner = { type: 'archived', text: 'Archived', class: 'secondary' };
+}
 %>
 
 ```{=html}
@@ -55,7 +66,14 @@ if (diffDays === 1) {
       <div class="card-img-wrapper">
         <img src="<%= image %>" loading="lazy" alt="<%= imageAlt %>" class="card-img-top">
       </div>
-      
+
+      <% if (statusBanner) { %>
+      <!-- Status Banner -->
+      <div class="alert alert-<%= statusBanner.class %> status-banner mb-0 rounded-0 text-center py-1" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i> <strong><%= statusBanner.text %></strong>
+      </div>
+      <% } %>
+
       <!-- Card Body -->
       <div class="card-body d-flex flex-column">
         <h6 class="card-title d-flex align-items-center justify-content-between no-anchor extension-title">
