@@ -149,6 +149,7 @@ jobs:
             local attempt=0
             local mime_type=""
             local placeholder_file="assets/media/github-placeholder.png"
+            local temp_file="${output_file}.tmp"
 
             # Step 1: Delete existing extension.png if it's the same as placeholder
             if [[ -f "${output_file}" ]]; then
@@ -159,31 +160,33 @@ jobs:
               fi
             fi
 
-            # Step 2: Try to download and update extension.png
+            # Step 2: Try to download and update extension.png using a temporary file
             while [[ ${attempt} -lt 3 ]]; do
-              curl -s -o "${output_file}" "${image_url}"
-              mime_type=$(file --mime-type -b "${output_file}")
+              curl -s -o "${temp_file}" "${image_url}"
+              mime_type=$(file --mime-type -b "${temp_file}")
               if [[ "${mime_type}" == "image/png" ]]; then
                 break
               fi
               if [[ "${mime_type}" != "image/png" ]]; then
                 echo "Note: image is not a PNG file. $((attempt + 1)) attempt(s) to download."
-                rm -f "${output_file}"
+                rm -f "${temp_file}"
               fi
               attempt=$((attempt + 1))
               sleep 1
             done
 
             # Step 2 continued: Only keep downloaded image if it's not the same as placeholder
-            if [[ -f "${output_file}" && "${mime_type}" == "image/png" ]]; then
-              if cmp -s "${output_file}" "${placeholder_file}"; then
+            if [[ -f "${temp_file}" && "${mime_type}" == "image/png" ]]; then
+              if cmp -s "${temp_file}" "${placeholder_file}"; then
                 echo "Downloaded image is identical to placeholder, removing"
-                git rm --cached "${output_file}" 2>/dev/null || true
-                rm -f "${output_file}"
+                rm -f "${temp_file}"
+              else
+                mv "${temp_file}" "${output_file}"
               fi
             fi
 
-            # Step 3: Return extension.png if it exists, otherwise return placeholder location
+            # Step 3: Clean up temporary file and return result
+            rm -f "${temp_file}"
             if [[ -f "${output_file}" ]]; then
               echo "${output_file}"
             else
@@ -381,10 +384,18 @@ jobs:
                 for file in "${files[@]}"; do
                   [[ -f "${file}" ]] || all_exist=false
                 done
-                if [[ -n "${existing_updated_at}" && "${existing_updated_at}" == "${current_updated_at}" && "${all_exist}" == true ]]; then
+                has_placeholder=false
+                if [[ -f "${extension_yaml_file}" ]]; then
+                  if grep -q 'image: "/assets/media/github-placeholder.png"' "${extension_yaml_file}"; then
+                    has_placeholder=true
+                  fi
+                fi
+                if [[ -n "${existing_updated_at}" && "${existing_updated_at}" == "${current_updated_at}" && "${all_exist}" == true && "${has_placeholder}" == false ]]; then
                   echo "Skipping ${entry}: updatedAt matches existing record (${existing_updated_at})"
                   skipped_extensions+=("${entry}")
                   continue
+                elif [[ "${has_placeholder}" == true ]]; then
+                  echo "Processing ${entry}: extension YAML contains placeholder image"
                 fi
               else
                 echo "Processing ${entry}: JSON file does not exist, will create new record"
@@ -473,9 +484,9 @@ jobs:
                 entry_release="[${entry_release}](${entry_release_url})"
               fi
 
-              extension_png_file=$(extension_image_file "${entry_image}" "${extension_png_file}" | tail -n 1)
+              clean_extension_png_file=$(extension_image_file "${entry_image}" "${extension_png_file}" | tail -n 1)
               generate_extension_yaml \
-                "${extension_yaml_file}" "${entry_title}" "${extension_png_file}" "${entry_url}" \
+                "${extension_yaml_file}" "${entry_title}" "${clean_extension_png_file}" "${entry_url}" \
                 "${entry_author}" "${owner}" "${entry_created}" "${entry_updated}" "${entry_topics}" \
                 "${entry_license}" "${entry_stars}" "${entry_release}" "${entry_description}" \
                 "${yaml_usage_body}" "${entry_template}" "${entry_example}" "${entry_contributes}"
@@ -483,7 +494,7 @@ jobs:
               echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}' >"${extension_json_file}"
 
               # Gather all files to stage and commit
-              local files_to_commit=("${extension_json_file}" "${extension_yaml_file}" "${extension_png_file}")
+              local files_to_commit=("${extension_json_file}" "${extension_yaml_file}" "${clean_extension_png_file}")
               if [[ "${owner}" != "${previous_owner}" && "${update_author_json}" == "true" ]]; then
                 files_to_commit+=("${author_json_file}" "${author_png_file}")
               fi
