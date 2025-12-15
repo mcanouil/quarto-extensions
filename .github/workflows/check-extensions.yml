@@ -418,7 +418,7 @@ jobs:
           echo ${NUMBER} > ./extensions-check-summary/pr_number
           cp ${GITHUB_STEP_SUMMARY} ./extensions-check-summary/summary.md
 
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         if: needs.check-submission.outputs.submission == 'true'
         with:
           name: extensions-check-summary
