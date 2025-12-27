@@ -35,6 +35,9 @@ if (diffDays === 1) {
   const years = Math.floor(diffDays / 365);
   relativeTime = years === 1 ? '1 year ago' : `${years} years ago`;
 }
+
+// Get status banner using shared function
+const statusBanner = getStatusBanner(item.categories);
 %>
 
 ```{=html}
@@ -55,10 +58,20 @@ if (diffDays === 1) {
       <div class="card-img-wrapper">
         <img src="<%= image %>" loading="lazy" alt="<%= imageAlt %>" class="card-img-top">
       </div>
-      
+
+      <% if (statusBanner) { %>
+      <!-- Status Banner -->
+      <div class="alert alert-<%= statusBanner.class %> status-banner mb-0 rounded-0 text-center py-1" role="alert">
+        <% if (statusBanner.icon) { %>
+        <i class="bi <%= statusBanner.icon %>"></i>
+        <% } %>
+        <strong><%= statusBanner.text %></strong>
+      </div>
+      <% } %>
+
       <!-- Card Body -->
       <div class="card-body d-flex flex-column">
-        <h6 class="card-title d-flex align-items-center justify-content-between no-anchor">
+        <h6 class="card-title d-flex align-items-center justify-content-between no-anchor extension-title">
           <span>
             <a href="<%= item['github-url'] %>" target="_blank">
               <%= item.title %>
@@ -79,7 +92,7 @@ if (diffDays === 1) {
           </button>
         </p>
         
-        <p class="card-text flex-grow-1">
+        <p class="card-text flex-grow-1 extension-description">
           <%- item.description %>
         </p>
         

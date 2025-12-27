@@ -5,6 +5,26 @@ const excludeCategories = [
   'filter', 'filters',
   'shortcode', 'shortcodes'
 ];
+
+// Shared function to get status banner based on categories
+// Returns object with type, text, class, and icon
+// Priority: superseded > deprecated > archived > experimental > stable
+const getStatusBanner = (categories) => {
+  const lowerCategories = categories.map(c => c.toLowerCase());
+
+  if (lowerCategories.includes('superseded')) {
+    return { type: 'superseded', text: 'Superseded', class: 'warning', icon: 'bi-exclamation-triangle-fill' };
+  } else if (lowerCategories.includes('deprecated')) {
+    return { type: 'deprecated', text: 'Deprecated', class: 'warning', icon: 'bi-exclamation-triangle-fill' };
+  } else if (lowerCategories.includes('archived')) {
+    return { type: 'archived', text: 'Archived', class: 'secondary', icon: 'bi-archive-fill' };
+  } else if (lowerCategories.includes('experimental')) {
+    return { type: 'experimental', text: 'Experimental', class: 'info', icon: 'bi-flask' };
+  } else if (lowerCategories.includes('stable')) {
+    return { type: 'stable', text: 'Stable', class: 'success', icon: 'bi-check-circle-fill' };
+  }
+  return null;
+};
 %>
 
 :::: {#extensions-listing-container}
@@ -25,14 +45,14 @@ partial("_controls.ejs")
 <!-- Grid View -->
 :::: {#grid-view-container .view-container}
 <%
-partial("_grid.ejs", { items, excludeCategories, utils })
+partial("_grid.ejs", { items, excludeCategories, utils, getStatusBanner })
 %>
 ::::
 
 <!-- List View -->
 :::: {#list-view-container .view-container .d-none}
 <%
-partial("_list.ejs", { items, excludeCategories, utils })
+partial("_list.ejs", { items, excludeCategories, utils, getStatusBanner })
 %>
 ::::
 
@@ -71,6 +91,15 @@ if (isTemplate || isExample) {
 }
 .list-group-item.extension-item:not([hidden]):first-of-type {
   border-top: 1px solid var(--bs-border-colour, #dee2e6);
+}
+
+.status-banner {
+  font-size: 0.875rem;
+  border: none;
+  margin: 0;
+}
+.status-banner i {
+  font-size: 0.875rem;
 }
 
 .btn-group.flex-wrap {

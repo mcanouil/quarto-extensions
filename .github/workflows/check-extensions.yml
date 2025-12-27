@@ -26,7 +26,7 @@ jobs:
       diff: ${{ steps.check-submission.outputs.DIFF }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 2
       - name: Check for submission
@@ -42,14 +42,21 @@ jobs:
           if [[ -z "${extension_submitted}" ]]; then
             echo "::notice::No changes to ${CSV_FILE} found"
             echo "SUBMISSION=false" >>${GITHUB_OUTPUT}
+            echo "DIFF=" >>${GITHUB_OUTPUT}
           else
             echo "::notice::Changes to ${CSV_FILE} found!"
-            echo "SUBMISSION=true" >>${GITHUB_OUTPUT}
             git fetch origin ${base_ref} --depth=1
             DIFF=$(
               git diff origin/${base_ref} HEAD -- ${CSV_FILE} | grep '^+[^+]' | sed 's/^+//' | base64 --wrap=0
             )
-            echo "DIFF=${DIFF}" >>${GITHUB_OUTPUT}
+            if [[ -z "${DIFF}" ]]; then
+              echo "::notice::No additions to ${CSV_FILE} found"
+              echo "SUBMISSION=false" >>${GITHUB_OUTPUT}
+              echo "DIFF=" >>${GITHUB_OUTPUT}
+            else
+              echo "SUBMISSION=true" >>${GITHUB_OUTPUT}
+              echo "DIFF=${DIFF}" >>${GITHUB_OUTPUT}
+            fi
           fi
           exit 0
 
@@ -60,7 +67,7 @@ jobs:
       errors: ${{ steps.store-errors.outputs.errors }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 2
       - name: Check for duplicates
@@ -113,7 +120,7 @@ jobs:
       errors: ${{ steps.store-errors.outputs.errors }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 2
       - name: Check for topics
@@ -129,9 +136,9 @@ jobs:
           if [[ -s diff.patch ]]; then
             while IFS=, read -r repo; do
               repo=$(echo "${repo}" | cut -d'/' -f1-2)
-                repo_topics=$(gh repo view --json repositoryTopics "${repo}" --jq ".repositoryTopics")
+              repo_topics=$(gh repo view --json repositoryTopics "${repo}" --jq ".repositoryTopics")
               if [[ -z "${repo_topics}" ]]; then
-                line_number=$(grep -n "${repo}" ${CSV_FILE} | tail -n +2 | cut -d: -f1)
+                line_number=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1 | tail -n 1)
                 error_message="Repository \"${repo}\" is missing topics!"
                 # echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
                 errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "Repository is missing topics."}]')
@@ -168,7 +175,7 @@ jobs:
       errors: ${{ steps.store-errors.outputs.errors }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 2
       - name: Check for description
@@ -186,7 +193,7 @@ jobs:
               repo=$(echo "${repo}" | cut -d'/' -f1-2)
               repo_description=$(gh repo view --json description "${repo}" --jq ".description")
               if [[ -z "${repo_description}" ]]; then
-                line_number=$(grep -n "${repo}" ${CSV_FILE} | tail -n +2 | cut -d: -f1)
+                line_number=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1 | tail -n 1)
                 error_message="Repository \"${repo}\" is missing description!"
                 # echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
                 errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "Repository is missing description."}]')
@@ -223,7 +230,7 @@ jobs:
       errors: ${{ steps.store-errors.outputs.errors }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 2
       - name: Check for release/tag
@@ -241,7 +248,7 @@ jobs:
               repo=$(echo "${repo}" | cut -d'/' -f1-2)
               repo_release=$(gh repo view --json latestRelease "${repo}" --jq ".latestRelease")
               if [[ -z "${repo_release}" ]]; then
-                line_number=$(grep -n "${repo}" ${CSV_FILE} | tail -n +2 | cut -d: -f1)
+                line_number=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1 | tail -n 1)
                 error_message="Repository \"${repo}\" is missing release/tag!"
                 # echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
                 errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "Repository is missing release/tag."}]')
@@ -278,7 +285,7 @@ jobs:
       errors: ${{ steps.store-errors.outputs.errors }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 2
       - name: Check for redirection
@@ -294,7 +301,7 @@ jobs:
               redirection_target=$(curl -Ls -o /dev/null -w "%{url_effective}" "https://github.com/${repo}")
               redirection_target=${redirection_target#"https://github.com/"}
               error_message="Repository \"${repo}\" is redirected to \"${redirection_target}\"!"
-              line_number=$(grep -n "${repo}" ${CSV_FILE} | tail -n +2 | cut -d: -f1)
+              line_number=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1 | tail -n 1)
               # echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
               errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "Repository is redirected."}]')
               error=true
@@ -334,7 +341,7 @@ jobs:
     if: always()
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 2
       - name: Generate summary report
@@ -379,7 +386,7 @@ jobs:
                 while read -r error_obj; do
                   line=$(echo "${error_obj}" | jq -r ".line")
                   message=$(echo "${error_obj}" | jq -r ".message")
-
+                  echo "[DEBUG] line: '${line}', message: '${message}'" >&2
                   if [[ -z "${file_line_errors[${line}]}" ]]; then
                     file_line_errors["${line}"]="- ❌ ${message}"
                   else
@@ -411,7 +418,7 @@ jobs:
           echo ${NUMBER} > ./extensions-check-summary/pr_number
           cp ${GITHUB_STEP_SUMMARY} ./extensions-check-summary/summary.md
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         if: needs.check-submission.outputs.submission == 'true'
         with:
           name: extensions-check-summary

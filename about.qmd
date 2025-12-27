@@ -53,6 +53,19 @@ Please make sure that:
 
 :::
 
+## Extension Status Indicators
+
+Extensions can display status banners to indicate their maintenance or development state.
+Add one of the following topics to your GitHub repository to display a status banner:
+
+- [{{< iconify bi:exclamation-triangle-fill >}} superseded]{.alert .alert-warning .mb-0 .rounded-0 .text-center .py-1 role="alert"} - For extensions that have been replaced by a newer version or alternative.
+- [{{< iconify bi:exclamation-triangle-fill >}} deprecated]{.alert .alert-warning .mb-0 .rounded-0 .text-center .py-1 role="alert"} - For extensions that are outdated and should not be used in new projects.
+- [{{< iconify bi:archive-fill >}} archived]{.alert .alert-secondary .mb-0 .rounded-0 .text-center .py-1 role="alert"} - For extensions that are no longer actively maintained.
+- [{{< iconify bi:flask >}} experimental]{.alert .alert-info .mb-0 .rounded-0 .text-center .py-1 role="alert"} - For extensions that are in early development or testing phase.
+- [{{< iconify bi:check-circle-fill >}} stable]{.alert .alert-success .mb-0 .rounded-0 .text-center .py-1 role="alert"} - For extensions that are production-ready and actively maintained.
+
+If multiple status topics are present, the priority order is: `superseded` > `deprecated` > `archived` > `experimental` > `stable`.
+
 ## Disclaimer
 
 This project is an independent community resource and is not affiliated with or endorsed by Quarto or its maintainers.

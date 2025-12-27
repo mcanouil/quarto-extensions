@@ -42,12 +42,12 @@ jobs:
       DEBUG_MODE: ${{ github.event.inputs.debug }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           ref: ${{ env.BRANCH }}
 
       - name: Checkout repository with sparse checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           sparse-checkout: ${{ env.CSV_FILE }}
           sparse-checkout-cone-mode: false
@@ -149,31 +149,44 @@ jobs:
             local attempt=0
             local mime_type=""
             local placeholder_file="assets/media/github-placeholder.png"
+            local temp_file="${output_file}.tmp"
+
+            # Step 1: Delete existing extension.png if it's the same as placeholder
+            if [[ -f "${output_file}" ]]; then
+              if cmp -s "${output_file}" "${placeholder_file}"; then
+                echo "Existing image is identical to placeholder, removing"
+                git rm --cached "${output_file}" 2>/dev/null || true
+                rm -f "${output_file}"
+              fi
+            fi
+
+            # Step 2: Try to download and update extension.png using a temporary file
             while [[ ${attempt} -lt 3 ]]; do
-              curl -s -o "${output_file}" "${image_url}"
-              mime_type=$(file --mime-type -b "${output_file}")
+              curl -s -o "${temp_file}" "${image_url}"
+              mime_type=$(file --mime-type -b "${temp_file}")
               if [[ "${mime_type}" == "image/png" ]]; then
                 break
               fi
               if [[ "${mime_type}" != "image/png" ]]; then
                 echo "Note: image is not a PNG file. $((attempt + 1)) attempt(s) to download."
-                rm -f "${output_file}"
+                rm -f "${temp_file}"
               fi
               attempt=$((attempt + 1))
               sleep 1
             done
-            if [[ -f "${output_file}" && "${mime_type}" == "image/png" ]]; then
-              if cmp -s "${output_file}" "${placeholder_file}"; then
-                echo "Downloaded image is identical to placeholder, undoing changes"
-                git rm --cached "${output_file}" 2>/dev/null || true
-                rm -f "${output_file}"
-                if [[ -f "${output_file}" ]] && cmp -s "${output_file}" "${placeholder_file}"; then
-                  echo "Output file is still identical to placeholder, removing"
-                  git rm --cached "${output_file}" 2>/dev/null || true
-                  rm -f "${output_file}"
-                fi
+
+            # Step 2 continued: Only keep downloaded image if it's not the same as placeholder
+            if [[ -f "${temp_file}" && "${mime_type}" == "image/png" ]]; then
+              if cmp -s "${temp_file}" "${placeholder_file}"; then
+                echo "Downloaded image is identical to placeholder, removing"
+                rm -f "${temp_file}"
+              else
+                mv "${temp_file}" "${output_file}"
               fi
             fi
+
+            # Step 3: Clean up temporary file and return result
+            rm -f "${temp_file}"
             if [[ -f "${output_file}" ]]; then
               echo "${output_file}"
             else
@@ -292,7 +305,7 @@ jobs:
               echo "::group::Processing entry: ${entry}"
               repo=$(echo "${entry}" | cut -d'/' -f1,2)
               repo_info=$(gh repo view "${repo}" \
-                --json name,nameWithOwner,owner,description,openGraphImageUrl,stargazerCount,licenseInfo,url,latestRelease,createdAt,updatedAt,repositoryTopics,defaultBranchRef \
+                --json name,nameWithOwner,owner,description,openGraphImageUrl,stargazerCount,licenseInfo,url,latestRelease,createdAt,updatedAt,pushedAt,repositoryTopics,defaultBranchRef \
                 --jq '{
                   name: .name,
                   title: (.name | split("-|_"; "") | map(select(. != "quarto" and . != "template")) | join(" ") | ascii_upcase),
@@ -307,6 +320,7 @@ jobs:
                   latestReleaseUrl: (.latestRelease.url // null),
                   createdAt: .createdAt,
                   updatedAt: .updatedAt,
+                  pushedAt: .pushedAt,
                   defaultBranchRef: .defaultBranchRef.name,
                   repositoryTopics: (if .repositoryTopics == null then [] else
                   [.repositoryTopics[].name |
@@ -353,7 +367,7 @@ jobs:
                   fi
                 fi
                 if [[ "${update_author_json}" == "true" ]]; then
-                  echo "${author_payload}" > "${author_json_file}"
+                  echo "${author_payload}" >"${author_json_file}"
                   git add "${author_json_file}" || echo "No changes detected, skipping commit"
                   author_png_file=$(author_image_file "${author_png_file}" "${owner}")
                   git add "${author_png_file}" || echo "No changes detected, skipping commit"
@@ -365,15 +379,23 @@ jobs:
               if [[ -f "${extension_json_file}" ]]; then
                 existing_updated_at=$(jq -r ".[\"${entry,,}\"].updatedAt // empty" "${extension_json_file}")
                 current_updated_at=$(echo "${repo_info}" | jq -r ".updatedAt")
-                files=( "${extension_json_file}" "${extension_png_file}" "${extension_yaml_file}" )
+                files=("${extension_json_file}" "${extension_png_file}" "${extension_yaml_file}")
                 all_exist=true
                 for file in "${files[@]}"; do
                   [[ -f "${file}" ]] || all_exist=false
                 done
-                if [[ -n "${existing_updated_at}" && "${existing_updated_at}" == "${current_updated_at}" && "${all_exist}" == true ]]; then
+                has_placeholder=false
+                if [[ -f "${extension_yaml_file}" ]]; then
+                  if grep -q 'image: "/assets/media/github-placeholder.png"' "${extension_yaml_file}"; then
+                    has_placeholder=true
+                  fi
+                fi
+                if [[ -n "${existing_updated_at}" && "${existing_updated_at}" == "${current_updated_at}" && "${all_exist}" == true && "${has_placeholder}" == false ]]; then
                   echo "Skipping ${entry}: updatedAt matches existing record (${existing_updated_at})"
                   skipped_extensions+=("${entry}")
                   continue
+                elif [[ "${has_placeholder}" == true ]]; then
+                  echo "Processing ${entry}: extension YAML contains placeholder image"
                 fi
               else
                 echo "Processing ${entry}: JSON file does not exist, will create new record"
@@ -439,7 +461,7 @@ jobs:
 
               entry_title=$(echo "${repo_info}" | jq -r '.title')
               entry_created=$(echo "${repo_info}" | jq -r '.createdAt')
-              entry_updated=$(echo "${repo_info}" | jq -r '.updatedAt')
+              entry_updated=$(echo "${repo_info}" | jq -r '.pushedAt')
               entry_url=$(echo "${repo_info}" | jq -r '.url')
               entry_topics=$(echo "${repo_info}" | jq -r '.repositoryTopics' | jq -c 'unique')
               entry_contributes=$(echo "${repo_info}" | jq -r '.contributes' | jq -c 'unique')
@@ -462,23 +484,23 @@ jobs:
                 entry_release="[${entry_release}](${entry_release_url})"
               fi
 
-              extension_png_file=$(extension_image_file "${entry_image}" "${extension_png_file}" | tail -n 1)
+              clean_extension_png_file=$(extension_image_file "${entry_image}" "${extension_png_file}" | tail -n 1)
               generate_extension_yaml \
-                "${extension_yaml_file}" "${entry_title}" "${extension_png_file}" "${entry_url}" \
+                "${extension_yaml_file}" "${entry_title}" "${clean_extension_png_file}" "${entry_url}" \
                 "${entry_author}" "${owner}" "${entry_created}" "${entry_updated}" "${entry_topics}" \
                 "${entry_license}" "${entry_stars}" "${entry_release}" "${entry_description}" \
                 "${yaml_usage_body}" "${entry_template}" "${entry_example}" "${entry_contributes}"
 
-              echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}' > "${extension_json_file}"
+              echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}' >"${extension_json_file}"
 
               # Gather all files to stage and commit
-              local files_to_commit=("${extension_json_file}" "${extension_yaml_file}" "${extension_png_file}")
+              local files_to_commit=("${extension_json_file}" "${extension_yaml_file}" "${clean_extension_png_file}")
               if [[ "${owner}" != "${previous_owner}" && "${update_author_json}" == "true" ]]; then
                 files_to_commit+=("${author_json_file}" "${author_png_file}")
               fi
               git_stage_and_commit "${files_to_commit[@]}"
               updated_extensions+=("${entry}")
-            echo "::endgroup::"
+              echo "::endgroup::"
             done < <(echo "$CSV_ENTRIES" | sort -f)
             echo "::endgroup::"
           }
@@ -491,7 +513,7 @@ jobs:
 
           process_extensions "$CSV_ENTRIES"
 
-          find "${EXTENSIONS_DIR}" -type f -path "${EXTENSIONS_DIR}/*/*/extension.json" -print0 | xargs -0 cat | jq -s 'add' > "${JSON_FILE}"
+          find "${EXTENSIONS_DIR}" -type f -path "${EXTENSIONS_DIR}/*/*/extension.json" -print0 | xargs -0 cat | jq -s 'add' >"${JSON_FILE}"
           git_stage_and_commit "${JSON_FILE}"
 
           github_cleanup_extensions_dir "${EXTENSIONS_DIR}" "${valid_dirs[@]}"
@@ -503,7 +525,7 @@ jobs:
             echo "updated-extensions=$(printf '%s,' "${updated_extensions[@]}" | sed 's/,$//')"
             echo "skipped-extensions=$(printf '%s,' "${skipped_extensions[@]}" | sed 's/,$//')"
             echo "outdated-extensions=$(printf '%s,' "${outdated_extensions[@]}" | sed 's/,$//')"
-          } >> "${GITHUB_OUTPUT}"
+          } >>"${GITHUB_OUTPUT}"
 
           echo "::notice title=Updated Extensions::Count: ${#updated_extensions[@]}"
           if [[ ${#outdated_extensions[@]} -gt 0 ]]; then
@@ -526,7 +548,7 @@ jobs:
       OUTDATED_EXTENSIONS: ${{ needs.get-extensions.outputs.outdated-extensions }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           ref: ${{ env.BRANCH }}
 

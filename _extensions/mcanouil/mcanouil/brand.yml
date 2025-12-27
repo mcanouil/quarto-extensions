@@ -43,6 +43,7 @@ defaults:
       #quarto-back-to-top {
         box-shadow: 0 .2rem .5rem body-mix(95%), 0 0 .05rem body-mix(95%);
         color: body-mix(5%);
+        bottom: 80px;
       }
 
       .quarto-title-banner {
@@ -120,6 +121,7 @@ defaults:
 
       div.sourceCode {
         background-color: body-mix(95%);
+        border: 1px solid body-mix(50%);
       }
 
       p code.sourceCode,
@@ -212,9 +214,9 @@ defaults:
           }
 
           @media(max-width: 992px) {
-            flex-direction: row;
-            justify-content: center;
-            flex-wrap: wrap;
+            flex-direction: row !important;
+            justify-content: center !important;
+            flex-wrap: wrap !important;
           }
         }
       }
