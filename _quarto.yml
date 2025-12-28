@@ -4,6 +4,10 @@ project:
   pre-render:
     - git fetch origin quarto-wizard:quarto-wizard
     - git restore --source=quarto-wizard --worktree "extensions"
+    - git restore --source=quarto-wizard quarto-extensions.json
+    - mv quarto-extensions.json extensions.json
+  resources:
+    - extensions.json
 
 author-meta: "Mickaël CANOUIL"
 date-meta: 2023-12-09
