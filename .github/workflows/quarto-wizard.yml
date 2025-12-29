@@ -405,11 +405,12 @@ jobs:
                 repo_subdirectory="${repo_subdirectory}/"
                 repo_recursive="?recursive=1"
               fi
+              default_branch=$(echo "${repo_info}" | jq -r '.defaultBranchRef')
               repo_tag=$(echo "${repo_info}" | jq -r ".latestRelease")
               if [[ "${repo_tag}" != "none" ]]; then
                 repo_branch="${repo_tag}"
               else
-                repo_branch=$(echo "${repo_info}" | jq -r ".defaultBranchRef")
+                repo_branch="${default_branch}"
               fi
               repo_template=$(gh api \
                 -X GET "repos/${repo}/git/trees/${repo_branch}${repo_recursive}" \
@@ -429,6 +430,8 @@ jobs:
               else
                 repo_info=$(echo "${repo_info}" | jq '. + {example: false, exampleContent: null}')
               fi
+              latest_commit=$(gh api "repos/${repo}/commits/${default_branch}" --jq '.sha' 2>/dev/null || echo "")
+              repo_info=$(echo "${repo_info}" | jq --arg latestCommit "${latest_commit}" '. + {latestCommit: $latestCommit}')
 
               repo_extension_contributes=$(gh api \
                 -X GET "repos/${repo}/git/trees/${repo_branch}?recursive=1" \
@@ -482,6 +485,9 @@ jobs:
                 yaml_usage_body="${nameWithOwner}@${entry_release}"
                 entry_release=$(echo "${entry_release}" | sed 's/^[^0-9]*//')
                 entry_release="[${entry_release}](${entry_release_url})"
+              else
+                entry_commit=$(echo "${repo_info}" | jq -r '.latestCommit')
+                entry_release="${entry_commit:0:7}"
               fi
 
               clean_extension_png_file=$(extension_image_file "${entry_image}" "${extension_png_file}" | tail -n 1)
