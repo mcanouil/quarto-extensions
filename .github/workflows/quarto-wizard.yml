@@ -8,6 +8,11 @@ on:
         required: false
         default: false
         type: boolean
+      force_update:
+        description: "Force update all extensions"
+        required: false
+        default: false
+        type: boolean
   repository_dispatch:
   release:
     types: [published]
@@ -40,6 +45,7 @@ jobs:
       JSON_FILE: "quarto-extensions.json"
       EXTENSIONS_DIR: "extensions"
       DEBUG_MODE: ${{ github.event.inputs.debug }}
+      FORCE_UPDATE: ${{ github.event.inputs.force_update }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -102,6 +108,7 @@ jobs:
           set -e
 
           DEBUG_MODE=${DEBUG_MODE:-"false"}
+          FORCE_UPDATE=${FORCE_UPDATE:-"false"}
           EXTENSIONS_DIR=${EXTENSIONS_DIR:-"extensions"}
           JSON_FILE=${JSON_FILE:-"quarto-extensions.json"}
           BRANCH=${BRANCH:-"quarto-wizard"}
@@ -390,12 +397,16 @@ jobs:
                     has_placeholder=true
                   fi
                 fi
-                if [[ -n "${existing_updated_at}" && "${existing_updated_at}" == "${current_updated_at}" && "${all_exist}" == true && "${has_placeholder}" == false ]]; then
-                  echo "Skipping ${entry}: updatedAt matches existing record (${existing_updated_at})"
-                  skipped_extensions+=("${entry}")
-                  continue
-                elif [[ "${has_placeholder}" == true ]]; then
-                  echo "Processing ${entry}: extension YAML contains placeholder image"
+                if [[ "${FORCE_UPDATE}" != "true" ]]; then
+                  if [[ -n "${existing_updated_at}" && "${existing_updated_at}" == "${current_updated_at}" && "${all_exist}" == true && "${has_placeholder}" == false ]]; then
+                    echo "Skipping ${entry}: updatedAt matches existing record (${existing_updated_at})"
+                    skipped_extensions+=("${entry}")
+                    continue
+                  elif [[ "${has_placeholder}" == true ]]; then
+                    echo "Processing ${entry}: extension YAML contains placeholder image"
+                  fi
+                else
+                  echo "Force update enabled: processing ${entry} regardless of timestamps or placeholder."
                 fi
               else
                 echo "Processing ${entry}: JSON file does not exist, will create new record"
