@@ -493,7 +493,7 @@ jobs:
               yaml_usage_body="${nameWithOwner}"
               if [[ "${entry_release}" == "none" ]]; then
                 entry_commit=$(echo "${repo_info}" | jq -r '.latestCommit')
-                yaml_usage_body="${nameWithOwner}@${entry_commit:0:7}"
+                # yaml_usage_body="${nameWithOwner}@${entry_commit:0:7}" # Quarto CLI does not support commit SHAs yet
               else
                 entry_release_url=$(echo "${repo_info}" | jq -r '.latestReleaseUrl')
                 yaml_usage_body="${nameWithOwner}@${entry_release}"
