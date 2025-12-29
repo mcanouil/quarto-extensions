@@ -491,14 +491,14 @@ jobs:
               entry_description=$(escape_bash "${entry_description}")
               entry_release=$(echo "${repo_info}" | jq -r '.latestRelease')
               yaml_usage_body="${nameWithOwner}"
-              if [[ "${entry_release}" != "none" ]]; then
+              if [[ "${entry_release}" == "none" ]]; then
+                entry_commit=$(echo "${repo_info}" | jq -r '.latestCommit')
+                yaml_usage_body="${nameWithOwner}@${entry_commit:0:7}"
+              else
                 entry_release_url=$(echo "${repo_info}" | jq -r '.latestReleaseUrl')
                 yaml_usage_body="${nameWithOwner}@${entry_release}"
                 entry_release=$(echo "${entry_release}" | sed 's/^[^0-9]*//')
                 entry_release="[${entry_release}](${entry_release_url})"
-              else
-                entry_commit=$(echo "${repo_info}" | jq -r '.latestCommit')
-                entry_release="${entry_commit:0:7}"
               fi
 
               clean_extension_png_file=$(extension_image_file "${entry_image}" "${extension_png_file}" | tail -n 1)
