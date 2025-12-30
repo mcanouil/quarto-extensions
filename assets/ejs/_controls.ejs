@@ -4,7 +4,8 @@
 ```{=html}
 <div class="input-group">
   <span class="input-group-text"><i class="bi bi-search"></i></span>
-  <input type="text" id="extension-search" class="form-control" placeholder="Search extensions, authors, categories..." aria-label="Search extensions">
+  <input type="text" id="extension-search" class="form-control" placeholder="Search extensions, authors, categories..."
+    aria-label="Search extensions">
 </div>
 ```
 :::
@@ -34,26 +35,26 @@
   <button class="btn btn-sm btn-outline-warning filter-chip" data-filter="popular">
     <i class="bi bi-star-fill"></i> Popular
   </button>
-<% const filterChips = [
-  { value: 'shortcode', label: 'Shortcodes', icon: 'bi-code-square' },
-  { value: 'filter', label: 'Filters', icon: 'bi-funnel' },
-  { value: 'format', label: 'Formats', icon: 'bi-file-earmark-code' },
-  { value: 'project', label: 'Projects', icon: 'bi-folder' },
-  { value: 'revealjs-plugins', label: 'Reveal.js Plugins', icon: 'bi-sliders' },
-  { value: 'metadata', label: 'Metadata', icon: 'bi-info-circle' }
-]; %>
-  <div class="btn-group flex-wrap" role="group" aria-label="Category filters" style="max-width: 100%;">
-<% filterChips.forEach(function(chip) { %>
-    <button class="btn btn-sm btn-outline-primary filter-chip" data-filter="<%= chip.value %>">
-      <i class="bi <%= chip.icon %>"></i> 
-      <span class="d-none d-sm-inline"><%= chip.label %></span>
-      <span class="d-inline d-sm-none" aria-label="<%= chip.label %>"><%= chip.label.charAt(0) %></span>
+  <% const filterChips=[ { value: 'shortcode' , label: 'Shortcodes' , icon: 'bi-code-square' }, { value: 'filter' ,
+    label: 'Filters' , icon: 'bi-funnel' }, { value: 'format' , label: 'Formats' , icon: 'bi-file-earmark-code' }, {
+    value: 'project' , label: 'Projects' , icon: 'bi-folder' }, { value: 'revealjs-plugin' , label: 'Reveal.js Plugins'
+    , icon: 'bi-sliders' }, { value: 'metadata' , label: 'Metadata' , icon: 'bi-info-circle' } ]; %>
+    <div class="btn-group flex-wrap" role="group" aria-label="Category filters" style="max-width: 100%;">
+      <% filterChips.forEach(function(chip) { %>
+        <button class="btn btn-sm btn-outline-primary filter-chip" data-filter="<%= chip.value %>">
+          <i class="bi <%= chip.icon %>"></i>
+          <span class="d-none d-sm-inline">
+            <%= chip.label %>
+          </span>
+          <span class="d-inline d-sm-none" aria-label="<%= chip.label %>">
+            <%= chip.label.charAt(0) %>
+          </span>
+        </button>
+        <% }); %>
+    </div>
+    <button class="btn btn-sm btn-outline-light" id="clear-filters">
+      <i class="bi bi-x-circle"></i> Clear
     </button>
-<% }); %>
-  </div>
-  <button class="btn btn-sm btn-outline-light" id="clear-filters">
-    <i class="bi bi-x-circle"></i> Clear
-  </button>
 </div>
 ```
 ::::

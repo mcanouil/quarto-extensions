@@ -1,596 +1,596 @@
 <!-- Custom JavaScript for enhanced functionality -->
 <script id="quarto-extensions-listing" type="text/javascript">
-document.addEventListener('DOMContentLoaded', function() {
-  // Cache DOM elements
-  const initialListContainer = document.querySelector('#list-view-container .list-group');
-  const initialGridContainer = document.querySelector('#grid-view-container .grid');
-  const listViewBtn = document.getElementById('list-view');
-  const gridViewBtn = document.getElementById('grid-view');
-  const listContainer = document.getElementById('list-view-container');
-  const gridContainer = document.getElementById('grid-view-container');
-  const searchInput = document.getElementById('extension-search');
-  const filterChips = document.querySelectorAll('.filter-chip');
-  const clearFiltersBtn = document.getElementById('clear-filters');
-  const gridCounterElement = document.getElementById('grid-extensions-count');
-  const listCounterElement = document.getElementById('list-extensions-count');
+  document.addEventListener('DOMContentLoaded', function () {
+    // Cache DOM elements
+    const initialListContainer = document.querySelector('#list-view-container .list-group');
+    const initialGridContainer = document.querySelector('#grid-view-container .grid');
+    const listViewBtn = document.getElementById('list-view');
+    const gridViewBtn = document.getElementById('grid-view');
+    const listContainer = document.getElementById('list-view-container');
+    const gridContainer = document.getElementById('grid-view-container');
+    const searchInput = document.getElementById('extension-search');
+    const filterChips = document.querySelectorAll('.filter-chip');
+    const clearFiltersBtn = document.getElementById('clear-filters');
+    const gridCounterElement = document.getElementById('grid-extensions-count');
+    const listCounterElement = document.getElementById('list-extensions-count');
 
-  // Defensive: check required elements
-  if (!initialListContainer || !initialGridContainer || !listViewBtn || !gridViewBtn || !listContainer || !gridContainer || !searchInput || !clearFiltersBtn) {
-    // Optionally log error
-    return;
-  }
-
-  // Store original order for reset functionality
-  let originalListOrder = Array.from(initialListContainer.querySelectorAll('.list-group-item'));
-  let originalGridOrder = Array.from(initialGridContainer.querySelectorAll('.g-col-12, .g-col-sm-6, .g-col-lg-4'));
-
-  // Function definitions (moved up for early initialization)
-  function sortExtensions(field, direction) {
-    // Sort list view
-    if (initialListContainer) {
-      const listItems = Array.from(initialListContainer.querySelectorAll('.list-group-item'));
-      sortItems(listItems, field, direction);
-      listItems.forEach(item => initialListContainer.appendChild(item));
+    // Defensive: check required elements
+    if (!initialListContainer || !initialGridContainer || !listViewBtn || !gridViewBtn || !listContainer || !gridContainer || !searchInput || !clearFiltersBtn) {
+      // Optionally log error
+      return;
     }
-    // Sort grid view
-    if (initialGridContainer) {
-      const gridItems = Array.from(initialGridContainer.querySelectorAll('.g-col-12, .g-col-sm-6, .g-col-lg-4'));
-      sortItems(gridItems, field, direction);
-      gridItems.forEach(item => initialGridContainer.appendChild(item));
+
+    // Store original order for reset functionality
+    let originalListOrder = Array.from(initialListContainer.querySelectorAll('.list-group-item'));
+    let originalGridOrder = Array.from(initialGridContainer.querySelectorAll('.g-col-12, .g-col-sm-6, .g-col-lg-4'));
+
+    // Function definitions (moved up for early initialization)
+    function sortExtensions(field, direction) {
+      // Sort list view
+      if (initialListContainer) {
+        const listItems = Array.from(initialListContainer.querySelectorAll('.list-group-item'));
+        sortItems(listItems, field, direction);
+        listItems.forEach(item => initialListContainer.appendChild(item));
+      }
+      // Sort grid view
+      if (initialGridContainer) {
+        const gridItems = Array.from(initialGridContainer.querySelectorAll('.g-col-12, .g-col-sm-6, .g-col-lg-4'));
+        sortItems(gridItems, field, direction);
+        gridItems.forEach(item => initialGridContainer.appendChild(item));
+      }
     }
-  }
 
-  function sortItems(items, field, direction) {
-    items.sort((a, b) => {
-      try {
-        // For list view, the data is on the .list-group-item itself (which has .extension-item class)
-        // For grid view, the data is on the .extension-card inside the .g-col-* container
-        const extA = a.classList.contains('list-group-item') ? a : a.querySelector('.extension-card');
-        const extB = b.classList.contains('list-group-item') ? b : b.querySelector('.extension-card');
+    function sortItems(items, field, direction) {
+      items.sort((a, b) => {
+        try {
+          // For list view, the data is on the .list-group-item itself (which has .extension-item class)
+          // For grid view, the data is on the .extension-card inside the .g-col-* container
+          const extA = a.classList.contains('list-group-item') ? a : a.querySelector('.extension-card');
+          const extB = b.classList.contains('list-group-item') ? b : b.querySelector('.extension-card');
 
-        // Defensive checks
-        if (!extA || !extB) return 0;
+          // Defensive checks
+          if (!extA || !extB) return 0;
 
-        let valueA, valueB;
+          let valueA, valueB;
 
-        if (field === 'modified') {
-          valueA = new Date(extA.dataset.modified || 0);
-          valueB = new Date(extB.dataset.modified || 0);
-        } else if (field === 'stars') {
-          valueA = parseInt(extA.dataset.stars || 0);
-          valueB = parseInt(extB.dataset.stars || 0);
-        } else {
-          return 0; // Unknown field
+          if (field === 'modified') {
+            valueA = new Date(extA.dataset.modified || 0);
+            valueB = new Date(extB.dataset.modified || 0);
+          } else if (field === 'stars') {
+            valueA = parseInt(extA.dataset.stars || 0);
+            valueB = parseInt(extB.dataset.stars || 0);
+          } else {
+            return 0; // Unknown field
+          }
+
+          return direction === 'desc' ? valueB - valueA : valueA - valueB;
+        } catch (error) {
+          console.warn('Error during sorting:', error);
+          return 0;
         }
-
-        return direction === 'desc' ? valueB - valueA : valueA - valueB;
-      } catch (error) {
-        console.warn('Error during sorting:', error);
-        return 0;
-      }
-    });
-  }
-
-  // Apply default sorting (Recently Updated - most recent first)
-  const defaultSortField = 'modified';
-  const defaultSortDirection = 'desc';
-  sortExtensions(defaultSortField, defaultSortDirection);
-
-  // Update the Recently Updated chip to show it's active with down arrow
-  const recentChip = document.querySelector('.filter-chip[data-filter="recent"]');
-  if (recentChip) {
-    const icon = document.createElement('i');
-    icon.className = 'sort-icon ms-1 bi bi-arrow-down';
-    recentChip.appendChild(icon);
-  }
-
-  // Initialize sort state
-  let sortState = { field: defaultSortField, direction: defaultSortDirection };
-
-  // Initialize counter on page load
-  updateExtensionsCounter();
-
-  // View toggle functionality
-  listViewBtn.addEventListener('change', function() {
-    if (this.checked) {
-      listContainer.classList.remove('d-none');
-      gridContainer.classList.add('d-none');
-      // Update ARIA attributes for accessibility
-      listContainer.setAttribute('aria-hidden', 'false');
-      gridContainer.setAttribute('aria-hidden', 'true');
-    }
-  });
-  
-  gridViewBtn.addEventListener('change', function() {
-    if (this.checked) {
-      gridContainer.classList.remove('d-none');
-      listContainer.classList.add('d-none');
-      // Update ARIA attributes for accessibility
-      gridContainer.setAttribute('aria-hidden', 'false');
-      listContainer.setAttribute('aria-hidden', 'true');
-    }
-  });
-
-  // Search functionality with performance optimisations
-  searchInput.addEventListener('input', debounce(performSearch, 300));
-
-  function performSearch() {
-    const query = searchInput.value.trim().toLowerCase();
-    const extensions = document.querySelectorAll('.extension-item, .extension-card');
-
-    // Early return for empty search
-    if (!query) {
-      extensions.forEach(ext => {
-        const container = ext.closest('.list-group-item, .g-col-12, .g-col-sm-6, .g-col-lg-4');
-        if (container) container.style.display = '';
       });
-      updateExtensionsCounter();
-      return;
     }
 
-    extensions.forEach(ext => {
-      try {
-        const titleEl = ext.querySelector('.extension-title');
-        const descEl = ext.querySelector('.extension-description');
-        
-        // Defensive checks for missing elements
-        const title = titleEl ? titleEl.textContent.toLowerCase() : '';
-        const description = descEl ? descEl.textContent.toLowerCase() : '';
-        const author = (ext.dataset.author || '').toLowerCase();
-        const login = (ext.dataset.login || '').toLowerCase();
-        const categories = (ext.dataset.categories || '').toLowerCase();
-        const contributes = (ext.dataset.contributes || '').toLowerCase();
-
-        const matches = title.includes(query) ||
-                       description.includes(query) ||
-                       author.includes(query) ||
-                       login.includes(query) ||
-                       categories.includes(query) ||
-                       contributes.includes(query);
-
-        const container = ext.closest('.list-group-item, .g-col-12, .g-col-sm-6, .g-col-lg-4');
-        if (container) {
-          container.style.display = matches ? '' : 'none';
-        }
-      } catch (error) {
-        // Silently handle any errors during search
-        console.warn('Error processing extension during search:', error);
-      }
-    });
-
-    updateExtensionsCounter();
-  }
-
-  // Filter chip functionality with improved event handling
-  let activeFilters = new Set();
-  let activeAuthorLogin = null;
-
-  // Use event delegation for better performance
-  document.addEventListener('click', function(e) {
-    const chip = e.target.closest('.filter-chip');
-    if (!chip) return;
-
-    const filter = chip.dataset.filter;
-    
-    // Author filter logic
-    if (filter === 'author' && chip.dataset.login) {
-      handleAuthorFilter(chip);
-      return;
-    }
-    
-    // Handle sorting for Recently Updated and Popular
-    if (filter === 'recent') {
-      handleSorting('modified', chip);
-      return;
-    } else if (filter === 'popular') {
-      handleSorting('stars', chip);
-      return;
-    }
-    
-    // Handle regular filters
-    handleRegularFilter(chip, filter);
-  });
-
-  function handleAuthorFilter(chip) {
-    const clickedLogin = chip.dataset.login;
-    
-    // Check if this author is already active (toggle behavior)
-    if (activeAuthorLogin === clickedLogin) {
-      // Deactivate the current author filter
-      chip.classList.remove('active');
-      chip.setAttribute('aria-pressed', 'false');
-      activeAuthorLogin = null;
-      // Remove bold styling from all author elements with this login
-      updateAuthorStyling(null);
-    } else {
-      // Remove active state from all author filter chips
-      document.querySelectorAll('.filter-chip[data-filter="author"][data-login]').forEach(btn => {
-        btn.classList.remove('active');
-        btn.setAttribute('aria-pressed', 'false');
-      });
-      // Set active state for clicked chip
-      chip.classList.add('active');
-      chip.setAttribute('aria-pressed', 'true');
-      activeAuthorLogin = clickedLogin;
-      // Apply bold styling to all author elements with this login
-      updateAuthorStyling(clickedLogin);
-    }
-    applyFilters();
-  }
-
-  function updateAuthorStyling(activeLogin) {
-    // Update styling for all author filter chips (including those in extension items)
-    document.querySelectorAll('.filter-chip[data-filter="author"][data-login]').forEach(btn => {
-      if (activeLogin && btn.dataset.login === activeLogin) {
-        btn.style.fontWeight = 'bold';
-      } else {
-        btn.style.fontWeight = '';
-      }
-    });
-  }
-
-  function handleRegularFilter(chip, filter) {
-    if (chip.classList.contains('active')) {
-      chip.classList.remove('active');
-      chip.setAttribute('aria-pressed', 'false');
-      activeFilters.delete(filter);
-    } else {
-      chip.classList.add('active');
-      chip.setAttribute('aria-pressed', 'true');
-      activeFilters.add(filter);
-    }
-    applyFilters();
-  }
-
-  // Clear filters
-  clearFiltersBtn.addEventListener('click', function() {
-    // Reset all filter chips
-    document.querySelectorAll('.filter-chip').forEach(chip => {
-      chip.classList.remove('active');
-      chip.setAttribute('aria-pressed', 'false');
-      // Remove sort icons
-      const icon = chip.querySelector('.sort-icon');
-      if (icon) icon.remove();
-    });
-    
-    // Clear filter state
-    activeFilters.clear();
-    activeAuthorLogin = null;
-    
-    // Reset all author styling
-    updateAuthorStyling(null);
-    
-    // Restore default sort state
-    sortState = { field: defaultSortField, direction: defaultSortDirection };
+    // Apply default sorting (Recently Updated - most recent first)
+    const defaultSortField = 'modified';
+    const defaultSortDirection = 'desc';
     sortExtensions(defaultSortField, defaultSortDirection);
-    
-    // Restore visual indicator for 'Recently Updated' chip
+
+    // Update the Recently Updated chip to show it's active with down arrow
     const recentChip = document.querySelector('.filter-chip[data-filter="recent"]');
     if (recentChip) {
       const icon = document.createElement('i');
       icon.className = 'sort-icon ms-1 bi bi-arrow-down';
-      icon.setAttribute('aria-hidden', 'true'); // Decorative icon
       recentChip.appendChild(icon);
     }
-    
-    // Clear search input and re-apply filters
-    if (searchInput.value) {
-      searchInput.value = '';
-    }
-    applyFilters();
-  });
 
-  function handleSorting(field, chip) {
-    // Toggle sort direction if same field, otherwise set to descending
-    if (sortState.field === field) {
-      sortState.direction = sortState.direction === 'desc' ? 'asc' : 'desc';
-    } else {
-      sortState.field = field;
-      sortState.direction = 'desc';
-    }
+    // Initialize sort state
+    let sortState = { field: defaultSortField, direction: defaultSortDirection };
 
-    // Update visual indicators
-    updateSortIcons(chip, sortState.direction);
+    // Initialize counter on page load
+    updateExtensionsCounter();
 
-    // Apply sorting
-    sortExtensions(field, sortState.direction);
-  }
+    // View toggle functionality
+    listViewBtn.addEventListener('change', function () {
+      if (this.checked) {
+        listContainer.classList.remove('d-none');
+        gridContainer.classList.add('d-none');
+        // Update ARIA attributes for accessibility
+        listContainer.setAttribute('aria-hidden', 'false');
+        gridContainer.setAttribute('aria-hidden', 'true');
+      }
+    });
 
-  function updateSortIcons(activeChip, direction) {
-    // Remove all existing sort icons
-    document.querySelectorAll('.filter-chip .sort-icon').forEach(icon => icon.remove());
+    gridViewBtn.addEventListener('change', function () {
+      if (this.checked) {
+        gridContainer.classList.remove('d-none');
+        listContainer.classList.add('d-none');
+        // Update ARIA attributes for accessibility
+        gridContainer.setAttribute('aria-hidden', 'false');
+        listContainer.setAttribute('aria-hidden', 'true');
+      }
+    });
 
-    // Add icon to active chip
-    const icon = document.createElement('i');
-    icon.className = `sort-icon ms-1 bi bi-arrow-${direction === 'desc' ? 'down' : 'up'}`;
-    icon.setAttribute('aria-hidden', 'true'); // Decorative icon
-    activeChip.appendChild(icon);
-  }
+    // Search functionality with performance optimisations
+    searchInput.addEventListener('input', debounce(performSearch, 300));
 
-  function resetSort() {
-    // Reset to original order using stored arrays
-    try {
-      if (initialListContainer && originalListOrder.length > 0) {
-        originalListOrder.forEach(item => {
-          if (item.parentNode === initialListContainer) return; // Already in place
-          initialListContainer.appendChild(item);
+    function performSearch() {
+      const query = searchInput.value.trim().toLowerCase();
+      const extensions = document.querySelectorAll('.extension-item, .extension-card');
+
+      // Early return for empty search
+      if (!query) {
+        extensions.forEach(ext => {
+          const container = ext.closest('.list-group-item, .g-col-12, .g-col-sm-6, .g-col-lg-4');
+          if (container) container.style.display = '';
         });
+        updateExtensionsCounter();
+        return;
       }
 
-      if (initialGridContainer && originalGridOrder.length > 0) {
-        originalGridOrder.forEach(item => {
-          if (item.parentNode === initialGridContainer) return; // Already in place
-          initialGridContainer.appendChild(item);
-        });
-      }
-    } catch (error) {
-      console.warn('Error during sort reset:', error);
-    }
-  }
+      extensions.forEach(ext => {
+        try {
+          const titleEl = ext.querySelector('.extension-title');
+          const descEl = ext.querySelector('.extension-description');
 
-  function applyFilters() {
-    const extensions = document.querySelectorAll('.extension-item, .extension-card');
-    const filterChipValues = [
-      'shortcode',
-      'filter',
-      'format',
-      'project',
-      'revealjs-plugins',
-      'metadata'
-    ];
-    
-    extensions.forEach(ext => {
-      let show = true;
-      
-      try {
-        // Author filter
-        if (activeAuthorLogin) {
-          const extLogin = ext.getAttribute('data-login');
-          if (extLogin !== activeAuthorLogin) {
-            show = false;
+          // Defensive checks for missing elements
+          const title = titleEl ? titleEl.textContent.toLowerCase() : '';
+          const description = descEl ? descEl.textContent.toLowerCase() : '';
+          const author = (ext.dataset.author || '').toLowerCase();
+          const login = (ext.dataset.login || '').toLowerCase();
+          const categories = (ext.dataset.categories || '').toLowerCase();
+          const contributes = (ext.dataset.contributes || '').toLowerCase();
+
+          const matches = title.includes(query) ||
+            description.includes(query) ||
+            author.includes(query) ||
+            login.includes(query) ||
+            categories.includes(query) ||
+            contributes.includes(query);
+
+          const container = ext.closest('.list-group-item, .g-col-12, .g-col-sm-6, .g-col-lg-4');
+          if (container) {
+            container.style.display = matches ? '' : 'none';
           }
+        } catch (error) {
+          // Silently handle any errors during search
+          console.warn('Error processing extension during search:', error);
         }
-        
-        // Category filters with improved performance
-        if (show && activeFilters.size > 0) {
-          const contributes = (ext.dataset.contributes || '').toLowerCase().split(',');
-          const contributesSet = new Set(contributes.map(val => val.trim()));
-          
-          for (const filter of activeFilters) {
-            if (filterChipValues.includes(filter)) {
-              const hasMatch = Array.from(contributesSet).some(val => val.startsWith(filter));
-              if (!hasMatch) {
-                show = false;
-                break;
+      });
+
+      updateExtensionsCounter();
+    }
+
+    // Filter chip functionality with improved event handling
+    let activeFilters = new Set();
+    let activeAuthorLogin = null;
+
+    // Use event delegation for better performance
+    document.addEventListener('click', function (e) {
+      const chip = e.target.closest('.filter-chip');
+      if (!chip) return;
+
+      const filter = chip.dataset.filter;
+
+      // Author filter logic
+      if (filter === 'author' && chip.dataset.login) {
+        handleAuthorFilter(chip);
+        return;
+      }
+
+      // Handle sorting for Recently Updated and Popular
+      if (filter === 'recent') {
+        handleSorting('modified', chip);
+        return;
+      } else if (filter === 'popular') {
+        handleSorting('stars', chip);
+        return;
+      }
+
+      // Handle regular filters
+      handleRegularFilter(chip, filter);
+    });
+
+    function handleAuthorFilter(chip) {
+      const clickedLogin = chip.dataset.login;
+
+      // Check if this author is already active (toggle behavior)
+      if (activeAuthorLogin === clickedLogin) {
+        // Deactivate the current author filter
+        chip.classList.remove('active');
+        chip.setAttribute('aria-pressed', 'false');
+        activeAuthorLogin = null;
+        // Remove bold styling from all author elements with this login
+        updateAuthorStyling(null);
+      } else {
+        // Remove active state from all author filter chips
+        document.querySelectorAll('.filter-chip[data-filter="author"][data-login]').forEach(btn => {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-pressed', 'false');
+        });
+        // Set active state for clicked chip
+        chip.classList.add('active');
+        chip.setAttribute('aria-pressed', 'true');
+        activeAuthorLogin = clickedLogin;
+        // Apply bold styling to all author elements with this login
+        updateAuthorStyling(clickedLogin);
+      }
+      applyFilters();
+    }
+
+    function updateAuthorStyling(activeLogin) {
+      // Update styling for all author filter chips (including those in extension items)
+      document.querySelectorAll('.filter-chip[data-filter="author"][data-login]').forEach(btn => {
+        if (activeLogin && btn.dataset.login === activeLogin) {
+          btn.style.fontWeight = 'bold';
+        } else {
+          btn.style.fontWeight = '';
+        }
+      });
+    }
+
+    function handleRegularFilter(chip, filter) {
+      if (chip.classList.contains('active')) {
+        chip.classList.remove('active');
+        chip.setAttribute('aria-pressed', 'false');
+        activeFilters.delete(filter);
+      } else {
+        chip.classList.add('active');
+        chip.setAttribute('aria-pressed', 'true');
+        activeFilters.add(filter);
+      }
+      applyFilters();
+    }
+
+    // Clear filters
+    clearFiltersBtn.addEventListener('click', function () {
+      // Reset all filter chips
+      document.querySelectorAll('.filter-chip').forEach(chip => {
+        chip.classList.remove('active');
+        chip.setAttribute('aria-pressed', 'false');
+        // Remove sort icons
+        const icon = chip.querySelector('.sort-icon');
+        if (icon) icon.remove();
+      });
+
+      // Clear filter state
+      activeFilters.clear();
+      activeAuthorLogin = null;
+
+      // Reset all author styling
+      updateAuthorStyling(null);
+
+      // Restore default sort state
+      sortState = { field: defaultSortField, direction: defaultSortDirection };
+      sortExtensions(defaultSortField, defaultSortDirection);
+
+      // Restore visual indicator for 'Recently Updated' chip
+      const recentChip = document.querySelector('.filter-chip[data-filter="recent"]');
+      if (recentChip) {
+        const icon = document.createElement('i');
+        icon.className = 'sort-icon ms-1 bi bi-arrow-down';
+        icon.setAttribute('aria-hidden', 'true'); // Decorative icon
+        recentChip.appendChild(icon);
+      }
+
+      // Clear search input and re-apply filters
+      if (searchInput.value) {
+        searchInput.value = '';
+      }
+      applyFilters();
+    });
+
+    function handleSorting(field, chip) {
+      // Toggle sort direction if same field, otherwise set to descending
+      if (sortState.field === field) {
+        sortState.direction = sortState.direction === 'desc' ? 'asc' : 'desc';
+      } else {
+        sortState.field = field;
+        sortState.direction = 'desc';
+      }
+
+      // Update visual indicators
+      updateSortIcons(chip, sortState.direction);
+
+      // Apply sorting
+      sortExtensions(field, sortState.direction);
+    }
+
+    function updateSortIcons(activeChip, direction) {
+      // Remove all existing sort icons
+      document.querySelectorAll('.filter-chip .sort-icon').forEach(icon => icon.remove());
+
+      // Add icon to active chip
+      const icon = document.createElement('i');
+      icon.className = `sort-icon ms-1 bi bi-arrow-${direction === 'desc' ? 'down' : 'up'}`;
+      icon.setAttribute('aria-hidden', 'true'); // Decorative icon
+      activeChip.appendChild(icon);
+    }
+
+    function resetSort() {
+      // Reset to original order using stored arrays
+      try {
+        if (initialListContainer && originalListOrder.length > 0) {
+          originalListOrder.forEach(item => {
+            if (item.parentNode === initialListContainer) return; // Already in place
+            initialListContainer.appendChild(item);
+          });
+        }
+
+        if (initialGridContainer && originalGridOrder.length > 0) {
+          originalGridOrder.forEach(item => {
+            if (item.parentNode === initialGridContainer) return; // Already in place
+            initialGridContainer.appendChild(item);
+          });
+        }
+      } catch (error) {
+        console.warn('Error during sort reset:', error);
+      }
+    }
+
+    function applyFilters() {
+      const extensions = document.querySelectorAll('.extension-item, .extension-card');
+      const filterChipValues = [
+        'shortcode',
+        'filter',
+        'format',
+        'project',
+        'revealjs-plugin',
+        'metadata'
+      ];
+
+      extensions.forEach(ext => {
+        let show = true;
+
+        try {
+          // Author filter
+          if (activeAuthorLogin) {
+            const extLogin = ext.getAttribute('data-login');
+            if (extLogin !== activeAuthorLogin) {
+              show = false;
+            }
+          }
+
+          // Category filters with improved performance
+          if (show && activeFilters.size > 0) {
+            const contributes = (ext.dataset.contributes || '').toLowerCase().split(',');
+            const contributesSet = new Set(contributes.map(val => val.trim()));
+
+            for (const filter of activeFilters) {
+              if (filterChipValues.includes(filter)) {
+                const hasMatch = Array.from(contributesSet).some(val => val.startsWith(filter));
+                if (!hasMatch) {
+                  show = false;
+                  break;
+                }
               }
             }
           }
+
+          const container = ext.closest('.list-group-item, .g-col-12, .g-col-sm-6, .g-col-lg-4');
+          if (container) {
+            container.style.display = show ? '' : 'none';
+          }
+        } catch (error) {
+          console.warn('Error processing extension filter:', error);
+          // Default to showing the extension on error
+          const container = ext.closest('.list-group-item, .g-col-12, .g-col-sm-6, .g-col-lg-4');
+          if (container) {
+            container.style.display = '';
+          }
         }
-        
-        const container = ext.closest('.list-group-item, .g-col-12, .g-col-sm-6, .g-col-lg-4');
-        if (container) {
-          container.style.display = show ? '' : 'none';
+      });
+
+      updateExtensionsCounter();
+    }
+
+    // Function to update extensions counter
+    function updateExtensionsCounter() {
+      if (gridCounterElement) {
+        // Count visible extensions in grid view
+        const gridExtensions = document.querySelectorAll('#grid-view-container .extension-card');
+        const visibleGridExtensions = Array.from(gridExtensions).filter(ext => {
+          const container = ext.closest('.g-col-12, .g-col-sm-6, .g-col-lg-4');
+          return container && container.style.display !== 'none';
+        });
+        gridCounterElement.textContent = visibleGridExtensions.length;
+        gridCounterElement.setAttribute('aria-live', 'polite');
+        gridCounterElement.setAttribute('aria-label', `${visibleGridExtensions.length} extensions shown`);
+      }
+      if (listCounterElement) {
+        // Count visible extensions in list view
+        const listExtensions = document.querySelectorAll('#list-view-container .extension-item');
+        const visibleListExtensions = Array.from(listExtensions).filter(ext => {
+          const container = ext.closest('.list-group-item');
+          return container && container.style.display !== 'none';
+        });
+        listCounterElement.textContent = visibleListExtensions.length;
+        listCounterElement.setAttribute('aria-live', 'polite');
+        listCounterElement.setAttribute('aria-label', `${visibleListExtensions.length} extensions shown`);
+      }
+    }
+
+    // Improved debounce utility function
+    function debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          try {
+            func.apply(this, args);
+          } catch (error) {
+            console.warn('Error in debounced function:', error);
+          }
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+
+    // Category expansion for list view
+    // Event delegation for category expansion (improves performance for many items)
+    document.body.addEventListener('click', function (e) {
+      const btn = e.target.closest('.category-expand-toggle');
+      if (btn) {
+        e.stopPropagation();
+        const targetId = btn.getAttribute('data-id');
+        // For inline badges (list view):
+        const extraBadges = document.querySelectorAll('.extra-category[data-extra="' + targetId + '"]');
+        if (extraBadges.length > 0) {
+          extraBadges.forEach(function (badge) {
+            badge.classList.remove('d-none');
+          });
+          btn.classList.add('category-expanded');
+          btn.style.display = 'none';
+          return;
         }
-      } catch (error) {
-        console.warn('Error processing extension filter:', error);
-        // Default to showing the extension on error
-        const container = ext.closest('.list-group-item, .g-col-12, .g-col-sm-6, .g-col-lg-4');
-        if (container) {
-          container.style.display = '';
+        // For grid view fallback (span block):
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.classList.remove('d-none');
+          btn.classList.add('category-expanded');
+          btn.style.display = 'none';
         }
       }
     });
 
-    updateExtensionsCounter();
-  }
-
-  // Function to update extensions counter
-  function updateExtensionsCounter() {
-    if (gridCounterElement) {
-      // Count visible extensions in grid view
-      const gridExtensions = document.querySelectorAll('#grid-view-container .extension-card');
-      const visibleGridExtensions = Array.from(gridExtensions).filter(ext => {
-        const container = ext.closest('.g-col-12, .g-col-sm-6, .g-col-lg-4');
-        return container && container.style.display !== 'none';
-      });
-      gridCounterElement.textContent = visibleGridExtensions.length;
-      gridCounterElement.setAttribute('aria-live', 'polite');
-      gridCounterElement.setAttribute('aria-label', `${visibleGridExtensions.length} extensions shown`);
-    }
-    if (listCounterElement) {
-      // Count visible extensions in list view
-      const listExtensions = document.querySelectorAll('#list-view-container .extension-item');
-      const visibleListExtensions = Array.from(listExtensions).filter(ext => {
-        const container = ext.closest('.list-group-item');
-        return container && container.style.display !== 'none';
-      });
-      listCounterElement.textContent = visibleListExtensions.length;
-      listCounterElement.setAttribute('aria-live', 'polite');
-      listCounterElement.setAttribute('aria-label', `${visibleListExtensions.length} extensions shown`);
-    }
-  }
-
-  // Improved debounce utility function
-  function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-      const later = () => {
-        clearTimeout(timeout);
-        try {
-          func.apply(this, args);
-        } catch (error) {
-          console.warn('Error in debounced function:', error);
-        }
-      };
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-    };
-  }
-
-  // Category expansion for list view
-  // Event delegation for category expansion (improves performance for many items)
-  document.body.addEventListener('click', function(e) {
-    const btn = e.target.closest('.category-expand-toggle');
-    if (btn) {
-      e.stopPropagation();
-      const targetId = btn.getAttribute('data-id');
-      // For inline badges (list view):
-      const extraBadges = document.querySelectorAll('.extra-category[data-extra="' + targetId + '"]');
-      if (extraBadges.length > 0) {
-        extraBadges.forEach(function(badge) {
-          badge.classList.remove('d-none');
-        });
-        btn.classList.add('category-expanded');
-        btn.style.display = 'none';
-        return;
-      }
-      // For grid view fallback (span block):
-      const target = document.getElementById(targetId);
-      if (target) {
-        target.classList.remove('d-none');
-        btn.classList.add('category-expanded');
-        btn.style.display = 'none';
-      }
-    }
-  });
-
-  // Collapse expanded categories when clicking elsewhere
-  document.addEventListener('click', function(e) {
-    document.querySelectorAll('.category-expand-toggle.category-expanded').forEach(function(btn) {
-      const targetId = btn.getAttribute('data-id');
-      // Find the closest container (list-group-item or .extension-card)
-      let container = btn.closest('.list-group-item, .extension-card');
-      let clickedInside = btn.contains(e.target);
-      // For inline badges (list/grid):
-      if (container) {
-        const extraBadges = container.querySelectorAll('.extra-category[data-extra="' + targetId + '"]');
-        // If click is inside any badge, do not collapse
-        extraBadges.forEach(function(badge) {
-          if (badge.contains(e.target)) clickedInside = true;
-        });
-        if (!clickedInside && extraBadges.length > 0) {
-          extraBadges.forEach(function(badge) {
-            badge.classList.add('d-none');
+    // Collapse expanded categories when clicking elsewhere
+    document.addEventListener('click', function (e) {
+      document.querySelectorAll('.category-expand-toggle.category-expanded').forEach(function (btn) {
+        const targetId = btn.getAttribute('data-id');
+        // Find the closest container (list-group-item or .extension-card)
+        let container = btn.closest('.list-group-item, .extension-card');
+        let clickedInside = btn.contains(e.target);
+        // For inline badges (list/grid):
+        if (container) {
+          const extraBadges = container.querySelectorAll('.extra-category[data-extra="' + targetId + '"]');
+          // If click is inside any badge, do not collapse
+          extraBadges.forEach(function (badge) {
+            if (badge.contains(e.target)) clickedInside = true;
           });
+          if (!clickedInside && extraBadges.length > 0) {
+            extraBadges.forEach(function (badge) {
+              badge.classList.add('d-none');
+            });
+            btn.classList.remove('category-expanded');
+            btn.style.display = '';
+          }
+          return;
+        }
+        // For grid view fallback (span block):
+        const target = document.getElementById(targetId);
+        if (target && !btn.contains(e.target) && !target.contains(e.target)) {
+          target.classList.add('d-none');
           btn.classList.remove('category-expanded');
           btn.style.display = '';
         }
-        return;
-      }
-      // For grid view fallback (span block):
-      const target = document.getElementById(targetId);
-      if (target && !btn.contains(e.target) && !target.contains(e.target)) {
-        target.classList.add('d-none');
-        btn.classList.remove('category-expanded');
-        btn.style.display = '';
-      }
+      });
     });
   });
-});
 </script>
 <!-- Custom JavaScript for clipboard.js to properly access code inside modals -->
 <script id="quarto-extensions-listing-clipboardjs" type="text/javascript">
-// General clipboard.js setup for modals
-window.document.addEventListener('DOMContentLoaded', (event) => {
-  /**
-  * Initialise clipboard functionality for any modal
-  */
-  const initialiseModalClipboard = () => {
-    // Find all modals in the document
-    const modals = document.querySelectorAll('.modal');
-    
-    modals.forEach((modal) => {
-      const modalId = modal.getAttribute('id');
-      if (!modalId) return;
-      
-      // Find code copy buttons within this modal
-      const copyButtons = modal.querySelectorAll('.code-copy-button');
-      if (copyButtons.length === 0) return;
-      
-      // Add data-in-quarto-modal attribute to buttons in this modal
-      copyButtons.forEach((button) => {
-        button.setAttribute('data-in-quarto-modal', modalId);
-      });
-      
-      console.log(`Initialising clipboard for modal: ${modalId}`);
-      
-      // Create clipboard instance for this modal
-      const clipboardModal = new window.ClipboardJS(
-        `.code-copy-button[data-in-quarto-modal="${modalId}"]`, 
-        {
-          text: (trigger) => {
-            // Get text from the code element, excluding annotations
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            const annotations = codeEl.querySelectorAll('[class*="code-annotation-"]');
-            annotations.forEach((annotation) => annotation.remove());
-            return codeEl.innerText;
-          },
-          container: modal // Set the modal as container for clipboard operations
-        }
-      );
-      
-      // Success handler with visual feedback
-      clipboardModal.on('success', (e) => {
-        const button = e.trigger;
-        button.blur();
-        
-        // Visual feedback
-        button.classList.add('code-copy-button-checked');
-        const currentTitle = button.getAttribute('title');
-        button.setAttribute('title', 'Copied!');
-        
-        // Bootstrap tooltip feedback
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute('data-bs-toggle', 'tooltip');
-          button.setAttribute('data-bs-placement', 'left');
-          button.setAttribute('data-bs-title', 'Copied!');
-          tooltip = new bootstrap.Tooltip(button, { 
-            trigger: 'manual', 
-            customClass: 'code-copy-button-tooltip',
-            offset: [0, -8]
-          });
-          tooltip.show();    
-        }
-        
-        // Reset after 1 second
-        setTimeout(() => {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute('data-bs-title');
-            button.removeAttribute('data-bs-toggle');
-            button.removeAttribute('data-bs-placement');
+  // General clipboard.js setup for modals
+  window.document.addEventListener('DOMContentLoaded', (event) => {
+    /**
+    * Initialise clipboard functionality for any modal
+    */
+    const initialiseModalClipboard = () => {
+      // Find all modals in the document
+      const modals = document.querySelectorAll('.modal');
+
+      modals.forEach((modal) => {
+        const modalId = modal.getAttribute('id');
+        if (!modalId) return;
+
+        // Find code copy buttons within this modal
+        const copyButtons = modal.querySelectorAll('.code-copy-button');
+        if (copyButtons.length === 0) return;
+
+        // Add data-in-quarto-modal attribute to buttons in this modal
+        copyButtons.forEach((button) => {
+          button.setAttribute('data-in-quarto-modal', modalId);
+        });
+
+        console.log(`Initialising clipboard for modal: ${modalId}`);
+
+        // Create clipboard instance for this modal
+        const clipboardModal = new window.ClipboardJS(
+          `.code-copy-button[data-in-quarto-modal="${modalId}"]`,
+          {
+            text: (trigger) => {
+              // Get text from the code element, excluding annotations
+              const codeEl = trigger.previousElementSibling.cloneNode(true);
+              const annotations = codeEl.querySelectorAll('[class*="code-annotation-"]');
+              annotations.forEach((annotation) => annotation.remove());
+              return codeEl.innerText;
+            },
+            container: modal // Set the modal as container for clipboard operations
           }
-          button.setAttribute('title', currentTitle);
-          button.classList.remove('code-copy-button-checked');
-        }, 1000);
-        
-        e.clearSelection();
-        console.log(`Copied from modal ${modalId}:`, e.text);
+        );
+
+        // Success handler with visual feedback
+        clipboardModal.on('success', (e) => {
+          const button = e.trigger;
+          button.blur();
+
+          // Visual feedback
+          button.classList.add('code-copy-button-checked');
+          const currentTitle = button.getAttribute('title');
+          button.setAttribute('title', 'Copied!');
+
+          // Bootstrap tooltip feedback
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute('data-bs-toggle', 'tooltip');
+            button.setAttribute('data-bs-placement', 'left');
+            button.setAttribute('data-bs-title', 'Copied!');
+            tooltip = new bootstrap.Tooltip(button, {
+              trigger: 'manual',
+              customClass: 'code-copy-button-tooltip',
+              offset: [0, -8]
+            });
+            tooltip.show();
+          }
+
+          // Reset after 1 second
+          setTimeout(() => {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute('data-bs-title');
+              button.removeAttribute('data-bs-toggle');
+              button.removeAttribute('data-bs-placement');
+            }
+            button.setAttribute('title', currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+
+          e.clearSelection();
+          console.log(`Copied from modal ${modalId}:`, e.text);
+        });
+
+        // Error handler
+        clipboardModal.on('error', (e) => {
+          console.error(`Clipboard error in modal ${modalId}:`, e);
+          const button = e.trigger;
+          button.setAttribute('title', 'Press Ctrl+C to copy');
+
+          // Visual feedback for error
+          button.style.backgroundColor = '#f8d7da';
+          setTimeout(() => {
+            button.style.backgroundColor = '';
+            button.setAttribute('title', 'Copy to Clipboard');
+          }, 2000);
+        });
       });
-      
-      // Error handler
-      clipboardModal.on('error', (e) => {
-        console.error(`Clipboard error in modal ${modalId}:`, e);
-        const button = e.trigger;
-        button.setAttribute('title', 'Press Ctrl+C to copy');
-        
-        // Visual feedback for error
-        button.style.backgroundColor = '#f8d7da';
-        setTimeout(() => {
-          button.style.backgroundColor = '';
-          button.setAttribute('title', 'Copy to Clipboard');
-        }, 2000);
-      });
-    });
-  };
-  
-  // Initialise clipboard for modals
-  initialiseModalClipboard();
-  
-  // Also initialise when modals are shown (in case of dynamic content)
-  document.addEventListener('shown.bs.modal', () => {
+    };
+
+    // Initialise clipboard for modals
     initialiseModalClipboard();
+
+    // Also initialise when modals are shown (in case of dynamic content)
+    document.addEventListener('shown.bs.modal', () => {
+      initialiseModalClipboard();
+    });
   });
-});
 </script>
