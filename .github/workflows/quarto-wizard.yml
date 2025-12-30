@@ -452,7 +452,7 @@ jobs:
                   echo "${repo_extension_contributes}" |
                     while read -r url; do
                       gh api "${url}" --jq '.content' | base64 --decode | yq -o json '.contributes | keys'
-                    done | jq -s 'add | unique' | jq -c
+                    done | jq -s 'add | map(if type=="string" then sub("s$"; "") else . end) | unique' | jq -c
                 )
                 repo_info=$(echo "${repo_info}" | jq --argjson contributes "${repo_extension_contributes}" '. + {contributes: $contributes}')
               else
@@ -478,7 +478,7 @@ jobs:
               entry_updated=$(echo "${repo_info}" | jq -r '.pushedAt')
               entry_url=$(echo "${repo_info}" | jq -r '.url')
               entry_topics=$(echo "${repo_info}" | jq -r '.repositoryTopics' | jq -c 'unique')
-              entry_contributes=$(echo "${repo_info}" | jq -r '.contributes' | jq -c 'map(if type=="string" then sub("s$"; "") else . end) | unique')
+              entry_contributes=$(echo "${repo_info}" | jq -r '.contributes' | jq -c 'unique')
               entry_license=$(echo "${repo_info}" | jq -r '.licenseInfo')
               entry_stars=$(echo "${repo_info}" | jq -r '.stargazerCount')
               entry_image=$(echo "${repo_info}" | jq -r '.openGraphImageUrl')
