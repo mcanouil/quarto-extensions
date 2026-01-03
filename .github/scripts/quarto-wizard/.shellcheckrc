@@ -1,0 +1,7 @@
+# ShellCheck configuration for quarto-wizard scripts
+shell=bash
+source-path=lib
+external-sources=true
+
+# Disable warnings for variables that are used by scripts that source these files
+disable=SC2034
