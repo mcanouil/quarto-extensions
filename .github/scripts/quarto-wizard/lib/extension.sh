@@ -28,8 +28,8 @@ extract_extension_manifest() {
   echo "${extension_files}" |
     while read -r url; do
       gh api "${url}" --jq '.content' | base64 --decode | yq -o json '{
-        contributes: (.contributes | keys // []),
-        quartoRequired: (."quarto-required" // null)
+        "contributes": (.contributes | keys // []),
+        "quartoRequired": (."quarto-required" // null)
       }'
     done | jq -s '{
       contributes: (map(.contributes) | add | map(select(. != null)) | map(if type=="string" then sub("s$"; "") else . end) | unique),
