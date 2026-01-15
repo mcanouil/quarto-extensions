@@ -5,156 +5,147 @@
 </div>
 
 <div id="extensions-grid" class="grid">
-```
+  ```
 
-<% for (const item of items) { %>
-<%
-const usage = item.usage;
-const id = utils.b64encode(usage);
-const isTemplate = item.template === true;
-const isExample = item.example === true;
+  <% for (const item of items) { %>
+    <% const usage=item.usage; const id=utils.b64encode(usage); const isTemplate=item.template===true; const
+      isExample=item.example===true; // Parse the ISO date format and create a more readable relative time const
+      modifiedDate=new Date(item['file-modified']); const now=new Date(); const diffTime=Math.abs(now - modifiedDate);
+      const diffDays=Math.ceil(diffTime / (1000 * 60 * 60 * 24)); let relativeTime; if (diffDays===1) {
+      relativeTime='1 day ago' ; } else if (diffDays < 7) { relativeTime=`${diffDays} days ago`; } else if (diffDays <
+      30) { const weeks=Math.floor(diffDays / 7); relativeTime=weeks===1 ? '1 week ago' : `${weeks} weeks ago`; } else
+      if (diffDays < 365) { const months=Math.floor(diffDays / 30); relativeTime=months===1 ? '1 month ago' : `${months}
+      months ago`; } else { const years=Math.floor(diffDays / 365); relativeTime=years===1 ? '1 year ago' : `${years}
+      years ago`; } // Get status banner using shared function const statusBanner=getStatusBanner(item.categories); %>
 
-// Parse the ISO date format and create a more readable relative time
-const modifiedDate = new Date(item['file-modified']);
-const now = new Date();
-const diffTime = Math.abs(now - modifiedDate);
-const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      ```{=html}
+      <div class="g-col-12 g-col-sm-6 g-col-lg-4">
+        <div class="card extension-card h-100" data-categories="<%= item.categories.join(',') %>"
+          data-contributes="<%= item.contributes.join(',') %>" data-author="<%= item.author %>"
+          data-login="<%= item.login %>" data-license="<%= item.license %>" data-stars="<%= item.stars %>"
+          data-modified="<%= item['file-modified'] %>" data-template="<%= isTemplate %>"
+          data-example="<%= isExample %>">
 
-let relativeTime;
-if (diffDays === 1) {
-  relativeTime = '1 day ago';
-} else if (diffDays < 7) {
-  relativeTime = `${diffDays} days ago`;
-} else if (diffDays < 30) {
-  const weeks = Math.floor(diffDays / 7);
-  relativeTime = weeks === 1 ? '1 week ago' : `${weeks} weeks ago`;
-} else if (diffDays < 365) {
-  const months = Math.floor(diffDays / 30);
-  relativeTime = months === 1 ? '1 month ago' : `${months} months ago`;
-} else {
-  const years = Math.floor(diffDays / 365);
-  relativeTime = years === 1 ? '1 year ago' : `${years} years ago`;
-}
+          <!-- Card Header with Image -->
+          <% let image=item.image; let imageAlt=item['image-alt']; if (!image) {
+            image="assets/media/github-placeholder.png" ; imageAlt="GitHub Placeholder Image" ; } %>
+            <div class="card-img-wrapper">
+              <img src="<%= image %>" loading="lazy" alt="<%= imageAlt %>" class="card-img-top">
+            </div>
 
-// Get status banner using shared function
-const statusBanner = getStatusBanner(item.categories);
-%>
+            <% if (statusBanner) { %>
+              <!-- Status Banner -->
+              <div class="alert alert-<%= statusBanner.class %> status-banner mb-0 rounded-0 text-center py-1"
+                role="alert">
+                <% if (statusBanner.icon) { %>
+                  <i class="bi <%= statusBanner.icon %>"></i>
+                  <% } %>
+                    <strong>
+                      <%= statusBanner.text %>
+                    </strong>
+              </div>
+              <% } %>
 
-```{=html}
-  <div class="g-col-12 g-col-sm-6 g-col-lg-4">
-    <div class="card extension-card h-100" 
-         data-categories="<%= item.categories.join(',') %>"
-         data-contributes="<%= item.contributes.join(',') %>"
-         data-author="<%= item.author %>"
-         data-login="<%= item.login %>"
-         data-license="<%= item.license %>"
-         data-stars="<%= item.stars %>"
-         data-modified="<%= item['file-modified'] %>"
-         data-template="<%= isTemplate %>"
-         data-example="<%= isExample %>">
-      
-      <!-- Card Header with Image -->
-      <% let image = item.image; let imageAlt = item['image-alt']; if (!image) { image = "assets/media/github-placeholder.png"; imageAlt = "GitHub Placeholder Image"; } %>
-      <div class="card-img-wrapper">
-        <img src="<%= image %>" loading="lazy" alt="<%= imageAlt %>" class="card-img-top">
+                <!-- Card Body -->
+                <div class="card-body d-flex flex-column">
+                  <h6 class="card-title d-flex align-items-center justify-content-between no-anchor extension-title">
+                    <span>
+                      <a href="<%= item['github-url'] %>" target="_blank" rel="noopener noreferrer">
+                        <%= item.title %>
+                      </a>
+                      <% if (isTemplate) { %>
+                        <span class="badge bg-success ms-1">Template</span>
+                        <% } %>
+                          <% if (isExample) { %>
+                            <span class="badge bg-info ms-1">Example</span>
+                            <% } %>
+                    </span>
+                    <a href="<%= item['github-url'] %>" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-outline-light btn-sm ms-auto"><i class="bi bi-github"></i></a>
+                  </h6>
+
+                  <p class="card-text small text-muted mb-2">
+                    <button class="btn btn-link p-0 text-muted text-decoration-none filter-chip" data-filter="author"
+                      data-login="<%= item.login %>">
+                      <i class="bi bi-person"></i>
+                      <%= (!item.author || item.author==='null' ) ? item.login : item.author %>
+                    </button>
+                  </p>
+
+                  <p class="card-text flex-grow-1 extension-description">
+                    <%- item.description %>
+                  </p>
+
+                  <!-- Categories -->
+                  <div class="card-categories mb-2 extension-categories">
+                    <% const filteredCategories=item.categories.filter(cat=>
+                      !excludeCategories.includes(cat.toLowerCase()));
+
+                      const mainCategories = filteredCategories.slice(0, 2);
+                      const extraCategories = filteredCategories.slice(2);
+                      %>
+                      <span class="category-badges">
+                        <% mainCategories.forEach(category=> { %>
+                          <span class="badge bg-light text-dark me-1">
+                            <%= category %>
+                          </span>
+                          <% }); %>
+                            <% if (extraCategories.length> 0) { %>
+                              <% const gridCatId=`grid-cat-${id}`; %>
+                                <% extraCategories.forEach(category=> { %>
+                                  <span class="badge bg-light text-dark me-1 extra-category d-none"
+                                    data-extra="<%= gridCatId %>">
+                                    <%= category %>
+                                  </span>
+                                  <% }); %>
+                                    <button class="btn btn-link btn-sm p-0 text-muted category-expand-toggle"
+                                      type="button" data-id="<%= gridCatId %>">
+                                      +<%= extraCategories.length %>
+                                    </button>
+                                    <% } %>
+                      </span>
+                  </div>
+
+                  <!-- Card Footer Info -->
+                  <div class="card-footer-info d-flex justify-content-between align-items-center small text-muted">
+                    <span>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <%= item.stars %>
+                    </span>
+                    <span>
+                      <i class="bi bi-clock"></i>
+                      <%= relativeTime %>
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Card Footer with Actions -->
+                <div class="card-footer bg-transparent">
+                  <div class="d-flex gap-2 flex-wrap flex-sm-nowrap">
+                    <button class="btn btn-primary btn-sm flex-fill" data-bs-toggle="modal"
+                      data-bs-target="#install-modal-<%= id %>">
+                      <i class="bi bi-download"></i> Install
+                    </button>
+                    <% if (isTemplate) { %>
+                      <button class="btn btn-outline-success btn-sm flex-fill" data-bs-toggle="modal"
+                        data-bs-target="#use-modal-<%= id %>">
+                        <i class="bi bi-file-plus"></i> Use
+                      </button>
+                      <% } %>
+                        <% if (isExample) { %>
+                          <button class="btn btn-outline-info btn-sm flex-fill" data-bs-toggle="modal"
+                            data-bs-target="#use-modal-<%= id %>">
+                            <i class="bi bi-eye"></i> Use
+                          </button>
+                          <% } %>
+                  </div>
+                </div>
+        </div>
       </div>
+      ```
 
-      <% if (statusBanner) { %>
-      <!-- Status Banner -->
-      <div class="alert alert-<%= statusBanner.class %> status-banner mb-0 rounded-0 text-center py-1" role="alert">
-        <% if (statusBanner.icon) { %>
-        <i class="bi <%= statusBanner.icon %>"></i>
-        <% } %>
-        <strong><%= statusBanner.text %></strong>
-      </div>
       <% } %>
 
-      <!-- Card Body -->
-      <div class="card-body d-flex flex-column">
-        <h6 class="card-title d-flex align-items-center justify-content-between no-anchor extension-title">
-          <span>
-            <a href="<%= item['github-url'] %>" target="_blank">
-              <%= item.title %>
-            </a>
-            <% if (isTemplate) { %>
-            <span class="badge bg-success ms-1">Template</span>
-            <% } %>
-            <% if (isExample) { %>
-            <span class="badge bg-info ms-1">Example</span>
-            <% } %>
-          </span>
-          <a href="<%= item['github-url'] %>" target="_blank" class="btn btn-outline-light btn-sm ms-auto"><i class="bi bi-github"></i></a>
-        </h6>
-        
-        <p class="card-text small text-muted mb-2">
-          <button class="btn btn-link p-0 text-muted text-decoration-none filter-chip" data-filter="author" data-login="<%= item.login %>">
-            <i class="bi bi-person"></i> <%= (!item.author || item.author === 'null') ? item.login : item.author %>
-          </button>
-        </p>
-        
-        <p class="card-text flex-grow-1 extension-description">
-          <%- item.description %>
-        </p>
-        
-        <!-- Categories -->
-        <div class="card-categories mb-2 extension-categories">
-          <% 
-          const filteredCategories = item.categories.filter(cat => !excludeCategories.includes(cat.toLowerCase()));
-          
-          const mainCategories = filteredCategories.slice(0, 2);
-          const extraCategories = filteredCategories.slice(2);
-          %>
-          <span class="category-badges">
-            <% mainCategories.forEach(category => { %>
-              <span class="badge bg-light text-dark me-1"><%= category %></span>
-            <% }); %>
-            <% if (extraCategories.length > 0) { %>
-              <% const gridCatId = `grid-cat-${id}`; %>
-              <% extraCategories.forEach(category => { %>
-                <span class="badge bg-light text-dark me-1 extra-category d-none" data-extra="<%= gridCatId %>"><%= category %></span>
-              <% }); %>
-              <button class="btn btn-link btn-sm p-0 text-muted category-expand-toggle" type="button" data-id="<%= gridCatId %>">
-                +<%= extraCategories.length %>
-              </button>
-            <% } %>
-          </span>
-        </div>
-        
-        <!-- Card Footer Info -->
-        <div class="card-footer-info d-flex justify-content-between align-items-center small text-muted">
-          <span>
-            <i class="bi bi-star-fill text-warning"></i> <%= item.stars %>
-          </span>
-          <span>
-            <i class="bi bi-clock"></i> <%= relativeTime %>
-          </span>
-        </div>
-      </div>
-      
-      <!-- Card Footer with Actions -->
-      <div class="card-footer bg-transparent">
-        <div class="d-flex gap-2 flex-wrap flex-sm-nowrap">
-          <button class="btn btn-primary btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#install-modal-<%= id %>">
-            <i class="bi bi-download"></i> Install
-          </button>
-          <% if (isTemplate) { %>
-          <button class="btn btn-outline-success btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#use-modal-<%= id %>">
-            <i class="bi bi-file-plus"></i> Use
-          </button>
-          <% } %>
-          <% if (isExample) { %>
-          <button class="btn btn-outline-info btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#use-modal-<%= id %>">
-            <i class="bi bi-eye"></i> Use
-          </button>
-          <% } %>
-        </div>
-      </div>
-    </div>
-  </div>
-```
-
-<% } %>
-
-```{=html}
+        ```{=html}
 </div>
 ```

@@ -19,6 +19,7 @@ website:
   repo-url: https://github.com/mcanouil/quarto-extensions
   repo-actions: [edit, issue]
   repo-link-target: _blank
+  repo-link-rel: noopener noreferrer
   title: Quarto Extensions
   description: |
     Explore the 'Quarto Extensions' website, a comprehensive repository of extensions designed to enhance your Quarto experience.
@@ -50,12 +51,15 @@ website:
       - text: "{{< iconify octicon:mark-github-16 title='GitHub Source Repository' label='GitHub Source Repository' >}}"
         href: "https://github.com/mcanouil/quarto-extensions"
         target: _blank
+        rel: noopener noreferrer
       - text: "{{< iconify simple-icons:quarto title='Quarto Documentation' label='Quarto Documentation' >}}"
         href: "https://quarto.org/"
         target: _blank
+        rel: noopener noreferrer
       - text: '[]{.quarto-wizard title="Quarto Wizard" aria-label="Quarto Wizard"}'
         href: "https://github.com/mcanouil/quarto-wizard"
         target: _blank
+        rel: noopener noreferrer
 
 format:
   html:
@@ -72,6 +76,7 @@ format:
     include-after-body:
       - file: assets/scripts/ordinal-dates.html
       - file: assets/scripts/current-year.html
+      - file: assets/scripts/external-links.html
     grid:
       body-width: 950px
     anchor-sections: true
