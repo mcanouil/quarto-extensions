@@ -7,156 +7,163 @@
 <div id="extensions-list" class="list-group">
 ```
 
-  <% for (const item of items) { %>
-    <% const usage=item.usage; const id=utils.b64encode(usage); const isTemplate=item.template===true; const
-      isExample=item.example===true; // Parse the ISO date format and create a more readable relative time const
-      modifiedDate=new Date(item['file-modified']); const now=new Date(); const diffTime=Math.abs(now - modifiedDate);
-      const diffDays=Math.ceil(diffTime / (1000 * 60 * 60 * 24)); let relativeTime; if (diffDays===1) {
-      relativeTime='1 day ago' ; } else if (diffDays < 7) { relativeTime=`${diffDays} days ago`; } else if (diffDays <
-      30) { const weeks=Math.floor(diffDays / 7); relativeTime=weeks===1 ? '1 week ago' : `${weeks} weeks ago`; } else
-      if (diffDays < 365) { const months=Math.floor(diffDays / 30); relativeTime=months===1 ? '1 month ago' : `${months}
-      months ago`; } else { const years=Math.floor(diffDays / 365); relativeTime=years===1 ? '1 year ago' : `${years}
-      years ago`; } // Get status banner using shared function const statusBanner=getStatusBanner(item.categories); %>
+<% for (const item of items) { %>
+<%
+const usage = item.usage;
+const id = utils.b64encode(usage);
+const isTemplate = item.template === true;
+const isExample = item.example === true;
+
+// Parse the ISO date format and create a more readable relative time
+const modifiedDate = new Date(item['file-modified']);
+const now = new Date();
+const diffTime = Math.abs(now - modifiedDate);
+const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+let relativeTime;
+if (diffDays === 1) {
+  relativeTime = '1 day ago';
+} else if (diffDays < 7) {
+  relativeTime = `${diffDays} days ago`;
+} else if (diffDays < 30) {
+  const weeks = Math.floor(diffDays / 7);
+  relativeTime = weeks === 1 ? '1 week ago' : `${weeks} weeks ago`;
+} else if (diffDays < 365) {
+  const months = Math.floor(diffDays / 30);
+  relativeTime = months === 1 ? '1 month ago' : `${months} months ago`;
+} else {
+  const years = Math.floor(diffDays / 365);
+  relativeTime = years === 1 ? '1 year ago' : `${years} years ago`;
+}
+
+// Get status banner using shared function
+const statusBanner = getStatusBanner(item.categories);
+%>
 
 ```{=html}
-      <div class="list-group-item extension-item" data-categories="<%= item.categories.join(',') %>"
-        data-contributes="<%= item.contributes.join(',') %>" data-author="<%= item.author %>"
-        data-login="<%= item.login %>" data-license="<%= item.license %>" data-stars="<%= item.stars %>"
-        data-modified="<%= item['file-modified'] %>" data-template="<%= isTemplate %>" data-example="<%= isExample %>">
-        <div class="d-flex flex-column flex-md-row align-items-start">
-          <!-- Extension Image -->
-          <% let image=item.image; let imageAlt=item['image-alt']; if (!image) {
-            image="assets/media/github-placeholder.png" ; imageAlt="GitHub Placeholder Image" ; } %>
-            <div class="extension-image me-0 mb-3 mb-md-0 me-md-3 flex-shrink-0" style="width:150px;">
-              <img src="<%= image %>" loading="lazy" alt="<%= imageAlt %>" class="img-fluid rounded"
-                style="max-width:150px;">
-              <% if (statusBanner) { %>
-                <!-- Status Banner -->
-                <div
-                  class="alert alert-<%= statusBanner.class %> status-banner mb-0 mt-2 rounded text-center py-1 px-2 small"
-                  role="alert">
-                  <% if (statusBanner.icon) { %>
-                    <i class="bi <%= statusBanner.icon %>"></i>
-                    <% } %>
-                      <strong>
-                        <%= statusBanner.text %>
-                      </strong>
-                </div>
-                <% } %>
+  <div class="list-group-item extension-item"
+       data-categories="<%= item.categories.join(',') %>"
+       data-contributes="<%= item.contributes.join(',') %>"
+       data-author="<%= item.author %>"
+       data-login="<%= item.login %>"
+       data-license="<%= item.license %>"
+       data-stars="<%= item.stars %>"
+       data-modified="<%= item['file-modified'] %>"
+       data-template="<%= isTemplate %>"
+       data-example="<%= isExample %>">
+    <div class="d-flex flex-column flex-md-row align-items-start">
+      <!-- Extension Image -->
+      <% let image = item.image; let imageAlt = item['image-alt']; if (!image) { image = "assets/media/github-placeholder.png"; imageAlt = "GitHub Placeholder Image"; } %>
+      <div class="extension-image me-0 mb-3 mb-md-0 me-md-3 flex-shrink-0" style="width:150px;">
+        <img src="<%= image %>" loading="lazy" alt="<%= imageAlt %>" class="img-fluid rounded" style="max-width:150px;">
+        <% if (statusBanner) { %>
+        <!-- Status Banner -->
+        <div class="alert alert-<%= statusBanner.class %> status-banner mb-0 mt-2 rounded text-center py-1 px-2 small" role="alert">
+          <% if (statusBanner.icon) { %>
+          <i class="bi <%= statusBanner.icon %>"></i>
+          <% } %>
+          <strong><%= statusBanner.text %></strong>
+        </div>
+        <% } %>
+      </div>
+
+      <div class="flex-grow-1">
+        <!-- Extension Header -->
+        <div class="extension-header d-flex justify-content-between align-items-center mb-2">
+          <div class="extension-title-section">
+            <h5 class="extension-title mb-0 no-anchor">
+              <a href="<%= item['github-url'] %>" target="_blank" rel="noopener noreferrer">
+                <%= item.title %>
+              </a>
+              <% if (isTemplate) { %>
+              <span class="badge bg-success ms-2">Template</span>
+              <% } %>
+              <% if (isExample) { %>
+              <span class="badge bg-info ms-2">Example</span>
+              <% } %>
+            </h5>
+          </div>
+          
+          <!-- Header Metrics -->
+          <div class="extension-metrics-header">
+            <div class="d-flex gap-3 align-items-center">
+              <span class="text-muted small">
+                <i class="bi bi-star-fill text-warning"></i> <%= item.stars %>
+              </span>
+              <span class="text-muted small">
+                <i class="bi bi-clock"></i> <%= relativeTime %>
+              </span>
+              <% if (item.license && item.license !== 'none') { %>
+              <span class="text-muted small">
+                <i class="bi bi-file-text"></i> <%= item.license %>
+              </span>
+              <% } %>
+              <a href="<%= item['github-url'] %>" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm">
+                <i class="bi bi-github"></i>
+              </a>
             </div>
-
-            <div class="flex-grow-1">
-              <!-- Extension Header -->
-              <div class="extension-header d-flex justify-content-between align-items-center mb-2">
-                <div class="extension-title-section">
-                  <h5 class="extension-title mb-0 no-anchor">
-                    <a href="<%= item['github-url'] %>" target="_blank" rel="noopener noreferrer">
-                      <%= item.title %>
-                    </a>
-                    <% if (isTemplate) { %>
-                      <span class="badge bg-success ms-2">Template</span>
-                      <% } %>
-                        <% if (isExample) { %>
-                          <span class="badge bg-info ms-2">Example</span>
-                          <% } %>
-                  </h5>
-                </div>
-
-                <!-- Header Metrics -->
-                <div class="extension-metrics-header">
-                  <div class="d-flex gap-3 align-items-center">
-                    <span class="text-muted small">
-                      <i class="bi bi-star-fill text-warning"></i>
-                      <%= item.stars %>
-                    </span>
-                    <span class="text-muted small">
-                      <i class="bi bi-clock"></i>
-                      <%= relativeTime %>
-                    </span>
-                    <% if (item.license && item.license !=='none' ) { %>
-                      <span class="text-muted small">
-                        <i class="bi bi-file-text"></i>
-                        <%= item.license %>
-                      </span>
-                      <% } %>
-                        <a href="<%= item['github-url'] %>" target="_blank" rel="noopener noreferrer"
-                          class="btn btn-outline-light btn-sm">
-                          <i class="bi bi-github"></i>
-                        </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Extension Content -->
-              <div class="extension-content">
-                <div class="extension-author mb-1">
-                  <button class="btn btn-link p-0 text-muted text-decoration-none filter-chip" data-filter="author"
-                    data-login="<%= item.login %>">
-                    <i class="bi bi-person"></i>
-                    <%= (!item.author || item.author==='null' ) ? item.login : item.author %>
-                  </button>
-                </div>
-                <div class="extension-description mb-2">
-                  <%- item.description %>
-                </div>
-              </div>
-
-              <!-- Extension Footer -->
-              <div class="extension-footer d-flex justify-content-between align-items-center">
-                <div class="extension-categories">
-                  <% const filteredCategories=item.categories.filter(cat=>
-                    !excludeCategories.includes(cat.toLowerCase()));
-
-                    const mainCategories = filteredCategories.slice(0, 3);
-                    const extraCategories = filteredCategories.slice(3);
-                    %>
-                    <span class="category-badges">
-                      <% mainCategories.forEach(category=> { %>
-                        <span class="badge bg-light text-dark me-1">
-                          <%= category %>
-                        </span>
-                        <% }); %>
-                          <% if (extraCategories.length> 0) { %>
-                            <% const listCatId=`list-cat-${id}`; %>
-                              <% extraCategories.forEach(category=> { %>
-                                <span class="badge bg-light text-dark me-1 extra-category d-none"
-                                  data-extra="<%= listCatId %>">
-                                  <%= category %>
-                                </span>
-                                <% }); %>
-                                  <button class="btn btn-link btn-sm p-0 text-muted category-expand-toggle"
-                                    type="button" data-id="<%= listCatId %>">
-                                    +<%= extraCategories.length %> more
-                                  </button>
-                                  <% } %>
-                    </span>
-                </div>
-
-                <div class="extension-actions">
-                  <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                    data-bs-target="#install-modal-<%= id %>">
-                    <i class="bi bi-download"></i> Install
-                  </button>
-                  <% if (isTemplate) { %>
-                    <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
-                      data-bs-target="#use-modal-<%= id %>">
-                      <i class="bi bi-file-plus"></i> Use
-                    </button>
-                    <% } %>
-                      <% if (isExample) { %>
-                        <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal"
-                          data-bs-target="#use-modal-<%= id %>">
-                          <i class="bi bi-eye"></i> Use
-                        </button>
-                        <% } %>
-                </div>
-              </div>
-            </div>
+          </div>
+        </div>
+        
+        <!-- Extension Content -->
+        <div class="extension-content">
+          <div class="extension-author mb-1">
+            <button class="btn btn-link p-0 text-muted text-decoration-none filter-chip" data-filter="author" data-login="<%= item.login %>">
+              <i class="bi bi-person"></i> <%= (!item.author || item.author === 'null') ? item.login : item.author %>
+            </button>
+          </div>
+          <div class="extension-description mb-2">
+            <%- item.description %>
+          </div>
+        </div>
+        
+        <!-- Extension Footer -->
+        <div class="extension-footer d-flex justify-content-between align-items-center">
+          <div class="extension-categories">
+            <% 
+            const filteredCategories = item.categories.filter(cat => !excludeCategories.includes(cat.toLowerCase()));
+            
+            const mainCategories = filteredCategories.slice(0, 3);
+            const extraCategories = filteredCategories.slice(3);
+            %>
+            <span class="category-badges">
+              <% mainCategories.forEach(category => { %>
+                <span class="badge bg-light text-dark me-1"><%= category %></span>
+              <% }); %>
+              <% if (extraCategories.length > 0) { %>
+                <% const listCatId = `list-cat-${id}`; %>
+                <% extraCategories.forEach(category => { %>
+                  <span class="badge bg-light text-dark me-1 extra-category d-none" data-extra="<%= listCatId %>"><%= category %></span>
+                <% }); %>
+                <button class="btn btn-link btn-sm p-0 text-muted category-expand-toggle" type="button" data-id="<%= listCatId %>">
+                  +<%= extraCategories.length %> more
+                </button>
+              <% } %>
+            </span>
+          </div>
+          
+          <div class="extension-actions">
+            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#install-modal-<%= id %>">
+              <i class="bi bi-download"></i> Install
+            </button>
+            <% if (isTemplate) { %>
+            <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#use-modal-<%= id %>">
+              <i class="bi bi-file-plus"></i> Use
+            </button>
+            <% } %>
+            <% if (isExample) { %>
+            <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#use-modal-<%= id %>">
+              <i class="bi bi-eye"></i> Use
+            </button>
+            <% } %>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
 ```
 
-      <% } %>
+<% } %>
 
 ```{=html}
 </div>
