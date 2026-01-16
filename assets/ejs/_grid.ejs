@@ -5,7 +5,7 @@
 </div>
 
 <div id="extensions-grid" class="grid">
-  ```
+```
 
   <% for (const item of items) { %>
     <% const usage=item.usage; const id=utils.b64encode(usage); const isTemplate=item.template===true; const
@@ -18,7 +18,7 @@
       months ago`; } else { const years=Math.floor(diffDays / 365); relativeTime=years===1 ? '1 year ago' : `${years}
       years ago`; } // Get status banner using shared function const statusBanner=getStatusBanner(item.categories); %>
 
-      ```{=html}
+```{=html}
       <div class="g-col-12 g-col-sm-6 g-col-lg-4">
         <div class="card extension-card h-100" data-categories="<%= item.categories.join(',') %>"
           data-contributes="<%= item.contributes.join(',') %>" data-author="<%= item.author %>"
@@ -142,10 +142,10 @@
                 </div>
         </div>
       </div>
-      ```
+```
 
       <% } %>
 
-        ```{=html}
+```{=html}
 </div>
 ```
