@@ -35,9 +35,11 @@ jobs:
       updated-count: ${{ steps.get-extensions-details.outputs.updated-count }}
       skipped-count: ${{ steps.get-extensions-details.outputs.skipped-count }}
       outdated-count: ${{ steps.get-extensions-details.outputs.outdated-count }}
+      renamed-count: ${{ steps.get-extensions-details.outputs.renamed-count }}
       updated-extensions: ${{ steps.get-extensions-details.outputs.updated-extensions }}
       skipped-extensions: ${{ steps.get-extensions-details.outputs.skipped-extensions }}
       outdated-extensions: ${{ steps.get-extensions-details.outputs.outdated-extensions }}
+      renamed-extensions: ${{ steps.get-extensions-details.outputs.renamed-extensions }}
     env:
       BRANCH: quarto-wizard
       COMMIT: "ci: update extensions details"
@@ -138,9 +140,11 @@ jobs:
       UPDATED_COUNT: ${{ needs.get-extensions.outputs.updated-count }}
       SKIPPED_COUNT: ${{ needs.get-extensions.outputs.skipped-count }}
       OUTDATED_COUNT: ${{ needs.get-extensions.outputs.outdated-count }}
+      RENAMED_COUNT: ${{ needs.get-extensions.outputs.renamed-count }}
       UPDATED_EXTENSIONS: ${{ needs.get-extensions.outputs.updated-extensions }}
       SKIPPED_EXTENSIONS: ${{ needs.get-extensions.outputs.skipped-extensions }}
       OUTDATED_EXTENSIONS: ${{ needs.get-extensions.outputs.outdated-extensions }}
+      RENAMED_EXTENSIONS: ${{ needs.get-extensions.outputs.renamed-extensions }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -155,6 +159,7 @@ jobs:
           UPDATED_COUNT=${UPDATED_COUNT:-0}
           SKIPPED_COUNT=${SKIPPED_COUNT:-0}
           OUTDATED_COUNT=${OUTDATED_COUNT:-0}
+          RENAMED_COUNT=${RENAMED_COUNT:-0}
 
           if [[ "${DEBUG_MODE}" == "true" ]]; then
             echo "## Extension Processing Summary (Debug Mode)" >> "${GITHUB_STEP_SUMMARY}"
@@ -185,6 +190,21 @@ jobs:
             echo "<details><summary>Show skipped extensions</summary>" >> "${GITHUB_STEP_SUMMARY}"
             echo "" >> "${GITHUB_STEP_SUMMARY}"
             IFS=',' read -ra EXTENSIONS <<< "${SKIPPED_EXTENSIONS}"
+            for ext in "${EXTENSIONS[@]}"; do
+              [[ -n "${ext}" ]] && echo "- ${ext}" >> "${GITHUB_STEP_SUMMARY}"
+            done
+            echo "" >> "${GITHUB_STEP_SUMMARY}"
+            echo "</details>" >> "${GITHUB_STEP_SUMMARY}"
+          fi
+
+          echo "" >> "${GITHUB_STEP_SUMMARY}"
+          echo "### Renamed Extensions (Auto-Fixed) (${RENAMED_COUNT})" >> "${GITHUB_STEP_SUMMARY}"
+          if [[ "${RENAMED_COUNT}" -eq 0 ]]; then
+            echo "No extensions were renamed." >> "${GITHUB_STEP_SUMMARY}"
+          else
+            echo "<details><summary>Show renamed extensions</summary>" >> "${GITHUB_STEP_SUMMARY}"
+            echo "" >> "${GITHUB_STEP_SUMMARY}"
+            IFS=',' read -ra EXTENSIONS <<< "${RENAMED_EXTENSIONS}"
             for ext in "${EXTENSIONS[@]}"; do
               [[ -n "${ext}" ]] && echo "- ${ext}" >> "${GITHUB_STEP_SUMMARY}"
             done

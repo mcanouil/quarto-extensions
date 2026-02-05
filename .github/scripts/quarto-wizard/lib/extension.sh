@@ -86,8 +86,21 @@ process_extensions() {
     owner=$(echo "${repo_info}" | jq -r ".owner")
 
     if [[ "${repo,,}" != "${nameWithOwner}" ]]; then
-      outdated_extensions+=("${entry}")
-      echo "::error title=Outdated Repository::\"${repo}\" does not match current repository name \"${nameWithOwner}\""
+      # Build the new entry, preserving subdirectory if present
+      local subdirectory_suffix
+      subdirectory_suffix=$(echo "${entry}" | cut -d'/' -f3-)
+      local new_entry="${nameWithOwner}"
+      if [[ -n "${subdirectory_suffix}" ]]; then
+        new_entry="${nameWithOwner}/${subdirectory_suffix}"
+      fi
+
+      echo "::warning title=Renamed Repository::\"${entry}\" -> \"${new_entry}\""
+
+      # Update the local CSV file in data/ (will be pushed to main at the end)
+      sed -i "s|^${entry}$|${new_entry}|" "data/${CSV_FILE}"
+
+      renamed_extensions+=("${entry} -> ${new_entry}")
+      entry="${new_entry}"
     fi
 
     mkdir -p "${EXTENSIONS_DIR}/${nameWithOwner}"

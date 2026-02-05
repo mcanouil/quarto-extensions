@@ -36,6 +36,7 @@ mkdir -p "${EXTENSIONS_DIR}"
 updated_extensions=()
 skipped_extensions=()
 outdated_extensions=()
+renamed_extensions=()
 valid_dirs=()
 
 # Load CSV entries based on debug mode
@@ -55,17 +56,28 @@ git_stage_and_commit "${JSON_FILE}"
 # Clean up outdated directories
 github_cleanup_extensions_dir "${EXTENSIONS_DIR}" "${valid_dirs[@]}"
 
+# Push renamed entries to main branch CSV
+if [[ ${#renamed_extensions[@]} -gt 0 ]]; then
+  renamed_list=$(printf '%s,' "${renamed_extensions[@]}" | sed 's/,$//')
+  push_csv_renames_to_main "${CSV_FILE}" "${renamed_list}" || true
+fi
+
 # Output results to GitHub Actions
 {
   echo "updated-count=${#updated_extensions[@]}"
   echo "skipped-count=${#skipped_extensions[@]}"
   echo "outdated-count=${#outdated_extensions[@]}"
+  echo "renamed-count=${#renamed_extensions[@]}"
   echo "updated-extensions=$(printf '%s,' "${updated_extensions[@]}" | sed 's/,$//')"
   echo "skipped-extensions=$(printf '%s,' "${skipped_extensions[@]}" | sed 's/,$//')"
   echo "outdated-extensions=$(printf '%s,' "${outdated_extensions[@]}" | sed 's/,$//')"
+  echo "renamed-extensions=$(printf '%s,' "${renamed_extensions[@]}" | sed 's/,$//')"
 } >> "${GITHUB_OUTPUT}"
 
 echo "::notice title=Updated Extensions::Count: ${#updated_extensions[@]}"
+if [[ ${#renamed_extensions[@]} -gt 0 ]]; then
+  echo "::notice title=Renamed Extensions (Auto-Fixed)::Count: ${#renamed_extensions[@]}"
+fi
 if [[ ${#outdated_extensions[@]} -gt 0 ]]; then
   echo "::error title=Outdated Extensions::Count: ${#outdated_extensions[@]}"
   exit 1
