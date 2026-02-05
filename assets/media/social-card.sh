@@ -4,3 +4,5 @@ npx playwright screenshot \
   --viewport-size="1200,630" \
   --wait-for-timeout=3000 \
   _social-card.html social-card.png
+
+optipng -o7 -strip all social-card.png
