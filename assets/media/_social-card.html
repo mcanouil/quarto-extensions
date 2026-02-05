@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <title>Quarto Extensions Registry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500&family=Sora:wght@300;400;600&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --quarto-blue: #74AADB;
+      --quarto-text: #4F789E;
+      --bg-dark: #0d1117;
+      --bg-surface: #161b22;
+      --text-primary: #f0f6fc;
+      --text-secondary: #8b949e;
+      --accent-green: #3fb950;
+      --accent-purple: #a371f7;
+      --accent-orange: #f0883e;
+    }
+
+    body {
+      font-family: 'Sora', sans-serif;
+      background: var(--bg-dark);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .social-container {
+      width: 1200px;
+      height: 630px;
+      background: var(--bg-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(117, 170, 219, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(117, 170, 219, 0.04) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.5;
+    }
+
+    .orb-main {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, var(--quarto-blue) 0%, transparent 70%);
+      top: -150px;
+      left: -100px;
+    }
+
+    .orb-accent-1 {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, var(--accent-purple) 0%, transparent 70%);
+      bottom: -80px;
+      right: 200px;
+    }
+
+    .orb-accent-2 {
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, var(--accent-green) 0%, transparent 70%);
+      top: 100px;
+      right: -50px;
+    }
+
+    .floating-extensions {
+      position: absolute;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 300;
+      padding: 14px 18px;
+      border-radius: 8px;
+      background: var(--bg-surface);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-secondary);
+      opacity: 0.5;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .ext-1 {
+      top: 80px;
+      left: 80px;
+    }
+
+    .ext-2 {
+      top: 300px;
+      left: 120px;
+    }
+
+    .ext-3 {
+      bottom: 100px;
+      left: 100px;
+    }
+
+    .ext-4 {
+      top: 120px;
+      right: 100px;
+    }
+
+    .ext-5 {
+      top: 350px;
+      right: 90px;
+    }
+
+    .ext-6 {
+      bottom: 60px;
+      right: 110px;
+    }
+
+    .ext-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 10px;
+      margin-left: 8px;
+      font-weight: 500;
+    }
+
+    .badge-shortcode {
+      background: rgba(63, 185, 80, 0.15);
+      color: var(--accent-green);
+      border: 1px solid rgba(63, 185, 80, 0.3);
+    }
+
+    .badge-filter {
+      background: rgba(163, 113, 247, 0.15);
+      color: var(--accent-purple);
+      border: 1px solid rgba(163, 113, 247, 0.3);
+    }
+
+    .badge-format {
+      background: rgba(240, 136, 62, 0.15);
+      color: var(--accent-orange);
+      border: 1px solid rgba(240, 136, 62, 0.3);
+    }
+
+    .content {
+      position: relative;
+      z-index: 10;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 42px;
+    }
+
+    .quarto-logo {
+      height: 85px;
+    }
+
+    .quarto-logo svg {
+      height: 100%;
+      width: auto;
+    }
+
+    .title-section {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .main-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 56px;
+      font-weight: 400;
+      color: var(--text-primary);
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .highlight {
+      color: var(--quarto-blue);
+      font-style: italic;
+    }
+
+    .subtitle {
+      font-family: 'Sora', sans-serif;
+      font-size: 19px;
+      font-weight: 300;
+      color: var(--text-secondary);
+      letter-spacing: 0.5px;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    .stats-container {
+      display: flex;
+      gap: 40px;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 18px 32px;
+      border-radius: 8px;
+      background: var(--bg-surface);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .stat-number {
+      font-family: 'Sora', sans-serif;
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--quarto-blue);
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .deco-circle {
+      position: absolute;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .deco-1 {
+      width: 400px;
+      height: 400px;
+      top: -200px;
+      right: 150px;
+    }
+
+    .deco-2 {
+      width: 300px;
+      height: 300px;
+      bottom: -150px;
+      left: 200px;
+    }
+
+    .url {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      opacity: 0.6;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="social-container">
+    <div class="grid-bg"></div>
+    <div class="orb orb-main"></div>
+    <div class="orb orb-accent-1"></div>
+    <div class="orb orb-accent-2"></div>
+
+    <div class="deco-circle deco-1"></div>
+    <div class="deco-circle deco-2"></div>
+
+    <div class="floating-extensions ext-1">
+      iconify<span class="ext-badge badge-shortcode">Shortcode</span>
+    </div>
+    <div class="floating-extensions ext-2">
+      highlight-text<span class="ext-badge badge-filter">Filter</span>
+    </div>
+    <div class="floating-extensions ext-3">
+      webr<span class="ext-badge badge-format">Format</span>
+    </div>
+    <div class="floating-extensions ext-4">
+      closeread<span class="ext-badge badge-format">Format</span>
+    </div>
+    <div class="floating-extensions ext-5">
+      wordcount<span class="ext-badge badge-shortcode">Shortcode</span>
+    </div>
+    <div class="floating-extensions ext-6">
+      preview-colour<span class="ext-badge badge-filter">Filter</span>
+    </div>
+
+    <div class="content">
+      <div class="logo-container">
+        <div class="quarto-logo">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 599 125.4">
+            <g>
+              <path fill-rule="evenodd" clip-rule="evenodd" fill="#74AADB"
+                d="M56,54.4V1.5C27.9,3.5,5.6,26.2,4.1,54.4H56z" />
+              <path fill-rule="evenodd" clip-rule="evenodd" fill="#74AADB"
+                d="M63,54.4h52.9C114.4,25.9,91.5,3,63,1.5V54.4z" />
+              <path fill-rule="evenodd" clip-rule="evenodd" fill="#74AADB"
+                d="M56,61.4H4.2c2,27.7,24.1,49.9,51.8,51.8V61.4z" />
+              <path fill-rule="evenodd" clip-rule="evenodd" fill="#74AADB"
+                d="M63,61.4v51.9c28.2-1.5,50.9-23.8,52.8-51.9H63z" />
+            </g>
+            <path fill="#f0f6fc" d="M214.6,24.8v13.1c-5.8-10.1-16-16.6-29.4-16.6c-21.3,0-36.2,16.2-36.2,38.1c0,22.1,14.9,37.9,36.2,37.9
+              c13.4,0,23.7-6.4,29.4-16.5V123c0,1.4,1,2.4,2.4,2.4h4c1.4,0,2.4-1,2.4-2.4V24.8c0-1.4-1-2.4-2.4-2.4h-4
+              C215.6,22.4,214.6,23.4,214.6,24.8z M186.1,88.8c-17.1,0-28.6-12.2-28.6-29.4s11.5-29.8,28.6-29.8c17.3,0,28.5,12.5,28.5,29.8
+              S203.4,88.8,186.1,88.8z" />
+            <path fill="#f0f6fc" d="M298.4,24.8v42.1c0,14.6-9.9,22.7-22.7,22.7c-12.6,0-22.7-8.2-22.7-22.7V24.8c0-1.4-1-2.4-2.4-2.4h-4
+              c-1.4,0-2.4,1-2.4,2.4V68c0,20.2,14.4,29.3,29.6,29.3c9.8,0,19.2-3.8,24.6-12.2v8.5c0,1.4,1,2.4,2.4,2.4h4c1.4,0,2.4-1,2.4-2.4V24.8
+              c0-1.4-1-2.4-2.4-2.4h-4C299.4,22.4,298.4,23.4,298.4,24.8z" />
+            <path fill="#f0f6fc" d="M391.7,24.8v13c-5.8-10.1-16-16.5-29.4-16.5c-21.3,0-36.2,15.8-36.2,37.9c0,21.9,14.9,38.1,36.2,38.1
+              c13.4,0,23.7-6.6,29.4-16.6v13c0,1.4,1,2.4,2.4,2.4h4c1.4,0,2.4-1,2.4-2.4V24.8c0-1.4-1-2.4-2.4-2.4h-4
+              C392.7,22.4,391.7,23.4,391.7,24.8z M363.2,88.8c-17.1,0-28.6-12.3-28.6-29.6s11.5-29.6,28.6-29.6c17.3,0,28.5,12.3,28.5,29.6
+              S380.5,88.8,363.2,88.8z" />
+            <path fill="#f0f6fc" d="M430.1,36V24.8c0-1.4-1-2.4-2.4-2.4h-4c-1.4,0-2.4,1-2.4,2.4v68.8c0,1.4,1,2.4,2.4,2.4h4
+              c1.4,0,2.4-1,2.4-2.4V54.4c0-16,11.5-23.5,23.7-24.6c1.4-0.2,2.2-1.1,2.2-2.6v-3.5c0-1.6-0.8-2.4-2.4-2.2
+              C443.9,22.2,435.1,27,430.1,36z" />
+            <path fill="#f0f6fc" d="M505,27v-2.2c0-1.4-1-2.4-2.4-2.4h-16v-20c0-1.4-1-2.4-2.4-2.4h-4c-1.4,0-2.4,1-2.4,2.4v20h-8.2
+              c-1.4,0-2.4,1-2.4,2.4V27c0,1.4,1,2.4,2.4,2.4h8.2v50.2c0,10.4,6.4,16.3,16.5,16.3h7.5c1.4,0,2.4-1,2.4-2.4V91c0-1.4-1-2.4-2.4-2.4
+              H497c-5.6,0-10.4-2.6-10.4-10.1V29.4h16C504,29.4,505,28.5,505,27z" />
+            <path fill="#f0f6fc" d="M552.7,97.4c22.1,0,37.1-16.3,37.1-38.2c0-22.1-15-38.1-37.1-38.1s-37.3,16-37.3,38.1
+              C515.4,81.1,530.6,97.4,552.7,97.4z M552.7,88.8c-17,0-28.5-12.6-28.5-29.6s11.5-29.6,28.5-29.6c17,0,28.2,12.6,28.2,29.6
+              S569.6,88.8,552.7,88.8z" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="title-section">
+        <h1 class="main-title">
+          <span class="highlight">Discover</span> Extensions
+        </h1>
+        <p class="subtitle">
+          A curated directory of community-created Quarto extensions for documents, presentations, and projects
+        </p>
+      </div>
+
+      <div class="stats-container">
+        <div class="stat-item">
+          <div class="stat-number">Browse</div>
+          <div class="stat-label">Explore</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">Install</div>
+          <div class="stat-label">CLI or Wizard</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">Create</div>
+          <div class="stat-label">Contribute</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="url">m.canouil.dev/quarto-extensions</div>
+  </div>
+</body>
+
+</html>

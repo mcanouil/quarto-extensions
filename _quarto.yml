@@ -24,7 +24,7 @@ website:
     our collection is tailored to empower your projects with added functionality and flair.
     Dive into a world where creativity meets efficiency, and elevate your Quarto creations to new heights.
   image: "assets/media/quarto-extensions.png"
-  favicon: "assets/media/quarto-extensions.svg"
+  favicon: "assets/media/quarto-extensions.png"
   sidebar: false
   page-footer:
     border: true
@@ -35,7 +35,7 @@ website:
     right: |
       [{{< iconify octicon:heart-16 title='Heart Sponsor' label='Heart Sponsor' style='color:#c96198;' >}} Sponsor](https://github.com/sponsors/mcanouil?o=esb).
   navbar:
-    logo: "assets/media/quarto-extensions.svg"
+    logo: "assets/media/quarto-extensions.png"
     logo-alt: "Quarto Extensions Logo"
     search: false
     right:
@@ -60,7 +60,6 @@ format:
   mcanouil-html:
     code-link: false
     code-tools: false
-
 include-in-header:
   - text: |
       <style> #title-block-header, #quarto-appendix { display: none; } </style>
