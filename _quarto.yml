@@ -1,5 +1,5 @@
 project:
-  type: website
+  type: mcanouil
   output-dir: _site
   pre-render:
     - git fetch origin quarto-wizard:quarto-wizard
@@ -9,10 +9,7 @@ project:
   resources:
     - extensions.json
 
-author-meta: "Mickaël CANOUIL"
 date-meta: 2023-12-09
-lang: en
-date-format: "dddd[, the] Do [of] MMMM, YYYY"
 
 website:
   site-url: https://m.canouil.dev/quarto-extensions/
@@ -28,10 +25,7 @@ website:
     Dive into a world where creativity meets efficiency, and elevate your Quarto creations to new heights.
   image: "assets/media/quarto-extensions.png"
   favicon: "assets/media/quarto-extensions.svg"
-  page-navigation: true
-  back-to-top-navigation: true
-  open-graph: true
-  twitter-card: true
+  sidebar: false
   page-footer:
     border: true
     left: |
@@ -43,7 +37,6 @@ website:
   navbar:
     logo: "assets/media/quarto-extensions.svg"
     logo-alt: "Quarto Extensions Logo"
-    background: dark
     search: false
     right:
       - text: "{{< iconify octicon:question-16 title='Help' label='Help' >}} About"
@@ -61,27 +54,13 @@ website:
         target: _blank
         rel: noopener noreferrer
 
+brand: _brand.yml
+
 format:
-  html:
-    theme:
-      light:
-        - cosmo
-        - assets/stylesheets/wizard.scss
-        - brand
-      dark:
-        - cosmo
-        - assets/stylesheets/wizard.scss
-        - brand
-    highlight-style: github
-    include-after-body:
-      - file: assets/scripts/ordinal-dates.html
-      - file: assets/scripts/current-year.html
-      - file: assets/scripts/external-links.html
-    grid:
-      body-width: 950px
-    anchor-sections: true
-    email-obfuscation: javascript
-    link-external-newwindow: true
-    code-copy: true
+  mcanouil-html:
     code-link: false
     code-tools: false
+
+include-in-header:
+  - text: |
+      <style> #title-block-header, #quarto-appendix { display: none; } </style>
