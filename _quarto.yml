@@ -28,6 +28,8 @@ website:
   sidebar: false
   page-footer:
     border: true
+    background: light
+    foreground: dark
     left: |
       Powered by [[{{< iconify simple-icons:quarto title='Quarto Logo' label='Quarto Logo' >}}]{style="color:#74aadb;"} Quarto](https://quarto.org).
     center: |
@@ -38,6 +40,8 @@ website:
     logo: "assets/media/quarto-extensions.png"
     logo-alt: "Quarto Extensions Logo"
     search: false
+    background: dark
+    foreground: light
     right:
       - text: "{{< iconify octicon:question-16 title='Help' label='Help' >}} About"
         href: about.qmd
