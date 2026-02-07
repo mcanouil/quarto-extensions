@@ -58,8 +58,6 @@ brand: _brand.yml
 
 format:
   mcanouil-html:
-    code-link: false
-    code-tools: false
-include-in-header:
-  - text: |
-      <style> #title-block-header, #quarto-appendix { display: none; } </style>
+    include-in-header:
+      - text: |
+          <style> #title-block-header, #quarto-appendix { display: none; } </style>
