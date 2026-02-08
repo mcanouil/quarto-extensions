@@ -200,9 +200,8 @@ process_extensions() {
       --jq ".tree[] | select(.path | endswith(\"${repo_subdirectory}template.qmd\")) | .url | @sh" | xargs -I {} gh api -X GET {} --jq ".content")
     if [[ -n "${repo_template}" ]]; then
       repo_info=$(echo "${repo_info}" | jq '. + {template: true} | .repositoryTopics += ["template"]')
-      repo_info=$(echo "${repo_info}" | jq --arg content "${repo_template}" '. + {templateContent: $content}')
     else
-      repo_info=$(echo "${repo_info}" | jq '. + {template: false, templateContent: null}')
+      repo_info=$(echo "${repo_info}" | jq '. + {template: false}')
     fi
 
     # Fetch example.qmd
@@ -212,9 +211,8 @@ process_extensions() {
       --jq ".tree[] | select(.path | endswith(\"${repo_subdirectory}example.qmd\")) | .url | @sh" | xargs -I {} gh api -X GET {} --jq ".content")
     if [[ -n "${repo_example}" ]]; then
       repo_info=$(echo "${repo_info}" | jq '. + {example: true} | .repositoryTopics += ["example"]')
-      repo_info=$(echo "${repo_info}" | jq --arg content "${repo_example}" '. + {exampleContent: $content}')
     else
-      repo_info=$(echo "${repo_info}" | jq '. + {example: false, exampleContent: null}')
+      repo_info=$(echo "${repo_info}" | jq '. + {example: false}')
     fi
 
     # Fetch latest commit
