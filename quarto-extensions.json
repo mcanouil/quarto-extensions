@@ -1153,15 +1153,15 @@
     "licenseInfo": "MIT License",
     "name": "elsevier",
     "nameWithOwner": "quarto-journals/elsevier",
-    "openGraphImageUrl": "https://opengraph.githubassets.com/91e0afd0e6456647ac6a1b978759316f6f55143883c5c747825376992c684bdb/quarto-journals/elsevier",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/a33c448fe77012848d223dc66f4e00afbc9f271d57bc150d956c5e0af43cf07c/quarto-journals/elsevier",
     "owner": "quarto-journals",
     "pushedAt": "2025-11-05T18:32:48Z",
     "repositoryTopics": [
       "template"
     ],
-    "stargazerCount": 84,
+    "stargazerCount": 85,
     "title": "ELSEVIER",
-    "updatedAt": "2026-02-14T12:47:55Z",
+    "updatedAt": "2026-02-21T22:06:44Z",
     "url": "https://github.com/quarto-journals/elsevier",
     "author": "Quarto Journals",
     "template": true,
@@ -1642,6 +1642,32 @@
       "format"
     ],
     "quartoRequired": ">=1.7.29"
+  },
+  "nrichers/slideover": {
+    "createdAt": "2025-03-30T17:20:36Z",
+    "defaultBranchRef": "main",
+    "description": "Add slide-over functionality to reveal.js presentations",
+    "latestRelease": "none",
+    "latestReleaseUrl": null,
+    "licenseInfo": "MIT License",
+    "name": "slideover",
+    "nameWithOwner": "nrichers/slideover",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/3293568689d3cf7eb1b074f8cd83879238eb20bdf5cfd5af0be7990f50edf389/nrichers/slideover",
+    "owner": "nrichers",
+    "pushedAt": "2026-02-17T17:08:34Z",
+    "repositoryTopics": [],
+    "stargazerCount": 0,
+    "title": "SLIDEOVER",
+    "updatedAt": "2026-02-17T17:08:38Z",
+    "url": "https://github.com/nrichers/slideover",
+    "author": "Nik Richers",
+    "template": false,
+    "example": false,
+    "latestCommit": "7a7e013a592bbf5ef8f2d4560e8184f7e02a1e49",
+    "contributes": [
+      "revealjs-plugin"
+    ],
+    "quartoRequired": ">=1.6.0"
   },
   "georgramer/si": {
     "createdAt": "2024-10-23T02:53:19Z",
@@ -7294,6 +7320,146 @@
       "format"
     ],
     "quartoRequired": ">=1.4.0"
+  },
+  "herosi/zoomit-ish": {
+    "createdAt": "2026-02-16T12:42:03Z",
+    "defaultBranchRef": "main",
+    "description": "A Quarto Reveal.js extension inspired by ZoomIt with synchronization with the Speaker View.",
+    "latestRelease": "none",
+    "latestReleaseUrl": null,
+    "licenseInfo": "MIT License",
+    "name": "Zoomit-ish",
+    "nameWithOwner": "herosi/zoomit-ish",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/54812aeab4eefb4e818a38bb6b873c3907105e0b89ae6e16d2cb1b52cf34d62b/herosi/Zoomit-ish",
+    "owner": "herosi",
+    "pushedAt": "2026-02-18T05:16:36Z",
+    "repositoryTopics": [
+      "example"
+    ],
+    "stargazerCount": 0,
+    "title": "ZOOMIT ISH",
+    "updatedAt": "2026-02-18T05:16:40Z",
+    "url": "https://github.com/herosi/Zoomit-ish",
+    "author": "Hiroshi Suzuki",
+    "template": false,
+    "example": true,
+    "latestCommit": "b8638c2c36a5bf7cbe55e60f26f7577eea51bca1",
+    "contributes": [
+      "revealjs-plugin"
+    ],
+    "quartoRequired": ">=1.5.0"
+  },
+  "herosi/pointer-sync": {
+    "createdAt": "2026-02-16T02:38:00Z",
+    "defaultBranchRef": "main",
+    "description": "A Quarto Reveal.js extension that synchronizes the pointer between the speaker view and the main window.",
+    "latestRelease": "none",
+    "latestReleaseUrl": null,
+    "licenseInfo": "MIT License",
+    "name": "pointer-sync",
+    "nameWithOwner": "herosi/pointer-sync",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/b6142dae174d6db9ccaa4ce1a22f141b343a97c0cb797672eb0abfca01085527/herosi/pointer-sync",
+    "owner": "herosi",
+    "pushedAt": "2026-02-16T02:42:14Z",
+    "repositoryTopics": [
+      "example"
+    ],
+    "stargazerCount": 0,
+    "title": "POINTER SYNC",
+    "updatedAt": "2026-02-16T02:42:17Z",
+    "url": "https://github.com/herosi/pointer-sync",
+    "author": "Hiroshi Suzuki",
+    "template": false,
+    "example": true,
+    "latestCommit": "2269ff938cd8121bce00154d33620c9065856297",
+    "contributes": [
+      "revealjs-plugin"
+    ],
+    "quartoRequired": ">=1.8.0"
+  },
+  "herosi/code-folder": {
+    "createdAt": "2026-02-16T12:24:56Z",
+    "defaultBranchRef": "main",
+    "description": "A Quarto Reveal.js extension to fold specified lines or inline ranges within code blocks, and toggle folding and unfolding with a click.",
+    "latestRelease": "none",
+    "latestReleaseUrl": null,
+    "licenseInfo": "MIT License",
+    "name": "code-folder",
+    "nameWithOwner": "herosi/code-folder",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/005413df66081bd647903b76674dd3f173e8f9aa436d693798133f2186f13adb/herosi/code-folder",
+    "owner": "herosi",
+    "pushedAt": "2026-02-16T12:34:32Z",
+    "repositoryTopics": [
+      "example"
+    ],
+    "stargazerCount": 0,
+    "title": "CODE FOLDER",
+    "updatedAt": "2026-02-17T06:06:33Z",
+    "url": "https://github.com/herosi/code-folder",
+    "author": "Hiroshi Suzuki",
+    "template": false,
+    "example": true,
+    "latestCommit": "44f58ac31e2e73962981216198a4f24d8c5f6ce4",
+    "contributes": [
+      "revealjs-plugin"
+    ],
+    "quartoRequired": ">=1.8.0"
+  },
+  "herosi/code-line-deco": {
+    "createdAt": "2026-02-16T11:59:58Z",
+    "defaultBranchRef": "main",
+    "description": "A Quarto Reveal.js extension to decorate multiple ranges in a line in a code block with multiple effects.",
+    "latestRelease": "none",
+    "latestReleaseUrl": null,
+    "licenseInfo": "MIT License",
+    "name": "code-line-deco",
+    "nameWithOwner": "herosi/code-line-deco",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/d9fe50c39069f36cadc97263d7bef2c137b4d30421bf940661475ab1c13d7cc2/herosi/code-line-deco",
+    "owner": "herosi",
+    "pushedAt": "2026-02-16T12:37:28Z",
+    "repositoryTopics": [
+      "example"
+    ],
+    "stargazerCount": 0,
+    "title": "CODE LINE DECO",
+    "updatedAt": "2026-02-17T06:07:18Z",
+    "url": "https://github.com/herosi/code-line-deco",
+    "author": "Hiroshi Suzuki",
+    "template": false,
+    "example": true,
+    "latestCommit": "bcaa168970e8437e00c07a40d56320418fabc104",
+    "contributes": [
+      "revealjs-plugin"
+    ],
+    "quartoRequired": ">=1.8.0"
+  },
+  "herosi/move-abs-elems": {
+    "createdAt": "2026-02-20T04:50:13Z",
+    "defaultBranchRef": "main",
+    "description": "A pair of complementary plugins for Quarto that enable interactive manipulation of .absolute elements in Quarto Reveal.js slides.",
+    "latestRelease": "none",
+    "latestReleaseUrl": null,
+    "licenseInfo": "MIT License",
+    "name": "move-abs-elems",
+    "nameWithOwner": "herosi/move-abs-elems",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/5fe050f828421ec5d625a9c92da137d146609375c12427d6c68e83744451161d/herosi/move-abs-elems",
+    "owner": "herosi",
+    "pushedAt": "2026-02-20T04:58:06Z",
+    "repositoryTopics": [
+      "example"
+    ],
+    "stargazerCount": 0,
+    "title": "MOVE ABS ELEMS",
+    "updatedAt": "2026-02-20T04:58:10Z",
+    "url": "https://github.com/herosi/move-abs-elems",
+    "author": "Hiroshi Suzuki",
+    "template": false,
+    "example": true,
+    "latestCommit": "4788454c63c4ef87cb3a5f1a61f79031b82e43cd",
+    "contributes": [
+      "filter"
+    ],
+    "quartoRequired": ">=1.3.0"
   },
   "michaelaye/fub-letter": {
     "createdAt": "2026-01-18T20:36:34Z",
