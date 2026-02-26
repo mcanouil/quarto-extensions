@@ -1,7 +1,7 @@
 title: Mickaël Canouil's Brand
 author: Mickaël Canouil
-version: 0.15.5
-quarto-required: ">=1.9.17"
+version: 0.16.2
+quarto-required: ">=1.9.20"
 contributes:
   metadata:
     project:
@@ -127,7 +127,9 @@ contributes:
           - cosmo
           - brand
           - html/theme.scss
-      highlight-style: github
+      syntax-highlighting:
+        light: github-light
+        dark: github-dark
       # Layout
       grid:
         sidebar-width: 300px
@@ -167,7 +169,7 @@ contributes:
       show-title-page-background: true # Geometric background on title page
       show-heading-underlines: true # Gradient underlines below headings
       show-logo: true # Display logo in header
-      highlight-style: none
+      syntax-highlighting: idiomatic
       # Logo/Visual assets
       logo:
         light:
@@ -328,4 +330,4 @@ contributes:
           linkedin: MickaelCanouil
           bluesky: mickael.canouil.fr
           mastodon: https://fosstodon.org/%40MickaelCanouil
-source: mcanouil/quarto-mcanouil@0.15.5
+source: mcanouil/quarto-mcanouil@0.16.2
