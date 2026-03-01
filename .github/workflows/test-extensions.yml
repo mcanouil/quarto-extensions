@@ -1,0 +1,281 @@
+name: Test Quarto Extensions
+
+on:
+  workflow_dispatch:
+    inputs:
+      debug:
+        description: "If 'true' run in debug mode (only test first 10 extensions)"
+        required: false
+        default: 'false'
+  push:
+    branches:
+      - quarto-wizard
+    paths:
+      - "quarto-extensions.json"
+
+permissions:
+  contents: read
+
+jobs:
+  extensions-matrix:
+    runs-on: ubuntu-latest
+
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+      skipped: ${{ steps.set-matrix.outputs.skipped }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: quarto-wizard
+
+      - name: Extract extensions with examples or templates and build matrix
+        id: set-matrix
+        env:
+          DEBUG_MODE: ${{ github.event.inputs.debug || 'false' }}
+        run: |
+          # Determine whether to limit to the first 10 extensions from workflow input (debug mode)
+          # DEBUG_MODE is provided as an environment variable to avoid expression injection.
+
+          if [ "${DEBUG_MODE:-false}" = "true" ]; then
+            # Select example/template extensions and then take the first 10
+            MATRIX=$(jq -c '
+              to_entries
+              | map(select(.value.example == true or .value.template == true) | {id: .key})
+              | .[0:10] as $exts
+              | ["release","pre-release"] as $vers
+              | [ $exts[] as $e | $vers[] as $v | {id: $e.id, quarto_version: $v} ]
+              | {include: .}
+            ' quarto-extensions.json)
+          else
+            MATRIX=$(jq -c '
+              to_entries
+              | map(select(.value.example == true or .value.template == true) | {id: .key})
+              as $exts
+              | ["release","pre-release"] as $vers
+              | [ $exts[] as $e | $vers[] as $v | {id: $e.id, quarto_version: $v} ]
+              | {include: .}
+            ' quarto-extensions.json)
+          fi
+
+          NUM_ENTRIES=$(echo "${MATRIX}" | jq '.include | length')
+          # Compute skipped extensions (those without example or template)
+          SKIPPED=$(jq -c 'to_entries | map(select(.value.example != true and .value.template != true) | .key)' quarto-extensions.json)
+
+          echo "::notice title=Number of Matrix Entries:: ${NUM_ENTRIES} matrix entries generated (extensions × quarto versions)."
+          echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
+          echo "skipped=${SKIPPED}" >> $GITHUB_OUTPUT
+
+  test-extensions:
+    needs: extensions-matrix
+    runs-on: ubuntu-latest
+
+    strategy:
+      max-parallel: 10
+      fail-fast: false
+      matrix: ${{ fromJson(needs.extensions-matrix.outputs.matrix) }}
+
+    outputs:
+      quarto-version: ${{ steps.quarto-version.outputs.quarto-version }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: quarto-wizard
+
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: ${{ matrix.quarto_version }}
+          tinytex: true
+
+      - name: Quarto version
+        id: quarto-version
+        run: |
+          echo "quarto-version=$(quarto --version)" >> ${GITHUB_OUTPUT}
+
+      - name: Test extension
+        id: test-extension
+        shell: bash
+        run: |
+          INSPECT="quarto-inspect.json"
+          EXTENSION_ID="${{ matrix.id }}"
+          DIR_NAME="test-${EXTENSION_ID//\//-}"
+
+          mkdir -p "${DIR_NAME}"
+          cd "${DIR_NAME}"
+          quarto use template "${EXTENSION_ID}" --no-prompt
+
+          if [ ! -f "_quarto.yml" ] && [ ! -f ".quarto.yml" ]; then
+            touch _quarto.yml
+          fi
+
+          # record extension id and quarto version for artefact metadata
+          echo "${EXTENSION_ID}" > extension-id.txt
+          QUARTO_VERSION="$(quarto --version 2>/dev/null || true)"
+          echo "${QUARTO_VERSION}" > quarto-version.txt
+
+          quarto inspect > "${INSPECT}"
+
+          # Collect render failures in-memory (no files). Use a bash array.
+          declare -a FAILS_ARRAY=()
+
+          if [[ "${project_type}" == "default" ]]; then
+            echo "Project type: default — rendering each file/format pair"
+            while IFS=$'\t' read -r file formats; do
+              if [[ -z "${formats}" || "${formats}" == "null" ]]; then
+                echo "Skipping $file — no format keys"
+                continue
+              fi
+              IFS=',' read -ra fmts <<< "${formats}"
+              for fmt in "${fmts[@]}"; do
+                fmt="${fmt#"${fmt%%[![:space:]]*}"}"
+                fmt="${fmt%"${fmt##*[![:space:]]}"}"
+                if [[ -z "${fmt}" ]]; then
+                  continue
+                fi
+                echo "Rendering ${file} -> ${fmt}"
+                quarto render "${file}" --to "${fmt}"
+                status=$?
+                if [ ${status} -ne 0 ]; then
+                  echo "FAILED: ${file} -> ${fmt} (exit ${status})"
+                  FAILS_ARRAY+=("${file}|${fmt}|${status}")
+                fi
+              done
+            done < <(jq -r '.fileInformation
+              | to_entries[]
+              | "\(.key | split("/")[-1])\t\(.value.metadata.format | keys | join(","))"' "${INSPECT}")
+          else
+            echo "Project type: '${project_type:-(none)}' — running 'quarto render'"
+            quarto render
+            status=$?
+            if [ ${status} -ne 0 ]; then
+              echo "FAILED: 'quarto render' (exit ${status})"
+              FAILS_ARRAY+=("_ALL_|_ALL_|${status}")
+            fi
+          fi
+
+          # Save failures as a JSON file for artefact upload. Exit non-zero if any failures to keep job status.
+          if [ ${#FAILS_ARRAY[@]} -gt 0 ]; then
+            FAILS_JSON=$(printf '%s\n' "${FAILS_ARRAY[@]}" | jq -R -s -c 'split("\n")[:-1] | map(split("|") | {file: .[0], format: .[1], exit: (.[2] | tonumber)})' 2>/dev/null) || FAILS_JSON='[]'
+            echo "${FAILS_JSON}" > render-failures.json
+            echo "\nQuarto render failures:"
+            printf '%s\n' "${FAILS_ARRAY[@]}"
+            exit 1
+          else
+            echo '[]' > render-failures.json
+          fi
+
+      - name: Compute sanitised test directory
+        id: san
+        if: always()
+        run: |
+          # Replace slashes with dashes to match directory created earlier
+          SAN="${{ matrix.id }}"
+          SAN="${SAN//\//-}"
+          DIR="test-${SAN}"
+          echo "san_name=${DIR}" >> ${GITHUB_OUTPUT}
+
+      - name: Upload render artefacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: render-artefacts-${{ steps.san.outputs.san_name }}-${{ matrix.quarto_version }}
+          path: |
+            ${{ steps.san.outputs.san_name }}/render-failures.json
+            ${{ steps.san.outputs.san_name }}/extension-id.txt
+            ${{ steps.san.outputs.san_name }}/quarto-version.txt
+
+  summarise-results:
+    needs: [extensions-matrix, test-extensions]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Prepare skipped list
+        id: prep-skipped
+        run: |
+          SKIPPED_JSON='${{ needs.extensions-matrix.outputs.skipped }}'
+          echo "skipped=${SKIPPED_JSON}" >> ${GITHUB_OUTPUT}
+
+      - name: Download all render-artefacts
+        uses: actions/download-artifact@v4
+        with:
+          path: ./artefacts
+
+      - name: Summarise render failures
+        shell: bash
+        run: |
+          # Print skipped extensions (those without example/template)
+          SKIPPED='${{ needs.extensions-matrix.outputs.skipped }}'
+          if [ -n "${SKIPPED}" ] && [ "${SKIPPED}" != 'null' ]; then
+            echo "# Skipped extensions (no example/template)" >> $GITHUB_STEP_SUMMARY
+            echo "${SKIPPED}" | jq -r '.[]' | sed 's/^/- /' >> $GITHUB_STEP_SUMMARY || true
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Skipped extensions:\n${SKIPPED}"
+          fi
+
+          set -euo pipefail
+          cd artefacts || exit 0
+
+          # Find all render-failures.json files and produce a concise summary
+          FAILS=()
+          while IFS= read -r -d $'\0' file; do
+            # artefact directories are named like render-artefacts-<ext>-<quarto>
+            ART_DIR=$(dirname "${file}")
+            # read extension id and quarto version if present
+            EXT_ID_FILE="${ART_DIR}/extension-id.txt"
+            QV_FILE="${ART_DIR}/quarto-version.txt"
+            EXT_ID="$(cat "${EXT_ID_FILE}" 2>/dev/null || echo "(unknown)")"
+            QV="$(cat "${QV_FILE}" 2>/dev/null || echo "(unknown)")"
+            JSON=$(cat "${file}")
+            # if JSON is not empty array
+            if [ "${JSON}" != '[]' ] && [ -n "${JSON// /}" ]; then
+              cnt=$(echo "${JSON}" | jq 'length')
+              FAILS+=("${EXT_ID} | ${QV} | ${cnt} failures | artefact: ${ART_DIR}")
+            fi
+          done < <(find . -type f -name 'render-failures.json' -print0)
+
+          if [ ${#FAILS[@]} -eq 0 ]; then
+            echo "No render failures found across matrix run artefacts."
+            echo "# Render summary\n\nNo failures found." >> $GITHUB_STEP_SUMMARY
+            exit 0
+          fi
+
+          # Write a brief summary to the Actions summary and print failures
+          echo "# Render summary - failures across matrix runs" >> $GITHUB_STEP_SUMMARY
+          for line in "${FAILS[@]}"; do
+            echo "- ${line}" >> $GITHUB_STEP_SUMMARY
+            echo "${line}"
+          done
+
+          # Also print details for the first few failing artefacts
+          echo "\nDetailed failures (first 5):"
+          i=0
+          find . -type f -name 'render-failures.json' -print0 | while IFS= read -r -d $'\0' f; do
+            J=$(cat "${f}")
+            if [ "${J}" != '[]' ]; then
+              ART_DIR=$(dirname "${f}")
+              EXT_ID="$(cat "${ART_DIR}/extension-id.txt" 2>/dev/null || echo "(unknown)")"
+              QV="$(cat "${ART_DIR}/quarto-version.txt" 2>/dev/null || echo "(unknown)")"
+              echo "---"
+              echo "Extension: ${EXT_ID} (Quarto: ${QV})"
+              echo "Failures JSON:"
+              echo "${J}" | jq '.' || true
+              i=$((i+1))
+              if [ ${i} -ge 5 ]; then
+                break
+              fi
+            fi
+          done
+
+          # Exit with non-zero so that the summary job shows failed if any failures found
+          exit 1
