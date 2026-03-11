@@ -329,6 +329,85 @@ jobs:
           echo "No changes to ${CSV_FILE} found"
           exit 0
 
+  check-wizard:
+    runs-on: ubuntu-latest
+    needs: check-submission
+    outputs:
+      notes: ${{ steps.store-notes.outputs.notes }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 2
+      - name: Check for Quarto Wizard support
+        if: needs.check-submission.outputs.submission == 'true'
+        id: check
+        env:
+          DIFF: ${{ needs.check-submission.outputs.diff }}
+        shell: bash
+        run: |
+          echo ${DIFF} | base64 --decode > diff.patch
+          notes_json="[]"
+          if [[ -s diff.patch ]]; then
+            while IFS=, read -r entry; do
+              repo=$(echo "${entry}" | cut -d'/' -f1-2)
+              subdir=$(echo "${entry}" | cut -d'/' -f3-)
+
+              tree=$(gh api "repos/${repo}/git/trees/HEAD?recursive=1" --jq '.tree[].path' 2>/dev/null || true)
+              if [[ -z "${tree}" ]]; then
+                continue
+              fi
+
+              if [[ -n "${subdir}" ]]; then
+                ext_prefix="${subdir}/"
+              else
+                ext_prefix=""
+              fi
+
+              has_extension=$(echo "${tree}" | grep -E "^${ext_prefix}_extensions/[^/]+/_extension\.yml$" | head -n 1 || true)
+              if [[ -z "${has_extension}" ]]; then
+                continue
+              fi
+
+              ext_dir=$(dirname "${has_extension}")
+
+              has_schema=$(echo "${tree}" | grep -E "^${ext_dir}/_schema\.(yml|yaml|json)$" || true)
+              has_snippets=$(echo "${tree}" | grep -E "^${ext_dir}/_snippets\.json$" || true)
+
+              if [[ -z "${has_schema}" && -z "${has_snippets}" ]]; then
+                missing="schema (\`_schema.yml\`) and snippets (\`_snippets.json\`) files"
+              elif [[ -z "${has_schema}" ]]; then
+                missing="schema (\`_schema.yml\`) file"
+              elif [[ -z "${has_snippets}" ]]; then
+                missing="snippets (\`_snippets.json\`) file"
+              else
+                continue
+              fi
+
+              line_number=$(grep -n "${entry}" ${CSV_FILE} | cut -d: -f1 | tail -n 1)
+              note_message="Extension is missing ${missing}. Consider adding [Quarto Wizard](https://m.canouil.dev/quarto-wizard/) support to provide autocompletion, validation, hover documentation, and code snippets in editors. See [Schema Specification](https://m.canouil.dev/quarto-wizard/reference/schema-specification.html) and [Snippet Specification](https://m.canouil.dev/quarto-wizard/reference/snippet-specification.html)."
+              notes_json=$(echo ${notes_json} | jq --compact-output --arg line "${line_number}" --arg message "${note_message}" '. += [{"line": $line, "message": $message}]')
+            done < diff.patch
+          fi
+          echo "notes=${notes_json}" >> ${GITHUB_OUTPUT}
+      - name: Store notes
+        if: always() && needs.check-submission.outputs.submission == 'true'
+        id: store-notes
+        env:
+          notes: ${{ steps.check.outputs.notes }}
+        shell: bash
+        run: |
+          if [[ -z "${notes}" ]]; then
+            notes="[]"
+          fi
+          echo "notes=${notes}" >> ${GITHUB_OUTPUT}
+      - name: End of check
+        if: needs.check-submission.outputs.submission == 'false'
+        shell: bash
+        run: |
+          echo "No changes to ${CSV_FILE} found"
+          exit 0
+
   summary:
     runs-on: ubuntu-latest
     needs:
@@ -338,6 +417,7 @@ jobs:
       - check-description
       - check-release
       - check-redirection
+      - check-wizard
     if: always()
     steps:
       - name: Checkout repository
@@ -359,10 +439,13 @@ jobs:
           DESCRIPTION_ERRORS: ${{ needs.check-description.outputs.errors }}
           RELEASE_ERRORS: ${{ needs.check-release.outputs.errors }}
           REDIRECTION_ERRORS: ${{ needs.check-redirection.outputs.errors }}
+          WIZARD_NOTES: ${{ needs.check-wizard.outputs.notes }}
         shell: bash
         run: |
           echo "## Extension Check Summary" >> "${GITHUB_STEP_SUMMARY}"
           echo "" >> "${GITHUB_STEP_SUMMARY}"
+
+          CSV_FILE_ENCODED=$(echo -n "${CSV_FILE}" | hexdump -v -e '/1 "%02x"' | sed 's/\(..\)/%\1/g')
 
           errors_found=false
           if [[ "${DUPLICATE_RESULT}" == "failure" || \
@@ -400,7 +483,6 @@ jobs:
             echo "🔍 [View workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})" >> "${GITHUB_STEP_SUMMARY}"
             echo "" >> "${GITHUB_STEP_SUMMARY}"
 
-            CSV_FILE_ENCODED=$(echo -n "${CSV_FILE}" | hexdump -v -e '/1 "%02x"' | sed 's/\(..\)/%\1/g')
             for line_number in $(echo "${!file_line_errors[@]}" | tr ' ' '\n' | sort -n); do
               entry=$(sed -n "${line_number}p" ${CSV_FILE})
               echo "### Line [${line_number}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/pull/${NUMBER}/files#diff-${CSV_FILE_ENCODED}L${line_number}): [\`${entry}\`](${GITHUB_SERVER_URL}/${entry})" >> "${GITHUB_STEP_SUMMARY}"
@@ -412,6 +494,33 @@ jobs:
             echo "✅ All checks passed successfully!" >> "${GITHUB_STEP_SUMMARY}"
             echo "" >> "${GITHUB_STEP_SUMMARY}"
             echo "🔍 [View workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})" >> "${GITHUB_STEP_SUMMARY}"
+          fi
+
+          if [[ "${WIZARD_NOTES}" != "[]" && "${WIZARD_NOTES}" != "" ]]; then
+            declare -A file_line_notes
+
+            while read -r note_obj; do
+              line=$(echo "${note_obj}" | jq -r ".line")
+              message=$(echo "${note_obj}" | jq -r ".message")
+              if [[ -z "${file_line_notes[${line}]}" ]]; then
+                file_line_notes["${line}"]="- 💡 ${message}"
+              else
+                file_line_notes["${line}"]+=$'\n- 💡 '"${message}"
+              fi
+            done < <(echo "${WIZARD_NOTES}" | jq -c ".[]")
+
+            echo "---" >> "${GITHUB_STEP_SUMMARY}"
+            echo "" >> "${GITHUB_STEP_SUMMARY}"
+            echo "### Suggestions" >> "${GITHUB_STEP_SUMMARY}"
+            echo "" >> "${GITHUB_STEP_SUMMARY}"
+
+            for line_number in $(echo "${!file_line_notes[@]}" | tr ' ' '\n' | sort -n); do
+              entry=$(sed -n "${line_number}p" ${CSV_FILE})
+              echo "#### Line [${line_number}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/pull/${NUMBER}/files#diff-${CSV_FILE_ENCODED}L${line_number}): [\`${entry}\`](${GITHUB_SERVER_URL}/${entry})" >> "${GITHUB_STEP_SUMMARY}"
+              echo "" >> "${GITHUB_STEP_SUMMARY}"
+              echo -e "${file_line_notes[${line_number}]}" >> "${GITHUB_STEP_SUMMARY}"
+              echo "" >> "${GITHUB_STEP_SUMMARY}"
+            done
           fi
 
           mkdir -p ./extensions-check-summary
