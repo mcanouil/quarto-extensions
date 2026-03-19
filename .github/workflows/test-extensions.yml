@@ -276,20 +276,23 @@ jobs:
               fi
 
               # Render
+              render_idx=0
               if [[ -f _quarto.yml ]] || [[ -f _quarto.yaml ]]; then
-                quarto render --log render.log --log-level warning 2>>stderr.log
+                quarto render --log "render-${render_idx}.log" --log-level warning 2>>stderr.log
               elif [[ "${ext_type}" == "document" ]]; then
                 qmd_files=$(echo "${ext}" | jq -r '.qmd_files[]')
                 while IFS= read -r qmd; do
                   if [[ -f "${qmd}" ]]; then
                     echo "Rendering ${qmd}"
-                    quarto render "${qmd}" --log render.log --log-level warning 2>>stderr.log
+                    quarto render "${qmd}" --log "render-${render_idx}.log" --log-level warning 2>>stderr.log
+                    render_idx=$((render_idx + 1))
                   fi
                 done <<< "${qmd_files}"
               else
                 for qmd in *.qmd; do
                   if [[ -f "${qmd}" ]]; then
-                    quarto render "${qmd}" --log render.log --log-level warning 2>>stderr.log
+                    quarto render "${qmd}" --log "render-${render_idx}.log" --log-level warning 2>>stderr.log
+                    render_idx=$((render_idx + 1))
                   fi
                 done
               fi
@@ -298,16 +301,17 @@ jobs:
               cd "${GITHUB_WORKSPACE:-/github/workspace}" || cd /
 
               error_file="${workdir}/stderr.log"
-              render_log=$(find "${workdir}" -name render.log -type f 2>/dev/null | head -1)
 
               combined=""
               if [[ -f "${error_file}" ]]; then
                 combined=$(tail -25 "${error_file}")
               fi
-              if [[ -n "${render_log}" ]] && [[ -f "${render_log}" ]]; then
-                render_tail=$(tail -25 "${render_log}")
-                combined=$(printf '%s\n%s' "${combined}" "${render_tail}")
-              fi
+              while IFS= read -r render_log; do
+                if [[ -f "${render_log}" ]]; then
+                  render_tail=$(tail -25 "${render_log}")
+                  combined=$(printf '%s\n%s' "${combined}" "${render_tail}")
+                fi
+              done < <(find "${workdir}" -name 'render-*.log' -type f 2>/dev/null | sort)
 
               error_msg=$(echo "${combined}" | tail -50 | jq -Rs '.')
             }
@@ -393,7 +397,6 @@ jobs:
         if: steps.checkout-tests.outcome == 'failure'
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
-          REPO_URL: ${{ github.server_url }}/${{ github.repository }}.git
         shell: bash
         run: |
           set -euo pipefail
@@ -413,7 +416,6 @@ jobs:
 
       - name: Merge results and publish
         env:
-          TODAY: ${{ github.event.repository.updated_at || '' }}
           SKIPPED: ${{ needs.build-matrix.outputs.skipped }}
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         shell: bash
