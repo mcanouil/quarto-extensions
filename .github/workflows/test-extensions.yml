@@ -1,0 +1,486 @@
+name: Test Extensions
+
+on:
+  workflow_dispatch:
+    inputs:
+      debug:
+        description: "If 'true', test only the first 10 extensions"
+        default: "false"
+      batch_size:
+        description: "Number of extensions per batch"
+        default: "10"
+  schedule:
+    - cron: "0 14 15 * *"
+
+concurrency:
+  group: test-extensions
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  build-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
+      skipped: ${{ steps.matrix.outputs.skipped }}
+    steps:
+      - name: Checkout quarto-wizard branch
+        uses: actions/checkout@v6
+        with:
+          ref: quarto-wizard
+
+      - name: Create GitHub App token
+        uses: actions/create-github-app-token@v3
+        id: app-token
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_KEY }}
+
+      - name: Build test matrix
+        id: matrix
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          DEBUG: ${{ inputs.debug || 'false' }}
+          BATCH_SIZE: ${{ inputs.batch_size || '10' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          extensions_json=$(cat quarto-extensions.json)
+          entries='[]'
+          skipped='[]'
+
+          # Phase A: extensions with example or template
+          while IFS= read -r line; do
+            id=$(echo "${line}" | jq -r '.id')
+            has_template=$(echo "${line}" | jq -r '.template')
+            has_example=$(echo "${line}" | jq -r '.example')
+
+            if [[ "${has_template}" == "true" ]]; then
+              entries=$(echo "${entries}" | jq --arg id "${id}" '. + [{"id": $id, "type": "template"}]')
+            elif [[ "${has_example}" == "true" ]]; then
+              entries=$(echo "${entries}" | jq --arg id "${id}" '. + [{"id": $id, "type": "example"}]')
+            fi
+          done < <(echo "${extensions_json}" | jq -c 'to_entries[] | {id: .key, template: .value.template, example: .value.example}')
+
+          # Phase B: extensions without example or template, check for _quarto.yml
+          while IFS= read -r line; do
+            id=$(echo "${line}" | jq -r '.id')
+            default_branch=$(echo "${line}" | jq -r '.default_branch')
+            owner=$(echo "${id}" | cut -d'/' -f1)
+            repo=$(echo "${id}" | cut -d'/' -f2)
+
+            tree=$(gh api "repos/${owner}/${repo}/git/trees/${default_branch}?recursive=1" \
+              --jq '.tree[] | select(.path | test("(^|/)_quarto\\.ya?ml$")) | .path' 2>/dev/null || true)
+
+            if [[ -z "${tree}" ]]; then
+              skipped=$(echo "${skipped}" | jq --arg id "${id}" '. + [$id]')
+              continue
+            fi
+
+            # Select the best _quarto.yml path
+            best_path=""
+            best_depth=999
+
+            while IFS= read -r qpath; do
+              dir=$(dirname "${qpath}")
+
+              # Skip tests/ and examples/ directories
+              if echo "${dir}" | grep -qE '(^|/)tests(/|$)' || echo "${dir}" | grep -qE '(^|/)examples(/|$)'; then
+                continue
+              fi
+
+              # Prefer root
+              if [[ "${dir}" == "." ]]; then
+                best_path="."
+                best_depth=0
+                break
+              fi
+
+              # Prefer docs/
+              if [[ "${dir}" == "docs" ]] && [[ "${best_depth}" -gt 1 ]]; then
+                best_path="docs"
+                best_depth=1
+                continue
+              fi
+
+              # Otherwise, shallowest path
+              depth=$(echo "${dir}" | tr '/' '\n' | wc -l)
+              if [[ "${depth}" -lt "${best_depth}" ]]; then
+                best_path="${dir}"
+                best_depth="${depth}"
+              fi
+            done <<< "${tree}"
+
+            if [[ -n "${best_path}" ]]; then
+              entries=$(echo "${entries}" | jq \
+                --arg id "${id}" \
+                --arg pp "${best_path}" \
+                '. + [{"id": $id, "type": "project", "project_path": $pp}]')
+            else
+              skipped=$(echo "${skipped}" | jq --arg id "${id}" '. + [$id]')
+            fi
+          done < <(echo "${extensions_json}" | jq -c 'to_entries[] | select(.value.example == false and .value.template == false) | {id: .key, default_branch: .value.defaultBranchRef}')
+
+          # In debug mode, limit to first 10 extensions
+          if [[ "${DEBUG}" == "true" ]]; then
+            entries=$(echo "${entries}" | jq '.[0:10]')
+          fi
+
+          total=$(echo "${entries}" | jq 'length')
+          echo "Total extensions to test: ${total}"
+
+          # Batch entries
+          matrix='{"include":[]}'
+          batch_index=0
+
+          while [[ $((batch_index * BATCH_SIZE)) -lt "${total}" ]]; do
+            start=$((batch_index * BATCH_SIZE))
+            batch=$(echo "${entries}" | jq -c --argjson s "${start}" --argjson n "${BATCH_SIZE}" '.[$s:$s+$n]')
+
+            for channel in release prerelease; do
+              matrix=$(echo "${matrix}" | jq \
+                --argjson bi "${batch_index}" \
+                --arg ch "${channel}" \
+                --arg exts "${batch}" \
+                '.include += [{"batch_index": $bi, "quarto_channel": $ch, "extensions": $exts}]')
+            done
+
+            batch_index=$((batch_index + 1))
+          done
+
+          job_count=$(echo "${matrix}" | jq '.include | length')
+          echo "Matrix jobs: ${job_count}"
+
+          echo "matrix=$(echo "${matrix}" | jq -c '.')" >> "${GITHUB_OUTPUT}"
+          echo "skipped=$(echo "${skipped}" | jq -c '.')" >> "${GITHUB_OUTPUT}"
+
+  test-extensions:
+    needs: build-matrix
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/mcanouil/quarto-codespaces:${{ matrix.quarto_channel }}
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix: ${{ fromJSON(needs.build-matrix.outputs.matrix) }}
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash
+    env:
+      QUARTO_CHROMIUM: "/usr/bin/google-chrome-stable"
+      BATCH_INDEX: ${{ matrix.batch_index }}
+      QUARTO_CHANNEL: ${{ matrix.quarto_channel }}
+      EXTENSIONS_JSON: ${{ matrix.extensions }}
+    steps:
+      - name: Create GitHub App token
+        uses: actions/create-github-app-token@v3
+        id: app-token
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_KEY }}
+
+      - name: Ensure jq is available
+        run: |
+          set -euo pipefail
+          if ! command -v jq &>/dev/null; then
+            apt-get update -qq && apt-get install -y -qq jq
+          fi
+
+      - name: Test extensions
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          set -euo pipefail
+
+          quarto_version=$(quarto --version)
+          echo "Quarto version: ${quarto_version} (${QUARTO_CHANNEL})"
+
+          results='[]'
+          ext_count=$(echo "${EXTENSIONS_JSON}" | jq 'length')
+
+          for i in $(seq 0 $((ext_count - 1))); do
+            ext=$(echo "${EXTENSIONS_JSON}" | jq -c ".[$i]")
+            id=$(echo "${ext}" | jq -r '.id')
+            ext_type=$(echo "${ext}" | jq -r '.type')
+            project_path=$(echo "${ext}" | jq -r '.project_path // empty')
+
+            echo "::group::Testing ${id} (${ext_type})"
+
+            status="pass"
+            error_msg=""
+            workdir="test-${i}"
+            mkdir -p "${workdir}"
+
+            {
+              cd "${workdir}"
+
+              # Setup by type
+              case "${ext_type}" in
+                template|example)
+                  quarto use template "${id}" --no-prompt 2>stderr.log
+                  ;;
+                project)
+                  owner=$(echo "${id}" | cut -d'/' -f1)
+                  repo=$(echo "${id}" | cut -d'/' -f2)
+                  git clone --depth 1 "https://x-access-token:${GH_TOKEN}@github.com/${owner}/${repo}.git" repo 2>stderr.log
+                  if [[ "${project_path}" != "." ]]; then
+                    cd "repo/${project_path}"
+                  else
+                    cd repo
+                  fi
+                  ;;
+              esac
+
+              # Restore dependencies
+              if [[ -f renv.lock ]]; then
+                Rscript -e 'renv::restore()' 2>>stderr.log || true
+              fi
+              if [[ -f uv.lock ]]; then
+                uv sync 2>>stderr.log || true
+              elif [[ -f requirements.txt ]]; then
+                uv pip install -r requirements.txt 2>>stderr.log || true
+              fi
+
+              # Render
+              if [[ -f _quarto.yml ]] || [[ -f _quarto.yaml ]]; then
+                quarto render --log render.log --log-level warning 2>>stderr.log
+              else
+                for qmd in *.qmd; do
+                  if [[ -f "${qmd}" ]]; then
+                    quarto render "${qmd}" --log render.log --log-level warning 2>>stderr.log
+                  fi
+                done
+              fi
+            } || {
+              status="fail"
+              cd "${GITHUB_WORKSPACE:-/github/workspace}" || cd /
+
+              error_file="${workdir}/stderr.log"
+              render_log=$(find "${workdir}" -name render.log -type f 2>/dev/null | head -1)
+
+              combined=""
+              if [[ -f "${error_file}" ]]; then
+                combined=$(tail -25 "${error_file}")
+              fi
+              if [[ -n "${render_log}" ]] && [[ -f "${render_log}" ]]; then
+                combined="${combined}
+$(tail -25 "${render_log}")"
+              fi
+
+              error_msg=$(echo "${combined}" | tail -50 | jq -Rs '.')
+            }
+
+            cd "${GITHUB_WORKSPACE:-/github/workspace}" || cd /
+
+            if [[ "${status}" == "fail" ]] && [[ -z "${error_msg}" ]]; then
+              error_msg='""'
+            elif [[ "${status}" == "pass" ]]; then
+              error_msg='""'
+            fi
+
+            results=$(echo "${results}" | jq \
+              --arg id "${id}" \
+              --arg t "${ext_type}" \
+              --arg s "${status}" \
+              --argjson e "${error_msg}" \
+              --arg qv "${quarto_version}" \
+              --arg qc "${QUARTO_CHANNEL}" \
+              '. + [{"id": $id, "type": $t, "status": $s, "error": $e, "quarto_version": $qv, "quarto_channel": $qc}]')
+
+            echo "::endgroup::"
+
+            # Clean up
+            rm -rf "${workdir}"
+          done
+
+          echo "${results}" | jq '.' > results.json
+          echo "Results:"
+          jq '.' results.json
+
+      - name: Upload results
+        uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: results-batch-${{ matrix.batch_index }}-${{ matrix.quarto_channel }}
+          path: results.json
+          retention-days: 7
+
+  summarise-and-publish:
+    needs: [build-matrix, test-extensions]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create GitHub App token
+        uses: actions/create-github-app-token@v3
+        id: app-token
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_KEY }}
+
+      - name: Get GitHub App User ID
+        id: get-user-id
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
+        shell: bash
+        run: echo "user-id=$(gh api "/users/${APP_SLUG}[bot]" --jq .id)" >> "${GITHUB_OUTPUT}"
+
+      - name: Configure git
+        env:
+          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
+          USER_ID: ${{ steps.get-user-id.outputs.user-id }}
+        shell: bash
+        run: |
+          git config --global user.name "${APP_SLUG}[bot]"
+          git config --global user.email "${USER_ID}+${APP_SLUG}[bot]@users.noreply.github.com"
+
+      - name: Checkout quarto-tests branch
+        id: checkout-tests
+        uses: actions/checkout@v6
+        with:
+          ref: quarto-tests
+          token: ${{ steps.app-token.outputs.token }}
+        continue-on-error: true
+
+      - name: Initialise if branch does not exist
+        if: steps.checkout-tests.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          REPO_URL: ${{ github.server_url }}/${{ github.repository }}.git
+        shell: bash
+        run: |
+          set -euo pipefail
+          git init
+          git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git checkout --orphan quarto-tests
+          echo '{}' > test-results.json
+          git add test-results.json
+          git commit -m "ci: initialise quarto-tests branch"
+          git push -u origin quarto-tests
+
+      - name: Download all result artefacts
+        uses: actions/download-artifact@v8
+        with:
+          path: artefacts
+          pattern: results-batch-*
+
+      - name: Merge results and publish
+        env:
+          TODAY: ${{ github.event.repository.updated_at || '' }}
+          SKIPPED: ${{ needs.build-matrix.outputs.skipped }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          today=$(date -u +%Y-%m-%d)
+
+          # Load existing results
+          if [[ -f test-results.json ]]; then
+            existing=$(cat test-results.json)
+          else
+            existing='{}'
+          fi
+
+          # Merge all batch results
+          for dir in artefacts/results-batch-*/; do
+            if [[ ! -d "${dir}" ]]; then
+              continue
+            fi
+
+            results_file="${dir}results.json"
+            if [[ ! -f "${results_file}" ]]; then
+              continue
+            fi
+
+            while IFS= read -r entry; do
+              id=$(echo "${entry}" | jq -r '.id')
+              ext_type=$(echo "${entry}" | jq -r '.type')
+              ext_status=$(echo "${entry}" | jq -r '.status')
+              ext_error=$(echo "${entry}" | jq -r '.error')
+              qv=$(echo "${entry}" | jq -r '.quarto_version')
+              qc=$(echo "${entry}" | jq -r '.quarto_channel')
+
+              new_result=$(jq -n \
+                --arg qv "${qv}" \
+                --arg qc "${qc}" \
+                --arg s "${ext_status}" \
+                --arg e "${ext_error}" \
+                --arg d "${today}" \
+                '{quarto_version: $qv, quarto_channel: $qc, status: $s, error: $e, date: $d}')
+
+              # Get or create extension entry
+              ext_entry=$(echo "${existing}" | jq --arg id "${id}" '.[$id] // empty')
+              if [[ -z "${ext_entry}" ]]; then
+                existing=$(echo "${existing}" | jq \
+                  --arg id "${id}" \
+                  --arg t "${ext_type}" \
+                  --argjson r "[${new_result}]" \
+                  '.[$id] = {"type": $t, "results": $r}')
+              else
+                # Check for existing result with same version + channel
+                match_idx=$(echo "${existing}" | jq --arg id "${id}" --arg qv "${qv}" --arg qc "${qc}" \
+                  '.[$id].results | to_entries[] | select(.value.quarto_version == $qv and .value.quarto_channel == $qc) | .key' 2>/dev/null | head -1)
+
+                if [[ -n "${match_idx}" ]]; then
+                  existing=$(echo "${existing}" | jq \
+                    --arg id "${id}" \
+                    --argjson idx "${match_idx}" \
+                    --argjson r "${new_result}" \
+                    '.[$id].results[$idx] = $r')
+                else
+                  existing=$(echo "${existing}" | jq \
+                    --arg id "${id}" \
+                    --argjson r "${new_result}" \
+                    '.[$id].results += [$r]')
+                fi
+              fi
+            done < <(jq -c '.[]' "${results_file}")
+          done
+
+          echo "${existing}" | jq '.' > test-results.json
+
+          # Generate step summary
+          total=$(echo "${existing}" | jq 'length')
+          pass_count=$(echo "${existing}" | jq '[to_entries[] | .value.results[] | select(.status == "pass")] | length')
+          fail_count=$(echo "${existing}" | jq '[to_entries[] | .value.results[] | select(.status == "fail")] | length')
+          skipped_count=$(echo "${SKIPPED}" | jq 'length')
+
+          {
+            echo "## Test Extensions Summary"
+            echo ""
+            echo "- **Extensions tested:** ${total}"
+            echo "- **Pass:** ${pass_count}"
+            echo "- **Fail:** ${fail_count}"
+            echo "- **Skipped (no example/template/project):** ${skipped_count}"
+            echo ""
+
+            failures=$(echo "${existing}" | jq -r '
+              to_entries[] |
+              .key as $id |
+              .value.results[] |
+              select(.status == "fail") |
+              "| \($id) | \(.quarto_version) | \(.quarto_channel) |"
+            ')
+
+            if [[ -n "${failures}" ]]; then
+              echo "### Failures"
+              echo ""
+              echo "| Extension | Quarto Version | Channel |"
+              echo "|-----------|---------------|---------|"
+              echo "${failures}"
+            fi
+          } >> "${GITHUB_STEP_SUMMARY}"
+
+          # Commit and push
+          git add test-results.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "ci: update test results (${today})"
+            git push origin quarto-tests
+          fi
