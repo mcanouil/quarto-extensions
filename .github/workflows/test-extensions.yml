@@ -499,7 +499,7 @@ jobs:
             echo "- **Extensions tested:** ${total}"
             echo "- **Pass:** ${pass_count}"
             echo "- **Fail:** ${fail_count}"
-            echo "- **Skipped (no example/template/project):** ${skipped_count}"
+            echo "- **Skipped (no renderable content found):** ${skipped_count}"
             echo ""
 
             # Failed extensions
