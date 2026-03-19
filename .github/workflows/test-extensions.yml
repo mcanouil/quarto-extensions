@@ -27,12 +27,12 @@ jobs:
       skipped: ${{ steps.matrix.outputs.skipped }}
     steps:
       - name: Checkout quarto-wizard branch
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
           ref: quarto-wizard
 
       - name: Create GitHub App token
-        uses: actions/create-github-app-token@v3
+        uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3
         id: app-token
         with:
           app-id: ${{ vars.APP_ID }}
@@ -47,6 +47,16 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+
+          if [[ ! "${DEBUG}" =~ ^(true|false)$ ]]; then
+            echo "::error::Invalid debug value: '${DEBUG}'. Expected 'true' or 'false'."
+            exit 1
+          fi
+
+          if [[ ! "${BATCH_SIZE}" =~ ^[1-9][0-9]*$ ]]; then
+            echo "::error::Invalid batch_size value: '${BATCH_SIZE}'. Expected a positive integer."
+            exit 1
+          fi
 
           extensions_json=$(cat quarto-extensions.json)
           entries='[]'
@@ -72,8 +82,12 @@ jobs:
             owner=$(echo "${id}" | cut -d'/' -f1)
             repo=$(echo "${id}" | cut -d'/' -f2)
 
-            full_tree=$(gh api "repos/${owner}/${repo}/git/trees/${default_branch}?recursive=1" \
-              --jq '.tree[] | .path' 2>/dev/null || true)
+            if ! full_tree=$(gh api "repos/${owner}/${repo}/git/trees/${default_branch}?recursive=1" \
+              --jq '.tree[]? | .path' 2>/dev/null); then
+              echo "::warning::Failed to fetch repository tree for ${id}. Marking as skipped."
+              skipped=$(echo "${skipped}" | jq --arg id "${id}" '. + [$id]')
+              continue
+            fi
 
             if [[ -z "${full_tree}" ]]; then
               skipped=$(echo "${skipped}" | jq --arg id "${id}" '. + [$id]')
@@ -167,20 +181,30 @@ jobs:
           matrix='{"include":[]}'
           batch_index=0
 
-          while [[ $((batch_index * BATCH_SIZE)) -lt "${total}" ]]; do
-            start=$((batch_index * BATCH_SIZE))
-            batch=$(echo "${entries}" | jq -c --argjson s "${start}" --argjson n "${BATCH_SIZE}" '.[$s:$s+$n]')
-
+          if [[ "${total}" -eq 0 ]]; then
             for channel in release prerelease; do
               matrix=$(echo "${matrix}" | jq \
                 --argjson bi "${batch_index}" \
                 --arg ch "${channel}" \
-                --arg exts "${batch}" \
+                --arg exts "[]" \
                 '.include += [{"batch_index": $bi, "quarto_channel": $ch, "extensions": $exts}]')
             done
+          else
+            while [[ $((batch_index * BATCH_SIZE)) -lt "${total}" ]]; do
+              start=$((batch_index * BATCH_SIZE))
+              batch=$(echo "${entries}" | jq -c --argjson s "${start}" --argjson n "${BATCH_SIZE}" '.[$s:$s+$n]')
 
-            batch_index=$((batch_index + 1))
-          done
+              for channel in release prerelease; do
+                matrix=$(echo "${matrix}" | jq \
+                  --argjson bi "${batch_index}" \
+                  --arg ch "${channel}" \
+                  --arg exts "${batch}" \
+                  '.include += [{"batch_index": $bi, "quarto_channel": $ch, "extensions": $exts}]')
+              done
+
+              batch_index=$((batch_index + 1))
+            done
+          fi
 
           job_count=$(echo "${matrix}" | jq '.include | length')
           echo "Matrix jobs: ${job_count}"
@@ -209,7 +233,7 @@ jobs:
       EXTENSIONS_JSON: ${{ matrix.extensions }}
     steps:
       - name: Create GitHub App token
-        uses: actions/create-github-app-token@v3
+        uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3
         id: app-token
         with:
           app-id: ${{ vars.APP_ID }}
@@ -235,80 +259,166 @@ jobs:
             zlib1g-dev \
             cmake
 
-      - name: Test extensions
+      - name: Clone extensions
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           set -euo pipefail
 
-          # Write extensions JSON to file to avoid repeated large-string shell ops
           echo "${EXTENSIONS_JSON}" > extensions-batch.json
 
-          git config --global \
-            url."https://x-access-token:${GH_TOKEN}@github.com/".insteadOf \
-            "https://github.com/"
+          if [[ ! "${QUARTO_CHANNEL}" =~ ^(release|prerelease)$ ]]; then
+            echo "::error::Invalid Quarto channel '${QUARTO_CHANNEL}'."
+            exit 1
+          fi
 
-          quarto_version=$(quarto --version)
+          quarto_version=$(quarto --version | head -n 1 | tr -d '\r')
+          if [[ ! "${quarto_version}" =~ ^[0-9A-Za-z._-]+$ ]]; then
+            echo "::error::Unexpected Quarto version format '${quarto_version}'."
+            exit 1
+          fi
           echo "Quarto version: ${quarto_version} (${QUARTO_CHANNEL})"
+          echo "${quarto_version}" > quarto-version.txt
 
-          results='[]'
           ext_count=$(jq 'length' extensions-batch.json)
+          clone_manifest='[]'
 
-          for i in $(seq 0 $((ext_count - 1))); do
+          if [[ "${ext_count}" -eq 0 ]]; then
+            echo "::notice::No extensions in this batch."
+          fi
+
+          for ((i = 0; i < ext_count; i++)); do
             ext=$(jq -c ".[$i]" extensions-batch.json)
             id=$(echo "${ext}" | jq -r '.id')
             ext_type=$(echo "${ext}" | jq -r '.type')
             project_path=$(echo "${ext}" | jq -r '.project_path // empty')
 
-            echo "::group::Testing ${id} (${ext_type})"
-
             status="pass"
             workdir="${GITHUB_WORKSPACE:-/github/workspace}/test-${i}"
-            log_dir="${GITHUB_WORKSPACE:-/github/workspace}/logs/${id}/${QUARTO_CHANNEL}/${quarto_version}"
-            log_path="logs/${id}/${QUARTO_CHANNEL}/${quarto_version}"
+
+            if [[ ! "${id}" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ ]]; then
+              echo "::warning::Invalid extension id '${id}'."
+              status="fail"
+              log_dir="${GITHUB_WORKSPACE:-/github/workspace}/logs/invalid-id/${QUARTO_CHANNEL}/${quarto_version}"
+              log_path="logs/invalid-id/${QUARTO_CHANNEL}/${quarto_version}"
+            else
+              log_dir="${GITHUB_WORKSPACE:-/github/workspace}/logs/${id}/${QUARTO_CHANNEL}/${quarto_version}"
+              log_path="logs/${id}/${QUARTO_CHANNEL}/${quarto_version}"
+            fi
+
             mkdir -p "${workdir}" "${log_dir}"
+            render_dir="${workdir}"
 
-            {
+            if [[ "${status}" == "pass" ]]; then
               cd "${workdir}"
-
-              # Setup by type
               case "${ext_type}" in
                 template|example)
-                  quarto use template "${id}" --no-prompt >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log" \
+                  GIT_CONFIG_COUNT=1 \
+                    GIT_CONFIG_KEY_0="url.https://x-access-token:${GH_TOKEN}@github.com/.insteadOf" \
+                    GIT_CONFIG_VALUE_0="https://github.com/" \
+                    quarto use template "${id}" --no-prompt >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log" \
                     || status="fail"
                   ;;
                 project|document)
                   owner=$(echo "${id}" | cut -d'/' -f1)
                   repo=$(echo "${id}" | cut -d'/' -f2)
-                  git clone --depth 1 "https://github.com/${owner}/${repo}.git" repo \
+                  GIT_CONFIG_COUNT=1 \
+                    GIT_CONFIG_KEY_0="url.https://x-access-token:${GH_TOKEN}@github.com/.insteadOf" \
+                    GIT_CONFIG_VALUE_0="https://github.com/" \
+                    git clone --depth 1 "https://github.com/${owner}/${repo}.git" repo \
                     >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log" \
                     || status="fail"
                   if [[ "${status}" == "pass" ]]; then
                     if [[ "${ext_type}" == "project" ]] && [[ "${project_path}" != "." ]]; then
-                      cd "repo/${project_path}"
-                    else
-                      cd repo
+                      if [[ "${project_path}" == /* ]] || [[ "${project_path}" == *".."* ]]; then
+                        echo "::warning::Invalid project_path '${project_path}' for ${id}." \
+                          >>"${log_dir}/stderr.log"
+                        status="fail"
+                      else
+                        render_dir="${workdir}/repo/${project_path}"
+                      fi
+                    fi
+                    if [[ "${status}" == "pass" ]] && [[ "${render_dir}" == "${workdir}" ]]; then
+                      render_dir="${workdir}/repo"
                     fi
                   fi
                   ;;
+                *)
+                  echo "::warning::Unknown extension type '${ext_type}' for ${id}." >>"${log_dir}/stderr.log"
+                  status="fail"
+                  ;;
               esac
+              cd "${GITHUB_WORKSPACE:-/github/workspace}" || cd /
+            fi
 
+            clone_manifest=$(echo "${clone_manifest}" | jq \
+              --arg id "${id}" \
+              --arg t "${ext_type}" \
+              --arg s "${status}" \
+              --arg wd "${workdir}" \
+              --arg rd "${render_dir}" \
+              --arg ld "${log_dir}" \
+              --arg lp "${log_path}" \
+              --argjson ext "${ext}" \
+              '. + [{"id": $id, "type": $t, "clone_status": $s, "workdir": $wd, "render_dir": $rd, "log_dir": $ld, "log_path": $lp, "ext": $ext}]')
+          done
+
+          echo "${clone_manifest}" | jq '.' > clone-manifest.json
+          echo "Cloned ${ext_count} extensions."
+
+      - name: Render extensions
+        run: |
+          set -euo pipefail
+
+          quarto_version=$(cat quarto-version.txt)
+          echo "Quarto version: ${quarto_version} (${QUARTO_CHANNEL})"
+
+          ext_count=$(jq 'length' clone-manifest.json)
+          results='[]'
+
+          for ((i = 0; i < ext_count; i++)); do
+            entry=$(jq -c ".[$i]" clone-manifest.json)
+            id=$(echo "${entry}" | jq -r '.id')
+            ext_type=$(echo "${entry}" | jq -r '.type')
+            status=$(echo "${entry}" | jq -r '.clone_status')
+            workdir=$(echo "${entry}" | jq -r '.workdir')
+            render_dir=$(echo "${entry}" | jq -r '.render_dir')
+            log_dir=$(echo "${entry}" | jq -r '.log_dir')
+            log_path=$(echo "${entry}" | jq -r '.log_path')
+            ext=$(echo "${entry}" | jq -c '.ext')
+
+            echo "::group::Testing ${id} (${ext_type})"
+
+            {
               if [[ "${status}" == "pass" ]]; then
+                cd "${render_dir}"
+
                 # Restore dependencies
                 if [[ -f renv.lock ]]; then
                   Rscript -e 'if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")' \
                     >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log"
-                  Rscript -e 'renv::restore()' \
-                    >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log" || true
+                  if ! Rscript -e 'renv::restore()' >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log"; then
+                    echo "::warning::renv restore failed for ${id}. Check logs." >>"${log_dir}/stderr.log"
+                    status="fail"
+                  fi
                 fi
                 if [[ -f uv.lock ]] || [[ -f requirements.txt ]]; then
                   if uv venv >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log"; then
                     source .venv/bin/activate
                     if [[ -f uv.lock ]]; then
-                      uv sync >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log" || true
+                      if ! uv sync >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log"; then
+                        echo "::warning::uv sync failed for ${id}. Check logs." >>"${log_dir}/stderr.log"
+                        status="fail"
+                      fi
                     elif [[ -f requirements.txt ]]; then
-                      uv pip install -r requirements.txt >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log" || true
+                      if ! uv pip install -r requirements.txt >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log"; then
+                        echo "::warning::uv pip install failed for ${id}. Check logs." >>"${log_dir}/stderr.log"
+                        status="fail"
+                      fi
                     fi
+                  else
+                    echo "::warning::uv venv failed for ${id}. Check logs." >>"${log_dir}/stderr.log"
+                    status="fail"
                   fi
                 fi
 
@@ -319,8 +429,13 @@ jobs:
                     || status="fail"
                 elif [[ "${ext_type}" == "document" ]]; then
                   # Render each .qmd file independently
-                  qmd_files=$(echo "${ext}" | jq -r '.qmd_files[]')
+                  qmd_files=$(echo "${ext}" | jq -r '.qmd_files[]?')
                   while IFS= read -r qmd; do
+                    if [[ "${qmd}" == /* ]] || [[ "${qmd}" == *".."* ]]; then
+                      echo "::warning::Invalid qmd path '${qmd}' for ${id}." >>"${log_dir}/stderr.log"
+                      status="fail"
+                      continue
+                    fi
                     if [[ -f "${qmd}" ]]; then
                       echo "Rendering ${qmd}"
                       quarto render "${qmd}" --log "${workdir}/render-${render_idx}.log" --log-level info >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log" \
@@ -373,7 +488,7 @@ jobs:
           jq '.' results.json
 
       - name: Upload results
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7
         if: always()
         with:
           name: results-batch-${{ matrix.batch_index }}-${{ matrix.quarto_channel }}
@@ -381,7 +496,7 @@ jobs:
           retention-days: 7
 
       - name: Upload logs
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7
         if: always()
         with:
           name: logs-batch-${{ matrix.batch_index }}-${{ matrix.quarto_channel }}
@@ -390,11 +505,11 @@ jobs:
 
   summarise-and-publish:
     needs: [build-matrix, test-extensions]
-    if: always()
+    if: always() && needs.build-matrix.result == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Create GitHub App token
-        uses: actions/create-github-app-token@v3
+        uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3
         id: app-token
         with:
           app-id: ${{ vars.APP_ID }}
@@ -419,7 +534,7 @@ jobs:
 
       - name: Checkout quarto-tests branch
         id: checkout-tests
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
           ref: quarto-tests
           token: ${{ steps.app-token.outputs.token }}
@@ -433,21 +548,25 @@ jobs:
         run: |
           set -euo pipefail
           git init
-          git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
           git checkout --orphan quarto-tests
           echo '{}' > test-results.json
           git add test-results.json
           git commit -m "ci: initialise quarto-tests branch"
-          git push -u origin quarto-tests
+          if ! git -c http.https://github.com/.extraheader="AUTHORIZATION: bearer ${GH_TOKEN}" push -u origin quarto-tests; then
+            echo "::warning::Branch initialisation raced with another run. Fetching existing branch."
+            git -c http.https://github.com/.extraheader="AUTHORIZATION: bearer ${GH_TOKEN}" fetch origin quarto-tests
+            git checkout -B quarto-tests origin/quarto-tests
+          fi
 
       - name: Download all result artefacts
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
         with:
           path: artefacts
           pattern: results-batch-*
 
       - name: Download all log artefacts
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
         with:
           path: logs
           pattern: logs-batch-*
@@ -456,10 +575,15 @@ jobs:
       - name: Merge results and publish
         env:
           SKIPPED: ${{ needs.build-matrix.outputs.skipped }}
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         shell: bash
         run: |
           set -euo pipefail
+
+          skipped_json="${SKIPPED:-[]}"
+          if ! echo "${skipped_json}" | jq -e 'type == "array"' >/dev/null 2>&1; then
+            echo "::warning::Invalid skipped payload from build-matrix. Falling back to empty list."
+            skipped_json='[]'
+          fi
 
           today=$(date -u +%Y-%m-%d)
 
@@ -543,7 +667,7 @@ jobs:
           if [[ "${run_total}" -eq 0 ]]; then
             echo "::warning::No test results found. All test jobs may have failed before uploading artefacts."
           fi
-          skipped_count=$(echo "${SKIPPED}" | jq 'length')
+          skipped_count=$(echo "${skipped_json}" | jq 'length')
 
           # Generate step summary
           {
@@ -587,7 +711,7 @@ jobs:
 
             # Skipped extensions
             if [[ "${skipped_count}" -gt 0 ]]; then
-              skipped_list=$(echo "${SKIPPED}" | jq -r '.[] | "- \(.)"')
+              skipped_list=$(echo "${skipped_json}" | jq -r '.[] | "- \(.)"')
               echo "### Skipped Extensions (${skipped_count})"
               echo ""
               echo "<details><summary>Show skipped extensions</summary>"
@@ -604,6 +728,14 @@ jobs:
           while IFS= read -r log_entry; do
             log_channel=$(echo "${log_entry}" | jq -r '.channel')
             log_version=$(echo "${log_entry}" | jq -r '.version')
+            if [[ ! "${log_channel}" =~ ^(release|prerelease)$ ]]; then
+              echo "::warning::Skipping invalid log channel '${log_channel}'."
+              continue
+            fi
+            if [[ ! "${log_version}" =~ ^[0-9A-Za-z._-]+$ ]]; then
+              echo "::warning::Skipping invalid log version '${log_version}'."
+              continue
+            fi
             tracked=$(git ls-files "logs/*/*/${log_channel}/${log_version}/*" 2>/dev/null || true)
             if [[ -n "${tracked}" ]]; then
               echo "${tracked}" | tr '\n' '\0' | xargs -0 git rm -f 2>/dev/null || true
