@@ -80,8 +80,8 @@ jobs:
               continue
             fi
 
-            # Check for _quarto.yml/_quarto.yaml (project)
-            project_files=$(echo "${full_tree}" | grep -E '(^|/)_quarto\.ya?ml$' || true)
+            # Check for _quarto.yml/_quarto.yaml (project), excluding _extensions/
+            project_files=$(echo "${full_tree}" | grep -E '(^|/)_quarto\.ya?ml$' | grep -vE '(^|/)_extensions/' || true)
 
             if [[ -n "${project_files}" ]]; then
               # Select the best _quarto.yml path
@@ -277,9 +277,8 @@ jobs:
 
               # Render
               render_idx=0
-              if [[ -f _quarto.yml ]] || [[ -f _quarto.yaml ]]; then
-                quarto render --log "render-${render_idx}.log" --log-level warning 2>>stderr.log
-              elif [[ "${ext_type}" == "document" ]]; then
+              if [[ "${ext_type}" == "document" ]]; then
+                # Render specific .qmd files independently (not as a project)
                 qmd_files=$(echo "${ext}" | jq -r '.qmd_files[]')
                 while IFS= read -r qmd; do
                   if [[ -f "${qmd}" ]]; then
@@ -288,12 +287,14 @@ jobs:
                     render_idx=$((render_idx + 1))
                   fi
                 done <<< "${qmd_files}"
+              elif [[ -f _quarto.yml ]] || [[ -f _quarto.yaml ]]; then
+                quarto render --log "render-${render_idx}.log" --log-level warning 2>>stderr.log
               else
-                for qmd in *.qmd; do
-                  if [[ -f "${qmd}" ]]; then
-                    quarto render "${qmd}" --log "render-${render_idx}.log" --log-level warning 2>>stderr.log
-                    render_idx=$((render_idx + 1))
-                  fi
+                # Render all .qmd files except those under _extensions/
+                find . -name '*.qmd' -not -path './_extensions/*' -print0 | while IFS= read -r -d '' qmd; do
+                  echo "Rendering ${qmd}"
+                  quarto render "${qmd}" --log "render-${render_idx}.log" --log-level warning 2>>stderr.log
+                  render_idx=$((render_idx + 1))
                 done
               fi
             } || {
