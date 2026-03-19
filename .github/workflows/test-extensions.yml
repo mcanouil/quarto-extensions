@@ -215,12 +215,25 @@ jobs:
           app-id: ${{ vars.APP_ID }}
           private-key: ${{ secrets.APP_KEY }}
 
-      - name: Ensure jq is available
+      - name: Install system dependencies
         run: |
           set -euo pipefail
-          if ! command -v jq &>/dev/null; then
-            apt-get update -qq && apt-get install -y -qq jq
-          fi
+          apt-get update -qq
+          apt-get install -y -qq --no-install-recommends \
+            jq \
+            libcurl4-openssl-dev \
+            libssl-dev \
+            libxml2-dev \
+            libfontconfig1-dev \
+            libharfbuzz-dev \
+            libfribidi-dev \
+            libfreetype6-dev \
+            libpng-dev \
+            libtiff5-dev \
+            libjpeg-dev \
+            libgit2-dev \
+            zlib1g-dev \
+            cmake
 
       - name: Test extensions
         env:
