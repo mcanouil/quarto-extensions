@@ -59,21 +59,21 @@ jobs:
           fi
 
           extensions_json=$(cat quarto-extensions.json)
-          entries='[]'
-          skipped='[]'
+          entries_phase_a=$(echo "${extensions_json}" | jq -c '
+            to_entries
+            | map(
+                if .value.template == true then {id: .key, type: "template"}
+                elif .value.example == true then {id: .key, type: "example"}
+                else empty
+                end
+              )
+          ')
 
-          # Phase A: extensions with example or template
-          while IFS= read -r line; do
-            id=$(echo "${line}" | jq -r '.id')
-            has_template=$(echo "${line}" | jq -r '.template')
-            has_example=$(echo "${line}" | jq -r '.example')
-
-            if [[ "${has_template}" == "true" ]]; then
-              entries=$(echo "${entries}" | jq --arg id "${id}" '. + [{"id": $id, "type": "template"}]')
-            elif [[ "${has_example}" == "true" ]]; then
-              entries=$(echo "${entries}" | jq --arg id "${id}" '. + [{"id": $id, "type": "example"}]')
-            fi
-          done < <(echo "${extensions_json}" | jq -c 'to_entries[] | {id: .key, template: .value.template, example: .value.example}')
+          phase_b_entries_file=$(mktemp)
+          skipped_file=$(mktemp)
+          trap 'rm -f "${phase_b_entries_file}" "${skipped_file}"' EXIT
+          : > "${phase_b_entries_file}"
+          : > "${skipped_file}"
 
           # Phase B: extensions without example or template, check for _quarto.yml
           while IFS= read -r line; do
@@ -85,12 +85,12 @@ jobs:
             if ! full_tree=$(gh api "repos/${owner}/${repo}/git/trees/${default_branch}?recursive=1" \
               --jq '.tree[]? | .path' 2>/dev/null); then
               echo "::warning::Failed to fetch repository tree for ${id}. Marking as skipped."
-              skipped=$(echo "${skipped}" | jq --arg id "${id}" '. + [$id]')
+              jq -cn --arg id "${id}" '$id' >> "${skipped_file}"
               continue
             fi
 
             if [[ -z "${full_tree}" ]]; then
-              skipped=$(echo "${skipped}" | jq --arg id "${id}" '. + [$id]')
+              jq -cn --arg id "${id}" '$id' >> "${skipped_file}"
               continue
             fi
 
@@ -133,10 +133,8 @@ jobs:
               done <<< "${project_files}"
 
               if [[ -n "${best_path}" ]]; then
-                entries=$(echo "${entries}" | jq \
-                  --arg id "${id}" \
-                  --arg pp "${best_path}" \
-                  '. + [{"id": $id, "type": "project", "project_path": $pp}]')
+                jq -cn --arg id "${id}" --arg pp "${best_path}" \
+                  '{id: $id, type: "project", project_path: $pp}' >> "${phase_b_entries_file}"
                 continue
               fi
             fi
@@ -145,27 +143,29 @@ jobs:
             qmd_files=$(echo "${full_tree}" | grep -E '\.qmd$' || true)
 
             if [[ -n "${qmd_files}" ]]; then
-              # Collect .qmd files, skipping _extensions/, tests/, examples/ directories
-              doc_files='[]'
-              while IFS= read -r qmd; do
-                if echo "${qmd}" | grep -qE '(^|/)(_extensions|tests|examples)/'; then
-                  continue
-                fi
-                doc_files=$(echo "${doc_files}" | jq --arg f "${qmd}" '. + [$f]')
-              done <<< "${qmd_files}"
-
-              doc_count=$(echo "${doc_files}" | jq 'length')
-              if [[ "${doc_count}" -gt 0 ]]; then
-                entries=$(echo "${entries}" | jq \
-                  --arg id "${id}" \
-                  --argjson files "${doc_files}" \
-                  '. + [{"id": $id, "type": "document", "qmd_files": $files}]')
+              doc_files=$(echo "${qmd_files}" | jq -Rsc '
+                split("\n")[:-1]
+                | map(select(test("(^|/)(_extensions|tests|examples)/") | not))
+              ')
+              if [[ "$(echo "${doc_files}" | jq 'length')" -gt 0 ]]; then
+                jq -cn --arg id "${id}" --argjson files "${doc_files}" \
+                  '{id: $id, type: "document", qmd_files: $files}' >> "${phase_b_entries_file}"
                 continue
               fi
             fi
 
-            skipped=$(echo "${skipped}" | jq --arg id "${id}" '. + [$id]')
+            jq -cn --arg id "${id}" '$id' >> "${skipped_file}"
           done < <(echo "${extensions_json}" | jq -c 'to_entries[] | select(.value.example == false and .value.template == false) | {id: .key, default_branch: .value.defaultBranchRef}')
+
+          phase_b_entries='[]'
+          if [[ -s "${phase_b_entries_file}" ]]; then
+            phase_b_entries=$(jq -sc '.' "${phase_b_entries_file}")
+          fi
+          skipped='[]'
+          if [[ -s "${skipped_file}" ]]; then
+            skipped=$(jq -sc '.' "${skipped_file}")
+          fi
+          entries=$(jq -c --argjson a "${entries_phase_a}" --argjson b "${phase_b_entries}" '$a + $b')
 
           # In debug mode, take up to 5 per type for a representative sample
           if [[ "${DEBUG}" == "true" ]]; then
@@ -177,34 +177,34 @@ jobs:
           total=$(echo "${entries}" | jq 'length')
           echo "Total extensions to test: ${total}"
 
-          # Batch entries
-          matrix='{"include":[]}'
-          batch_index=0
-
-          if [[ "${total}" -eq 0 ]]; then
-            for channel in release prerelease; do
-              matrix=$(echo "${matrix}" | jq \
-                --argjson bi "${batch_index}" \
-                --arg ch "${channel}" \
-                --arg exts "[]" \
-                '.include += [{"batch_index": $bi, "quarto_channel": $ch, "extensions": $exts}]')
-            done
-          else
-            while [[ $((batch_index * BATCH_SIZE)) -lt "${total}" ]]; do
-              start=$((batch_index * BATCH_SIZE))
-              batch=$(echo "${entries}" | jq -c --argjson s "${start}" --argjson n "${BATCH_SIZE}" '.[$s:$s+$n]')
-
-              for channel in release prerelease; do
-                matrix=$(echo "${matrix}" | jq \
-                  --argjson bi "${batch_index}" \
-                  --arg ch "${channel}" \
-                  --arg exts "${batch}" \
-                  '.include += [{"batch_index": $bi, "quarto_channel": $ch, "extensions": $exts}]')
-              done
-
-              batch_index=$((batch_index + 1))
-            done
-          fi
+          matrix=$(echo "${entries}" | jq -c --argjson n "${BATCH_SIZE}" '
+            . as $all
+            | if ($all | length) == 0 then
+                {
+                  include: [
+                    {batch_index: 0, quarto_channel: "release", extensions: []},
+                    {batch_index: 0, quarto_channel: "prerelease", extensions: []}
+                  ]
+                }
+              else
+                [range(0; ($all | length); $n)] as $starts
+                | {
+                    include: (
+                      $starts
+                      | to_entries
+                      | map(
+                          .value as $s
+                          | .key as $bi
+                          | [
+                              {batch_index: $bi, quarto_channel: "release", extensions: $all[$s:($s + $n)]},
+                              {batch_index: $bi, quarto_channel: "prerelease", extensions: $all[$s:($s + $n)]}
+                            ]
+                        )
+                      | add
+                    )
+                  }
+              end
+          ')
 
           job_count=$(echo "${matrix}" | jq '.include | length')
           echo "Matrix jobs: ${job_count}"
@@ -229,7 +229,21 @@ jobs:
       QUARTO_CHANNEL: ${{ matrix.quarto_channel }}
       EXTENSIONS_JSON: ${{ matrix.extensions }}
     steps:
+      - name: Inspect batch
+        id: inspect-batch
+        run: |
+          set -euo pipefail
+          echo "${EXTENSIONS_JSON}" > extensions-batch.json
+          ext_count=$(jq 'length' extensions-batch.json)
+          echo "count=${ext_count}" >> "${GITHUB_OUTPUT}"
+          if [[ "${ext_count}" -eq 0 ]]; then
+            echo "::notice::No extensions in this batch."
+            echo '[]' > results.json
+            mkdir -p logs
+          fi
+
       - name: Create GitHub App token
+        if: steps.inspect-batch.outputs.count != '0'
         uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3
         id: app-token
         with:
@@ -237,6 +251,7 @@ jobs:
           private-key: ${{ secrets.APP_KEY }}
 
       - name: Prepare render image
+        if: steps.inspect-batch.outputs.count != '0'
         run: |
           set -euo pipefail
           docker pull "${IMAGE}"
@@ -251,12 +266,23 @@ jobs:
           DOCKERFILE
 
       - name: Clone extensions
+        if: steps.inspect-batch.outputs.count != '0'
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           set -euo pipefail
 
-          echo "${EXTENSIONS_JSON}" > extensions-batch.json
+          docker_user="$(id -u):$(id -g)"
+          auth_dir="${RUNNER_TEMP}/quarto-auth-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${QUARTO_CHANNEL}"
+          auth_gitconfig="${auth_dir}/gitconfig"
+          clone_manifest_file=$(mktemp)
+          mkdir -p "${auth_dir}"
+          printf '%s\n' \
+            "[url \"https://x-access-token:${GH_TOKEN}@github.com/\"]" \
+            "  insteadOf = https://github.com/" \
+            > "${auth_gitconfig}"
+          chmod 600 "${auth_gitconfig}"
+          trap 'rm -rf "${auth_dir}"; rm -f "${clone_manifest_file}"' EXIT
 
           if [[ ! "${QUARTO_CHANNEL}" =~ ^(release|prerelease)$ ]]; then
             echo "::error::Invalid Quarto channel '${QUARTO_CHANNEL}'."
@@ -272,11 +298,6 @@ jobs:
           echo "${quarto_version}" > quarto-version.txt
 
           ext_count=$(jq 'length' extensions-batch.json)
-          clone_manifest='[]'
-
-          if [[ "${ext_count}" -eq 0 ]]; then
-            echo "::notice::No extensions in this batch."
-          fi
 
           for ((i = 0; i < ext_count; i++)); do
             ext=$(jq -c ".[$i]" extensions-batch.json)
@@ -297,20 +318,21 @@ jobs:
               log_path="logs/${id}/${QUARTO_CHANNEL}/${quarto_version}"
             fi
 
-            mkdir -p "${workdir}" "${log_dir}"
-            chmod 777 "${workdir}" "${log_dir}"
+            install -d -m 700 "${workdir}" "${log_dir}" "${workdir}/.cache"
             touch "${log_dir}/stdout.log" "${log_dir}/stderr.log"
-            chmod 666 "${log_dir}/stdout.log" "${log_dir}/stderr.log"
+            chmod 600 "${log_dir}/stdout.log" "${log_dir}/stderr.log"
             render_dir="${workdir}"
 
             if [[ "${status}" == "pass" ]]; then
               case "${ext_type}" in
                 template|example)
                   docker run --rm \
-                    --user vscode \
-                    -e GIT_CONFIG_COUNT=1 \
-                    -e "GIT_CONFIG_KEY_0=url.https://x-access-token:${GH_TOKEN}@github.com/.insteadOf" \
-                    -e "GIT_CONFIG_VALUE_0=https://github.com/" \
+                    --user "${docker_user}" \
+                    --security-opt=no-new-privileges:true \
+                    -e GIT_CONFIG_GLOBAL=/tmp/gitconfig \
+                    -e HOME="${workdir}" \
+                    -e XDG_CACHE_HOME="${workdir}/.cache" \
+                    -v "${auth_gitconfig}:/tmp/gitconfig:ro" \
                     -v "${workdir}:${workdir}" \
                     -v "${log_dir}:${log_dir}" \
                     -w "${workdir}" \
@@ -322,10 +344,12 @@ jobs:
                   owner=$(echo "${id}" | cut -d'/' -f1)
                   repo=$(echo "${id}" | cut -d'/' -f2)
                   docker run --rm \
-                    --user vscode \
-                    -e GIT_CONFIG_COUNT=1 \
-                    -e "GIT_CONFIG_KEY_0=url.https://x-access-token:${GH_TOKEN}@github.com/.insteadOf" \
-                    -e "GIT_CONFIG_VALUE_0=https://github.com/" \
+                    --user "${docker_user}" \
+                    --security-opt=no-new-privileges:true \
+                    -e GIT_CONFIG_GLOBAL=/tmp/gitconfig \
+                    -e HOME="${workdir}" \
+                    -e XDG_CACHE_HOME="${workdir}/.cache" \
+                    -v "${auth_gitconfig}:/tmp/gitconfig:ro" \
                     -v "${workdir}:${workdir}" \
                     -v "${log_dir}:${log_dir}" \
                     -w "${workdir}" \
@@ -355,7 +379,7 @@ jobs:
               esac
             fi
 
-            clone_manifest=$(echo "${clone_manifest}" | jq \
+            jq -cn \
               --arg id "${id}" \
               --arg t "${ext_type}" \
               --arg s "${status}" \
@@ -364,21 +388,29 @@ jobs:
               --arg ld "${log_dir}" \
               --arg lp "${log_path}" \
               --argjson ext "${ext}" \
-              '. + [{"id": $id, "type": $t, "clone_status": $s, "workdir": $wd, "render_dir": $rd, "log_dir": $ld, "log_path": $lp, "ext": $ext}]')
+              '{id: $id, type: $t, clone_status: $s, workdir: $wd, render_dir: $rd, log_dir: $ld, log_path: $lp, ext: $ext}' \
+              >> "${clone_manifest_file}"
           done
 
-          echo "${clone_manifest}" | jq '.' > clone-manifest.json
+          if [[ -s "${clone_manifest_file}" ]]; then
+            jq -sc '.' "${clone_manifest_file}" > clone-manifest.json
+          else
+            echo '[]' > clone-manifest.json
+          fi
           echo "Cloned ${ext_count} extensions."
 
       - name: Render extensions
+        if: steps.inspect-batch.outputs.count != '0'
         run: |
           set -euo pipefail
 
+          docker_user="$(id -u):$(id -g)"
+          results_file=$(mktemp)
+          trap 'rm -f "${results_file}"' EXIT
           quarto_version=$(cat quarto-version.txt)
           echo "Quarto version: ${quarto_version} (${QUARTO_CHANNEL})"
 
           ext_count=$(jq 'length' clone-manifest.json)
-          results='[]'
 
           for ((i = 0; i < ext_count; i++)); do
             entry=$(jq -c ".[$i]" clone-manifest.json)
@@ -397,13 +429,15 @@ jobs:
               echo "${ext}" > "${workdir}/ext-meta.json"
 
               docker run --rm \
-                --user vscode \
+                --user "${docker_user}" \
                 --security-opt=no-new-privileges:true \
                 -e QUARTO_CHROMIUM="/usr/bin/google-chrome-stable" \
                 -e EXT_TYPE="${ext_type}" \
                 -e EXT_ID="${id}" \
                 -e WORKDIR="${workdir}" \
                 -e LOG_DIR="${log_dir}" \
+                -e HOME="${workdir}" \
+                -e XDG_CACHE_HOME="${workdir}/.cache" \
                 -v "${workdir}:${workdir}" \
                 -v "${log_dir}:${log_dir}" \
                 -w "${render_dir}" \
@@ -471,14 +505,15 @@ jobs:
             # Copy render logs to log directory
             find "${workdir}" -name 'render-*.log' -type f -exec cp {} "${log_dir}/" \; 2>/dev/null || true
 
-            results=$(echo "${results}" | jq \
+            jq -cn \
               --arg id "${id}" \
               --arg t "${ext_type}" \
               --arg s "${status}" \
               --arg l "${log_path}" \
               --arg qv "${quarto_version}" \
               --arg qc "${QUARTO_CHANNEL}" \
-              '. + [{"id": $id, "type": $t, "status": $s, "log": $l, "quarto_version": $qv, "quarto_channel": $qc}]')
+              '{id: $id, type: $t, status: $s, log: $l, quarto_version: $qv, quarto_channel: $qc}' \
+              >> "${results_file}"
 
             if [[ "${status}" == "pass" ]]; then
               echo "Result: ${id} PASSED"
@@ -488,10 +523,14 @@ jobs:
             echo "::endgroup::"
 
             # Clean up
-            sudo rm -rf "${workdir}"
+            rm -rf "${workdir}"
           done
 
-          echo "${results}" | jq '.' > results.json
+          if [[ -s "${results_file}" ]]; then
+            jq -sc '.' "${results_file}" > results.json
+          else
+            echo '[]' > results.json
+          fi
           echo "Results:"
           jq '.' results.json
 
@@ -540,16 +579,28 @@ jobs:
           git config --global user.name "${APP_SLUG}[bot]"
           git config --global user.email "${USER_ID}+${APP_SLUG}[bot]@users.noreply.github.com"
 
+      - name: Check quarto-tests branch
+        id: branch-check
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh api "repos/${GITHUB_REPOSITORY}/branches/quarto-tests" >/dev/null 2>&1; then
+            echo "exists=true" >> "${GITHUB_OUTPUT}"
+          else
+            echo "exists=false" >> "${GITHUB_OUTPUT}"
+          fi
+
       - name: Checkout quarto-tests branch
-        id: checkout-tests
+        if: steps.branch-check.outputs.exists == 'true'
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
           ref: quarto-tests
           token: ${{ steps.app-token.outputs.token }}
-        continue-on-error: true
 
       - name: Initialise if branch does not exist
-        if: steps.checkout-tests.outcome == 'failure'
+        if: steps.branch-check.outputs.exists == 'false'
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         shell: bash
@@ -593,6 +644,9 @@ jobs:
             skipped_json='[]'
           fi
 
+          current_run_file=$(mktemp)
+          trap 'rm -f "${current_run_file}"' EXIT
+
           today=$(date -u +%Y-%m-%d)
 
           # Load existing results
@@ -602,71 +656,38 @@ jobs:
             existing='{}'
           fi
 
-          # Merge all batch results
-          for dir in artefacts/results-batch-*/; do
-            if [[ ! -d "${dir}" ]]; then
-              continue
-            fi
-
-            results_file="${dir}results.json"
-            if [[ ! -f "${results_file}" ]]; then
-              continue
-            fi
-
-            while IFS= read -r entry; do
-              id=$(echo "${entry}" | jq -r '.id')
-              ext_type=$(echo "${entry}" | jq -r '.type')
-              ext_status=$(echo "${entry}" | jq -r '.status')
-              ext_log=$(echo "${entry}" | jq -r '.log')
-              qv=$(echo "${entry}" | jq -r '.quarto_version')
-              qc=$(echo "${entry}" | jq -r '.quarto_channel')
-
-              new_result=$(jq -n \
-                --arg qv "${qv}" \
-                --arg qc "${qc}" \
-                --arg s "${ext_status}" \
-                --arg l "${ext_log}" \
-                --arg d "${today}" \
-                '{quarto_version: $qv, quarto_channel: $qc, status: $s, log: $l, date: $d}')
-
-              # Get or create extension entry
-              ext_entry=$(echo "${existing}" | jq --arg id "${id}" '.[$id] // empty')
-              if [[ -z "${ext_entry}" ]]; then
-                existing=$(echo "${existing}" | jq \
-                  --arg id "${id}" \
-                  --arg t "${ext_type}" \
-                  --argjson r "[${new_result}]" \
-                  '.[$id] = {"type": $t, "results": $r}')
-              else
-                # Check for existing result with same version + channel
-                match_idx=$(echo "${existing}" | jq --arg id "${id}" --arg qv "${qv}" --arg qc "${qc}" \
-                  '.[$id].results | to_entries[] | select(.value.quarto_version == $qv and .value.quarto_channel == $qc) | .key' 2>/dev/null | head -1)
-
-                if [[ -n "${match_idx}" ]]; then
-                  existing=$(echo "${existing}" | jq \
-                    --arg id "${id}" \
-                    --argjson idx "${match_idx}" \
-                    --argjson r "${new_result}" \
-                    '.[$id].results[$idx] = $r')
-                else
-                  existing=$(echo "${existing}" | jq \
-                    --arg id "${id}" \
-                    --argjson r "${new_result}" \
-                    '.[$id].results += [$r]')
-                fi
-              fi
-            done < <(jq -c '.[]' "${results_file}")
-          done
-
-          echo "${existing}" | jq '.' > test-results.json
-
-          # Collect current run results from artefacts for summary counts
-          current_run='[]'
+          # Collect current run results from artefacts for summary and merge
           for dir in artefacts/results-batch-*/; do
             if [[ -d "${dir}" ]] && [[ -f "${dir}results.json" ]]; then
-              current_run=$(echo "${current_run}" | jq --slurpfile batch "${dir}results.json" '. + $batch[0]')
+              jq -c '.[]' "${dir}results.json" >> "${current_run_file}"
             fi
           done
+          if [[ -s "${current_run_file}" ]]; then
+            current_run=$(jq -sc '.' "${current_run_file}")
+          else
+            current_run='[]'
+          fi
+
+          existing=$(jq -c --arg d "${today}" --argjson cur "${current_run}" '
+            reduce $cur[] as $e (.;
+              .[$e.id] = (
+                .[$e.id] // {type: $e.type, results: []}
+                | .type = $e.type
+                | .results = (
+                    (.results | map(select(.quarto_version != $e.quarto_version or .quarto_channel != $e.quarto_channel)))
+                    + [{
+                        quarto_version: $e.quarto_version,
+                        quarto_channel: $e.quarto_channel,
+                        status: $e.status,
+                        log: $e.log,
+                        date: $d
+                      }]
+                  )
+              )
+            )
+          ' <<< "${existing}")
+
+          echo "${existing}" | jq '.' > test-results.json
 
           run_total=$(echo "${current_run}" | jq '[.[].id] | unique | length')
           run_pass=$(echo "${current_run}" | jq '[sort_by(.id) | group_by(.id)[] | select(all(.status == "pass"))] | length')
