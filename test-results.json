@@ -188,5 +188,233 @@
         "date": "2026-03-19"
       }
     ]
+  },
+  "fermarsan/quarto-kroki": {
+    "type": "document",
+    "results": [
+      {
+        "quarto_version": "1.9.35",
+        "quarto_channel": "prerelease",
+        "status": "pass",
+        "error": "",
+        "date": "2026-03-19"
+      },
+      {
+        "quarto_version": "1.8.27",
+        "quarto_channel": "release",
+        "status": "pass",
+        "error": "",
+        "date": "2026-03-19"
+      }
+    ]
+  },
+  "padsinsper/quarto-insper-theme": {
+    "type": "document",
+    "results": [
+      {
+        "quarto_version": "1.9.35",
+        "quarto_channel": "prerelease",
+        "status": "pass",
+        "error": "",
+        "date": "2026-03-19"
+      },
+      {
+        "quarto_version": "1.8.27",
+        "quarto_channel": "release",
+        "status": "pass",
+        "error": "",
+        "date": "2026-03-19"
+      }
+    ]
+  },
+  "rodrigo-j-goncalves/progressvg": {
+    "type": "document",
+    "results": [
+      {
+        "quarto_version": "1.9.35",
+        "quarto_channel": "prerelease",
+        "status": "pass",
+        "error": "",
+        "date": "2026-03-19"
+      },
+      {
+        "quarto_version": "1.8.27",
+        "quarto_channel": "release",
+        "status": "pass",
+        "error": "",
+        "date": "2026-03-19"
+      }
+    ]
+  },
+  "rodrigo-j-goncalves/further-reading": {
+    "type": "document",
+    "results": [
+      {
+        "quarto_version": "1.9.35",
+        "quarto_channel": "prerelease",
+        "status": "pass",
+        "error": "",
+        "date": "2026-03-19"
+      },
+      {
+        "quarto_version": "1.8.27",
+        "quarto_channel": "release",
+        "status": "pass",
+        "error": "",
+        "date": "2026-03-19"
+      }
+    ]
+  },
+  "jmbuhr/quarto-qrcode": {
+    "type": "document",
+    "results": [
+      {
+        "quarto_version": "1.9.35",
+        "quarto_channel": "prerelease",
+        "status": "pass",
+        "error": "",
+        "date": "2026-03-19"
+      },
+      {
+        "quarto_version": "1.8.27",
+        "quarto_channel": "release",
+        "status": "pass",
+        "error": "",
+        "date": "2026-03-19"
+      }
+    ]
+  },
+  "computorg/computo-quarto-extension": {
+    "type": "project",
+    "results": [
+      {
+        "quarto_version": "1.9.35",
+        "quarto_channel": "prerelease",
+        "status": "fail",
+        "error": "Cloning into 'repo'...\nError in loadNamespace(x) : there is no package called 'renv'\nCalls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart\nExecution halted\n\u001b[33mWARN: Error encountered when rendering files\u001b[39m\n(WARN) Error encountered when rendering files",
+        "date": "2026-03-19"
+      },
+      {
+        "quarto_version": "1.8.27",
+        "quarto_channel": "release",
+        "status": "fail",
+        "error": "Cloning into 'repo'...\nError in loadNamespace(x) : there is no package called 'renv'\nCalls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart\nExecution halted\n\u001b[33mWARN: Error encountered when rendering files\u001b[39m\n(WARN) Error encountered when rendering files",
+        "date": "2026-03-19"
+      }
+    ]
+  },
+  "fredguth/tufte-quarto": {
+    "type": "project",
+    "results": [
+      {
+        "quarto_version": "1.9.35",
+        "quarto_channel": "prerelease",
+        "status": "fail",
+        "error": "Cloning into 'repo'...\n\u001b[91mERROR: \ncompilation failed- no matching packages\u001b[39m\n\u001b[33mWARN: Error encountered when rendering files\u001b[39m\n(ERROR) \ncompilation failed- no matching packages\n\n(WARN) Error encountered when rendering files",
+        "date": "2026-03-19"
+      },
+      {
+        "quarto_version": "1.8.27",
+        "quarto_channel": "release",
+        "status": "fail",
+        "error": "Cloning into 'repo'...\n\u001b[91mERROR: \ncompilation failed- no matching packages\u001b[39m\n\u001b[33mWARN: Error encountered when rendering files\u001b[39m\n(ERROR) \ncompilation failed- no matching packages\n\n(WARN) Error encountered when rendering files",
+        "date": "2026-03-19"
+      }
+    ]
+  },
+  "fredguth/tufte-inspired": {
+    "type": "project",
+    "results": [
+      {
+        "quarto_version": "1.9.35",
+        "quarto_channel": "prerelease",
+        "status": "fail",
+        "error": "Cloning into 'repo'...\n\u001b[91mERROR: downloading @preview/drafting:0.2.2\n  9.3 KiB /   9.3 KiB (100 %)   9.3 KiB/s in 1.42 ms ETA: 0 s\n\nerror: unknown variable: NormalTok\n    ┌─ index.typ:545:60\n    │\n545 │ You can include anything in the margin by places the class #NormalTok(\".column-margin\"); on the element. See an example on the right about the first fundamental theorem of calculus.\n    │                                                             ^^^^^^^^^\n\n\u001b[39m\n\u001b[91mERROR: Typst compilation failed\u001b[39m\n(ERROR) downloading @preview/drafting:0.2.2\n  9.3 KiB /   9.3 KiB (100 %)   9.3 KiB/s in 1.42 ms ETA: 0 s\n\nerror: unknown variable: NormalTok\n    ┌─ index.typ:545:60\n    │\n545 │ You can include anything in the margin by places the class #NormalTok(\".column-margin\"); on the element. See an example on the right about the first fundamental theorem of calculus.\n    │                                                             ^^^^^^^^^\n\n\n\n(ERROR) Typst compilation failed",
+        "date": "2026-03-19"
+      },
+      {
+        "quarto_version": "1.8.27",
+        "quarto_channel": "release",
+        "status": "pass",
+        "error": "",
+        "date": "2026-03-19"
+      }
+    ]
+  },
+  "bcdavasconcelos/citetools": {
+    "type": "project",
+    "results": [
+      {
+        "quarto_version": "1.9.35",
+        "quarto_channel": "prerelease",
+        "status": "pass",
+        "error": "",
+        "date": "2026-03-19"
+      },
+      {
+        "quarto_version": "1.8.27",
+        "quarto_channel": "release",
+        "status": "pass",
+        "error": "",
+        "date": "2026-03-19"
+      }
+    ]
+  },
+  "thinkr-open/quarto-detective": {
+    "type": "project",
+    "results": [
+      {
+        "quarto_version": "1.9.35",
+        "quarto_channel": "prerelease",
+        "status": "fail",
+        "error": "Cloning into 'repo'...\n\u001b[33mWARN: Error encountered when rendering files\u001b[39m\n(WARN) Error encountered when rendering files",
+        "date": "2026-03-19"
+      },
+      {
+        "quarto_version": "1.8.27",
+        "quarto_channel": "release",
+        "status": "fail",
+        "error": "Cloning into 'repo'...\n\u001b[33mWARN: Error encountered when rendering files\u001b[39m\n(WARN) Error encountered when rendering files",
+        "date": "2026-03-19"
+      }
+    ]
+  },
+  "mccarthy-m-g/quarto-lcars-theme": {
+    "type": "template",
+    "results": [
+      {
+        "quarto_version": "1.9.35",
+        "quarto_channel": "prerelease",
+        "status": "pass",
+        "error": "",
+        "date": "2026-03-19"
+      },
+      {
+        "quarto_version": "1.8.27",
+        "quarto_channel": "release",
+        "status": "pass",
+        "error": "",
+        "date": "2026-03-19"
+      }
+    ]
+  },
+  "christopherkenny/pnas": {
+    "type": "template",
+    "results": [
+      {
+        "quarto_version": "1.9.35",
+        "quarto_channel": "prerelease",
+        "status": "pass",
+        "error": "",
+        "date": "2026-03-19"
+      },
+      {
+        "quarto_version": "1.8.27",
+        "quarto_channel": "release",
+        "status": "pass",
+        "error": "",
+        "date": "2026-03-19"
+      }
+    ]
   }
 }
