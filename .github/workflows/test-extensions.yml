@@ -72,56 +72,85 @@ jobs:
             owner=$(echo "${id}" | cut -d'/' -f1)
             repo=$(echo "${id}" | cut -d'/' -f2)
 
-            tree=$(gh api "repos/${owner}/${repo}/git/trees/${default_branch}?recursive=1" \
-              --jq '.tree[] | select(.path | test("(^|/)_quarto\\.ya?ml$")) | .path' 2>/dev/null || true)
+            full_tree=$(gh api "repos/${owner}/${repo}/git/trees/${default_branch}?recursive=1" \
+              --jq '.tree[] | .path' 2>/dev/null || true)
 
-            if [[ -z "${tree}" ]]; then
+            if [[ -z "${full_tree}" ]]; then
               skipped=$(echo "${skipped}" | jq --arg id "${id}" '. + [$id]')
               continue
             fi
 
-            # Select the best _quarto.yml path
-            best_path=""
-            best_depth=999
+            # Check for _quarto.yml/_quarto.yaml (project)
+            project_files=$(echo "${full_tree}" | grep -E '(^|/)_quarto\.ya?ml$' || true)
 
-            while IFS= read -r qpath; do
-              dir=$(dirname "${qpath}")
+            if [[ -n "${project_files}" ]]; then
+              # Select the best _quarto.yml path
+              best_path=""
+              best_depth=999
 
-              # Skip tests/ and examples/ directories
-              if echo "${dir}" | grep -qE '(^|/)tests(/|$)' || echo "${dir}" | grep -qE '(^|/)examples(/|$)'; then
+              while IFS= read -r qpath; do
+                dir=$(dirname "${qpath}")
+
+                # Skip tests/ and examples/ directories
+                if echo "${dir}" | grep -qE '(^|/)tests(/|$)' || echo "${dir}" | grep -qE '(^|/)examples(/|$)'; then
+                  continue
+                fi
+
+                # Prefer root
+                if [[ "${dir}" == "." ]]; then
+                  best_path="."
+                  best_depth=0
+                  break
+                fi
+
+                # Prefer docs/
+                if [[ "${dir}" == "docs" ]] && [[ "${best_depth}" -gt 1 ]]; then
+                  best_path="docs"
+                  best_depth=1
+                  continue
+                fi
+
+                # Otherwise, shallowest path
+                depth=$(echo "${dir}" | tr '/' '\n' | wc -l)
+                if [[ "${depth}" -lt "${best_depth}" ]]; then
+                  best_path="${dir}"
+                  best_depth="${depth}"
+                fi
+              done <<< "${project_files}"
+
+              if [[ -n "${best_path}" ]]; then
+                entries=$(echo "${entries}" | jq \
+                  --arg id "${id}" \
+                  --arg pp "${best_path}" \
+                  '. + [{"id": $id, "type": "project", "project_path": $pp}]')
                 continue
               fi
-
-              # Prefer root
-              if [[ "${dir}" == "." ]]; then
-                best_path="."
-                best_depth=0
-                break
-              fi
-
-              # Prefer docs/
-              if [[ "${dir}" == "docs" ]] && [[ "${best_depth}" -gt 1 ]]; then
-                best_path="docs"
-                best_depth=1
-                continue
-              fi
-
-              # Otherwise, shallowest path
-              depth=$(echo "${dir}" | tr '/' '\n' | wc -l)
-              if [[ "${depth}" -lt "${best_depth}" ]]; then
-                best_path="${dir}"
-                best_depth="${depth}"
-              fi
-            done <<< "${tree}"
-
-            if [[ -n "${best_path}" ]]; then
-              entries=$(echo "${entries}" | jq \
-                --arg id "${id}" \
-                --arg pp "${best_path}" \
-                '. + [{"id": $id, "type": "project", "project_path": $pp}]')
-            else
-              skipped=$(echo "${skipped}" | jq --arg id "${id}" '. + [$id]')
             fi
+
+            # Fallback: check for standalone .qmd files (document)
+            qmd_files=$(echo "${full_tree}" | grep -E '\.qmd$' || true)
+
+            if [[ -n "${qmd_files}" ]]; then
+              # Collect .qmd files, skipping _extensions/, tests/, examples/ directories
+              doc_files='[]'
+              while IFS= read -r qmd; do
+                if echo "${qmd}" | grep -qE '(^|/)(_extensions|tests|examples)/'; then
+                  continue
+                fi
+                doc_files=$(echo "${doc_files}" | jq --arg f "${qmd}" '. + [$f]')
+              done <<< "${qmd_files}"
+
+              doc_count=$(echo "${doc_files}" | jq 'length')
+              if [[ "${doc_count}" -gt 0 ]]; then
+                entries=$(echo "${entries}" | jq \
+                  --arg id "${id}" \
+                  --argjson files "${doc_files}" \
+                  '. + [{"id": $id, "type": "document", "qmd_files": $files}]')
+                continue
+              fi
+            fi
+
+            skipped=$(echo "${skipped}" | jq --arg id "${id}" '. + [$id]')
           done < <(echo "${extensions_json}" | jq -c 'to_entries[] | select(.value.example == false and .value.template == false) | {id: .key, default_branch: .value.defaultBranchRef}')
 
           # In debug mode, limit to first 10 extensions
@@ -224,11 +253,11 @@ jobs:
                 template|example)
                   quarto use template "${id}" --no-prompt 2>stderr.log
                   ;;
-                project)
+                project|document)
                   owner=$(echo "${id}" | cut -d'/' -f1)
                   repo=$(echo "${id}" | cut -d'/' -f2)
                   git clone --depth 1 "https://x-access-token:${GH_TOKEN}@github.com/${owner}/${repo}.git" repo 2>stderr.log
-                  if [[ "${project_path}" != "." ]]; then
+                  if [[ "${ext_type}" == "project" ]] && [[ "${project_path}" != "." ]]; then
                     cd "repo/${project_path}"
                   else
                     cd repo
@@ -249,6 +278,14 @@ jobs:
               # Render
               if [[ -f _quarto.yml ]] || [[ -f _quarto.yaml ]]; then
                 quarto render --log render.log --log-level warning 2>>stderr.log
+              elif [[ "${ext_type}" == "document" ]]; then
+                qmd_files=$(echo "${ext}" | jq -r '.qmd_files[]')
+                while IFS= read -r qmd; do
+                  if [[ -f "${qmd}" ]]; then
+                    echo "Rendering ${qmd}"
+                    quarto render "${qmd}" --log render.log --log-level warning 2>>stderr.log
+                  fi
+                done <<< "${qmd_files}"
               else
                 for qmd in *.qmd; do
                   if [[ -f "${qmd}" ]]; then
