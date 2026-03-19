@@ -292,6 +292,11 @@ jobs:
               --arg qc "${QUARTO_CHANNEL}" \
               '. + [{"id": $id, "type": $t, "status": $s, "error": $e, "quarto_version": $qv, "quarto_channel": $qc}]')
 
+            if [[ "${status}" == "pass" ]]; then
+              echo "Result: ${id} PASSED"
+            else
+              echo "::warning::Result: ${id} FAILED"
+            fi
             echo "::endgroup::"
 
             # Clean up
@@ -460,6 +465,7 @@ jobs:
             echo "- **Skipped (no example/template/project):** ${skipped_count}"
             echo ""
 
+            # Failed extensions
             failures=$(echo "${existing}" | jq -r '
               to_entries[] |
               .key as $id |
@@ -469,11 +475,29 @@ jobs:
             ')
 
             if [[ -n "${failures}" ]]; then
-              echo "### Failures"
+              echo "### Failed Extensions (${fail_count})"
+              echo ""
+              echo "<details><summary>Show failures</summary>"
               echo ""
               echo "| Extension | Quarto Version | Channel |"
               echo "|-----------|---------------|---------|"
               echo "${failures}"
+              echo ""
+              echo "</details>"
+              echo ""
+            fi
+
+            # Skipped extensions
+            if [[ "${skipped_count}" -gt 0 ]]; then
+              skipped_list=$(echo "${SKIPPED}" | jq -r '.[] | "- \(.)"')
+              echo "### Skipped Extensions (${skipped_count})"
+              echo ""
+              echo "<details><summary>Show skipped extensions</summary>"
+              echo ""
+              echo "${skipped_list}"
+              echo ""
+              echo "</details>"
+              echo ""
             fi
           } >> "${GITHUB_STEP_SUMMARY}"
 
