@@ -8,7 +8,7 @@ on:
         default: "false"
       batch_size:
         description: "Number of extensions per batch"
-        default: "10"
+        default: "25"
   schedule:
     - cron: "0 14 15 * *"
 
@@ -43,7 +43,7 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           DEBUG: ${{ inputs.debug || 'false' }}
-          BATCH_SIZE: ${{ inputs.batch_size || '10' }}
+          BATCH_SIZE: ${{ inputs.batch_size || '25' }}
         shell: bash
         run: |
           set -euo pipefail
@@ -156,7 +156,7 @@ jobs:
           # In debug mode, take up to 5 per type for a representative sample
           if [[ "${DEBUG}" == "true" ]]; then
             entries=$(echo "${entries}" | jq '
-              [group_by(.type)[] | .[0:5]] | flatten
+              [sort_by(.type) | group_by(.type)[] | .[0:5]] | flatten
             ')
           fi
 
@@ -244,6 +244,10 @@ jobs:
           # Write extensions JSON to file to avoid repeated large-string shell ops
           echo "${EXTENSIONS_JSON}" > extensions-batch.json
 
+          git config --global \
+            url."https://x-access-token:${GH_TOKEN}@github.com/".insteadOf \
+            "https://github.com/"
+
           quarto_version=$(quarto --version)
           echo "Quarto version: ${quarto_version} (${QUARTO_CHANNEL})"
 
@@ -259,10 +263,10 @@ jobs:
             echo "::group::Testing ${id} (${ext_type})"
 
             status="pass"
-            error_msg=""
             workdir="${GITHUB_WORKSPACE:-/github/workspace}/test-${i}"
-            stderr_log="${workdir}/stderr.log"
-            mkdir -p "${workdir}"
+            log_dir="${GITHUB_WORKSPACE:-/github/workspace}/logs/${id}/${QUARTO_CHANNEL}/${quarto_version}"
+            log_path="logs/${id}/${QUARTO_CHANNEL}/${quarto_version}"
+            mkdir -p "${workdir}" "${log_dir}"
 
             {
               cd "${workdir}"
@@ -270,87 +274,88 @@ jobs:
               # Setup by type
               case "${ext_type}" in
                 template|example)
-                  quarto use template "${id}" --no-prompt 2>"${stderr_log}"
+                  quarto use template "${id}" --no-prompt >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log" \
+                    || status="fail"
                   ;;
                 project|document)
                   owner=$(echo "${id}" | cut -d'/' -f1)
                   repo=$(echo "${id}" | cut -d'/' -f2)
-                  git clone --depth 1 "https://x-access-token:${GH_TOKEN}@github.com/${owner}/${repo}.git" repo 2>"${stderr_log}"
-                  if [[ "${ext_type}" == "project" ]] && [[ "${project_path}" != "." ]]; then
-                    cd "repo/${project_path}"
-                  else
-                    cd repo
+                  git clone --depth 1 "https://github.com/${owner}/${repo}.git" repo \
+                    >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log" \
+                    || status="fail"
+                  if [[ "${status}" == "pass" ]]; then
+                    if [[ "${ext_type}" == "project" ]] && [[ "${project_path}" != "." ]]; then
+                      cd "repo/${project_path}"
+                    else
+                      cd repo
+                    fi
                   fi
                   ;;
               esac
 
-              # Restore dependencies
-              if [[ -f renv.lock ]]; then
-                Rscript -e 'if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")' 2>>"${stderr_log}"
-                Rscript -e 'renv::restore()' 2>>"${stderr_log}" || true
-              fi
-              if [[ -f uv.lock ]]; then
-                uv sync 2>>"${stderr_log}" || true
-              elif [[ -f requirements.txt ]]; then
-                uv pip install -r requirements.txt 2>>"${stderr_log}" || true
-              fi
-
-              # Render
-              render_idx=0
-              if [[ -f _quarto.yml ]] || [[ -f _quarto.yaml ]]; then
-                quarto render --log "${workdir}/render-${render_idx}.log" --log-level warning 2>>"${stderr_log}"
-              elif [[ "${ext_type}" == "document" ]]; then
-                # Render each .qmd file independently
-                qmd_files=$(echo "${ext}" | jq -r '.qmd_files[]')
-                while IFS= read -r qmd; do
-                  if [[ -f "${qmd}" ]]; then
-                    echo "Rendering ${qmd}"
-                    quarto render "${qmd}" --log "${workdir}/render-${render_idx}.log" --log-level warning 2>>"${stderr_log}"
-                    render_idx=$((render_idx + 1))
+              if [[ "${status}" == "pass" ]]; then
+                # Restore dependencies
+                if [[ -f renv.lock ]]; then
+                  Rscript -e 'if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")' \
+                    >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log"
+                  Rscript -e 'renv::restore()' \
+                    >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log" || true
+                fi
+                if [[ -f uv.lock ]] || [[ -f requirements.txt ]]; then
+                  if uv venv >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log"; then
+                    source .venv/bin/activate
+                    if [[ -f uv.lock ]]; then
+                      uv sync >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log" || true
+                    elif [[ -f requirements.txt ]]; then
+                      uv pip install -r requirements.txt >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log" || true
+                    fi
                   fi
-                done <<< "${qmd_files}"
-              else
-                # Render all .qmd files except those under _extensions/
-                while IFS= read -r -d '' qmd; do
-                  echo "Rendering ${qmd}"
-                  quarto render "${qmd}" --log "${workdir}/render-${render_idx}.log" --log-level warning 2>>"${stderr_log}"
-                  render_idx=$((render_idx + 1))
-                done < <(find . -name '*.qmd' -not -path './_extensions/*' -print0)
+                fi
+
+                # Render
+                render_idx=0
+                if [[ -f _quarto.yml ]] || [[ -f _quarto.yaml ]]; then
+                  quarto render --log "${workdir}/render-${render_idx}.log" --log-level info >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log" \
+                    || status="fail"
+                elif [[ "${ext_type}" == "document" ]]; then
+                  # Render each .qmd file independently
+                  qmd_files=$(echo "${ext}" | jq -r '.qmd_files[]')
+                  while IFS= read -r qmd; do
+                    if [[ -f "${qmd}" ]]; then
+                      echo "Rendering ${qmd}"
+                      quarto render "${qmd}" --log "${workdir}/render-${render_idx}.log" --log-level info >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log" \
+                        || status="fail"
+                      render_idx=$((render_idx + 1))
+                    fi
+                  done <<< "${qmd_files}"
+                else
+                  # Render all .qmd files except those under _extensions/
+                  while IFS= read -r -d '' qmd; do
+                    echo "Rendering ${qmd}"
+                    quarto render "${qmd}" --log "${workdir}/render-${render_idx}.log" --log-level info >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log" \
+                      || status="fail"
+                    render_idx=$((render_idx + 1))
+                  done < <(find . -name '*.qmd' -not -path './_extensions/*' -print0)
+                fi
               fi
             } || {
               status="fail"
               cd "${GITHUB_WORKSPACE:-/github/workspace}" || cd /
-
-              combined=""
-              if [[ -f "${stderr_log}" ]]; then
-                combined=$(tail -25 "${stderr_log}")
-              fi
-              while IFS= read -r render_log; do
-                if [[ -f "${render_log}" ]]; then
-                  render_tail=$(tail -25 "${render_log}")
-                  combined=$(printf '%s\n%s' "${combined}" "${render_tail}")
-                fi
-              done < <(find "${workdir}" -name 'render-*.log' -type f 2>/dev/null | sort)
-
-              error_msg=$(echo "${combined}" | sed 's/\x1b\[[0-9;]*m//g' | tail -50 | jq -Rs '.')
             }
 
             cd "${GITHUB_WORKSPACE:-/github/workspace}" || cd /
 
-            if [[ "${status}" == "fail" ]] && [[ -z "${error_msg}" ]]; then
-              error_msg='""'
-            elif [[ "${status}" == "pass" ]]; then
-              error_msg='""'
-            fi
+            # Copy render logs to log directory
+            find "${workdir}" -name 'render-*.log' -type f -exec cp {} "${log_dir}/" \; 2>/dev/null || true
 
             results=$(echo "${results}" | jq \
               --arg id "${id}" \
               --arg t "${ext_type}" \
               --arg s "${status}" \
-              --argjson e "${error_msg}" \
+              --arg l "${log_path}" \
               --arg qv "${quarto_version}" \
               --arg qc "${QUARTO_CHANNEL}" \
-              '. + [{"id": $id, "type": $t, "status": $s, "error": $e, "quarto_version": $qv, "quarto_channel": $qc}]')
+              '. + [{"id": $id, "type": $t, "status": $s, "log": $l, "quarto_version": $qv, "quarto_channel": $qc}]')
 
             if [[ "${status}" == "pass" ]]; then
               echo "Result: ${id} PASSED"
@@ -373,6 +378,14 @@ jobs:
         with:
           name: results-batch-${{ matrix.batch_index }}-${{ matrix.quarto_channel }}
           path: results.json
+          retention-days: 7
+
+      - name: Upload logs
+        uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: logs-batch-${{ matrix.batch_index }}-${{ matrix.quarto_channel }}
+          path: logs/
           retention-days: 7
 
   summarise-and-publish:
@@ -433,6 +446,13 @@ jobs:
           path: artefacts
           pattern: results-batch-*
 
+      - name: Download all log artefacts
+        uses: actions/download-artifact@v8
+        with:
+          path: logs
+          pattern: logs-batch-*
+          merge-multiple: true
+
       - name: Merge results and publish
         env:
           SKIPPED: ${{ needs.build-matrix.outputs.skipped }}
@@ -465,7 +485,7 @@ jobs:
               id=$(echo "${entry}" | jq -r '.id')
               ext_type=$(echo "${entry}" | jq -r '.type')
               ext_status=$(echo "${entry}" | jq -r '.status')
-              ext_error=$(echo "${entry}" | jq -r '.error')
+              ext_log=$(echo "${entry}" | jq -r '.log')
               qv=$(echo "${entry}" | jq -r '.quarto_version')
               qc=$(echo "${entry}" | jq -r '.quarto_channel')
 
@@ -473,9 +493,9 @@ jobs:
                 --arg qv "${qv}" \
                 --arg qc "${qc}" \
                 --arg s "${ext_status}" \
-                --arg e "${ext_error}" \
+                --arg l "${ext_log}" \
                 --arg d "${today}" \
-                '{quarto_version: $qv, quarto_channel: $qc, status: $s, error: $e, date: $d}')
+                '{quarto_version: $qv, quarto_channel: $qc, status: $s, log: $l, date: $d}')
 
               # Get or create extension entry
               ext_entry=$(echo "${existing}" | jq --arg id "${id}" '.[$id] // empty')
@@ -517,8 +537,8 @@ jobs:
           done
 
           run_total=$(echo "${current_run}" | jq '[.[].id] | unique | length')
-          run_pass=$(echo "${current_run}" | jq '[.[] | select(.status == "pass")] | length')
-          run_fail=$(echo "${current_run}" | jq '[.[] | select(.status == "fail")] | length')
+          run_pass=$(echo "${current_run}" | jq '[sort_by(.id) | group_by(.id)[] | select(all(.status == "pass"))] | length')
+          run_fail=$(echo "${current_run}" | jq '[sort_by(.id) | group_by(.id)[] | select(any(.status == "fail"))] | length')
 
           if [[ "${run_total}" -eq 0 ]]; then
             echo "::warning::No test results found. All test jobs may have failed before uploading artefacts."
@@ -535,20 +555,31 @@ jobs:
             echo "- **Skipped (no renderable content found):** ${skipped_count}"
             echo ""
 
-            # Failed extensions from current run
-            failures=$(echo "${current_run}" | jq -r '
-              .[] | select(.status == "fail") |
-              "| \(.id) | \(.quarto_version) | \(.quarto_channel) |"
+            # Results table with per-channel pass/fail marks
+            release_version=$(echo "${current_run}" | jq -r '[.[] | select(.quarto_channel == "release") | .quarto_version] | first // "n/a"')
+            prerelease_version=$(echo "${current_run}" | jq -r '[.[] | select(.quarto_channel == "prerelease") | .quarto_version] | first // "n/a"')
+
+            repo_url="https://github.com/${GITHUB_REPOSITORY}/tree/quarto-tests"
+            results_table=$(echo "${current_run}" | jq -r --arg repo_url "${repo_url}" '
+              sort_by(.id) | group_by(.id) | .[] |
+              {
+                id: .[0].id,
+                release_status: ([.[] | select(.quarto_channel == "release") | .status] | first // "n/a"),
+                release_version: ([.[] | select(.quarto_channel == "release") | .quarto_version] | first // ""),
+                prerelease_status: ([.[] | select(.quarto_channel == "prerelease") | .status] | first // "n/a"),
+                prerelease_version: ([.[] | select(.quarto_channel == "prerelease") | .quarto_version] | first // "")
+              } |
+              "| \(.id) | \(if .release_status == "pass" then "[✅](\($repo_url)/logs/\(.id)/release/\(.release_version))" elif .release_status == "fail" then "[❌](\($repo_url)/logs/\(.id)/release/\(.release_version))" else "—" end) | \(if .prerelease_status == "pass" then "[✅](\($repo_url)/logs/\(.id)/prerelease/\(.prerelease_version))" elif .prerelease_status == "fail" then "[❌](\($repo_url)/logs/\(.id)/prerelease/\(.prerelease_version))" else "—" end) |"
             ')
 
-            if [[ -n "${failures}" ]]; then
-              echo "### Failed Extensions (${run_fail})"
+            if [[ -n "${results_table}" ]]; then
+              echo "### Results"
               echo ""
-              echo "<details><summary>Show failures</summary>"
+              echo "<details><summary>Show results</summary>"
               echo ""
-              echo "| Extension | Quarto Version | Channel |"
-              echo "|-----------|---------------|---------|"
-              echo "${failures}"
+              echo "| Extension | Release (${release_version}) | Pre-release (${prerelease_version}) |"
+              echo "|-----------|:---:|:---:|"
+              echo "${results_table}"
               echo ""
               echo "</details>"
               echo ""
@@ -569,6 +600,18 @@ jobs:
           } >> "${GITHUB_STEP_SUMMARY}"
 
           # Commit and push
+          # Remove old tracked logs for channel/version combos in the current run
+          while IFS= read -r log_entry; do
+            log_channel=$(echo "${log_entry}" | jq -r '.channel')
+            log_version=$(echo "${log_entry}" | jq -r '.version')
+            tracked=$(git ls-files "logs/*/*/${log_channel}/${log_version}/*" 2>/dev/null || true)
+            if [[ -n "${tracked}" ]]; then
+              echo "${tracked}" | tr '\n' '\0' | xargs -0 git rm -f 2>/dev/null || true
+            fi
+          done < <(echo "${current_run}" | jq -c '[.[] | {channel: .quarto_channel, version: .quarto_version}] | unique | .[]')
+          if [[ -d logs ]]; then
+            git add logs/
+          fi
           git add test-results.json
           if git diff --cached --quiet; then
             echo "No changes to commit."
