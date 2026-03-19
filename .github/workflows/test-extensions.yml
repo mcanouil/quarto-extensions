@@ -228,14 +228,17 @@ jobs:
         run: |
           set -euo pipefail
 
+          # Write extensions JSON to file to avoid repeated large-string shell ops
+          echo "${EXTENSIONS_JSON}" > extensions-batch.json
+
           quarto_version=$(quarto --version)
           echo "Quarto version: ${quarto_version} (${QUARTO_CHANNEL})"
 
           results='[]'
-          ext_count=$(echo "${EXTENSIONS_JSON}" | jq 'length')
+          ext_count=$(jq 'length' extensions-batch.json)
 
           for i in $(seq 0 $((ext_count - 1))); do
-            ext=$(echo "${EXTENSIONS_JSON}" | jq -c ".[$i]")
+            ext=$(jq -c ".[$i]" extensions-batch.json)
             id=$(echo "${ext}" | jq -r '.id')
             ext_type=$(echo "${ext}" | jq -r '.type')
             project_path=$(echo "${ext}" | jq -r '.project_path // empty')
@@ -502,6 +505,10 @@ jobs:
           run_total=$(echo "${current_run}" | jq '[.[].id] | unique | length')
           run_pass=$(echo "${current_run}" | jq '[.[] | select(.status == "pass")] | length')
           run_fail=$(echo "${current_run}" | jq '[.[] | select(.status == "fail")] | length')
+
+          if [[ "${run_total}" -eq 0 ]]; then
+            echo "::warning::No test results found. All test jobs may have failed before uploading artefacts."
+          fi
           skipped_count=$(echo "${SKIPPED}" | jq 'length')
 
           # Generate step summary
