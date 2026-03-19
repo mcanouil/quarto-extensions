@@ -226,7 +226,6 @@ jobs:
         shell: bash
     env:
       IMAGE: ghcr.io/mcanouil/quarto-codespaces:${{ matrix.quarto_channel }}
-      BATCH_INDEX: ${{ matrix.batch_index }}
       QUARTO_CHANNEL: ${{ matrix.quarto_channel }}
       EXTENSIONS_JSON: ${{ matrix.extensions }}
     steps:
@@ -337,7 +336,7 @@ jobs:
                   if [[ "${status}" == "pass" ]]; then
                     if [[ "${ext_type}" == "project" ]] && [[ "${project_path}" != "." ]]; then
                       if [[ "${project_path}" == /* ]] || [[ "${project_path}" == *".."* ]]; then
-                        echo "::warning::Invalid project_path '${project_path}' for ${id}." \
+                        echo "Invalid project_path '${project_path}' for ${id}." \
                           >>"${log_dir}/stderr.log"
                         status="fail"
                       else
@@ -350,7 +349,7 @@ jobs:
                   fi
                   ;;
                 *)
-                  echo "::warning::Unknown extension type '${ext_type}' for ${id}." >>"${log_dir}/stderr.log"
+                  echo "Unknown extension type '${ext_type}' for ${id}." >>"${log_dir}/stderr.log"
                   status="fail"
                   ;;
               esac
@@ -399,6 +398,7 @@ jobs:
 
               docker run --rm \
                 --user vscode \
+                --security-opt=no-new-privileges:true \
                 -e QUARTO_CHROMIUM="/usr/bin/google-chrome-stable" \
                 -e EXT_TYPE="${ext_type}" \
                 -e EXT_ID="${id}" \
@@ -414,27 +414,30 @@ jobs:
           # Restore dependencies
           if [[ -f renv.lock ]]; then
             Rscript -e 'if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")' \
-              >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log"
+              >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
+              echo "renv install failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
+              exit 1
+            }
             Rscript -e 'renv::restore()' \
               >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
-              echo "::warning::renv restore failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
+              echo "renv restore failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
               exit 1
             }
           fi
           if [[ -f uv.lock ]] || [[ -f requirements.txt ]]; then
             uv venv >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
-              echo "::warning::uv venv failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
+              echo "uv venv failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
               exit 1
             }
             source .venv/bin/activate
             if [[ -f uv.lock ]]; then
               uv sync >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
-                echo "::warning::uv sync failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
+                echo "uv sync failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
                 exit 1
               }
             elif [[ -f requirements.txt ]]; then
               uv pip install -r requirements.txt >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
-                echo "::warning::uv pip install failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
+                echo "uv pip install failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
                 exit 1
               }
             fi
