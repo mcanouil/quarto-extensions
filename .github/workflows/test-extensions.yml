@@ -319,7 +319,7 @@ jobs:
                 fi
               done < <(find "${workdir}" -name 'render-*.log' -type f 2>/dev/null | sort)
 
-              error_msg=$(echo "${combined}" | tail -50 | jq -Rs '.')
+              error_msg=$(echo "${combined}" | sed 's/\x1b\[[0-9;]*m//g' | tail -50 | jq -Rs '.')
             }
 
             cd "${GITHUB_WORKSPACE:-/github/workspace}" || cd /
