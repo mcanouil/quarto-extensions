@@ -153,9 +153,11 @@ jobs:
             skipped=$(echo "${skipped}" | jq --arg id "${id}" '. + [$id]')
           done < <(echo "${extensions_json}" | jq -c 'to_entries[] | select(.value.example == false and .value.template == false) | {id: .key, default_branch: .value.defaultBranchRef}')
 
-          # In debug mode, limit to first 10 extensions
+          # In debug mode, take up to 5 per type for a representative sample
           if [[ "${DEBUG}" == "true" ]]; then
-            entries=$(echo "${entries}" | jq '.[0:10]')
+            entries=$(echo "${entries}" | jq '
+              [group_by(.type)[] | .[0:5]] | flatten
+            ')
           fi
 
           total=$(echo "${entries}" | jq 'length')
@@ -242,7 +244,8 @@ jobs:
 
             status="pass"
             error_msg=""
-            workdir="test-${i}"
+            workdir="${GITHUB_WORKSPACE:-/github/workspace}/test-${i}"
+            stderr_log="${workdir}/stderr.log"
             mkdir -p "${workdir}"
 
             {
@@ -251,12 +254,12 @@ jobs:
               # Setup by type
               case "${ext_type}" in
                 template|example)
-                  quarto use template "${id}" --no-prompt 2>stderr.log
+                  quarto use template "${id}" --no-prompt 2>"${stderr_log}"
                   ;;
                 project|document)
                   owner=$(echo "${id}" | cut -d'/' -f1)
                   repo=$(echo "${id}" | cut -d'/' -f2)
-                  git clone --depth 1 "https://x-access-token:${GH_TOKEN}@github.com/${owner}/${repo}.git" repo 2>stderr.log
+                  git clone --depth 1 "https://x-access-token:${GH_TOKEN}@github.com/${owner}/${repo}.git" repo 2>"${stderr_log}"
                   if [[ "${ext_type}" == "project" ]] && [[ "${project_path}" != "." ]]; then
                     cd "repo/${project_path}"
                   else
@@ -267,45 +270,43 @@ jobs:
 
               # Restore dependencies
               if [[ -f renv.lock ]]; then
-                Rscript -e 'renv::restore()' 2>>stderr.log || true
+                Rscript -e 'renv::restore()' 2>>"${stderr_log}" || true
               fi
               if [[ -f uv.lock ]]; then
-                uv sync 2>>stderr.log || true
+                uv sync 2>>"${stderr_log}" || true
               elif [[ -f requirements.txt ]]; then
-                uv pip install -r requirements.txt 2>>stderr.log || true
+                uv pip install -r requirements.txt 2>>"${stderr_log}" || true
               fi
 
               # Render
               render_idx=0
               if [[ -f _quarto.yml ]] || [[ -f _quarto.yaml ]]; then
-                quarto render --log "render-${render_idx}.log" --log-level warning 2>>stderr.log
+                quarto render --log "${workdir}/render-${render_idx}.log" --log-level warning 2>>"${stderr_log}"
               elif [[ "${ext_type}" == "document" ]]; then
                 # Render each .qmd file independently
                 qmd_files=$(echo "${ext}" | jq -r '.qmd_files[]')
                 while IFS= read -r qmd; do
                   if [[ -f "${qmd}" ]]; then
                     echo "Rendering ${qmd}"
-                    quarto render "${qmd}" --log "render-${render_idx}.log" --log-level warning 2>>stderr.log
+                    quarto render "${qmd}" --log "${workdir}/render-${render_idx}.log" --log-level warning 2>>"${stderr_log}"
                     render_idx=$((render_idx + 1))
                   fi
                 done <<< "${qmd_files}"
               else
                 # Render all .qmd files except those under _extensions/
-                find . -name '*.qmd' -not -path './_extensions/*' -print0 | while IFS= read -r -d '' qmd; do
+                while IFS= read -r -d '' qmd; do
                   echo "Rendering ${qmd}"
-                  quarto render "${qmd}" --log "render-${render_idx}.log" --log-level warning 2>>stderr.log
+                  quarto render "${qmd}" --log "${workdir}/render-${render_idx}.log" --log-level warning 2>>"${stderr_log}"
                   render_idx=$((render_idx + 1))
-                done
+                done < <(find . -name '*.qmd' -not -path './_extensions/*' -print0)
               fi
             } || {
               status="fail"
               cd "${GITHUB_WORKSPACE:-/github/workspace}" || cd /
 
-              error_file="${workdir}/stderr.log"
-
               combined=""
-              if [[ -f "${error_file}" ]]; then
-                combined=$(tail -25 "${error_file}")
+              if [[ -f "${stderr_log}" ]]; then
+                combined=$(tail -25 "${stderr_log}")
               fi
               while IFS= read -r render_log; do
                 if [[ -f "${render_log}" ]]; then
@@ -490,32 +491,37 @@ jobs:
 
           echo "${existing}" | jq '.' > test-results.json
 
-          # Generate step summary
-          total=$(echo "${existing}" | jq 'length')
-          pass_count=$(echo "${existing}" | jq '[to_entries[] | .value.results[] | select(.status == "pass")] | length')
-          fail_count=$(echo "${existing}" | jq '[to_entries[] | .value.results[] | select(.status == "fail")] | length')
+          # Collect current run results from artefacts for summary counts
+          current_run='[]'
+          for dir in artefacts/results-batch-*/; do
+            if [[ -d "${dir}" ]] && [[ -f "${dir}results.json" ]]; then
+              current_run=$(echo "${current_run}" | jq --slurpfile batch "${dir}results.json" '. + $batch[0]')
+            fi
+          done
+
+          run_total=$(echo "${current_run}" | jq '[.[].id] | unique | length')
+          run_pass=$(echo "${current_run}" | jq '[.[] | select(.status == "pass")] | length')
+          run_fail=$(echo "${current_run}" | jq '[.[] | select(.status == "fail")] | length')
           skipped_count=$(echo "${SKIPPED}" | jq 'length')
 
+          # Generate step summary
           {
             echo "## Test Extensions Summary"
             echo ""
-            echo "- **Extensions tested:** ${total}"
-            echo "- **Pass:** ${pass_count}"
-            echo "- **Fail:** ${fail_count}"
+            echo "- **Extensions tested:** ${run_total}"
+            echo "- **Pass:** ${run_pass}"
+            echo "- **Fail:** ${run_fail}"
             echo "- **Skipped (no renderable content found):** ${skipped_count}"
             echo ""
 
-            # Failed extensions
-            failures=$(echo "${existing}" | jq -r '
-              to_entries[] |
-              .key as $id |
-              .value.results[] |
-              select(.status == "fail") |
-              "| \($id) | \(.quarto_version) | \(.quarto_channel) |"
+            # Failed extensions from current run
+            failures=$(echo "${current_run}" | jq -r '
+              .[] | select(.status == "fail") |
+              "| \(.id) | \(.quarto_version) | \(.quarto_channel) |"
             ')
 
             if [[ -n "${failures}" ]]; then
-              echo "### Failed Extensions (${fail_count})"
+              echo "### Failed Extensions (${run_fail})"
               echo ""
               echo "<details><summary>Show failures</summary>"
               echo ""
