@@ -158,6 +158,7 @@ jobs:
           echo "skipped=$(echo "${skipped}" | jq -c '.')" >> "${GITHUB_OUTPUT}"
 
   test-extensions:
+    name: test-extensions (batch ${{ matrix.batch_index }}, ${{ matrix.quarto_channel }})
     needs: build-matrix
     runs-on: ubuntu-latest
     container:
