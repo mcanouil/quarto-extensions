@@ -277,8 +277,10 @@ jobs:
 
               # Render
               render_idx=0
-              if [[ "${ext_type}" == "document" ]]; then
-                # Render specific .qmd files independently (not as a project)
+              if [[ -f _quarto.yml ]] || [[ -f _quarto.yaml ]]; then
+                quarto render --log "render-${render_idx}.log" --log-level warning 2>>stderr.log
+              elif [[ "${ext_type}" == "document" ]]; then
+                # Render each .qmd file independently
                 qmd_files=$(echo "${ext}" | jq -r '.qmd_files[]')
                 while IFS= read -r qmd; do
                   if [[ -f "${qmd}" ]]; then
@@ -287,8 +289,6 @@ jobs:
                     render_idx=$((render_idx + 1))
                   fi
                 done <<< "${qmd_files}"
-              elif [[ -f _quarto.yml ]] || [[ -f _quarto.yaml ]]; then
-                quarto render --log "render-${render_idx}.log" --log-level warning 2>>stderr.log
               else
                 # Render all .qmd files except those under _extensions/
                 find . -name '*.qmd' -not -path './_extensions/*' -print0 | while IFS= read -r -d '' qmd; do
