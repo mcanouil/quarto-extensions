@@ -273,6 +273,7 @@ jobs:
 
               # Restore dependencies
               if [[ -f renv.lock ]]; then
+                Rscript -e 'if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")' 2>>"${stderr_log}"
                 Rscript -e 'renv::restore()' 2>>"${stderr_log}" || true
               fi
               if [[ -f uv.lock ]]; then
