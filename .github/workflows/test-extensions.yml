@@ -267,8 +267,8 @@ jobs:
                 combined=$(tail -25 "${error_file}")
               fi
               if [[ -n "${render_log}" ]] && [[ -f "${render_log}" ]]; then
-                combined="${combined}
-$(tail -25 "${render_log}")"
+                render_tail=$(tail -25 "${render_log}")
+                combined=$(printf '%s\n%s' "${combined}" "${render_tail}")
               fi
 
               error_msg=$(echo "${combined}" | tail -50 | jq -Rs '.')
