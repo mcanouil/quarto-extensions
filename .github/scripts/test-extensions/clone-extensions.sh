@@ -67,7 +67,7 @@ clone_extension() {
   if [[ -z "${id}" ]] || [[ -z "${ext_type}" ]]; then
     echo "::error::Missing required entry fields at index ${i} in extensions-batch.json."
     printf 'error\t\t\t\t\t\t' >"${status_file}"
-    return 1
+    return 0
   fi
 
   local status="pass"
