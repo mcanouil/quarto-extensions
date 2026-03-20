@@ -1,5 +1,5 @@
-Cloning into 'repo'...
-[1mpandoc [22m
+pandoc 
+
   to: revealjs
   output-file: index.html
   standalone: true
@@ -10,10 +10,11 @@ Cloning into 'repo'...
     url: >-
       https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
   slide-level: 2
-  incremental: true
   variables: {}
   
-[1mmetadata[22m
+
+metadata
+
   link-citations: true
   width: 1050
   height: 700
@@ -31,14 +32,26 @@ Cloning into 'repo'...
   pdfSeparateFragments: true
   lang: en
   auto-stretch: true
-  title: Reveal.js Tabset
-  subtitle: Quarto Extension
-  author:
-    - name: Mickaël CANOUIL, _Ph.D._
-      orcid: 0000-0002-3396-4549
-      url: https://mickael.canouil.fr
-  revealjs-plugins:
-    - tabset
+  theme: _extensions/coeos/coeos.scss
+  mermaid:
+    theme: dark
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  slideNumber: c
+  code-annotations: select
+  footer: |
+    <a href="https://mickael.canouil.fr/">mickael.canouil.fr</a>
+    |
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/">License: CC-BY-SA-4.0</a>
+  logo: _extensions/coeos/coeos.svg
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: A Title
+  subtitle: A Subtitle
+  author: Mickaël Canouil, *Ph.D.*
+  institute: Freelance
+  date: today
   
+
 Output created: index.html
+
 
