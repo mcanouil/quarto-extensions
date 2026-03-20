@@ -1,7 +1,33 @@
+
+
+processing file: _revealjs-example.qmd
+
+1/9                  
+
+2/9 [unnamed-chunk-1]
+
+3/9                  
+
+4/
+9 [unnamed-chunk-2]
+
+5/9                  
+
+6/9 [unnamed-chunk-3]
+
+7/9                  
+
+8/9 [unnamed-chunk-4]
+
+9/9                  
+
+output file: _revealjs-example.knit.md
+
+
 pandoc 
 
   to: revealjs
-  output-file: example-revealjs-light.html
+  output-file: _revealjs-example.html
   template: _extensions/mcanouil/revealjs/template.html
   standalone: true
   embed-resources: true
@@ -32,7 +58,7 @@ metadata
   transition: slide
   backgroundTransition: none
   pdfSeparateFragments: false
-  lang: en-GB
+  lang: en
   auto-stretch: true
   author:
     - name:
@@ -48,15 +74,6 @@ metadata
         - name: Independent Contractor
           city: Lille
           country: France
-    - name:
-        given: Jane
-        family: Doe
-      orcid: 0000-0001-2345-6789
-      affiliations:
-        - name: Example University
-          department: Department of Statistics
-          city: London
-          country: United Kingdom
   copyright: © 2026 Mickaël CANOUIL
   license: CC BY-NC-SA
   code-copy: true
@@ -72,8 +89,8 @@ metadata
       hide-title-slide-chrome: true
       favicon-from-logo: true
       code-annotation-fragments: true
-      debug-borders: false
-  brand-mode: light
+      debug-borders: true
+  brand-mode: dark
   logo:
     light: light
     dark: dark
@@ -102,47 +119,10 @@ metadata
       mastodon: https://fosstodon.org/%40MickaelCanouil
   engines:
     - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Mickaël CANOUIL Template
-  subtitle: Complete Guide
-  date-modified: today
-  abstract: |
-    This document showcases all features of the Mickaël CANOUIL template for Quarto, spanning HTML, Typst (PDF), and Reveal.js (presentations) formats.
-    It demonstrates template-specific components including value boxes, info panels, status badges, dividers, progress bars, cards, card grids, executive summaries, and highlighted blocks.
-    Additionally, it covers standard Quarto features such as figures, tables, mathematical notation, callouts, code blocks, code annotations, mermaid diagrams, and cross-references.
-    Use this document as both a learning resource and a quick reference guide for all available template capabilities.
-  keywords:
-    - Quarto
-    - Typst
-    - Template
-    - Documentation
-    - Tutorial
-  crossref:
-    custom:
-      - kind: float
-        reference-prefix: Text
-        key: txt
-  references:
-    - id: example_2024
-      author:
-        - family: Example
-          given: Jane
-        - family: Author
-          given: John
-      container-title: Journal of Examples
-      doi: 10.1234/example.2024
-      issued: 2024
-      title: An Example Article for Demonstrating Citations
-      type: article-journal
-  style: professional
-  other-links:
-    - text: HTML (Academic Style)
-      href: example-academic.html
-      target: _blank
-      rel: noopener noreferrer
-  scrollable: true
-  smaller: true
+  title: Reveal.js Format Test
+  subtitle: Comprehensive Component Testing
   
 
-Output created: example-revealjs-light.html
+Output created: _revealjs-example.html
 
 
