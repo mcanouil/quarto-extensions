@@ -11,8 +11,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${SCRIPT_DIR}/docker-config.sh"
 
 results_file=$(mktemp)
-render_status_dir=$(mktemp -d)
-trap 'rm -rf "${render_status_dir}"; rm -f "${results_file}"' EXIT
+trap 'rm -f "${results_file}"' EXIT
 quarto_version=$(cat quarto-version.txt)
 echo "Quarto version: ${quarto_version} (${QUARTO_CHANNEL})"
 
@@ -36,15 +35,15 @@ docker_run_render() {
 
 render_extension() {
   local i="$1"
-  local status_file="${render_status_dir}/${i}"
 
-  local line
-  line=$(jq -r ".[${i}] | [.id // \"\", .type // \"\", .clone_status // \"\", .workdir // \"\", .render_dir // \"\", .log_dir // \"\", .log_path // \"\", (.ext | @json)] | @tsv" clone-manifest.json)
-  read -r id ext_type status workdir render_dir log_dir log_path ext <<< "${line}"
+  local id ext_type status workdir render_dir log_dir log_path ext
+  IFS=$'\t' read -r id ext_type status workdir render_dir log_dir log_path < <(
+    jq -r ".[${i}] | [.id // \"\", .type // \"\", .clone_status // \"\", .workdir // \"\", .render_dir // \"\", .log_dir // \"\", .log_path // \"\"] | @tsv" clone-manifest.json
+  )
+  ext=$(jq -c ".[${i}].ext" clone-manifest.json)
 
   if [[ -z "${id}" ]] || [[ -z "${ext_type}" ]] || [[ -z "${status}" ]] || [[ -z "${workdir}" ]] || [[ -z "${render_dir}" ]] || [[ -z "${log_dir}" ]] || [[ -z "${log_path}" ]]; then
     echo "::warning::Skipping malformed clone-manifest entry at index ${i}."
-    printf 'skip\t\t\t\t\t' >"${status_file}"
     return
   fi
 
@@ -152,7 +151,7 @@ RENDER_SCRIPT
   fi
 
   # Copy render logs to log directory
-  find "${workdir}" -maxdepth 1 -name 'render-*.log' -type f -exec cp {} "${log_dir}/" \; 2>/dev/null || true
+  find "${workdir}" -maxdepth 1 -name 'render-*.log' -type f -exec cp --no-dereference {} "${log_dir}/" \; 2>/dev/null || true
 
   if [[ "${status}" == "pass" ]]; then
     echo "Result: ${id} PASSED"
@@ -163,41 +162,19 @@ RENDER_SCRIPT
   # Clean up workdir now that logs are copied
   rm -rf "${workdir}"
 
-  printf '%s\t%s\t%s\t%s\t%s\t%s' \
-    "${id}" "${ext_type}" "${status}" "${log_path}" "${quarto_version}" "${QUARTO_CHANNEL}" \
-    >"${status_file}"
-}
-
-for ((i = 0; i < ext_count; i++)); do
-  render_extension "${i}" &
-  if (($(jobs -r | wc -l) >= 2)); then
-    wait -n
-  fi
-done
-wait
-
-for ((i = 0; i < ext_count; i++)); do
-  status_file="${render_status_dir}/${i}"
-  if [[ ! -f "${status_file}" ]]; then
-    echo "::warning::Render status file missing for index ${i}."
-    continue
-  fi
-
-  IFS=$'\t' read -r id ext_type status log_path qv qc <"${status_file}"
-
-  if [[ -z "${id}" ]]; then
-    continue
-  fi
-
   jq -cn \
     --arg id "${id}" \
     --arg t "${ext_type}" \
     --arg s "${status}" \
     --arg l "${log_path}" \
-    --arg qv "${qv}" \
-    --arg qc "${qc}" \
+    --arg qv "${quarto_version}" \
+    --arg qc "${QUARTO_CHANNEL}" \
     '{id: $id, type: $t, status: $s, log: $l, quarto_version: $qv, quarto_channel: $qc}' \
     >>"${results_file}"
+}
+
+for ((i = 0; i < ext_count; i++)); do
+  render_extension "${i}"
 done
 
 if [[ -s "${results_file}" ]]; then

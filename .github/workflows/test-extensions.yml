@@ -75,7 +75,6 @@ jobs:
       IMAGE: ${{ matrix.image_ref }}
       IMAGE_READY: ${{ matrix.image_ready }}
       QUARTO_CHANNEL: ${{ matrix.quarto_channel }}
-      EXTENSIONS_JSON: ${{ matrix.extensions }}
     steps:
       - name: Checkout scripts
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
@@ -83,11 +82,15 @@ jobs:
           sparse-checkout: .github/scripts/test-extensions
           sparse-checkout-cone-mode: false
 
+      - name: Write extensions batch to file
+        env:
+          EXTENSIONS_JSON: ${{ toJSON(matrix.extensions) }}
+        run: printf '%s\n' "${EXTENSIONS_JSON}" > extensions-batch.json
+
       - name: Inspect batch
         id: inspect-batch
         run: |
           set -euo pipefail
-          printf '%s\n' "${EXTENSIONS_JSON}" > extensions-batch.json
           ext_count=$(jq 'length' extensions-batch.json)
           echo "count=${ext_count}" >> "${GITHUB_OUTPUT}"
           if [[ "${ext_count}" -eq 0 ]]; then

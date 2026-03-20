@@ -11,7 +11,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${SCRIPT_DIR}/docker-config.sh"
 
 clone_manifest_file=$(mktemp)
-trap 'rm -f "${clone_manifest_file}"' EXIT
+clone_status_dir=$(mktemp -d)
+trap 'rm -rf "${clone_status_dir}"; rm -f "${clone_manifest_file}"' EXIT
 
 if [[ ! "${QUARTO_CHANNEL}" =~ ^(release|prerelease)$ ]]; then
   echo "::error::Invalid Quarto channel '${QUARTO_CHANNEL}'."
@@ -55,9 +56,6 @@ docker_run_clone() {
     "$@"
 }
 
-clone_status_dir=$(mktemp -d)
-trap 'rm -rf "${clone_status_dir}"; rm -f "${clone_manifest_file}"' EXIT
-
 clone_extension() {
   local i="$1"
   local status_file="${clone_status_dir}/${i}"
@@ -79,8 +77,8 @@ clone_extension() {
   if [[ ! "${id}" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ ]]; then
     echo "::warning::Invalid extension id '${id}'."
     status="fail"
-    log_dir="${GITHUB_WORKSPACE}/logs/invalid-id/${QUARTO_CHANNEL}/${quarto_version}"
-    log_path="logs/invalid-id/${QUARTO_CHANNEL}/${quarto_version}"
+    log_dir="${GITHUB_WORKSPACE}/logs/invalid-id-${i}/${QUARTO_CHANNEL}/${quarto_version}"
+    log_path="logs/invalid-id-${i}/${QUARTO_CHANNEL}/${quarto_version}"
   else
     log_dir="${GITHUB_WORKSPACE}/logs/${id}/${QUARTO_CHANNEL}/${quarto_version}"
     log_path="logs/${id}/${QUARTO_CHANNEL}/${quarto_version}"
@@ -131,12 +129,8 @@ clone_extension() {
 }
 
 for ((i = 0; i < ext_count; i++)); do
-  clone_extension "${i}" &
-  if (($(jobs -r | wc -l) >= 4)); then
-    wait -n
-  fi
+  clone_extension "${i}"
 done
-wait
 
 for ((i = 0; i < ext_count; i++)); do
   status_file="${clone_status_dir}/${i}"

@@ -44,7 +44,8 @@ entries_phase_a=$(echo "${extensions_json}" | jq -c '
 
 phase_b_entries_file=$(mktemp)
 skipped_file=$(mktemp)
-trap 'rm -f "${phase_b_entries_file}" "${skipped_file}"' EXIT
+trees_dir=$(mktemp -d)
+trap 'rm -rf "${trees_dir}"; rm -f "${phase_b_entries_file}" "${skipped_file}"' EXIT
 : >"${phase_b_entries_file}"
 : >"${skipped_file}"
 
@@ -57,8 +58,6 @@ if [[ "${DEBUG}" == "true" ]]; then
 fi
 
 # Phase B: fetch repository trees in parallel batches
-trees_dir=$(mktemp -d)
-trap 'rm -rf "${trees_dir}" "${phase_b_entries_file}" "${skipped_file}"' EXIT
 
 candidate_count=$(echo "${phase_b_candidates}" | jq 'length')
 
@@ -67,6 +66,12 @@ fetch_tree() {
   local owner repo
   owner=$(echo "${id}" | cut -d'/' -f1)
   repo=$(echo "${id}" | cut -d'/' -f2)
+
+  if [[ ! "${owner}" =~ ^[A-Za-z0-9_.-]+$ ]] || [[ ! "${repo}" =~ ^[A-Za-z0-9_.-]+$ ]] \
+    || [[ ! "${default_branch}" =~ ^[A-Za-z0-9_./-]+$ ]]; then
+    touch "${output_dir}/${idx}.failed"
+    return
+  fi
 
   if full_tree=$(retry 3 2 gh api "repos/${owner}/${repo}/git/trees/${default_branch}?recursive=1" \
     --jq '.tree[]? | .path' 2>/dev/null); then
@@ -93,7 +98,7 @@ find_best_project_path() {
   while IFS= read -r qpath; do
     local dir
     dir=$(dirname "${qpath}")
-    if echo "${dir}" | grep -qE '(^|/)tests(/|$)' || echo "${dir}" | grep -qE '(^|/)examples(/|$)'; then
+    if [[ "${dir}" =~ (^|/)tests(/|$) ]] || [[ "${dir}" =~ (^|/)examples(/|$) ]]; then
       continue
     fi
     if [[ "${dir}" == "." ]]; then
@@ -105,8 +110,9 @@ find_best_project_path() {
       best_depth=1
       continue
     fi
-    local depth
-    depth=$(echo "${dir}" | tr '/' '\n' | wc -l)
+    local depth slashes
+    slashes="${dir//[!\/]/}"
+    depth=$(( ${#slashes} + 1 ))
     if [[ "${depth}" -lt "${best_depth}" ]]; then
       best_path="${dir}"
       best_depth="${depth}"
@@ -180,17 +186,21 @@ entries=$(jq -c --argjson a "${entries_phase_a}" --argjson b "${phase_b_entries}
 image_meta_map=$(jq -nc '{}')
 for channel in release prerelease; do
   image_tag="ghcr.io/mcanouil/quarto-codespaces:${channel}"
-  if ! retry 3 5 docker pull "${image_tag}" >/dev/null 2>&1; then
-    echo "::error::Failed to pull image '${image_tag}'."
-    exit 1
-  fi
-  image_ref=$(docker image inspect --format='{{index .RepoDigests 0}}' "${image_tag}" 2>/dev/null || true)
+
+  # Resolve digest via registry API without pulling the full image
+  image_ref=$(retry 3 5 docker buildx imagetools inspect "${image_tag}" --format '{{.Name}}' 2>/dev/null || true)
   if [[ -z "${image_ref}" ]]; then
     echo "::error::Failed to resolve digest for image '${image_tag}'."
     exit 1
   fi
   if [[ ! "${image_ref}" =~ @sha256:[0-9a-f]{64}$ ]]; then
     echo "::error::Resolved image reference '${image_ref}' is not a valid digest-pinned reference."
+    exit 1
+  fi
+
+  # Pull the digest-pinned image, then check package readiness
+  if ! retry 3 5 docker pull "${image_ref}" >/dev/null 2>&1; then
+    echo "::error::Failed to pull image '${image_ref}'."
     exit 1
   fi
   if docker run --rm --user root \

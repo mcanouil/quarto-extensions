@@ -14,14 +14,13 @@ fi
 
 today=$(date -u +%Y-%m-%d)
 
-if [[ -f test-results.json ]]; then
-  existing=$(cat test-results.json)
-else
-  existing='{}'
+existing_file="test-results.json"
+if [[ ! -f "${existing_file}" ]]; then
+  echo '{}' >"${existing_file}"
 fi
-if ! echo "${existing}" | jq -e 'type == "object"' >/dev/null 2>&1; then
+if ! jq -e 'type == "object"' "${existing_file}" >/dev/null 2>&1; then
   echo "::warning::Invalid existing test-results.json payload. Reinitialising to empty object."
-  existing='{}'
+  echo '{}' >"${existing_file}"
 fi
 
 shopt -s nullglob
@@ -32,7 +31,10 @@ else
   raw_current_run='[]'
 fi
 
-current_run=$(echo "${raw_current_run}" | jq -c '
+current_run_file=$(mktemp)
+trap 'rm -f "${current_run_file}"' EXIT
+
+echo "${raw_current_run}" | jq -c '
   [ .[] |
     select(
       (.id | type == "string")
@@ -43,7 +45,7 @@ current_run=$(echo "${raw_current_run}" | jq -c '
       and (.quarto_channel | type == "string")
     )
   ]
-')
+' >"${current_run_file}"
 invalid_count=$(echo "${raw_current_run}" | jq '[.[] | select(
   (.id | type != "string")
   or (.type | type != "string")
@@ -56,8 +58,8 @@ if [[ "${invalid_count}" -gt 0 ]]; then
   echo "::warning::Dropped ${invalid_count} malformed result entries from artefacts."
 fi
 
-existing=$(jq -c --arg d "${today}" --argjson cur "${current_run}" '
-  reduce $cur[] as $e (.;
+jq -c --arg d "${today}" --slurpfile cur "${current_run_file}" '
+  reduce $cur[0][] as $e (.;
     .[$e.id] = (
       .[$e.id] // {type: $e.type, results: []}
       | .type = $e.type
@@ -73,13 +75,12 @@ existing=$(jq -c --arg d "${today}" --argjson cur "${current_run}" '
         )
     )
   )
-' <<<"${existing}")
-echo "${existing}" | jq '.' >test-results.json
+' "${existing_file}" > test-results.tmp && mv test-results.tmp test-results.json
 
 skipped_count=$(echo "${skipped_json}" | jq 'length')
 
 read -r run_total run_pass run_fail run_skip < <(
-  echo "${current_run}" | jq -r --argjson sc "${skipped_count}" '
+  jq -r '
     . as $all
     | ($all | [.[].id] | unique | length) as $run_total
     | ($all | sort_by(.id) | group_by(.id)) as $groups
@@ -87,7 +88,7 @@ read -r run_total run_pass run_fail run_skip < <(
     | ([$groups[] | select(any(.status == "fail"))] | length) as $run_fail
     | ([$groups[] | select(all(.status == "skip"))] | length) as $run_skip
     | [$run_total, $run_pass, $run_fail, $run_skip] | @tsv
-  '
+  ' "${current_run_file}"
 )
 
 if [[ "${run_total}" -eq 0 ]]; then
@@ -96,10 +97,10 @@ fi
 
 # --- Generate summary ---
 
-release_version=$(echo "${current_run}" | jq -r '[.[] | select(.quarto_channel == "release") | .quarto_version] | first // "n/a"')
-prerelease_version=$(echo "${current_run}" | jq -r '[.[] | select(.quarto_channel == "prerelease") | .quarto_version] | first // "n/a"')
+release_version=$(jq -r '[.[] | select(.quarto_channel == "release") | .quarto_version] | first // "n/a"' "${current_run_file}")
+prerelease_version=$(jq -r '[.[] | select(.quarto_channel == "prerelease") | .quarto_version] | first // "n/a"' "${current_run_file}")
 repo_url="https://github.com/${GITHUB_REPOSITORY}/tree/quarto-tests"
-results_table=$(echo "${current_run}" | jq -r --arg repo_url "${repo_url}" '
+results_table=$(jq -r --arg repo_url "${repo_url}" '
   sort_by(.id) | group_by(.id) | .[] |
   {
     id: .[0].id,
@@ -109,7 +110,7 @@ results_table=$(echo "${current_run}" | jq -r --arg repo_url "${repo_url}" '
     prerelease_version: ([.[] | select(.quarto_channel == "prerelease") | .quarto_version] | first // "")
   } |
   "| \(.id) | \(if .release_status == "pass" then "[✅](\($repo_url)/logs/\(.id)/release/\(.release_version))" elif .release_status == "fail" then "[❌](\($repo_url)/logs/\(.id)/release/\(.release_version))" elif .release_status == "skip" then "⏭️" else "—" end) | \(if .prerelease_status == "pass" then "[✅](\($repo_url)/logs/\(.id)/prerelease/\(.prerelease_version))" elif .prerelease_status == "fail" then "[❌](\($repo_url)/logs/\(.id)/prerelease/\(.prerelease_version))" elif .prerelease_status == "skip" then "⏭️" else "—" end) |"
-')
+' "${current_run_file}")
 skipped_list=$(echo "${skipped_json}" | jq -r '.[] | "- \(.)"')
 
 {
@@ -162,7 +163,7 @@ while IFS= read -r log_entry; do
   fi
   git ls-files "logs/*/*/${log_channel}/${log_version}/*" \
     | xargs -r git rm -f -- >/dev/null 2>&1 || true
-done < <(echo "${current_run}" | jq -c '[.[] | {channel: .quarto_channel, version: .quarto_version}] | unique | .[]')
+done < <(jq -c '[.[] | {channel: .quarto_channel, version: .quarto_version}] | unique | .[]' "${current_run_file}")
 
 if [[ -d logs ]]; then
   git add logs/

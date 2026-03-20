@@ -45,10 +45,12 @@ if [[ -f requirements.txt ]]; then
 fi
 
 if [[ -f uv.lock ]]; then
+  # Only flag VCS and direct-URL sources; registry URLs (https://pypi.org/...) are legitimate.
   check_text_file_for_patterns uv.lock \
     'git\+' \
-    'https?://' \
-    'ssh://'
+    'ssh://' \
+    '^source\s*=\s*\{[^}]*(url|git)\s*=' \
+    '^source\s*=\s*\{[^}]*editable\s*='
 fi
 
 if [[ -f renv.lock ]]; then
