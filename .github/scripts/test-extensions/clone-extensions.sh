@@ -31,7 +31,6 @@ echo "${quarto_version}" >quarto-version.txt
 
 ext_count=$(jq 'length' extensions-batch.json)
 echo "Extensions to clone: ${ext_count}"
-set -x
 
 is_repo_inaccessible() {
   local id="$1" log_dir="$2"
@@ -68,7 +67,7 @@ clone_extension() {
 
   if [[ -z "${id}" ]] || [[ -z "${ext_type}" ]]; then
     echo "::error::Missing required entry fields at index ${i} in extensions-batch.json."
-    printf 'error\t\t\t\t\t\t' >"${status_file}"
+    printf 'error\t\t\t\t\t\t\n' >"${status_file}"
     return 0
   fi
 
@@ -125,7 +124,7 @@ clone_extension() {
     esac
   fi
 
-  printf '%s\t%s\t%s\t%s\t%s\t%s\t%s' \
+  printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\n' \
     "${id}" "${ext_type}" "${status}" "${workdir}" "${render_dir}" "${log_dir}" "${log_path}" \
     >"${status_file}"
 }
