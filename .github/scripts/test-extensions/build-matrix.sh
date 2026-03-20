@@ -6,6 +6,10 @@ set -euo pipefail
 # Inputs (env, debug only): REPO_OWNER (filters to same-owner extensions)
 # Outputs (to GITHUB_OUTPUT): matrix, skipped
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=retry.sh
+source "${SCRIPT_DIR}/retry.sh"
+
 if [[ ! "${DEBUG}" =~ ^(true|false)$ ]]; then
   echo "::error::Invalid debug value: '${DEBUG}'. Expected 'true' or 'false'."
   exit 1
@@ -64,7 +68,7 @@ fetch_tree() {
   owner=$(echo "${id}" | cut -d'/' -f1)
   repo=$(echo "${id}" | cut -d'/' -f2)
 
-  if full_tree=$(gh api "repos/${owner}/${repo}/git/trees/${default_branch}?recursive=1" \
+  if full_tree=$(retry 3 2 gh api "repos/${owner}/${repo}/git/trees/${default_branch}?recursive=1" \
     --jq '.tree[]? | .path' 2>/dev/null); then
     if [[ -n "${full_tree}" ]]; then
       printf '%s\n' "${full_tree}" >"${output_dir}/${idx}.tree"
@@ -176,7 +180,7 @@ entries=$(jq -c --argjson a "${entries_phase_a}" --argjson b "${phase_b_entries}
 image_meta_map=$(jq -nc '{}')
 for channel in release prerelease; do
   image_tag="ghcr.io/mcanouil/quarto-codespaces:${channel}"
-  if ! docker pull "${image_tag}" >/dev/null 2>&1; then
+  if ! retry 3 5 docker pull "${image_tag}" >/dev/null 2>&1; then
     echo "::error::Failed to pull image '${image_tag}'."
     exit 1
   fi

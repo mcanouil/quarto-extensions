@@ -24,7 +24,7 @@ fi
 log_count=0
 total_bytes=0
 while IFS= read -r -d '' file; do
-  size=$(stat -f '%z' "${file}")
+  size=$(stat -c '%s' "${file}")
   log_count=$((log_count + 1))
   total_bytes=$((total_bytes + size))
 

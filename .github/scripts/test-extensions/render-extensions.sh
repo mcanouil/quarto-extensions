@@ -48,13 +48,20 @@ render_extension() {
     return
   fi
 
-  echo "::group::Testing ${id} (${ext_type})"
-
   if [[ "${status}" == "pass" ]]; then
     printf '%s\n' "${ext}" >"${workdir}/ext-meta.json"
 
-    # Phase A: Install dependencies (network allowed)
+    # Dependency source policy check
     if [[ -f "${render_dir}/renv.lock" ]] || [[ -f "${render_dir}/uv.lock" ]] || [[ -f "${render_dir}/requirements.txt" ]]; then
+      if ! (cd "${render_dir}" && EXT_ID="${id}" bash "${SCRIPT_DIR}/dependency-policy.sh") \
+        >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log"; then
+        echo "::warning::Dependency policy check failed for ${id}."
+        status="fail"
+      fi
+    fi
+
+    # Phase A: Install dependencies (network allowed)
+    if [[ "${status}" == "pass" ]] && { [[ -f "${render_dir}/renv.lock" ]] || [[ -f "${render_dir}/uv.lock" ]] || [[ -f "${render_dir}/requirements.txt" ]]; }; then
       dep_sources=()
       [[ -f "${render_dir}/renv.lock" ]] && dep_sources+=("renv.lock")
       [[ -f "${render_dir}/uv.lock" ]] && dep_sources+=("uv.lock")
@@ -152,7 +159,6 @@ RENDER_SCRIPT
   else
     echo "::warning::Result: ${id} FAILED"
   fi
-  echo "::endgroup::"
 
   # Clean up workdir now that logs are copied
   rm -rf "${workdir}"

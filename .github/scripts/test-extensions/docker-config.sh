@@ -9,7 +9,7 @@ DOCKER_SECURITY_OPTS=(
   --cap-drop=ALL
   --security-opt=no-new-privileges:true
   --pids-limit=512
-  --memory=4g
+  --memory=3g
   --cpus=2
   --read-only
   --tmpfs /tmp:rw,nosuid,size=512m

@@ -169,8 +169,8 @@ jobs:
           permissions: >-
             {"contents": "write", "metadata": "read"}
 
-      - name: Get GitHub App User ID
-        id: get-user-id
+      - name: Setup git and check branch
+        id: setup
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
@@ -181,39 +181,24 @@ jobs:
             echo "::error::Invalid app slug '${APP_SLUG}'."
             exit 1
           fi
-          echo "user-id=$(gh api "/users/${APP_SLUG}[bot]" --jq .id)" >> "${GITHUB_OUTPUT}"
-
-      - name: Configure git
-        env:
-          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
-          USER_ID: ${{ steps.get-user-id.outputs.user-id }}
-        shell: bash
-        run: |
+          user_id=$(gh api "/users/${APP_SLUG}[bot]" --jq .id)
           git config --global user.name "${APP_SLUG}[bot]"
-          git config --global user.email "${USER_ID}+${APP_SLUG}[bot]@users.noreply.github.com"
-
-      - name: Check quarto-tests branch
-        id: branch-check
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        shell: bash
-        run: |
-          set -euo pipefail
+          git config --global user.email "${user_id}+${APP_SLUG}[bot]@users.noreply.github.com"
           if gh api "repos/${GITHUB_REPOSITORY}/branches/quarto-tests" >/dev/null 2>&1; then
-            echo "exists=true" >> "${GITHUB_OUTPUT}"
+            echo "branch-exists=true" >> "${GITHUB_OUTPUT}"
           else
-            echo "exists=false" >> "${GITHUB_OUTPUT}"
+            echo "branch-exists=false" >> "${GITHUB_OUTPUT}"
           fi
 
       - name: Checkout quarto-tests branch
-        if: steps.branch-check.outputs.exists == 'true'
+        if: steps.setup.outputs.branch-exists == 'true'
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
           ref: quarto-tests
           token: ${{ steps.app-token.outputs.token }}
 
       - name: Initialise if branch does not exist
-        if: steps.branch-check.outputs.exists == 'false'
+        if: steps.setup.outputs.branch-exists == 'false'
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         shell: bash
@@ -252,20 +237,8 @@ jobs:
           sparse-checkout-cone-mode: false
           path: _scripts
 
-      - name: Merge results
+      - name: Publish results
         env:
           SKIPPED: ${{ needs.build-matrix.outputs.skipped }}
         shell: bash
-        run: bash "${GITHUB_WORKSPACE}/_scripts/.github/scripts/test-extensions/merge-results.sh"
-
-      - name: Generate summary
-        shell: bash
-        run: bash "${GITHUB_WORKSPACE}/_scripts/.github/scripts/test-extensions/generate-summary.sh"
-
-      - name: Stage publish files
-        shell: bash
-        run: bash "${GITHUB_WORKSPACE}/_scripts/.github/scripts/test-extensions/stage-publish-files.sh"
-
-      - name: Commit and push
-        shell: bash
-        run: bash "${GITHUB_WORKSPACE}/_scripts/.github/scripts/test-extensions/commit-publish.sh"
+        run: bash "${GITHUB_WORKSPACE}/_scripts/.github/scripts/test-extensions/publish-results.sh"
