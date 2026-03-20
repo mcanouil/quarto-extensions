@@ -25,6 +25,7 @@ docker_run_render() {
     --user "${DOCKER_USER}" \
     "${DOCKER_SECURITY_OPTS[@]}" \
     "$@" \
+    -e NO_COLOR=1 \
     -e QUARTO_CHROMIUM="/usr/bin/google-chrome-stable" \
     -e HOME="${workdir}" \
     -e XDG_CACHE_HOME="${workdir}/.cache" \
