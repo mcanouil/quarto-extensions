@@ -1,5 +1,5 @@
-pandoc 
-
+Cloning into 'repo'...
+[1mpandoc [22m
   to: latex
   output-file: template.tex
   standalone: true
@@ -9,9 +9,7 @@ pandoc
     tables: true
   default-image-extension: pdf
   
-
-metadata
-
+[1mmetadata[22m
   block-headings: true
   date: today
   date-format: long
@@ -49,40 +47,32 @@ metadata
   ps: |
     PS: Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
   
-
-
-Rendering PDF
-
-running lualatex - 1
-
+[1m[34m
+Rendering PDF[39m[22m
+[1m[34mrunning lualatex - 1[39m[22m
   This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
    restricted system commands enabled.
   
-  
-  luaotfload | load : FATAL ERROR
-  luaotfload | load :   × Failed to load "fontloader" module "basics-gen".
-  luaotfload | load :   × Error message:
-  luaotfload | load :     × "...tex/texmf-dist/tex/luatex/luaotfload/luaotfload-init.lua:301: system : no writeable cache path, quiting".
-  
-  stack traceback:
-  	.../tinytex/texmf-dist/tex/luatex/luaotfload/luaotfload.lua:200: in local 'load_fontloader_module'
-  	...tex/texmf-dist/tex/luatex/luaotfload/luaotfload-init.lua:303: in upvalue 'init_main'
-  	...tex/texmf-dist/tex/luatex/luaotfload/luaotfload-init.lua:590: in function 'luaotfload-init.lua'
-  	.../tinytex/texmf-dist/tex/luatex/luaotfload/luaotfload.lua:322: in field 'main'
-  	[\directlua]:1: in main chunk
-  
-  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+[1m[34mupdating tlmgr[39m[22m
 
-updating tlmgr
+[1m[34mupdating existing packages[39m[22m
+[1m[34mfinding package for caption.sty[39m[22m
+[91mERROR: 
+compilation failed- no matching packages[39m
+LaTeX Error: File `caption.sty' not found.
 
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
 
+Enter file name: 
+! Emergency stop.
+<read *> 
+   
+l.110 \AtBeginDocument
+                    {%
 
-updating existing packages
-
-(ERROR) 
-compilation failed- error
 
 see template.log for more information.
-
-(WARN) Error encountered when rendering files
-
+[33mWARN: Error encountered when rendering files[39m

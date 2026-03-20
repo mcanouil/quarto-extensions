@@ -1,9 +1,8 @@
-Error in loadNamespace(x) : there is no package called 'rmarkdown'
+Cloning into 'repo'...
+[31mError in loadNamespace(x) : there is no package called 'rmarkdown'
 Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
 Execution halted
-
-R installation:
-
+[39mR installation:
   Version: 4.5.3
   Path: /opt/R/4.5.3/lib/R
   LibPaths:
@@ -12,17 +11,10 @@ R installation:
   knitr: (None)
   rmarkdown: (None)
 
-
-
 The knitr package is not available in this R installation.
-Install with install.packages("knitr")
-
-
+Install with [1minstall.packages("knitr")[22m
 
 The rmarkdown package is not available in this R installation.
-Install with install.packages("rmarkdown")
+Install with [1minstall.packages("rmarkdown")[22m
 
-
-
-(WARN) Error encountered when rendering files
-
+[33mWARN: Error encountered when rendering files[39m
