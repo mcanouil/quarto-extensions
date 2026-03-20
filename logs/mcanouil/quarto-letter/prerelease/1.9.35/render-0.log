@@ -1,5 +1,5 @@
-Cloning into 'repo'...
-[1mpandoc [22m
+pandoc 
+
   to: latex
   output-file: template.tex
   standalone: true
@@ -9,7 +9,9 @@ Cloning into 'repo'...
     tables: true
   default-image-extension: pdf
   
-[1mmetadata[22m
+
+metadata
+
   block-headings: true
   date: today
   date-format: long
@@ -20,6 +22,8 @@ Cloning into 'repo'...
     - left=1in
     - right=1in
   colorlinks: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
   author:
     - name: John Doe
       affiliation:
@@ -47,27 +51,42 @@ Cloning into 'repo'...
   ps: |
     PS: Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
   
-[1m[34m
-Rendering PDF[39m[22m
-[1m[34mrunning lualatex - 1[39m[22m
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-  luaotfload | db : Font names database not found, generating new one.
-  luaotfload | db : This can take several minutes; please be patient.
-[1m[34mupdating tlmgr[39m[22m
 
-[1m[34mupdating existing packages[39m[22m
-[1m[34mfinding package for caption.sty[39m[22m
-[1m[34m> 1 package to install[39m[22m
-[1m[34m> installing caption (1 of 1)[39m[22m
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-[1m[34mrunning lualatex - 2[39m[22m
+
+Rendering PDF
+
+running lualatex - 1
+
   This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
    restricted system commands enabled.
   
 
-Output created: index.pdf
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for caption.sty
+
+(ERROR) 
+compilation failed- no matching packages
+
+LaTeX Error: File `caption.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+   
+l.111 \AtBeginDocument
+                    {%
+
+
+
+see template.log for more information.
+
+(WARN) Error encountered when rendering files
 

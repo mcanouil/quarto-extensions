@@ -1,5 +1,5 @@
-Cloning into 'repo'...
-[1mpandoc [22m
+pandoc 
+
   to: html
   output-file: index.html
   standalone: true
@@ -10,20 +10,26 @@ Cloning into 'repo'...
   toc: true
   variables: {}
   
-[1mmetadata[22m
+
+metadata
+
   document-css: false
   link-citations: true
   date-format: long
   lang: en
-  title: TOC Depth
+  title: Autolinked references and URLs
   subtitle: Quarto Extension
   author:
     - name: Mickaël CANOUIL, _Ph.D._
       orcid: 0000-0002-3396-4549
       url: https://mickael.canouil.fr
   description: |
-    This document demonstrates the TOC Depth extension functionality.
-  toc-expand: true
+    References to GitHub issues, pull requests, and commits are automatically shortened and converted into links.
+  page-layout: full
   
+
+(W) The "GitHub" extension has been superseded by the "Git Link" extension. Please update your extension following the instructions at: https://github.com/mcanouil/quarto-gitlink?tab=readme-ov-file#installation
+
 Output created: index.html
+
 
