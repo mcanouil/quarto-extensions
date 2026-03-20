@@ -187,20 +187,17 @@ image_meta_map=$(jq -nc '{}')
 for channel in release prerelease; do
   image_tag="ghcr.io/mcanouil/quarto-codespaces:${channel}"
 
-  # Resolve digest via registry API without pulling the full image
-  image_ref=$(retry 3 5 docker buildx imagetools inspect "${image_tag}" --format '{{.Name}}' 2>/dev/null || true)
+  if ! retry 3 5 docker pull "${image_tag}" >/dev/null 2>&1; then
+    echo "::error::Failed to pull image '${image_tag}'."
+    exit 1
+  fi
+  image_ref=$(docker image inspect --format='{{index .RepoDigests 0}}' "${image_tag}" 2>/dev/null || true)
   if [[ -z "${image_ref}" ]]; then
     echo "::error::Failed to resolve digest for image '${image_tag}'."
     exit 1
   fi
   if [[ ! "${image_ref}" =~ @sha256:[0-9a-f]{64}$ ]]; then
     echo "::error::Resolved image reference '${image_ref}' is not a valid digest-pinned reference."
-    exit 1
-  fi
-
-  # Pull the digest-pinned image, then check package readiness
-  if ! retry 3 5 docker pull "${image_ref}" >/dev/null 2>&1; then
-    echo "::error::Failed to pull image '${image_ref}'."
     exit 1
   fi
   if docker run --rm --user root \
