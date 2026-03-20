@@ -181,7 +181,7 @@ skipped='[]'
 if [[ -s "${skipped_file}" ]]; then
   skipped=$(jq -sc '.' "${skipped_file}")
 fi
-entries=$(jq -c --argjson a "${entries_phase_a}" --argjson b "${phase_b_entries}" '$a + $b')
+entries=$(jq -nc --argjson a "${entries_phase_a}" --argjson b "${phase_b_entries}" '$a + $b')
 
 image_meta_map=$(jq -nc '{}')
 for channel in release prerelease; do
