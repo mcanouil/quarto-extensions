@@ -1,0 +1,6 @@
+# ShellCheck configuration for test-extensions scripts
+shell=bash
+external-sources=true
+
+# SC2054: false positive on --tmpfs mount options containing commas
+disable=SC2054
