@@ -15,12 +15,13 @@ trap 'rm -f "${results_file}"' EXIT
 quarto_version=$(cat quarto-version.txt)
 echo "Quarto version: ${quarto_version} (${QUARTO_CHANNEL})"
 
+render_count=0
 ext_count=$(jq 'length' clone-manifest.json)
 
 docker_run_render() {
   local workdir="$1" log_dir="$2" render_dir="$3"
   shift 3
-  timeout 300 docker run --rm \
+  timeout 300 docker run --rm -i \
     --user "${DOCKER_USER}" \
     "${DOCKER_SECURITY_OPTS[@]}" \
     "$@" \
@@ -112,6 +113,7 @@ DEPS_SCRIPT
 
     # Phase B: Render (air-gapped, no network)
     if [[ "${status}" == "pass" ]]; then
+      render_count=$((render_count + 1))
       docker_run_render "${workdir}" "${log_dir}" "${render_dir}" \
         --network=none \
         -e EXT_TYPE="${ext_type}" \
@@ -183,5 +185,12 @@ if [[ -s "${results_file}" ]]; then
 else
   echo '[]' >results.json
 fi
+
+if [[ "${ext_count}" -gt 0 ]] && [[ "${render_count}" -eq 0 ]]; then
+  echo "::error::No quarto render was executed for ${ext_count} extensions."
+  exit 1
+fi
+
+echo "Rendered ${render_count}/${ext_count} extensions."
 echo "Results:"
 jq '.' results.json
