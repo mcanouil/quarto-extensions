@@ -2,7 +2,9 @@
 # Shared Docker configuration for test-extensions scripts.
 # Source this file; do not execute it directly.
 
+# shellcheck disable=SC2034
 DOCKER_USER="$(id -u):$(id -g)"
+# shellcheck disable=SC2034
 DOCKER_SECURITY_OPTS=(
   --cap-drop=ALL
   --security-opt=no-new-privileges:true

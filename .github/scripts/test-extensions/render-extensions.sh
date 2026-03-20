@@ -55,6 +55,16 @@ for ((i = 0; i < ext_count; i++)); do
       [[ -f "${render_dir}/uv.lock" ]] && dep_sources+=("uv.lock")
       [[ -f "${render_dir}/requirements.txt" ]] && dep_sources+=("requirements.txt")
       echo "Dependency install phase for ${id}: ${dep_sources[*]}" >>"${log_dir}/stdout.log"
+      if ! (
+        cd "${render_dir}"
+        EXT_ID="${id}" \
+          DEP_POLICY_ALLOWLIST_FILE="${SCRIPT_DIR}/dependency-policy-allowlist.txt" \
+          bash "${SCRIPT_DIR}/dependency-policy.sh"
+      ) >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log"; then
+        status="fail"
+      fi
+    fi
+    if [[ "${status}" == "pass" ]] && { [[ -f "${render_dir}/renv.lock" ]] || [[ -f "${render_dir}/uv.lock" ]] || [[ -f "${render_dir}/requirements.txt" ]]; }; then
       docker_run_render "${workdir}" "${log_dir}" "${render_dir}" \
         --security-opt=seccomp=default \
         --security-opt=apparmor=docker-default \

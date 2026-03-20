@@ -138,9 +138,18 @@ jobs:
           path: results.json
           retention-days: 7
 
+      - name: Enforce log limits
+        id: enforce-log-limits
+        if: always()
+        env:
+          MAX_LOG_FILE_BYTES: "10485760"
+          MAX_LOG_FILES: "300"
+          MAX_LOG_TOTAL_BYTES: "104857600"
+        run: bash .github/scripts/test-extensions/enforce-log-limits.sh
+
       - name: Upload logs
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7
-        if: always()
+        if: always() && steps.enforce-log-limits.outcome == 'success'
         with:
           name: logs-batch-${{ matrix.batch_index }}-${{ matrix.quarto_channel }}
           path: logs/
@@ -166,7 +175,13 @@ jobs:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
         shell: bash
-        run: echo "user-id=$(gh api "/users/${APP_SLUG}[bot]" --jq .id)" >> "${GITHUB_OUTPUT}"
+        run: |
+          set -euo pipefail
+          if [[ ! "${APP_SLUG}" =~ ^[a-z0-9-]+$ ]]; then
+            echo "::error::Invalid app slug '${APP_SLUG}'."
+            exit 1
+          fi
+          echo "user-id=$(gh api "/users/${APP_SLUG}[bot]" --jq .id)" >> "${GITHUB_OUTPUT}"
 
       - name: Configure git
         env:

@@ -84,23 +84,18 @@ for ((i = 0; i < ext_count; i++)); do
   render_dir="${workdir}"
 
   if [[ "${status}" == "pass" ]]; then
-    owner=$(echo "${id}" | cut -d'/' -f1)
-    repo=$(echo "${id}" | cut -d'/' -f2)
-
     case "${ext_type}" in
     template | example)
       docker_run_clone "${workdir}" "${log_dir}" \
-        git clone --depth 1 "https://github.com/${owner}/${repo}.git" repo \
-        >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log" ||
+        quarto use template "${id}" --no-prompt >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log" ||
         status="fail"
       if [[ "${status}" == "fail" ]] && is_repo_inaccessible "${id}" "${log_dir}"; then
         status="skip"
       fi
-      if [[ "${status}" == "pass" ]]; then
-        render_dir="${workdir}/repo"
-      fi
       ;;
     project | document)
+      owner=$(echo "${id}" | cut -d'/' -f1)
+      repo=$(echo "${id}" | cut -d'/' -f2)
       docker_run_clone "${workdir}" "${log_dir}" \
         git clone --depth 1 "https://github.com/${owner}/${repo}.git" repo \
         >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log" ||
