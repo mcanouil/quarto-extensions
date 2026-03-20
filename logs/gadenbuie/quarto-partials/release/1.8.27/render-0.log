@@ -1,0 +1,24 @@
+pandoc 
+
+  to: >-
+    commonmark+autolink_bare_uris+emoji+footnotes+gfm_auto_identifiers+pipe_tables+strikeout+task_lists+tex_math_dollars
+  output-file: README.md
+  standalone: true
+  default-image-extension: png
+  variables: {}
+  
+
+metadata
+
+  title: Partial content templates for Quarto
+  subtitle: Embed partial content in Quarto easily.
+  partial-data:
+    name: friend
+  my-data:
+    friends:
+      name: amigo
+  
+
+Output created: README.md
+
+

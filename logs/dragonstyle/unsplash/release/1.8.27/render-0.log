@@ -1,0 +1,60 @@
+pandoc 
+
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Unsplash Example
+  
+
+Error running filter /opt/quarto/sha
+re/filters/main.lua:
+...xtensions/test-11/repo/_extensions/unsplash/unsplash.lua:183: attempt to concatenate a nil value (field '?')
+stack traceback:
+	[string "if pandoc.system.os == "mingw32" then..."]:778: in function <[string "if pandoc.system.os == "mingw32" then..."]:776>
+	(...tail calls...)
+	/opt/quarto/share/filters/main.lua:20573: in upvalue 'handle_shortcode'
+	/opt/quarto/share/filters/main.lua:20638: in fu
+nction </opt
+/quarto/share/filters/main.lua:20630>
+	[C]: in ?
+	[C]: in method 'walk'
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:572: in function </opt/quarto/
+share/filters/main.lua:550>
+	(...tail calls...)
+	/opt/quarto/share/filters/main.lua:20678: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:586: in function 'run_emulated_filter'
+	/o
+pt/quarto/share/filters/main.lua:1314: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1332: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:
+1368: in function </opt/quarto/share/filters/main.lua:1365>
+stack traceback:
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.
+walk'
+	/opt/quarto/share/filters/main.lua:572: in function </opt/quarto/share/filters/main.lua
+:550>
+	(...tail calls...)
+	/opt/quarto/share/filters/main.lua:20678: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:586
+: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1314: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1332: in upvalue 'run_emulated_filter_chain'
+	/opt/q
+uarto/share/filters/main.lua:1368: in function </opt/quarto/share/filters/main.lua:1365>
+
+(WARN) Error encountered when rendering files
+

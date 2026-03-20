@@ -1,0 +1,27 @@
+pandoc 
+
+  to: html
+  output-file: example-symbols.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Symbols
+  extensions:
+    footnote-styles:
+      style: symbols
+  
+
+Output created: example-symbols.html
+
+

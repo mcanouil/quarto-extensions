@@ -1,0 +1,40 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Bibentry Example
+  bibliography:
+    - refs.bib
+  
+Output created: example.html
+
+pandoc 
+  to: typst-citations
+  output-file: example.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  variables: {}
+  
+metadata
+  title: Bibentry Example
+  bibliography:
+    - refs.bib
+  
+[typst]: Compiling example.typ to example.pdf...DONE
+
+Output created: example.pdf
+

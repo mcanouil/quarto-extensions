@@ -1,0 +1,52 @@
+
+
+processing file: example.qmd
+
+1/1
+
+output file: example.knit.md
+
+
+pandoc 
+
+  to: revealjs
+  output-file: example.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  variables: {}
+  
+
+metadata
+
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  title: Changing styles of Speaker notes.
+  author: Shafayet Khan Shafee
+  date: last-modified
+  speaker_notes_style: speaker_notes.css
+  
+
+Output created: example.html
+
+

@@ -1,0 +1,42 @@
+pandoc 
+
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Glossary Example
+  glossary:
+    - id: my-glossary
+      class: definition
+      contents:
+        - ex*
+  
+
+=== Glossary Log ===
+
+> glossary id:  my-glossary
+>> files scanned: 
+ {
+  [1] "./example.qmd"
+  [2] "./ex-animals.qmd"
+  [3] "./example-2.qmd"
+  [4] "./ex-plants.qmd"
+}
+
+>> Number of blocks inserted:  3
+
+Output created: example.html
+
+

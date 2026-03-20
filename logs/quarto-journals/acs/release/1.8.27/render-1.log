@@ -1,0 +1,161 @@
+pandoc 
+
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  cite-method: natbib
+  
+
+metadata
+
+  block-headings: true
+  csl: _extensions/acs/american-chemical-society.csl
+  environments:
+    - scheme
+    - chart
+    - graph
+    - tocentry
+    - acknowledgement
+    - suppinfo
+  commands:
+    - ce
+  biblio-config: false
+  author:
+    - name: Andrew N. Other
+      note: A shared note
+    - name: Fred T. Secondauthor
+      affiliations:
+        - name: Current address
+          city: Some other place
+          country: Germany
+    - name: I. Ken Groupleader
+      email: i.k.groupleader@unknown.uu
+      phone: +123 (0)123 4445556
+      fax: +123 (0)123 4445557
+      affiliations:
+        - id: unknown1
+          name: Unknown University
+          department: Department of Chemistry
+          town: Unknown Town
+        - id: second-uni
+          name: Second University
+          department: Department of Chemistry
+          town: Nearby Town
+      note: A shared note
+    - name: Susanne K. Laborator
+      email: s.k.laborator@bigpharma.co
+      affiliations:
+        - name: BigPharma
+          town: Big Town
+          country: USA
+    - name: Kay T. Finally
+      affiliations:
+        - ref: second-uni
+        - ref: unknown1
+  title: A demonstration of the _achemso_ {{< latex >}} class^[A footnote for the title]
+  title-short: An _achemso_ demo
+  keywords: American Chemical Society, LaTeX
+  abstract: |
+    This is an example document for the _achemso_ documentclass, intended for submissions to the American Chemical Society for publication. The class is based on the standard LaTeXe _report_ file, and does not seek to reproduce the appearanceof a published paper.
+    This is an abstract for the _achemso_ document class demonstration document.  An abstract is only allowed for certain manuscript types.  The selection of `journal` and `manuscript` will determine if an abstract is valid.  If not, the class will issue an appropriate error.This is the abstract.
+  bibliography:
+    - bibliography.bib
+  journal:
+    id: jacsat
+    type: article
+    layout: traditional
+    hide-email: false
+    abbreviations: IR,NMR,UV
+  
+
+WARNING (/opt/quarto/share/filters/main.lua:20772) Shortcode 'smallcaps' not found
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for achemso.cls
+
+> 1 package to install
+
+> installing achemso (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+
+finding package for caption.sty
+
+> 1 package to install
+
+> installing caption (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for setspace.sty
+
+> 1 package to install
+
+> installing setspace (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for mhchem.sty
+
+> 1 package to install
+
+> installing mhchem (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+generating bibliography
+
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: template.aux
+  The style file: achemso.bst
+  Database file #1: acs-template.bib
+  Database file #2: bibliography.bib
+  achemso 2022-11-25 v3.13f
+  
+
+running lualatex - 2
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+running lualatex - 3
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+
+
+Output created: template.pdf
+
+

@@ -1,0 +1,28 @@
+pandoc 
+
+  to: html
+  output-file: example-padded.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Zero-Padded Numbers with Period
+  extensions:
+    footnote-styles:
+      style: numeric-02
+      text-suffix: .
+  
+
+Output created: example-padded.html
+
+

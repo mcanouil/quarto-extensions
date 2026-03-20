@@ -1,0 +1,45 @@
+pandoc 
+
+  to: typst
+  output-file: template.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  variables: {}
+  
+
+metadata
+
+  date: today
+  date-format: D MMMM YYYY
+  fontsize: 11pt
+  papersize: a4
+  font-paths:
+    - _extensions/letter/fonts
+  author: Pierre Curie
+  qualifications: Nobel Prize, PhD
+  position: Professor
+  www: curie.com
+  email: Pierre.Curie@monash.edu
+  phone: +61 3 9905 5555
+  address:
+    - Hypatia
+    - University of Alexandria
+    - Egypt
+  subject: Application for a position
+  opening: Dear Hypatia
+  closing: Sincerely
+  linestretch: 1.4
+  ps: |
+    PS: Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
+  
+
+[typst]: Compiling template.typ to template.pdf...
+DONE
+
+
+Output created: template.pdf
+
+

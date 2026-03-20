@@ -1,0 +1,38 @@
+pandoc 
+
+  to: pptx
+  output-file: highlight-pptx.pptx
+  default-image-extension: png
+  variables: {}
+  
+
+metadata
+
+  title: Highlight-text Quarto Extension
+  subtitle: Quarto Extension
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  brand:
+    light:
+      color:
+        palette:
+          fg: '#ffffff'
+          bg: '#b22222'
+        foreground: '#333333'
+        background: '#fafafa'
+    dark:
+      color:
+        palette:
+          fg: '#b22222'
+          bg: '#ffffff'
+        foreground: '#fafafa'
+        background: '#333333'
+  
+
+(W) [highlight-text] Using "brand-color." prefix is deprecated. Please use the colour name directly (e.g., "fg" instead of "brand-color.fg").
+
+Output created: highlight-pptx.pptx
+
+

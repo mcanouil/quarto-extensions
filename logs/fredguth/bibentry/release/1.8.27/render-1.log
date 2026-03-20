@@ -1,0 +1,25 @@
+pandoc 
+
+  to: typst-citations
+  output-file: example.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  variables: {}
+  
+
+metadata
+
+  title: Bibentry Example
+  bibliography:
+    - refs.bib
+  
+
+[typst]: Compiling example.typ to example.pdf...
+DONE
+
+
+Output created: example.pdf
+
+

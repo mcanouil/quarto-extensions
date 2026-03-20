@@ -1,0 +1,111 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: test.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Kroki diagrams Test
+  
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 99  1405   99  1360  100    32   2839     66 --:--:-- --:--:-- --:--:--  2906100  1405  100  1373  100    32   2865     66 --:--:-- --:--:-- --:--:--  2927
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  3034  100  2954  100    80   9650    261 --:--:-- --:--:-- --:--:--  9915
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1701  100  1621  100    80   4524    223 --:--:-- --:--:-- --:--:--  4751
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    93    0     0  100    93      0    423 --:--:-- --:--:-- --:--:--   422100  1786  100  1693  100    93   1643     90  0:00:01  0:00:01 --:--:--  1733
+Output created: test.html
+
+pandoc 
+  to: latex
+  output-file: test_pdf.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Kroki diagrams Test
+  
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1405  100  1373  100    32   7373    171 --:--:-- --:--:-- --:--:--  7553
+
+Error: Inkscape has to be installed and added to PATH.
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    80    0     0  100    80      0    215 --:--:-- --:--:-- --:--:--   215100  3034  100  2954  100    80   4703    127 --:--:-- --:--:-- --:--:--  4831
+
+Error: Inkscape has to be installed and added to PATH.
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1701  100  1621  100    80   3258    160 --:--:-- --:--:-- --:--:--  3422
+
+Error: Inkscape has to be installed and added to PATH.
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    93    0     0  100    93      0    423 --:--:-- --:--:-- --:--:--   422100  1786  100  1693  100    93   2330    128 --:--:-- --:--:-- --:--:--  2456
+
+Error: Inkscape has to be installed and added to PATH.
+
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+finding package for scrartcl.cls
+> 1 package to install
+> installing koma-script (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+finding package for caption.sty
+> 1 package to install
+> installing caption (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: test_pdf.pdf
+

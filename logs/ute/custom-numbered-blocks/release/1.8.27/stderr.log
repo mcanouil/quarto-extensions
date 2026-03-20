@@ -1,0 +1,71 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: boxtypes.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Custom Numbered Blocks Extension
+  search-replace:
+    +rend: '`<div class=rendered>`{=html}'
+    +/div: '`</div>`{=html}'
+  extensions:
+    custom-numbered-blocks:
+      styles:
+        txtbx:
+          appearance: textbox
+          sizes:
+            margin: 1em
+            padding: 1em
+          color: '#aabbdd'
+      classes:
+        Box:
+          style: txtbx
+        ToDo: default
+        TODOplain:
+          boxtype: fallback
+  crossref:
+    chapters: false
+  
+Output created: boxtypes.html
+
+ERROR: Include directive failed.
+  in file example.qmd, 
+  could not find file /home/runner/work/quarto-extensions/quarto-extensions/test-13/repo/list-of-news.qmd.
+
+Stack trace:
+    at retrieveInclude (file:///opt/quarto/bin/quarto.js:70432:13)
+    at standaloneInclude (file:///opt/quarto/bin/quarto.js:70465:9)
+    at processMarkdownIncludes (file:///opt/quarto/bin/quarto.js:70703:30)
+    at expandIncludes (file:///opt/quarto/bin/quarto.js:70734:9)
+    at eventLoopTick (ext:core/01_core.js:178:7)
+    at async projectResolveFullMarkdownForFile (file:///opt/quarto/bin/quarto.js:78006:21)
+    at async fileExecutionEngine (file:///opt/quarto/bin/quarto.js:79894:22)
+    at async fileExecutionEngineAndTarget (file:///opt/quarto/bin/quarto.js:79919:18)
+    at async render (file:///opt/quarto/bin/quarto.js:130653:22)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:130887:24)
+Render failed, retrying once...
+ERROR: Include directive failed.
+  in file example.qmd, 
+  could not find file /home/runner/work/quarto-extensions/quarto-extensions/test-13/repo/list-of-news.qmd.
+
+Stack trace:
+    at retrieveInclude (file:///opt/quarto/bin/quarto.js:70432:13)
+    at standaloneInclude (file:///opt/quarto/bin/quarto.js:70465:9)
+    at processMarkdownIncludes (file:///opt/quarto/bin/quarto.js:70703:30)
+    at expandIncludes (file:///opt/quarto/bin/quarto.js:70734:9)
+    at eventLoopTick (ext:core/01_core.js:178:7)
+    at async projectResolveFullMarkdownForFile (file:///opt/quarto/bin/quarto.js:78006:21)
+    at async fileExecutionEngine (file:///opt/quarto/bin/quarto.js:79894:22)
+    at async fileExecutionEngineAndTarget (file:///opt/quarto/bin/quarto.js:79919:18)
+    at async render (file:///opt/quarto/bin/quarto.js:130653:22)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:130887:24)

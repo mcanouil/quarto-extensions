@@ -1,0 +1,106 @@
+pandoc 
+
+  to: revealjs
+  output-file: example.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  variables: {}
+  
+
+metadata
+
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  title: Revealjs i18n
+  revealjs-plugins:
+    - i18n
+  footer: |
+    {{< i18n-select choices="fr:Français, en:English, de:Deutsch, it:Italiano" selected="fr" >}}
+  i18n:
+    defaultLocale: fr
+    fr:
+      morning: Le matin
+      getting-up: Se lever
+      alarm: Désactiver l'alarme
+      bed1: Sortir du lit
+      breakfast: Petit déjeuner
+      eggs: Manger des œufs
+      coffee: Boire un café
+      evening: Le soir
+      dinner: Dîner
+      spaghetti: Manger des spaghettis
+      wine: Boire du vin
+      sleep: S'endormir
+      bed2: Se mettre au lit
+      sheep: Compter les moutons
+    en:
+      morning: In the morning
+      getting-up: Getting up
+      alarm: Turn off alarm
+      bed1: Get out of bed
+      breakfast: Breakfast
+      eggs: Eat eggs
+      coffee: Drink coffee
+      evening: In the evening
+      dinner: Dinner
+      spaghetti: Eat spaghetti
+      wine: Drink wine
+      sleep: Going to sleep
+      bed2: Get in bed
+      sheep: Count sheep
+    de:
+      morning: Morgen
+      getting-up: Aufstehen
+      alarm: Alarm ausschalten
+      bed1: Raus aus dem Bett
+      breakfast: Frühstück
+      eggs: Eier essen
+      coffee: Kaffee trinken
+      evening: Am Abend
+      dinner: Abendessen
+      spaghetti: Spaghetti essen
+      wine: Wein trinken
+      sleep: Einschlafen
+      bed2: Ins Bett gehen
+      sheep: Schafe zählen
+    it:
+      morning: Al mattino
+      getting-up: Alzarsi
+      alarm: Disattivare l'allarme
+      bed1: Alzarsi dal letto
+      breakfast: Colazione
+      eggs: Mangiare uova
+      coffee: Bere caffè
+      evening: La sera
+      dinner: Cena
+      spaghetti: Mangiare spaghetti
+      wine: Bere vino
+      sleep: Andare a dormire
+      bed2: Andare a letto
+      sheep: Contare le pecore
+  
+
+Output created: example.html
+
+

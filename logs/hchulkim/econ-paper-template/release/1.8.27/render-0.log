@@ -1,0 +1,64 @@
+
+
+processing file: template.qmd
+
+1/3                  
+
+2/3 [unnamed-chunk-1]
+
+3/3                  
+
+output file: template.knit.md
+
+
+pandoc 
+
+  to: html
+  output-file: template.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  number-sections: true
+  toc: true
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  journal:
+    blinded: false
+  title: Paper template
+  title-footnote: |
+    Some footnotes on the title...
+  author-format: horizontal
+  author:
+    - name: Hyoungchul Kim
+      acknowledgements: |
+        The creator. We want to thank...
+      affiliations:
+        - name: University of Pennsylvania
+    - name: Author 2
+      acknowledgements: |
+        Another author's acknowledgements..
+      affiliations:
+        - name: University of WWW
+        - department: Department of Economics
+  date: last-modified
+  articleurl: https://hchulkim.github.io
+  abstract: |
+    The text of your abstract.
+  keywords:
+    - 3 to 6 keywords
+  bibliography:
+    - bibliography.bib
+  
+
+Output created: template.html
+
+

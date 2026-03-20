@@ -1,0 +1,49 @@
+pandoc 
+
+  to: revealjs
+  output-file: template.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method: mathjax
+  slide-level: 2
+  variables: {}
+  
+
+metadata
+
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  theme:
+    - default
+    - _extensions/julia/custom.scss
+    - _extensions/julia/revealjs.scss
+  callout-icon: false
+  title-slide-attributes:
+    data-background-position: bottom right
+    data-background-size: 20%
+    data-background-image: /www/qrcode.png
+  title: Julia-themed Quarto
+  author: pat-alt
+  date: last-modified
+  scrollable: true
+  
+
+Output created: template.html
+
+

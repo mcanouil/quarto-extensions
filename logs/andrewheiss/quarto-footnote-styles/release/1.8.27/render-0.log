@@ -1,0 +1,15 @@
+pandoc 
+
+  to: >-
+    commonmark+autolink_bare_uris+emoji+footnotes+gfm_auto_identifiers+pipe_tables+strikeout+task_lists+tex_math_dollars
+  from: markdown+gfm_auto_identifiers
+  output-file: README.md
+  standalone: true
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+
+Output created: README.md
+
+

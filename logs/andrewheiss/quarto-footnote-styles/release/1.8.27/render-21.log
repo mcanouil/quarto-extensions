@@ -1,0 +1,32 @@
+pandoc 
+
+  to: typst
+  output-file: example-custom-restart.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  variables: {}
+  
+
+metadata
+
+  title: Custom Symbols (Restart)
+  extensions:
+    footnote-styles:
+      custom:
+        - ★
+        - ◆
+        - ●
+        - ■
+      cycle: restart
+  
+
+[typst]: Compiling example-custom-restart.typ to example-custom-restart.pdf...
+DONE
+
+
+Output created: example-custom-restart-typst.pdf
+
+

@@ -1,0 +1,33 @@
+Cloning into 'repo'...
+[ 1/12] index.qmd
+[ 2/12] news.qmd
+[ 3/12] tests/index.qmd
+[ 4/12] tests/test-expected-errors.qmd
+[31mERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-13/repo/docs/_extensions/bluesky-comments/utils.lua:9) 
+[bluesky-comments] Post record key 3lbtwdydxrk26 provided but `bluesky-comments.profile` metadata is not set.
+
+[39m[31mERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-13/repo/docs/_extensions/bluesky-comments/utils.lua:9) 
+[bluesky-comments] Shortcode requires the Bluesky post URL, AT-proto URI, or post record key as an unnamed argument.
+
+[39m[31mERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-13/repo/docs/_extensions/bluesky-comments/utils.lua:9) 
+[bluesky-comments] Invalid Bluesky URL format: https://example.com/bad/
+
+[39m[31mERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-13/repo/docs/_extensions/bluesky-comments/utils.lua:9) 
+[bluesky-comments] Cannot provide both named and unnamed arguments for post URI:
+    * uri="https://bsky.app/profile/coatless.bsky.social"
+    * https://bsky.app/profile/grrrck.xyz/post/3lbu5opiixc2j
+
+[39m[ 5/12] tests/test-post-atproto-uri.qmd
+[ 6/12] tests/test-labelled-posts.qmd
+[ 7/12] tests/test-facet-links.qmd
+[ 8/12] tests/test-no-comments.qmd
+[ 9/12] tests/test-n-show-init.qmd
+[10/12] tests/test-post-url.qmd
+[bluesky-comments] Resolved Bluesky post:
+    source: https://bsky.app/profile/grrrck.xyz/post/3lbu5opiixc2j
+  resolved: at://did:plc:72jpccg3u3vbohc67rqrplei/app.bsky.feed.post/3lbu5opiixc2j
+[11/12] examples.qmd
+[12/12] faq.qmd
+
+Output created: _site/index.html
+

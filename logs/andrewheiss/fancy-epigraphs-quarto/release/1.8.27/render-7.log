@@ -1,0 +1,24 @@
+pandoc 
+
+  to: typst
+  output-file: example.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  variables: {}
+  
+
+metadata
+
+  title: Fancy epigraphs
+  
+
+[typst]: Compiling example.typ to example.pdf...
+DONE
+
+
+Output created: example-typst.pdf
+
+

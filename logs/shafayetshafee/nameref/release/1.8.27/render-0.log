@@ -1,0 +1,27 @@
+pandoc 
+
+  to: html
+  output-file: minimal_example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  number-sections: true
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Using nameref
+  nameref:
+    section-number: true
+  
+
+Output created: minimal_example.html
+
+

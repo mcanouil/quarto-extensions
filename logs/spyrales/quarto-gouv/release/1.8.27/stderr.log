@@ -1,0 +1,28 @@
+Cloning into 'repo'...
+pandoc 
+  to: docx
+  output-file: template.docx
+  default-image-extension: png
+  reference-doc: _extensions/lettre-gouv/ressources/template_lettre.docx
+  toc: false
+  number-sections: false
+  variables: {}
+  
+Output created: template.docx
+
+pandoc 
+  to: pptx
+  output-file: template_pres.pptx
+  default-image-extension: png
+  reference-doc: _extensions/presentation-dinum/ressources/template_presentation_dinum.pptx
+  toc: false
+  variables: {}
+  
+metadata
+  title: Titre de la présentation
+  subtitle: Sous-titre de la présentation
+  author: Auteur de la présentation
+  date: 21/10/2022
+  
+Output created: template_pres.pptx
+

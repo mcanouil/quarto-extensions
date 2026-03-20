@@ -1,0 +1,31 @@
+pandoc 
+
+  to: typst
+  output-file: example-parens.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  variables: {}
+  
+
+metadata
+
+  title: Parenthesized Roman Numerals
+  extensions:
+    footnote-styles:
+      style: roman-lower
+      marker-prefix: (
+      marker-suffix: )
+      text-prefix: (
+      text-suffix: )
+  
+
+[typst]: Compiling example-parens.typ to example-parens.pdf...
+DONE
+
+
+Output created: example-parens-typst.pdf
+
+

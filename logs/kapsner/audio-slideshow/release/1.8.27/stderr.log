@@ -1,0 +1,34 @@
+Cloning into 'repo'...
+ERROR: The extension audio-slideshow is incompatible with this quarto version.
+
+Extension requires: >=1.9.16
+Quarto version: 1.8.27
+
+Stack trace:
+    at validateExtension (file:///opt/quarto/bin/quarto.js:81376:11)
+    at readExtension (file:///opt/quarto/bin/quarto.js:81523:3)
+    at async readExtensions (file:///opt/quarto/bin/quarto.js:81203:27)
+    at async loadExtensions (file:///opt/quarto/bin/quarto.js:81110:27)
+    at async Object.extensions2 [as extensions] (file:///opt/quarto/bin/quarto.js:80994:25)
+    at async projectExtensionsConfigResolver (file:///opt/quarto/bin/quarto.js:120051:33)
+    at async projectContext (file:///opt/quarto/bin/quarto.js:119689:5)
+    at async render (file:///opt/quarto/bin/quarto.js:130609:17)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:130887:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:10978:7)
+Render failed, retrying once...
+ERROR: The extension audio-slideshow is incompatible with this quarto version.
+
+Extension requires: >=1.9.16
+Quarto version: 1.8.27
+
+Stack trace:
+    at validateExtension (file:///opt/quarto/bin/quarto.js:81376:11)
+    at readExtension (file:///opt/quarto/bin/quarto.js:81523:3)
+    at async readExtensions (file:///opt/quarto/bin/quarto.js:81203:27)
+    at async loadExtensions (file:///opt/quarto/bin/quarto.js:81110:27)
+    at async Object.extensions2 [as extensions] (file:///opt/quarto/bin/quarto.js:80994:25)
+    at async projectExtensionsConfigResolver (file:///opt/quarto/bin/quarto.js:120051:33)
+    at async projectContext (file:///opt/quarto/bin/quarto.js:119689:5)
+    at async render (file:///opt/quarto/bin/quarto.js:130609:17)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:130887:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:10978:7)

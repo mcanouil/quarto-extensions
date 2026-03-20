@@ -1,0 +1,96 @@
+
+Starting python3 kernel...
+Done
+
+
+Executing 'index.quarto_ipynb'
+
+
+
+(E) Error running 'shinylive' command. Perhaps you need to install / update the 'shinylive' Python package?
+ Error:
+ 
+PandocError {}
+
+Error ru
+nning filter /opt/quarto/share/filters/main.lua:
+...t-12
+/repo/_extensions/quarto-ext/shi
+nylive/shinylive.lua:40: Error running 's
+hinylive' command. Perhaps you need 
+to install / update the 'shi
+nylive' Python package?
+
+
+stack traceback:
+	...
+t-12/repo/_extensions/
+quarto-ext/shinylive/
+shinylive.lua:40: in 
+global 'throw_quarto_error
+'
+	...t-12/repo/_exten
+sions/quarto-ext/shiny
+live/shinylive.lua:57
+: in global 'callPyth
+onShinylive'
+	...t-12/
+repo/_extensions/quar
+to-ext/shinylive/shi
+nylive.lua:111: in gl
+obal 'callShinylive'
+
+	...t-12/repo/_exten
+sions/quarto-ext/shinylive/shinyl
+ive.lua:253: in global 
+'ensurePyshinyliveVersion'
+	...t
+-12/repo/_extensions/qua
+rto-ext/shinylive/shiny
+live.lua:312: in glob
+al 'ensureLanguageSetu
+p'
+	...t-12/repo/_ext
+ensions/quarto-ext/shi
+nylive/shinylive.lua:
+424: in function <...
+t-12/repo/_extension
+s/quarto-ext/shinyliv
+e/shinylive.lua:408>
+
+	[C]: in ?
+	[C]: in 
+method 'walk'
+	/opt/
+quarto/share/pandoc/data
+dir/_utils.lua:607: i
+n function '_utils.w
+alk'
+	/opt/quarto/sh
+are/filters/main.lua:
+574: in local 'chec
+ked_walk'
+	/opt/quart
+o/share/filters/main
+.lua:629: in function
+ 'run_emulated_filter
+'
+	/opt/quarto/share
+/filters/main.lua:13
+17: in local 'callbac
+k'
+	[string "if pandoc.system.
+os == "mingw32" then..."]:778: in field 'withScriptFile'
+	/opt/quarto/share/filters/main.lua:1333: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
+stack traceback:
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:574: in local 'checked_walk'
+	/opt/quarto/share/filters/main.lua:629: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
+	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
+	/opt/quarto/share/filters/main.lua:1333: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
+
+(WARN) Error encountered when rendering files
+

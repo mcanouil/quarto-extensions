@@ -1,0 +1,53 @@
+pandoc 
+
+  to: revealjs
+  output-file: template.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js
+  slide-level: 2
+  variables: {}
+  
+
+metadata
+
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  theme:
+    - default
+    - _extensions/clean/clean.scss
+  menu:
+    side: left
+  slideNumber: true
+  date-format: long
+  title: A title
+  subtitle: A subtitle
+  author:
+    - name: Your Name
+      orcid: 0000-0000-0000-0000
+      email: alias@email.com
+      affiliations: Your Institution
+  date: last-modified
+  
+
+Output created: template.html
+
+

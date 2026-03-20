@@ -1,0 +1,28 @@
+pandoc 
+
+  to: typst
+  output-file: example-padded.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  variables: {}
+  
+
+metadata
+
+  title: Zero-Padded Numbers with Period
+  extensions:
+    footnote-styles:
+      style: numeric-02
+      text-suffix: .
+  
+
+[typst]: Compiling example-padded.typ to example-padded.pdf...
+DONE
+
+
+Output created: example-padded-typst.pdf
+
+

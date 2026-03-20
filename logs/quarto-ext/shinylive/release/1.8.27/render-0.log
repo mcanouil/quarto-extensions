@@ -1,0 +1,83 @@
+(E) Error running 'shinylive' command. Perhaps you need to install / update the 'shinylive' Python package?
+ Error:
+ PandocError {}
+
+E
+rror running filter /opt/quarto/share/filters/main.lua:
+...t-12/repo/_extensions/quarto-ext/shinylive/shinyl
+ive.lua:40: Error running 'shinylive' command. Perhaps you need to install / update the 'shiny
+live' Python package?
+
+stack traceback:
+	...t-12/repo/_extensions/quarto-ext/shinylive/shinylive.lu
+a:40: in global 'throw_quarto_error'
+	...t-12/repo/_extensions/quarto-ext/shinylive/shi
+nylive.lua:57: in global 'callPythonShinylive'
+	...t-1
+2/repo/_extensions/quarto-ext/shin
+ylive/shinylive.lua:111: in global 'callShinylive'
+	...t-12/repo/_extensions/quarto-
+ext/shinylive/shinylive.lua:253: in global 'ensurePyshinyliveVersion'
+	...t-12/repo/_ex
+tensions/quarto-ext/shinylive/shinylive.lua:312: 
+in global 'ensureLanguageSetup'
+	...t-12/r
+epo/_extensions/quarto-ext/shinylive
+/shinylive.lua:424: in function <.
+..t-12/repo/_extensions/quarto-ext/shinylive/
+shinylive.lua:408>
+	[C]: in ?
+	[C]: in metho
+d 'walk'
+	/opt/quarto/share/pandoc/datadi
+r/_utils.lua:607: in function '_ut
+ils.walk'
+	/opt/quarto/share/filters/
+main.lua:572: in local 'checked_w
+alk'
+	/opt/quarto/share/filters/m
+ain.lua:627: in function 'run_emu
+lated_filter'
+	/opt/quarto/share/
+filters/main.lua:1314: in local 
+'callback'
+	[string "if pandoc.syste
+m.os == "mingw32" then..."]:778: i
+n field 'withScriptFile'
+	/opt/qu
+arto/share/filters/main.lua:1330:
+ in upvalue 'run_emulated_filter_chain'
+	/opt/qua
+rto/share/filters/main.lua:1368: in fun
+ction </opt/quarto/share/filters/ma
+in.lua:1365>
+stack traceback:
+	/o
+pt/quarto/share/pandoc/datadir/_ut
+ils.lua:607: in function '_utils
+.walk'
+	/opt/quarto/share/filters
+/main.lua:572: in local 'checked_
+walk'
+	/opt/quarto/share/filters
+/main.lua:627: in function 'run_e
+mulated_filter'
+	/opt/quarto/sh
+are/filters/main.lua:1314: in lo
+cal 'callback'
+	[string "if pandoc.sy
+stem.os == "mingw32" then..."]:7
+78: in
+ field '
+withScriptFile'
+	/opt/quarto/share/filt
+ers/main.lua:1330: in upvalue 'run_emulat
+ed_filter_chain'
+	/opt/
+quarto/share/filters/mai
+n.lua:1368: in function </opt
+/quarto/share/filters/main.lua:
+1365>
+
+(WARN) Error encountered when rendering files
+

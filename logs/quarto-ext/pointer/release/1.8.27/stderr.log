@@ -1,0 +1,46 @@
+Cloning into 'repo'...
+pandoc 
+  to: revealjs
+  output-file: example.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  variables: {}
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  title: Example Presentation
+  subtitle: Create beautiful interactive slide decks with Reveal.js
+  revealjs-plugins:
+    - pointer
+  slideNumber: true
+  chalkboard:
+    buttons: false
+  previewLinks: auto
+  pointer:
+    pointerSize: 18
+    color: '#32cd32'
+  
+Output created: example.html
+

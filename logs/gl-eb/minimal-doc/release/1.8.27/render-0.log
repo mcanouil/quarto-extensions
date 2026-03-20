@@ -1,0 +1,38 @@
+pandoc 
+
+  to: typst
+  output-file: template.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  variables: {}
+  
+
+metadata
+
+  paper: a4
+  margin:
+    x: 20mm
+    top: 20mm
+    bottom: 30mm
+  title-only: false
+  titleinheader: true
+  authorsinheader: false
+  title: A Minimal Document Template
+  subtitle: v{{< meta version >}}
+  authors: Gleb Ebert
+  date: today
+  date-format: long
+  version: 0.6.1
+  lang: en
+  
+
+[typst]: Compiling template.typ to template.pdf...
+DONE
+
+
+Output created: template.pdf
+
+

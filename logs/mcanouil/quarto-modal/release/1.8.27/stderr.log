@@ -1,0 +1,35 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Modal
+  subtitle: Quarto Extension
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  extensions:
+    modal:
+      size: null
+      backdrop-static: false
+      scrollable: false
+      keyboard: true
+      centred: false
+      fade: false
+      fullscreen: false
+  
+Output created: index.html
+

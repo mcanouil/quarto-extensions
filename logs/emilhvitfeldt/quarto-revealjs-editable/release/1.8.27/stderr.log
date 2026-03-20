@@ -1,0 +1,28 @@
+Cloning into 'repo'...
+ERROR: Specified Reveal plugin directory 'editable' does not exist.
+
+Stack trace:
+    at pluginFromBundle (file:///opt/quarto/bin/quarto.js:173370:11)
+    at revealPluginExtras (file:///opt/quarto/bin/quarto.js:173166:51)
+    at eventLoopTick (ext:core/01_core.js:178:7)
+    at async Object.formatExtras (file:///opt/quarto/bin/quarto.js:173749:34)
+    at async runPandoc (file:///opt/quarto/bin/quarto.js:114735:56)
+    at async renderPandoc (file:///opt/quarto/bin/quarto.js:116431:24)
+    at async Object.onRender (file:///opt/quarto/bin/quarto.js:125129:30)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:125106:9)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:124837:9)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:125362:23)
+Render failed, retrying once...
+ERROR: Specified Reveal plugin directory 'editable' does not exist.
+
+Stack trace:
+    at pluginFromBundle (file:///opt/quarto/bin/quarto.js:173370:11)
+    at revealPluginExtras (file:///opt/quarto/bin/quarto.js:173166:51)
+    at eventLoopTick (ext:core/01_core.js:178:7)
+    at async Object.formatExtras (file:///opt/quarto/bin/quarto.js:173749:34)
+    at async runPandoc (file:///opt/quarto/bin/quarto.js:114735:56)
+    at async renderPandoc (file:///opt/quarto/bin/quarto.js:116431:24)
+    at async Object.onRender (file:///opt/quarto/bin/quarto.js:125129:30)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:125106:9)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:124837:9)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:125362:23)

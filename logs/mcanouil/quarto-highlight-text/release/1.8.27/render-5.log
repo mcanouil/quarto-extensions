@@ -1,0 +1,72 @@
+pandoc 
+
+  to: latex
+  output-file: example-xelatex.tex
+  standalone: true
+  pdf-engine: xelatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+
+metadata
+
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: a4
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  title: Highlight-text Quarto Extension
+  subtitle: Quarto Extension
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  brand:
+    light:
+      color:
+        palette:
+          fg: '#ffffff'
+          bg: '#b22222'
+        foreground: '#333333'
+        background: '#fafafa'
+    dark:
+      color:
+        palette:
+          fg: '#b22222'
+          bg: '#ffffff'
+        foreground: '#fafafa'
+        background: '#333333'
+  margin:
+    x: 2.5cm
+    'y': 2.5cm
+  
+
+(W) [highlight-text] Using "brand-color." prefix is deprecated. Please use the colour name directly (e.g., "fg" instead of "brand-color.fg").
+
+
+Rendering PDF
+
+running xelatex - 1
+
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+running xelatex - 2
+
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+
+
+Output created: highlight-xelatex.pdf
+
+

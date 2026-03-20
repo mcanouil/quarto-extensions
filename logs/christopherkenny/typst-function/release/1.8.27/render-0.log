@@ -1,0 +1,31 @@
+pandoc 
+
+  to: typst
+  output-file: example.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  variables: {}
+  
+
+metadata
+
+  title: typst-function Example
+  functions:
+    - align
+    - scale
+    - highlight
+    - stack
+    - link
+    - highlight-red
+  
+
+[typst]: Compiling example.typ to example.pdf...
+DONE
+
+
+Output created: example.pdf
+
+

@@ -1,0 +1,238 @@
+Cloning into 'repo'...
+Rendering qmd embeds [index.qmd]
+Rendering output notebook [index.qmd]
+Rendering HTML preview [index.qmd]
+pandoc 
+  to: html
+  output-file: /home/runner/work/quarto-extensions/quarto-extensions/test-8/repo/index.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: svg
+  reference-location: margin
+  css:
+    - _extensions/tufte-inspired/styles.scss
+  number-sections: false
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  page-layout: full
+  title-block-style: manuscript
+  linkcolor: Maroon
+  backgroundcolor: FloralWhite
+  sidebarbackgroundcolor: FloralWhite
+  mainfont: ETBembo
+  toc-location: left
+  toc-title: Contents
+  code-annotations: hover
+  manuscript:
+    article: index.qmd
+    notebooks:
+      - notebook: index.qmd
+        title: Article Notebook
+        order: 9999
+    mecaFile: index-meca.zip
+  notebook-preview-options:
+    back: true
+  theme: cosmo
+  lightbox: auto
+  title: A Tufte Inspired Manuscript
+  subtitle: Using Quarto... and Typst!
+  documenttype: Handout
+  abstract: |
+    This **Tufte Inspired** manuscript format for Quarto honors Edward Tufte's distinctive style. It simplifies creating handout-like documents and websites by emulating the aesthetics of Tufte's books. This document serves two purposes: It showcases the format and acts as an evolving authoring guide.
+  author:
+    - name: Tufte Inspired Developers
+      email: github.com/fredguth/tufte-inspired
+  version:
+    - v.1.0
+  date: last-modified
+  bibliography:
+    - references.bib
+  bibliographystyle: springer-humanities-author-date
+  google-scholar: true
+  clear-hidden-classes: none
+  remove-hidden: all
+  unroll-markdown-cells: true
+  
+pandoc 
+  to: typst
+  output-file: index.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  toc: true
+  variables: {}
+  
+metadata
+  manuscript:
+    article: index.qmd
+    notebooks:
+      - notebook: index.qmd
+        title: Article Notebook
+        order: 9999
+    mecaFile: index-meca.zip
+  notebook-preview-options:
+    back: true
+  theme: cosmo
+  title-block-style: manuscript
+  lightbox: auto
+  title: A Tufte Inspired Manuscript
+  subtitle: Using Quarto... and Typst!
+  documenttype: Handout
+  abstract: |
+    This **Tufte Inspired** manuscript format for Quarto honors Edward Tufte's distinctive style. It simplifies creating handout-like documents and websites by emulating the aesthetics of Tufte's books. This document serves two purposes: It showcases the format and acts as an evolving authoring guide.
+  author:
+    - name: Tufte Inspired Developers
+      email: github.com/fredguth/tufte-inspired
+  version:
+    - v.1.0
+  date: last-modified
+  bibliography:
+    - references.bib
+  bibliographystyle: springer-humanities-author-date
+  google-scholar: true
+  clear-hidden-classes: none
+  remove-hidden: all
+  unroll-markdown-cells: true
+  
+[typst]: Compiling index.typ to index.pdf...downloading @preview/drafting:0.2.2
+  9.3 KiB /   9.3 KiB (100 %)   9.3 KiB/s in 992.48 µs ETA: 0 s
+
+warning: unknown font family: tex gyre heros
+    ┌─ index.typ:322:15
+    │
+322 │     text(font: sans-fonts, tracking: 1.5pt, fill:gray.lighten(60%), upper(documenttype))
+    │                ^^^^^^^^^^
+
+warning: unknown font family: etbembo
+    ┌─ index.typ:324:15
+    │
+324 │     text(font: serif-fonts,  size:22pt, hyphenate: false, weight:"regular", title)
+    │                ^^^^^^^^^^^
+
+warning: unknown font family: heuristica
+    ┌─ index.typ:324:15
+    │
+324 │     text(font: serif-fonts,  size:22pt, hyphenate: false, weight:"regular", title)
+    │                ^^^^^^^^^^^
+
+warning: unknown font family: merriweather
+    ┌─ index.typ:324:15
+    │
+324 │     text(font: serif-fonts,  size:22pt, hyphenate: false, weight:"regular", title)
+    │                ^^^^^^^^^^^
+
+warning: unknown font family: etbembo
+    ┌─ index.typ:326:15
+    │
+326 │     text(font: serif-fonts, size: 16pt,  stretch: 80%, weight: "regular", hyphenate: true, subtitle)
+    │                ^^^^^^^^^^^
+
+warning: unknown font family: heuristica
+    ┌─ index.typ:326:15
+    │
+326 │     text(font: serif-fonts, size: 16pt,  stretch: 80%, weight: "regular", hyphenate: true, subtitle)
+    │                ^^^^^^^^^^^
+
+warning: unknown font family: merriweather
+    ┌─ index.typ:326:15
+    │
+326 │     text(font: serif-fonts, size: 16pt,  stretch: 80%, weight: "regular", hyphenate: true, subtitle)
+    │                ^^^^^^^^^^^
+
+warning: unknown font family: tex gyre heros
+    ┌─ index.typ:328:34
+    │
+328 │     if version != none {text(font:sans-fonts, size: 8pt, style: "normal", fill:gray)[#version]} else []
+    │                                   ^^^^^^^^^^
+
+warning: unknown font family: sf mono
+    ┌─ index.typ:304:59
+    │
+304 │           #if author.email != none [#text(size: 7pt, font: "SF Mono", author.email)]
+    │                                                            ^^^^^^^^^
+
+warning: unknown font family: etbembo
+    ┌─ index.typ:333:36
+    │
+333 │     block(inset: 1.5em)[#text(font: serif-fonts, size: 10pt)[#abstract]]
+    │                                     ^^^^^^^^^^^
+
+warning: unknown font family: heuristica
+    ┌─ index.typ:333:36
+    │
+333 │     block(inset: 1.5em)[#text(font: serif-fonts, size: 10pt)[#abstract]]
+    │                                     ^^^^^^^^^^^
+
+warning: unknown font family: merriweather
+    ┌─ index.typ:333:36
+    │
+333 │     block(inset: 1.5em)[#text(font: serif-fonts, size: 10pt)[#abstract]]
+    │                                     ^^^^^^^^^^^
+
+warning: unknown font family: tex gyre heros
+    ┌─ index.typ:387:38
+    │
+387 │   show figure.caption: set text(font: sans-fonts)
+    │                                       ^^^^^^^^^^
+
+warning: unknown font family: sf mono
+    ┌─ index.typ:396:27
+    │
+396 │   show raw: set text(font: "SF Mono", size: 8pt, ligatures: false)
+    │                            ^^^^^^^^^
+
+warning: unknown font family: etbembo
+    ┌─ index.typ:420:10
+    │
+420 │     font: serif-fonts,
+    │           ^^^^^^^^^^^
+
+warning: unknown font family: heuristica
+    ┌─ index.typ:420:10
+    │
+420 │     font: serif-fonts,
+    │           ^^^^^^^^^^^
+
+warning: unknown font family: merriweather
+    ┌─ index.typ:420:10
+    │
+420 │     font: serif-fonts,
+    │           ^^^^^^^^^^^
+
+warning: unknown font family: tex gyre heros
+    ┌─ index.typ:434:35
+    │
+434 │   show bibliography: set text(font:sans-fonts)
+    │                                    ^^^^^^^^^^
+
+warning: unknown font family: etbembo
+    ┌─ index.typ:266:23
+    │
+266 │         set text(font: serif-fonts, tracking: 1.5pt)
+    │                        ^^^^^^^^^^^
+
+warning: unknown font family: heuristica
+    ┌─ index.typ:266:23
+    │
+266 │         set text(font: serif-fonts, tracking: 1.5pt)
+    │                        ^^^^^^^^^^^
+
+warning: unknown font family: merriweather
+    ┌─ index.typ:266:23
+    │
+266 │         set text(font: serif-fonts, tracking: 1.5pt)
+    │                        ^^^^^^^^^^^
+
+DONE
+
+Output created: _manuscript/index.html
+

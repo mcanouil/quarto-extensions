@@ -1,0 +1,29 @@
+pandoc 
+
+  to: typst
+  output-file: example.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  variables: {}
+  
+
+metadata
+
+  title: Spellcheck Example
+  spellcheck-lang: en_US
+  spellcheck-ignore:
+    - ignoreme
+  
+
+Warning: Hunspell is not installed or not accessible. Skipping spell check for 'en_US'.
+
+[typst]: Compiling example.typ to example.pdf...
+DONE
+
+
+Output created: example.pdf
+
+

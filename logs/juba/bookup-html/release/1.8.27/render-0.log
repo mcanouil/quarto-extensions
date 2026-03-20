@@ -1,0 +1,34 @@
+pandoc 
+
+  to: html
+  output-file: template.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  embed-fonts: true
+  theme:
+    light:
+      - _extensions/bookup/bookup.scss
+    dark:
+      - _extensions/bookup/bookup.scss
+      - _extensions/bookup/bookup_dark.scss
+  title: ''
+  author: ''
+  date: today
+  
+
+Output created: template.html
+
+

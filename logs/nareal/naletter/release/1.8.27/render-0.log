@@ -1,0 +1,70 @@
+pandoc 
+
+  to: latex
+  output-file: template.tex
+  template: _extensions/naletter/template.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+
+metadata
+
+  block-headings: true
+  fromname: Nelson Areal
+  fromaddress: |
+    | School of Economics and Management
+    | University of Minho
+    | Campus de Gualtar
+    | 4710-057 Braga - Portugal
+  fromtitle: Associate Professor
+  fromWWW: https://nelsonareal.net
+  fromemail: nareal@eeg.uminho.pt
+  fromphone: +351 253 601 923
+  toname: Helen of Troy
+  toaddress: University of Greece\newline Athens
+  opening: Dear Helen,
+  closing: Best regards,
+  spacing: 1.4
+  lang: en-GB
+  babel-lang: british
+  
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Installing missing hyphenation file...
+
+> 1 package to install
+
+> installing hyphen-british (1 of 1)
+
+(WARN) Error encountered when rendering files
+
+(ERROR) tlmgr returned a non zero status code
+tlmgr install: package hyphen-british not present in repository.
+tlmgr: action install returned an error; continuing.
+tlmgr: An error has occurred. See above messages. Exiting.
+
+
+Stack trace:
+    at renderFiles (file:///opt/quarto/bin/quarto.js:124863:49)
+    at eventLoopTick (ext:core/01_core.js:178:7)
+    at async render (file:///opt/quarto/bin/quarto.js:130645:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:130887:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:10978:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:10855:14)
+    at async quarto (file:///opt/quarto/bin/quarto.js:176680:5)
+    at async file:///opt/quarto/bin/quarto.js:176708:5
+    at async file:///opt/quarto/bin/quarto.js:176563:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:176565:5)
+

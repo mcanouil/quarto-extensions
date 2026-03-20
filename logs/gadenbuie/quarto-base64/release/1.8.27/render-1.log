@@ -1,0 +1,36 @@
+pandoc 
+
+  to: html
+  output-file: README.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: base64 shortcode for Quarto
+  subtitle: A Quarto shortcode to easily base64 encode images and other files
+  toc-level: 2
+  toc-location: right
+  toc-title: base64
+  code-links:
+    - text: gadenbuie/quarto-base64
+      href: https://github.com/gadenbuie/quarto-base64
+      icon: github
+    - text: Question or Issue?
+      href: https://github.com/gadenbuie/quarto-base64/issues/new
+      icon: question-circle-fill
+  
+
+Output created: README.html
+
+

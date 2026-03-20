@@ -1,0 +1,43 @@
+Cloning into 'repo'...
+pandoc 
+  to: revealjs
+  output-file: index.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  variables: {}
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: default
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  title: Qdraw Example
+  title-slide-attributes:
+    data-background-image: qdraw-in-use.mp4
+  subtitle: Click the drawing (top-left) icon to start experimenting
+  revealjs-plugins:
+    - qdraw
+  slideNumber: c/t
+  footer: Developed by [Abdullah Al Mahmud](https://www.thinkermahmud.com)
+  
+Output created: index.html
+

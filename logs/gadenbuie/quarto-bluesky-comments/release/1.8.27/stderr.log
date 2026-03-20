@@ -1,0 +1,44 @@
+Cloning into 'repo'...
+pandoc 
+  to: >-
+    commonmark+autolink_bare_uris+emoji+footnotes+gfm_auto_identifiers+pipe_tables+strikeout+task_lists+tex_math_dollars
+  output-file: README.md
+  standalone: true
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  title: Bluesky Comments For Quarto
+  
+Output created: README.md
+
+pandoc 
+  to: html
+  output-file: README.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Bluesky Comments For Quarto
+  toc-level: 2
+  toc-location: right
+  toc-title: bluesky-comments
+  code-links:
+    - text: gadenbuie/quarto-bluesky-comments
+      href: https://github.com/gadenbuie/quarto-bluesky-comments
+      icon: github
+    - text: Question or Issue?
+      href: https://github.com/gadenbuie/quarto-bluesky-comments/issues/new
+      icon: question-circle-fill
+  
+Output created: README.html
+

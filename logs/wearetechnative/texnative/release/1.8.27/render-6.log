@@ -1,0 +1,34 @@
+pandoc 
+
+  to: html
+  output-file: table-formatting.html
+  standalone: true
+  title-prefix: TeXnative
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme:
+    light:
+      - cosmo
+      - theme.scss
+    dark:
+      - cosmo
+      - theme-dark.scss
+  code-copy: true
+  title: Table Formatting
+  
+
+Output created: _site/table-formatting.html
+
+

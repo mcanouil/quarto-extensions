@@ -1,0 +1,36 @@
+pandoc 
+
+  to: html
+  output-file: qstamp-faq.html
+  standalone: true
+  title-prefix: colab
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Stamp FAQ
+  
+
+Reading YAML file: _extensions/stamp/_extension.yml
+title: stamp
+author: James Joseph Balamuta
+version: 0.0.0-dev.1
+quarto-required: ">=1.6.0"
+contributes:
+  filters:
+    - stamp.lua
+
+
+Output created: _site/qstamp-faq.html
+
+

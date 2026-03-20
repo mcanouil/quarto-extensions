@@ -1,0 +1,62 @@
+Cloning into 'repo'...
+ERROR: YAML Validation Failed
+
+In file _extensions/code-window/_extension.yml
+(line 7, column 7 through line 8, column 27) Array entry 1 with value at: pre-quarto
+  path: code-window.lua failed to be a string.
+6:   filters:
+7:     - at: pre-quarto
+        ~~~~~~~~~~~~~~~
+8:       path: code-window.lua
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+✖ The value
+
+at: pre-quarto
+  path: code-window.lua
+
+is of type object.
+ℹ The error happened in location contributes:filters:0.
+
+
+Stack trace:
+    at readAndValidateYamlFromFile (file:///opt/quarto/bin/quarto.js:23771:11)
+    at async readExtension (file:///opt/quarto/bin/quarto.js:81386:16)
+    at async readExtensions (file:///opt/quarto/bin/quarto.js:81203:27)
+    at async loadExtensions (file:///opt/quarto/bin/quarto.js:81110:27)
+    at async Object.extensions2 [as extensions] (file:///opt/quarto/bin/quarto.js:80994:25)
+    at async projectExtensionsConfigResolver (file:///opt/quarto/bin/quarto.js:120051:33)
+    at async projectContext (file:///opt/quarto/bin/quarto.js:119689:5)
+    at async render (file:///opt/quarto/bin/quarto.js:130609:17)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:130887:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:10978:7)
+Render failed, retrying once...
+ERROR: YAML Validation Failed
+
+In file _extensions/code-window/_extension.yml
+(line 7, column 7 through line 8, column 27) Array entry 1 with value at: pre-quarto
+  path: code-window.lua failed to be a string.
+6:   filters:
+7:     - at: pre-quarto
+        ~~~~~~~~~~~~~~~
+8:       path: code-window.lua
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+✖ The value
+
+at: pre-quarto
+  path: code-window.lua
+
+is of type object.
+ℹ The error happened in location contributes:filters:0.
+
+
+Stack trace:
+    at readAndValidateYamlFromFile (file:///opt/quarto/bin/quarto.js:23771:11)
+    at async readExtension (file:///opt/quarto/bin/quarto.js:81386:16)
+    at async readExtensions (file:///opt/quarto/bin/quarto.js:81203:27)
+    at async loadExtensions (file:///opt/quarto/bin/quarto.js:81110:27)
+    at async Object.extensions2 [as extensions] (file:///opt/quarto/bin/quarto.js:80994:25)
+    at async projectExtensionsConfigResolver (file:///opt/quarto/bin/quarto.js:120051:33)
+    at async projectContext (file:///opt/quarto/bin/quarto.js:119689:5)
+    at async render (file:///opt/quarto/bin/quarto.js:130609:17)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:130887:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:10978:7)
