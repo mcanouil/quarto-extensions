@@ -131,6 +131,11 @@ fi
 
 render_idx=0
 
+# Pin a CTAN mirror to avoid flaky tlmgr searches via mirror.ctan.org round-robin
+if command -v tlmgr >/dev/null 2>&1; then
+  tlmgr repository set https://ctan.math.illinois.edu/systems/texlive/tlnet 2>/dev/null || true
+fi
+
 quarto_render() {
   if ! quarto render "$@" --log "${WORKDIR}/render-${render_idx}.log" --log-level info \
     >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log"; then
