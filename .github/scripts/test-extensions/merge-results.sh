@@ -77,26 +77,18 @@ existing=$(jq -c --arg d "${today}" --argjson cur "${current_run}" '
 ' <<<"${existing}")
 echo "${existing}" | jq '.' >test-results.json
 
-run_total=$(echo "${current_run}" | jq '[.[].id] | unique | length')
-run_pass=$(echo "${current_run}" | jq '[sort_by(.id) | group_by(.id)[] | select(all(.status == "pass"))] | length')
-run_fail=$(echo "${current_run}" | jq '[sort_by(.id) | group_by(.id)[] | select(any(.status == "fail"))] | length')
-run_skip=$(echo "${current_run}" | jq '[sort_by(.id) | group_by(.id)[] | select(all(.status == "skip"))] | length')
 skipped_count=$(echo "${skipped_json}" | jq 'length')
 
+echo "${current_run}" | jq -c --argjson sc "${skipped_count}" '
+  . as $all
+  | ($all | [.[].id] | unique | length) as $run_total
+  | ($all | [sort_by(.id) | group_by(.id)[] | select(all(.status == "pass"))] | length) as $run_pass
+  | ($all | [sort_by(.id) | group_by(.id)[] | select(any(.status == "fail"))] | length) as $run_fail
+  | ($all | [sort_by(.id) | group_by(.id)[] | select(all(.status == "skip"))] | length) as $run_skip
+  | {run_total: $run_total, run_pass: $run_pass, run_fail: $run_fail, run_skip: $run_skip, skipped_count: $sc}
+' >"${state_dir}/summary-stats.json"
+
+run_total=$(jq -r '.run_total' "${state_dir}/summary-stats.json")
 if [[ "${run_total}" -eq 0 ]]; then
   echo "::warning::No test results found. All test jobs may have failed before uploading artefacts."
 fi
-
-jq -n \
-  --argjson run_total "${run_total}" \
-  --argjson run_pass "${run_pass}" \
-  --argjson run_fail "${run_fail}" \
-  --argjson run_skip "${run_skip}" \
-  --argjson skipped_count "${skipped_count}" \
-  '{
-    run_total: $run_total,
-    run_pass: $run_pass,
-    run_fail: $run_fail,
-    run_skip: $run_skip,
-    skipped_count: $skipped_count
-  }' >"${state_dir}/summary-stats.json"

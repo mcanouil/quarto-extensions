@@ -6,17 +6,10 @@ set -euo pipefail
 # Inputs (files): clone-manifest.json, quarto-version.txt
 # Outputs (files): results.json
 
-docker_user="$(id -u):$(id -g)"
-docker_security_opts=(
-  --cap-drop=ALL
-  --security-opt=no-new-privileges:true
-  --pids-limit=512
-  --memory=4g
-  --cpus=2
-  --read-only
-  --tmpfs /tmp:rw,nosuid,size=512m
-  --tmpfs /var/tmp:rw,noexec,nosuid,size=128m
-)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=docker-config.sh
+source "${SCRIPT_DIR}/docker-config.sh"
+
 results_file=$(mktemp)
 trap 'rm -f "${results_file}"' EXIT
 quarto_version=$(cat quarto-version.txt)
@@ -28,8 +21,8 @@ docker_run_render() {
   local workdir="$1" log_dir="$2" render_dir="$3"
   shift 3
   timeout 300 docker run --rm \
-    --user "${docker_user}" \
-    "${docker_security_opts[@]}" \
+    --user "${DOCKER_USER}" \
+    "${DOCKER_SECURITY_OPTS[@]}" \
     "$@" \
     -e QUARTO_CHROMIUM="/usr/bin/google-chrome-stable" \
     -e HOME="${workdir}" \
@@ -41,13 +34,9 @@ docker_run_render() {
 }
 
 for ((i = 0; i < ext_count; i++)); do
-  id=$(jq -r ".[${i}].id // empty" clone-manifest.json)
-  ext_type=$(jq -r ".[${i}].type // empty" clone-manifest.json)
-  status=$(jq -r ".[${i}].clone_status // empty" clone-manifest.json)
-  workdir=$(jq -r ".[${i}].workdir // empty" clone-manifest.json)
-  render_dir=$(jq -r ".[${i}].render_dir // empty" clone-manifest.json)
-  log_dir=$(jq -r ".[${i}].log_dir // empty" clone-manifest.json)
-  log_path=$(jq -r ".[${i}].log_path // empty" clone-manifest.json)
+  read -r id ext_type status workdir render_dir log_dir log_path < <(
+    jq -r ".[${i}] | [.id // \"\", .type // \"\", .clone_status // \"\", .workdir // \"\", .render_dir // \"\", .log_dir // \"\", .log_path // \"\"] | @tsv" clone-manifest.json
+  )
   if [[ -z "${id}" ]] || [[ -z "${ext_type}" ]] || [[ -z "${status}" ]] || [[ -z "${workdir}" ]] || [[ -z "${render_dir}" ]] || [[ -z "${log_dir}" ]] || [[ -z "${log_path}" ]]; then
     echo "::warning::Skipping malformed clone-manifest entry at index ${i}."
     continue

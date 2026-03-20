@@ -45,6 +45,8 @@ jobs:
         with:
           app-id: ${{ vars.APP_ID }}
           private-key: ${{ secrets.APP_KEY }}
+          permissions: >-
+            {"contents": "read", "metadata": "read"}
 
       - name: Build test matrix
         id: matrix
@@ -98,6 +100,10 @@ jobs:
         if: steps.inspect-batch.outputs.count != '0'
         run: |
           set -euo pipefail
+          if [[ ! "${IMAGE}" =~ @sha256:[0-9a-f]{64}$ ]]; then
+            echo "::error::Image reference '${IMAGE}' is not a valid digest-pinned reference."
+            exit 1
+          fi
           if [[ "${IMAGE_READY}" == "true" ]]; then
             docker pull "${IMAGE}"
             docker tag "${IMAGE}" render-image
@@ -151,6 +157,8 @@ jobs:
         with:
           app-id: ${{ vars.APP_ID }}
           private-key: ${{ secrets.APP_KEY }}
+          permissions: >-
+            {"contents": "write", "metadata": "read"}
 
       - name: Get GitHub App User ID
         id: get-user-id

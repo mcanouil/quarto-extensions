@@ -3,4 +3,5 @@ shell=bash
 external-sources=true
 
 # SC2054: false positive on --tmpfs mount options containing commas
-disable=SC2054
+# SC2034: variables defined in docker-config.sh are used by sourcing scripts
+disable=SC2054,SC2034

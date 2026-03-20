@@ -6,17 +6,10 @@ set -euo pipefail
 # Inputs (files): extensions-batch.json
 # Outputs (files): clone-manifest.json, quarto-version.txt
 
-docker_user="$(id -u):$(id -g)"
-docker_security_opts=(
-  --cap-drop=ALL
-  --security-opt=no-new-privileges:true
-  --pids-limit=512
-  --memory=4g
-  --cpus=2
-  --read-only
-  --tmpfs /tmp:rw,nosuid,size=512m
-  --tmpfs /var/tmp:rw,noexec,nosuid,size=128m
-)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=docker-config.sh
+source "${SCRIPT_DIR}/docker-config.sh"
+
 clone_manifest_file=$(mktemp)
 trap 'rm -f "${clone_manifest_file}"' EXIT
 
@@ -37,7 +30,7 @@ echo "${quarto_version}" >quarto-version.txt
 
 ext_count=$(jq 'length' extensions-batch.json)
 
-check_repo_accessible() {
+is_repo_inaccessible() {
   local id="$1" log_dir="$2"
   if ! git ls-remote --exit-code "https://github.com/${id}.git" HEAD >/dev/null 2>&1; then
     echo "::notice::Skipping ${id}: repository is not publicly accessible without token."
@@ -51,8 +44,8 @@ docker_run_clone() {
   local workdir="$1" log_dir="$2"
   shift 2
   timeout 300 docker run --rm \
-    --user "${docker_user}" \
-    "${docker_security_opts[@]}" \
+    --user "${DOCKER_USER}" \
+    "${DOCKER_SECURITY_OPTS[@]}" \
     -e HOME="${workdir}" \
     -e XDG_CACHE_HOME="${workdir}/.cache" \
     -v "${workdir}:${workdir}" \
@@ -63,9 +56,9 @@ docker_run_clone() {
 }
 
 for ((i = 0; i < ext_count; i++)); do
-  id=$(jq -r ".[${i}].id // empty" extensions-batch.json)
-  ext_type=$(jq -r ".[${i}].type // empty" extensions-batch.json)
-  project_path=$(jq -r ".[${i}].project_path // empty" extensions-batch.json)
+  read -r id ext_type project_path < <(
+    jq -r ".[${i}] | [.id // \"\", .type // \"\", .project_path // \"\"] | @tsv" extensions-batch.json
+  )
 
   if [[ -z "${id}" ]] || [[ -z "${ext_type}" ]]; then
     echo "::error::Missing required entry fields at index ${i} in extensions-batch.json."
@@ -91,23 +84,28 @@ for ((i = 0; i < ext_count; i++)); do
   render_dir="${workdir}"
 
   if [[ "${status}" == "pass" ]]; then
+    owner=$(echo "${id}" | cut -d'/' -f1)
+    repo=$(echo "${id}" | cut -d'/' -f2)
+
     case "${ext_type}" in
     template | example)
-      docker_run_clone "${workdir}" "${log_dir}" \
-        quarto use template "${id}" --no-prompt >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log" ||
-        status="fail"
-      if [[ "${status}" == "fail" ]] && check_repo_accessible "${id}" "${log_dir}"; then
-        status="skip"
-      fi
-      ;;
-    project | document)
-      owner=$(echo "${id}" | cut -d'/' -f1)
-      repo=$(echo "${id}" | cut -d'/' -f2)
       docker_run_clone "${workdir}" "${log_dir}" \
         git clone --depth 1 "https://github.com/${owner}/${repo}.git" repo \
         >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log" ||
         status="fail"
-      if [[ "${status}" == "fail" ]] && check_repo_accessible "${id}" "${log_dir}"; then
+      if [[ "${status}" == "fail" ]] && is_repo_inaccessible "${id}" "${log_dir}"; then
+        status="skip"
+      fi
+      if [[ "${status}" == "pass" ]]; then
+        render_dir="${workdir}/repo"
+      fi
+      ;;
+    project | document)
+      docker_run_clone "${workdir}" "${log_dir}" \
+        git clone --depth 1 "https://github.com/${owner}/${repo}.git" repo \
+        >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log" ||
+        status="fail"
+      if [[ "${status}" == "fail" ]] && is_repo_inaccessible "${id}" "${log_dir}"; then
         status="skip"
       fi
       if [[ "${status}" == "pass" ]]; then
