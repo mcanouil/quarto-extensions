@@ -1,5 +1,5 @@
-pandoc 
-
+Cloning into 'repo'...
+[1mpandoc [22m
   to: html
   output-file: index.html
   standalone: true
@@ -10,13 +10,13 @@ pandoc
   toc: true
   variables: {}
   
-
-metadata
-
+[1mmetadata[22m
   document-css: false
   link-citations: true
   date-format: long
   lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
   title: Quarto Badge Extension Example
   subtitle: Quarto Extension
   author:
@@ -40,7 +40,5 @@ metadata
       - key: experimental
         class: bg-info
   
-
 Output created: index.html
-
 
