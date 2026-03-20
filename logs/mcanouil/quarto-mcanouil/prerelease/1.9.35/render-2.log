@@ -1,8 +1,9 @@
 pandoc 
 
   to: html
-  output-file: index.html
+  output-file: example-academic.html
   standalone: true
+  embed-resources: true
   section-divs: true
   html-math-method: mathjax
   wrap: none
@@ -99,7 +100,7 @@ metadata
       issued: 2024
       title: An Example Article for Demonstrating Citations
       type: article-journal
-  style: professional
+  style: academic
   other-links:
     - text: HTML (Academic Style)
       href: example-academic.html
@@ -107,6 +108,6 @@ metadata
       rel: noopener noreferrer
   
 
-Output created: index.html
+Output created: example-academic.html
 
 

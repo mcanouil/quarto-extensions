@@ -1,0 +1,168 @@
+Cloning into 'repo'...
+[1mpandoc [22m
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+[1mmetadata[22m
+  block-headings: true
+  date: today
+  date-format: long
+  documentclass: letter
+  geometry:
+    - margin=1in
+    - bottom=1in
+    - left=1in
+    - right=1in
+  colorlinks: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  author:
+    - name: John Doe
+      affiliation:
+        - name: Dummy org
+          department: Cool Dep
+          address: Somewhere
+          city: Magic city
+          country: best one
+          postal-code: 9999
+  address:
+    - Director Doe & Co
+    - 35 Anthony Road
+    - Newport
+    - Ipswich IP3 5RT
+  subject: collaboration
+  subject-title: Subject
+  opening: Dear Sir or Madam,
+  closing: Yours Faithfully,
+  cc:
+    - Recipient 1
+    - Recipient 2
+  encl:
+    - Enclosure 1
+    - Enclosure 2
+  ps: |
+    PS: Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
+  
+[1m[34m
+Rendering PDF[39m[22m
+[1m[34mrunning lualatex - 1[39m[22m
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+[1m[34mupdating tlmgr[39m[22m
+
+[1m[34mupdating existing packages[39m[22m
+[1m[34mfinding package for caption.sty[39m[22m
+[1m[34m> 1 package to install[39m[22m
+[1m[34m> installing caption (1 of 1)[39m[22m
+[33mWARN: Error encountered when rendering files[39m
+[91mERROR: tlmgr returned a non zero status code
+You don't have permission to change the installation in any way,
+specifically, the directory /opt/tinytex/tlpkg/ is not writable.
+Please run this program as administrator, or contact your local admin.
+tlmgr: An error has occurred. See above messages. Exiting.
+
+
+Stack trace:
+    at renderFiles (file:///opt/quarto/bin/quarto.js:136526:49)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async render (file:///opt/quarto/bin/quarto.js:142154:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142399:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102022:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101899:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187518:5)
+    at async file:///opt/quarto/bin/quarto.js:187546:5
+    at async file:///opt/quarto/bin/quarto.js:187401:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187403:5)
+    at async file:///opt/quarto/bin/quarto.js:187539:3[39m
+Render failed, retrying once...
+[1mpandoc [22m
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+[1mmetadata[22m
+  block-headings: true
+  date: today
+  date-format: long
+  documentclass: letter
+  geometry:
+    - margin=1in
+    - bottom=1in
+    - left=1in
+    - right=1in
+  colorlinks: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  author:
+    - name: John Doe
+      affiliation:
+        - name: Dummy org
+          department: Cool Dep
+          address: Somewhere
+          city: Magic city
+          country: best one
+          postal-code: 9999
+  address:
+    - Director Doe & Co
+    - 35 Anthony Road
+    - Newport
+    - Ipswich IP3 5RT
+  subject: collaboration
+  subject-title: Subject
+  opening: Dear Sir or Madam,
+  closing: Yours Faithfully,
+  cc:
+    - Recipient 1
+    - Recipient 2
+  encl:
+    - Enclosure 1
+    - Enclosure 2
+  ps: |
+    PS: Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
+  
+[1m[34m
+Rendering PDF[39m[22m
+[1m[34mrunning lualatex - 1[39m[22m
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+[1m[34mupdating tlmgr[39m[22m
+
+[1m[34mupdating existing packages[39m[22m
+[1m[34mfinding package for caption.sty[39m[22m
+[1m[34m> 1 package to install[39m[22m
+[1m[34m> installing caption (1 of 1)[39m[22m
+[33mWARN: Error encountered when rendering files[39m
+[91mERROR: tlmgr returned a non zero status code
+You don't have permission to change the installation in any way,
+specifically, the directory /opt/tinytex/tlpkg/ is not writable.
+Please run this program as administrator, or contact your local admin.
+tlmgr: An error has occurred. See above messages. Exiting.
+
+
+Stack trace:
+    at renderFiles (file:///opt/quarto/bin/quarto.js:136526:49)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async render (file:///opt/quarto/bin/quarto.js:142154:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142399:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102022:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101899:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187518:5)
+    at async file:///opt/quarto/bin/quarto.js:187546:5
+    at async file:///opt/quarto/bin/quarto.js:187401:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187403:5)
+    at async file:///opt/quarto/bin/quarto.js:187539:3[39m
