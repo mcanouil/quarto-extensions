@@ -1,5 +1,5 @@
-Cloning into 'repo'...
-[1mpandoc [22m
+pandoc 
+
   to: latex
   output-file: template.tex
   standalone: true
@@ -9,7 +9,9 @@ Cloning into 'repo'...
     tables: true
   default-image-extension: pdf
   
-[1mmetadata[22m
+
+metadata
+
   block-headings: true
   date: today
   date-format: long
@@ -20,8 +22,6 @@ Cloning into 'repo'...
     - left=1in
     - right=1in
   colorlinks: true
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
   author:
     - name: John Doe
       affiliation:
@@ -49,22 +49,33 @@ Cloning into 'repo'...
   ps: |
     PS: Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
   
-[1m[34m
-Rendering PDF[39m[22m
-[1m[34mrunning lualatex - 1[39m[22m
+
+
+Rendering PDF
+
+running lualatex - 1
+
   This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
    restricted system commands enabled.
   
   luaotfload | db : Font names database not found, generating new one.
   luaotfload | db : This can take several minutes; please be patient.
-[1m[34mupdating tlmgr[39m[22m
 
-[1m[34mupdating existing packages[39m[22m
-[1m[34mfinding package for caption.sty[39m[22m
-[1m[34m> 1 package to install[39m[22m
-[1m[34m> installing caption (1 of 1)[39m[22m
-[33mWARN: Error encountered when rendering files[39m
-[91mERROR: tlmgr returned a non zero status code
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for caption.sty
+
+> 1 package to install
+
+> installing caption (1 of 1)
+
+(WARN) Error encountered when rendering files
+
+(ERROR) tlmgr returned a non zero status code
 You don't have permission to change the installation in any way,
 specifically, the directory /opt/tinytex/tlpkg/ is not writable.
 Please run this program as administrator, or contact your local admin.
@@ -72,14 +83,14 @@ tlmgr: An error has occurred. See above messages. Exiting.
 
 
 Stack trace:
-    at renderFiles (file:///opt/quarto/bin/quarto.js:136526:49)
-    at eventLoopTick (ext:core/01_core.js:179:7)
-    at async render (file:///opt/quarto/bin/quarto.js:142154:19)
-    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142399:24)
-    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102022:7)
-    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101899:14)
-    at async quarto4 (file:///opt/quarto/bin/quarto.js:187518:5)
-    at async file:///opt/quarto/bin/quarto.js:187546:5
-    at async file:///opt/quarto/bin/quarto.js:187401:14
-    at async mainRunner (file:///opt/quarto/bin/quarto.js:187403:5)
-    at async file:///opt/quarto/bin/quarto.js:187539:3[39m
+    at renderFiles (file:///opt/quarto/bin/quarto.js:124863:49)
+    at eventLoopTick (ext:core/01_core.js:178:7)
+    at async render (file:///opt/quarto/bin/quarto.js:130645:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:130887:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:10978:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:10855:14)
+    at async quarto (file:///opt/quarto/bin/quarto.js:176680:5)
+    at async file:///opt/quarto/bin/quarto.js:176708:5
+    at async file:///opt/quarto/bin/quarto.js:176563:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:176565:5)
+
