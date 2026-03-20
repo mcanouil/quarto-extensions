@@ -1,0 +1,183 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Render extensions for the test-extensions workflow.
+# Inputs (env): QUARTO_CHANNEL
+# Inputs (files): clone-manifest.json, quarto-version.txt
+# Outputs (files): results.json
+
+docker_user="$(id -u):$(id -g)"
+docker_security_opts=(
+  --cap-drop=ALL
+  --security-opt=no-new-privileges:true
+  --pids-limit=512
+  --memory=4g
+  --cpus=2
+  --read-only
+  --tmpfs /tmp:rw,nosuid,size=512m
+  --tmpfs /var/tmp:rw,noexec,nosuid,size=128m
+)
+results_file=$(mktemp)
+trap 'rm -f "${results_file}"' EXIT
+quarto_version=$(cat quarto-version.txt)
+echo "Quarto version: ${quarto_version} (${QUARTO_CHANNEL})"
+
+ext_count=$(jq 'length' clone-manifest.json)
+
+docker_run_render() {
+  local workdir="$1" log_dir="$2" render_dir="$3"
+  shift 3
+  timeout 300 docker run --rm \
+    --user "${docker_user}" \
+    "${docker_security_opts[@]}" \
+    "$@" \
+    -e QUARTO_CHROMIUM="/usr/bin/google-chrome-stable" \
+    -e HOME="${workdir}" \
+    -e XDG_CACHE_HOME="${workdir}/.cache" \
+    -v "${workdir}:${workdir}" \
+    -v "${log_dir}:${log_dir}" \
+    -w "${render_dir}" \
+    render-image
+}
+
+for ((i = 0; i < ext_count; i++)); do
+  id=$(jq -r ".[${i}].id // empty" clone-manifest.json)
+  ext_type=$(jq -r ".[${i}].type // empty" clone-manifest.json)
+  status=$(jq -r ".[${i}].clone_status // empty" clone-manifest.json)
+  workdir=$(jq -r ".[${i}].workdir // empty" clone-manifest.json)
+  render_dir=$(jq -r ".[${i}].render_dir // empty" clone-manifest.json)
+  log_dir=$(jq -r ".[${i}].log_dir // empty" clone-manifest.json)
+  log_path=$(jq -r ".[${i}].log_path // empty" clone-manifest.json)
+  if [[ -z "${id}" ]] || [[ -z "${ext_type}" ]] || [[ -z "${status}" ]] || [[ -z "${workdir}" ]] || [[ -z "${render_dir}" ]] || [[ -z "${log_dir}" ]] || [[ -z "${log_path}" ]]; then
+    echo "::warning::Skipping malformed clone-manifest entry at index ${i}."
+    continue
+  fi
+  ext=$(jq -c ".[${i}].ext" clone-manifest.json)
+
+  echo "::group::Testing ${id} (${ext_type})"
+
+  if [[ "${status}" == "pass" ]]; then
+    printf '%s\n' "${ext}" >"${workdir}/ext-meta.json"
+
+    # Phase A: Install dependencies (network allowed)
+    if [[ -f "${render_dir}/renv.lock" ]] || [[ -f "${render_dir}/uv.lock" ]] || [[ -f "${render_dir}/requirements.txt" ]]; then
+      dep_sources=()
+      [[ -f "${render_dir}/renv.lock" ]] && dep_sources+=("renv.lock")
+      [[ -f "${render_dir}/uv.lock" ]] && dep_sources+=("uv.lock")
+      [[ -f "${render_dir}/requirements.txt" ]] && dep_sources+=("requirements.txt")
+      echo "Dependency install phase for ${id}: ${dep_sources[*]}" >>"${log_dir}/stdout.log"
+      docker_run_render "${workdir}" "${log_dir}" "${render_dir}" \
+        --security-opt=seccomp=default \
+        --security-opt=apparmor=docker-default \
+        -e EXT_ID="${id}" \
+        -e LOG_DIR="${log_dir}" \
+        bash <<'DEPS_SCRIPT' || status="fail"
+set -euo pipefail
+
+if [[ -f renv.lock ]]; then
+  echo "Installing R dependencies from renv.lock for ${EXT_ID}." >>"${LOG_DIR}/stdout.log"
+  Rscript -e 'if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")' \
+    >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
+    echo "renv install failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
+    exit 1
+  }
+  Rscript -e 'renv::restore()' \
+    >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
+    echo "renv restore failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
+    exit 1
+  }
+fi
+if [[ -f uv.lock ]] || [[ -f requirements.txt ]]; then
+  echo "Installing Python dependencies for ${EXT_ID}." >>"${LOG_DIR}/stdout.log"
+  uv venv >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
+    echo "uv venv failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
+    exit 1
+  }
+  source .venv/bin/activate
+  if [[ -f uv.lock ]]; then
+    uv sync >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
+      echo "uv sync failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
+      exit 1
+    }
+  elif [[ -f requirements.txt ]]; then
+    uv pip install -r requirements.txt >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
+      echo "uv pip install failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
+      exit 1
+    }
+  fi
+fi
+DEPS_SCRIPT
+    fi
+
+    # Phase B: Render (air-gapped, no network)
+    if [[ "${status}" == "pass" ]]; then
+      docker_run_render "${workdir}" "${log_dir}" "${render_dir}" \
+        --network=none \
+        -e EXT_TYPE="${ext_type}" \
+        -e EXT_ID="${id}" \
+        -e WORKDIR="${workdir}" \
+        -e LOG_DIR="${log_dir}" \
+        bash <<'RENDER_SCRIPT' || status="fail"
+set -euo pipefail
+
+# Activate venv if it was created during dependency install
+if [[ -f .venv/bin/activate ]]; then
+  source .venv/bin/activate
+fi
+
+render_idx=0
+if [[ -f _quarto.yml ]] || [[ -f _quarto.yaml ]]; then
+  quarto render --log "${WORKDIR}/render-${render_idx}.log" --log-level info \
+    >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || exit 1
+elif [[ "${EXT_TYPE}" == "document" ]]; then
+  qmd_files=$(jq -r '.qmd_files[]?' "${WORKDIR}/ext-meta.json")
+  while IFS= read -r qmd; do
+    if [[ "${qmd}" == /* ]] || [[ "${qmd}" == *".."* ]]; then continue; fi
+    if [[ -f "${qmd}" ]]; then
+      quarto render "${qmd}" --log "${WORKDIR}/render-${render_idx}.log" --log-level info \
+        >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || exit 1
+      render_idx=$((render_idx + 1))
+    fi
+  done <<< "${qmd_files}"
+else
+  while IFS= read -r -d '' qmd; do
+    quarto render "${qmd}" --log "${WORKDIR}/render-${render_idx}.log" --log-level info \
+      >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || exit 1
+    render_idx=$((render_idx + 1))
+  done < <(find . -name '*.qmd' -not -path './_extensions/*' -print0)
+fi
+RENDER_SCRIPT
+    fi
+  fi
+
+  # Copy render logs to log directory
+  find "${workdir}" -maxdepth 1 -name 'render-*.log' -type f -exec cp {} "${log_dir}/" \; 2>/dev/null || true
+
+  jq -cn \
+    --arg id "${id}" \
+    --arg t "${ext_type}" \
+    --arg s "${status}" \
+    --arg l "${log_path}" \
+    --arg qv "${quarto_version}" \
+    --arg qc "${QUARTO_CHANNEL}" \
+    '{id: $id, type: $t, status: $s, log: $l, quarto_version: $qv, quarto_channel: $qc}' \
+    >>"${results_file}"
+
+  if [[ "${status}" == "pass" ]]; then
+    echo "Result: ${id} PASSED"
+  else
+    echo "::warning::Result: ${id} FAILED"
+  fi
+  echo "::endgroup::"
+
+  # Clean up
+  rm -rf "${workdir}"
+done
+
+if [[ -s "${results_file}" ]]; then
+  jq -sc '.' "${results_file}" >results.json
+else
+  echo '[]' >results.json
+fi
+echo "Results:"
+jq '.' results.json
