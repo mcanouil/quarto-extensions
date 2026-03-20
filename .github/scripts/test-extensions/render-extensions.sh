@@ -131,26 +131,32 @@ fi
 
 render_idx=0
 
+quarto_render() {
+  if ! quarto render "$@" --log "${WORKDIR}/render-${render_idx}.log" --log-level info \
+    >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log"; then
+    echo "Render failed, retrying once..." >>"${LOG_DIR}/stderr.log"
+    quarto render "$@" --log "${WORKDIR}/render-${render_idx}.log" --log-level info \
+      >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || return 1
+  fi
+}
+
 render_single_qmd() {
   local qmd="$1"
   local formats
   formats=$(quarto inspect "${qmd}" 2>/dev/null | jq -r '.formats | keys[]' 2>/dev/null) || formats=""
   if [[ -z "${formats}" ]]; then
-    quarto render "${qmd}" --log "${WORKDIR}/render-${render_idx}.log" --log-level info \
-      >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || exit 1
+    quarto_render "${qmd}" || exit 1
     render_idx=$((render_idx + 1))
   else
     while IFS= read -r fmt; do
-      quarto render "${qmd}" --to "${fmt}" --log "${WORKDIR}/render-${render_idx}.log" --log-level info \
-        >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || exit 1
+      quarto_render "${qmd}" --to "${fmt}" || exit 1
       render_idx=$((render_idx + 1))
     done <<< "${formats}"
   fi
 }
 
 if [[ -f _quarto.yml ]] || [[ -f _quarto.yaml ]]; then
-  quarto render --log "${WORKDIR}/render-${render_idx}.log" --log-level info \
-    >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || exit 1
+  quarto_render || exit 1
 elif [[ "${EXT_TYPE}" == "document" ]]; then
   qmd_files=$(jq -r '.qmd_files[]?' "${WORKDIR}/ext-meta.json")
   while IFS= read -r qmd; do
