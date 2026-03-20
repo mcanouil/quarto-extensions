@@ -11,7 +11,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${SCRIPT_DIR}/docker-config.sh"
 
 results_file=$(mktemp)
-trap 'rm -f "${results_file}"' EXIT
+render_status_dir=$(mktemp -d)
+trap 'rm -rf "${render_status_dir}"; rm -f "${results_file}"' EXIT
 quarto_version=$(cat quarto-version.txt)
 echo "Quarto version: ${quarto_version} (${QUARTO_CHANNEL})"
 
@@ -33,15 +34,19 @@ docker_run_render() {
     render-image
 }
 
-for ((i = 0; i < ext_count; i++)); do
-  read -r id ext_type status workdir render_dir log_dir log_path < <(
-    jq -r ".[${i}] | [.id // \"\", .type // \"\", .clone_status // \"\", .workdir // \"\", .render_dir // \"\", .log_dir // \"\", .log_path // \"\"] | @tsv" clone-manifest.json
-  )
+render_extension() {
+  local i="$1"
+  local status_file="${render_status_dir}/${i}"
+
+  local line
+  line=$(jq -r ".[${i}] | [.id // \"\", .type // \"\", .clone_status // \"\", .workdir // \"\", .render_dir // \"\", .log_dir // \"\", .log_path // \"\", (.ext | @json)] | @tsv" clone-manifest.json)
+  read -r id ext_type status workdir render_dir log_dir log_path ext <<< "${line}"
+
   if [[ -z "${id}" ]] || [[ -z "${ext_type}" ]] || [[ -z "${status}" ]] || [[ -z "${workdir}" ]] || [[ -z "${render_dir}" ]] || [[ -z "${log_dir}" ]] || [[ -z "${log_path}" ]]; then
     echo "::warning::Skipping malformed clone-manifest entry at index ${i}."
-    continue
+    printf 'skip\t\t\t\t\t' >"${status_file}"
+    return
   fi
-  ext=$(jq -c ".[${i}].ext" clone-manifest.json)
 
   echo "::group::Testing ${id} (${ext_type})"
 
@@ -55,16 +60,6 @@ for ((i = 0; i < ext_count; i++)); do
       [[ -f "${render_dir}/uv.lock" ]] && dep_sources+=("uv.lock")
       [[ -f "${render_dir}/requirements.txt" ]] && dep_sources+=("requirements.txt")
       echo "Dependency install phase for ${id}: ${dep_sources[*]}" >>"${log_dir}/stdout.log"
-      if ! (
-        cd "${render_dir}"
-        EXT_ID="${id}" \
-          DEP_POLICY_ALLOWLIST_FILE="${SCRIPT_DIR}/dependency-policy-allowlist.txt" \
-          bash "${SCRIPT_DIR}/dependency-policy.sh"
-      ) >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log"; then
-        status="fail"
-      fi
-    fi
-    if [[ "${status}" == "pass" ]] && { [[ -f "${render_dir}/renv.lock" ]] || [[ -f "${render_dir}/uv.lock" ]] || [[ -f "${render_dir}/requirements.txt" ]]; }; then
       docker_run_render "${workdir}" "${log_dir}" "${render_dir}" \
         --security-opt=seccomp=default \
         --security-opt=apparmor=docker-default \
@@ -152,16 +147,6 @@ RENDER_SCRIPT
   # Copy render logs to log directory
   find "${workdir}" -maxdepth 1 -name 'render-*.log' -type f -exec cp {} "${log_dir}/" \; 2>/dev/null || true
 
-  jq -cn \
-    --arg id "${id}" \
-    --arg t "${ext_type}" \
-    --arg s "${status}" \
-    --arg l "${log_path}" \
-    --arg qv "${quarto_version}" \
-    --arg qc "${QUARTO_CHANNEL}" \
-    '{id: $id, type: $t, status: $s, log: $l, quarto_version: $qv, quarto_channel: $qc}' \
-    >>"${results_file}"
-
   if [[ "${status}" == "pass" ]]; then
     echo "Result: ${id} PASSED"
   else
@@ -169,8 +154,44 @@ RENDER_SCRIPT
   fi
   echo "::endgroup::"
 
-  # Clean up
+  # Clean up workdir now that logs are copied
   rm -rf "${workdir}"
+
+  printf '%s\t%s\t%s\t%s\t%s\t%s' \
+    "${id}" "${ext_type}" "${status}" "${log_path}" "${quarto_version}" "${QUARTO_CHANNEL}" \
+    >"${status_file}"
+}
+
+for ((i = 0; i < ext_count; i++)); do
+  render_extension "${i}" &
+  if (($(jobs -r | wc -l) >= 2)); then
+    wait -n
+  fi
+done
+wait
+
+for ((i = 0; i < ext_count; i++)); do
+  status_file="${render_status_dir}/${i}"
+  if [[ ! -f "${status_file}" ]]; then
+    echo "::warning::Render status file missing for index ${i}."
+    continue
+  fi
+
+  IFS=$'\t' read -r id ext_type status log_path qv qc <"${status_file}"
+
+  if [[ -z "${id}" ]]; then
+    continue
+  fi
+
+  jq -cn \
+    --arg id "${id}" \
+    --arg t "${ext_type}" \
+    --arg s "${status}" \
+    --arg l "${log_path}" \
+    --arg qv "${qv}" \
+    --arg qc "${qc}" \
+    '{id: $id, type: $t, status: $s, log: $l, quarto_version: $qv, quarto_channel: $qc}' \
+    >>"${results_file}"
 done
 
 if [[ -s "${results_file}" ]]; then

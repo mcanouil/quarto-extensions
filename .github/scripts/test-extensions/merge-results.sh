@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-state_dir=".test-extensions-state"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=state-config.sh
+source "${SCRIPT_DIR}/state-config.sh"
+state_dir="${STATE_DIR}"
 mkdir -p "${state_dir}"
 
 skipped_json="${SKIPPED:-[]}"
@@ -82,9 +85,10 @@ skipped_count=$(echo "${skipped_json}" | jq 'length')
 echo "${current_run}" | jq -c --argjson sc "${skipped_count}" '
   . as $all
   | ($all | [.[].id] | unique | length) as $run_total
-  | ($all | [sort_by(.id) | group_by(.id)[] | select(all(.status == "pass"))] | length) as $run_pass
-  | ($all | [sort_by(.id) | group_by(.id)[] | select(any(.status == "fail"))] | length) as $run_fail
-  | ($all | [sort_by(.id) | group_by(.id)[] | select(all(.status == "skip"))] | length) as $run_skip
+  | ($all | sort_by(.id) | group_by(.id)) as $groups
+  | ([$groups[] | select(all(.status == "pass"))] | length) as $run_pass
+  | ([$groups[] | select(any(.status == "fail"))] | length) as $run_fail
+  | ([$groups[] | select(all(.status == "skip"))] | length) as $run_skip
   | {run_total: $run_total, run_pass: $run_pass, run_fail: $run_fail, run_skip: $run_skip, skipped_count: $sc}
 ' >"${state_dir}/summary-stats.json"
 

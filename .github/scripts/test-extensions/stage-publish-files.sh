@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-state_dir=".test-extensions-state"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=state-config.sh
+source "${SCRIPT_DIR}/state-config.sh"
+state_dir="${STATE_DIR}"
 current_run_file="${state_dir}/current-run.json"
 
 if [[ ! -f "${current_run_file}" ]]; then
@@ -20,11 +23,8 @@ while IFS= read -r log_entry; do
     echo "::warning::Skipping invalid log version '${log_version}'."
     continue
   fi
-  while IFS= read -r tracked_file; do
-    if [[ -n "${tracked_file}" ]]; then
-      git rm -f -- "${tracked_file}" >/dev/null
-    fi
-  done < <(git ls-files "logs/*/*/${log_channel}/${log_version}/*")
+  git ls-files "logs/*/*/${log_channel}/${log_version}/*" \
+    | xargs -r git rm -f -- >/dev/null 2>&1 || true
 done < <(jq -c '[.[] | {channel: .quarto_channel, version: .quarto_version}] | unique | .[]' "${current_run_file}")
 
 if [[ -d logs ]]; then

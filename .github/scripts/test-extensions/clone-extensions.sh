@@ -55,18 +55,26 @@ docker_run_clone() {
     "$@"
 }
 
-for ((i = 0; i < ext_count; i++)); do
+clone_status_dir=$(mktemp -d)
+trap 'rm -rf "${clone_status_dir}"; rm -f "${clone_manifest_file}"' EXIT
+
+clone_extension() {
+  local i="$1"
+  local status_file="${clone_status_dir}/${i}"
+
   read -r id ext_type project_path < <(
     jq -r ".[${i}] | [.id // \"\", .type // \"\", .project_path // \"\"] | @tsv" extensions-batch.json
   )
 
   if [[ -z "${id}" ]] || [[ -z "${ext_type}" ]]; then
     echo "::error::Missing required entry fields at index ${i} in extensions-batch.json."
-    exit 1
+    printf 'error\t\t\t\t\t\t' >"${status_file}"
+    return 1
   fi
 
-  status="pass"
-  workdir="${GITHUB_WORKSPACE}/test-${i}"
+  local status="pass"
+  local workdir="${GITHUB_WORKSPACE}/test-${i}"
+  local log_dir log_path render_dir
 
   if [[ ! "${id}" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ ]]; then
     echo "::warning::Invalid extension id '${id}'."
@@ -84,18 +92,12 @@ for ((i = 0; i < ext_count; i++)); do
   render_dir="${workdir}"
 
   if [[ "${status}" == "pass" ]]; then
+    local owner repo
+    owner=$(echo "${id}" | cut -d'/' -f1)
+    repo=$(echo "${id}" | cut -d'/' -f2)
+
     case "${ext_type}" in
-    template | example)
-      docker_run_clone "${workdir}" "${log_dir}" \
-        quarto use template "${id}" --no-prompt >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log" ||
-        status="fail"
-      if [[ "${status}" == "fail" ]] && is_repo_inaccessible "${id}" "${log_dir}"; then
-        status="skip"
-      fi
-      ;;
-    project | document)
-      owner=$(echo "${id}" | cut -d'/' -f1)
-      repo=$(echo "${id}" | cut -d'/' -f2)
+    template | example | project | document)
       docker_run_clone "${workdir}" "${log_dir}" \
         git clone --depth 1 "https://github.com/${owner}/${repo}.git" repo \
         >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log" ||
@@ -104,6 +106,7 @@ for ((i = 0; i < ext_count; i++)); do
         status="skip"
       fi
       if [[ "${status}" == "pass" ]]; then
+        render_dir="${workdir}/repo"
         if [[ "${ext_type}" == "project" ]] && [[ "${project_path}" != "." ]]; then
           if [[ "${project_path}" == /* ]] || [[ "${project_path}" == *".."* ]]; then
             echo "Invalid project_path '${project_path}' for ${id}." \
@@ -113,9 +116,6 @@ for ((i = 0; i < ext_count; i++)); do
             render_dir="${workdir}/repo/${project_path}"
           fi
         fi
-        if [[ "${status}" == "pass" ]] && [[ "${render_dir}" == "${workdir}" ]]; then
-          render_dir="${workdir}/repo"
-        fi
       fi
       ;;
     *)
@@ -123,6 +123,32 @@ for ((i = 0; i < ext_count; i++)); do
       status="fail"
       ;;
     esac
+  fi
+
+  printf '%s\t%s\t%s\t%s\t%s\t%s\t%s' \
+    "${id}" "${ext_type}" "${status}" "${workdir}" "${render_dir}" "${log_dir}" "${log_path}" \
+    >"${status_file}"
+}
+
+for ((i = 0; i < ext_count; i++)); do
+  clone_extension "${i}" &
+  if (($(jobs -r | wc -l) >= 4)); then
+    wait -n
+  fi
+done
+wait
+
+for ((i = 0; i < ext_count; i++)); do
+  status_file="${clone_status_dir}/${i}"
+  if [[ ! -f "${status_file}" ]]; then
+    echo "::error::Clone status file missing for index ${i}."
+    continue
+  fi
+
+  IFS=$'\t' read -r id ext_type status workdir render_dir log_dir log_path <"${status_file}"
+
+  if [[ "${id}" == "error" ]]; then
+    exit 1
   fi
 
   ext=$(jq -c ".[${i}]" extensions-batch.json)

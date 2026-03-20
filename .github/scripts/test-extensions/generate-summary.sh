@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-state_dir=".test-extensions-state"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=state-config.sh
+source "${SCRIPT_DIR}/state-config.sh"
+state_dir="${STATE_DIR}"
 stats_file="${state_dir}/summary-stats.json"
 current_run_file="${state_dir}/current-run.json"
 skipped_file="${state_dir}/skipped.json"
@@ -13,11 +16,9 @@ for required in "${stats_file}" "${current_run_file}" "${skipped_file}"; do
   fi
 done
 
-run_total=$(jq -r '.run_total' "${stats_file}")
-run_pass=$(jq -r '.run_pass' "${stats_file}")
-run_fail=$(jq -r '.run_fail' "${stats_file}")
-run_skip=$(jq -r '.run_skip' "${stats_file}")
-skipped_count=$(jq -r '.skipped_count' "${stats_file}")
+read -r run_total run_pass run_fail run_skip skipped_count < <(
+  jq -r '[.run_total, .run_pass, .run_fail, .run_skip, .skipped_count] | @tsv' "${stats_file}"
+)
 
 release_version=$(jq -r '[.[] | select(.quarto_channel == "release") | .quarto_version] | first // "n/a"' "${current_run_file}")
 prerelease_version=$(jq -r '[.[] | select(.quarto_channel == "prerelease") | .quarto_version] | first // "n/a"' "${current_run_file}")

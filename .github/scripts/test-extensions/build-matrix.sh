@@ -84,9 +84,39 @@ while IFS=$'\t' read -r idx id branch; do
 done < <(echo "${phase_b_candidates}" | jq -r 'to_entries[] | "\(.key)\t\(.value.id)\t\(.value.default_branch)"')
 wait
 
+find_best_project_path() {
+  local best_path="" best_depth=999
+  while IFS= read -r qpath; do
+    local dir
+    dir=$(dirname "${qpath}")
+    if echo "${dir}" | grep -qE '(^|/)tests(/|$)' || echo "${dir}" | grep -qE '(^|/)examples(/|$)'; then
+      continue
+    fi
+    if [[ "${dir}" == "." ]]; then
+      echo "."
+      return
+    fi
+    if [[ "${dir}" == "docs" ]] && [[ "${best_depth}" -gt 1 ]]; then
+      best_path="docs"
+      best_depth=1
+      continue
+    fi
+    local depth
+    depth=$(echo "${dir}" | tr '/' '\n' | wc -l)
+    if [[ "${depth}" -lt "${best_depth}" ]]; then
+      best_path="${dir}"
+      best_depth="${depth}"
+    fi
+  done
+  if [[ -n "${best_path}" ]]; then
+    echo "${best_path}"
+  fi
+}
+
+mapfile -t candidate_ids < <(echo "${phase_b_candidates}" | jq -r '.[].id')
+
 for ((idx = 0; idx < candidate_count; idx++)); do
-  entry=$(echo "${phase_b_candidates}" | jq -c ".[${idx}]")
-  id=$(echo "${entry}" | jq -r '.id')
+  id="${candidate_ids[idx]}"
 
   if [[ -f "${trees_dir}/${idx}.failed" ]] || [[ -f "${trees_dir}/${idx}.empty" ]]; then
     if [[ -f "${trees_dir}/${idx}.failed" ]]; then
@@ -107,35 +137,7 @@ for ((idx = 0; idx < candidate_count; idx++)); do
   project_files=$(echo "${full_tree}" | grep -E '(^|/)_quarto\.ya?ml$' | grep -vE '(^|/)_extensions/' || true)
 
   if [[ -n "${project_files}" ]]; then
-    best_path=""
-    best_depth=999
-
-    while IFS= read -r qpath; do
-      dir=$(dirname "${qpath}")
-
-      if echo "${dir}" | grep -qE '(^|/)tests(/|$)' || echo "${dir}" | grep -qE '(^|/)examples(/|$)'; then
-        continue
-      fi
-
-      if [[ "${dir}" == "." ]]; then
-        best_path="."
-        best_depth=0
-        break
-      fi
-
-      if [[ "${dir}" == "docs" ]] && [[ "${best_depth}" -gt 1 ]]; then
-        best_path="docs"
-        best_depth=1
-        continue
-      fi
-
-      depth=$(echo "${dir}" | tr '/' '\n' | wc -l)
-      if [[ "${depth}" -lt "${best_depth}" ]]; then
-        best_path="${dir}"
-        best_depth="${depth}"
-      fi
-    done <<<"${project_files}"
-
+    best_path=$(echo "${project_files}" | find_best_project_path)
     if [[ -n "${best_path}" ]]; then
       jq -cn --arg id "${id}" --arg pp "${best_path}" \
         '{id: $id, type: "project", project_path: $pp}' >>"${phase_b_entries_file}"

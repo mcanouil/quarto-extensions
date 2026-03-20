@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-state_dir=".test-extensions-state"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=state-config.sh
+source "${SCRIPT_DIR}/state-config.sh"
+state_dir="${STATE_DIR}"
 today_file="${state_dir}/today.txt"
 
 if [[ ! -f "${today_file}" ]]; then
