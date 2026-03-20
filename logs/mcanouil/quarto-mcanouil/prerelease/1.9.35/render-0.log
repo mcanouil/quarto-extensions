@@ -1,0 +1,28 @@
+Error in loadNamespace(x) : there is no package called 'rmarkdown'
+Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
+Execution halted
+
+R installation:
+
+  Version: 4.5.3
+  Path: /opt/R/4.5.3/lib/R
+  LibPaths:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.5
+    - /opt/R/4.5.3/lib/R/library
+  knitr: (None)
+  rmarkdown: (None)
+
+
+
+The knitr package is not available in this R installation.
+Install with install.packages("knitr")
+
+
+
+The rmarkdown package is not available in this R installation.
+Install with install.packages("rmarkdown")
+
+
+
+(WARN) Error encountered when rendering files
+
