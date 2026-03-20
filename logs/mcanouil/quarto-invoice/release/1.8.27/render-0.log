@@ -1,5 +1,4 @@
-Cloning into 'repo'...
-[91mERROR: TypeError: error sending request for url (https://fonts.googleapis.com/css?family=Alegreya%20Sans:normal,italic:400,700): client error (Connect): dns error: failed to lookup address information: Temporary failure in name resolution: failed to lookup address information: Temporary failure in name resolution
+(ERROR) TypeError: error sending request for url (https://fonts.googleapis.com/css?family=Alegreya%20Sans:normal,italic:400,700): client error (Connect): dns error: failed to lookup address information: Temporary failure in name resolution: failed to lookup address information: Temporary failure in name resolution
 
 Stack trace:
     at async mainFetch (ext:deno_fetch/26_fetch.js:192:12)
@@ -11,4 +10,5 @@ Stack trace:
     at async renderFileInternal (file:///opt/quarto/bin/quarto.js:125106:9)
     at async renderFiles (file:///opt/quarto/bin/quarto.js:124837:9)
     at async render (file:///opt/quarto/bin/quarto.js:130645:19)
-    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:130887:24)[39m
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:130887:24)
+
