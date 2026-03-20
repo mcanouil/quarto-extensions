@@ -122,8 +122,8 @@ jobs:
               libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev \
               libtiff5-dev libjpeg-dev libgit2-dev zlib1g-dev cmake \
               && rm -rf /var/lib/apt/lists/*
+          RUN Rscript -e 'install.packages("rmarkdown", repos = "https://cloud.r-project.org", lib = .Library)'
           USER vscode
-          RUN Rscript -e 'install.packages("rmarkdown", repos = "https://cloud.r-project.org")'
           ENV UV_LINK_MODE=copy
           RUN uv venv /home/vscode/.venv \
               && . /home/vscode/.venv/bin/activate \
