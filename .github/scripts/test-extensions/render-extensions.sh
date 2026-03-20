@@ -113,11 +113,10 @@ fi
 DEPS_SCRIPT
     fi
 
-    # Phase B: Render (air-gapped, no network)
+    # Phase B: Render
     if [[ "${status}" == "pass" ]]; then
       render_count=$((render_count + 1))
       docker_run_render "${workdir}" "${log_dir}" "${render_dir}" \
-        --network=none \
         -e EXT_TYPE="${ext_type}" \
         -e EXT_ID="${id}" \
         -e WORKDIR="${workdir}" \
