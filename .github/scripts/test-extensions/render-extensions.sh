@@ -130,6 +130,24 @@ if [[ -f .venv/bin/activate ]]; then
 fi
 
 render_idx=0
+
+render_single_qmd() {
+  local qmd="$1"
+  local formats
+  formats=$(quarto inspect "${qmd}" 2>/dev/null | jq -r '.formats | keys[]' 2>/dev/null) || formats=""
+  if [[ -z "${formats}" ]]; then
+    quarto render "${qmd}" --log "${WORKDIR}/render-${render_idx}.log" --log-level info \
+      >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || exit 1
+    render_idx=$((render_idx + 1))
+  else
+    while IFS= read -r fmt; do
+      quarto render "${qmd}" --to "${fmt}" --log "${WORKDIR}/render-${render_idx}.log" --log-level info \
+        >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || exit 1
+      render_idx=$((render_idx + 1))
+    done <<< "${formats}"
+  fi
+}
+
 if [[ -f _quarto.yml ]] || [[ -f _quarto.yaml ]]; then
   quarto render --log "${WORKDIR}/render-${render_idx}.log" --log-level info \
     >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || exit 1
@@ -138,16 +156,12 @@ elif [[ "${EXT_TYPE}" == "document" ]]; then
   while IFS= read -r qmd; do
     if [[ "${qmd}" == /* ]] || [[ "${qmd}" == *".."* ]]; then continue; fi
     if [[ -f "${qmd}" ]]; then
-      quarto render "${qmd}" --log "${WORKDIR}/render-${render_idx}.log" --log-level info \
-        >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || exit 1
-      render_idx=$((render_idx + 1))
+      render_single_qmd "${qmd}"
     fi
   done <<< "${qmd_files}"
 else
   while IFS= read -r -d '' qmd; do
-    quarto render "${qmd}" --log "${WORKDIR}/render-${render_idx}.log" --log-level info \
-      >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || exit 1
-    render_idx=$((render_idx + 1))
+    render_single_qmd "${qmd}"
   done < <(find . -name '*.qmd' -not -path './_extensions/*' -print0)
 fi
 RENDER_SCRIPT
