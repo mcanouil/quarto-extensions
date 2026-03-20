@@ -1,5 +1,5 @@
-pandoc 
-
+Cloning into 'repo'...
+[1mpandoc [22m
   to: revealjs
   output-file: index.html
   standalone: true
@@ -13,9 +13,7 @@ pandoc
   incremental: true
   variables: {}
   
-
-metadata
-
+[1mmetadata[22m
   link-citations: true
   width: 1050
   height: 700
@@ -33,6 +31,8 @@ metadata
   pdfSeparateFragments: true
   lang: en
   auto-stretch: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
   title: Reveal.js Tabset
   subtitle: Quarto Extension
   author:
@@ -42,7 +42,5 @@ metadata
   revealjs-plugins:
     - tabset
   
-
 Output created: index.html
-
 
