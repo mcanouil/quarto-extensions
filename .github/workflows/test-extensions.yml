@@ -130,8 +130,7 @@ jobs:
           ARG HOST_UID
           ARG HOST_GID
           RUN if [ -d /opt/tinytex ]; then chown -R ${HOST_UID}:${HOST_GID} /opt/tinytex; fi
-          RUN chown -R ${HOST_UID}:${HOST_GID} /home/vscode
-          USER ${HOST_UID}:${HOST_GID}
+          USER vscode
           ENV UV_LINK_MODE=copy
           RUN uv venv /home/vscode/.venv \
               && . /home/vscode/.venv/bin/activate \
