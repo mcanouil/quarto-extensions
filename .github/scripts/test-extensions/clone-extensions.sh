@@ -30,6 +30,8 @@ echo "Quarto version: ${quarto_version} (${QUARTO_CHANNEL})"
 echo "${quarto_version}" >quarto-version.txt
 
 ext_count=$(jq 'length' extensions-batch.json)
+echo "Extensions to clone: ${ext_count}"
+set -x
 
 is_repo_inaccessible() {
   local id="$1" log_dir="$2"
