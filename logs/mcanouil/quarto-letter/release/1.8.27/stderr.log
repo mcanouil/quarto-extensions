@@ -1,5 +1,5 @@
-pandoc 
-
+Cloning into 'repo'...
+[1mpandoc [22m
   to: latex
   output-file: template.tex
   standalone: true
@@ -9,9 +9,7 @@ pandoc
     tables: true
   default-image-extension: pdf
   
-
-metadata
-
+[1mmetadata[22m
   block-headings: true
   date: today
   date-format: long
@@ -22,8 +20,6 @@ metadata
     - left=1in
     - right=1in
   colorlinks: true
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
   author:
     - name: John Doe
       affiliation:
@@ -51,42 +47,27 @@ metadata
   ps: |
     PS: Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
   
-
-
-Rendering PDF
-
-running lualatex - 1
-
+[1m[34m
+Rendering PDF[39m[22m
+[1m[34mrunning lualatex - 1[39m[22m
   This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
    restricted system commands enabled.
   
   luaotfload | db : Font names database not found, generating new one.
   luaotfload | db : This can take several minutes; please be patient.
+[1m[34mupdating tlmgr[39m[22m
 
-updating tlmgr
-
-
-
-updating existing packages
-
-finding package for caption.sty
-
-> 1 package to install
-
-> installing caption (1 of 1)
-
+[1m[34mupdating existing packages[39m[22m
+[1m[34mfinding package for caption.sty[39m[22m
+[1m[34m> 1 package to install[39m[22m
+[1m[34m> installing caption (1 of 1)[39m[22m
   This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
    restricted system commands enabled.
   
-
-running lualatex - 2
-
+[1m[34mrunning lualatex - 2[39m[22m
   This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
    restricted system commands enabled.
   
-
-
 
 Output created: index.pdf
-
 
