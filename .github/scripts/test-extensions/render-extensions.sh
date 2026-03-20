@@ -30,7 +30,8 @@ docker_run_render() {
     -v "${workdir}:${workdir}" \
     -v "${log_dir}:${log_dir}" \
     -w "${render_dir}" \
-    render-image
+    render-image \
+    bash
 }
 
 render_extension() {
@@ -71,7 +72,7 @@ render_extension() {
         --security-opt=apparmor=docker-default \
         -e EXT_ID="${id}" \
         -e LOG_DIR="${log_dir}" \
-        bash <<'DEPS_SCRIPT' || status="fail"
+        <<'DEPS_SCRIPT' || status="fail"
 set -euo pipefail
 
 if [[ -f renv.lock ]]; then
@@ -117,7 +118,7 @@ DEPS_SCRIPT
         -e EXT_ID="${id}" \
         -e WORKDIR="${workdir}" \
         -e LOG_DIR="${log_dir}" \
-        bash <<'RENDER_SCRIPT' || status="fail"
+        <<'RENDER_SCRIPT' || status="fail"
 set -euo pipefail
 
 # Activate venv if it was created during dependency install
