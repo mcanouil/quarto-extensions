@@ -28,6 +28,8 @@ docker_run_render() {
     -e QUARTO_CHROMIUM="/usr/bin/google-chrome-stable" \
     -e HOME="${workdir}" \
     -e XDG_CACHE_HOME="${workdir}/.cache" \
+    -e TEXMFVAR="/tmp/texmf-var" \
+    -e TEXMFCONFIG="/tmp/texmf-config" \
     -v "${workdir}:${workdir}" \
     -v "${log_dir}:${log_dir}" \
     -w "${render_dir}" \
