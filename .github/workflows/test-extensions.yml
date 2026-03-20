@@ -45,8 +45,8 @@ jobs:
         with:
           app-id: ${{ vars.APP_ID }}
           private-key: ${{ secrets.APP_KEY }}
-          permissions: >-
-            {"contents": "read", "metadata": "read"}
+          permission-contents: read
+          permission-metadata: read
 
       - name: Build test matrix
         id: matrix
@@ -169,8 +169,8 @@ jobs:
         with:
           app-id: ${{ vars.APP_ID }}
           private-key: ${{ secrets.APP_KEY }}
-          permissions: >-
-            {"contents": "write", "metadata": "read"}
+          permission-contents: write
+          permission-metadata: read
 
       - name: Setup git and check branch
         id: setup
