@@ -123,7 +123,7 @@ jobs:
               libtiff5-dev libjpeg-dev libgit2-dev zlib1g-dev cmake \
               && rm -rf /var/lib/apt/lists/*
           RUN Rscript -e 'install.packages("rmarkdown", repos = "https://cloud.r-project.org", lib = .Library)'
-          RUN if [ -d /opt/tinytex ]; then chown -R vscode:vscode /opt/tinytex; fi
+          RUN if [ -d /opt/tinytex ]; then chmod -R a+w /opt/tinytex; fi
           USER vscode
           ENV UV_LINK_MODE=copy
           RUN uv venv /home/vscode/.venv \
