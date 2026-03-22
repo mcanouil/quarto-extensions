@@ -1,0 +1,430 @@
+Cloning into 'repo'...
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/__linux__/jammy/latest/src/contrib/renv_1.1.8.tar.gz'
+Content type 'binary/octet-stream' length 2336300 bytes (2.2 MB)
+==================================================
+downloaded 2.2 MB
+
+* installing *binary* package 'renv' ...
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/RtmpUdqECr/downloaded_packages'
+The R temporary directory appears to be within a folder mounted as 'noexec'.
+Installation of R packages from sources may fail.
+See the section **Note** within `?INSTALL` for more details.
+
+tempdir(): /tmp/RtmpUdqECr
+Installing packages into '/home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)
+also installing the dependencies 'sys', 'bit', 'farver', 'labeling', 'RColorBrewer', 'viridisLite', 'rematch', 'askpass', 'bit64', 'prettyunits', 'ps', 'backports', 'generics', 'glue', 'blob', 'DBI', 'tidyselect', 'vctrs', 'withr', 'data.table', 'gtable', 'isoband', 'S7', 'scales', 'gargle', 'uuid', 'cellranger', 'ids', 'rematch2', 'cpp11', 'pkgconfig', 'openssl', 'timechange', 'utf8', 'systemfonts', 'textshaping', 'clipr', 'crayon', 'vroom', 'tzdb', 'progress', 'callr', 'selectr', 'stringi', 'Rcpp', 'magrittr', 'curl', 'later', 'processx', 'rstudioapi', 'broom', 'conflicted', 'dbplyr', 'dplyr', 'dtplyr', 'forcats', 'ggplot2', 'googledrive', 'googlesheets4', 'haven', 'hms', 'httr', 'lubridate', 'modelr', 'pillar', 'purrr', 'ragg', 'readr', 'readxl', 'reprex', 'rvest', 'stringr', 'tibble', 'tidyr', 'xml2'
+
+trying URL 'https://cloud.r-project.org/src/contrib/sys_3.4.3.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/bit_4.6.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/farver_2.1.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/labeling_0.4.3.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/RColorBrewer_1.1-3.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/viridisLite_0.4.3.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/rematch_2.0.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/askpass_1.2.1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/bit64_4.6.0-1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/prettyunits_1.2.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/ps_1.9.1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/backports_1.5.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/generics_0.1.4.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/glue_1.8.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/blob_1.3.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/DBI_1.3.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/tidyselect_1.2.1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/vctrs_0.7.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/withr_3.0.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/data.table_1.18.2.1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/gtable_0.3.6.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/isoband_0.3.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/S7_0.2.1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/scales_1.4.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/gargle_1.6.1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/uuid_1.2-2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/cellranger_1.1.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/ids_1.0.1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/rematch2_2.1.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/cpp11_0.5.3.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/pkgconfig_2.0.3.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/openssl_2.3.5.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/timechange_0.4.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/utf8_1.2.6.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/systemfonts_1.3.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/textshaping_1.0.5.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/clipr_0.8.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/crayon_1.5.3.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/vroom_1.7.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/tzdb_0.5.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/progress_1.2.3.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/callr_3.7.6.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/selectr_0.5-1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/stringi_1.8.7.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/Rcpp_1.1.1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/magrittr_2.0.4.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/curl_7.0.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/later_1.4.8.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/processx_3.8.6.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/rstudioapi_0.18.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/broom_1.0.12.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/conflicted_1.2.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/dbplyr_2.5.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/dplyr_1.2.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/dtplyr_1.3.3.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/forcats_1.0.1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/ggplot2_4.0.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/googledrive_2.1.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/googlesheets4_1.1.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/haven_2.5.5.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/hms_1.1.4.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/httr_1.4.8.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/lubridate_1.9.5.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/modelr_0.1.11.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/pillar_1.11.1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/purrr_1.2.1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/ragg_1.5.1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/readr_2.2.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/readxl_1.4.5.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/reprex_2.1.1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/rvest_1.0.5.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/stringr_1.6.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/tibble_3.3.1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/tidyr_1.3.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/xml2_1.5.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/magick_2.9.1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/quarto_1.5.1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/tidyverse_2.0.0.tar.gz'
+* installing *source* package 'sys' ...
+** this is package 'sys' version '3.4.3'
+** package 'sys' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-sys/00new/sys/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (sys)
+* installing *source* package 'bit' ...
+** this is package 'bit' version '4.6.0'
+** package 'bit' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-bit/00new/bit/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (bit)
+* installing *source* package 'farver' ...
+** this is package 'farver' version '2.1.2'
+** package 'farver' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C++ compiler: 'g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-farver/00new/farver/libs
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (farver)
+* installing *source* package 'labeling' ...
+** this is package 'labeling' version '0.4.3'
+** package 'labeling' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (labeling)
+* installing *source* package 'RColorBrewer' ...
+** this is package 'RColorBrewer' version '1.1-3'
+** package 'RColorBrewer' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (RColorBrewer)
+* installing *source* package 'viridisLite' ...
+** this is package 'viridisLite' version '0.4.3'
+** package 'viridisLite' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (viridisLite)
+* installing *source* package 'rematch' ...
+** this is package 'rematch' version '2.0.0'
+** package 'rematch' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (rematch)
+* installing *source* package 'prettyunits' ...
+** this is package 'prettyunits' version '1.2.0'
+** package 'prettyunits' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (prettyunits)
+* installing *source* package 'ps' ...
+** this is package 'ps' version '1.9.1'
+** package 'ps' successfully unpacked and MD5 sums checked
+** using staged installation
+ERROR: 'configure' exists but is not executable -- see the 'R Installation and Administration Manual'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.5/ps'
+* installing *source* package 'backports' ...
+** this is package 'backports' version '1.5.0'
+** package 'backports' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-backports/00new/backports/libs
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (backports)
+* installing *source* package 'generics' ...
+** this is package 'generics' version '0.1.4'
+** package 'generics' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (generics)
+* installing *source* package 'glue' ...
+** this is package 'glue' version '1.8.0'
+** package 'glue' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-glue/00new/glue/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (glue)
+* installing *source* package 'DBI' ...
+** this is package 'DBI' version '1.3.0'
+** package 'DBI' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (DBI)
+* installing *source* package 'withr' ...
+** this is package 'withr' version '3.0.2'
+** package 'withr' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (withr)
+* installing *source* package 'data.table' ...
+** this is package 'data.table' version '1.18.2.1'
+** package 'data.table' successfully unpacked and MD5 sums checked
+** using staged installation
+ERROR: 'configure' exists but is not executable -- see the 'R Installation and Administration Manual'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.5/data.table'
+* installing *source* package 'S7' ...
+** this is package 'S7' version '0.2.1'
+** package 'S7' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-S7/00new/S7/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (S7)
+* installing *source* package 'uuid' ...
+** this is package 'uuid' version '1.2-2'
+** package 'uuid' successfully unpacked and MD5 sums checked
+** using staged installation
+ERROR: 'configure' exists but is not executable -- see the 'R Installation and Administration Manual'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.5/uuid'
+* installing *source* package 'cpp11' ...
+** this is package 'cpp11' version '0.5.3'
+** package 'cpp11' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (cpp11)
+* installing *source* package 'pkgconfig' ...
+** this is package 'pkgconfig' version '2.0.3'
+** package 'pkgconfig' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (pkgconfig)
+* installing *source* package 'utf8' ...
+** this is package 'utf8' version '1.2.6'
+** package 'utf8' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-utf8/00new/utf8/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (utf8)
+* installing *source* package 'clipr' ...
+** this is package 'clipr' version '0.8.0'
+** package 'clipr' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (clipr)
+* installing *source* package 'crayon' ...
+** this is package 'crayon' version '1.5.3'
+** package 'crayon' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (crayon)
+* installing *source* package 'stringi' ...
+** this is package 'stringi' version '1.8.7'
+** package 'stringi' successfully unpacked and MD5 sums checked
+** using staged installation
+ERROR: 'configure' exists but is not executable -- see the 'R Installation and Administration Manual'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.5/stringi'
+* installing *source* package 'Rcpp' ...
+** this is package 'Rcpp' version '1.1.1'
+** package 'Rcpp' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C++ compiler: 'g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'

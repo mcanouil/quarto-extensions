@@ -1,0 +1,42 @@
+pandoc 
+
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+    attributes:
+      playground: true
+  title: 🛝 Enable Coding Playground
+  description: This guide will show you how to convert your Gradio app into a coding playground embedded in your Quarto document. Along the way, you will also learn how to specify custom options for your embedded app that the `quarto-gradio` extension will understand and apply.
+  
+
+Output created: ../../_site/guide/enable-coding-playground/index.html
+
+

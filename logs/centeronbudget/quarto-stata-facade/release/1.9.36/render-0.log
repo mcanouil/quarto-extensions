@@ -1,0 +1,28 @@
+
+Starting python3 kernel...
+Done
+
+
+Executing 'example.quarto_ipynb'
+
+  Cell 1/2: ''...
+
+
+An error occurred while executing the following cell:
+------------------
+import stata_setup
+stata_setup.config("C:/Program Files/Stata17", "mp")
+------------------
+
+
+---------------------------------------------------------------------------
+ModuleNotFoundError                       Traceback (most recent call last)
+Cell In[1], line 1
+----> 1 import stata_setup
+      2 stata_setup.config("C:/Program Files/Stata17", "mp")
+
+ModuleNotFoundError: No module named 'stata_setup'
+
+
+(WARN) Error encountered when rendering files
+

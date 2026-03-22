@@ -1,0 +1,77 @@
+pandoc 
+
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+
+metadata
+
+  block-headings: true
+  date-format: long
+  documentclass: article
+  fontfamily: helvet
+  fontsize: 12pt
+  geometry:
+    - left=2.5cm
+    - right=2cm
+    - top=2cm
+    - bottom=2cm
+  colorlinks: true
+  header-includes:
+    - |
+      \usepackage{graphicx}
+      \usepackage{xcolor}
+      \usepackage[absolute,overlay]{textpos}
+      \setlength{\TPHorizModule}{1cm}
+      \setlength{\TPVertModule}{1cm}
+      \definecolor{fublue}{HTML}{004659}
+      \definecolor{fulime}{HTML}{CCFF00}
+      \setlength{\parskip}{0.5em}
+      \setlength{\parindent}{0pt}
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  sender-name: Dr. Jane Smith
+  sender-department: Department of Example Research
+  sender-institute: Institute for Sample Studies
+  sender-faculty: Faculty of Example Sciences
+  sender-address: Sample Street 123
+  sender-city: 14195 Berlin
+  sender-phone: +49 30 12345678
+  sender-email: jane.smith@fu-berlin.de
+  recipient-organization: Example University
+  recipient-department: Department of Research
+  recipient-name: Prof. Dr. John Doe
+  recipient-address: Research Avenue 45
+  recipient-city: 12345 Sample City
+  letter-subject: Application for Research Position
+  letter-lang: en
+  letter-greeting: Dear Prof. Dr. Doe,
+  letter-closing: Best regards,
+  
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+running lualatex - 2
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+
+
+Output created: ../_output/template.pdf
+
+
