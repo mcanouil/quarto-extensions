@@ -1,0 +1,351 @@
+
+
+processing file: template.qmd
+
+1/3                  
+
+2/3 [unnamed-chunk-1]
+
+3/3                  
+
+output file: template.knit.md
+
+
+pandoc 
+
+  to: latex
+  output-file: template.tex
+  standalone: true
+  shift-heading-level-by: -1
+  pdf-engine: pdflatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  cite-method: natbib
+  number-sections: true
+  
+
+metadata
+
+  block-headings: true
+  journal:
+    blinded: false
+  documentclass: article
+  classoption:
+    - 11pt
+  date-format: long
+  biblio-style: econ
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Paper template
+  title-footnote: |
+    Some footnotes on the title...
+  author-format: horizontal
+  author:
+    - name: Hyoungchul Kim
+      acknowledgements: |
+        The creator. We want to thank...
+      affiliations:
+        - name: University of Pennsylvania
+    - name: Author 2
+      acknowledgements: |
+        Another author's acknowledgements..
+      affiliations:
+        - name: University of WWW
+        - department: Department of Economics
+  date: last-modified
+  articleurl: https://hchulkim.github.io
+  abstract: |
+    The text of your abstract.
+  keywords:
+    - 3 to 6 keywords
+  bibliography:
+    - bibliography.bib
+  indent: true
+  citecolor: cyan
+  linkcolor: cyan
+  urlcolor: cyan
+  
+
+
+Rendering PDF
+
+running pdflatex - 1
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for bbm.sty
+
+> 1 package to install
+
+> installing bbm-macros (1 of 1)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+finding package for setspace.sty
+
+> 1 package to install
+
+> installing setspace (1 of 1)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+finding package for threeparttable.sty
+
+> 1 package to install
+
+> installing threeparttable (1 of 1)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+finding package for picinpar.sty
+
+> 1 package to install
+
+> installing picinpar (1 of 1)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+finding package for ae.sty
+
+> 1 package to install
+
+> installing ae (1 of 1)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+finding package for morefloats.sty
+
+> 1 package to install
+
+> installing morefloats (1 of 1)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+finding package for adjustbox.sty
+
+> 1 package to install
+
+> installing adjustbox (1 of 1)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+finding package for ulem.sty
+
+> 1 package to install
+
+> installing ulem (1 of 1)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+finding package for ragged2e.sty
+
+> 1 package to install
+
+> installing ragged2e (1 of 1)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+finding package for changepage.sty
+
+> 1 package to install
+
+> installing changepage (1 of 1)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+finding package for caption.sty
+
+> 1 package to install
+
+> installing caption (1 of 1)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+  kpathsea: Running mktextfm pplr8t
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Could not map source abbreviation  for pplr8t.
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Need to update ?
+  mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input pplr8t
+  This is METAFONT, Version 2.71828182 (TeX Live 2026) (preloaded base=mf)
+  
+  kpathsea: Running mktexmf pplr8t
+  
+  ! I can't find file `pplr8t'.
+  <*> ...ljfour; mag:=1; ; nonstopmode; input pplr8t
+                                                    
+  Please type another input file name
+  ! Emergency stop.
+  <*> ...ljfour; mag:=1; ; nonstopmode; input pplr8t
+                                                    
+  Transcript written on mfput.log.
+  grep: pplr8t.log: No such file or directory
+  mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input pplr8t' failed to make pplr8t.tfm.
+  kpathsea: Appending font creation commands to missfont.log.
+  
+
+finding package for pplr8t(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+
+finding package for pplr8t
+
+finding package for mktextfm
+
+> 2 packages to install
+
+> installing palatino (1 of 2)
+
+> installing texlive-scripts (2 of 2)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+  kpathsea: Running mktextfm fplmr
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Could not map source abbreviation  for fplmr.
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Need to update ?
+  mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input fplmr
+  This is METAFONT, Version 2.71828182 (TeX Live 2026) (preloaded base=mf)
+  
+  kpathsea: Running mktexmf fplmr
+  
+  ! I can't find file `fplmr'.
+  <*> ...=ljfour; mag:=1; ; nonstopmode; input fplmr
+                                                    
+  Please type another input file name
+  ! Emergency stop.
+  <*> ...=ljfour; mag:=1; ; nonstopmode; input fplmr
+                                                    
+  Transcript written on mfput.log.
+  grep: fplmr.log: No such file or directory
+  mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input fplmr' failed to make fplmr.tfm.
+  kpathsea: Appending font creation commands to missfont.log.
+  
+
+finding package for fplmr(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+
+finding package for pplr8t
+
+finding package for mktextfm
+
+finding package for fplmr
+
+> 2 packages to install
+
+> installing mathpazo (1 of 2)
+
+> installing texlive-scripts (2 of 2)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+  kpathsea: Running mktextfm pcrr8t
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Could not map source abbreviation  for pcrr8t.
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Need to update ?
+  mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input pcrr8t
+  This is METAFONT, Version 2.71828182 (TeX Live 2026) (preloaded base=mf)
+  
+  kpathsea: Running mktexmf pcrr8t
+  
+  ! I can't find file `pcrr8t'.
+  <*> ...ljfour; mag:=1; ; nonstopmode; input pcrr8t
+                                                    
+  Please type another input file name
+  ! Emergency stop.
+  <*> ...ljfour; mag:=1; ; nonstopmode; input pcrr8t
+                                                    
+  Transcript written on mfput.log.
+  grep: pcrr8t.log: No such file or directory
+  mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input pcrr8t' failed to make pcrr8t.tfm.
+  kpathsea: Appending font creation commands to missfont.log.
+  
+
+finding package for pcrr8t(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+
+finding package for pplr8t
+
+finding package for mktextfm
+
+finding package for fplmr
+
+finding package for pcrr8t
+
+> 2 packages to install
+
+> installing courier (1 of 2)
+
+> installing texlive-scripts (2 of 2)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+generating bibliography
+
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: template.aux
+  The style file: econ.bst
+  Database file #1: bibliography.bib
+  
+
+running pdflatex - 2
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+running pdflatex - 3
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+
+
+Output created: template.pdf
+
+

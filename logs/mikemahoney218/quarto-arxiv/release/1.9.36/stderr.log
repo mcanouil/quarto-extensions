@@ -1,0 +1,491 @@
+Cloning into 'repo'...
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/__linux__/jammy/latest/src/contrib/renv_1.1.8.tar.gz'
+Content type 'binary/octet-stream' length 2336300 bytes (2.2 MB)
+==================================================
+downloaded 2.2 MB
+
+* installing *binary* package 'renv' ...
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/Rtmpm8zRkS/downloaded_packages'
+The R temporary directory appears to be within a folder mounted as 'noexec'.
+Installation of R packages from sources may fail.
+See the section **Note** within `?INSTALL` for more details.
+
+tempdir(): /tmp/Rtmpm8zRkS
+Installing packages into '/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)
+also installing the dependencies 'utf8', 'withr', 'pillar', 'tidyselect', 'vctrs', 'stringi', 'pkgconfig', 'cpp11', 'farver', 'labeling', 'RColorBrewer', 'systemfonts', 'textshaping', 'backports', 'dplyr', 'generics', 'glue', 'purrr', 'stringr', 'tibble', 'tidyr', 'magrittr', 'xml2', 'scales', 'viridisLite', 'rstudioapi', 'svglite'
+
+trying URL 'https://cloud.r-project.org/src/contrib/utf8_1.2.6.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/withr_3.0.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/pillar_1.11.1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/tidyselect_1.2.1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/vctrs_0.7.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/stringi_1.8.7.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/pkgconfig_2.0.3.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/cpp11_0.5.3.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/farver_2.1.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/labeling_0.4.3.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/RColorBrewer_1.1-3.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/systemfonts_1.3.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/textshaping_1.0.5.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/backports_1.5.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/dplyr_1.2.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/generics_0.1.4.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/glue_1.8.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/purrr_1.2.1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/stringr_1.6.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/tibble_3.3.1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/tidyr_1.3.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/magrittr_2.0.4.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/xml2_1.5.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/scales_1.4.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/viridisLite_0.4.3.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/rstudioapi_0.18.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/svglite_2.2.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/broom_1.0.12.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/kableExtra_1.4.0.tar.gz'
+* installing *source* package 'utf8' ...
+** this is package 'utf8' version '1.2.6'
+** package 'utf8' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-utf8/00new/utf8/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (utf8)
+* installing *source* package 'withr' ...
+** this is package 'withr' version '3.0.2'
+** package 'withr' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (withr)
+* installing *source* package 'stringi' ...
+** this is package 'stringi' version '1.8.7'
+** package 'stringi' successfully unpacked and MD5 sums checked
+** using staged installation
+ERROR: 'configure' exists but is not executable -- see the 'R Installation and Administration Manual'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5/stringi'
+* installing *source* package 'pkgconfig' ...
+** this is package 'pkgconfig' version '2.0.3'
+** package 'pkgconfig' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (pkgconfig)
+* installing *source* package 'cpp11' ...
+** this is package 'cpp11' version '0.5.3'
+** package 'cpp11' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (cpp11)
+* installing *source* package 'farver' ...
+** this is package 'farver' version '2.1.2'
+** package 'farver' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C++ compiler: 'g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-farver/00new/farver/libs
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (farver)
+* installing *source* package 'labeling' ...
+** this is package 'labeling' version '0.4.3'
+** package 'labeling' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (labeling)
+* installing *source* package 'RColorBrewer' ...
+** this is package 'RColorBrewer' version '1.1-3'
+** package 'RColorBrewer' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (RColorBrewer)
+* installing *source* package 'backports' ...
+** this is package 'backports' version '1.5.0'
+** package 'backports' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-backports/00new/backports/libs
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (backports)
+* installing *source* package 'generics' ...
+** this is package 'generics' version '0.1.4'
+** package 'generics' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (generics)
+* installing *source* package 'glue' ...
+** this is package 'glue' version '1.8.0'
+** package 'glue' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-glue/00new/glue/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (glue)
+* installing *source* package 'magrittr' ...
+** this is package 'magrittr' version '2.0.4'
+** package 'magrittr' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-magrittr/00new/magrittr/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (magrittr)
+* installing *source* package 'xml2' ...
+** this is package 'xml2' version '1.5.2'
+** package 'xml2' successfully unpacked and MD5 sums checked
+** using staged installation
+ERROR: 'configure' exists but is not executable -- see the 'R Installation and Administration Manual'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5/xml2'
+* installing *source* package 'viridisLite' ...
+** this is package 'viridisLite' version '0.4.3'
+** package 'viridisLite' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (viridisLite)
+* installing *source* package 'rstudioapi' ...
+** this is package 'rstudioapi' version '0.18.0'
+** package 'rstudioapi' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (rstudioapi)
+* installing *source* package 'vctrs' ...
+** this is package 'vctrs' version '0.7.2'
+** package 'vctrs' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-vctrs/00new/vctrs/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (vctrs)
+* installing *source* package 'systemfonts' ...
+** this is package 'systemfonts' version '1.3.2'
+** package 'systemfonts' successfully unpacked and MD5 sums checked
+** using staged installation
+ERROR: 'configure' exists but is not executable -- see the 'R Installation and Administration Manual'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5/systemfonts'
+* installing *source* package 'scales' ...
+** this is package 'scales' version '1.4.0'
+** package 'scales' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (scales)
+* installing *source* package 'pillar' ...
+** this is package 'pillar' version '1.11.1'
+** package 'pillar' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (pillar)
+* installing *source* package 'tidyselect' ...
+** this is package 'tidyselect' version '1.2.1'
+** package 'tidyselect' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (tidyselect)
+ERROR: dependencies 'stringi', 'systemfonts' are not available for package 'textshaping'
+Perhaps try a variation of:
+install.packages(c('stringi', 'systemfonts'))
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5/textshaping'
+* installing *source* package 'purrr' ...
+** this is package 'purrr' version '1.2.1'
+** package 'purrr' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-purrr/00new/purrr/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (purrr)
+ERROR: dependency 'stringi' is not available for package 'stringr'
+Perhaps try a variation of:
+install.packages('stringi')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5/stringr'
+* installing *source* package 'tibble' ...
+** this is package 'tibble' version '3.3.1'
+** package 'tibble' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-tibble/00new/tibble/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (tibble)
+ERROR: dependencies 'systemfonts', 'textshaping' are not available for package 'svglite'
+Perhaps try a variation of:
+install.packages(c('systemfonts', 'textshaping'))
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5/svglite'
+* installing *source* package 'dplyr' ...
+** this is package 'dplyr' version '1.2.0'
+** package 'dplyr' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C++ compiler: 'g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-dplyr/00new/dplyr/libs
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (dplyr)
+ERROR: dependencies 'stringr', 'xml2', 'svglite' are not available for package 'kableExtra'
+Perhaps try a variation of:
+install.packages(c('stringr', 'xml2', 'svglite'))
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5/kableExtra'
+ERROR: dependency 'stringr' is not available for package 'tidyr'
+Perhaps try a variation of:
+install.packages('stringr')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5/tidyr'
+ERROR: dependencies 'stringr', 'tidyr' are not available for package 'broom'
+Perhaps try a variation of:
+install.packages(c('stringr', 'tidyr'))
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5/broom'
+
+The downloaded source packages are in
+	'/tmp/Rtmpm8zRkS/downloaded_packages'
+Warning messages:
+1: In install.packages(deps, repos = "https://cloud.r-project.org") :
+  installation of package 'stringi' had non-zero exit status
+2: In install.packages(deps, repos = "https://cloud.r-project.org") :
+  installation of package 'xml2' had non-zero exit status
+3: In install.packages(deps, repos = "https://cloud.r-project.org") :
+  installation of package 'systemfonts' had non-zero exit status
+4: In install.packages(deps, repos = "https://cloud.r-project.org") :
+  installation of package 'textshaping' had non-zero exit status
+5: In install.packages(deps, repos = "https://cloud.r-project.org") :
+  installation of package 'stringr' had non-zero exit status
+6: In install.packages(deps, repos = "https://cloud.r-project.org") :
+  installation of package 'svglite' had non-zero exit status
+7: In install.packages(deps, repos = "https://cloud.r-project.org") :
+  installation of package 'kableExtra' had non-zero exit status
+8: In install.packages(deps, repos = "https://cloud.r-project.org") :
+  installation of package 'tidyr' had non-zero exit status
+9: In install.packages(deps, repos = "https://cloud.r-project.org") :
+  installation of package 'broom' had non-zero exit status
+
+
+processing file: template.qmd
+1/5                  
+2/5 [unnamed-chunk-1]
+3/5                  
+4/5 [tbl-glm]        
+Error in `loadNamespace()`:
+! there is no package called 'kableExtra'
+Backtrace:
+    x
+ 1. \-base::loadNamespace(x)
+ 2.   \-base::withRestarts(stop(cond), retry_loadNamespace = function() NULL)
+ 3.     \-base (local) withOneRestart(expr, restarts[[1L]])
+ 4.       \-base (local) doWithOneRestart(return(expr), restart)
+
+Quitting from template.qmd:58-70 [tbl-glm]
+Execution halted
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+
+
+processing file: template.qmd
+1/5                  
+2/5 [unnamed-chunk-1]
+3/5                  
+4/5 [tbl-glm]        
+Error in `loadNamespace()`:
+! there is no package called 'kableExtra'
+Backtrace:
+    x
+ 1. \-base::loadNamespace(x)
+ 2.   \-base::withRestarts(stop(cond), retry_loadNamespace = function() NULL)
+ 3.     \-base (local) withOneRestart(expr, restarts[[1L]])
+ 4.       \-base (local) doWithOneRestart(return(expr), restart)
+
+Quitting from template.qmd:58-70 [tbl-glm]
+Execution halted
+WARN: Error encountered when rendering files

@@ -1,0 +1,30 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Qreacto
+  sidebar: false
+  navbar: false
+  
+MyComponent > react-MyComponent-IGTqCSQl
+MyStyledComponent > react-MyStyledComponent-gwYXOnkU
+EmojiComponent > react-EmojiComponent-KicU87u7
+RandomWordsComponent > react-RandomWordsComponent-Kq7c0Sk3
+MyNestedComponent > react-MyNestedComponent-NeavpN67
+EnvironmentReadingComponent > react-EnvironmentReadingComponent-FWVSecvL
+Output created: example.html
+

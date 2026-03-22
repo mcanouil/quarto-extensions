@@ -1,0 +1,31 @@
+pandoc 
+
+  to: pptx
+  output-file: example-pptx.pptx
+  default-image-extension: png
+  variables: {}
+  
+
+metadata
+
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Typst Render
+  subtitle: Quarto Extension
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  extensions:
+    typst-render:
+      margin: 0.5em
+  
+
+(W) [typst-render] Inline Typst is not supported for PowerPoint output; inline code will be kept as-is.
+
+WARNING (/opt/quarto/share/filters/main.lua:19912) No renderer for PanelLayout
+WARNING (/opt/quarto/share/filters/main.lua:19917) Don't know how to render PanelLayout without a float; will return empty output
+
+Output created: example-pptx.pptx
+
+

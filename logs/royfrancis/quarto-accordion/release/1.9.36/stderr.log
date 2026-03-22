@@ -1,0 +1,206 @@
+Cloning into 'repo'...
+[1/4] index.qmd
+[2/4] revealjs.qmd
+(W) Accordion shortcode: No arguments provided. Provide contents either as yaml metadata (positional argument) or inline (label kwarg).
+(W) Accordion shortcode: Use either a positional argument or named arguments (label), not both.
+(W) Accordion shortcode: 'invalid label': Label contains invalid characters. Only letters, numbers, dashes (-) and underscores (_) are allowed.
+(W) Accordion shortcode: 'nonexistent': Accordion entry not found in yaml metadata.
+(W) Accordion shortcode: 'yaml-empty': Missing 'header' and 'body'.
+(W) Accordion shortcode: 'yaml-missing-header': Item 1 is missing 'header'.
+(W) Accordion shortcode: 'yaml-missing-body': Item 1 is missing 'body'.
+(W) Accordion shortcode: 'inline-no-body': 'body' kwarg is missing.
+(W) Accordion shortcode: 'inline-no-header': 'header' kwarg is missing.
+[3/4] usage.qmd
+[typst]: Compiling usage.typ to usage.pdf...DONE
+
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+finding package for scrartcl.cls
+> 1 package to install
+> installing koma-script (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+finding package for tcolorbox.sty
+> 1 package to install
+> installing tcolorbox (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for tikzfill.image.sty
+> 1 package to install
+> installing tikzfill (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for pdfcol.sty
+> 1 package to install
+> installing pdfcol (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for fontawesome5.sty
+> 1 package to install
+> installing fontawesome5 (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for caption.sty
+> 1 package to install
+> installing caption (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 3
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+[4/4] test.qmd
+(W) Accordion shortcode: No arguments provided. Provide contents either as yaml metadata (positional argument) or inline (label kwarg).
+(W) Accordion shortcode: Use either a positional argument or named arguments (label), not both.
+(W) Accordion shortcode: 'inline simple': Label contains invalid characters. Only letters, numbers, dashes (-) and underscores (_) are allowed.
+(W) Accordion shortcode: 'inline?simple': Label contains invalid characters. Only letters, numbers, dashes (-) and underscores (_) are allowed.
+(W) Accordion shortcode: 'nonexistent': Accordion entry not found in yaml metadata.
+(W) Accordion shortcode: 'yaml-empty': Missing 'header' and 'body'.
+(W) Accordion shortcode: 'yaml-missing-header': Item 1 is missing 'header'.
+(W) Accordion shortcode: 'yaml-missing-body': Item 1 is missing 'body'.
+(W) Accordion shortcode: 'yaml-missing-both': Item 1 is missing 'header' and 'body'.
+(W) Accordion shortcode: 'yaml-many-items': Item 3 is missing 'body'.
+(W) Accordion shortcode: 'inline-empty': 'label' kwarg specified without 'header'/'body' or 'items' kwargs.
+(W) Accordion shortcode: 'inline-missing-body': 'body' kwarg is missing.
+(W) Accordion shortcode: 'inline-missing-header': 'header' kwarg is missing.
+(W) Accordion shortcode: 'inline-mixed': Use either 'header'/'body' or 'items', not both.
+[31mERROR (/opt/quarto/share/pandoc/datadir/_json.lua:212) invalid literal 'not' at line 1 col 1
+[39m[31mERROR (/opt/quarto/share/pandoc/datadir/_json.lua:212) trailing garbage at line 1 col 5
+[39m(W) Accordion shortcode: 'inline-bad-json': Missing 'header' and 'body'.
+(W) Accordion shortcode: 'inline-json-no-header': Item 2 is missing 'header'.
+(W) Accordion shortcode: 'inline-json-no-body': Item 1 is missing 'body'.
+(W) Accordion shortcode: No arguments provided. Provide contents either as yaml metadata (positional argument) or inline (label kwarg).
+(W) Accordion shortcode: Use either a positional argument or named arguments (label), not both.
+(W) Accordion shortcode: 'inline simple': Label contains invalid characters. Only letters, numbers, dashes (-) and underscores (_) are allowed.
+(W) Accordion shortcode: 'inline?simple': Label contains invalid characters. Only letters, numbers, dashes (-) and underscores (_) are allowed.
+(W) Accordion shortcode: 'nonexistent': Accordion entry not found in yaml metadata.
+(W) Accordion shortcode: 'yaml-empty': Missing 'header' and 'body'.
+(W) Accordion shortcode: 'yaml-missing-header': Item 1 is missing 'header'.
+(W) Accordion shortcode: 'yaml-missing-body': Item 1 is missing 'body'.
+(W) Accordion shortcode: 'yaml-missing-both': Item 1 is missing 'header' and 'body'.
+(W) Accordion shortcode: 'yaml-many-items': Item 3 is missing 'body'.
+(W) Accordion shortcode: 'inline-empty': 'label' kwarg specified without 'header'/'body' or 'items' kwargs.
+(W) Accordion shortcode: 'inline-missing-body': 'body' kwarg is missing.
+(W) Accordion shortcode: 'inline-missing-header': 'header' kwarg is missing.
+(W) Accordion shortcode: 'inline-mixed': Use either 'header'/'body' or 'items', not both.
+[31mERROR (/opt/quarto/share/pandoc/datadir/_json.lua:212) invalid literal 'not' at line 1 col 1
+[39m[31mERROR (/opt/quarto/share/pandoc/datadir/_json.lua:212) trailing garbage at line 1 col 5
+[39m(W) Accordion shortcode: 'inline-bad-json': Missing 'header' and 'body'.
+(W) Accordion shortcode: 'inline-json-no-header': Item 2 is missing 'header'.
+(W) Accordion shortcode: 'inline-json-no-body': Item 1 is missing 'body'.
+(W) Accordion shortcode: No arguments provided. Provide contents either as yaml metadata (positional argument) or inline (label kwarg).
+(W) Accordion shortcode: Use either a positional argument or named arguments (label), not both.
+(W) Accordion shortcode: 'inline simple': Label contains invalid characters. Only letters, numbers, dashes (-) and underscores (_) are allowed.
+(W) Accordion shortcode: 'inline?simple': Label contains invalid characters. Only letters, numbers, dashes (-) and underscores (_) are allowed.
+(W) Accordion shortcode: 'nonexistent': Accordion entry not found in yaml metadata.
+(W) Accordion shortcode: 'yaml-empty': Missing 'header' and 'body'.
+(W) Accordion shortcode: 'yaml-missing-header': Item 1 is missing 'header'.
+(W) Accordion shortcode: 'yaml-missing-body': Item 1 is missing 'body'.
+(W) Accordion shortcode: 'yaml-missing-both': Item 1 is missing 'header' and 'body'.
+(W) Accordion shortcode: 'yaml-many-items': Item 3 is missing 'body'.
+(W) Accordion shortcode: 'inline-empty': 'label' kwarg specified without 'header'/'body' or 'items' kwargs.
+(W) Accordion shortcode: 'inline-missing-body': 'body' kwarg is missing.
+(W) Accordion shortcode: 'inline-missing-header': 'header' kwarg is missing.
+(W) Accordion shortcode: 'inline-mixed': Use either 'header'/'body' or 'items', not both.
+[31mERROR (/opt/quarto/share/pandoc/datadir/_json.lua:212) invalid literal 'not' at line 1 col 1
+[39m[31mERROR (/opt/quarto/share/pandoc/datadir/_json.lua:212) trailing garbage at line 1 col 5
+[39m(W) Accordion shortcode: 'inline-bad-json': Missing 'header' and 'body'.
+(W) Accordion shortcode: 'inline-json-no-header': Item 2 is missing 'header'.
+(W) Accordion shortcode: 'inline-json-no-body': Item 1 is missing 'body'.
+(W) Accordion shortcode: No arguments provided. Provide contents either as yaml metadata (positional argument) or inline (label kwarg).
+(W) Accordion shortcode: Use either a positional argument or named arguments (label), not both.
+(W) Accordion shortcode: 'inline simple': Label contains invalid characters. Only letters, numbers, dashes (-) and underscores (_) are allowed.
+(W) Accordion shortcode: 'inline?simple': Label contains invalid characters. Only letters, numbers, dashes (-) and underscores (_) are allowed.
+(W) Accordion shortcode: 'nonexistent': Accordion entry not found in yaml metadata.
+(W) Accordion shortcode: 'yaml-empty': Missing 'header' and 'body'.
+(W) Accordion shortcode: 'yaml-missing-header': Item 1 is missing 'header'.
+(W) Accordion shortcode: 'yaml-missing-body': Item 1 is missing 'body'.
+(W) Accordion shortcode: 'yaml-missing-both': Item 1 is missing 'header' and 'body'.
+(W) Accordion shortcode: 'yaml-many-items': Item 3 is missing 'body'.
+(W) Accordion shortcode: 'inline-empty': 'label' kwarg specified without 'header'/'body' or 'items' kwargs.
+(W) Accordion shortcode: 'inline-missing-body': 'body' kwarg is missing.
+(W) Accordion shortcode: 'inline-missing-header': 'header' kwarg is missing.
+(W) Accordion shortcode: 'inline-mixed': Use either 'header'/'body' or 'items', not both.
+[31mERROR (/opt/quarto/share/pandoc/datadir/_json.lua:212) invalid literal 'not' at line 1 col 1
+[39m[31mERROR (/opt/quarto/share/pandoc/datadir/_json.lua:212) trailing garbage at line 1 col 5
+[39m(W) Accordion shortcode: 'inline-bad-json': Missing 'header' and 'body'.
+(W) Accordion shortcode: 'inline-json-no-header': Item 2 is missing 'header'.
+(W) Accordion shortcode: 'inline-json-no-body': Item 1 is missing 'body'.
+(W) Accordion shortcode: No arguments provided. Provide contents either as yaml metadata (positional argument) or inline (label kwarg).
+(W) Accordion shortcode: Use either a positional argument or named arguments (label), not both.
+(W) Accordion shortcode: 'inline simple': Label contains invalid characters. Only letters, numbers, dashes (-) and underscores (_) are allowed.
+(W) Accordion shortcode: 'inline?simple': Label contains invalid characters. Only letters, numbers, dashes (-) and underscores (_) are allowed.
+(W) Accordion shortcode: 'nonexistent': Accordion entry not found in yaml metadata.
+(W) Accordion shortcode: 'yaml-empty': Missing 'header' and 'body'.
+(W) Accordion shortcode: 'yaml-missing-header': Item 1 is missing 'header'.
+(W) Accordion shortcode: 'yaml-missing-body': Item 1 is missing 'body'.
+(W) Accordion shortcode: 'yaml-missing-both': Item 1 is missing 'header' and 'body'.
+(W) Accordion shortcode: 'yaml-many-items': Item 3 is missing 'body'.
+(W) Accordion shortcode: 'inline-empty': 'label' kwarg specified without 'header'/'body' or 'items' kwargs.
+(W) Accordion shortcode: 'inline-missing-body': 'body' kwarg is missing.
+(W) Accordion shortcode: 'inline-missing-header': 'header' kwarg is missing.
+(W) Accordion shortcode: 'inline-mixed': Use either 'header'/'body' or 'items', not both.
+[31mERROR (/opt/quarto/share/pandoc/datadir/_json.lua:212) invalid literal 'not' at line 1 col 1
+[39m[31mERROR (/opt/quarto/share/pandoc/datadir/_json.lua:212) trailing garbage at line 1 col 5
+[39m(W) Accordion shortcode: 'inline-bad-json': Missing 'header' and 'body'.
+(W) Accordion shortcode: 'inline-json-no-header': Item 2 is missing 'header'.
+(W) Accordion shortcode: 'inline-json-no-body': Item 1 is missing 'body'.
+(W) Accordion shortcode: No arguments provided. Provide contents either as yaml metadata (positional argument) or inline (label kwarg).
+(W) Accordion shortcode: Use either a positional argument or named arguments (label), not both.
+(W) Accordion shortcode: 'inline simple': Label contains invalid characters. Only letters, numbers, dashes (-) and underscores (_) are allowed.
+(W) Accordion shortcode: 'inline?simple': Label contains invalid characters. Only letters, numbers, dashes (-) and underscores (_) are allowed.
+(W) Accordion shortcode: 'nonexistent': Accordion entry not found in yaml metadata.
+(W) Accordion shortcode: 'yaml-empty': Missing 'header' and 'body'.
+(W) Accordion shortcode: 'yaml-missing-header': Item 1 is missing 'header'.
+(W) Accordion shortcode: 'yaml-missing-body': Item 1 is missing 'body'.
+(W) Accordion shortcode: 'yaml-missing-both': Item 1 is missing 'header' and 'body'.
+(W) Accordion shortcode: 'yaml-many-items': Item 3 is missing 'body'.
+(W) Accordion shortcode: 'inline-empty': 'label' kwarg specified without 'header'/'body' or 'items' kwargs.
+(W) Accordion shortcode: 'inline-missing-body': 'body' kwarg is missing.
+(W) Accordion shortcode: 'inline-missing-header': 'header' kwarg is missing.
+(W) Accordion shortcode: 'inline-mixed': Use either 'header'/'body' or 'items', not both.
+[31mERROR (/opt/quarto/share/pandoc/datadir/_json.lua:212) invalid literal 'not' at line 1 col 1
+[39m[31mERROR (/opt/quarto/share/pandoc/datadir/_json.lua:212) trailing garbage at line 1 col 5
+[39m(W) Accordion shortcode: 'inline-bad-json': Missing 'header' and 'body'.
+(W) Accordion shortcode: 'inline-json-no-header': Item 2 is missing 'header'.
+(W) Accordion shortcode: 'inline-json-no-body': Item 1 is missing 'body'.
+[typst]: Compiling test.typ to test.pdf...DONE
+
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 3
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+
+Output created: docs/index.html
+

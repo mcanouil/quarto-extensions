@@ -1,0 +1,108 @@
+Cloning into 'repo'...
+
+Starting python3 kernel...Done
+
+Executing 'asce-template.quarto_ipynb'
+  Cell 1/1: 'fig-fill-between'...
+
+An error occurred while executing the following cell:
+------------------
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# use SciencePlots package
+# to install the latest release (from PyPI)
+# pip install SciencePlots
+
+# to install the latest commit (from GitHub)
+# pip install git+https://github.com/garrettj403/SciencePlots
+
+# plt.style.use(['science','ieee']) 
+
+np.random.seed(1)
+x = np.linspace(0, 8, 16)
+y1 = 3 + 4*x/8 + np.random.uniform(0.0, 0.5, len(x))
+y2 = 1 + 2*x/8 + np.random.uniform(0.0, 0.5, len(x))
+
+# plot
+fig, ax = plt.subplots()
+
+ax.fill_between(x, y1, y2, alpha=.5, linewidth=0)
+ax.plot(x, (y1 + y2)/2, linewidth=2)
+
+ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
+       ylim=(0, 8), yticks=np.arange(1, 8))
+
+plt.show()
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mModuleNotFoundError[39m                       Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 1[39m
+[32m----> [39m[32m1[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mmatplotlib[39;00m[34;01m.[39;00m[34;01mpyplot[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[34;01mplt[39;00m
+[32m      2[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[34;01mnp[39;00m
+[32m      4[39m [38;5;66;03m# use SciencePlots package[39;00m
+[32m      5[39m [38;5;66;03m# to install the latest release (from PyPI)[39;00m
+[32m      6[39m [38;5;66;03m# pip install SciencePlots[39;00m
+[32m   (...)[39m[32m     10[39m 
+[32m     11[39m [38;5;66;03m# plt.style.use(['science','ieee']) [39;00m
+
+[31mModuleNotFoundError[39m: No module named 'matplotlib'
+
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+
+Starting python3 kernel...Done
+
+Executing 'asce-template.quarto_ipynb'
+  Cell 1/1: 'fig-fill-between'...
+
+An error occurred while executing the following cell:
+------------------
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# use SciencePlots package
+# to install the latest release (from PyPI)
+# pip install SciencePlots
+
+# to install the latest commit (from GitHub)
+# pip install git+https://github.com/garrettj403/SciencePlots
+
+# plt.style.use(['science','ieee']) 
+
+np.random.seed(1)
+x = np.linspace(0, 8, 16)
+y1 = 3 + 4*x/8 + np.random.uniform(0.0, 0.5, len(x))
+y2 = 1 + 2*x/8 + np.random.uniform(0.0, 0.5, len(x))
+
+# plot
+fig, ax = plt.subplots()
+
+ax.fill_between(x, y1, y2, alpha=.5, linewidth=0)
+ax.plot(x, (y1 + y2)/2, linewidth=2)
+
+ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
+       ylim=(0, 8), yticks=np.arange(1, 8))
+
+plt.show()
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mModuleNotFoundError[39m                       Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 1[39m
+[32m----> [39m[32m1[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mmatplotlib[39;00m[34;01m.[39;00m[34;01mpyplot[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[34;01mplt[39;00m
+[32m      2[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[34;01mnp[39;00m
+[32m      4[39m [38;5;66;03m# use SciencePlots package[39;00m
+[32m      5[39m [38;5;66;03m# to install the latest release (from PyPI)[39;00m
+[32m      6[39m [38;5;66;03m# pip install SciencePlots[39;00m
+[32m   (...)[39m[32m     10[39m 
+[32m     11[39m [38;5;66;03m# plt.style.use(['science','ieee']) [39;00m
+
+[31mModuleNotFoundError[39m: No module named 'matplotlib'
+
+WARN: Error encountered when rendering files

@@ -1,0 +1,101 @@
+pandoc 
+
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  cite-method: natbib
+  number-sections: true
+  shift-heading-level-by: -1
+  
+
+metadata
+
+  block-headings: true
+  journal:
+    blinded: false
+  date-format: MMMM D, YYYY
+  documentclass: article
+  classoption:
+    - 12pt
+  biblio-style: agsm
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Title
+  date: last-modified
+  author:
+    - name: Author 1
+      acknowledgements: |
+        The authors gratefully acknowledge _please remember to list all relevant funding sources in the non-anonymized (unblinded) version_.
+      affiliations:
+        - name: University of XXX
+          department: Department of YYY
+    - name: Author 2
+      affiliations:
+        - name: University of WWW
+          department: Department of ZZZ
+  abstract: |
+    The text of your abstract. 200 or fewer words.
+  keywords:
+    - 3 to 6 keywords
+    - that do not appear in the title
+  bibliography:
+    - bibliography.bib
+  
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for caption.sty
+
+> 1 package to install
+
+> installing caption (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+generating bibliography
+
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: template.aux
+  The style file: agsm.bst
+  Database file #1: bibliography.bib
+  
+
+running lualatex - 2
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+running lualatex - 3
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+
+
+Output created: template.pdf
+
+

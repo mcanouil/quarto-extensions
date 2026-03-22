@@ -1,0 +1,46 @@
+Cloning into 'repo'...
+The R temporary directory appears to be within a folder mounted as 'noexec'.
+Installation of R packages from sources may fail.
+See the section **Note** within `?INSTALL` for more details.
+
+tempdir(): /tmp/RtmpddLIeG
+The R temporary directory appears to be within a folder mounted as 'noexec'.
+Installation of R packages from sources may fail.
+See the section **Note** within `?INSTALL` for more details.
+
+tempdir(): /tmp/RtmpPvYB3a
+Error: Error installing package 'fs':
+==============================
+
+* installing *source* package 'fs' ...
+** this is package 'fs' version '1.6.6'
+** package 'fs' successfully unpacked and MD5 sums checked
+** using staged installation
+Warning: 'cleanup' exists but is not executable -- see the 'R Installation and Administration Manual'
+** libs
+using C++ compiler: 'g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I./libuv-1.44.2/include -I. -pthread  -I/usr/local/include    -fpic  -g -O2   -c dir.cc -o dir.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I./libuv-1.44.2/include -I. -pthread  -I/usr/local/include    -fpic  -g -O2   -c error.cc -o error.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I./libuv-1.44.2/include -I. -pthread  -I/usr/local/include    -fpic  -g -O2   -c file.cc -o file.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I./libuv-1.44.2/include -I. -pthread  -I/usr/local/include    -fpic  -g -O2   -c fs.cc -o fs.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I./libuv-1.44.2/include -I. -pthread  -I/usr/local/include    -fpic  -g -O2   -c getmode.cc -o getmode.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I./libuv-1.44.2/include -I. -pthread  -I/usr/local/include    -fpic  -g -O2   -c id.cc -o id.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I./libuv-1.44.2/include -I. -pthread  -I/usr/local/include    -fpic  -g -O2   -c init.cc -o init.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I./libuv-1.44.2/include -I. -pthread  -I/usr/local/include    -fpic  -g -O2   -c link.cc -o link.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I./libuv-1.44.2/include -I. -pthread  -I/usr/local/include    -fpic  -g -O2   -c path.cc -o path.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I./libuv-1.44.2/include -I. -pthread  -I/usr/local/include    -fpic  -g -O2   -c utils.cc -o utils.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I./libuv-1.44.2/include -I. -pthread  -I/usr/local/include    -fpic  -g -O2   -c unix/getmode.cc -o unix/getmode.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I./libuv-1.44.2/include -I. -pthread  -I/usr/local/include    -fpic  -g -O2  -c bsd/setmode.c -o bsd/setmode.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I./libuv-1.44.2/include -I. -pthread  -I/usr/local/include    -fpic  -g -O2  -c bsd/strmode.c -o bsd/strmode.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I./libuv-1.44.2/include -I. -pthread  -I/usr/local/include    -fpic  -g -O2  -c bsd/reallocarray.c -o bsd/reallocarray.o
+touch libuv-1.44.2/aclocal.m4 && touch libuv-1.44.2/configure && touch libuv-1.44.2/Makefile.in
+(cd libuv-1.44.2 \
+&& CC="gcc" CPPFLAGS="-I/usr/local/include" CFLAGS="-g -O2  -fpic -fvisibility=hidden -std=c99" AR="ar" RANLIB="ranlib" LDFLAGS="-L/usr/local/lib" ./configure  --quiet)
+/bin/bash: line 2: ./configure: Permission denied
+make: *** [Makevars:37: libuv-1.44.2/Makefile] Error 126
+ERROR: compilation failed for package 'fs'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-15/repo/renv/staging/1/fs'
+install of package 'fs' failed [error code 1]
+Execution halted
+renv restore failed for kazuyanagimoto/quarto-academic-typst.
+Dependency install failed (exit 1) for kazuyanagimoto/quarto-academic-typst.

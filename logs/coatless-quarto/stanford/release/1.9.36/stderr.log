@@ -1,0 +1,435 @@
+Cloning into 'repo'...
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-9/R/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/__linux__/jammy/latest/src/contrib/renv_1.1.8.tar.gz'
+Content type 'binary/octet-stream' length 2336300 bytes (2.2 MB)
+==================================================
+downloaded 2.2 MB
+
+* installing *binary* package 'renv' ...
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/RtmpY2a34R/downloaded_packages'
+The R temporary directory appears to be within a folder mounted as 'noexec'.
+Installation of R packages from sources may fail.
+See the section **Note** within `?INSTALL` for more details.
+
+tempdir(): /tmp/RtmpY2a34R
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-9/R/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)
+also installing the dependencies 'glue', 'cpp11', 'farver', 'labeling', 'RColorBrewer', 'viridisLite', 'gtable', 'isoband', 'S7', 'scales', 'vctrs', 'withr'
+
+trying URL 'https://cloud.r-project.org/src/contrib/glue_1.8.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/cpp11_0.5.3.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/farver_2.1.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/labeling_0.4.3.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/RColorBrewer_1.1-3.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/viridisLite_0.4.3.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/gtable_0.3.6.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/isoband_0.3.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/S7_0.2.1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/scales_1.4.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/vctrs_0.7.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/withr_3.0.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/ggplot2_4.0.2.tar.gz'
+* installing *source* package 'glue' ...
+** this is package 'glue' version '1.8.0'
+** package 'glue' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-9/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-glue/00new/glue/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (glue)
+* installing *source* package 'cpp11' ...
+** this is package 'cpp11' version '0.5.3'
+** package 'cpp11' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (cpp11)
+* installing *source* package 'farver' ...
+** this is package 'farver' version '2.1.2'
+** package 'farver' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C++ compiler: 'g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-9/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-farver/00new/farver/libs
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (farver)
+* installing *source* package 'labeling' ...
+** this is package 'labeling' version '0.4.3'
+** package 'labeling' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (labeling)
+* installing *source* package 'RColorBrewer' ...
+** this is package 'RColorBrewer' version '1.1-3'
+** package 'RColorBrewer' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (RColorBrewer)
+* installing *source* package 'viridisLite' ...
+** this is package 'viridisLite' version '0.4.3'
+** package 'viridisLite' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (viridisLite)
+* installing *source* package 'S7' ...
+** this is package 'S7' version '0.2.1'
+** package 'S7' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-9/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-S7/00new/S7/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (S7)
+* installing *source* package 'withr' ...
+** this is package 'withr' version '3.0.2'
+** package 'withr' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (withr)
+* installing *source* package 'gtable' ...
+** this is package 'gtable' version '0.3.6'
+** package 'gtable' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (gtable)
+* installing *source* package 'isoband' ...
+** this is package 'isoband' version '0.3.0'
+** package 'isoband' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C++ compiler: 'g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-9/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-isoband/00new/isoband/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (isoband)
+* installing *source* package 'scales' ...
+** this is package 'scales' version '1.4.0'
+** package 'scales' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (scales)
+* installing *source* package 'vctrs' ...
+** this is package 'vctrs' version '0.7.2'
+** package 'vctrs' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-9/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-vctrs/00new/vctrs/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (vctrs)
+* installing *source* package 'ggplot2' ...
+** this is package 'ggplot2' version '4.0.2'
+** package 'ggplot2' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (ggplot2)
+
+The downloaded source packages are in
+	'/tmp/RtmpY2a34R/downloaded_packages'
+[1/6] index.qmd
+[2/6] demos/template-pdf-lor.qmd
+
+
+processing file: template-pdf-lor.qmd
+1/1
+output file: template-pdf-lor.knit.md
+
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+finding package for newlfm.cls
+> 1 package to install
+> installing newlfm (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for fancyhdr.sty
+> 2 packages to install
+> installing fancyhdr (1 of 2)
+> installing pdftex (2 of 2)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for eso-pic.sty
+> 1 package to install
+> installing eso-pic (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for setspace.sty
+> 1 package to install
+> installing setspace (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for lastpage.sty
+> 1 package to install
+> installing lastpage (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+finding package for caption.sty
+> 1 package to install
+> installing caption (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for bbding.sty
+> 1 package to install
+> installing bbding (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for soul.sty
+> 1 package to install
+> installing soul (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+[3/6] demos/template-beamer.qmd
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+finding package for beamer.cls
+> 1 package to install
+> installing beamer (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for units.sty
+> 1 package to install
+> installing units (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for listings.sty
+> 1 package to install
+> installing listings (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for tcolorbox.sty
+> 1 package to install
+> installing tcolorbox (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for physics.sty
+> 1 package to install
+> installing physics (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for _extensions/coatless-quarto/stanford/beamer/beamerthemeStanford.sty
+ERROR: 
+compilation failed- no matching packages
+LaTeX Error: File `_extensions/coatless-quarto/stanford/beamer/beamerthemeStanford.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+   
+l.205 \usetheme{Stanford}
+                       
+
+
+see /home/runner/work/quarto-extensions/quarto-extensions/test-9/repo/docs/demos/template-beamer.log for more information.
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+[1/6] index.qmd
+[2/6] demos/template-pdf-lor.qmd
+
+
+processing file: template-pdf-lor.qmd
+1/1
+output file: template-pdf-lor.knit.md
+
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+[3/6] demos/template-beamer.qmd
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+finding package for _extensions/coatless-quarto/stanford/beamer/beamerthemeStanford.sty
+ERROR: 
+compilation failed- no matching packages
+LaTeX Error: File `_extensions/coatless-quarto/stanford/beamer/beamerthemeStanford.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+   
+l.205 \usetheme{Stanford}
+                       
+
+
+see /home/runner/work/quarto-extensions/quarto-extensions/test-9/repo/docs/demos/template-beamer.log for more information.
+WARN: Error encountered when rendering files

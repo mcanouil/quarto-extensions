@@ -1,0 +1,69 @@
+Cloning into 'repo'...
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-4/R/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/__linux__/jammy/latest/src/contrib/renv_1.1.8.tar.gz'
+Content type 'binary/octet-stream' length 2336300 bytes (2.2 MB)
+==================================================
+downloaded 2.2 MB
+
+* installing *binary* package 'renv' ...
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/Rtmp13WfKo/downloaded_packages'
+The R temporary directory appears to be within a folder mounted as 'noexec'.
+Installation of R packages from sources may fail.
+See the section **Note** within `?INSTALL` for more details.
+
+tempdir(): /tmp/Rtmp13WfKo
+[1/7] qregurgitate-faq.qmd
+[2/7] index.qmd
+[3/7] qregurgitate-grouped.qmd
+
+
+processing file: qregurgitate-grouped.qmd
+1/3                  
+2/3 [unnamed-chunk-1]
+3/3                  
+output file: qregurgitate-grouped.knit.md
+
+[4/7] qregurgitate-code-only.qmd
+
+
+processing file: qregurgitate-code-only.qmd
+1/5                  
+2/5 [unnamed-chunk-1]
+Error in loadNamespace(x) : there is no package called 'reticulate'
+Calls: .main ... loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
+In addition: Warning message:
+The 'python' engine in knitr requires the reticulate package. If you do not want to use the reticulate package, set the chunk option python.reticulate = FALSE. 
+
+Quitting from qregurgitate-code-only.qmd:23-27 [unnamed-chunk-1]
+Execution halted
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+[1/7] qregurgitate-faq.qmd
+[2/7] index.qmd
+[3/7] qregurgitate-grouped.qmd
+
+
+processing file: qregurgitate-grouped.qmd
+1/3                  
+2/3 [unnamed-chunk-1]
+3/3                  
+output file: qregurgitate-grouped.knit.md
+
+[4/7] qregurgitate-code-only.qmd
+
+
+processing file: qregurgitate-code-only.qmd
+1/5                  
+2/5 [unnamed-chunk-1]
+Error in loadNamespace(x) : there is no package called 'reticulate'
+Calls: .main ... loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
+In addition: Warning message:
+The 'python' engine in knitr requires the reticulate package. If you do not want to use the reticulate package, set the chunk option python.reticulate = FALSE. 
+
+Quitting from qregurgitate-code-only.qmd:23-27 [unnamed-chunk-1]
+Execution halted
+WARN: Error encountered when rendering files

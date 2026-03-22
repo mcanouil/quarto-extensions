@@ -1,0 +1,21 @@
+pandoc 
+
+  to: odt
+  output-file: example.odt
+  default-image-extension: png
+  variables: {}
+  
+
+metadata
+
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Speaker Notes Example
+  speakernotes:
+    displayNotes: true
+    notesTitle: Notes in ODT format
+  
+
+Output created: example.odt
+
+

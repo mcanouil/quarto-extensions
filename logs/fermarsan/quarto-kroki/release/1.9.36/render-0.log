@@ -1,0 +1,54 @@
+pandoc 
+
+  to: html
+  output-file: test.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Kroki diagrams Test
+  
+
+  % Total    % Received % Xferd  
+Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+00    32   1496     34 --:--:-- --:--:-- --:--:--  1530100  1405  100  1373  100    32   1496     34 --:--:-- --:--:-- --:--:--  1530
+
+  % Total    % Rec
+eived % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- -
+-:--:--     0
+4  100  2954  100    80   4310    116 --:--:-- --:--:-- --:--:--  4429
+
+  % Total    % R
+eceived % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+     0  100    80      0    341 --:--:-- --:--:-- --:--:--   340
+100    80   1392     68  0:00:01  0:00:01 --:--:--  1461
+
+  % Total    % Received % 
+Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0   
+ 0     0      0      0 --:--:-- --:--:-- --:--:--     0
+ 0 --:--:-- --:--:-- --:--:--     0
+109 --:--:-- --:--:-- --:--:--  2101
+
+Output created: test.html
+
+

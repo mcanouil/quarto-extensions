@@ -1,0 +1,72 @@
+Cloning into 'repo'...
+WARN: Theme file not found: custom.scss
+pandoc 
+  to: html
+  output-file: template.html
+  standalone: true
+  self-contained: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - _extensions/lumo/style.css
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-summary: Code
+  toc-location: left
+  toc-title: ' '
+  theme:
+    - custom.scss
+  smooth-scroll: true
+  code-annotations: hover
+  title-block-banner: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: 'Lumo: a clean Quarto template for stunning data reports'
+  subtitle: This document showcases how a Quarto report made using the <code>Lumo</code> format looks like. It also demoes a few tips and tricks I 💜
+  author: Holtz Yan
+  date: last-modified
+  logo: logo.png
+  github-repo: https://github.com/holtzy/lumo
+  primary-color: '#69b3a2'
+  is-particlejs-enabled: true
+  bg-image: ''
+  
+Output created: template.html
+
+
+
+processing file: template.qmd
+1/19                  
+2/19 [unnamed-chunk-1]
+Error in `library()`:
+! there is no package called 'tidyverse'
+Backtrace:
+    x
+ 1. \-base::library(tidyverse)
+
+Quitting from template.qmd:43-48 [unnamed-chunk-1]
+Execution halted
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+
+
+processing file: template.qmd
+1/19                  
+2/19 [unnamed-chunk-1]
+Error in `library()`:
+! there is no package called 'tidyverse'
+Backtrace:
+    x
+ 1. \-base::library(tidyverse)
+
+Quitting from template.qmd:43-48 [unnamed-chunk-1]
+Execution halted
+WARN: Error encountered when rendering files

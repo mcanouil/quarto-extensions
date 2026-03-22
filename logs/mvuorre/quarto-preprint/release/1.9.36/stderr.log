@@ -1,0 +1,109 @@
+Cloning into 'repo'...
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/__linux__/jammy/latest/src/contrib/renv_1.1.8.tar.gz'
+Content type 'binary/octet-stream' length 2336300 bytes (2.2 MB)
+==================================================
+downloaded 2.2 MB
+
+* installing *binary* package 'renv' ...
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/Rtmp6kIdoc/downloaded_packages'
+The R temporary directory appears to be within a folder mounted as 'noexec'.
+Installation of R packages from sources may fail.
+See the section **Note** within `?INSTALL` for more details.
+
+tempdir(): /tmp/Rtmp6kIdoc
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)
+trying URL 'https://cloud.r-project.org/src/contrib/tinytable_0.16.0.tar.gz'
+Content type 'application/x-gzip' length 396256 bytes (386 KB)
+==================================================
+downloaded 386 KB
+
+* installing *source* package 'tinytable' ...
+** this is package 'tinytable' version '0.16.0'
+** package 'tinytable' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (tinytable)
+
+The downloaded source packages are in
+	'/tmp/Rtmp6kIdoc/downloaded_packages'
+[1/3] template.qmd
+[typst]: Compiling template.typ to template.pdf...downloading @preview/wordometer:0.1.5
+  5.8 KiB /   5.8 KiB (100 %)   5.8 KiB/s in 11.04 µs ETA: 0 s
+
+DONE
+
+[2/3] NEWS.md
+[3/3] example.qmd
+
+
+processing file: example.qmd
+1/7               
+2/7 [code-example]
+3/7               
+4/7 [tbl-example] 
+5/7               
+6/7 [tbl-appendix]
+7/7               
+output file: example.knit.md
+
+[typst]: Compiling example.typ to example.pdf...error: unknown variable: NormalTok
+    ┌─ example.typ:660:79
+    │
+660 │ Code (#ref(<lst-code>, supplement: [Listing])) font can be specified with the #NormalTok("monofont"); variable.
+    │                                                                                ^^^^^^^^^
+
+ERROR: error: unknown variable: NormalTok
+    ┌─ example.typ:660:79
+    │
+660 │ Code (#ref(<lst-code>, supplement: [Listing])) font can be specified with the #NormalTok("monofont"); variable.
+    │                                                                                ^^^^^^^^^
+
+
+ERROR: Typst compilation failed
+Render failed, retrying once...
+[1/3] template.qmd
+[typst]: Compiling template.typ to template.pdf...DONE
+
+[2/3] NEWS.md
+[3/3] example.qmd
+
+
+processing file: example.qmd
+1/7               
+2/7 [code-example]
+3/7               
+4/7 [tbl-example] 
+5/7               
+6/7 [tbl-appendix]
+7/7               
+output file: example.knit.md
+
+[typst]: Compiling example.typ to example.pdf...error: unknown variable: NormalTok
+    ┌─ example.typ:660:79
+    │
+660 │ Code (#ref(<lst-code>, supplement: [Listing])) font can be specified with the #NormalTok("monofont"); variable.
+    │                                                                                ^^^^^^^^^
+
+ERROR: error: unknown variable: NormalTok
+    ┌─ example.typ:660:79
+    │
+660 │ Code (#ref(<lst-code>, supplement: [Listing])) font can be specified with the #NormalTok("monofont"); variable.
+    │                                                                                ^^^^^^^^^
+
+
+ERROR: Typst compilation failed

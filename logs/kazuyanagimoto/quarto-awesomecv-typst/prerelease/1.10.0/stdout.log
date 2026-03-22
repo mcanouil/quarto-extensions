@@ -1,0 +1,85 @@
+Dependency source policy check passed for kazuyanagimoto/quarto-awesomecv-typst.
+Dependency install phase for kazuyanagimoto/quarto-awesomecv-typst: renv.lock
+Installing R dependencies from renv.lock for kazuyanagimoto/quarto-awesomecv-typst.
+# Bootstrapping renv 1.1.5 ---------------------------------------------------
+- Downloading renv ... OK
+- Installing renv  ... OK
+
+- One or more packages recorded in the lockfile are not installed.
+- Use `renv::status()` for more details.
+- One or more packages recorded in the lockfile are not installed.
+- Use `renv::status()` for more details.
+The following required system packages are not installed:
+- pandoc  [required by knitr, rmarkdown]
+The R packages depending on these system packages may fail to install.
+
+An administrator can install these packages with:
+- sudo apt install pandoc
+
+The following package(s) will be updated:
+
+# CRAN -----------------------------------------------------------------------
+- base64enc   [0.1-6 -> 0.1-3]
+- bslib       [0.10.0 -> 0.9.0]
+- digest      [0.6.39 -> 0.6.37]
+- evaluate    [1.0.5 -> 1.0.4]
+- highr       [0.12 -> 0.11]
+- htmltools   [0.5.9 -> 0.5.8.1]
+- knitr       [1.51 -> 1.50]
+- lifecycle   [1.0.5 -> 1.0.4]
+- rappdirs    [0.3.4 -> 0.3.3]
+- rlang       [1.1.7 -> 1.1.6]
+- rmarkdown   [2.30 -> 2.29]
+- tinytex     [0.58 -> 0.57]
+- xfun        [0.57 -> 0.52]
+- yaml        [2.3.12 -> 2.3.10]
+- glue        [* -> 1.8.0]
+
+# RSPM -----------------------------------------------------------------------
+- fs          [repo: CRAN -> RSPM; ver: 2.0.0 -> 1.6.6]
+
+# https://kazuyanagimoto.r-universe.dev --------------------------------------
+- typstcv     [* -> 0.0.2.4]
+
+# Downloading packages -------------------------------------------------------
+- Querying repositories for available source packages ... Done!
+- Downloading knitr from CRAN ...               OK [1 Mb in 0.53s]
+- Downloading evaluate from CRAN ...            OK [100 Kb in 0.52s]
+- Downloading highr from CRAN ...               OK [36.7 Kb in 0.19s]
+- Downloading xfun from CRAN ...                OK [579.3 Kb in 0.35s]
+- Downloading yaml from CRAN ...                OK [112.6 Kb in 0.32s]
+- Downloading rlang from CRAN ...               OK [1.5 Mb in 0.3s]
+- Downloading htmltools from CRAN ...           OK [347.2 Kb in 0.28s]
+- Downloading base64enc from CRAN ...           OK [26 Kb in 0.16s]
+- Downloading digest from CRAN ...              OK [217.7 Kb in 0.43s]
+- Downloading tinytex from CRAN ...             OK [140.4 Kb in 0.42s]
+- Downloading rmarkdown from CRAN ...           OK [2.5 Mb in 0.45s]
+- Downloading bslib from CRAN ...               OK [5.4 Mb in 0.42s]
+- Downloading lifecycle from CRAN ...           OK [122.2 Kb in 0.35s]
+- Downloading glue from CRAN ...                OK [164.4 Kb in 0.13s]
+- Downloading fs from RSPM ...                  OK [302.3 Kb in 0.2s]
+- Downloading rappdirs from CRAN ...            OK [44.2 Kb in 0.49s]
+- Querying repositories for available source packages ... Done!
+- Downloading typstcv from https://kazuyanagimoto.r-universe.dev ... OK [101.2 Kb in 0.2s]
+Successfully downloaded 17 packages in 9.6 seconds.
+
+# Installing packages --------------------------------------------------------
+- Installing evaluate ...                       OK [installed binary and cached in 0.26s]
+- Installing xfun ...                           OK [installed binary and cached in 0.28s]
+- Installing highr ...                          OK [installed binary and cached in 0.26s]
+- Installing yaml ...                           OK [installed binary and cached in 0.23s]
+- Installing knitr ...                          OK [installed binary and cached in 0.3s]
+- Installing rlang ...                          OK [installed binary and cached in 0.35s]
+- Installing base64enc ...                      OK [installed binary and cached in 0.25s]
+- Installing digest ...                         OK [installed binary and cached in 0.28s]
+- Installing htmltools ...                      OK [installed binary and cached in 0.37s]
+- Installing tinytex ...                        OK [installed binary and cached in 0.26s]
+- Installing glue ...                           OK [installed binary and cached in 0.28s]
+- Installing lifecycle ...                      OK [installed binary and cached in 0.33s]
+- Installing fs ...                             OK [installed binary and cached in 0.31s]
+- Installing rappdirs ...                       OK [installed binary and cached in 0.24s]
+- Installing bslib ...                          OK [installed binary and cached in 0.59s]
+- Installing rmarkdown ...                      OK [installed binary and cached in 0.49s]
+- Installing typstcv ...                        OK [built from source and cached in 1.3s]
+tlmgr: package repository https://ctan.math.illinois.edu/systems/texlive/tlnet (verified)
+tlmgr: no self-updates for tlmgr available
