@@ -169,7 +169,7 @@ for pkg in third_party:
 
       if [[ -n "${deps}" ]]; then
         echo "Installing Python packages: ${deps//$'\n'/, }" >>"${LOG_DIR}/stdout.log"
-        echo "${deps}" | xargs uv pip install \
+        echo "${deps}" | xargs uv pip install -- \
           >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
           echo "Auto-detect Python dependency install failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
           exit 1
@@ -199,9 +199,10 @@ if [[ ! -f Project.toml ]] && [[ ! -f JuliaProject.toml ]]; then
       deps=$(find . -name '*.qmd' -not -path './_extensions/*' -print0 \
         | xargs -0 grep -hP '^\s*(using|import)\s+' 2>/dev/null \
         | sed -E 's/^\s*(using|import)\s+//' \
+        | sed -E 's/:.*//' \
         | tr ',' '\n' \
-        | sed -E 's/^\s+//; s/\s+$//; s/[.:].*//' \
-        | grep -vE '^\s*$' \
+        | sed -E 's/^\s+//; s/\s+$//; s/[.].*//' \
+        | grep -E '^[A-Za-z][A-Za-z0-9_]*$' \
         | sort -u \
         | grep -vxF -e Base -e Core -e Main -e Pkg \
             -e InteractiveUtils -e LinearAlgebra -e Random \
@@ -216,8 +217,8 @@ if [[ ! -f Project.toml ]] && [[ ! -f JuliaProject.toml ]]; then
 
       if [[ -n "${deps}" ]]; then
         echo "Installing Julia packages: ${deps//$'\n'/, }" >>"${LOG_DIR}/stdout.log"
-        pkg_list=$(echo "${deps}" | sed 's/.*/"&"/' | paste -sd ',' -)
-        julia -e "using Pkg; Pkg.add([${pkg_list}])" \
+        pkg_list=$(echo "${deps}" | sed "s/.*/\"&\"/" | paste -sd ',' -)
+        julia --project=. -e 'using Pkg; Pkg.add(['"${pkg_list}"'])' \
           >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
           echo "Auto-detect Julia dependency install failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
           exit 1
