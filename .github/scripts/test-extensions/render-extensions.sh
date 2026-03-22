@@ -78,8 +78,6 @@ render_extension() {
       echo "Dependency install phase for ${id}: ${dep_sources[*]}" >>"${log_dir}/stdout.log"
       dep_rc=0
       docker_run_render 600 "${workdir}" "${log_dir}" "${render_dir}" \
-        --security-opt=seccomp=default \
-        --security-opt=apparmor=docker-default \
         -e EXT_ID="${id}" \
         -e LOG_DIR="${log_dir}" \
         <<'DEPS_SCRIPT' || dep_rc=$?
