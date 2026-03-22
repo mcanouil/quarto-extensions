@@ -19,9 +19,9 @@ render_count=0
 ext_count=$(jq 'length' clone-manifest.json)
 
 docker_run_render() {
-  local workdir="$1" log_dir="$2" render_dir="$3"
-  shift 3
-  timeout 300 docker run --rm -i \
+  local run_timeout="$1" workdir="$2" log_dir="$3" render_dir="$4"
+  shift 4
+  timeout "${run_timeout}" docker run --rm -i \
     --user "${DOCKER_USER}" \
     "${DOCKER_SECURITY_OPTS[@]}" \
     "$@" \
@@ -71,12 +71,13 @@ render_extension() {
       [[ -f "${render_dir}/uv.lock" ]] && dep_sources+=("uv.lock")
       [[ -f "${render_dir}/requirements.txt" ]] && dep_sources+=("requirements.txt")
       echo "Dependency install phase for ${id}: ${dep_sources[*]}" >>"${log_dir}/stdout.log"
-      docker_run_render "${workdir}" "${log_dir}" "${render_dir}" \
+      dep_rc=0
+      docker_run_render 600 "${workdir}" "${log_dir}" "${render_dir}" \
         --security-opt=seccomp=default \
         --security-opt=apparmor=docker-default \
         -e EXT_ID="${id}" \
         -e LOG_DIR="${log_dir}" \
-        <<'DEPS_SCRIPT' || status="fail"
+        <<'DEPS_SCRIPT' || dep_rc=$?
 set -euo pipefail
 
 if [[ -f renv.lock ]]; then
@@ -112,12 +113,21 @@ if [[ -f uv.lock ]] || [[ -f requirements.txt ]]; then
   fi
 fi
 DEPS_SCRIPT
+      if [[ "${dep_rc}" -eq 124 ]]; then
+        echo "Dependency install timed out (exit 124) for ${id}." >>"${log_dir}/stderr.log"
+        echo "::warning::Dependency install timed out for ${id}."
+        status="fail"
+      elif [[ "${dep_rc}" -ne 0 ]]; then
+        echo "Dependency install failed (exit ${dep_rc}) for ${id}." >>"${log_dir}/stderr.log"
+        echo "::warning::Dependency install failed (exit ${dep_rc}) for ${id}."
+        status="fail"
+      fi
     fi
 
     # Phase B: Render
     if [[ "${status}" == "pass" ]]; then
       render_count=$((render_count + 1))
-      docker_run_render "${workdir}" "${log_dir}" "${render_dir}" \
+      docker_run_render 300 "${workdir}" "${log_dir}" "${render_dir}" \
         -e EXT_TYPE="${ext_type}" \
         -e EXT_ID="${id}" \
         -e WORKDIR="${workdir}" \
@@ -135,6 +145,7 @@ render_idx=0
 # Pin a CTAN mirror to avoid flaky tlmgr searches via mirror.ctan.org round-robin
 if command -v tlmgr >/dev/null 2>&1; then
   tlmgr repository set https://ctan.math.illinois.edu/systems/texlive/tlnet 2>/dev/null || true
+  tlmgr update --self >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || true
 fi
 
 quarto_render() {
