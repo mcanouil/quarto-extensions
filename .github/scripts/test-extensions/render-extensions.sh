@@ -27,6 +27,8 @@ docker_run_render() {
     "$@" \
     -e NO_COLOR=1 \
     -e RENV_CONFIG_SANDBOX_ENABLED=FALSE \
+    -e RENV_CONFIG_PPM_ENABLED=TRUE \
+    -e RENV_CONFIG_REPOS_OVERRIDE="https://packagemanager.posit.co/cran/latest" \
     -e QUARTO_CHROMIUM="/usr/bin/google-chrome-stable" \
     -e HOME="${workdir}" \
     -e XDG_CACHE_HOME="${workdir}/.cache" \
@@ -84,9 +86,28 @@ render_extension() {
         <<'DEPS_SCRIPT' || dep_rc=$?
 set -euo pipefail
 
+detect_engines() {
+  local engines=""
+  if [[ -f _quarto.yml ]] || [[ -f _quarto.yaml ]]; then
+    engines=$(quarto inspect . 2>/dev/null | jq -r '.engines[]?' 2>/dev/null) || engines=""
+  fi
+  if [[ -z "${engines}" ]]; then
+    while IFS= read -r -d '' qmd; do
+      local file_engines
+      file_engines=$(quarto inspect "${qmd}" 2>/dev/null | jq -r '.engines[]?' 2>/dev/null) || true
+      if [[ -n "${file_engines}" ]]; then
+        engines=$(printf '%s\n%s' "${engines}" "${file_engines}")
+      fi
+    done < <(find . -name '*.qmd' -not -path './_extensions/*' -print0 2>/dev/null)
+    engines=$(echo "${engines}" | sort -u | sed '/^$/d')
+  fi
+  echo "${engines}"
+}
+
+engines=$(detect_engines)
+
 # Auto-detect R dependencies when no renv.lock is present
 if [[ ! -f renv.lock ]]; then
-  engines=$(quarto inspect . 2>/dev/null | jq -r '.engines[]?' 2>/dev/null) || engines=""
   if echo "${engines}" | grep -qx "knitr"; then
     echo "Auto-detecting R dependencies for ${EXT_ID} (knitr engine, no renv.lock)." >>"${LOG_DIR}/stdout.log"
     Rscript -e '
@@ -108,7 +129,6 @@ fi
 
 # Auto-detect Python dependencies when no uv.lock/requirements.txt is present
 if [[ ! -f uv.lock ]] && [[ ! -f requirements.txt ]]; then
-  engines=$(quarto inspect . 2>/dev/null | jq -r '.engines[]?' 2>/dev/null) || engines=""
   if echo "${engines}" | grep -qx "jupyter"; then
     has_python=false
     while IFS= read -r -d '' qmd; do
@@ -182,7 +202,6 @@ fi
 
 # Auto-detect Julia dependencies when no Project.toml is present
 if [[ ! -f Project.toml ]] && [[ ! -f JuliaProject.toml ]]; then
-  engines=$(quarto inspect . 2>/dev/null | jq -r '.engines[]?' 2>/dev/null) || engines=""
   if echo "${engines}" | grep -qx "jupyter"; then
     has_julia=false
     while IFS= read -r -d '' qmd; do
