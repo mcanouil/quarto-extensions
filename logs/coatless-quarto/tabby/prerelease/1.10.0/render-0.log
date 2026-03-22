@@ -1,0 +1,114 @@
+
+
+processing file: index.qmd
+
+1/13                  
+
+2/13 [unnamed-chunk-1]
+
+3/13                  
+
+4/13 [unnamed-chunk-2]
+
+5/13                  
+
+6/13 [unnamed-chunk-3]
+
+7/13                  
+
+8/13 [unnamed-chunk-4]
+
+9/13                  
+
+10/13 [unnamed-chunk-5]
+
+11/13                  
+
+12/13 [unnamed-chunk-6]
+
+13/13                  
+
+output file: index.knit.md
+
+
+Error running filt
+er /opt/quarto/share/filters/main.lua:
+/opt/quarto/share/filters/main.lua:23080: attempt to call a nil value (method 'map')
+stack traceback:
+	/opt
+/quarto/share/filters/main.
+lua:937: in field 'Tabse
+t'
+	...extensions/test
+-10/repo/docs/_extensi
+ons/tabby/tabby.lua:212: in funct
+ion <...extensions/test
+-10/repo/docs/_extens
+ions/tabby/tabby.lua:147
+>
+	(...tail calls...)
+	[C]: in ?
+	[C]: in
+ method 'walk'
+	/opt/quart
+o/share/pandoc/datadi
+r/_utils.lua:607: in functi
+on '_utils.walk'
+	/opt
+/quarto/share/filters/main.lua:574: in function </opt/quarto/share/filters/main.lua:552>
+	(...tail calls...)
+	/opt/quarto/share/filters/main.lua:13
+17: in local 'callback'
+	[str
+ing "if pandoc.system
+.os == "mingw32" then..
+."]:778: in field 'wit
+hScriptFile'
+	/opt/quart
+o/share/filters/main
+.lua:1333: in upval
+ue 'run_emulated_fi
+lter_chain'
+	/opt/
+quarto/share/filte
+rs/main.lua:1371: i
+n function </opt/q
+uarto/share/filter
+s/main.lua:1368>
+st
+ack traceback:
+	/o
+pt/quarto/share/pan
+doc/datadir/_utils.
+lua:607: in function
+ '_utils.walk'
+	/opt/q
+uarto/share/filters/mai
+n.lua:574: in function 
+</opt/quarto/share/
+filters/main.lua:552>
+	
+(...tail calls...)
+	
+/opt/quarto/share/f
+ilters/main.lua:13
+17: in local 'callb
+ack'
+	[string "if p
+andoc.system.os ==
+ "mingw32" then..."
+]:778: in field 'with
+ScriptFile'
+	/opt/
+quarto/share/filters/main.lua
+:1333: in upvalue 'run_emu
+lated_filter_chain'
+
+	/opt/quarto/share/
+filters/main.lua:13
+71: in function </
+opt/quarto/share/filters/main.
+lua:1368>
+
+(WARN) Error encountered when rendering files
+

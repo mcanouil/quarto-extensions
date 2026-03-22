@@ -1,0 +1,285 @@
+Cloning into 'repo'...
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-8/R/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/__linux__/jammy/latest/src/contrib/renv_1.1.8.tar.gz'
+Content type 'binary/octet-stream' length 2336300 bytes (2.2 MB)
+==================================================
+downloaded 2.2 MB
+
+* installing *binary* package 'renv' ...
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/RtmpuCI4Vr/downloaded_packages'
+The R temporary directory appears to be within a folder mounted as 'noexec'.
+Installation of R packages from sources may fail.
+See the section **Note** within `?INSTALL` for more details.
+
+tempdir(): /tmp/RtmpuCI4Vr
+
+
+processing file: template.qmd
+1/3                  
+2/3 [unnamed-chunk-1]
+3/3                  
+output file: template.knit.md
+
+pandoc 
+  to: html
+  output-file: template.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  number-sections: false
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  lang: en
+  knitr:
+    opts_chunk:
+      echo: false
+  theme: _extensions/simple-article/custom.scss
+  csl: https://www.zotero.org/styles/journal-of-institutional-and-theoretical-economics
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: A Long Article Title That Makes Readers Curious and Interested, so They Want to Read It
+  author:
+    - name: John Doe
+      affiliation: University of Middle Earth
+      email: j.doe@middle-earth.org
+  shorttitle: A Long Article Title That Makes Curious
+  shortauthor: J. Doe
+  date: today
+  date-format: D MMMM YYYY
+  abstract: |
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis
+    facilisis sem. Nullam nec mi et neque pharetra sollicitudin. Praesent
+    imperdiet mi nec ante. Donec ullamcorper, felis non sodales com- modo,
+    lectus velit ultrices augue, a dignissim nibh lectus placerat pede.
+    Vivamus nunc nunc, molestie ut, ultricies vel, semper in, velit. Ut
+    porttitor. Praesent in sapien. Lorem ipsum dolor sit amet, consectetuer
+    adipiscing elit. This is the abstract.
+  reference-section-title: References
+  bibliography:
+    - bibliography.bib
+  
+Output created: template.html
+
+
+
+processing file: template.qmd
+1/3                  
+2/3 [unnamed-chunk-1]
+3/3                  
+output file: template.knit.md
+
+pandoc 
+  to: latex
+  output-file: template.tex
+  template: _extensions/simple-article/simple-article.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  number-sections: true
+  cite-method: natbib
+  
+metadata
+  block-headings: true
+  knitr:
+    opts_chunk:
+      echo: false
+  documentclass: simple-article
+  colorlinks: true
+  urlcolor: Maroon
+  linkcolor: Blue
+  citecolor: Blue
+  filecolor: Blue
+  biblio-style: simple-article
+  header-includes:
+    - |
+      \usepackage{authblk}
+      \usepackage{orcidlink}
+      \definecolor{mypink}{RGB}{219, 48, 122}
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: A Long Article Title That Makes Readers Curious and Interested, so They Want to Read It
+  author:
+    - name: John Doe
+      affiliation: University of Middle Earth
+      email: j.doe@middle-earth.org
+  shorttitle: A Long Article Title That Makes Curious
+  shortauthor: J. Doe
+  date: today
+  date-format: D MMMM YYYY
+  abstract: |
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis
+    facilisis sem. Nullam nec mi et neque pharetra sollicitudin. Praesent
+    imperdiet mi nec ante. Donec ullamcorper, felis non sodales com- modo,
+    lectus velit ultrices augue, a dignissim nibh lectus placerat pede.
+    Vivamus nunc nunc, molestie ut, ultricies vel, semper in, velit. Ut
+    porttitor. Praesent in sapien. Lorem ipsum dolor sit amet, consectetuer
+    adipiscing elit. This is the abstract.
+  reference-section-title: References
+  bibliography:
+    - bibliography.bib
+  indent: false
+  classoption:
+    - twoside
+    - twocolumn
+    - lucida
+    - 9pt
+  
+[33mWARNING (/opt/quarto/share/filters/main.lua:18344) Raw LaTeX table found with non-tbl label: tab:tbl-cars
+Won't be able to cross-reference this table using Quarto's native crossref system.
+[39m
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+finding package for extarticle.cls
+> 1 package to install
+> installing extsizes (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+finding package for mathtools.sty
+> 1 package to install
+> installing mathtools (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Reload initiated (formats: otf,ttf,ttc); reason: Font "LucidaBrightOT" not found.
+finding package for LucidaBrightOT(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+ERROR: 
+compilation failed- no matching packages
+Package fontspec Error: 
+(fontspec)                The font "LucidaBrightOT" cannot be found; this
+(fontspec)                may be but usually is not a fontspec bug. Either
+(fontspec)                there is a typo in the font name/file, the font is
+(fontspec)                not installed (correctly), or there is a bug in
+(fontspec)                the underlying font loading engine
+(fontspec)                (XeTeX/luaotfload).
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.85       \setmathfont
+                     {LucidaBrightMathOT}
+
+
+see template.log for more information.
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+
+
+processing file: template.qmd
+1/3                  
+2/3 [unnamed-chunk-1]
+3/3                  
+output file: template.knit.md
+
+pandoc 
+  to: latex
+  output-file: template.tex
+  template: _extensions/simple-article/simple-article.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  number-sections: true
+  cite-method: natbib
+  
+metadata
+  block-headings: true
+  knitr:
+    opts_chunk:
+      echo: false
+  documentclass: simple-article
+  colorlinks: true
+  urlcolor: Maroon
+  linkcolor: Blue
+  citecolor: Blue
+  filecolor: Blue
+  biblio-style: simple-article
+  header-includes:
+    - |
+      \usepackage{authblk}
+      \usepackage{orcidlink}
+      \definecolor{mypink}{RGB}{219, 48, 122}
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: A Long Article Title That Makes Readers Curious and Interested, so They Want to Read It
+  author:
+    - name: John Doe
+      affiliation: University of Middle Earth
+      email: j.doe@middle-earth.org
+  shorttitle: A Long Article Title That Makes Curious
+  shortauthor: J. Doe
+  date: today
+  date-format: D MMMM YYYY
+  abstract: |
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis
+    facilisis sem. Nullam nec mi et neque pharetra sollicitudin. Praesent
+    imperdiet mi nec ante. Donec ullamcorper, felis non sodales com- modo,
+    lectus velit ultrices augue, a dignissim nibh lectus placerat pede.
+    Vivamus nunc nunc, molestie ut, ultricies vel, semper in, velit. Ut
+    porttitor. Praesent in sapien. Lorem ipsum dolor sit amet, consectetuer
+    adipiscing elit. This is the abstract.
+  reference-section-title: References
+  bibliography:
+    - bibliography.bib
+  indent: false
+  classoption:
+    - twoside
+    - twocolumn
+    - lucida
+    - 9pt
+  
+[33mWARNING (/opt/quarto/share/filters/main.lua:18344) Raw LaTeX table found with non-tbl label: tab:tbl-cars
+Won't be able to cross-reference this table using Quarto's native crossref system.
+[39m
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Reload initiated (formats: otf,ttf,ttc); reason: Font "LucidaBrightOT" not found.
+updating tlmgr
+
+updating existing packages
+finding package for LucidaBrightOT(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+ERROR: 
+compilation failed- no matching packages
+Package fontspec Error: 
+(fontspec)                The font "LucidaBrightOT" cannot be found; this
+(fontspec)                may be but usually is not a fontspec bug. Either
+(fontspec)                there is a typo in the font name/file, the font is
+(fontspec)                not installed (correctly), or there is a bug in
+(fontspec)                the underlying font loading engine
+(fontspec)                (XeTeX/luaotfload).
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.85       \setmathfont
+                     {LucidaBrightMathOT}
+
+
+see template.log for more information.
+WARN: Error encountered when rendering files

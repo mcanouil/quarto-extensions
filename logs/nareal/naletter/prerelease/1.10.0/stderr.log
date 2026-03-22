@@ -1,0 +1,177 @@
+Cloning into 'repo'...
+pandoc 
+  to: latex
+  output-file: template.tex
+  template: _extensions/naletter/template.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  block-headings: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  fromname: Nelson Areal
+  fromaddress: |
+    | School of Economics and Management
+    | University of Minho
+    | Campus de Gualtar
+    | 4710-057 Braga - Portugal
+  fromtitle: Associate Professor
+  fromWWW: https://nelsonareal.net
+  fromemail: nareal@eeg.uminho.pt
+  fromphone: +351 253 601 923
+  toname: Helen of Troy
+  toaddress: University of Greece\newline Athens
+  opening: Dear Helen,
+  closing: Best regards,
+  spacing: 1.4
+  lang: en-GB
+  babel-lang: british
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+updating tlmgr
+
+updating existing packages
+finding package for bera.sty
+> 1 package to install
+> installing bera (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for datetime2.sty
+> 1 package to install
+> installing datetime2 (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for pgfkeys.sty
+> 1 package to install
+> installing pgf (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for grffile.sty
+> 1 package to install
+> installing grffile (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for fontawesome5.sty
+> 1 package to install
+> installing fontawesome5 (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for textpos.sty
+> 1 package to install
+> installing textpos (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for setspace.sty
+> 1 package to install
+> installing setspace (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for caption.sty
+> 1 package to install
+> installing caption (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+Installing missing hyphenation file...
+> 1 package to install
+> installing hyphen-british (1 of 1)
+WARN: Error encountered when rendering files
+ERROR: tlmgr returned a non zero status code
+tlmgr install: package hyphen-british not present in repository.
+tlmgr: action install returned an error; continuing.
+tlmgr: An error has occurred. See above messages. Exiting.
+
+
+Stack trace:
+    at renderFiles (file:///opt/quarto/bin/quarto.js:136533:49)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async render (file:///opt/quarto/bin/quarto.js:142161:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142406:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102029:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101906:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187554:5)
+    at async file:///opt/quarto/bin/quarto.js:187582:5
+    at async file:///opt/quarto/bin/quarto.js:187437:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187439:5)
+    at async file:///opt/quarto/bin/quarto.js:187575:3
+Render failed, retrying once...
+pandoc 
+  to: latex
+  output-file: template.tex
+  template: _extensions/naletter/template.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  block-headings: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  fromname: Nelson Areal
+  fromaddress: |
+    | School of Economics and Management
+    | University of Minho
+    | Campus de Gualtar
+    | 4710-057 Braga - Portugal
+  fromtitle: Associate Professor
+  fromWWW: https://nelsonareal.net
+  fromemail: nareal@eeg.uminho.pt
+  fromphone: +351 253 601 923
+  toname: Helen of Troy
+  toaddress: University of Greece\newline Athens
+  opening: Dear Helen,
+  closing: Best regards,
+  spacing: 1.4
+  lang: en-GB
+  babel-lang: british
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+Installing missing hyphenation file...
+> 1 package to install
+> installing hyphen-british (1 of 1)
+WARN: Error encountered when rendering files
+ERROR: tlmgr returned a non zero status code
+tlmgr install: package hyphen-british not present in repository.
+tlmgr: action install returned an error; continuing.
+tlmgr: An error has occurred. See above messages. Exiting.
+
+
+Stack trace:
+    at renderFiles (file:///opt/quarto/bin/quarto.js:136533:49)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async render (file:///opt/quarto/bin/quarto.js:142161:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142406:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102029:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101906:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187554:5)
+    at async file:///opt/quarto/bin/quarto.js:187582:5
+    at async file:///opt/quarto/bin/quarto.js:187437:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187439:5)
+    at async file:///opt/quarto/bin/quarto.js:187575:3

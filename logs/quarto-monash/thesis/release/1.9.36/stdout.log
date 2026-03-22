@@ -1,0 +1,40 @@
+Dependency install phase for quarto-monash/thesis: auto-detect
+Auto-detecting R dependencies for quarto-monash/thesis (knitr engine, no renv.lock).
+Installing R packages: fable, feasts, tsibble, magick, quarto, tidyverse 
+gfortran  -fvisibility=hidden -fpic -g -O2 -msse2 -mfpmath=sse   -fpic  -g -O2  -c aind.f -o aind.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+gfortran  -fvisibility=hidden -fpic -g -O2 -msse2 -mfpmath=sse   -fpic  -g -O2  -c solve.QP.compact.f -o solve.QP.compact.o
+gfortran  -fvisibility=hidden -fpic -g -O2 -msse2 -mfpmath=sse   -fpic  -g -O2  -c solve.QP.f -o solve.QP.o
+gfortran  -fvisibility=hidden -fpic -g -O2 -msse2 -mfpmath=sse   -fpic  -g -O2  -c util.f -o util.o
+gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o quadprog.so aind.o init.o solve.QP.compact.o solve.QP.o util.o -lblas -lgfortran -lm -lquadmath -lgfortran -lm -lquadmath -L/opt/R/4.5.3/lib/R/lib -lR
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c boundary.c -o boundary.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c change.c -o change.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c coercion.c -o coercion.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c date.c -o date.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c distance.c -o distance.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c divmod.c -o divmod.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c get.c -o get.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c timezone.c -o timezone.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c utils.c -o utils.o
+gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o warp.so boundary.o change.o coercion.o date.o distance.o divmod.o get.o init.o timezone.o utils.o -L/opt/R/4.5.3/lib/R/lib -lR
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c block.c -o block.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c hop.c -o hop.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c index.c -o index.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c params.c -o params.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c segment-tree.c -o segment-tree.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c slide-period.c -o slide-period.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c slide.c -o slide.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c slider-vctrs-private.c -o slider-vctrs-private.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c slider-vctrs-public.c -o slider-vctrs-public.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2   -c summary-core-align.cpp -o summary-core-align.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c summary-index.c -o summary-index.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c summary-slide.c -o summary-slide.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c utils.c -o utils.o
+g++ -std=gnu++17 -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o slider.so block.o hop.o index.o init.o params.o segment-tree.o slide-period.o slide.o slider-vctrs-private.o slider-vctrs-public.o summary-core-align.o summary-index.o summary-slide.o utils.o -L/opt/R/4.5.3/lib/R/lib -lR
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c binning_methods.cpp -o binning_methods.o
+g++ -std=gnu++17 -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o ggdist.so RcppExports.o binning_methods.o -L/opt/R/4.5.3/lib/R/lib -lR
+tlmgr: package repository https://ctan.math.illinois.edu/systems/texlive/tlnet (verified)
+tlmgr: no self-updates for tlmgr available

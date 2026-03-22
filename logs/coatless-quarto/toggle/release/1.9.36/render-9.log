@@ -1,0 +1,49 @@
+
+
+processing file: qtoggle-persistence.qmd
+
+1/3                  
+
+2/3 [unnamed-chunk-1]
+
+3/3                  
+
+output file: qtoggle-persistence.knit.md
+
+
+pandoc 
+
+  to: html
+  output-file: qtoggle-persistence.html
+  standalone: true
+  title-prefix: toggle
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme:
+    light: flatly
+    dark: darkly
+  title: Remember State
+  subtitle: Persist toggle choices across page visits
+  extensions:
+    toggle:
+      output-toggle: true
+      persist: true
+  
+
+Output created: _site/qtoggle-persistence.html
+
+

@@ -1,0 +1,35 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: input.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: First-line Indent
+  author: Julien Dutant
+  date: 15 Mar 2023
+  first-line-indent:
+    set-metadata-variable: true
+    set-header-includes: true
+    auto-remove: true
+    remove-after: Table
+    dont-remove-after:
+      - DefinitionList
+      - OrderedList
+    size: 2em
+    remove-after-class: chuckit
+    dont-remove-after-class: keepit
+  
+Output created: test/input.html
+

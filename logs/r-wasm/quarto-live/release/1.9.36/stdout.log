@@ -1,0 +1,113 @@
+Dependency install phase for r-wasm/quarto-live: auto-detect
+Auto-detecting R dependencies for r-wasm/quarto-live (knitr engine, no renv.lock).
+Installing R packages: DT, webr 
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c fdcore.c -o fdcore.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c fdgam.c -o fdgam.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c fdhess.c -o fdhess.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c fdmin.c -o fdmin.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c fdsim.c -o fdsim.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c pmult.c -o pmult.o
+gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o fracdiff.so fdcore.o fdgam.o fdhess.o fdmin.o fdsim.o init.o pmult.o -lblas -lgfortran -lm -lquadmath -L/opt/R/4.5.3/lib/R/lib -lR
+Creating a generic function for 'sample' from package 'base' in package 'timeDate'
+Creating a generic function for 'getDataPart' from package 'methods' in package 'timeDate'
+Creating a generic function for 'abline' from package 'graphics' in package 'timeDate'
+gfortran  -fpic  -g -O2  -c UnitRootMacKinnon.f -o UnitRootMacKinnon.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c urca_init.c -o urca_init.o
+gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o urca.so UnitRootMacKinnon.o urca_init.o -llapack -lblas -lgfortran -lm -lquadmath -lgfortran -lm -lquadmath -L/opt/R/4.5.3/lib/R/lib -lR
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c adsout.c -o adsout.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c any2xml.c -o any2xml.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c args.c -o args.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c bib2be.c -o bib2be.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c bibcore.c -o bibcore.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c bibentrydirectout.c -o bibentrydirectout.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c bibentryout.c -o bibentryout.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c bibl.c -o bibl.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c biblatexin.c -o biblatexin.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c biblatexout.c -o biblatexout.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c bibprog.c -o bibprog.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c bibtexdirectin.c -o bibtexdirectin.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c bibtexin.c -o bibtexin.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c bibtexout.c -o bibtexout.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c bibtextypes.c -o bibtextypes.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c bibutils.c -o bibutils.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c bltypes.c -o bltypes.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c bu_auth.c -o bu_auth.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c charsets.c -o charsets.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c common_be_bed.c -o common_be_bed.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c common_bt_blt_btd_out.c -o common_bt_blt_btd_out.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c common_bt_btd.c -o common_bt_btd.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c common_bt_btd_blt.c -o common_bt_btd_blt.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c common_bt_btd_out.c -o common_bt_btd_out.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c common_most.c -o common_most.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c copacin.c -o copacin.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c copactypes.c -o copactypes.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c ebiin.c -o ebiin.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c endin.c -o endin.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c endout.c -o endout.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c endtypes.c -o endtypes.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c endxmlin.c -o endxmlin.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c entities.c -o entities.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c fields.c -o fields.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c gb18030.c -o gb18030.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c generic.c -o generic.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c intlist.c -o intlist.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c is_ws.c -o is_ws.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c isiin.c -o isiin.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c isiout.c -o isiout.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c isitypes.c -o isitypes.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c iso639_1.c -o iso639_1.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c iso639_2.c -o iso639_2.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c iso639_3.c -o iso639_3.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c latex.c -o latex.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c latex_parse.c -o latex_parse.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c marc_auth.c -o marc_auth.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c medin.c -o medin.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c modsin.c -o modsin.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c modsout.c -o modsout.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c modstypes.c -o modstypes.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c name.c -o name.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c nbibin.c -o nbibin.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c nbibout.c -o nbibout.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c nbibtypes.c -o nbibtypes.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c notes.c -o notes.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c pages.c -o pages.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c reftypes.c -o reftypes.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c risin.c -o risin.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c risout.c -o risout.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c ristypes.c -o ristypes.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c serialno.c -o serialno.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c slist.c -o slist.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c str.c -o str.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c str_conv.c -o str_conv.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c strsearch.c -o strsearch.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c title.c -o title.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c tomods.c -o tomods.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c type.c -o type.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c unicode.c -o unicode.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c url.c -o url.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c utf8.c -o utf8.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c vplist.c -o vplist.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c wordin.c -o wordin.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c wordout.c -o wordout.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c xml.c -o xml.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c xml2any.c -o xml2any.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c xml_encoding.c -o xml_encoding.o
+gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o rbibutils.so adsout.o any2xml.o args.o bib2be.o bibcore.o bibentrydirectout.o bibentryout.o bibl.o biblatexin.o biblatexout.o bibprog.o bibtexdirectin.o bibtexin.o bibtexout.o bibtextypes.o bibutils.o bltypes.o bu_auth.o charsets.o common_be_bed.o common_bt_blt_btd_out.o common_bt_btd.o common_bt_btd_blt.o common_bt_btd_out.o common_most.o copacin.o copactypes.o ebiin.o endin.o endout.o endtypes.o endxmlin.o entities.o fields.o gb18030.o generic.o init.o intlist.o is_ws.o isiin.o isiout.o isitypes.o iso639_1.o iso639_2.o iso639_3.o latex.o latex_parse.o marc_auth.o medin.o modsin.o modsout.o modstypes.o name.o nbibin.o nbibout.o nbibtypes.o notes.o pages.o reftypes.o risin.o risout.o ristypes.o serialno.o slist.o str.o str_conv.o strsearch.o title.o tomods.o type.o unicode.o url.o utf8.o vplist.o wordin.o wordout.o xml.o xml2any.o xml_encoding.o -L/opt/R/4.5.3/lib/R/lib -lR
+gfortran  -fpic  -g -O2  -c bckslv.f -o bckslv.o
+gfortran  -fpic  -g -O2  -c chol.f -o chol.o
+gfortran  -fpic  -g -O2  -c chol2csr.f -o chol2csr.o
+gfortran  -fpic  -g -O2  -c cholesky.f -o cholesky.o
+gfortran  -fpic  -g -O2  -c csr.f -o csr.o
+gfortran  -fpic  -g -O2  -c extract.f -o extract.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+gfortran  -fpic  -g -O2  -c sparskit.f -o sparskit.o
+gfortran  -fpic  -g -O2  -c subscr.f -o subscr.o
+gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o SparseM.so bckslv.o chol.o chol2csr.o cholesky.o csr.o extract.o init.o sparskit.o subscr.o -lgfortran -lm -lquadmath -L/opt/R/4.5.3/lib/R/lib -lR
+Creating a generic function for 'diag' from package 'base' in package 'SparseM'
+Creating a generic function for 'diag<-' from package 'base' in package 'SparseM'
+Creating a generic function for 'norm' from package 'base' in package 'SparseM'
+Creating a generic function for 'backsolve' from package 'base' in package 'SparseM'
+Creating a generic function for 'forwardsolve' from package 'base' in package 'SparseM'
+Creating a generic function for 'model.response' from package 'stats' in package 'SparseM'

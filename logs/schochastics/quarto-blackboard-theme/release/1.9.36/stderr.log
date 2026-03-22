@@ -1,0 +1,82 @@
+Cloning into 'repo'...
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/__linux__/jammy/latest/src/contrib/renv_1.1.8.tar.gz'
+Content type 'binary/octet-stream' length 2336300 bytes (2.2 MB)
+==================================================
+downloaded 2.2 MB
+
+* installing *binary* package 'renv' ...
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/RtmpDo8850/downloaded_packages'
+The R temporary directory appears to be within a folder mounted as 'noexec'.
+Installation of R packages from sources may fail.
+See the section **Note** within `?INSTALL` for more details.
+
+tempdir(): /tmp/RtmpDo8850
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)
+also installing the dependencies 'sysfonts', 'showtextdb'
+
+trying URL 'https://cloud.r-project.org/src/contrib/sysfonts_0.8.9.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/showtextdb_3.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/showtext_0.9-8.tar.gz'
+* installing *source* package 'sysfonts' ...
+** this is package 'sysfonts' version '0.8.9'
+** package 'sysfonts' successfully unpacked and MD5 sums checked
+** using staged installation
+ERROR: 'configure' exists but is not executable -- see the 'R Installation and Administration Manual'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.5/sysfonts'
+ERROR: dependency 'sysfonts' is not available for package 'showtextdb'
+Perhaps try a variation of:
+install.packages('sysfonts')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.5/showtextdb'
+ERROR: dependencies 'sysfonts', 'showtextdb' are not available for package 'showtext'
+Perhaps try a variation of:
+install.packages(c('sysfonts', 'showtextdb'))
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.5/showtext'
+
+The downloaded source packages are in
+	'/tmp/RtmpDo8850/downloaded_packages'
+Warning messages:
+1: In install.packages(deps, repos = "https://cloud.r-project.org") :
+  installation of package 'sysfonts' had non-zero exit status
+2: In install.packages(deps, repos = "https://cloud.r-project.org") :
+  installation of package 'showtextdb' had non-zero exit status
+3: In install.packages(deps, repos = "https://cloud.r-project.org") :
+  installation of package 'showtext' had non-zero exit status
+
+
+processing file: template.qmd
+1/5          
+2/5 [setup]  
+Error in `library()`:
+! there is no package called 'showtext'
+Backtrace:
+    x
+ 1. \-base::library(showtext)
+Warning message:
+Duplicated chunk option(s) 'fig.width', 'fig.height', 'fig.align' in both chunk header and pipe comments of the chunk 'testing'. 
+
+Quitting from template.qmd:9-35 [setup]
+Execution halted
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+
+
+processing file: template.qmd
+1/5          
+2/5 [setup]  
+Error in `library()`:
+! there is no package called 'showtext'
+Backtrace:
+    x
+ 1. \-base::library(showtext)
+Warning message:
+Duplicated chunk option(s) 'fig.width', 'fig.height', 'fig.align' in both chunk header and pipe comments of the chunk 'testing'. 
+
+Quitting from template.qmd:9-35 [setup]
+Execution halted
+WARN: Error encountered when rendering files

@@ -1,0 +1,127 @@
+
+
+processing file: _revealjs-example.qmd
+
+1/9                  
+
+2/9 [unnamed-chunk-1]
+
+3/9                  
+
+4/9 [unnamed-chunk-2]
+
+5/9                  
+
+6/9 [unnamed-chunk-3]
+
+7/9                  
+
+8/9 [unnamed-chunk-4]
+
+9/9                  
+
+output file: _revealjs-example.knit.md
+
+
+pandoc 
+
+  to: revealjs
+  output-file: _revealjs-example.html
+  template: _extensions/mcanouil/revealjs/template.html
+  standalone: true
+  embed-resources: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  variables: {}
+  
+
+metadata
+
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: slide
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  author:
+    - name:
+        given: Mickaël
+        family: CANOUIL
+      degrees: Ph.D.
+      email: pro@mickael.canouil.dev
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+      attributes:
+        corresponding: true
+      affiliations:
+        - name: Independent Contractor
+          city: Lille
+          country: France
+  copyright: © 2026 Mickaël CANOUIL
+  license: CC BY-NC-SA
+  code-copy: true
+  date: today
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  mermaid:
+    theme: dark
+  extensions:
+    mcanouil:
+      grid-background: true
+      section-outline: true
+      date-superscript: true
+      hide-title-slide-chrome: true
+      favicon-from-logo: true
+      code-annotation-fragments: true
+      debug-borders: true
+  brand-mode: dark
+  logo:
+    light: light
+    dark: dark
+  theme:
+    - default
+    - _extensions/mcanouil/revealjs/theme.scss
+    - brand
+  revealjs-plugins:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/_extensions/mcanouil/revealjs-plugin/mcanouil
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/_extensions/mcanouil/revealjs-plugin/tabset
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/_extensions/mcanouil/revealjs-plugin/line-fragment-indices
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/_extensions/mcanouil/revealjs-plugin/code-annotation-fragments
+  slideNumber: c
+  code-annotations: select
+  footer: |
+    <a href="https://mickael.canouil.fr/" target="_blank" rel="noopener noreferrer">mickael.canouil.fr</a>
+    |
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">License: CC BY-NC-SA 4.0</a>
+  closing-slide:
+    photo: https://github.com/mcanouil.png
+    social:
+      website: https://mickael.canouil.fr
+      github: mcanouil
+      linkedin: MickaelCanouil
+      bluesky: mickael.canouil.fr
+      mastodon: https://fosstodon.org/%40MickaelCanouil
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Reveal.js Format Test
+  subtitle: Comprehensive Component Testing
+  
+
+Output created: _revealjs-example.html
+
+

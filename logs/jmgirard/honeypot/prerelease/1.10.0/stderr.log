@@ -1,0 +1,28 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: honeypot Demo
+  theme: cerulean
+  code-links:
+    - text: GitHub Repo
+      icon: github
+      href: https://github.com/jmgirard/honeypot
+  
+Output created: docs/index.html
+

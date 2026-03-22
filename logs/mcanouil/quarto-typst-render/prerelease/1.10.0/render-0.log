@@ -1,0 +1,97 @@
+pandoc 
+
+  to: beamer
+  output-file: example.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+
+metadata
+
+  block-headings: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Typst Render
+  subtitle: Quarto Extension
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  extensions:
+    typst-render:
+      margin: 0.5em
+  aspectratio: 169
+  
+
+downloading @preview/cetz:0.4.2
+
+123.1 KiB / 123.1 KiB (100 %) 123.1 KiB/s in 2.63 ms ETA: 0 s
+
+
+downloading @preview/oxifmt:1.0.0
+
+ 19.7 KiB /  19.7 KiB (100 %)  19.7 KiB/s in 3.78 ms ETA: 0 s
+
+
+(W) [typst-render] Page selection is not supported for PDF format; embedding the full PDF.
+
+warning: unknown font family: inter
+   ┌─ <stdin>:16:16
+   │
+16 │ #set text(font: "Inter", fill: text-primary)
+   │             
+    ^^^^^^^
+
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for beamer.cls
+
+> 1 package to install
+
+> installing beamer (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+
+finding package for caption.sty
+
+> 1 package to install
+
+> installing caption (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+running lualatex - 2
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+
+
+Output created: example-beamer.pdf
+
+

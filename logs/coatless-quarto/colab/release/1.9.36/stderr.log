@@ -1,0 +1,110 @@
+Cloning into 'repo'...
+pandoc 
+  to: ipynb
+  output-file: template.ipynb
+  standalone: true
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  ipynb-title-block: /opt/quarto/share/formats/ipynb/templates/title-block.md
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Example Template
+  author: Amazing Mr. Mistoffelees
+  date: last-modified
+  colab:
+    gh-user: coatless-quarto
+    gh-repo: colab
+    gh-branch: main
+  
+Output created: template.ipynb
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: colab
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: false
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  colab:
+    gh-user: coatless-quarto
+    gh-repo: colab
+    gh-branch: main
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Colab Extension
+  callout-appearance: minimal
+  
+WARN: Unable to resolve link target: qcolab-example.qmd
+Output created: _site/index.html
+
+pandoc 
+  to: html
+  output-file: qcolab-release-notes.html
+  standalone: true
+  title-prefix: colab
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  colab:
+    gh-user: coatless-quarto
+    gh-repo: colab
+    gh-branch: main
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Release Notes
+  date: 06-10-2024
+  date-modified: last-modified
+  
+WARN: Unable to resolve link target: qcolab-example.qmd
+Output created: _site/qcolab-release-notes.html
+
+pandoc 
+  to: html
+  output-file: qcolab-faq.html
+  standalone: true
+  title-prefix: colab
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  colab:
+    gh-user: coatless-quarto
+    gh-repo: colab
+    gh-branch: main
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Quarto Colab Extension FAQ
+  callout-appearance: simple
+  
+WARN: Unable to resolve link target: qcolab-example.qmd
+Output created: _site/qcolab-faq.html
+

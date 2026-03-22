@@ -1,0 +1,19 @@
+Dependency install phase for padsinsper/quarto-insper-theme: auto-detect
+Auto-detecting R dependencies for padsinsper/quarto-insper-theme (knitr engine, no renv.lock).
+Installing R packages: coresInsper, dados, extrafont 
+echo "make ttf2pt1 in ttf2pt1/ ..."
+make ttf2pt1 in ttf2pt1/ ...
+(cd ttf2pt1; make CC="`"/opt/R/4.5.3/lib/R/bin/R" CMD config CC`" CFLAGS="`"/opt/R/4.5.3/lib/R/bin/R" CMD config CFLAGS`" ttf2pt1)
+make[1]: Entering directory '/tmp/Rtmpgfl8wp/R.INSTALL2ba574a9b44/Rttf2pt1/src/ttf2pt1'
+gcc -g -O2 -c ttf2pt1.c
+gcc -g -O2 -c pt1.c
+gcc -g -O2  -c runt1asm.c
+gcc -g -O2 -c ttf.c
+gcc -g -O2 -c ft.c
+gcc -g -O2 -c bdf.c
+gcc -g -O2 -c bitmap.c
+gcc -g -O2 -o ttf2pt1 ttf2pt1.o pt1.o runt1asm.o ttf.o ft.o bdf.o bitmap.o -lm  
+make[1]: Leaving directory '/tmp/Rtmpgfl8wp/R.INSTALL2ba574a9b44/Rttf2pt1/src/ttf2pt1'
+[1] ""
+tlmgr: package repository https://ctan.math.illinois.edu/systems/texlive/tlnet (verified)
+tlmgr: no self-updates for tlmgr available

@@ -1,0 +1,502 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: TeXnative
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme:
+    light:
+      - cosmo
+      - theme.scss
+    dark:
+      - cosmo
+      - theme-dark.scss
+  code-copy: true
+  title: TeXnative
+  
+Output created: _site/index.html
+
+pandoc 
+  to: html
+  output-file: getting-started.html
+  standalone: true
+  title-prefix: TeXnative
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme:
+    light:
+      - cosmo
+      - theme.scss
+    dark:
+      - cosmo
+      - theme-dark.scss
+  code-copy: true
+  title: Getting Started
+  
+Output created: _site/getting-started.html
+
+pandoc 
+  to: html
+  output-file: data-classification-label.html
+  standalone: true
+  title-prefix: TeXnative
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme:
+    light:
+      - cosmo
+      - theme.scss
+    dark:
+      - cosmo
+      - theme-dark.scss
+  code-copy: true
+  title: Data Classification Labels
+  
+Output created: _site/data-classification-label.html
+
+pandoc 
+  to: html
+  output-file: configuration.html
+  standalone: true
+  title-prefix: TeXnative
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme:
+    light:
+      - cosmo
+      - theme.scss
+    dark:
+      - cosmo
+      - theme-dark.scss
+  code-copy: true
+  title: Configuration Reference
+  
+Output created: _site/configuration.html
+
+pandoc 
+  to: html
+  output-file: letterhead.html
+  standalone: true
+  title-prefix: TeXnative
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme:
+    light:
+      - cosmo
+      - theme.scss
+    dark:
+      - cosmo
+      - theme-dark.scss
+  code-copy: true
+  title: Letterhead
+  
+Output created: _site/letterhead.html
+
+pandoc 
+  to: html
+  output-file: cover-page.html
+  standalone: true
+  title-prefix: TeXnative
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme:
+    light:
+      - cosmo
+      - theme.scss
+    dark:
+      - cosmo
+      - theme-dark.scss
+  code-copy: true
+  title: Cover Page
+  
+Output created: _site/cover-page.html
+
+pandoc 
+  to: html
+  output-file: table-formatting.html
+  standalone: true
+  title-prefix: TeXnative
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme:
+    light:
+      - cosmo
+      - theme.scss
+    dark:
+      - cosmo
+      - theme-dark.scss
+  code-copy: true
+  title: Table Formatting
+  
+Output created: _site/table-formatting.html
+
+pandoc 
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  toc: true
+  
+metadata
+  block-headings: true
+  toc-title: Contents
+  cover_page: true
+  letterhead: true
+  dark_background: true
+  urlcolor: magenta
+  linkcolor: magenta
+  colorlinks: true
+  page_numbers: true
+  paragraph_numbers: true
+  papersize: a4
+  disable_justify: true
+  geometry:
+    - top=60mm
+  letterhead_img: bgwhite.jpg
+  letterhead_img_darkbg: bgdark.jpg
+  cover_illustration_img: cover-ill.png
+  cover_illustration_img_darkbg: cover-ill.png
+  classoption: table
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Some Agreement about stuff
+  subtitle: Agreement for a typical business case
+  author: Jane Dean
+  date: last-modified
+  client:
+    name: Cool Customer Limited
+    short_name: Cool Customer
+    contact_person: Joe Johnson
+    address: Somewhereroad 1, Marslands
+  type: Report
+  document_version: 1
+  document_number: ABC013
+  data_classification_label:
+    level: confidential
+    levels:
+      confidential:
+        bgcolor: '#ff0000'
+        txtcolor: '#000000'
+        txt: CONFIDENTIAL
+      internal:
+        bgcolor: '#ee7d2f'
+        txtcolor: '#000000'
+        txt: INTERNAL
+      public:
+        bgcolor: '#70ac45'
+        txtcolor: '#000000'
+        txt: PUBLIC
+    border-radius: 2pt
+    txtsize: small
+    width: 40mm
+    height: 10mm
+    top: 15mm
+    left: 20mm
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+updating tlmgr
+
+updating existing packages
+finding package for colortbl.sty
+> 1 package to install
+> installing colortbl (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for setspace.sty
+> 1 package to install
+> installing setspace (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for datetime.sty
+> 1 package to install
+> installing datetime (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for fmtcount.sty
+> 1 package to install
+> installing fmtcount (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for textpos.sty
+> 1 package to install
+> installing textpos (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for makecell.sty
+> 1 package to install
+> installing makecell (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for lipsum.sty
+> 1 package to install
+> installing lipsum (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for enumitem.sty
+> 1 package to install
+> installing enumitem (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for ragged2e.sty
+> 1 package to install
+> installing ragged2e (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for footmisc.sty
+> 1 package to install
+> installing footmisc (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for background.sty
+> 1 package to install
+> installing background (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for tikz.sty
+> 1 package to install
+> installing pgf (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for everypage.sty
+> 1 package to install
+> installing everypage (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for fancyhdr.sty
+> 2 packages to install
+> installing fancyhdr (1 of 2)
+> installing pdftex (2 of 2)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for lastpage.sty
+> 1 package to install
+> installing lastpage (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Reload initiated (formats: otf,ttf,ttc); reason: Font "Lato" not found.
+finding package for Lato(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+> 1 package to install
+> installing lato (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Reload initiated (formats: otf,ttf,ttc); reason: Font "Lato" not found.
+finding package for eso-pic.sty
+> 1 package to install
+> installing eso-pic (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for caption.sty
+> 1 package to install
+> installing caption (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: template.pdf
+
+pandoc 
+  to: latex
+  output-file: example_grid_tables.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  toc: false
+  
+metadata
+  block-headings: true
+  toc-title: Contents
+  cover_page: true
+  letterhead: false
+  dark_background: false
+  urlcolor: magenta
+  linkcolor: magenta
+  colorlinks: true
+  page_numbers: true
+  paragraph_numbers: false
+  papersize: a4
+  disable_justify: true
+  geometry:
+    - top=60mm
+  letterhead_img: bgwhite.jpg
+  letterhead_img_darkbg: bgdark.jpg
+  cover_illustration_img: cover-ill.png
+  cover_illustration_img_darkbg: cover-ill.png
+  classoption: table
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: example_grid_tables.pdf
+
+pandoc 
+  to: latex
+  output-file: example_markdown_tables.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  toc: false
+  
+metadata
+  block-headings: true
+  toc-title: Contents
+  cover_page: true
+  letterhead: false
+  dark_background: false
+  urlcolor: magenta
+  linkcolor: magenta
+  colorlinks: true
+  page_numbers: true
+  paragraph_numbers: false
+  papersize: a4
+  disable_justify: true
+  geometry:
+    - top=60mm
+  letterhead_img: bgwhite.jpg
+  letterhead_img_darkbg: bgdark.jpg
+  cover_illustration_img: cover-ill.png
+  cover_illustration_img_darkbg: cover-ill.png
+  classoption: table
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2

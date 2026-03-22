@@ -1,0 +1,121 @@
+Cloning into 'repo'...
+pandoc 
+  to: docx
+  output-file: example.docx
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Landscape Example
+  
+Output created: example.docx
+
+pandoc 
+  to: latex
+  output-file: example.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Landscape Example
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+finding package for scrartcl.cls
+> 1 package to install
+> installing koma-script (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+finding package for pdflscape.sty
+> 1 package to install
+> installing pdflscape (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for caption.sty
+> 1 package to install
+> installing caption (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+ERROR: 
+compilation failed- error
+TeX capacity exceeded, sorry [input stack size=10000].
+\LS@makefcolumn #1->\LS@makefcolumn {#1
+                                       }\LS@rot 
+l.191 \begin{landscape}
+                     
+
+
+see example.log for more information.
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+pandoc 
+  to: latex
+  output-file: example.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Landscape Example
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+ERROR: 
+compilation failed- error
+TeX capacity exceeded, sorry [input stack size=10000].
+\LS@makefcolumn #1->\LS@makefcolumn {#1
+                                       }\LS@rot 
+l.191 \begin{landscape}
+                     
+
+
+see example.log for more information.
+WARN: Error encountered when rendering files

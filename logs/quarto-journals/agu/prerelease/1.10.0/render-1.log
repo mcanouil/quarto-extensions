@@ -1,0 +1,168 @@
+pandoc 
+
+  to: latex
+  output-file: template.tex
+  standalone: true
+  shift-heading-level-by: -1
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  number-sections: true
+  
+
+metadata
+
+  block-headings: true
+  knitr:
+    opts_chunk:
+      echo: false
+  csl: _extensions/agu/american-geophysical-union.csl
+  documentclass: agujournal2019
+  classoptions: draft
+  header-includes:
+    - |
+      \usepackage{url} %this package should fix any errors with URLs in refs.
+      \usepackage{lineno}
+      \usepackage[inline]{trackchanges} %for better track changes. finalnew option will compile document with changes incorporated.
+      \usepackage{soul}
+      \linenumbers
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Preparing your manuscript
+  author:
+    - name: Michael J Mahoney
+      affiliations:
+        - name: State University of New York College of Environmental Science and Forestry
+          department: Graduate Program in Environmental Science
+          address: 1 Forestry Drive
+          city: Syracuse
+          region: NY
+          country: USA
+          postal-code: 13210
+      orcid: 0000-0003-2402-304X
+      email: fake_email@fakeyfake.com
+      url: https://mm218.dev
+      acknowledgements: Translated template to Quarto.
+    - name: Charles Teague
+      affiliations:
+        - name: Posit, PBC
+          address: 250 Northern Ave
+          city: Boston
+          region: Massachusetts
+          country: USA
+          postal-code: 2210
+      corresponding: true
+      orcid: 0000-0001-8715-9476
+      email: charles@posit.co
+  abstract: |
+    The abstract (1) states the nature of the investigation and (2) summarizes the important conclusions. The abstract should be suitable for indexing. Your abstract should:
+  
+      - Be set as a single paragraph.
+      - Be less than 250 words for all journals except GRL, for which the limit is 150 words.
+      - Not include table or figure mentions.
+      - Avoid reference citations unless dependent on or directly related to another paper (e.g., companion, comment, reply, or commentary on another paper(s)). AGU’s Style Guide discusses formatting citations in abstracts.
+      - Define all abbreviations.
+  plain-language-summary: |
+    A Plain Language Summary (PLS) can be an incredibly effective science communication tool. By summarizing your paper in non-technical terms, you can explain your research and its relevance to a much broader audience. A PLS is required for submissions to AGU Advances, G-Cubed, GeoHealth, GRL, JAMES, JGR: Biogeosciences, JGR: Oceans, JGR: Planets, JGR: Solid Earth, JGR: Atmospheres, Space Weather, and Reviews of Geophysics, but optional for other journals.  A PLS should be no longer than 200 words and should be free of jargon, acronyms, equations, and any technical information that would be unknown to people from outside your scientific discipline. Read our tips for creating an effective PLS.
+  keywords: []
+  key-points:
+    - Key Points convey the main points and conclusions of the article.
+    - Up to three key point statements are allowed, and each is limited to at most 140 characters with no abbreviations.
+    - Key Points are not included in the word count.
+  bibliography:
+    - bibliography.bib
+  citation:
+    container-title: Geophysical Research Letters
+  date: last-modified
+  
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for lineno.sty
+
+> 1 package to install
+
+> installing lineno (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for ragged2e.sty
+
+> 1 package to install
+
+> installing ragged2e (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+
+finding package for apacite.sty
+
+> 1 package to install
+
+> installing apacite (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for soul.sty
+
+> 1 package to install
+
+> installing soul (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for morefloats.sty
+
+> 1 package to install
+
+> installing morefloats (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for caption.sty
+
+> 1 package to install
+
+> installing caption (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+running lualatex - 2
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+
+
+Output created: template.pdf
+
+

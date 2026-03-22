@@ -1,0 +1,288 @@
+Cloning into 'repo'...
+pandoc 
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: xelatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  block-headings: true
+  knitr:
+    opts_chunk:
+      echo: false
+  csl: _extensions/sportrxiv/apa.csl
+  link-citations: 'yes'
+  colorlinks: true
+  urlcolor: blue
+  mainfont: Verdana
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  articletitle: |
+    Demo format to use as template for an article submitted to the SportRxiv preprint server
+  author:
+    - name: John Doe
+      affiliations:
+        - ref: 1
+        - ref: 2
+      orcid: 0000-0000-0000-0000
+      corresponding: true
+      email: JD@example.org
+    - name: Second Person
+      affiliations:
+        - ref: 1
+    - name: Third Person
+      affiliations:
+        - ref: 2
+  affiliations:
+    - id: 1
+      name: One Affiliation
+    - id: 2
+      name: Another Affiliation
+  abstract: |
+    Place your abstract here. Use Markdown to style the abstract, e.g. write `*word*` to print a *word* in italics. You can use the Latex command `\newline\` to create a linebreak in the abstract. \newline\ *Explanation*: The second backslash ensures that styling can be applied directly after the linebreak. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template.
+  license-type: ccby
+  keywords:
+    - template
+    - demo
+    - exercise science
+  suppl-link: https://osf.io/
+  reference-section-title: References
+  printnote: PREPRINT - NOT PEER REVIEWED
+  bibliography:
+    - bibliography.bib
+  
+
+Rendering PDF
+running xelatex - 1
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+  kpathsea: Running mktextfm Verdana
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Could not map source abbreviation  for Verdana.
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Need to update ?
+  mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input Verdana
+  This is METAFONT, Version 2.71828182 (TeX Live 2026) (preloaded base=mf)
+  
+  kpathsea: Running mktexmf Verdana
+  
+  ! I can't find file `Verdana'.
+  <*> ...jfour; mag:=1; ; nonstopmode; input Verdana
+                                                    
+  Please type another input file name
+  ! Emergency stop.
+  <*> ...jfour; mag:=1; ; nonstopmode; input Verdana
+                                                    
+  Transcript written on mfput.log.
+  grep: Verdana.log: No such file or directory
+  mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input Verdana' failed to make Verdana.tfm.
+  kpathsea: Appending font creation commands to missfont.log.
+  
+updating tlmgr
+
+updating existing packages
+finding package for Verdana(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+finding package for Verdana
+finding package for mktextfm
+> 1 package to install
+> installing texlive-scripts (1 of 1)
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+  kpathsea: Running mktextfm Verdana
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Could not map source abbreviation  for Verdana.
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Need to update ?
+  mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input Verdana
+  This is METAFONT, Version 2.71828182 (TeX Live 2026) (preloaded base=mf)
+  
+  kpathsea: Running mktexmf Verdana
+  
+  ! I can't find file `Verdana'.
+  <*> ...jfour; mag:=1; ; nonstopmode; input Verdana
+                                                    
+  Please type another input file name
+  ! Emergency stop.
+  <*> ...jfour; mag:=1; ; nonstopmode; input Verdana
+                                                    
+  Transcript written on mfput.log.
+  grep: Verdana.log: No such file or directory
+  mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input Verdana' failed to make Verdana.tfm.
+  kpathsea: Appending font creation commands to missfont.log.
+  
+finding package for Verdana(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+finding package for Verdana
+finding package for mktextfm
+ERROR: 
+compilation failed- package installation error
+Package fontspec Error: 
+(fontspec)                The font "Verdana" cannot be found; this may be
+(fontspec)                but usually is not a fontspec bug. Either there is
+(fontspec)                a typo in the font name/file, the font is not
+(fontspec)                installed (correctly), or there is a bug in the
+(fontspec)                underlying font loading engine (XeTeX/luaotfload).
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.26 \fi
+        
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+ 
+
+see template.log for more information.
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+pandoc 
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: xelatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  block-headings: true
+  knitr:
+    opts_chunk:
+      echo: false
+  csl: _extensions/sportrxiv/apa.csl
+  link-citations: 'yes'
+  colorlinks: true
+  urlcolor: blue
+  mainfont: Verdana
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  articletitle: |
+    Demo format to use as template for an article submitted to the SportRxiv preprint server
+  author:
+    - name: John Doe
+      affiliations:
+        - ref: 1
+        - ref: 2
+      orcid: 0000-0000-0000-0000
+      corresponding: true
+      email: JD@example.org
+    - name: Second Person
+      affiliations:
+        - ref: 1
+    - name: Third Person
+      affiliations:
+        - ref: 2
+  affiliations:
+    - id: 1
+      name: One Affiliation
+    - id: 2
+      name: Another Affiliation
+  abstract: |
+    Place your abstract here. Use Markdown to style the abstract, e.g. write `*word*` to print a *word* in italics. You can use the Latex command `\newline\` to create a linebreak in the abstract. \newline\ *Explanation*: The second backslash ensures that styling can be applied directly after the linebreak. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template.
+  license-type: ccby
+  keywords:
+    - template
+    - demo
+    - exercise science
+  suppl-link: https://osf.io/
+  reference-section-title: References
+  printnote: PREPRINT - NOT PEER REVIEWED
+  bibliography:
+    - bibliography.bib
+  
+
+Rendering PDF
+running xelatex - 1
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+  kpathsea: Running mktextfm Verdana
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Could not map source abbreviation  for Verdana.
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Need to update ?
+  mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input Verdana
+  This is METAFONT, Version 2.71828182 (TeX Live 2026) (preloaded base=mf)
+  
+  kpathsea: Running mktexmf Verdana
+  
+  ! I can't find file `Verdana'.
+  <*> ...jfour; mag:=1; ; nonstopmode; input Verdana
+                                                    
+  Please type another input file name
+  ! Emergency stop.
+  <*> ...jfour; mag:=1; ; nonstopmode; input Verdana
+                                                    
+  Transcript written on mfput.log.
+  grep: Verdana.log: No such file or directory
+  mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input Verdana' failed to make Verdana.tfm.
+  kpathsea: Appending font creation commands to missfont.log.
+  
+updating tlmgr
+
+updating existing packages
+finding package for Verdana(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+finding package for Verdana
+finding package for mktextfm
+> 1 package to install
+> installing texlive-scripts (1 of 1)
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+  kpathsea: Running mktextfm Verdana
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Could not map source abbreviation  for Verdana.
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Need to update ?
+  mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input Verdana
+  This is METAFONT, Version 2.71828182 (TeX Live 2026) (preloaded base=mf)
+  
+  kpathsea: Running mktexmf Verdana
+  
+  ! I can't find file `Verdana'.
+  <*> ...jfour; mag:=1; ; nonstopmode; input Verdana
+                                                    
+  Please type another input file name
+  ! Emergency stop.
+  <*> ...jfour; mag:=1; ; nonstopmode; input Verdana
+                                                    
+  Transcript written on mfput.log.
+  grep: Verdana.log: No such file or directory
+  mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input Verdana' failed to make Verdana.tfm.
+  kpathsea: Appending font creation commands to missfont.log.
+  
+finding package for Verdana(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+finding package for Verdana
+finding package for mktextfm
+ERROR: 
+compilation failed- package installation error
+Package fontspec Error: 
+(fontspec)                The font "Verdana" cannot be found; this may be
+(fontspec)                but usually is not a fontspec bug. Either there is
+(fontspec)                a typo in the font name/file, the font is not
+(fontspec)                installed (correctly), or there is a bug in the
+(fontspec)                underlying font loading engine (XeTeX/luaotfload).
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.26 \fi
+        
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+ 
+
+see template.log for more information.
+WARN: Error encountered when rendering files
