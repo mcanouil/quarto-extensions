@@ -98,15 +98,16 @@ detect_engines() {
       if [[ -n "${file_engines}" ]]; then
         engines=$(printf '%s\n%s' "${engines}" "${file_engines}")
       fi
-    done < <(find . -name '*.qmd' -not -path './_extensions/*' -print0)
+    done < <(find . -name '*.qmd' -not -path './_extensions/*' -print0 2>/dev/null)
     engines=$(echo "${engines}" | sort -u | sed '/^$/d')
   fi
   echo "${engines}"
 }
 
+engines=$(detect_engines)
+
 # Auto-detect R dependencies when no renv.lock is present
 if [[ ! -f renv.lock ]]; then
-  engines=$(detect_engines)
   if echo "${engines}" | grep -qx "knitr"; then
     echo "Auto-detecting R dependencies for ${EXT_ID} (knitr engine, no renv.lock)." >>"${LOG_DIR}/stdout.log"
     Rscript -e '
@@ -128,7 +129,6 @@ fi
 
 # Auto-detect Python dependencies when no uv.lock/requirements.txt is present
 if [[ ! -f uv.lock ]] && [[ ! -f requirements.txt ]]; then
-  engines=$(detect_engines)
   if echo "${engines}" | grep -qx "jupyter"; then
     has_python=false
     while IFS= read -r -d '' qmd; do
@@ -202,7 +202,6 @@ fi
 
 # Auto-detect Julia dependencies when no Project.toml is present
 if [[ ! -f Project.toml ]] && [[ ! -f JuliaProject.toml ]]; then
-  engines=$(detect_engines)
   if echo "${engines}" | grep -qx "jupyter"; then
     has_julia=false
     while IFS= read -r -d '' qmd; do
