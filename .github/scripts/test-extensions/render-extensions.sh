@@ -26,6 +26,7 @@ docker_run_render() {
     "${DOCKER_SECURITY_OPTS[@]}" \
     "$@" \
     -e NO_COLOR=1 \
+    -e RENV_CONFIG_SANDBOX_ENABLED=FALSE \
     -e QUARTO_CHROMIUM="/usr/bin/google-chrome-stable" \
     -e HOME="${workdir}" \
     -e XDG_CACHE_HOME="${workdir}/.cache" \
@@ -357,6 +358,7 @@ RENDER_SCRIPT
   fi
 
   # Clean up workdir now that logs are copied
+  chmod -R u+w "${workdir}" 2>/dev/null || true
   rm -rf "${workdir}"
 
   jq -cn \
