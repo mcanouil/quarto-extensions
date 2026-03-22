@@ -1,0 +1,50 @@
+Cloning into 'repo'...
+pandoc 
+  to: >-
+    commonmark+autolink_bare_uris+emoji+footnotes+gfm_auto_identifiers+pipe_tables+strikeout+task_lists+tex_math_dollars
+  output-file: README.md
+  standalone: true
+  default-image-extension: png
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  
+Output created: README.md
+
+pandoc 
+  to: docx
+  output-file: example.docx
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Fancy epigraphs
+  
+Output created: example.docx
+
+pandoc 
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - _extensions/epigraph/epigraph.css
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Fancy epigraphs
+  

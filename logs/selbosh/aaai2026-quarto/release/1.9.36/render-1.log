@@ -1,0 +1,296 @@
+pandoc 
+
+  to: latex
+  output-file: template.tex
+  template: _extensions/aaai2026/aaai2026-template.latex
+  standalone: true
+  pdf-engine: pdflatex
+  variables:
+    graphics: true
+    tables: true
+    secnumdepth: 2
+  default-image-extension: pdf
+  number-sections: true
+  cite-method: natbib
+  
+
+metadata
+
+  block-headings: true
+  number-depth: 2
+  biblio-style: aaai2026.bst
+  fig-cap-location: bottom
+  tbl-cap-location: bottom
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Example article for AAAI 2026 using Quarto
+  author:
+    - name: Max Mustermann
+      orcid: 0000-0000-0000-0000
+      email: name@example.com
+      affiliation:
+        - ref: 1
+    - name: Author Two
+      orcid: 0000-0000-0000-0001
+      email: name2@example.com
+      affiliation:
+        - ref: 1
+  affiliations:
+    - id: 1
+      name: Association for the Advancement of Artificial Intelligence
+      department: Data Science and its Applications
+      address: 1101 Pennsylvania Ave, NW Suite 300
+      city: Washington
+      country: USA
+      state: DC
+      url: https://aaai.org
+  abstract: |
+    AAAI creates proceedings, working notes, and technical reports directly from electronic source furnished by the authors. To ensure that all papers in the publication have a uniform appearance, authors must adhere to the following instructions.
+  links:
+    - name: Code
+      url: https://aaai.org/example/code
+    - name: Datasets
+      url: https://aaai.org/example/datasets
+  keywords:
+    - template
+    - demo
+  bibliography:
+    - bibliography.bib
+  header-includes:
+    - \usepackage{amsmath,amssymb}
+    - \usepackage{booktabs}
+  
+
+Error running
+ filter /opt/quarto/share/filters/main.lua:
+Could not fetch https://upload.wikimedia.org/wikipedia/commons/f/ff/AAAI_Conference.png
+HttpExceptionRequest Req
+uest {
+  host                 = "upload.wikimedia.org"
+  port        
+         = 443
+  secure               = True
+  r
+equestHeaders       = []
+  path          
+       = "/wikipedia/commons/f/ff/AA
+AI_Conference.png"
+  queryString          = ""
+  met
+hod               = "GET"
+  proxy   
+             = Nothing
+  rawBody           
+   = False
+  redirectCoun
+t        = 10
+  resp
+onseTimeout      = 
+ResponseTimeoutDefau
+lt
+  requestVersio
+n       = HTTP/1.1
+
+  proxySecureMode
+      = ProxySecure
+WithConnect
+}
+ (Sta
+tusCodeException (
+Response {responseS
+tatus = Status {st
+atusCode = 403, st
+atusMessage = "For
+bidden"}, responseVers
+ion = HTTP/1.1, respons
+eHeaders = [("content-length",
+"126"),("content-type","
+text/plain"),("x-req
+uest-id","a9c8ba95-
+e326-4b43-ba03-ac8
+428d20bef"),("serv
+er","HAProxy"),("x-
+cache","cp1111 int
+"),("x-cache-status
+","int-tls"),("x-an
+alytics","")], resp
+onseBody = (), res
+ponseCookieJar = C
+J {expose = []}, respon
+seClose' = Response
+Close, responseOrig
+inalRequest = Requ
+est {
+  host       
+          = "uploa
+d.wikimedia.org"
+  
+port              
+   = 443
+  secure  
+             = Tru
+e
+  requestHeaders
+       = []
+  path        
+         = "/wikipedi
+a/commons/f/ff/AAAI_Conf
+erence.png"
+  que
+ryString          = ""
+  metho
+d               = "GET"
+  
+proxy               
+ = Nothing
+  rawBod
+y              = Fa
+lse
+  redirectCount 
+       = 10
+  resp
+onseTimeout      =
+ ResponseTimeoutDef
+ault
+  requestVers
+ion       = HTTP/1
+.1
+  proxySecureMod
+e      = ProxySecureWithC
+onnect
+}
+, responseEar
+lyHints = []}) "Please set 
+a user-agent and res
+pect our robot pol
+icy https://w.wiki/4wJS. 
+See also https://phabrica
+tor.wikimedia.org/T
+400119.\n")
+stack traceb
+ack:
+	.../share/pandoc/d
+atadir/../../filter
+s/modules/mediabag
+.lua:29: in function 'modules/mediabag.fetch_and_store_image'
+	.../share/pandoc/datadir/../../filters/modules/mediabag.lua:72
+: in function 'modules/mediabag.
+resolve_image_from_ur
+l'
+	(...tail calls.
+..)
+	/opt/quarto/sh
+are/filters/main.lu
+a:2930: in local 'f
+n'
+	...uarto/share
+/pandoc/datadir/../
+../filters/modules
+/jog.lua:34: in upv
+alue 'run_filter_f
+unction'
+	...uart
+o/share/pandoc/dat
+adir/../../filters/modu
+les/jog.lua:223: in
+ function <...uart
+o/share/pandoc/datadir/..
+/../filters/modules/
+jog.lua:202>
+	(...
+tail calls...)
+	[C
+]: in function 'pa
+ndoc.List.map'
+	..
+.uarto/share/pandoc
+/datadir/../../fi
+lters/modules/jog.l
+ua:125: in upvalue
+ 'recurse'
+	...ua
+rto/share/pandoc/da
+tadir/../../filters/
+modules/jog.lua:222
+: in local 'jogge
+r'
+	...uarto/share
+/pandoc/datadir/.
+./../filters/modul
+es/jog.lua:98: in
+ upvalue 'recurse
+'
+	...uarto/share
+/pandoc/datadir/..
+/../filters/modul
+es/jog.lua:222: in
+ function <...uart
+o/share/pandoc/dat
+adir/../../filters/modules/jog
+.lua:202>
+	(...t
+ail 
+calls...)
+	...	(skipping 2 levels)
+
+	...uarto/share/pandoc
+/datadir/../../filters/m
+odules/jog.lua:111: in u
+pvalue 'recurse'
+	...ua
+rto/share/pandoc/data
+dir/../../filters/mod
+ules/jog.lua:222: in
+ function <...uarto/
+share/pandoc/datadir
+/../../filters/modu
+les/jog.lua:202>
+	(.
+..tail calls...)
+	[C
+]: in function 'pandoc
+.List.map'
+	...uarto
+/share/pandoc/datadir
+/../../filters/modul
+es/jog.lua:125: in u
+pvalue 'recurse'
+	...ua
+rto/share/pandoc/datad
+ir/../../filters/mod
+ules/jog.lua:222: i
+n local 'jogger'
+	.
+..uarto/share/pandoc
+/datadir/../../filt
+ers/modules/jog.lua:171: in upvalue 'r
+ecurse'
+	...uarto/share/pando
+c/datadir/../../filte
+rs/modules/jog.lua:2
+22: in function <...
+uarto/share/pandoc/da
+tadir/../../filters/
+modules/jog.lua:202>
+	(...tail calls...
+)
+	/opt/quarto/share/filters/main.lua:574: i
+n function </opt/quarto/share/f
+ilters/main.lua:552>
+	(
+...tail calls...)
+	/opt/qua
+rto/share/filters/main.
+lua:1317: in local 'c
+allback'
+	/opt/quarto
+/share/filters/main.
+lua:1335: in upvalue
+ 'run_emulated_filter
+_chain'
+	/opt/quarto/
+share/filters/main.lua:1371: in function </o
+pt/quarto/share/filters/main.lua:1368>
+
+(WARN) Error encountered when rendering files
+
