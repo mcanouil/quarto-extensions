@@ -125,6 +125,7 @@ jobs:
               jq libcurl4-openssl-dev libssl-dev libxml2-dev libfontconfig1-dev \
               libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev \
               libtiff5-dev libjpeg-dev libgit2-dev zlib1g-dev cmake \
+              ghostscript \
               && rm -rf /var/lib/apt/lists/*
           RUN Rscript -e 'install.packages("rmarkdown", repos = "https://cloud.r-project.org", lib = .Library)'
           ARG HOST_UID
@@ -134,7 +135,7 @@ jobs:
           ENV UV_LINK_MODE=copy
           RUN uv venv /home/vscode/.venv \
               && . /home/vscode/.venv/bin/activate \
-              && uv pip install jupyter papermill
+              && uv pip install jupyter papermill matplotlib shinylive
           ENV VIRTUAL_ENV=/home/vscode/.venv
           ENV PATH="/home/vscode/.venv/bin:${PATH}"
           DOCKERFILE
