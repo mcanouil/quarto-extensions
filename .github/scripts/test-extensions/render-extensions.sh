@@ -65,11 +65,14 @@ render_extension() {
     fi
 
     # Phase A: Install dependencies (network allowed)
-    if [[ "${status}" == "pass" ]] && { [[ -f "${render_dir}/renv.lock" ]] || [[ -f "${render_dir}/uv.lock" ]] || [[ -f "${render_dir}/requirements.txt" ]]; }; then
+    if [[ "${status}" == "pass" ]]; then
       dep_sources=()
       [[ -f "${render_dir}/renv.lock" ]] && dep_sources+=("renv.lock")
       [[ -f "${render_dir}/uv.lock" ]] && dep_sources+=("uv.lock")
       [[ -f "${render_dir}/requirements.txt" ]] && dep_sources+=("requirements.txt")
+      if [[ ${#dep_sources[@]} -eq 0 ]]; then
+        dep_sources+=("auto-detect")
+      fi
       echo "Dependency install phase for ${id}: ${dep_sources[*]}" >>"${log_dir}/stdout.log"
       dep_rc=0
       docker_run_render 600 "${workdir}" "${log_dir}" "${render_dir}" \
@@ -79,6 +82,28 @@ render_extension() {
         -e LOG_DIR="${log_dir}" \
         <<'DEPS_SCRIPT' || dep_rc=$?
 set -euo pipefail
+
+# Auto-detect R dependencies when no renv.lock is present
+if [[ ! -f renv.lock ]]; then
+  engines=$(quarto inspect . 2>/dev/null | jq -r '.engines[]?' 2>/dev/null) || engines=""
+  if echo "${engines}" | grep -qx "knitr"; then
+    echo "Auto-detecting R dependencies for ${EXT_ID} (knitr engine, no renv.lock)." >>"${LOG_DIR}/stdout.log"
+    Rscript -e '
+      if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+      deps <- unique(renv::dependencies(quiet = TRUE)[["Package"]])
+      deps <- setdiff(deps, rownames(installed.packages()))
+      if (length(deps) > 0L) {
+        cat("Installing R packages:", paste(deps, collapse = ", "), "\n")
+        install.packages(deps, repos = "https://cloud.r-project.org")
+      } else {
+        cat("No additional R packages to install.\n")
+      }
+    ' >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
+      echo "Auto-detect R dependency install failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
+      exit 1
+    }
+  fi
+fi
 
 if [[ -f renv.lock ]]; then
   echo "Installing R dependencies from renv.lock for ${EXT_ID}." >>"${LOG_DIR}/stdout.log"
