@@ -1,0 +1,287 @@
+Cloning into 'repo'...
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/__linux__/jammy/latest/src/contrib/renv_1.1.8.tar.gz'
+Content type 'binary/octet-stream' length 2336300 bytes (2.2 MB)
+==================================================
+downloaded 2.2 MB
+
+* installing *binary* package 'renv' ...
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/RtmpMdBqzB/downloaded_packages'
+The R temporary directory appears to be within a folder mounted as 'noexec'.
+Installation of R packages from sources may fail.
+See the section **Note** within `?INSTALL` for more details.
+
+tempdir(): /tmp/RtmpMdBqzB
+Installing packages into '/home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)
+also installing the dependencies 'pkgbuild', 'diffobj', 'later', 'brio', 'desc', 'pkgload', 'praise', 'waldo'
+
+trying URL 'https://cloud.r-project.org/src/contrib/pkgbuild_1.4.8.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/diffobj_0.3.6.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/later_1.4.8.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/brio_1.1.5.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/desc_1.4.3.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/pkgload_1.5.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/praise_1.0.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/waldo_0.6.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/quarto_1.5.1.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/testthat_3.3.2.tar.gz'
+* installing *source* package 'diffobj' ...
+** this is package 'diffobj' version '0.3.6'
+** package 'diffobj' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-diffobj/00new/diffobj/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (diffobj)
+* installing *source* package 'later' ...
+** this is package 'later' version '1.4.8'
+** package 'later' successfully unpacked and MD5 sums checked
+** using staged installation
+ERROR: 'configure' exists but is not executable -- see the 'R Installation and Administration Manual'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.5/later'
+* installing *source* package 'brio' ...
+** this is package 'brio' version '1.1.5'
+** package 'brio' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-brio/00new/brio/libs
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (brio)
+* installing *source* package 'desc' ...
+** this is package 'desc' version '1.4.3'
+** package 'desc' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (desc)
+* installing *source* package 'praise' ...
+** this is package 'praise' version '1.0.0'
+** package 'praise' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (praise)
+* installing *source* package 'pkgbuild' ...
+** this is package 'pkgbuild' version '1.4.8'
+** package 'pkgbuild' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (pkgbuild)
+* installing *source* package 'waldo' ...
+** this is package 'waldo' version '0.6.2'
+** package 'waldo' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (waldo)
+ERROR: dependency 'later' is not available for package 'quarto'
+Perhaps try a variation of:
+install.packages('later')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.5/quarto'
+* installing *source* package 'pkgload' ...
+** this is package 'pkgload' version '1.5.0'
+** package 'pkgload' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (pkgload)
+* installing *source* package 'testthat' ...
+** this is package 'testthat' version '3.3.2'
+** package 'testthat' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+using C++ compiler: 'g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-testthat/00new/testthat/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (testthat)
+
+The downloaded source packages are in
+	'/tmp/RtmpMdBqzB/downloaded_packages'
+Warning messages:
+1: In install.packages(deps, repos = "https://cloud.r-project.org") :
+  installation of package 'later' had non-zero exit status
+2: In install.packages(deps, repos = "https://cloud.r-project.org") :
+  installation of package 'quarto' had non-zero exit status
+pandoc 
+  to: html
+  output-file: template.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  citeproc: false
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Some title
+  author: Some author
+  date: last-modified
+  abstract: Here's an abstract for the document
+  references:
+    - id: Lovelace1842
+      author:
+        - family: Lovelace
+          given: Ada Augusta
+      citation-key: Lovelace1842
+      container-title: Taylor's Scientific Memoirs
+      issued:
+        - year: 1842
+      language: en-GB
+      page: 666–731
+      title: Sketch of the analytical engine invented by Charles Babbage, by LF Menabrea, officer of the military engineers, with notes upon the memoir by the translator
+      type: article-journal
+      volume: 3
+    - id: Turing1936
+      author:
+        - family: Turing
+          given: Alan Mathison
+      citation-key: Turing1936
+      container-title: Journal of Math
+      issue: 345–363
+      issued:
+        - year: 1936
+      page: 230–265
+      title: On Computable Numbers, with an Application to the Entscheidungsproblem
+      type: article-journal
+      volume: 58
+  
+Manuscript totals:
+---------------------------------------------------
+- 458 words (text + notes + references)
+- 405 words (text + notes)
+- 478 words (text + notes + appendix + references)
+
+Specific totals:
+---------------------------------------------------
+- 315 words in text body
+- 90 words in notes
+- 53 words in references
+- 20 words in appendix
+
+Overall totals:
+---------------------------------------------------
+- 484 words in entire document
+- 6 words in abstract
+
+Output created: template.html
+
+ERROR: Unable to read the extension 'wordcount'.
+Please ensure that you provided the correct id and that the extension is installed.
+
+Stack trace:
+    at loadExtension (file:///opt/quarto/bin/quarto.js:79017:15)
+    at Object.extension (file:///opt/quarto/bin/quarto.js:78260:30)
+    at readExtensionFormat (file:///opt/quarto/bin/quarto.js:91337:50)
+    at resolveFormats (file:///opt/quarto/bin/quarto.js:91201:37)
+    at async renderContexts (file:///opt/quarto/bin/quarto.js:90991:20)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:136590:16)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136507:9)
+    at async render (file:///opt/quarto/bin/quarto.js:142161:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142406:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102029:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101906:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187554:5)
+    at async file:///opt/quarto/bin/quarto.js:187582:5
+    at async file:///opt/quarto/bin/quarto.js:187437:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187439:5)
+    at async file:///opt/quarto/bin/quarto.js:187575:3
+Render failed, retrying once...
+ERROR: Unable to read the extension 'wordcount'.
+Please ensure that you provided the correct id and that the extension is installed.
+
+Stack trace:
+    at loadExtension (file:///opt/quarto/bin/quarto.js:79017:15)
+    at Object.extension (file:///opt/quarto/bin/quarto.js:78260:30)
+    at readExtensionFormat (file:///opt/quarto/bin/quarto.js:91337:50)
+    at resolveFormats (file:///opt/quarto/bin/quarto.js:91201:37)
+    at async renderContexts (file:///opt/quarto/bin/quarto.js:90991:20)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:136590:16)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136507:9)
+    at async render (file:///opt/quarto/bin/quarto.js:142161:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142406:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102029:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101906:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187554:5)
+    at async file:///opt/quarto/bin/quarto.js:187582:5
+    at async file:///opt/quarto/bin/quarto.js:187437:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187439:5)
+    at async file:///opt/quarto/bin/quarto.js:187575:3

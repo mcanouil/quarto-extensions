@@ -1,0 +1,232 @@
+
+
+processing file: example.qmd
+
+1/3                  
+
+2/3 [unnamed-chunk-1]
+
+3/3                  
+
+output file: example.knit.md
+
+
+pandoc 
+
+  to: latex
+  output-file: example.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+
+metadata
+
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+    - \usepackage[labelformat=empty, font=bf]{caption}
+  block-headings: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: My Research Document
+  author: Iago Pinal-Fernandez
+  date: last-modified
+  bibliography:
+    - assets/references.bib
+  
+
+INFO: latex
+
+INFO: Running format_citations.
+WARNING: No IDs found in Cite block: {'t': 'Cite', 'c': [[{'citationId': 'Pinal-Fernandez2024', 'citationPrefix': [], 'citationSuffix': [], 'citationMode': {'t': 'AuthorInText'}, 'citationNoteNum': 8, 'citationHash': 0}], [{'t': 'Str', 'c': '@Pinal-Fernandez2024'}]]}
+WARNING: No IDs found in Cite block: {'t': 'Cite', 'c': [[{'citationId': 'Selva-OCallaghan2018', 'citationPrefix': [], 'citationSuffix': [], 'citationMode': {'t': 'AuthorInText'}, 'citationNoteNum': 9, 'citationHash': 0}], [{'t': 'Str', 'c': '@Selva-OCallaghan2018'}]]}
+INFO: Sorted IDs: ['fig:experiment1', 'fig:experiment2', 'fig:experiment4', 'fig:experiment5', 'supfig:experiment1', 'suptbl:experiment2', 'suptbl:experiment3', 'tbl:experiment1', 'tbl:results', 'tbl:summary', 'supfig:extra1', 'suptbl:appendixA']
+INFO: Counters: {'fig': 4, 'tbl': 3, 'supfig': 2, 'suptbl': 3}
+
+INFO: Tag found: tbl:results
+
+INFO: Tag found: supfig:experiment1
+
+INFO: Tag found: fig:experiment1
+
+INFO: Tag found: suptbl:appendixA
+
+INFO: Placeholder: tbl,fig
+
+INFO: Placeholder: supfig
+INFO: Placeholder: suptbl
+
+
+
+processing file: example.qmd
+
+1/3                  
+
+2/3 [unnamed-chunk-1]
+
+3/3                  
+
+output file: example.knit.md
+
+
+pandoc 
+
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: My Research Document
+  author: Iago Pinal-Fernandez
+  date: last-modified
+  bibliography:
+    - assets/references.bib
+  
+
+INFO: html
+
+INFO: Running format_citations.
+WARNING: No IDs found in Cite block: {'t': 'Cite', 'c': [[{'citationId': 'Pinal-Fernandez2024', 'citationPrefix': [], 'citationSuffix': [], 'citationMode': {'t': 'AuthorInText'}, 'citationNoteNum': 8, 'citationHash': 0}], [{'t': 'Str', 'c': '@Pinal-Fernandez2024'}]]}
+WARNING: No IDs found in Cite block: {'t': 'Cite', 'c': [[{'citationId': 'Selva-OCallaghan2018', 'citationPrefix': [], 'citationSuffix': [], 'citationMode': {'t': 'AuthorInText'}, 'citationNoteNum': 9, 'citationHash': 0}], [{'t': 'Str', 'c': '@Selva-OCallaghan2018'}]]}
+INFO: Sorted IDs: ['fig:experiment1', 'fig:experiment2', 'fig:experiment4', 'fig:experiment5', 'supfig:experiment1', 'suptbl:experiment2', 'suptbl:experiment3', 'tbl:experiment1', 'tbl:results', 'tbl:summary', 'supfig:extra1', 'suptbl:appendixA']
+INFO: Counters: {'fig': 4, 'tbl': 3, 'supfig': 2, 'suptbl': 3}
+
+INFO: Tag found: tbl:results
+
+INFO: Tag found: supfig:experiment1
+
+INFO: Tag found: fig:experiment1
+
+INFO: Tag found: suptbl:appendixA
+
+INFO: Placeholder: tbl,fig
+
+INFO: Placeholder: supfig
+
+INFO: Placeholder: suptbl
+
+
+
+processing file: example.qmd
+
+1/3                  
+
+2/3 [unnamed-chunk-1]
+
+3/3                  
+
+output file: example.knit.md
+
+
+pandoc 
+
+  to: docx
+  output-file: example.docx
+  default-image-extension: png
+  variables: {}
+  
+
+metadata
+
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: My Research Document
+  author: Iago Pinal-Fernandez
+  date: last-modified
+  bibliography:
+    - assets/references.bib
+  
+
+INFO: docx
+
+INFO: Running format_citations.
+WARNING: No IDs found in Cite block: {'t': 'Cite', 'c': [[{'citationId': 'Pinal-Fernandez2024', 'citationPrefix': [], 'citationSuffix': [], 'citationMode': {'t': 'AuthorInText'}, 'citationNoteNum': 8, 'citationHash': 0}], [{'t': 'Str', 'c': '@Pinal-Fernandez2024'}]]}
+WARNING: No IDs found in Cite block: {'t': 'Cite', 'c': [[{'citationId': 'Selva-OCallaghan2018', 'citationPrefix': [], 'citationSuffix': [], 'citationMode': {'t': 'AuthorInText'}, 'citationNoteNum': 9, 'citationHash': 0}], [{'t': 'Str', 'c': '@Selva-OCallaghan2018'}]]}
+
+INFO: Sorted IDs: ['fig:experiment1', 'fig:experiment2', 'fig:experiment4', 'fig:experiment5', 'supfig:experiment1', 'suptbl:experiment2', 'suptbl:experiment3', 'tbl:experiment1', 'tbl:results', 'tbl:summary', 'supfig:extra1', 'suptbl:appendixA']
+
+INFO: Counters: {'fig': 4, 'tbl': 3, 'supfig': 2, 'suptbl': 3}
+
+INFO: Tag found: tbl:results
+
+INFO: Tag found: supfig:experiment1
+
+INFO: Tag found: fig:experiment1
+
+INFO: Tag found: suptbl:appendixA
+
+INFO: Placeholder: tbl,fig
+
+INFO: Placeholder: supfig
+
+INFO: Placeholder: suptbl
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for scrartcl.cls
+
+> 1 package to install
+
+> installing koma-script (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+
+finding package for caption.sty
+
+> 1 package to install
+
+> installing caption (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+running lualatex - 2
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+
+
+Output created: output/example.pdf
+
+

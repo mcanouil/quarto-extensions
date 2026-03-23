@@ -1,0 +1,21 @@
+pandoc 
+
+  to: >-
+    commonmark+autolink_bare_uris+emoji+footnotes+gfm_auto_identifiers+pipe_tables+strikeout+task_lists+tex_math_dollars
+  output-file: README.md
+  standalone: true
+  default-image-extension: png
+  variables: {}
+  
+
+metadata
+
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Accordion Panels for Quarto Websites
+  description: Easily add Bootstrap accordion panels to your Quarto websites.
+  
+
+Output created: README.md
+
+
