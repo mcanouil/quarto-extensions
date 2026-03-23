@@ -138,43 +138,36 @@ metadata
 
 [typst]: Compiling example.typ to example.pdf...
 warning: unknown font family: menlo
-     ┌─ example.typ:5224:22
+     ┌─ example.typ:5349:22
      │
-5224 │   
-              font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+5349 │                 font: ("Fira Code", "Menlo", "Monaco", "C
+ourier New"),
      │                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 warning: unknown font family: monaco
-     ┌─ example.typ:5224:22
+     ┌─ example.typ:5349:22
      │
-5224 │                 font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+5349 │                 font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
      │                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 warning: unknown font family: courier new
-     ┌─ example.typ:5224:22
+     ┌─ example.typ:5349:22
      │
-5224 │
-                 font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
-     │                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-^^^^^^^^^
+5349 │                 font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 warning: unknown font family: georgia
-     ┌─ example.typ:5346:80
+     ┌─ example.typ:5471:80
      │
-5346 │             text(size: 3em
-, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
-     │   
-                                                                              ^^^^^^^^^
-
+5471 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+     │                                                                                 ^^^^^^^^^
 
 warning: unknown font family: georgia
-     ┌─ example.typ:5356:80
-     │
-5356 │             text(size: 3em, fill: co
-lours.foreground.transparentize(70%), font: "Georgia", ["]),
-     │       
-                                                                       
-   ^^^^^^^^^
+     ┌─ example.typ:5481:80
+  
+   │
+5481 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+     │                                                                                 ^^^^^^^^^
 
 
 DONE
