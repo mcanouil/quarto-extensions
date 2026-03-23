@@ -165,6 +165,10 @@ while IFS= read -r log_entry; do
     | xargs -r git rm -f -- >/dev/null 2>&1 || true
 done < <(jq -c '[.[] | {channel: .quarto_channel, version: .quarto_version}] | unique | .[]' "${current_run_file}")
 
+if [[ -d downloaded-logs ]]; then
+  cp -a downloaded-logs/. logs/
+fi
+
 if [[ -d logs ]]; then
   git add logs/
 fi
