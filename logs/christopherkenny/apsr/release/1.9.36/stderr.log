@@ -1,0 +1,274 @@
+Cloning into 'repo'...
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/__linux__/jammy/latest/src/contrib/renv_1.1.8.tar.gz'
+Content type 'binary/octet-stream' length 2336300 bytes (2.2 MB)
+==================================================
+downloaded 2.2 MB
+
+* installing *binary* package 'renv' ...
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/RtmpCvWnMD/downloaded_packages'
+The R temporary directory appears to be within a folder mounted as 'noexec'.
+Installation of R packages from sources may fail.
+See the section **Note** within `?INSTALL` for more details.
+
+tempdir(): /tmp/RtmpCvWnMD
+
+
+processing file: template.qmd
+1/9           
+2/9 [fig-view]
+3/9           
+4/9 [fig-r]   
+5/9           
+6/9 [tbl-r]   
+7/9           
+8/9 [fig-wide]
+9/9           
+output file: template.knit.md
+
+Warning messages:
+1: Duplicated chunk option(s) 'echo' in both chunk header and pipe comments of the chunk 'fig-r'. 
+2: In png::readPNG(path, native = TRUE, info = TRUE) :
+  libpng warning: iCCP: profile 'icc': 0h: PCS illuminant is not D50
+3: In png::readPNG(path, native = TRUE, info = TRUE) :
+  libpng warning: iCCP: profile 'icc': 'RGB ': RGB color space not permitted on grayscale PNG
+pandoc 
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: pdflatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  toc: false
+  cite-method: natbib
+  
+metadata
+  block-headings: true
+  documentclass: apsr_submission
+  biblio-config: false
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Quarto Title for the *APSR*
+  runningtitle: Quarto APSR
+  runningauthor: One, Two, and Three
+  author:
+    - name: Author One
+      affiliations:
+        - name: An Organization
+      note: Author One is PhD Candidate, ABC Department, Affiliation A, 12345 NY. (a.1@example.edu)
+    - name: Author Two
+      affiliations:
+        - Affiliation B
+      note: Author Two is Assistant Professor, Faculty of Z, Affiliation B, 42813. Corresponding Author (a.2@acme.edu) Additional notes about Author Two.
+    - name: Author Three
+      affiliations:
+        - A Third Organization
+      note: Author Three is ...
+  abstract: |
+    This document is a template demonstrating the APSR format.
+    Make sure it is long enough to work with the automatic dropcap.
+    That means you need at least three lines worth of text. That is a lot of
+    text for this example, but the APSR allows 150 words in the abstract at the
+    time of writing this example.
+  bibliography:
+    - bibliography.bib
+  classoption: twocolumn
+  nonblind: true
+  word-count: '{{wordcountref}}'
+  
+This is a note for this figure.	
+
+A ggplot	
+
+This is a wide figure.	
+
+
+Rendering PDF
+running pdflatex - 1
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+updating tlmgr
+
+updating existing packages
+finding package for silence.sty
+> 1 package to install
+> installing silence (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for newtxtext.sty
+> 1 package to install
+> installing newtx (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for xpatch.sty
+> 1 package to install
+> installing xpatch (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for xstring.sty
+> 1 package to install
+> installing xstring (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for scalefnt.sty
+> 1 package to install
+> installing carlisle (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for fontaxes.sty
+> 1 package to install
+> installing fontaxes (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for microtype.sty
+> 1 package to install
+> installing microtype (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for textcase.sty
+> 1 package to install
+> installing textcase (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for lettrine.sty
+> 1 package to install
+> installing lettrine (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for abstract.sty
+> 1 package to install
+> installing abstract (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for setspace.sty
+> 1 package to install
+> installing setspace (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for lastpage.sty
+> 1 package to install
+> installing lastpage (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for footmisc.sty
+> 1 package to install
+> installing footmisc (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for quoting.sty
+> 1 package to install
+> installing quoting (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for floatrow.sty
+> 1 package to install
+> installing floatrow (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for newfloat.sty
+> 1 package to install
+> installing newfloat (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for pdflscape.sty
+> 1 package to install
+> installing pdflscape (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+  kpathsea: Running mktextfm ts1-qtmr
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Could not map source abbreviation  for ts1-qtmr.
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Need to update ?
+  mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input ts1-qtmr
+  This is METAFONT, Version 2.71828182 (TeX Live 2026) (preloaded base=mf)
+  
+  kpathsea: Running mktexmf ts1-qtmr
+  
+  ! I can't find file `ts1-qtmr'.
+  <*> ...four; mag:=1; ; nonstopmode; input ts1-qtmr
+                                                    
+  Please type another input file name
+  ! Emergency stop.
+  <*> ...four; mag:=1; ; nonstopmode; input ts1-qtmr
+                                                    
+  Transcript written on mfput.log.
+  grep: ts1-qtmr.log: No such file or directory
+  mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input ts1-qtmr' failed to make ts1-qtmr.tfm.
+  kpathsea: Appending font creation commands to missfont.log.
+  
+finding package for ts1-qtmr(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+finding package for t1qhvc.fd
+finding package for ts1-qtmr
+finding package for mktextfm
+> 2 packages to install
+> installing tex-gyre (1 of 2)
+> installing texlive-scripts (2 of 2)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+generating bibliography
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: template.aux
+  The style file: chicago-apsr.bst
+  Database file #1: bibliography.bib
+  
+running pdflatex - 2
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+running pdflatex - 3
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+running pdflatex - 4
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+Output created: template.pdf
+

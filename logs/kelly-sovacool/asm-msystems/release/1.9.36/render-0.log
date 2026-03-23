@@ -1,0 +1,105 @@
+pandoc 
+
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: pdflatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  cite-method: natbib
+  
+
+metadata
+
+  block-headings: true
+  knitr:
+    opts_chunk:
+      echo: false
+  documentclass: asm
+  colorlinks: true
+  urlcolor: blue
+  biblio-style: msystems
+  biblio-config: false
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: |
+    This Is the Sample Article Template for _mSystems_ \textsuperscript{\textregistered}, an American Society for Microbiology (ASM) Journal
+  runningtitle: Running Title
+  runningauthor: FirstAuthor
+  papertype: Research Article
+  equalcontrib: First Author and Second Author contributed equally to this work. Author order was determined XXXXXX.
+  author:
+    - name: First Author
+      affiliations:
+        - ref: a
+      orcid: 0000-0000-0000-0000
+      equal-contributor: true
+    - name: Second Author
+      affiliations:
+        - ref: a
+      equal-contributor: true
+    - name: Third Author
+      affiliations:
+        - ref: b
+    - name: Third Final Author
+      affiliations:
+        - ref: a
+        - ref: b
+      email: fourth@author.edu
+      corresponding: true
+  affiliations:
+    - id: a
+      name: University Name, Faculty Group, Department, City, Country
+    - id: b
+      name: Company Name, City, Country
+  abstract: |
+    Research Articles have structured abstracts consisting of two sections with their own headings; "Abstract" and "Importance". Because the structured abstract will be published separately by abstracting services, it must be complete and understandable without reference to the text. The Abstract section should be no more than 250 words and should  concisely  summarize  the  basic  content  of  the  paper without presenting extensive experimental details.
+  importance: |
+    The Importance section should be no more than 150 words and should provide a nontechnical explanation of the significance of the study to the field. Avoid abbreviations and references, and indicate the specific organism under study. When it is essential to include a reference, use the format shown under "References" below.
+  keywords: |
+    keyword 1, keyword 2, keyword 3.
+  reference-section-title: References
+  bibliography:
+    - bibliography.bib
+  classoption:
+    - lineno
+  indent: true
+  
+
+
+Rendering PDF
+
+running pdflatex - 1
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+updating tlmgr
+
+
+
+updating existing packages
+
+(ERROR) 
+compilation failed- error
+
+Undefined control sequence.
+l.217 \pandocbounded
+                    {\includegraphics[keepaspectratio]{style-guide/example-i...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ 
+
+
+see /home/runner/work/quarto-extensions/quarto-extensions/test-7/repo/template.log for more information.
+
+(WARN) Error encountered when rendering files
+

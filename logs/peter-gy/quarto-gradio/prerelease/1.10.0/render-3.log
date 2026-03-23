@@ -1,0 +1,40 @@
+pandoc 
+
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+  title: 🚀 Get Started
+  description: This guide will help you get started with the `quarto-gradio` extension via a simple example. You will see how you can iterate on your Gradio app's source code in your local environment, then embed the very same app with no changes into an entirely browser-based environment.
+  
+
+Output created: ../../_site/guide/get-started/index.html
+
+

@@ -1,0 +1,105 @@
+Cloning into 'repo'...
+pandoc 
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: xelatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  reference-location: margin
+  
+metadata
+  block-headings: true
+  documentclass: scrartcl
+  classoption:
+    - oneside
+    - numbers=noendperiod
+    - DIV=11
+    - a4paper
+  geometry:
+    - left=1in
+    - marginparwidth=2.0666666666667in
+    - textwidth=4.1333333333333in
+    - marginparsep=0.3in
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Title
+  subtitle: Notes on...
+  author: Nelson Areal
+  date: '2023-12-24'
+  citation-location: margin
+  coursename: Course name
+  academicyear: 2022/2023
+  degree: 'Undergratuate degree in '
+  university: University of Minho
+  school: School of Economics and Management
+  
+
+Rendering PDF
+running xelatex - 1
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+updating tlmgr
+
+updating existing packages
+finding package for scrartcl.cls
+> 1 package to install
+> installing koma-script (1 of 1)
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for picture.sty
+> 1 package to install
+> installing picture (1 of 1)
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for eso-pic.sty
+> 1 package to install
+> installing eso-pic (1 of 1)
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for cancel.sty
+> 1 package to install
+> installing cancel (1 of 1)
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for sidenotes.sty
+> 1 package to install
+> installing sidenotes (1 of 1)
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for marginnote.sty
+> 1 package to install
+> installing marginnote (1 of 1)
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for changepage.sty
+> 1 package to install
+> installing changepage (1 of 1)
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+running xelatex - 2
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+Output created: template.pdf
+

@@ -1,0 +1,33 @@
+pandoc 
+
+  to: html
+  output-file: qtoggle-faq.html
+  standalone: true
+  title-prefix: toggle
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme:
+    light: flatly
+    dark: darkly
+  title: Frequently Asked Questions
+  date: 05-13-2025
+  date-modified: last-modified
+  
+
+Output created: _site/qtoggle-faq.html
+
+

@@ -1,0 +1,43 @@
+Cloning into 'repo'...
+pandoc 
+  to: typst
+  output-file: template.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  toc: false
+  variables: {}
+  
+metadata
+  columns: 2
+  papersize: us-letter
+  bibliographystyle: springer-basic
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: bioRxiv preprint (Quarto)
+  shorttitle: My Preprint
+  leadauthor: Doe
+  author:
+    - name: John Doe
+      corresponding: true
+      affiliations:
+        - Department of Something, Somewhere University, Some City, Some Country
+      email: john.doe@example.org
+    - name: Jane Doe
+      affiliations:
+        - Department of Another Thing, Another University, Another City, Another Country
+  abstract: |
+    This document demonstrates the bioRxiv Typst-based PDF Quarto format.
+    Replace this text with your abstract.
+  keywords:
+    - template
+    - demo
+  correspondence-email: john.doe@example.org
+  bibliography:
+    - bibliography.bib
+  
+[typst]: Compiling template.typ to template.pdf...DONE
+
+Output created: template.pdf
+

@@ -1,0 +1,100 @@
+Cloning into 'repo'...
+pandoc 
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  block-headings: true
+  date: '2023-02-15'
+  date-format: long
+  lang: de
+  babel-lang: ngerman
+  documentclass: scrlttr2
+  classoption:
+    - version=last
+    - fromalign=right
+    - paper=A4
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  author:
+    - name: Matthias Vallentin
+      email: matthias@example.com
+      phone: +49 123 4567890
+      affiliation:
+        - address: Foostraße 42
+          postal-code: 1337
+          city: Barstadt
+          country: Bazmanien
+  address:
+    - Corge Grault
+    - Quuxstraße 314
+    - 4711 Garply
+    - Xyzzilien
+  date_label: Datum
+  yourmail_label: Ihre Mail
+  yourmail: 1. Januar 2023
+  yourref_label: Ihre Nummer
+  yourref: 123
+  myref_label: Meine Nummer
+  myref: 456
+  customer_label: Kunde
+  customer: 789
+  invoice_label: Rechnung
+  invoice: '001'
+  subject: Betreffzeile
+  opening: Sehr geehrte Damen und Herren,
+  closing: Mit freundlichem Gruß
+  encl:
+    - Anlage 1
+    - Anlage 2
+  ps: |
+    PS: Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+finding package for scrlttr2.cls
+> 1 package to install
+> installing koma-script (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+finding package for ngerman.ldf
+> 1 package to install
+> installing babel-german (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for eurosym.sty
+> 1 package to install
+> installing eurosym (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for pdfpages.sty
+> 1 package to install
+> installing pdfpages (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: template.pdf
+

@@ -1,0 +1,73 @@
+pandoc 
+
+  to: revealjs
+  output-file: demo-flat.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  section-divs: false
+  css:
+    - css/style.css
+  variables: {}
+  
+
+metadata
+
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: true
+  navigationMode: linear
+  controlsLayout: bottom-right
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: slide
+  backgroundTransition: fade
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Simplemenu
+  subtitle: For Reveal.js and Quarto, using `flat` option
+  revealjs-plugins:
+    - simplemenu
+  title-slide-attributes:
+    data-state: hide-menubar
+  theme: dark
+  controls: true
+  chalkboard: false
+  menu: false
+  simplemenu:
+    flat: true
+    barhtml:
+      header: <div class='menubar'><ul class='menu'></ul><div>
+    scale: 0.67
+  
+
+[WARNING] D
+iv at /tmp/quarto-sessionbe45b577c1f43100/11dbf6d7f3f9fe6f/quarto-metadata99dc6bf4a44b3fee.yml_chunk line 1 column 44 unclosed at /tmp/quarto-sessionbe45b577c1f43100/11dbf6d7f3f9fe6
+f/quarto-metadata99dc6bf4a44b3fee.yml_chunk line 1 column 49, clos
+ing implicitly.
+[WARNING]
+ Div at /tmp/quarto-sessionbe45b577
+c1f43100/11dbf6d7f3f9fe6f/quarto-metad
+ata99dc6bf4a44b3fee.yml_chunk line 1 co
+lumn 1 unclosed at /tmp/quarto-sessionbe45b577c
+1f43100/11dbf6d7f3f9fe6f/quarto-metadat
+a99dc6bf4a44b3fee.yml_chunk line
+ 1 column 49, closing impli
+citly.
+
+Output created: demo-flat.html
+
+

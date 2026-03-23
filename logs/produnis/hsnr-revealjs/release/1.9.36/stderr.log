@@ -1,0 +1,106 @@
+Cloning into 'repo'...
+Error adding css vars block SCSSParsingError: SCSS Parsing Error: Expecting punctuation: "}" (4345:53)
+    at cssVarsBlock (file:///opt/quarto/bin/quarto.js:87044:15)
+    at file:///opt/quarto/bin/quarto.js:87590:35
+    at file:///opt/quarto/bin/quarto.js:87238:33
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async handleVarsBlock (file:///opt/quarto/bin/quarto.js:87511:23)
+    at async file:///opt/quarto/bin/quarto.js:87537:17
+    at async SassCache.setFromHash (file:///opt/quarto/bin/quarto.js:79974:11)
+    at async compileSass (file:///opt/quarto/bin/quarto.js:87349:19)
+    at async revealTheme (file:///opt/quarto/bin/quarto.js:184031:15)
+    at async Object.formatExtras (file:///opt/quarto/bin/quarto.js:184188:23)
+    at async runPandoc (file:///opt/quarto/bin/quarto.js:129144:56)
+    at async renderPandoc (file:///opt/quarto/bin/quarto.js:130849:24)
+    at async Object.onRender (file:///opt/quarto/bin/quarto.js:136792:30)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:136769:9)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136500:9)
+    at async render (file:///opt/quarto/bin/quarto.js:142154:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142399:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102022:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101899:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187547:5)
+    at async file:///opt/quarto/bin/quarto.js:187575:5
+    at async file:///opt/quarto/bin/quarto.js:187430:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187432:5)
+    at async file:///opt/quarto/bin/quarto.js:187568:3 {
+  name: "SCSSParsingError"
+}
+The resulting CSS file will not have SCSS color variables exported as CSS.
+This is likely a Quarto bug.
+Please consider reporting it at https://github.com/quarto-dev/quarto-cli,
+along with the _quarto_internal_scss_error.scss file that can be found in the current working directory.
+pandoc 
+  to: revealjs
+  from: markdown-auto_identifiers+emoji
+  output-file: template.html
+  standalone: true
+  embed-resources: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  variables: {}
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: fade
+  backgroundTransition: slide
+  pdfSeparateFragments: false
+  lang: de
+  auto-stretch: true
+  theme:
+    - _extensions/hsnr/HSNR.scss
+  date-format: DD.MM.YYYY
+  csl: _extensions/hsnr/apa-single-spaced.csl
+  logo: _extensions/hsnr/HSNLogo_quadrat2.jpg
+  slideNumber: true
+  scrollable: true
+  citations-hover: true
+  footnotes-hover: true
+  controls: true
+  hash-type: number
+  hideInactiveCursor: true
+  hideCursorTime: 200
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Quarto und Revealjs
+  subtitle: Eine kurze Einführung
+  author:
+    - name: Prof. Dr. Klara Aufbau
+  institute: Fachbereich Gesundheitswesen
+  modul: M3 Spezialwissen 2024
+  kohorte: MHC
+  date: '2004-12-21'
+  bibliography:
+    - literatur.bib
+  footer: Prof. Dr. Theo Rethisch | Fachbereich 10 | Hochschule Niederrhein
+  
+[WARNING] Could not fetch resource _extensions/produnis/hsnr/KreisschwungKrefeld.png
+[WARNING] Could not fetch resource _extensions/produnis/hsnr/KreisschwungKrefeld.png
+[WARNING] Could not fetch resource _extensions/produnis/hsnr/Hochschule_niederrhein.png
+[WARNING] Could not fetch resource _extensions/produnis/hsnr/beforeyoustartitsnoteasy.jpg
+[WARNING] Could not fetch resource _extensions/produnis/hsnr/beforeyoustartitsnoteasy.jpg
+[WARNING] Could not fetch resource _extensions/produnis/hsnr/letztefolie1.webp
+[WARNING] Could not fetch resource _extensions/produnis/hsnr/letztefolie2.webp
+[WARNING] Could not fetch resource _extensions/produnis/hsnr/KrefeldCampus_night.webp
+[WARNING] Could not fetch resource _extensions/produnis/hsnr/HSNLogo_quadrat2.jpg
+[WARNING] Could not fetch resource _extensions/produnis/hsnr/GebauedeH_Rand.webp
+[WARNING] Could not fetch resource _extensions/produnis/hsnr/HSNLogo_quadrat2.jpg
+[WARNING] Could not fetch resource _extensions/produnis/hsnr/bibliothek.webp
+Output created: template.html
+

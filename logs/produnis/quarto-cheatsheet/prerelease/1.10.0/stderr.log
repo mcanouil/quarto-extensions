@@ -1,0 +1,65 @@
+Cloning into 'repo'...
+pandoc 
+  to: latex
+  output-file: example.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  block-headings: true
+  documentclass: article
+  geometry:
+    - a4paper
+    - landscape
+    - bottom=78mm
+  lang: de
+  date-format: DD.MM.YYYY
+  linkcolor: black
+  nodecolor: '185191'
+  linecolor: '185191'
+  headcolor: FFFFFF
+  textcolor: '000000'
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Quarto Cheatsheet
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+updating tlmgr
+
+updating existing packages
+finding package for ngerman.ldf
+> 1 package to install
+> installing babel-german (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for esint.sty
+> 1 package to install
+> installing esint (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for mathtools.sty
+> 1 package to install
+> installing mathtools (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: example.pdf
+

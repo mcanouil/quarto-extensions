@@ -1,0 +1,38 @@
+
+Starting python3 kernel...
+Done
+
+
+Executing 'example.quarto_ipynb'
+
+  Cell 1/1: ''...
+Done
+
+
+
+pandoc 
+
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Quarto x Gradio Lite
+  
+
+Output created: example.html
+
+

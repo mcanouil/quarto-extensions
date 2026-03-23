@@ -1,0 +1,50 @@
+Cloning into 'repo'...
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-17/R/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/__linux__/jammy/latest/src/contrib/renv_1.1.8.tar.gz'
+Content type 'binary/octet-stream' length 2336300 bytes (2.2 MB)
+==================================================
+downloaded 2.2 MB
+
+* installing *binary* package 'renv' ...
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/RtmpAepLj9/downloaded_packages'
+The R temporary directory appears to be within a folder mounted as 'noexec'.
+Installation of R packages from sources may fail.
+See the section **Note** within `?INSTALL` for more details.
+
+tempdir(): /tmp/RtmpAepLj9
+
+
+processing file: example.qmd
+1/3                  
+2/3 [unnamed-chunk-1]
+3/3                  
+output file: example.knit.md
+
+pandoc 
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Simple PNG to WebP Demo
+  webp-delete-originals: true
+  webp-disable: false
+  
+(W) 'cwebp' not found, skipping WebP conversion.
+Output created: example.html
+

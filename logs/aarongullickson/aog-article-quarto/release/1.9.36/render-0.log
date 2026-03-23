@@ -1,0 +1,177 @@
+
+
+processing file: template.qmd
+
+1/11                   
+
+2/11 [setup]           
+
+trying URL 'https://cloud.r-project.org/src/contrib/ragg_1.5.2.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/__linux__/jammy/latest/src/contrib/tidyverse_2.0.0.tar.gz'
+
+* installing *source* package 'ragg' ...
+
+** this is package 'ragg' version '1.5.2'
+
+** package 'ragg' successfully unpacked and MD5 sums checked
+
+** using staged installation
+
+ERROR: 'configure' exists but is not executable -- see the 'R Installation and Administration Manual'
+
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5/ragg'
+
+* installing *binary* package 'tidyverse' ...
+
+* DONE (tidyverse)
+
+
+The downloaded source packages are in
+	'/tmp/Rtmpvuniff/downloaded_packages'
+
+3/11                   
+
+4/11 [unnamed-chunk-1] 
+
+5/11                   
+
+6/11 [tbl-penguin-data]
+
+7/11                   
+
+8/11 [fig-template]    
+
+9/11                   
+
+10/11 [tbl-reg]         
+
+11/11                   
+
+output file: template.knit.md
+
+
+pandoc 
+
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  toc: false
+  
+
+metadata
+
+  block-headings: false
+  knitr:
+    opts_chunk:
+      echo: false
+      message: false
+      warning: false
+  documentclass: article
+  papersize: letter
+  fontsize: 12pt
+  geometry: margin=1in
+  colorlinks: true
+  urlcolor: red
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Demo of the AOG Article Template
+  shorttitle: AOG Template
+  shortauthors: Doe & Doe
+  author:
+    - name: John Doe
+      orcid: 0000-0000-0000-0000
+      email: john@somewhere.edu
+      attributes:
+        corresponding: true
+      affiliations:
+        - id: uni
+          name: University of State
+          department: Department of Awesome
+    - name: Jane Doe
+      affiliations:
+        - ref: uni
+  abstract: |
+    Ipsum nostra facilisis sapien nullam. Facilisi himenaeos pharetra ultricies scelerisque non fusce quisque aliquam netus tellus. Dictum tellus et sociis quisque ornare ad a natoque magna blandit. Tortor duis aptent cursus lacus inceptos tristique magnis dictumst. Taciti varius nascetur aliquet hac ornare vitae ultricies. Rhoncus primis purus morbi aliquet quam cubilia nullam malesuada ridiculus.
+  keywords:
+    - template
+    - demo
+  thanks: Love to everyone.
+  reference-section-title: Bibliography
+  bibliography:
+    - bibliography.bib
+  csl: https://www.zotero.org/styles/american-journal-of-sociology
+  
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for abstract.sty
+
+> 1 package to install
+
+> installing abstract (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for titling.sty
+
+> 1 package to install
+
+> installing titling (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for orcidlink.sty
+
+> 1 package to install
+
+> installing orcidlink (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for anyfontsize.sty
+
+> 1 package to install
+
+> installing anyfontsize (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+running lualatex - 2
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+
+
+Output created: template.pdf
+
+

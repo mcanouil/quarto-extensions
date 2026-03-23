@@ -1,0 +1,44 @@
+
+
+processing file: template.qmd
+
+1/17                  
+
+2/17 [unnamed-chunk-1]
+
+3/17                  
+
+4/17 [unnamed-chunk-2]
+
+5/17                  
+
+6/17 [unnamed-chunk-3]
+
+7/17                  
+
+8/17 [kable-ex]       
+
+9/17                  
+
+10/17 [kable-ex]       
+
+11/17                  
+
+12/17 [unnamed-chunk-4]
+
+Error in `loadNamespace()`:
+! there is no package called 'DT'
+Backtrace:
+    x
+ 1. \-base::loadNamespace(x)
+ 2.   \-base::withRestarts(stop(cond), retry_loadNamespace = function() NULL)
+ 3.     \-base (local) withOneRestart(expr, restarts[[1L]])
+ 4.       \-base (local) doWithOneRestart(return(expr), restart)
+
+
+Quitting from template.qmd:127-129 [unnamed-chunk-4]
+
+Execution halted
+
+(WARN) Error encountered when rendering files
+

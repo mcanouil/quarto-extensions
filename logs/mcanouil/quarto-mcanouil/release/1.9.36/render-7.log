@@ -140,8 +140,8 @@ metadata
 warning: unknown font family: menlo
      ┌─ example.typ:5349:22
      │
-5349 │                 font: ("Fira Code", "Menlo", "Monaco
-", "Courier New"),
+5349 │     
+            font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
      │                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 warning: unknown font family: monaco
@@ -150,23 +150,32 @@ warning: unknown font family: monaco
 5349 │                 font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
      │                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+
 warning: unknown font family: courier new
      ┌─ example.typ:5349:22
      │
 5349 │                 font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
-     │                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     │                       ^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 warning: unknown font family: georgia
      ┌─ example.typ:5471:80
-     │
-5471 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
-     │                                                                                 ^^^^^^^^^
+  
+   │
+5471 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Geor
+gia", ["]),
+     │                                                                     
+            ^^^^^^^^^
 
 warning: unknown font family: georgia
      ┌─ example.typ:5481:80
+
      │
-5481 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
-     │                                                                                 ^^^^^^^^^
+5481 │             text(size: 3em, fill: colours.foreground.
+transparentize(70%), font: "Georgia", ["]),
+     │                     
+                                                      
+      ^^^^^^^^^
 
 
 DONE

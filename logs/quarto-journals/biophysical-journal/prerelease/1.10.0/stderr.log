@@ -1,0 +1,135 @@
+Cloning into 'repo'...
+pandoc 
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  number-sections: false
+  
+metadata
+  block-headings: true
+  csl: _extensions/bj/biophysical-journal.csl
+  papertype: Article
+  indent: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: What a title!
+  date: today
+  date-format: long
+  author:
+    - name: Jane Doe
+      url: https://example.com
+      orcid: 0000-0000-0000-0000
+      affiliations:
+        - id: some-inst
+          name: Institute for Cool Things
+          url: https://example.com
+        - id: some-uni
+          name: University of Awesome Research
+          url: https://example.com
+      email: corresponding email
+    - name: John Doe
+      affiliations:
+        - ref: some-inst
+  github: https://github.com/quarto-journals/
+  repo: biophysical-journal
+  colorlinks: true
+  link-citations: true
+  abstract: |
+    TODO
+    Look at all the cool stuff we found out!
+  sigstatement: |
+    TODO
+    This is very important, because...
+    Each manuscript must also have a statement of significance or no more than 120 words.
+  license: CC BY
+  keywords:
+    - Research
+    - Cool Stuff
+  citation:
+    type: article
+    citation-key: citationKeyNumber
+    status: draft
+  bibliography:
+    - references.bib
+  classoption:
+    - twocolumn
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+updating tlmgr
+
+updating existing packages
+finding package for mathtools.sty
+> 1 package to install
+> installing mathtools (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for sansmath.sty
+> 1 package to install
+> installing sansmath (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for xpatch.sty
+> 1 package to install
+> installing xpatch (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for microtype.sty
+> 1 package to install
+> installing microtype (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for textcase.sty
+> 1 package to install
+> installing textcase (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for lineno.sty
+> 1 package to install
+> installing lineno (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for authblk.sty
+> 1 package to install
+> installing preprint (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for abstract.sty
+> 1 package to install
+> installing abstract (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Reload initiated (formats: otf,ttf,ttc); reason: Font "rsfs10" not found.
+  luaotfload | resolve : sequence of 3 lookups yielded nothing appropriate.
+finding package for rsfs10(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+> 1 package to install
+> installing rsfs (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: template.pdf
+

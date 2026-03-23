@@ -1,0 +1,31 @@
+pandoc 
+
+  to: html
+  output-file: document-yaml.html
+  standalone: true
+  title-prefix: Quarto Live Documentation
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme:
+    light: cosmo
+    dark: darkly
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Document YAML Options
+  
+
+Output created: ../_site/reference/document-yaml.html
+
+

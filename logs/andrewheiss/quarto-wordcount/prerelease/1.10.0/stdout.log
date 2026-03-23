@@ -1,0 +1,25 @@
+Dependency install phase for andrewheiss/quarto-wordcount: auto-detect
+Auto-detecting R dependencies for andrewheiss/quarto-wordcount (knitr engine, no renv.lock).
+Installing R packages: quarto, testthat 
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c diff.c -o diff.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c diffobj.c -o diffobj.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o diffobj.so diff.o diffobj.o init.o -L/opt/R/4.5.3/lib/R/lib -lR
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c brio.c -o brio.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c file_line_endings.c -o file_line_endings.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c read_file.c -o read_file.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c read_file_raw.c -o read_file_raw.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c read_lines.c -o read_lines.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c write_file.c -o write_file.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c write_file_raw.c -o write_file_raw.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c write_lines.c -o write_lines.o
+gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o brio.so brio.o file_line_endings.o init.o read_file.o read_file_raw.o read_lines.o write_file.o write_file_raw.o write_lines.o -L/opt/R/4.5.3/lib/R/lib -lR
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include -DCOMPILING_TESTTHAT  -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include -DCOMPILING_TESTTHAT  -I/usr/local/include    -fpic  -g -O2   -c test-catch.cpp -o test-catch.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include -DCOMPILING_TESTTHAT  -I/usr/local/include    -fpic  -g -O2   -c test-example.cpp -o test-example.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include -DCOMPILING_TESTTHAT  -I/usr/local/include    -fpic  -g -O2   -c test-runner.cpp -o test-runner.o
+g++ -std=gnu++17 -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o testthat.so init.o test-catch.o test-example.o test-runner.o -L/opt/R/4.5.3/lib/R/lib -lR
+tlmgr: package repository https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet (verified)
+tlmgr: no self-updates for tlmgr available
+Using CTAN mirror: https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet
