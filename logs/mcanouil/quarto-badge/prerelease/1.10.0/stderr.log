@@ -1,0 +1,53 @@
+Cloning into 'repo'...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://ctan.math.illinois.edu/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://mirrors.rit.edu/CTAN/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://mirror.ctan.org/systems/texlive/tlnet failed, trying next...
+All CTAN mirrors failed. LaTeX packages may not install.
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Quarto Badge Extension Example
+  subtitle: Quarto Extension
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  extensions:
+    badge:
+      - key: current
+        colour: springgreen
+      - key: future
+        class: bg-danger
+        href: https://github.com/mcanouil/quarto-badge@2.3.0
+      - key: deprecated
+        class: bg-warning
+        href: https://github.com/mcanouil/quarto-badge@2.3.0/releases/tag/{{value}}
+      - key: stable
+        colour: '#28a745'
+      - key: beta
+        colour: '#ffc107'
+      - key: experimental
+        class: bg-info
+  
+Output created: index.html
+
