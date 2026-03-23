@@ -67,7 +67,7 @@ jobs:
       fail-fast: false
       max-parallel: 10
       matrix: ${{ fromJSON(needs.build-matrix.outputs.matrix) }}
-    timeout-minutes: 360
+    timeout-minutes: 90
     defaults:
       run:
         shell: bash
