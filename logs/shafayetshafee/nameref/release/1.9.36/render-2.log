@@ -1,0 +1,46 @@
+
+
+processing file: example.qmd
+
+1/5                  
+
+2/5 [fig-random-plot]
+
+3/5                  
+
+4/5 [tbl-mtcars]     
+
+5/5                  
+
+output file: example.knit.md
+
+
+pandoc 
+
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  number-sections: true
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Cross Referencing the Name (section name, fig-name, table-name)
+  author: Shafayet Khan Shafee
+  date: last-modified
+  date-format: DD MMM, YYYY
+  
+
+Output created: example.html
+
+

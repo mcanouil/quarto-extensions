@@ -1,0 +1,21 @@
+(ERROR) Unable to read the extension 'plos'.
+Please ensure that you provided the correct id and that the extension is installed.
+
+Stack trace:
+    at loadExtension (file:///opt/quarto/bin/quarto.js:79010:15)
+    at Object.extension (file:///opt/quarto/bin/quarto.js:78253:30)
+    at readExtensionFormat (file:///opt/quarto/bin/quarto.js:91330:50)
+    at resolveFormats (file:///opt/quarto/bin/quarto.js:91194:37)
+    at async renderContexts (file:///opt/quarto/bin/quarto.js:90984:20)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:136583:16)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136500:9)
+    at async render (file:///opt/quarto/bin/quarto.js:142154:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142399:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102022:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101899:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187547:5)
+    at async file:///opt/quarto/bin/quarto.js:187575:5
+    at async file:///opt/quarto/bin/quarto.js:187430:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187432:5)
+    at async file:///opt/quarto/bin/quarto.js:187568:3
+
