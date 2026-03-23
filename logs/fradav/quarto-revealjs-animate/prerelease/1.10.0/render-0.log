@@ -1,0 +1,48 @@
+pandoc 
+
+  to: revealjs
+  output-file: example.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  css:
+    - style.css
+  variables: {}
+  
+
+metadata
+
+  link-citations: true
+  width: 1200
+  height: 900
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: slide
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Animations with Quarto/Reveal.js and SVG.js
+  subtitle: Based on the animate plugin by [@rajgoel](https://github.com/rajgoel/reveal.js-plugins/)
+  revealjs-plugins:
+    - animate
+  theme: black
+  
+
+Output created: example.html
+
+

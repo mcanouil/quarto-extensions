@@ -1,0 +1,183 @@
+Cloning into 'repo'...
+The R temporary directory appears to be within a folder mounted as 'noexec'.
+Installation of R packages from sources may fail.
+See the section **Note** within `?INSTALL` for more details.
+
+tempdir(): /tmp/Rtmpw8iVPM
+The R temporary directory appears to be within a folder mounted as 'noexec'.
+Installation of R packages from sources may fail.
+See the section **Note** within `?INSTALL` for more details.
+
+tempdir(): /tmp/RtmphsO4LR
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://ctan.math.illinois.edu/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://mirrors.rit.edu/CTAN/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://mirror.ctan.org/systems/texlive/tlnet failed, trying next...
+All CTAN mirrors failed. LaTeX packages may not install.
+[1/2] template-full.qmd
+The R temporary directory appears to be within a folder mounted as 'noexec'.
+Installation of R packages from sources may fail.
+See the section **Note** within `?INSTALL` for more details.
+
+tempdir(): /tmp/RtmpphBqB3
+renv 1.1.6 was loaded from project library, but this project is configured to use renv 1.1.6.
+- Use `renv::record("renv@1.1.6")` to record renv 1.1.6 in the lockfile.
+- Use `renv::restore(packages = "renv")` to install renv 1.1.6 into the project library.
+
+
+processing file: template-full.qmd
+1/15                   
+2/15 [setup]           
+3/15                   
+4/15 [fig-facet]       
+5/15                   
+6/15 [fig-patchwork]   
+7/15                   
+8/15 [tbl-sum-penguins]
+9/15                   
+10/15 [tbl-regression]  
+11/15                   
+12/15 [prep-mitex]      
+13/15                   
+14/15 [tbl-math]        
+15/15                   
+output file: template-full.knit.md
+
+There were 50 or more warnings (use warnings() to see the first 50)
+[typst]: Compiling template-full.typ to template-full.pdf...downloading @preview/fontawesome:0.6.0
+ 81.9 KiB /  81.9 KiB (100 %)  81.9 KiB/s in 2.84 ms ETA: 0 s
+
+downloading @preview/mitex:0.2.4
+106.4 KiB / 106.4 KiB (100 %) 106.4 KiB/s in 3.22 ms ETA: 0 s
+
+downloading @preview/xarrow:0.2.0
+ 14.1 KiB /  14.1 KiB (100 %)  14.1 KiB/s in 1.67 ms ETA: 0 s
+
+warning: `kai` is deprecated, use ϗ or `\u{3d7}` instead
+     ┌─ @preview/mitex:0.2.4/specs/latex/standard.typ:1030:30
+     │
+1030 │   KaTeX: of-sym(math.upright($kai A T E X$)),
+     │                               ^^^
+
+warning: unknown font family: font awesome 7 free
+   ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
+   │
+80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
+   │             ^^^^^^^^^^^^^
+
+warning: unknown font family: font awesome 7 brands
+   ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
+   │
+80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
+   │             ^^^^^^^^^^^^^
+
+DONE
+
+[2/2] template.qmd
+The R temporary directory appears to be within a folder mounted as 'noexec'.
+Installation of R packages from sources may fail.
+See the section **Note** within `?INSTALL` for more details.
+
+tempdir(): /tmp/RtmpykDAt6
+renv 1.1.6 was loaded from project library, but this project is configured to use renv 1.1.6.
+- Use `renv::record("renv@1.1.6")` to record renv 1.1.6 in the lockfile.
+- Use `renv::restore(packages = "renv")` to install renv 1.1.6 into the project library.
+
+
+processing file: template.qmd
+1/7                  
+2/7 [fig-hist-mpg]   
+3/7                  
+4/7 [tbl-mtcars-head]
+5/7                  
+6/7 [fig-scatter-car]
+7/7                  
+output file: template.knit.md
+
+[typst]: Compiling template.typ to template.pdf...warning: unknown font family: libertinus sans
+    ┌─ template.typ:318:31
+    │
+318 │   show heading: set text(font: sansfont, weight: "semibold")
+    │                                ^^^^^^^^
+
+warning: unknown font family: libertinus sans
+    ┌─ template.typ:361:40
+    │
+361 │         #text(weight: "semibold", font: sansfont, size: 0.8em)[
+    │                                         ^^^^^^^^
+
+warning: unknown font family: libertinus sans
+    ┌─ template.typ:381:53
+    │
+381 │         #text(weight: "semibold", size: 1.5em, font: sansfont)[
+    │                                                      ^^^^^^^^
+
+warning: unknown font family: libertinus sans
+    ┌─ template.typ:400:33
+    │
+400 │         #text(size: 1.2em, font: sansfont)[#author.name]
+    │                                  ^^^^^^^^
+
+warning: unknown font family: libertinus sans
+    ┌─ template.typ:407:34
+    │
+407 │         #text(size: 0.85em, font: sansfont)[#author.affiliation] \
+    │                                   ^^^^^^^^
+
+warning: unknown font family: libertinus sans
+    ┌─ template.typ:408:33
+    │
+408 │         #text(size: 0.7em, font: sansfont, fill: link-color)[
+    │                                  ^^^^^^^^
+
+warning: unknown font family: libertinus sans
+    ┌─ template.typ:417:38
+    │
+417 │       #text(weight: "semibold", font: sansfont, size: 0.9em)[#abstract-title] #h(0.5em)
+    │                                       ^^^^^^^^
+
+warning: unknown font family: libertinus sans
+    ┌─ template.typ:418:18
+    │
+418 │       #text(font: sansfont)[#abstract]
+    │                   ^^^^^^^^
+
+warning: unknown font family: libertinus sans
+    ┌─ template.typ:420:39
+    │
+420 │         text(weight: "semibold", font: sansfont, size: 0.9em)[\ Keywords:]
+    │                                        ^^^^^^^^
+
+warning: unknown font family: libertinus sans
+    ┌─ template.typ:422:19
+    │
+422 │         text(font: sansfont)[#keywords]
+    │                    ^^^^^^^^
+
+warning: unknown font family: font awesome 7 free
+   ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
+   │
+80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
+   │             ^^^^^^^^^^^^^
+
+warning: unknown font family: font awesome 7 brands
+   ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
+   │
+80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
+   │             ^^^^^^^^^^^^^
+
+warning: unknown font family: libertinus sans
+    ┌─ template.typ:321:20
+    │
+321 │     #set text(font: sansfont, size: 0.9em)
+    │                     ^^^^^^^^
+
+DONE
+
+
+Output created: docs/template.pdf
+

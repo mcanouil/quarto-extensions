@@ -1,0 +1,223 @@
+Cloning into 'repo'...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://ctan.math.illinois.edu/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://mirrors.rit.edu/CTAN/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://mirror.ctan.org/systems/texlive/tlnet failed, trying next...
+All CTAN mirrors failed. LaTeX packages may not install.
+pandoc 
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: xelatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  block-headings: true
+  knitr:
+    opts_chunk:
+      echo: false
+  csl: _extensions/sportrxiv/apa.csl
+  link-citations: 'yes'
+  colorlinks: true
+  urlcolor: blue
+  mainfont: Verdana
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  articletitle: |
+    Demo format to use as template for an article submitted to the SportRxiv preprint server
+  author:
+    - name: John Doe
+      affiliations:
+        - ref: 1
+        - ref: 2
+      orcid: 0000-0000-0000-0000
+      corresponding: true
+      email: JD@example.org
+    - name: Second Person
+      affiliations:
+        - ref: 1
+    - name: Third Person
+      affiliations:
+        - ref: 2
+  affiliations:
+    - id: 1
+      name: One Affiliation
+    - id: 2
+      name: Another Affiliation
+  abstract: |
+    Place your abstract here. Use Markdown to style the abstract, e.g. write `*word*` to print a *word* in italics. You can use the Latex command `\newline\` to create a linebreak in the abstract. \newline\ *Explanation*: The second backslash ensures that styling can be applied directly after the linebreak. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template.
+  license-type: ccby
+  keywords:
+    - template
+    - demo
+    - exercise science
+  suppl-link: https://osf.io/
+  reference-section-title: References
+  printnote: PREPRINT - NOT PEER REVIEWED
+  bibliography:
+    - bibliography.bib
+  
+
+Rendering PDF
+running xelatex - 1
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+  kpathsea: Running mktextfm Verdana
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Could not map source abbreviation  for Verdana.
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Need to update ?
+  mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input Verdana
+  This is METAFONT, Version 2.71828182 (TeX Live 2026) (preloaded base=mf)
+  
+  kpathsea: Running mktexmf Verdana
+  
+  ! I can't find file `Verdana'.
+  <*> ...jfour; mag:=1; ; nonstopmode; input Verdana
+                                                    
+  Please type another input file name
+  ! Emergency stop.
+  <*> ...jfour; mag:=1; ; nonstopmode; input Verdana
+                                                    
+  Transcript written on mfput.log.
+  grep: Verdana.log: No such file or directory
+  mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input Verdana' failed to make Verdana.tfm.
+  kpathsea: Appending font creation commands to missfont.log.
+  
+updating tlmgr
+
+updating existing packages
+finding package for Verdana(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+finding package for Verdana
+finding package for mktextfm
+> 1 package to install
+> installing texlive-scripts (1 of 1)
+WARN: Error encountered when rendering files
+ERROR: Problem running `tlmgr update`.
+
+Stack trace:
+    at renderFiles (file:///opt/quarto/bin/quarto.js:136533:49)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async render (file:///opt/quarto/bin/quarto.js:142161:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142406:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102029:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101906:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187554:5)
+    at async file:///opt/quarto/bin/quarto.js:187582:5
+    at async file:///opt/quarto/bin/quarto.js:187437:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187439:5)
+    at async file:///opt/quarto/bin/quarto.js:187575:3
+Render failed, retrying once...
+pandoc 
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: xelatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  block-headings: true
+  knitr:
+    opts_chunk:
+      echo: false
+  csl: _extensions/sportrxiv/apa.csl
+  link-citations: 'yes'
+  colorlinks: true
+  urlcolor: blue
+  mainfont: Verdana
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  articletitle: |
+    Demo format to use as template for an article submitted to the SportRxiv preprint server
+  author:
+    - name: John Doe
+      affiliations:
+        - ref: 1
+        - ref: 2
+      orcid: 0000-0000-0000-0000
+      corresponding: true
+      email: JD@example.org
+    - name: Second Person
+      affiliations:
+        - ref: 1
+    - name: Third Person
+      affiliations:
+        - ref: 2
+  affiliations:
+    - id: 1
+      name: One Affiliation
+    - id: 2
+      name: Another Affiliation
+  abstract: |
+    Place your abstract here. Use Markdown to style the abstract, e.g. write `*word*` to print a *word* in italics. You can use the Latex command `\newline\` to create a linebreak in the abstract. \newline\ *Explanation*: The second backslash ensures that styling can be applied directly after the linebreak. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template.
+  license-type: ccby
+  keywords:
+    - template
+    - demo
+    - exercise science
+  suppl-link: https://osf.io/
+  reference-section-title: References
+  printnote: PREPRINT - NOT PEER REVIEWED
+  bibliography:
+    - bibliography.bib
+  
+
+Rendering PDF
+running xelatex - 1
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+  kpathsea: Running mktextfm Verdana
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Could not map source abbreviation  for Verdana.
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Need to update ?
+  mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input Verdana
+  This is METAFONT, Version 2.71828182 (TeX Live 2026) (preloaded base=mf)
+  
+  kpathsea: Running mktexmf Verdana
+  
+  ! I can't find file `Verdana'.
+  <*> ...jfour; mag:=1; ; nonstopmode; input Verdana
+                                                    
+  Please type another input file name
+  ! Emergency stop.
+  <*> ...jfour; mag:=1; ; nonstopmode; input Verdana
+                                                    
+  Transcript written on mfput.log.
+  grep: Verdana.log: No such file or directory
+  mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input Verdana' failed to make Verdana.tfm.
+  kpathsea: Appending font creation commands to missfont.log.
+  
+updating tlmgr
+
+updating existing packages
+finding package for Verdana(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+finding package for Verdana
+finding package for mktextfm
+> 1 package to install
+> installing texlive-scripts (1 of 1)
+WARN: Error encountered when rendering files
+ERROR: Problem running `tlmgr update`.
+
+Stack trace:
+    at renderFiles (file:///opt/quarto/bin/quarto.js:136533:49)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async render (file:///opt/quarto/bin/quarto.js:142161:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142406:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102029:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101906:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187554:5)
+    at async file:///opt/quarto/bin/quarto.js:187582:5
+    at async file:///opt/quarto/bin/quarto.js:187437:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187439:5)
+    at async file:///opt/quarto/bin/quarto.js:187575:3

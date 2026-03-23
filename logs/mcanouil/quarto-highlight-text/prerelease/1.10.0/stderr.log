@@ -1,0 +1,102 @@
+Cloning into 'repo'...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://ctan.math.illinois.edu/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://mirrors.rit.edu/CTAN/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://mirror.ctan.org/systems/texlive/tlnet failed, trying next...
+All CTAN mirrors failed. LaTeX packages may not install.
+pandoc 
+  to: beamer
+  output-file: example.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  block-headings: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Highlight-text Quarto Extension
+  subtitle: Quarto Extension
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  brand:
+    light:
+      color:
+        palette:
+          fg: '#ffffff'
+          bg: '#b22222'
+        foreground: '#333333'
+        background: '#fafafa'
+    dark:
+      color:
+        palette:
+          fg: '#b22222'
+          bg: '#ffffff'
+        foreground: '#fafafa'
+        background: '#333333'
+  aspectratio: 169
+  fontsize: 8pt
+  
+(W) [highlight-text] Using "brand-color." prefix is deprecated. Please use the colour name directly (e.g., "fg" instead of "brand-color.fg").
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+finding package for size8.clo
+ERROR: 
+compilation failed- no matching packages
+LaTeX Error: File `size8.clo' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: clo)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+   
+l.375 \expandafter\input\beamer@size
+                                  
+
+
+see example.log for more information.
+WARN: Error encountered when rendering files
+ERROR: NotFound: No such file or directory (os error 2)
+
+Stack trace:
+    at Object.cwd (ext:deno_fs/30_fs.js:152:10)
+    at normalizePath (file:///opt/quarto/bin/quarto.js:8154:23)
+    at FileInformationCacheMap.has (file:///opt/quarto/bin/quarto.js:77057:26)
+    at ensureFileInformationCache (file:///opt/quarto/bin/quarto.js:77047:41)
+    at fileExecutionEngineAndTarget (file:///opt/quarto/bin/quarto.js:77308:18)
+    at Object.fileExecutionEngineAndTarget (file:///opt/quarto/bin/quarto.js:142069:14)
+    at render (file:///opt/quarto/bin/quarto.js:142169:36)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142406:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102029:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101906:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187554:5)
+    at async file:///opt/quarto/bin/quarto.js:187582:5
+    at async file:///opt/quarto/bin/quarto.js:187437:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187439:5)
+    at async file:///opt/quarto/bin/quarto.js:187575:3
+Render failed, retrying once...
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+chdir: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+error: Failed getting cwd.
+
+Caused by:
+    No such file or directory (os error 2)

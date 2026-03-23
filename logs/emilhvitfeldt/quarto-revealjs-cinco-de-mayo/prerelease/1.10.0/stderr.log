@@ -1,0 +1,49 @@
+Cloning into 'repo'...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://ctan.math.illinois.edu/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://mirrors.rit.edu/CTAN/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://mirror.ctan.org/systems/texlive/tlnet failed, trying next...
+All CTAN mirrors failed. LaTeX packages may not install.
+pandoc 
+  to: revealjs
+  output-file: template.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  variables: {}
+  
+metadata
+  link-citations: true
+  width: 1280
+  height: 720
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  theme:
+    - default
+    - _extensions/cinco-de-mayo/cinco.scss
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  
+Output created: template.html
+

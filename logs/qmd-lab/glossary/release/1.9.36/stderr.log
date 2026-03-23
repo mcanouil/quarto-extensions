@@ -1,0 +1,135 @@
+Cloning into 'repo'...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://ctan.math.illinois.edu/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://mirrors.rit.edu/CTAN/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://mirror.ctan.org/systems/texlive/tlnet failed, trying next...
+All CTAN mirrors failed. LaTeX packages may not install.
+pandoc 
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Glossary Example
+  glossary:
+    - id: my-glossary
+      class: definition
+      contents:
+        - ex*
+  
+=== Glossary Log ===
+> glossary id:  my-glossary
+>> files scanned:  {
+  [1] "./example.qmd"
+  [2] "./ex-animals.qmd"
+  [3] "./example-2.qmd"
+  [4] "./ex-plants.qmd"
+}
+>> Number of blocks inserted:  3
+Output created: example.html
+
+pandoc 
+  to: html
+  output-file: ex-animals.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Animals
+  
+Output created: ex-animals.html
+
+pandoc 
+  to: html
+  output-file: example-2.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Glossary Example 2
+  subtitle: Two different glossaries on one page
+  glossary:
+    - id: my-defs
+      class: definition
+      contents:
+        - ex*
+    - id: my-fns
+      class: function
+      contents:
+        - ex*
+  
+=== Glossary Log ===
+> glossary id:  my-defs
+>> files scanned:  {
+  [1] "./example.qmd"
+  [2] "./ex-animals.qmd"
+  [3] "./example-2.qmd"
+  [4] "./ex-plants.qmd"
+}
+>> Number of blocks inserted:  3
+> glossary id:  my-fns
+>> files scanned:  {
+  [1] "./example.qmd"
+  [2] "./ex-animals.qmd"
+  [3] "./example-2.qmd"
+  [4] "./ex-plants.qmd"
+}
+>> Number of blocks inserted:  1
+Output created: example-2.html
+
+pandoc 
+  to: html
+  output-file: ex-plants.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Plants
+  
+Output created: ex-plants.html
+

@@ -1,0 +1,159 @@
+pandoc 
+
+  to: revealjs
+  from: markdown-auto_identifiers+emoji
+  output-file: template.html
+  standalone: true
+  embed-resources: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  variables: {}
+  
+
+metadata
+
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: fade
+  backgroundTransition: slide
+  pdfSeparateFragments: false
+  lang: de
+  auto-stretch: true
+  theme:
+    - _extensions/hsnr/HSNR.scss
+  date-format: DD.MM.YYYY
+  csl: _extensions/hsnr/apa-single-spaced.csl
+  logo: _extensions/hsnr/HSNLogo_quadrat2.jpg
+  slideNumber: true
+  scrollable: true
+  citations-hover: true
+  footnotes-hover: true
+  controls: true
+  hash-type: number
+  hideInactiveCursor: true
+  hideCursorTime: 200
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Quarto und Revealjs
+  subtitle: Eine kurze Einführung
+  author:
+    - name: Prof. Dr. Klara Aufbau
+  institute: Fachbereich Gesundheitswesen
+  modul: M3 Spezialwissen 2024
+  kohorte: MHC
+  date: '2004-12-21'
+  bibliography:
+    - literatur.bib
+  footer: Prof. Dr. Theo Rethisch | Fachbereich 10 | Hochschule Niederrhein
+  
+
+[WARNING] 
+Could not fetch resource _extensions/produnis/hsnr/KreisschwungKrefeld.png
+[WARNING] Could not fetch re
+source _extensions/produnis/hsnr/Kreisschwung
+Krefeld.png
+
+[WARNING] Could not fetc
+h resource _extensions/produnis/
+hsnr/Hochschule_niederrhein.png
+
+[WAR
+NING] Could not f
+etch resource
+ _extensio
+ns/produ
+nis/hsnr
+/beforeyo
+ustartit
+snoteasy
+.jpg
+
+[WA
+RNING] Could n
+ot fetch 
+resource
+ _extens
+ions/produn
+is/hsnr/befor
+eyoustart
+itsnoteas
+y.jpg
+
+[WARN
+ING] Could not
+ fetch r
+esource
+ _exten
+sions/
+produn
+is/hsn
+r/letz
+tefolie1.w
+ebp
+
+[W
+ARNING]
+ Could 
+not fe
+tch re
+source
+ _exte
+nsions/pr
+odunis
+/hsnr/
+letztef
+olie2.we
+bp
+
+[W
+ARNING] 
+Could
+ not f
+etch r
+esour
+ce _e
+xtensi
+ons/p
+roduni
+s/hsnr
+/Krefeld
+Campus
+_night.
+webp
+
+
+[W
+ARNING] 
+Coul
+d not 
+fetch
+ reso
+urce _
+exten
+sions
+/prod
+unis/
+hsnr/H
+SNLogo_quadrat2.jpg
+[WARNING] Could not fetch resource _extensions/produnis/hsnr/GebauedeH_Rand.webp
+[WARNING] Could not fetch resource _extensions/produnis/hsnr/HSNLogo_quadrat2.jpg
+[WARNING] Could not fetch resource _extensions/produnis/hsnr/bibliothek.webp
+
+Output created: template.html
+
+

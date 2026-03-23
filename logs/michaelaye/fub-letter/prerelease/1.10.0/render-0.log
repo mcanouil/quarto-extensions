@@ -1,0 +1,98 @@
+pandoc 
+
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+
+metadata
+
+  block-headings: true
+  date-format: long
+  documentclass: article
+  fontfamily: helvet
+  fontsize: 12pt
+  geometry:
+    - left=2.5cm
+    - right=2cm
+    - top=2cm
+    - bottom=2cm
+  colorlinks: true
+  header-includes:
+    - |
+      \usepackage{graphicx}
+      \usepackage{xcolor}
+      \usepackage[absolute,overlay]{textpos}
+      \setlength{\TPHorizModule}{1cm}
+      \setlength{\TPVertModule}{1cm}
+      \definecolor{fublue}{HTML}{004659}
+      \definecolor{fulime}{HTML}{CCFF00}
+      \setlength{\parskip}{0.5em}
+      \setlength{\parindent}{0pt}
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  sender-name: Dr. Your Name
+  sender-department: Your Department
+  sender-institute: Your Institute
+  sender-faculty: Your Faculty
+  sender-address: Your Street Address
+  sender-city: Postal Code City
+  sender-phone: +49 30 12345678
+  sender-email: your.email@fu-berlin.de
+  recipient-organization: Organization Name
+  recipient-department: ''
+  recipient-name: Recipient Name
+  recipient-address: Street Address
+  recipient-city: Postal Code City
+  letter-subject: Subject Line
+  letter-lang: en
+  
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for textpos.sty
+
+> 1 package to install
+
+> installing textpos (1 of 1)
+
+(WARN) Error encountered when rendering files
+
+(ERROR) tlmgr returned a non zero status code
+You don't have permission to change the installation in any way,
+specifically, the directory /opt/tinytex/tlpkg/ is not writable.
+Please run this program as administrator, or contact your local admin.
+tlmgr: An error has occurred. See above messages. Exiting.
+
+
+Stack trace:
+    at renderFiles (file:///opt/quarto/bin/quarto.js:136533:49)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async render (file:///opt/quarto/bin/quarto.js:142161:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142406:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102029:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101906:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187554:5)
+    at async file:///opt/quarto/bin/quarto.js:187582:5
+    at async file:///opt/quarto/bin/quarto.js:187437:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187439:5)
+    at async file:///opt/quarto/bin/quarto.js:187575:3
+

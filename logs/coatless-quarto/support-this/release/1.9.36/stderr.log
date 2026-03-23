@@ -1,0 +1,263 @@
+Cloning into 'repo'...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://ctan.math.illinois.edu/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://mirrors.rit.edu/CTAN/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://mirror.ctan.org/systems/texlive/tlnet failed, trying next...
+All CTAN mirrors failed. LaTeX packages may not install.
+[1/7] index.qmd
+[support-this] Found platforms configuration
+[support-this] Processing platform: github
+[support-this]   #value = 1
+[support-this] Found array for github with 1 items
+[support-this]   [1] = 'coatless'
+[support-this] Processing platform: patreon
+[support-this]   #value = 1
+[support-this] Found array for patreon with 1 items
+[support-this]   [1] = 'coatless'
+[support-this] Adding HTML CSS dependency
+[support-this] Detected HTML format
+[support-this] Rendering HTML with 2 platforms
+[support-this] Inserting support section at top
+WARN: Unable to resolve link target: qsupport-this-faq.qmd
+[2/7] qsupport-this-revealjs-slides.qmd
+[support-this] Debug mode enabled
+[support-this] Found platforms configuration
+[support-this] Processing platform: github
+[support-this]   #value = 1
+[support-this] Found array for github with 1 items
+[support-this]   [1] = 'coatless'
+[support-this] Processing platform: patreon
+[support-this]   #value = 1
+[support-this] Found array for patreon with 1 items
+[support-this]   [1] = 'coatless'
+[support-this] Processing platform: ko_fi
+[support-this]   #value = 1
+[support-this] Found array for ko_fi with 1 items
+[support-this]   [1] = 'coatless'
+[support-this] Adding HTML CSS dependency
+[support-this] Detected RevealJS format
+[support-this] Inserting support section at bottom
+[3/7] qsupport-this-multi-links-and-gh-users.qmd
+[support-this] Found platforms configuration
+[support-this] Processing platform: custom
+[support-this]   #value = 2
+[support-this] Found array for custom with 2 items
+[support-this]   [1] = 'https://paypal.me/yourusername'
+[support-this]   [2] = 'https://yourwebsite.com/donate'
+[support-this] Processing platform: github
+[support-this]   #value = 2
+[support-this] Found array for github with 2 items
+[support-this]   [1] = 'coatless'
+[support-this]   [2] = 'yourusername'
+[support-this] Adding HTML CSS dependency
+[support-this] Detected HTML format
+[support-this] Rendering HTML with 2 platforms
+[support-this] Inserting support section at bottom
+WARN: Unable to resolve link target: qsupport-this-faq.qmd
+[4/7] qsupport-this-revealjs.qmd
+WARN: Unable to resolve link target: qsupport-this-faq.qmd
+[5/7] qsupport-this-release-notes.qmd
+WARN: Unable to resolve link target: qsupport-this-faq.qmd
+[6/7] qsupport-this-funding-yml.qmd
+[support-this] Loading FUNDING.yml
+[support-this] Adding HTML CSS dependency
+[support-this] Detected HTML format
+[support-this] Rendering HTML with 3 platforms
+[support-this] Inserting support section at bottom
+WARN: Unable to resolve link target: qsupport-this-faq.qmd
+[7/7] qsupport-this-demo.qmd
+[support-this] Found platforms configuration
+[support-this] Processing platform: patreon
+[support-this]   #value = 1
+[support-this] Found array for patreon with 1 items
+[support-this]   [1] = 'coatless'
+[support-this] Processing platform: buy_me_a_coffee
+[support-this]   #value = 1
+[support-this] Found array for buy_me_a_coffee with 1 items
+[support-this]   [1] = 'coatless'
+[support-this] Processing platform: github
+[support-this]   #value = 1
+[support-this] Found array for github with 1 items
+[support-this]   [1] = 'coatless'
+[support-this] Adding HTML CSS dependency
+[support-this] Detected HTML format
+[support-this] Rendering HTML with 3 platforms
+[support-this] Inserting support section at bottom
+[support-this] Found platforms configuration
+[support-this] Processing platform: patreon
+[support-this]   #value = 1
+[support-this] Found array for patreon with 1 items
+[support-this]   [1] = 'coatless'
+[support-this] Processing platform: github
+[support-this]   #value = 1
+[support-this] Found array for github with 1 items
+[support-this]   [1] = 'coatless'
+[support-this] Processing platform: buy_me_a_coffee
+[support-this]   #value = 1
+[support-this] Found array for buy_me_a_coffee with 1 items
+[support-this]   [1] = 'coatless'
+[support-this] Detected non-HTML format (using Callout API)
+[support-this] Inserting support section at bottom
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+finding package for scrartcl.cls
+> 1 package to install
+> installing koma-script (1 of 1)
+WARN: Error encountered when rendering files
+ERROR: tlmgr returned a non zero status code
+You don't have permission to change the installation in any way,
+specifically, the directory /opt/tinytex/tlpkg/ is not writable.
+Please run this program as administrator, or contact your local admin.
+tlmgr: An error has occurred. See above messages. Exiting.
+
+
+Stack trace:
+    at renderFiles (file:///opt/quarto/bin/quarto.js:136526:49)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:137069:23)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142399:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102022:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101899:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187547:5)
+    at async file:///opt/quarto/bin/quarto.js:187575:5
+    at async file:///opt/quarto/bin/quarto.js:187430:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187432:5)
+    at async file:///opt/quarto/bin/quarto.js:187568:3
+Render failed, retrying once...
+[1/7] index.qmd
+[support-this] Found platforms configuration
+[support-this] Processing platform: patreon
+[support-this]   #value = 1
+[support-this] Found array for patreon with 1 items
+[support-this]   [1] = 'coatless'
+[support-this] Processing platform: github
+[support-this]   #value = 1
+[support-this] Found array for github with 1 items
+[support-this]   [1] = 'coatless'
+[support-this] Adding HTML CSS dependency
+[support-this] Detected HTML format
+[support-this] Rendering HTML with 2 platforms
+[support-this] Inserting support section at top
+WARN: Unable to resolve link target: qsupport-this-faq.qmd
+[2/7] qsupport-this-revealjs-slides.qmd
+[support-this] Debug mode enabled
+[support-this] Found platforms configuration
+[support-this] Processing platform: ko_fi
+[support-this]   #value = 1
+[support-this] Found array for ko_fi with 1 items
+[support-this]   [1] = 'coatless'
+[support-this] Processing platform: github
+[support-this]   #value = 1
+[support-this] Found array for github with 1 items
+[support-this]   [1] = 'coatless'
+[support-this] Processing platform: patreon
+[support-this]   #value = 1
+[support-this] Found array for patreon with 1 items
+[support-this]   [1] = 'coatless'
+[support-this] Adding HTML CSS dependency
+[support-this] Detected RevealJS format
+[support-this] Inserting support section at bottom
+[3/7] qsupport-this-multi-links-and-gh-users.qmd
+[support-this] Found platforms configuration
+[support-this] Processing platform: github
+[support-this]   #value = 2
+[support-this] Found array for github with 2 items
+[support-this]   [1] = 'coatless'
+[support-this]   [2] = 'yourusername'
+[support-this] Processing platform: custom
+[support-this]   #value = 2
+[support-this] Found array for custom with 2 items
+[support-this]   [1] = 'https://paypal.me/yourusername'
+[support-this]   [2] = 'https://yourwebsite.com/donate'
+[support-this] Adding HTML CSS dependency
+[support-this] Detected HTML format
+[support-this] Rendering HTML with 2 platforms
+[support-this] Inserting support section at bottom
+WARN: Unable to resolve link target: qsupport-this-faq.qmd
+[4/7] qsupport-this-revealjs.qmd
+WARN: Unable to resolve link target: qsupport-this-faq.qmd
+[5/7] qsupport-this-release-notes.qmd
+WARN: Unable to resolve link target: qsupport-this-faq.qmd
+[6/7] qsupport-this-funding-yml.qmd
+[support-this] Loading FUNDING.yml
+[support-this] Adding HTML CSS dependency
+[support-this] Detected HTML format
+[support-this] Rendering HTML with 3 platforms
+[support-this] Inserting support section at bottom
+WARN: Unable to resolve link target: qsupport-this-faq.qmd
+[7/7] qsupport-this-demo.qmd
+[support-this] Found platforms configuration
+[support-this] Processing platform: buy_me_a_coffee
+[support-this]   #value = 1
+[support-this] Found array for buy_me_a_coffee with 1 items
+[support-this]   [1] = 'coatless'
+[support-this] Processing platform: patreon
+[support-this]   #value = 1
+[support-this] Found array for patreon with 1 items
+[support-this]   [1] = 'coatless'
+[support-this] Processing platform: github
+[support-this]   #value = 1
+[support-this] Found array for github with 1 items
+[support-this]   [1] = 'coatless'
+[support-this] Adding HTML CSS dependency
+[support-this] Detected HTML format
+[support-this] Rendering HTML with 3 platforms
+[support-this] Inserting support section at bottom
+[support-this] Found platforms configuration
+[support-this] Processing platform: patreon
+[support-this]   #value = 1
+[support-this] Found array for patreon with 1 items
+[support-this]   [1] = 'coatless'
+[support-this] Processing platform: buy_me_a_coffee
+[support-this]   #value = 1
+[support-this] Found array for buy_me_a_coffee with 1 items
+[support-this]   [1] = 'coatless'
+[support-this] Processing platform: github
+[support-this]   #value = 1
+[support-this] Found array for github with 1 items
+[support-this]   [1] = 'coatless'
+[support-this] Detected non-HTML format (using Callout API)
+[support-this] Inserting support section at bottom
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+finding package for scrartcl.cls
+> 1 package to install
+> installing koma-script (1 of 1)
+WARN: Error encountered when rendering files
+ERROR: tlmgr returned a non zero status code
+You don't have permission to change the installation in any way,
+specifically, the directory /opt/tinytex/tlpkg/ is not writable.
+Please run this program as administrator, or contact your local admin.
+tlmgr: An error has occurred. See above messages. Exiting.
+
+
+Stack trace:
+    at renderFiles (file:///opt/quarto/bin/quarto.js:136526:49)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:137069:23)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142399:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102022:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101899:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187547:5)
+    at async file:///opt/quarto/bin/quarto.js:187575:5
+    at async file:///opt/quarto/bin/quarto.js:187430:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187432:5)
+    at async file:///opt/quarto/bin/quarto.js:187568:3

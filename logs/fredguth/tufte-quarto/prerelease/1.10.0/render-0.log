@@ -1,0 +1,90 @@
+
+
+pandoc 
+
+  to: latex
+  output-file: index.tex
+  standalone: true
+  toc: true
+  number-sections: false
+  top-level-division: chapter
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  reference-location: margin
+  toc-depth: 2
+  cite-method: natbib
+  
+
+metadata
+
+  crossref:
+    chapters: true
+  documentclass: tufte-book
+  papersize: letter
+  block-headings: true
+  bibliography:
+    - references.bib
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  citation-location: margin
+  fig-cap-location: bottom
+  classoption:
+    - sfsidenotes
+  toc-title: Contents
+  indent: 0px
+  mainfont: ETbb
+  sansfont: TeX Gyre Heros
+  sansfontoptions: Scale=MatchUppercase
+  title: |
+    Tufte-Quarto Project Type\
+    Documentation
+  author: Fred Guth
+  date-format: MMMM, YYYY
+  
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for xifthen.sty
+
+> 1 package to install
+
+> installing xifthen (1 of 1)
+
+(WARN) Error encountered when rendering files
+
+(ERROR) tlmgr returned a non zero status code
+You don't have permission to change the installation in any way,
+specifically, the directory /opt/tinytex/tlpkg/ is not writable.
+Please run this program as administrator, or contact your local admin.
+tlmgr: An error has occurred. See above messages. Exiting.
+
+
+Stack trace:
+    at renderFiles (file:///opt/quarto/bin/quarto.js:136533:49)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:137076:23)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142406:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102029:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101906:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187554:5)
+    at async file:///opt/quarto/bin/quarto.js:187582:5
+    at async file:///opt/quarto/bin/quarto.js:187437:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187439:5)
+    at async file:///opt/quarto/bin/quarto.js:187575:3
+

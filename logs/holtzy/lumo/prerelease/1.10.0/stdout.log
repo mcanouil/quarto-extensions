@@ -1,0 +1,68 @@
+Dependency install phase for holtzy/lumo: auto-detect
+Auto-detecting R dependencies for holtzy/lumo (knitr engine, no renv.lock).
+Installing R packages: hrbrthemes, patchwork, tidyverse, viridis, leaflet, DT, ggiraph, sf 
+No man pages found in package  'fontBitstreamVera' 
+No man pages found in package  'fontLiberation' 
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c apply.c -o apply.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c arrayIndex.c -o arrayIndex.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c distance.c -o distance.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c dll.c -o dll.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c util.c -o util.o
+gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o proxy.so apply.o arrayIndex.o distance.o dll.o util.o -L/opt/R/4.5.3/lib/R/lib -lR
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c expr.c -o expr.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c interp.c -o interp.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c lazy.c -o lazy.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c name.c -o name.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c utils.c -o utils.o
+gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o lazyeval.so expr.o init.o interp.o lazy.o name.o utils.o -L/opt/R/4.5.3/lib/R/lib -lR
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c Rcentroid.c -o Rcentroid.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c gcdist.c -o gcdist.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c pip.c -o pip.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c pip2.c -o pip2.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c sp_xports.c -o sp_xports.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c surfaceArea.c -o surfaceArea.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c zerodist.c -o zerodist.o
+gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o sp.so Rcentroid.o gcdist.o init.o pip.o pip2.o sp_xports.o surfaceArea.o zerodist.o -L/opt/R/4.5.3/lib/R/lib -lR
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c bbox-handler.c -o bbox-handler.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c count-handler.c -o count-handler.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c debug-filter.c -o debug-filter.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c flatten-filter.c -o flatten-filter.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c handle-crc.c -o handle-crc.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c handle-rct.c -o handle-rct.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c handle-sfc.c -o handle-sfc.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c handle-wkb.c -o handle-wkb.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2   -c handle-wkt.cpp -o handle-wkt.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c handle-xy.c -o handle-xy.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c identity-filter.c -o identity-filter.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c make-collection-filter.c -o make-collection-filter.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c make-linestring-filter.c -o make-linestring-filter.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c make-polygon-filter.c -o make-polygon-filter.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c meta-handler.c -o meta-handler.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2   -c orient-filter.cpp -o orient-filter.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c problems-handler.c -o problems-handler.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c sfc-writer.c -o sfc-writer.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c trans-affine.c -o trans-affine.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c trans-explicit.c -o trans-explicit.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c trans-set.c -o trans-set.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c transform.c -o transform.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c vctr.c -o vctr.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c vertex-filter.c -o vertex-filter.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c void-handler.c -o void-handler.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c wk-v1.c -o wk-v1.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c wkb-writer.c -o wkb-writer.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2   -c wkt-writer.cpp -o wkt-writer.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2  -c xy-writer.c -o xy-writer.o
+g++ -std=gnu++17 -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o wk.so bbox-handler.o count-handler.o debug-filter.o flatten-filter.o handle-crc.o handle-rct.o handle-sfc.o handle-wkb.o handle-wkt.o handle-xy.o identity-filter.o init.o make-collection-filter.o make-linestring-filter.o make-polygon-filter.o meta-handler.o orient-filter.o problems-handler.o sfc-writer.o trans-affine.o trans-explicit.o trans-set.o transform.o vctr.o vertex-filter.o void-handler.o wk-v1.o wkb-writer.o wkt-writer.o xy-writer.o -L/opt/R/4.5.3/lib/R/lib -lR
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c Rsvm.c -o Rsvm.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c cmeans.c -o cmeans.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c cshell.c -o cshell.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c floyd.c -o floyd.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2   -c svm.cpp -o svm.o
+g++ -std=gnu++17 -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o e1071.so Rsvm.o cmeans.o cshell.o floyd.o init.o svm.o -L/opt/R/4.5.3/lib/R/lib -lR
+gfortran  -fpic  -g -O2  -c fish1.f -o fish1.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o classInt.so fish1.o init.o -lgfortran -lm -lquadmath -L/opt/R/4.5.3/lib/R/lib -lR

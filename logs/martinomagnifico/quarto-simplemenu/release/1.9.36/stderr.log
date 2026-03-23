@@ -1,0 +1,174 @@
+Cloning into 'repo'...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://ctan.math.illinois.edu/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://mirrors.rit.edu/CTAN/systems/texlive/tlnet failed, trying next...
+/usr/local/bin/tlmgr: open(>/opt/tinytex/tlpkg/texlive.tlpdb.tmp) failed: Permission denied at /opt/tinytex/tlpkg/TeXLive/TLPDB.pm line 611.
+CTAN mirror https://mirror.ctan.org/systems/texlive/tlnet failed, trying next...
+All CTAN mirrors failed. LaTeX packages may not install.
+pandoc 
+  to: revealjs
+  output-file: demo-custom.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  css:
+    - css/mycustomstyle.css
+  section-divs: true
+  variables: {}
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: true
+  navigationMode: grid
+  controlsLayout: bottom-right
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: slide
+  backgroundTransition: fade
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Simplemenu
+  subtitle: For Reveal.js and Quarto, using custom styling
+  revealjs-plugins:
+    - simplemenu
+  title-slide-attributes:
+    data-state: hide-menubar
+  theme: default
+  slideNumber: c/t
+  chalkboard: false
+  menu: false
+  simplemenu:
+    barhtml:
+      header: <div class='menubar'><a class='logo' href='#'><img src='img/logo.svg'></a><ul class='menu'></ul><div class='slide-number'></div><div>
+    scale: 0.8
+  
+[WARNING] Div at /tmp/quarto-sessiona8443cf67a803dda/6b2bdbfcd0999bbe/quarto-metadata5897116ee0b0961d.yml_chunk line 1 column 129 unclosed at /tmp/quarto-sessiona8443cf67a803dda/6b2bdbfcd0999bbe/quarto-metadata5897116ee0b0961d.yml_chunk line 1 column 134, closing implicitly.
+[WARNING] Div at /tmp/quarto-sessiona8443cf67a803dda/6b2bdbfcd0999bbe/quarto-metadata5897116ee0b0961d.yml_chunk line 1 column 1 unclosed at /tmp/quarto-sessiona8443cf67a803dda/6b2bdbfcd0999bbe/quarto-metadata5897116ee0b0961d.yml_chunk line 1 column 134, closing implicitly.
+Output created: demo-custom.html
+
+pandoc 
+  to: revealjs
+  output-file: demo-flat.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  section-divs: false
+  css:
+    - css/style.css
+  variables: {}
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: true
+  navigationMode: linear
+  controlsLayout: bottom-right
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: slide
+  backgroundTransition: fade
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Simplemenu
+  subtitle: For Reveal.js and Quarto, using `flat` option
+  revealjs-plugins:
+    - simplemenu
+  title-slide-attributes:
+    data-state: hide-menubar
+  theme: dark
+  controls: true
+  chalkboard: false
+  menu: false
+  simplemenu:
+    flat: true
+    barhtml:
+      header: <div class='menubar'><ul class='menu'></ul><div>
+    scale: 0.67
+  
+[WARNING] Div at /tmp/quarto-session771c2fa08abc56fc/295e6e3aacb03637/quarto-metadatae71ae0754976ab1d.yml_chunk line 1 column 44 unclosed at /tmp/quarto-session771c2fa08abc56fc/295e6e3aacb03637/quarto-metadatae71ae0754976ab1d.yml_chunk line 1 column 49, closing implicitly.
+[WARNING] Div at /tmp/quarto-session771c2fa08abc56fc/295e6e3aacb03637/quarto-metadatae71ae0754976ab1d.yml_chunk line 1 column 1 unclosed at /tmp/quarto-session771c2fa08abc56fc/295e6e3aacb03637/quarto-metadatae71ae0754976ab1d.yml_chunk line 1 column 49, closing implicitly.
+Output created: demo-flat.html
+
+pandoc 
+  to: revealjs
+  output-file: demo.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  css:
+    - css/style.css
+  section-divs: true
+  variables: {}
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: true
+  navigationMode: linear
+  controlsLayout: bottom-right
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: slide
+  backgroundTransition: fade
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Simplemenu
+  subtitle: For Reveal.js and Quarto
+  revealjs-plugins:
+    - simplemenu
+  title-slide-attributes:
+    data-state: hide-menubar
+  theme: dark
+  menu: false
+  simplemenu:
+    barhtml:
+      header: <div class='menubar'><ul class='menu'></ul><div>
+    scale: 0.67
+  
+[WARNING] Div at /tmp/quarto-sessionc62d242f65e50fdf/c1562a7778e39f7f/quarto-metadata80ed1a850fbef840.yml_chunk line 1 column 44 unclosed at /tmp/quarto-sessionc62d242f65e50fdf/c1562a7778e39f7f/quarto-metadata80ed1a850fbef840.yml_chunk line 1 column 49, closing implicitly.
+[WARNING] Div at /tmp/quarto-sessionc62d242f65e50fdf/c1562a7778e39f7f/quarto-metadata80ed1a850fbef840.yml_chunk line 1 column 1 unclosed at /tmp/quarto-sessionc62d242f65e50fdf/c1562a7778e39f7f/quarto-metadata80ed1a850fbef840.yml_chunk line 1 column 49, closing implicitly.
+Output created: demo.html
+

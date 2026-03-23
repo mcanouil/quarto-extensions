@@ -1,0 +1,114 @@
+
+
+processing file: template.qmd
+
+1/3                  
+
+2/3 [unnamed-chunk-1]
+
+3/3                  
+
+output file: template.knit.md
+
+
+pandoc 
+
+  to: latex
+  output-file: template.tex
+  standalone: true
+  shift-heading-level-by: -1
+  pdf-engine: pdflatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  cite-method: natbib
+  number-sections: true
+  
+
+metadata
+
+  block-headings: true
+  journal:
+    blinded: false
+  documentclass: article
+  classoption:
+    - 11pt
+  date-format: long
+  biblio-style: econ
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Paper template
+  title-footnote: |
+    Some footnotes on the title...
+  author-format: horizontal
+  author:
+    - name: Hyoungchul Kim
+      acknowledgements: |
+        The creator. We want to thank...
+      affiliations:
+        - name: University of Pennsylvania
+    - name: Author 2
+      acknowledgements: |
+        Another author's acknowledgements..
+      affiliations:
+        - name: University of WWW
+        - department: Department of Economics
+  date: last-modified
+  articleurl: https://hchulkim.github.io
+  abstract: |
+    The text of your abstract.
+  keywords:
+    - 3 to 6 keywords
+  bibliography:
+    - bibliography.bib
+  indent: true
+  citecolor: cyan
+  linkcolor: cyan
+  urlcolor: cyan
+  
+
+
+Rendering PDF
+
+running pdflatex - 1
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for bbm.sty
+
+> 1 package to install
+
+> installing bbm-macros (1 of 1)
+
+(WARN) Error encountered when rendering files
+
+(ERROR) tlmgr returned a non zero status code
+You don't have permission to change the installation in any way,
+specifically, the directory /opt/tinytex/tlpkg/ is not writable.
+Please run this program as administrator, or contact your local admin.
+tlmgr: An error has occurred. See above messages. Exiting.
+
+
+Stack trace:
+    at renderFiles (file:///opt/quarto/bin/quarto.js:136526:49)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async render (file:///opt/quarto/bin/quarto.js:142154:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142399:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102022:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101899:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187547:5)
+    at async file:///opt/quarto/bin/quarto.js:187575:5
+    at async file:///opt/quarto/bin/quarto.js:187430:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187432:5)
+    at async file:///opt/quarto/bin/quarto.js:187568:3
+

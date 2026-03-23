@@ -1,0 +1,94 @@
+pandoc 
+
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Quarto-svgbob Example
+  
+
+Error running f
+ilter /opt/quarto/share/filters/main.lua:
+svgbob: createProcess: posix_spawnp: permission denied (Permission denied)
+stack traceback:
+	.../test-3/repo/_extensions/quarto-svgbob/quarto
+-svgbob.lua:27: in local 'render_cmd'
+	.../test-3/repo/_extensions/
+quarto-svgbob/quarto-svgbob.lua:43: in glob
+al 'Render'
+	.../test-3/repo/_extensio
+ns/quarto-svgbob/quarto-svgbob.lua:64: in 
+function <.../test-3/repo/_extensions/q
+uarto-svgbob/quarto-svgbob.lua:63>
+	[C]: in ?
+	[C]: in
+ method 'walk'
+	/opt/quarto/shar
+e/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/qu
+arto/share/filters/main.lua:574: in local 'checked_walk'
+	/op
+t/quarto/share/filters/main.lua:629: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
+	[string "if pandoc.system.os == "mingw32" then..."]:778: in field
+ 'withScriptFile'
+	/opt/quarto/share/filter
+s/main.lua:1333: in upvalue 'run_em
+ulated_filter_chain'
+	/opt
+/quarto/share/filters/m
+ain.lua:1371: in func
+tion </opt/quarto/sha
+re/filters/main.lua:
+1368>
+stack traceback:
+
+	/opt/quarto/share/pa
+ndoc/datadir/_utils.l
+ua:607: in function 
+'_utils.walk'
+	/opt/
+quarto/share/filters
+/main.lua:574: in loc
+al 'checked_walk'
+	/o
+pt/quarto/share/filte
+rs/main.lua:629: in f
+unction 'run_emulated
+_filter'
+	/opt/quarto
+/share/filters/main.
+lua:1317: in local '
+callback'
+	[string "i
+f pandoc.system.os =
+= "mingw32" then..."]:778: in
+ field 'withScriptFile'
+
+	/opt/quarto/share/fi
+lters/main.lua:1333: 
+in upvalue 'run_emula
+ted_filter_chain'
+	/o
+pt/quarto/share/filte
+rs/main.lua:1371: in 
+function </opt/quart
+o/share/filters/main.
+lua:1368>
+
+(WARN) Error encountered when rendering files
+

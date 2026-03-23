@@ -1,0 +1,94 @@
+pandoc 
+
+  to: latex
+  output-file: template.tex
+  template: _extensions/quarto-cv/template.tex
+  standalone: true
+  pdf-engine: pdflatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  cite-method: biblatex
+  
+
+metadata
+
+  block-headings: true
+  documentclass: moderncv
+  moderncvtheme: classic
+  cvoption: blue
+  biblatexoptions:
+    - style=apa
+    - backend=biber
+    - sortcites=true
+    - sorting=ydnt
+  lang: de
+  date-format: DD.MM.YYYY
+  subbibliography: false
+  linkcolor: black
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  date: '2022-12-24'
+  vorname: Prof. Dr. Georg
+  nachname: Mustermann
+  strasse: Reinarzstr. 49
+  plz: 47805
+  ort: Krefeld
+  graduate: Professor für Alles
+  telefon: +49 555 822 5555
+  email: mustermann@hs-niederrhein.de
+  passbild: foto.png
+  extrainfo: 'orcid: 0000-0002-XXXX-YYYY'
+  bibliography:
+    - literatur.bib
+  publikationen:
+    - list:
+        key: auswahl
+        title: Publikationen (Auswahl)
+  
+
+
+Rendering PDF
+
+running pdflatex - 1
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for moderncv.cls
+
+> 1 package to install
+
+> installing moderncv (1 of 1)
+
+(WARN) Error encountered when rendering files
+
+(ERROR) tlmgr returned a non zero status code
+You don't have permission to change the installation in any way,
+specifically, the directory /opt/tinytex/tlpkg/ is not writable.
+Please run this program as administrator, or contact your local admin.
+tlmgr: An error has occurred. See above messages. Exiting.
+
+
+Stack trace:
+    at renderFiles (file:///opt/quarto/bin/quarto.js:136526:49)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async render (file:///opt/quarto/bin/quarto.js:142154:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142399:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102022:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101899:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187547:5)
+    at async file:///opt/quarto/bin/quarto.js:187575:5
+    at async file:///opt/quarto/bin/quarto.js:187430:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187432:5)
+    at async file:///opt/quarto/bin/quarto.js:187568:3
+

@@ -1,0 +1,116 @@
+pandoc 
+
+  to: latex
+  output-file: template.tex
+  standalone: true
+  shift-heading-level-by: -1
+  pdf-engine: pdflatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  toc: false
+  number-sections: true
+  cite-method: biblatex
+  
+
+metadata
+
+  block-headings: true
+  fontfamily: fbb
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Cambridge-Medium Template
+  author:
+    - name: F. Author
+      affiliations:
+        - name: Organization
+          department: First Division
+          city: Boston
+          state: Massachusetts
+          country: USA
+          postal-code: 02210-1022
+        - A second affiliation, University
+      email: first.author@address.edu
+    - name: S. Author
+      affiliations:
+        - name: Organization
+          department: Second Division
+          city: Boston
+          state: Massachusetts
+          country: USA
+          postal-code: 2138
+    - name: T. Author
+      affiliations:
+        - name: Organization
+          department: Third Division
+          city: New York
+          state: New York
+          country: USA
+          postal-code: 10012
+    - name: F.T. Author
+      affiliations:
+        - name: Organization
+          department: Political Science
+          city: Chicago
+          state: Illinois
+          country: USA
+          postal-code: 60637
+  abstract: |
+    This document is a template demonstrating the Cambridge-medium format.
+  acknowledgements: |
+    This document is based on the Overleaf template.
+  keywords:
+    - template
+    - demo
+  bibliography:
+    - bibliography.bib
+  journal: medium
+  year: 2023
+  volume: NA
+  
+
+
+Rendering PDF
+
+running pdflatex - 1
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for lastpage.sty
+
+> 1 package to install
+
+> installing lastpage (1 of 1)
+
+(WARN) Error encountered when rendering files
+
+(ERROR) tlmgr returned a non zero status code
+You don't have permission to change the installation in any way,
+specifically, the directory /opt/tinytex/tlpkg/ is not writable.
+Please run this program as administrator, or contact your local admin.
+tlmgr: An error has occurred. See above messages. Exiting.
+
+
+Stack trace:
+    at renderFiles (file:///opt/quarto/bin/quarto.js:136526:49)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async render (file:///opt/quarto/bin/quarto.js:142154:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142399:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102022:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101899:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187547:5)
+    at async file:///opt/quarto/bin/quarto.js:187575:5
+    at async file:///opt/quarto/bin/quarto.js:187430:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187432:5)
+    at async file:///opt/quarto/bin/quarto.js:187568:3
+

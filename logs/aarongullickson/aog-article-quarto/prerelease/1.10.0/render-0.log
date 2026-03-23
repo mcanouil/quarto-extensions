@@ -1,0 +1,129 @@
+
+
+processing file: template.qmd
+
+1/11                   
+
+2/11 [setup]           
+
+3/11                   
+
+4/11 [unnamed-chunk-1] 
+
+5/11                   
+
+6/11 [tbl-penguin-data]
+
+7/11                   
+
+8/11 [fig-template]    
+
+9/11                   
+
+10/11 [tbl-reg]         
+
+11/11                   
+
+output file: template.knit.md
+
+
+pandoc 
+
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  toc: false
+  
+
+metadata
+
+  block-headings: false
+  knitr:
+    opts_chunk:
+      echo: false
+      message: false
+      warning: false
+  documentclass: article
+  papersize: letter
+  fontsize: 12pt
+  geometry: margin=1in
+  colorlinks: true
+  urlcolor: red
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Demo of the AOG Article Template
+  shorttitle: AOG Template
+  shortauthors: Doe & Doe
+  author:
+    - name: John Doe
+      orcid: 0000-0000-0000-0000
+      email: john@somewhere.edu
+      attributes:
+        corresponding: true
+      affiliations:
+        - id: uni
+          name: University of State
+          department: Department of Awesome
+    - name: Jane Doe
+      affiliations:
+        - ref: uni
+  abstract: |
+    Ipsum nostra facilisis sapien nullam. Facilisi himenaeos pharetra ultricies scelerisque non fusce quisque aliquam netus tellus. Dictum tellus et sociis quisque ornare ad a natoque magna blandit. Tortor duis aptent cursus lacus inceptos tristique magnis dictumst. Taciti varius nascetur aliquet hac ornare vitae ultricies. Rhoncus primis purus morbi aliquet quam cubilia nullam malesuada ridiculus.
+  keywords:
+    - template
+    - demo
+  thanks: Love to everyone.
+  reference-section-title: Bibliography
+  bibliography:
+    - bibliography.bib
+  csl: https://www.zotero.org/styles/american-journal-of-sociology
+  
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for abstract.sty
+
+> 1 package to install
+
+> installing abstract (1 of 1)
+
+(WARN) Error encountered when rendering files
+
+(ERROR) tlmgr returned a non zero status code
+You don't have permission to change the installation in any way,
+specifically, the directory /opt/tinytex/tlpkg/ is not writable.
+Please run this program as administrator, or contact your local admin.
+tlmgr: An error has occurred. See above messages. Exiting.
+
+
+Stack trace:
+    at renderFiles (file:///opt/quarto/bin/quarto.js:136533:49)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async render (file:///opt/quarto/bin/quarto.js:142161:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142406:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102029:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101906:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187554:5)
+    at async file:///opt/quarto/bin/quarto.js:187582:5
+    at async file:///opt/quarto/bin/quarto.js:187437:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187439:5)
+    at async file:///opt/quarto/bin/quarto.js:187575:3
+
