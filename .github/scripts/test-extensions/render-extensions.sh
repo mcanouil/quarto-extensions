@@ -21,7 +21,7 @@ ext_count=$(jq 'length' clone-manifest.json)
 docker_run_render() {
   local run_timeout="$1" workdir="$2" log_dir="$3" render_dir="$4"
   shift 4
-  timeout "${run_timeout}" docker run --rm -i \
+  timeout --kill-after=30 "${run_timeout}" docker run --rm -i \
     --user "${DOCKER_USER}" \
     "${DOCKER_SECURITY_OPTS[@]}" \
     "$@" \
@@ -318,10 +318,26 @@ fi
 
 render_idx=0
 
-# Pin a CTAN mirror to avoid flaky tlmgr searches via mirror.ctan.org round-robin
 if command -v tlmgr >/dev/null 2>&1; then
-  tlmgr repository set https://ctan.math.illinois.edu/systems/texlive/tlnet 2>/dev/null || true
-  tlmgr update --self >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || true
+  CTAN_MIRRORS=(
+    "https://mirror.ctan.org/systems/texlive/tlnet"
+    "https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet"
+    "https://ctan.math.illinois.edu/systems/texlive/tlnet"
+    "https://mirrors.rit.edu/CTAN/systems/texlive/tlnet"
+  )
+  tlmgr_ok=false
+  for mirror in "${CTAN_MIRRORS[@]}"; do
+    if timeout 30 tlmgr repository set "${mirror}" >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" \
+      && timeout 60 tlmgr update --self >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log"; then
+      echo "Using CTAN mirror: ${mirror}" >>"${LOG_DIR}/stdout.log"
+      tlmgr_ok=true
+      break
+    fi
+    echo "CTAN mirror ${mirror} failed, trying next..." >>"${LOG_DIR}/stderr.log"
+  done
+  if [[ "${tlmgr_ok}" == "false" ]]; then
+    echo "All CTAN mirrors failed. LaTeX packages may not install." >>"${LOG_DIR}/stderr.log"
+  fi
 fi
 
 quarto_render() {

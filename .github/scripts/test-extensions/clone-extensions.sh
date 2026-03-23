@@ -45,7 +45,7 @@ is_repo_inaccessible() {
 docker_run_clone() {
   local workdir="$1" log_dir="$2"
   shift 2
-  timeout 300 docker run --rm \
+  timeout --kill-after=30 300 docker run --rm \
     --user "${DOCKER_USER}" \
     "${DOCKER_SECURITY_OPTS[@]}" \
     -e HOME="${workdir}" \
