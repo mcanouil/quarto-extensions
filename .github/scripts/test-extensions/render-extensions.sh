@@ -18,6 +18,18 @@ echo "Quarto version: ${quarto_version} (${QUARTO_CHANNEL})"
 render_count=0
 ext_count=$(jq 'length' clone-manifest.json)
 
+# Fix TinyTeX ownership so tlmgr works when container runs as host UID:GID
+docker build -t render-image \
+  --build-arg HOST_UID="$(id -u)" \
+  --build-arg HOST_GID="$(id -g)" \
+  - <<'TINYTEX_FIX'
+FROM render-image
+ARG HOST_UID
+ARG HOST_GID
+USER root
+RUN if [ -d /opt/tinytex ]; then chown -R "${HOST_UID}:${HOST_GID}" /opt/tinytex; fi
+TINYTEX_FIX
+
 docker_run_render() {
   local run_timeout="$1" workdir="$2" log_dir="$3" render_dir="$4"
   shift 4
