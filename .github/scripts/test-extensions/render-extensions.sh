@@ -320,10 +320,10 @@ render_idx=0
 
 if command -v tlmgr >/dev/null 2>&1; then
   CTAN_MIRRORS=(
-    "https://mirror.ctan.org/systems/texlive/tlnet"
     "https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet"
     "https://ctan.math.illinois.edu/systems/texlive/tlnet"
     "https://mirrors.rit.edu/CTAN/systems/texlive/tlnet"
+    "https://mirror.ctan.org/systems/texlive/tlnet"
   )
   tlmgr_ok=false
   for mirror in "${CTAN_MIRRORS[@]}"; do
