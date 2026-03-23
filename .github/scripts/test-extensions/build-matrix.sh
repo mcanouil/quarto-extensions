@@ -185,7 +185,7 @@ entries=$(jq -nc --argjson a "${entries_phase_a}" --argjson b "${phase_b_entries
 
 image_meta_map=$(jq -nc '{}')
 for channel in release prerelease; do
-  image_tag="ghcr.io/mcanouil/quarto-codespaces:${channel}"
+  image_tag="ghcr.io/mcanouil/quarto-extensions:${channel}"
 
   if ! retry 3 5 docker pull "${image_tag}" >/dev/null 2>&1; then
     echo "::error::Failed to pull image '${image_tag}'."
