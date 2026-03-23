@@ -111,6 +111,7 @@ jobs:
             docker pull "${IMAGE}"
             docker tag "${IMAGE}" render-image
           else
+            echo "::notice::IMAGE_READY=false for ${QUARTO_CHANNEL}. Rebuilding from inline Dockerfile (~15 min overhead)."
             docker build \
               --build-arg BASE_IMAGE="${IMAGE}" \
               --build-arg HOST_UID="$(id -u)" \
