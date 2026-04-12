@@ -149,7 +149,7 @@
         const version = result.quarto_version;
         html += `<button class="btn btn-link btn-sm p-0 test-badge-btn text-decoration-none"
           data-usage="${escapeHtml(usageKey)}"
-          title="${s.label} on Quarto ${version} (${CHANNEL_LABELS[ch] || ch})">
+          title="${s.label} on Quarto ${escapeHtml(version)} (${escapeHtml(CHANNEL_LABELS[ch] || ch)})">
           <i class="bi ${s.icon} ${s.colour}"></i>
           <span class="small text-muted">${escapeHtml(version)}${label}</span>
         </button>`;
