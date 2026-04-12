@@ -36,7 +36,6 @@ RUN if command -v tlmgr >/dev/null 2>&1; then \
       fira sourcesanspro sourcecodepro \
       mdframed needspace zref \
       awesomebox fontawesome5 \
-      babel-german raleway standalone tex-gyre \
     || true; \
     fi
 
@@ -50,6 +49,6 @@ USER vscode
 ENV UV_LINK_MODE=copy
 RUN uv venv /home/vscode/.venv \
     && . /home/vscode/.venv/bin/activate \
-    && uv pip install jupyter papermill matplotlib shinylive pyyaml
+    && uv pip install jupyter papermill matplotlib shinylive
 ENV VIRTUAL_ENV=/home/vscode/.venv
 ENV PATH="/home/vscode/.venv/bin:${PATH}"
