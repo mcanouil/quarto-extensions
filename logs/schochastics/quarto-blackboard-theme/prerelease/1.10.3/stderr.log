@@ -1,0 +1,153 @@
+Cloning into 'repo'...
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-24/R/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.0.tar.gz'
+Content type 'binary/octet-stream' length 1342988 bytes (1.3 MB)
+==================================================
+downloaded 1.3 MB
+
+* installing *source* package 'renv' ...
+** this is package 'renv' version '1.2.0'
+** package 'renv' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/RtmpDUrKvI/downloaded_packages'
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-24/R/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)
+also installing the dependencies 'sysfonts', 'showtextdb'
+
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/sysfonts_0.8.9.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/showtextdb_3.0.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/showtext_0.9-8.tar.gz'
+* installing *source* package 'sysfonts' ...
+** this is package 'sysfonts' version '0.8.9'
+** package 'sysfonts' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-24/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-sysfonts/00new/sysfonts/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (sysfonts)
+* installing *source* package 'showtextdb' ...
+** this is package 'showtextdb' version '3.0'
+** package 'showtextdb' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (showtextdb)
+* installing *source* package 'showtext' ...
+** this is package 'showtext' version '0.9-8'
+** package 'showtext' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-24/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-showtext/00new/showtext/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (showtext)
+
+The downloaded source packages are in
+	'/tmp/RtmpDUrKvI/downloaded_packages'
+
+
+processing file: template.qmd
+1/5          
+2/5 [setup]  
+3/5          
+4/5 [testing]
+5/5          
+output file: template.knit.md
+
+Warning message:
+Duplicated chunk option(s) 'fig.width', 'fig.height', 'fig.align' in both chunk header and pipe comments of the chunk 'testing'. 
+pandoc 
+  to: revealjs
+  output-file: template.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  css:
+    - _extensions/blackboard/theme.css
+  variables: {}
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  slideNumber: true
+  menu: false
+  progress: false
+  theme:
+    - default
+    - _extensions/blackboard/blackboard.scss
+  footer: |
+    <a href="https://mr.schochastics.net">theme by schochastics</a>
+  title-slide-attributes:
+    data-background-image: _extensions/blackboard/blackboard.png
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Quarto Blackboard theme
+  subtitle: for revealjs
+  author: David Schoch
+  institute: GESIS - Leibniz Institute for the Social Sciences
+  
+Output created: template.html
+

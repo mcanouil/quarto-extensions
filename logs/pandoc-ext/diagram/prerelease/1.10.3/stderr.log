@@ -1,0 +1,25 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: plantuml-quarto.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: PlantUML diagram
+  author: Tester McTestface
+  diagram:
+    cache: false
+  
+../diagram.lua: plantuml: createProcess: posix_spawnp: permission denied (Permission denied)Output created: plantuml-quarto.html
+

@@ -1,0 +1,140 @@
+  % Total    % Received % Xferd  Average Speed   T
+ime    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+-:--:-- --:--:--     0
+--:--:-- --:--:-- --:--:--  1792
+
+  % Total    % Received %
+ Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+-:--:-- --:--:--  4231
+
+  % Total    % Rece
+ived % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0    
+  0      0 --:--:-- --:--:-- --:--:--     0
+-  2229100  1701  100  1621  100    80   2124    104 --:--:-- --:--:-- --:--:--  2229
+
+  % Total    % Received %
+ Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+:01  0:00:01 --:--:--  1419
+
+
+
+pandoc 
+
+  to: latex
+  output-file: index.tex
+  standalone: true
+  toc: true
+  number-sections: true
+  top-level-division: chapter
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+
+metadata
+
+  crossref:
+    chapters: true
+  documentclass: scrreprt
+  papersize: letter
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  bibliography:
+    - references.bib
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Kroki diagrams Test
+  date: 23/03/2026
+  
+
+  % Total    % Received % Xferd  Average Speed  
+ Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+-:--:-- --:--:-- --:--:--  1987100  1405  100  1373  100    32   1943     45 --:--:-- --:--:-- --:--:--  1987
+
+
+Error: Inkscape has to be installed and added to PATH.
+
+
+  % Total    % Received 
+% Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:
+--:--     0
+
+Error: Inkscape has to be installed and added to PATH.
+
+
+  % Total    % Received % Xfer
+d  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--  
+   0
+
+Error: Inkscape has to be installed and added to PATH.
+
+
+  % Total    % Received %
+ Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+   0    458 --:--:-- --:--:-- --:--:--   458
+  111 --:--:-- --:--:-- --:--:--  2138
+
+
+Error: Inkscape has to be installed and added to PATH.
+
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for scrreprt.cls
+
+> 1 package to install
+
+> installing koma-script (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+
+running lualatex - 2
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+
+
+Output created: _book/index.html
+
+

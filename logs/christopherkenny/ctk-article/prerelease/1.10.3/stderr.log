@@ -1,0 +1,131 @@
+Cloning into 'repo'...
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.0.tar.gz'
+Content type 'binary/octet-stream' length 1342988 bytes (1.3 MB)
+==================================================
+downloaded 1.3 MB
+
+* installing *source* package 'renv' ...
+** this is package 'renv' version '1.2.0'
+** package 'renv' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/Rtmp2eOHSs/downloaded_packages'
+
+
+processing file: template.qmd
+1/5            
+2/5 [fig-sepal]
+3/5            
+4/5 [fig-petal]
+5/5            
+output file: template.knit.md
+
+pandoc 
+  to: typst
+  output-file: template.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  variables: {}
+  
+metadata
+  mainfont:
+    - Spectral
+    - Crimson
+    - Crimson Text
+  codefont:
+    - Fira Code
+  date-format: long
+  linestretch: 1.25
+  linkcolor: '#800000'
+  bibliographystyle: chicago-author-date
+  biblio-title: References
+  title-page: false
+  blind: false
+  section-numbering: 1.1.
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: '`ctk-article` Example'
+  subtitle: With Typst
+  author:
+    - name: Author One
+      affiliations:
+        - name: An Organization
+          department: Government
+        - country: USA
+      email: email@email.com
+      orcid: 0000-0000-0000-0000
+    - name: Author Two
+      affiliations:
+        - Affiliation B
+        - country: USA
+    - name: Author Three
+      affiliations:
+        - country: USA
+      email: email2@email.com
+    - name: Author Four
+      affiliations:
+        - country: New Row
+      email: email3@email.com
+  date: today
+  abstract: |
+    Abstracts can be included in documents in the YAML.
+    The `ctk-article` format is a multipurpose article format that uses `Typst` in
+    the backend.
+  keywords:
+    - paper
+    - abstract
+    - typst
+  thanks: Thanks to you for downloading this.
+  bibliography:
+    - bibliography.bib
+  functions:
+    - titled-raw-block
+    - text
+  
+WARN: typst-gather analyze failed; staging all packages as fallback
+[typst]: Compiling template.typ to template.pdf...warning: unknown font family: spectral
+    ┌─ template.typ:404:10
+    │
+404 │     font: font,
+    │           ^^^^
+
+warning: unknown font family: crimson
+    ┌─ template.typ:404:10
+    │
+404 │     font: font,
+    │           ^^^^
+
+warning: unknown font family: crimson text
+    ┌─ template.typ:404:10
+    │
+404 │     font: font,
+    │           ^^^^
+
+warning: unknown font family: fira code
+    ┌─ template.typ:408:27
+    │
+408 │   show raw: set text(font: codefont)
+    │                            ^^^^^^^^
+
+DONE
+
+Output created: template.pdf
+

@@ -1,0 +1,55 @@
+pandoc 
+
+  to: revealjs
+  output-file: example_header03.html
+  standalone: true
+  embed-resources: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 3
+  variables: {}
+  
+
+metadata
+
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  theme:
+    - serif
+    - _extensions/metropolis/metropolis.scss
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Metropolis-Revealjs
+  subtitle: A reveal.js theme inspired by Beamer Metropolis Theme.
+  institute: University of Dhaka
+  author: Shafayet Khan Shafee
+  reveal-header:
+    sc-sb-title: true
+  slideNumber: true
+  
+
+[WAR
+NING] Could not fetch resource 
+
+Output created: example_header03.html
+
+

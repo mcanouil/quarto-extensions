@@ -1,0 +1,34 @@
+Dependency install phase for juba/bookup-html: auto-detect
+Auto-detecting R dependencies for juba/bookup-html (knitr engine, no renv.lock).
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c renv.c -o renv.o
+gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o renv.so renv.o -L/opt/R/4.5.3/lib/R/lib -lR
+Installing R packages: DT 
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I./rlang  -I/usr/local/include    -fpic  -g -O2  -c expr.c -o expr.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I./rlang  -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I./rlang  -I/usr/local/include    -fpic  -g -O2  -c interp.c -o interp.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I./rlang  -I/usr/local/include    -fpic  -g -O2  -c lazy.c -o lazy.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I./rlang  -I/usr/local/include    -fpic  -g -O2  -c name.c -o name.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I./rlang  -I/usr/local/include    -fpic  -g -O2  -c rlang.c -o rlang.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I./rlang  -I/usr/local/include    -fpic  -g -O2  -c utils.c -o utils.o
+gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o lazyeval.so expr.o init.o interp.o lazy.o name.o rlang.o utils.o -L/opt/R/4.5.3/lib/R/lib -lR
+Running configure script
+-latomic linker flag not needed.
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c callback_registry.cpp -o callback_registry.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c debug.cpp -o debug.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c fd.cpp -o fd.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c later.cpp -o later.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c later_posix.cpp -o later_posix.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c later_win32.cpp -o later_win32.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c timer_posix.cpp -o timer_posix.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c timestamp_unix.cpp -o timestamp_unix.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c timestamp_win32.cpp -o timestamp_win32.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c tinycthread.c -o tinycthread.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c wref.c -o wref.o
+g++ -std=gnu++17 -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o later.so RcppExports.o callback_registry.o debug.o fd.o init.o later.o later_posix.o later_win32.o timer_posix.o timestamp_unix.o timestamp_win32.o tinycthread.o wref.o -pthread -L/opt/R/4.5.3/lib/R/lib -lR
+tlmgr: package repository https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet (verified)
+tlmgr: no self-updates for tlmgr available
+Using CTAN mirror: https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet

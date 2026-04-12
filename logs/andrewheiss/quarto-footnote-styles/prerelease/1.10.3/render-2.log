@@ -1,0 +1,36 @@
+pandoc 
+
+  to: typst
+  output-file: example-custom-restart.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  variables: {}
+  
+
+metadata
+
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Custom Symbols (Restart)
+  extensions:
+    footnote-styles:
+      custom:
+        - ★
+        - ◆
+        - ●
+        - ■
+      cycle: restart
+  
+
+(WARN) typst-gather analyze failed; staging all packages as fallback
+
+[typst]: Compiling example-custom-restart.typ to example-custom-restart.pdf...
+DONE
+
+
+Output created: example-custom-restart-typst.pdf
+
+

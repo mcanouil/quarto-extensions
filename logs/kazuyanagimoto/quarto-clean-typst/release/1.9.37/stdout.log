@@ -1,0 +1,137 @@
+Dependency source policy check passed for kazuyanagimoto/quarto-clean-typst.
+Dependency install phase for kazuyanagimoto/quarto-clean-typst: renv.lock
+Installing R dependencies from renv.lock for kazuyanagimoto/quarto-clean-typst.
+# Bootstrapping renv 1.1.5 ---------------------------------------------------
+- Downloading renv ... OK
+- Installing renv  ... OK
+
+- One or more packages recorded in the lockfile are not installed.
+- Use `renv::status()` for more details.
+- One or more packages recorded in the lockfile are not installed.
+- Use `renv::status()` for more details.
+The following required system packages are not installed:
+- pandoc  [required by knitr, rmarkdown, tables]
+The R packages depending on these system packages may fail to install.
+
+An administrator can install these packages with:
+- sudo apt install pandoc
+
+The following package(s) will be updated:
+
+# CRAN -----------------------------------------------------------------------
+- backports      [1.5.1 -> 1.5.0]
+- base64enc      [0.1-6 -> 0.1-3]
+- cli            [3.6.6 -> 3.6.5]
+- cpp11          [0.5.4 -> 0.5.2]
+- data.table     [1.18.2.1 -> 1.17.8]
+- dplyr          [1.2.1 -> 1.1.4]
+- fs             [2.0.1 -> 1.6.6]
+- ggplot2        [4.0.2 -> 4.0.1]
+- highr          [0.12 -> 0.11]
+- knitr          [1.51 -> 1.50]
+- rappdirs       [0.3.4 -> 0.3.3]
+- tibble         [3.3.1 -> 3.3.0]
+- tinytex        [0.59 -> 0.58]
+- xfun           [0.57 -> 0.55]
+- bayestestR     [* -> 0.17.0]
+- checkmate      [* -> 2.3.3]
+- datawizard     [* -> 1.3.0]
+- insight        [* -> 1.4.4]
+- modelsummary   [* -> 2.5.0]
+- parameters     [* -> 0.28.3]
+- performance    [* -> 0.15.3]
+- showtext       [* -> 0.9-7]
+- showtextdb     [* -> 3.0]
+- sysfonts       [* -> 0.8.9]
+- tables         [* -> 0.9.33]
+- tinytable      [* -> 0.15.1]
+
+# RSPM -----------------------------------------------------------------------
+- bslib          [repo: CRAN -> RSPM; ver: 0.10.0 -> 0.9.0]
+- lifecycle      [repo: CRAN -> RSPM; ver: 1.0.5 -> 1.0.4]
+- magrittr       [repo: CRAN -> RSPM; ver: 2.0.5 -> 2.0.4]
+- purrr          [repo: CRAN -> RSPM; ver: 1.2.2 -> 1.2.0]
+- rlang          [repo: CRAN -> RSPM; ver: 1.2.0 -> 1.1.6]
+- rmarkdown      [repo: CRAN -> RSPM; ver: 2.31 -> 2.30]
+- tidyr          [repo: CRAN -> RSPM; ver: 1.3.2 -> 1.3.1]
+- vctrs          [repo: CRAN -> RSPM; ver: 0.7.3 -> 0.6.5]
+- viridisLite    [repo: CRAN -> RSPM; ver: 0.4.3 -> 0.4.2]
+
+# Downloading packages -------------------------------------------------------
+- Querying repositories for available source packages ... Done!
+- Downloading magrittr from RSPM ...            OK [216.9 Kb in 0.23s]
+- Downloading rmarkdown from RSPM ...           OK [2.5 Mb in 0.68s]
+- Downloading bslib from RSPM ...               OK [5.4 Mb in 0.17s]
+- Downloading base64enc from CRAN ...           OK [26 Kb in 0.13s]
+- Downloading rlang from RSPM ...               OK [1.5 Mb in 0.14s]
+- Downloading lifecycle from RSPM ...           OK [122.2 Kb in 0.13s]
+- Downloading cli from CRAN ...                 OK [1.3 Mb in 0.15s]
+- Downloading fs from CRAN ...                  OK [302.3 Kb in 0.14s]
+- Downloading rappdirs from CRAN ...            OK [44.2 Kb in 0.14s]
+- Downloading knitr from CRAN ...               OK [1 Mb in 0.14s]
+- Downloading highr from CRAN ...               OK [36.7 Kb in 0.13s]
+- Downloading xfun from CRAN ...                OK [581.3 Kb in 0.24s]
+- Downloading tinytex from CRAN ...             OK [140.4 Kb in 0.16s]
+- Downloading vctrs from RSPM ...               OK [1.3 Mb in 0.37s]
+- Downloading cpp11 from CRAN ...               OK [282.8 Kb in 0.17s]
+- Downloading backports from CRAN ...           OK [113 Kb in 0.23s]
+- Downloading tidyr from RSPM ...               OK [1.1 Mb in 0.16s]
+- Downloading dplyr from CRAN ...               OK [1.4 Mb in 0.15s]
+- Downloading tibble from CRAN ...              OK [664.7 Kb in 0.37s]
+- Downloading purrr from RSPM ...               OK [540.6 Kb in 0.16s]
+- Downloading data.table from CRAN ...          OK [2.5 Mb in 0.43s]
+- Downloading ggplot2 from CRAN ...             OK [8.1 Mb in 0.19s]
+- Downloading viridisLite from RSPM ...         OK [1.2 Mb in 0.15s]
+- Downloading bayestestR from CRAN ...          OK [1.1 Mb in 0.37s]
+- Downloading insight from CRAN ...             OK [2.4 Mb in 0.53s]
+- Downloading datawizard from CRAN ...          OK [1.1 Mb in 0.18s]
+- Downloading checkmate from CRAN ...           OK [759.1 Kb in 0.24s]
+- Downloading modelsummary from CRAN ...        OK [3.1 Mb in 0.44s]
+- Downloading parameters from CRAN ...          OK [2.1 Mb in 0.26s]
+- Downloading performance from CRAN ...         OK [3.1 Mb in 0.43s]
+- Downloading tables from CRAN ...              OK [856.4 Kb in 0.37s]
+- Downloading tinytable from CRAN ...           OK [935.4 Kb in 0.38s]
+- Downloading showtext from CRAN ...            OK [271.9 Kb in 0.34s]
+- Downloading sysfonts from CRAN ...            OK [1.2 Mb in 0.17s]
+- Downloading showtextdb from CRAN ...          OK [1.9 Mb in 0.4s]
+Successfully downloaded 35 packages in 14 seconds.
+
+# Installing packages --------------------------------------------------------
+- Installing magrittr ...                       OK [installed binary and cached in 0.25s]
+- Installing base64enc ...                      OK [installed binary and cached in 0.23s]
+- Installing rlang ...                          OK [installed binary and cached in 0.37s]
+- Installing cli ...                            OK [installed binary and cached in 0.32s]
+- Installing lifecycle ...                      OK [installed binary and cached in 0.33s]
+- Installing fs ...                             OK [installed binary and cached in 0.27s]
+- Installing rappdirs ...                       OK [installed binary and cached in 0.23s]
+- Installing bslib ...                          OK [installed binary and cached in 0.56s]
+- Installing xfun ...                           OK [installed binary and cached in 0.23s]
+- Installing highr ...                          OK [installed binary and cached in 0.26s]
+- Installing knitr ...                          OK [installed binary and cached in 0.31s]
+- Installing tinytex ...                        OK [installed binary and cached in 0.27s]
+- Installing rmarkdown ...                      OK [installed binary and cached in 0.47s]
+- Installing vctrs ...                          OK [installed binary and cached in 0.37s]
+- Installing cpp11 ...                          OK [installed binary and cached in 0.24s]
+- Installing backports ...                      OK [installed binary and cached in 0.22s]
+- Installing tibble ...                         OK [installed binary and cached in 0.49s]
+- Installing dplyr ...                          OK [installed binary and cached in 0.54s]
+- Installing purrr ...                          OK [installed binary and cached in 0.39s]
+- Installing tidyr ...                          OK [installed binary and cached in 0.56s]
+- Installing data.table ...                     OK [installed binary and cached in 0.34s]
+- Installing viridisLite ...                    OK [installed binary and cached in 0.27s]
+- Installing ggplot2 ...                        OK [installed binary and cached in 1.0s]
+- Installing insight ...                        OK [installed binary and cached in 0.31s]
+- Installing datawizard ...                     OK [installed binary and cached in 0.29s]
+- Installing bayestestR ...                     OK [installed binary and cached in 0.29s]
+- Installing checkmate ...                      OK [installed binary and cached in 0.24s]
+- Installing parameters ...                     OK [installed binary and cached in 0.35s]
+- Installing performance ...                    OK [installed binary and cached in 0.33s]
+- Installing tables ...                         OK [installed binary and cached in 0.36s]
+- Installing tinytable ...                      OK [installed binary and cached in 0.31s]
+- Installing modelsummary ...                   OK [installed binary and cached in 0.46s]
+- Installing sysfonts ...                       OK [installed binary and cached in 0.29s]
+- Installing showtextdb ...                     OK [installed binary and cached in 0.28s]
+- Installing showtext ...                       OK [installed binary and cached in 0.31s]
+tlmgr: package repository https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet (verified)
+tlmgr: no self-updates for tlmgr available
+Using CTAN mirror: https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet

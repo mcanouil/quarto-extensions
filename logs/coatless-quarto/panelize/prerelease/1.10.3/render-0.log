@@ -1,0 +1,64 @@
+
+
+processing file: qpanelize-pyodide.qmd
+
+1/7                  
+
+2/7 [unnamed-chunk-1]
+
+3/7                  
+
+4/7 [unnamed-chunk-2]
+
+5/7                  
+
+6/7 [unnamed-chunk-3]
+
+7/7                  
+
+output file: qpanelize-pyodide.knit.md
+
+
+FATAL (/opt/quarto/share/filters/main.lua:3760) An error occurred:
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/docs/panelize as a JSON filter.
+Please make sure the file exists and is executable.
+
+Did you intend 'panelize' as a Lua filter in an extension?
+If so, make sure you've spelled the name of the extension correctly.
+
+The original Pandoc error follows below.
+Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/docs/panelize:
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/docs/panelize
+
+Error runnin
+g filter /opt/quarto/share/filters/main.lua:
+/opt/quarto/share/filters/main.lu
+a:588: FATAL QUARTO ERROR
+stack tr
+aceback:
+	/opt/quarto/share/fi
+lters/main.lua:2622: in funct
+ion 'fatal'
+	/opt/quarto/shar
+e/filters/main.lua:2202: in
+ function 'fail'
+	/opt/quart
+o/share/filters/main.lua:37
+60: in field 'Pandoc'
+	/opt
+/quarto/share/filters/main
+.lua:588: in function 'run
+_emulated_filter'
+	/opt/qu
+arto/share/filters/main.lua:1317: in 
+local 'callback'
+	/opt/quarto/share/filters/main.
+lua:1335: in upvalue 'run_emula
+ted_filter_chain'
+	/opt/quar
+to/share/filters/main.lua:1371: in func
+tion </opt/quarto/share/filt
+ers/main.lua:1368>
+
+(WARN) Error encountered when rendering files
+

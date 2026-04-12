@@ -1,0 +1,210 @@
+Dependency install phase for wjschne/apaquarto: auto-detect
+Auto-detecting R dependencies for wjschne/apaquarto (knitr engine, no renv.lock).
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c renv.c -o renv.o
+gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o renv.so renv.o -L/opt/R/4.5.3/lib/R/lib -lR
+Installing R packages: apa7, flextable, ftExtra, tidyverse, tinytable, snakecase 
+No man pages found in package  'fontBitstreamVera' 
+No man pages found in package  'fontLiberation' 
+gfortran  -fpic  -g -O2  -c biv-nt.f -o biv-nt.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c mnormt_init.c -o mnormt_init.o
+gfortran  -fpic  -g -O2  -c rtmng.f -o rtmng.o
+gfortran  -fpic  -g -O2  -c sadmvnt.f -o sadmvnt.o
+gfortran  -fpic  -g -O2  -c tvpack.f -o tvpack.o
+gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o mnormt.so biv-nt.o mnormt_init.o rtmng.o sadmvnt.o tvpack.o -lgfortran -lm -lquadmath -L/opt/R/4.5.3/lib/R/lib -lR
+Running configure script
+-latomic linker flag not needed.
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c callback_registry.cpp -o callback_registry.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c debug.cpp -o debug.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c fd.cpp -o fd.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c later.cpp -o later.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c later_posix.cpp -o later_posix.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c later_win32.cpp -o later_win32.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c timer_posix.cpp -o timer_posix.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c timestamp_unix.cpp -o timestamp_unix.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c timestamp_win32.cpp -o timestamp_win32.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c tinycthread.c -o tinycthread.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c wref.c -o wref.o
+g++ -std=gnu++17 -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o later.so RcppExports.o callback_registry.o debug.o fd.o init.o later.o later_posix.o later_win32.o timer_posix.o timestamp_unix.o timestamp_win32.o tinycthread.o wref.o -pthread -L/opt/R/4.5.3/lib/R/lib -lR
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include    -fpic  -g -O2   -c Reader.cpp -o Reader.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include    -fpic  -g -O2   -c Tokenizer.cpp -o Tokenizer.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include    -fpic  -g -O2  -c sourcetools-init.c -o sourcetools-init.o
+g++ -std=gnu++17 -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o sourcetools.so Reader.o Tokenizer.o sourcetools-init.o -L/opt/R/4.5.3/lib/R/lib -lR
+gcc -g -O2  miniz.c zip.c unixutils.c tools/cmdzip.c -o tools/cmdzip
+gcc -g -O2  miniz.c zip.c unixutils.c tools/cmdunzip.c -o tools/cmdunzip
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c init.c -o init.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c miniz.c -o miniz.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c rzip.c -o rzip.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c zip.c -o zip.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c unixutils.c -o unixutils.o
+gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o zip.so init.o miniz.o rzip.o zip.o unixutils.o -L/opt/R/4.5.3/lib/R/lib -lR
+Using PKG_CFLAGS=
+Using PKG_LIBS=-lfreetype -lpng16 -ltiff -lz -ljpeg -lbz2 -lwebp -lwebpmux
+-----------------------------[ ANTICONF ]-------------------------------
+Configuration failed to find one of freetype2 libpng libtiff-4 libjpeg libwebp libwebpmux. Try installing:
+ * deb: libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev libwebp-dev (Debian, Ubuntu, etc)
+ * rpm: freetype-devel libpng-devel libtiff-devel libjpeg-devel libwebp-devel (Fedora, CentOS, RHEL)
+ * apk: harfbuzz-dev fribidi-dev (Alpine)
+ * brew: freetype libpng libtiff zlib libjpeg-turbo webp (OSX)
+If freetype2 libpng libtiff-4 libjpeg libwebp libwebpmux is already installed, check that 'pkg-config' is in your
+PATH and PKG_CONFIG_PATH contains a freetype2 libpng libtiff-4 libjpeg libwebp libwebpmux.pc file. If pkg-config
+is unavailable you can set INCLUDE_DIR and LIB_DIR manually via:
+R CMD INSTALL --configure-vars='INCLUDE_DIR=... LIB_DIR=...'
+-------------------------- [ERROR MESSAGE] ---------------------------
+<stdin>:1:10: fatal error: ft2build.h: No such file or directory
+compilation terminated.
+--------------------------------------------------------------------
+Creating a generic function for 'nrow' from package 'base' in package 'tinytable'
+Creating a generic function for 'ncol' from package 'base' in package 'tinytable'
+Creating a generic function for 'colnames' from package 'base' in package 'tinytable'
+Creating a generic function for 'colnames<-' from package 'base' in package 'tinytable'
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00C4>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00D6>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00DC>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00E4>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00F6>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00FC>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00DF>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00C6>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00E6>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00D8>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00F8>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00C5>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00E5>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00C6>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00E6>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00D8>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00F8>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00C6>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00E6>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00D8>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00F8>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00C5>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00E5>' to native encoding
+** Using bundled copy of libuv
+** PKG_CFLAGS=-Ilibuv/include
+** PKG_LIBS=./libuv/.libs/libuv.b
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c callback.cpp -o callback.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c callbackqueue.cpp -o callbackqueue.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c filedatasource-unix.cpp -o filedatasource-unix.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c filedatasource-win.cpp -o filedatasource-win.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c fs.cpp -o fs.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c gzipdatasource.cpp -o gzipdatasource.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c http.cpp -o http.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c httprequest.cpp -o httprequest.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c httpresponse.cpp -o httpresponse.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c httpuv.cpp -o httpuv.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2  -c md5.c -o md5.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c mime.cpp -o mime.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c socket.cpp -o socket.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c staticpath.cpp -o staticpath.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c thread.cpp -o thread.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c timegm.cpp -o timegm.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c utils.cpp -o utils.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c uvutil.cpp -o uvutil.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c webapplication.cpp -o webapplication.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c websockets-base.cpp -o websockets-base.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c websockets-hixie76.cpp -o websockets-hixie76.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c websockets-hybi03.cpp -o websockets-hybi03.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c websockets-ietf.cpp -o websockets-ietf.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c websockets.cpp -o websockets.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c winutils.cpp -o winutils.o
+cp -p -f libuv/m4/lt_obsolete.m4 libuv/m4/lt~obsolete.m4
+cd libuv; \
+touch aclocal.m4 configure.ac Makefile.am m4/*.m4; \
+touch -r aclocal.m4 configure Makefile.in; \
+chmod +x configure; \
+CC="gcc" CFLAGS="-g -O2  -fpic -fvisibility=hidden -DNDEBUG" CPPFLAGS="-I/usr/local/include" AR="ar" RANLIB="ranlib" LDFLAGS="-L/usr/local/lib" ./configure lt_cv_apple_cc_single_mod=no "--quiet"
+make --directory=libuv \
+	HAVE_DTRACE=0
+make[1]: Entering directory '/tmp/RtmpNnzr4Y/R.INSTALL80e25c1d1d4/httpuv/src/libuv'
+  CC       src/libuv_la-fs-poll.lo
+  CC       src/libuv_la-idna.lo
+  CC       src/libuv_la-inet.lo
+  CC       src/libuv_la-random.lo
+  CC       src/libuv_la-strscpy.lo
+  CC       src/libuv_la-threadpool.lo
+  CC       src/libuv_la-timer.lo
+  CC       src/libuv_la-uv-data-getter-setters.lo
+  CC       src/libuv_la-uv-common.lo
+  CC       src/libuv_la-version.lo
+  CC       src/unix/libuv_la-async.lo
+  CC       src/unix/libuv_la-core.lo
+  CC       src/unix/libuv_la-dl.lo
+  CC       src/unix/libuv_la-fs.lo
+  CC       src/unix/libuv_la-getaddrinfo.lo
+  CC       src/unix/libuv_la-getnameinfo.lo
+  CC       src/unix/libuv_la-loop-watcher.lo
+  CC       src/unix/libuv_la-loop.lo
+  CC       src/unix/libuv_la-pipe.lo
+  CC       src/unix/libuv_la-poll.lo
+  CC       src/unix/libuv_la-process.lo
+  CC       src/unix/libuv_la-random-devurandom.lo
+  CC       src/unix/libuv_la-signal.lo
+  CC       src/unix/libuv_la-stream.lo
+  CC       src/unix/libuv_la-tcp.lo
+  CC       src/unix/libuv_la-thread.lo
+  CC       src/unix/libuv_la-tty.lo
+  CC       src/unix/libuv_la-udp.lo
+  CC       src/unix/libuv_la-linux-core.lo
+  CC       src/unix/libuv_la-linux-inotify.lo
+  CC       src/unix/libuv_la-linux-syscalls.lo
+  CC       src/unix/libuv_la-procfs-exepath.lo
+  CC       src/unix/libuv_la-proctitle.lo
+  CC       src/unix/libuv_la-random-getrandom.lo
+  CC       src/unix/libuv_la-random-sysctl-linux.lo
+  CC       src/unix/libuv_la-epoll.lo
+  CCLD     libuv.la
+make[1]: Leaving directory '/tmp/RtmpNnzr4Y/R.INSTALL80e25c1d1d4/httpuv/src/libuv'
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2  -c http-parser/http_parser.c -o http-parser/http_parser.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2  -c sha1/sha1.c -o sha1/sha1.o
+g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c base64/base64.cpp -o base64/base64.o
+g++ -std=gnu++17 -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o httpuv.so RcppExports.o callback.o callbackqueue.o filedatasource-unix.o filedatasource-win.o fs.o gzipdatasource.o http.o httprequest.o httpresponse.o httpuv.o md5.o mime.o socket.o staticpath.o thread.o timegm.o utils.o uvutil.o webapplication.o websockets-base.o websockets-hixie76.o websockets-hybi03.o websockets-ietf.o websockets.o winutils.o ./libuv/.libs/libuv.b ./http-parser/http_parser.o ./sha1/sha1.o ./base64/base64.o -pthread -L/opt/R/4.5.3/lib/R/lib -lR
+Using PKG_CFLAGS=
+Using PKG_LIBS=-lcairo -lfreetype
+-----------------------------[ ANTICONF ]-------------------------------
+Configuration failed to find libraries. Try installing:
+ * deb: libcairo2-dev (Debian, Ubuntu)
+ * rpm: cairo-devel (Fedora, CentOS, RHEL)
+ * csw: libcairo_dev (Solaris)
+ * brew: cairo (OSX)
+If cairo freetype2 are already installed, check that 'pkg-config' is in your
+PATH and PKG_CONFIG_PATH contains a cairo freetype2.pc file. If pkg-config
+is unavailable you can set INCLUDE_DIR and LIB_DIR manually via:
+R CMD INSTALL --configure-vars='INCLUDE_DIR=... LIB_DIR=...'
+---------------------------[ ERROR MESSAGE ]----------------------------
+src/tests/sysdeps.c:1:10: fatal error: cairo-ft.h: No such file or directory
+    1 | #include <cairo-ft.h>
+      |          ^~~~~~~~~~~~
+compilation terminated.
+------------------------------------------------------------------------
+tlmgr: package repository https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet (verified)
+tlmgr: no self-updates for tlmgr available
+Using CTAN mirror: https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet

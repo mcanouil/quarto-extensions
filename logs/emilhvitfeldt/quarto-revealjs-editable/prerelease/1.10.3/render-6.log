@@ -1,0 +1,22 @@
+(ERROR) Specified Reveal plugin directory 'editable' does not exist.
+
+Stack trace:
+    at pluginFromBundle (file:///opt/quarto/bin/quarto.js:183972:11)
+    at revealPluginExtras (file:///opt/quarto/bin/quarto.js:183768:52)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async Object.formatExtras (file:///opt/quarto/bin/quarto.js:184364:34)
+    at async runPandoc (file:///opt/quarto/bin/quarto.js:129151:56)
+    at async renderPandoc (file:///opt/quarto/bin/quarto.js:130856:24)
+    at async Object.onRender (file:///opt/quarto/bin/quarto.js:136889:30)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:136866:9)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136597:9)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:137166:23)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142496:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102027:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101904:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187717:5)
+    at async file:///opt/quarto/bin/quarto.js:187746:5
+    at async file:///opt/quarto/bin/quarto.js:187600:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187602:5)
+    at async file:///opt/quarto/bin/quarto.js:187739:3
+

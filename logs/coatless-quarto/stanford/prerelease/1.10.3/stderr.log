@@ -1,0 +1,123 @@
+Cloning into 'repo'...
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.0.tar.gz'
+Content type 'binary/octet-stream' length 1342988 bytes (1.3 MB)
+==================================================
+downloaded 1.3 MB
+
+* installing *source* package 'renv' ...
+** this is package 'renv' version '1.2.0'
+** package 'renv' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/RtmpFpPJ1h/downloaded_packages'
+[1/6] demos/template-html.qmd
+
+
+processing file: template-html.qmd
+1/5                
+2/5 [load-packages]
+3/5                
+4/5 [fig-mpg]      
+5/5                
+output file: template-html.knit.md
+
+[WARNING] Could not fetch resource ../site_libs/quarto-contrib/quarto-project/stanford/html/../../../_extensions/coatless-quarto/stanford/logos/stanford_logo_2.png
+[2/6] demos/template-beamer.qmd
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+updating tlmgr
+
+updating existing packages
+finding package for units.sty
+> 1 package to install
+> installing units (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for physics.sty
+> 1 package to install
+> installing physics (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for _extensions/coatless-quarto/stanford/beamer/beamerthemeStanford.sty
+ERROR: 
+compilation failed- no matching packages
+LaTeX Error: File `_extensions/coatless-quarto/stanford/beamer/beamerthemeStanford.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+   
+l.205 \usetheme{Stanford}
+                       
+
+
+see /home/runner/work/quarto-extensions/quarto-extensions/test-15/repo/docs/demos/template-beamer.log for more information.
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+[1/6] demos/template-html.qmd
+
+
+processing file: template-html.qmd
+1/5                
+2/5 [load-packages]
+3/5                
+4/5 [fig-mpg]      
+5/5                
+output file: template-html.knit.md
+
+[WARNING] Could not fetch resource ../site_libs/quarto-contrib/quarto-project/stanford/html/../../../_extensions/coatless-quarto/stanford/logos/stanford_logo_2.png
+[2/6] demos/template-beamer.qmd
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+finding package for _extensions/coatless-quarto/stanford/beamer/beamerthemeStanford.sty
+ERROR: 
+compilation failed- no matching packages
+LaTeX Error: File `_extensions/coatless-quarto/stanford/beamer/beamerthemeStanford.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+   
+l.205 \usetheme{Stanford}
+                       
+
+
+see /home/runner/work/quarto-extensions/quarto-extensions/test-15/repo/docs/demos/template-beamer.log for more information.
+WARN: Error encountered when rendering files

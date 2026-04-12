@@ -1,0 +1,108 @@
+Cloning into 'repo'...
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-11/R/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)
+trying URL 'https://cloud.r-project.org/src/contrib/renv_1.2.1.tar.gz'
+Content type 'application/x-gzip' length 1361297 bytes (1.3 MB)
+==================================================
+downloaded 1.3 MB
+
+* installing *source* package 'renv' ...
+** this is package 'renv' version '1.2.1'
+** package 'renv' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/Rtmp0HtZ7l/downloaded_packages'
+
+
+processing file: computo-quarto-extension.qmd
+1/13               
+2/13 [r-code]      
+3/13               
+4/13 [fig-plotly]  
+Downloading cpython-3.11.13-linux-x86_64-gnu (download) (30.1MiB)
+ Downloading cpython-3.11.13-linux-x86_64-gnu (download)
+Downloading numpy (16.1MiB)
+ Downloading numpy
+Installed 1 package in 80ms
+Error in `py_call_impl()`:
+! ModuleNotFoundError: No module named 'plotly'
+Run `reticulate::py_last_error()` for details.
+Backtrace:
+     x
+  1. \-global .main()
+  2.   \-execute(...)
+  3.     \-rmarkdown::render(...)
+  4.       \-knitr::knit(knit_input, knit_output, envir = envir, quiet = quiet)
+  5.         \-knitr:::process_file(text, output)
+  6.           +-xfun:::handle_error(...)
+  7.           +-base::withCallingHandlers(...)
+  8.           \-knitr:::process_group(group)
+  9.             \-knitr:::call_block(x)
+ 10.               \-knitr:::block_exec(params)
+ 11.                 +-knitr:::in_input_dir(engine(options))
+ 12.                 | \-knitr:::in_dir(input_dir(), expr)
+ 13.                 \-knitr (local) engine(options)
+ 14.                   \-reticulate::eng_python(options)
+ 15.                     \-reticulate:::py_compile_eval(snippet, compile_mode)
+ 16.                       +-reticulate::py_capture_output(...)
+ 17.                       | +-base::tryCatch(...)
+ 18.                       | | \-base (local) tryCatchList(expr, classes, parentenv, handlers)
+ 19.                       | \-base::force(expr)
+ 20.                       \-builtins$eval(compiled, globals, locals)
+ 21.                         \-reticulate:::py_call_impl(callable, call_args$unnamed, call_args$named)
+
+Quitting from computo-quarto-extension.qmd:117-126 [fig-plotly]
+Execution halted
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+
+
+processing file: computo-quarto-extension.qmd
+1/13               
+2/13 [r-code]      
+3/13               
+4/13 [fig-plotly]  
+Error in `py_call_impl()`:
+! ModuleNotFoundError: No module named 'plotly'
+Run `reticulate::py_last_error()` for details.
+Backtrace:
+     x
+  1. \-global .main()
+  2.   \-execute(...)
+  3.     \-rmarkdown::render(...)
+  4.       \-knitr::knit(knit_input, knit_output, envir = envir, quiet = quiet)
+  5.         \-knitr:::process_file(text, output)
+  6.           +-xfun:::handle_error(...)
+  7.           +-base::withCallingHandlers(...)
+  8.           \-knitr:::process_group(group)
+  9.             \-knitr:::call_block(x)
+ 10.               \-knitr:::block_exec(params)
+ 11.                 +-knitr:::in_input_dir(engine(options))
+ 12.                 | \-knitr:::in_dir(input_dir(), expr)
+ 13.                 \-knitr (local) engine(options)
+ 14.                   \-reticulate::eng_python(options)
+ 15.                     \-reticulate:::py_compile_eval(snippet, compile_mode)
+ 16.                       +-reticulate::py_capture_output(...)
+ 17.                       | +-base::tryCatch(...)
+ 18.                       | | \-base (local) tryCatchList(expr, classes, parentenv, handlers)
+ 19.                       | \-base::force(expr)
+ 20.                       \-builtins$eval(compiled, globals, locals)
+ 21.                         \-reticulate:::py_call_impl(callable, call_args$unnamed, call_args$named)
+
+Quitting from computo-quarto-extension.qmd:117-126 [fig-plotly]
+Execution halted
+WARN: Error encountered when rendering files

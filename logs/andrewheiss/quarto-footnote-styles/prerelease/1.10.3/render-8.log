@@ -1,0 +1,35 @@
+pandoc 
+
+  to: typst
+  output-file: example-parens.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  variables: {}
+  
+
+metadata
+
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Parenthesized Roman Numerals
+  extensions:
+    footnote-styles:
+      style: roman-lower
+      marker-prefix: (
+      marker-suffix: )
+      text-prefix: (
+      text-suffix: )
+  
+
+(WARN) typst-gather analyze failed; staging all packages as fallback
+
+[typst]: Compiling example-parens.typ to example-parens.pdf...
+DONE
+
+
+Output created: example-parens-typst.pdf
+
+

@@ -1,0 +1,11 @@
+Dependency install phase for andrewheiss/quarto-output-styling: auto-detect
+Auto-detecting R dependencies for andrewheiss/quarto-output-styling (knitr engine, no renv.lock).
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c renv.c -o renv.o
+gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o renv.so renv.o -L/opt/R/4.5.3/lib/R/lib -lR
+No additional R packages to install.
+Auto-detecting Python dependencies for andrewheiss/quarto-output-styling (jupyter engine, no lock file).
+No additional Python packages to install.
+Auto-detecting Julia dependencies for andrewheiss/quarto-output-styling (jupyter engine, no Project.toml).
+Installing Julia packages: sys, warnings

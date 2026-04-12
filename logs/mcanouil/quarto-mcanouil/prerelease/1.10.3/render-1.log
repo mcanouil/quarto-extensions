@@ -1,0 +1,112 @@
+pandoc 
+
+  to: html
+  output-file: index.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  toc-depth: 3
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  lang: en-GB
+  author:
+    - name:
+        given: Mickaël
+        family: CANOUIL
+      degrees: Ph.D.
+      email: pro@mickael.canouil.dev
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+      attributes:
+        corresponding: true
+      affiliations:
+        - name: Independent Contractor
+          city: Lille
+          country: France
+    - name:
+        given: Jane
+        family: Doe
+      orcid: 0000-0001-2345-6789
+      affiliations:
+        - name: Example University
+          department: Department of Statistics
+          city: London
+          country: United Kingdom
+  copyright: © 2026 Mickaël CANOUIL
+  license: CC BY-NC-SA
+  code-copy: true
+  date: today
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  mermaid:
+    theme: dark
+  extensions:
+    mcanouil:
+      grid-background: true
+  respect-user-color-scheme: true
+  theme:
+    light:
+      - cosmo
+      - brand
+      - _extensions/mcanouil/html/theme.scss
+    dark:
+      - cosmo
+      - brand
+      - _extensions/mcanouil/html/theme.scss
+  grid:
+    sidebar-width: 300px
+    body-width: 900px
+    margin-width: 300px
+  anchor-sections: true
+  email-obfuscate: javascript
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Mickaël CANOUIL Template
+  subtitle: Complete Guide
+  date-modified: today
+  abstract: |
+    This document showcases all features of the Mickaël CANOUIL template for Quarto, spanning HTML, Typst (PDF), and Reveal.js (presentations) formats.
+    It demonstrates template-specific components including value boxes, info panels, status badges, dividers, progress bars, cards, card grids, executive summaries, and highlighted blocks.
+    Additionally, it covers standard Quarto features such as figures, tables, mathematical notation, callouts, code blocks, code annotations, mermaid diagrams, and cross-references.
+    Use this document as both a learning resource and a quick reference guide for all available template capabilities.
+  keywords:
+    - Quarto
+    - Typst
+    - Template
+    - Documentation
+    - Tutorial
+  crossref:
+    custom:
+      - kind: float
+        reference-prefix: Text
+        key: txt
+  references:
+    - id: example_2024
+      author:
+        - family: Example
+          given: Jane
+        - family: Author
+          given: John
+      container-title: Journal of Examples
+      doi: 10.1234/example.2024
+      issued: 2024
+      title: An Example Article for Demonstrating Citations
+      type: article-journal
+  style: professional
+  other-links:
+    - text: HTML (Academic Style)
+      href: example-academic.html
+      target: _blank
+      rel: noopener noreferrer
+  
+
+Output created: index.html
+
+

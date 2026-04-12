@@ -1,0 +1,98 @@
+Cloning into 'repo'...
+[1/5] index.qmd
+[2/5] intro.qmd
+[3/5] Chapter_1.qmd
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1405  100  1373  100    32   1751     40 --:--:-- --:--:-- --:--:--  1792
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    80    0     0  100    80      0    320 --:--:-- --:--:-- --:--:--   320100  3034  100  2954  100    80   4122    111 --:--:-- --:--:-- --:--:--  4231
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1701  100  1621  100    80   2124    104 --:--:-- --:--:-- --:--:--  2229100  1701  100  1621  100    80   2124    104 --:--:-- --:--:-- --:--:--  2229
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    93    0     0  100    93      0     77  0:00:01  0:00:01 --:--:--    77100  1786  100  1693  100    93   1345     73  0:00:01  0:00:01 --:--:--  1419
+[4/5] summary.qmd
+[5/5] references.qmd
+
+pandoc 
+  to: latex
+  output-file: index.tex
+  standalone: true
+  toc: true
+  number-sections: true
+  top-level-division: chapter
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  crossref:
+    chapters: true
+  documentclass: scrreprt
+  papersize: letter
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  bibliography:
+    - references.bib
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Kroki diagrams Test
+  date: 23/03/2026
+  
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1405  100  1373  100    32   1944     45 --:--:-- --:--:-- --:--:--  1987100  1405  100  1373  100    32   1943     45 --:--:-- --:--:-- --:--:--  1987
+
+Error: Inkscape has to be installed and added to PATH.
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  3034  100  2954  100    80   4155    112 --:--:-- --:--:-- --:--:--  4267100  3034  100  2954  100    80   4155    112 --:--:-- --:--:-- --:--:--  4267
+
+Error: Inkscape has to be installed and added to PATH.
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1701  100  1621  100    80   2188    107 --:--:-- --:--:-- --:--:--  2298
+
+Error: Inkscape has to be installed and added to PATH.
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    93    0     0  100    93      0    458 --:--:-- --:--:-- --:--:--   458100  1786  100  1693  100    93   2027    111 --:--:-- --:--:-- --:--:--  2138
+
+Error: Inkscape has to be installed and added to PATH.
+
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+finding package for scrreprt.cls
+> 1 package to install
+> installing koma-script (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: _book/index.html
+

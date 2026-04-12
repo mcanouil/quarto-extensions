@@ -1,0 +1,111 @@
+Cloning into 'repo'...
+pandoc 
+  to: latex
+  output-file: template.tex
+  template: _extensions/quarto-cv/quarto-cv.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  toc: false
+  
+metadata
+  block-headings: true
+  linkcolor: blue
+  urlcolor: blue
+  geometry: margin=1in
+  biblio-config: false
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: CV
+  author: William Gosset
+  date: last-modified
+  phone: 123-456-7890
+  address: Guinness Brewery · Park Royal · London NW10 7RR, UK
+  email: guinness@consumer-care.net
+  fontsize: 11pt
+  orcid: 0000-0002-1825-0097
+  web: quarto.org
+  fontawesome: 'yes'
+  nocite: '@*'
+  bibliography:
+    peer: peer_bib.bib
+    other: other_bib.bib
+  csl: apa-cv.csl
+  
+[WARNING] Citeproc: Citation with no printed form: 
+[WARNING] Citeproc: Citation with no printed form: 
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+updating tlmgr
+
+updating existing packages
+finding package for ebgaramond-maths.sty
+> 1 package to install
+> installing ebgaramond-maths (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for svn-prov.sty
+> 1 package to install
+> installing svn-prov (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for ebgaramond.sty
+> 1 package to install
+> installing ebgaramond (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for sectsty.sty
+> 1 package to install
+> installing sectsty (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for parskip.sty
+> 1 package to install
+> installing parskip (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for lastpage.sty
+> 1 package to install
+> installing lastpage (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for datetime.sty
+> 1 package to install
+> installing datetime (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for fmtcount.sty
+> 1 package to install
+> installing fmtcount (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for orcidlink.sty
+> 1 package to install
+> installing orcidlink (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: template.pdf
+

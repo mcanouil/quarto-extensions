@@ -1,0 +1,126 @@
+Dependency source policy check passed for kazuyanagimoto/quarto-academic-typst.
+Dependency install phase for kazuyanagimoto/quarto-academic-typst: renv.lock
+Installing R dependencies from renv.lock for kazuyanagimoto/quarto-academic-typst.
+# Bootstrapping renv 1.1.6 ---------------------------------------------------
+- Downloading renv ... OK
+- Installing renv  ... OK
+
+- One or more packages recorded in the lockfile are not installed.
+- Use `renv::status()` for more details.
+renv 1.1.6 was loaded from project library, but this project is configured to use renv 1.1.6.
+- Use `renv::record("renv@1.1.6")` to record renv 1.1.6 in the lockfile.
+- Use `renv::restore(packages = "renv")` to install renv 1.1.6 into the project library.
+- One or more packages recorded in the lockfile are not installed.
+- Use `renv::status()` for more details.
+The following required system packages are not installed:
+- pandoc  [required by knitr, rmarkdown, tables]
+The R packages depending on these system packages may fail to install.
+
+An administrator can install these packages with:
+- sudo apt install pandoc
+
+The following package(s) will be updated:
+
+# Repository -----------------------------------------------------------------
+- backports      [1.5.1 -> 1.5.0]
+- base64enc      [0.1-6 -> 0.1-3]
+- bslib          [0.10.0 -> 0.9.0]
+- cli            [3.6.6 -> 3.6.5]
+- cpp11          [0.5.4 -> 0.5.3]
+- data.table     [1.18.2.1 -> 1.18.0]
+- dplyr          [1.2.1 -> 1.1.4]
+- fs             [2.0.1 -> 1.6.6]
+- ggplot2        [4.0.2 -> 4.0.1]
+- highr          [0.12 -> 0.11]
+- magrittr       [2.0.5 -> 2.0.4]
+- purrr          [1.2.2 -> 1.2.1]
+- rlang          [1.2.0 -> 1.1.7]
+- rmarkdown      [2.31 -> 2.30]
+- tinytex        [0.59 -> 0.58]
+- vctrs          [0.7.3 -> 0.7.1]
+- viridisLite    [0.4.3 -> 0.4.2]
+- xfun           [0.57 -> 0.56]
+- bayestestR     [* -> 0.17.0]
+- checkmate      [* -> 2.3.3]
+- datawizard     [* -> 1.3.0]
+- insight        [* -> 1.4.4]
+- modelsummary   [* -> 2.5.0]
+- parameters     [* -> 0.28.3]
+- patchwork      [* -> 1.3.2]
+- performance    [* -> 0.15.3]
+- showtext       [* -> 0.9-7]
+- showtextdb     [* -> 3.0]
+- sysfonts       [* -> 0.8.9]
+- tables         [* -> 0.9.33]
+- tinytable      [* -> 0.15.2]
+
+# Downloading packages -------------------------------------------------------
+- Querying repositories for available source packages ... Done!
+- Downloading magrittr 2.0.4 ...                OK [216.9 Kb in 0.28s]
+- Downloading rmarkdown 2.30 ...                OK [2.5 Mb in 0.27s]
+- Downloading bslib 0.9.0 ...                   OK [5.4 Mb in 0.34s]
+- Downloading base64enc 0.1-3 ...               OK [26 Kb in 0.21s]
+- Downloading rlang 1.1.7 ...                   OK [1.5 Mb in 0.3s]
+- Downloading cli 3.6.5 ...                     OK [1.3 Mb in 0.32s]
+- Downloading fs 1.6.6 ...                      OK [302.3 Kb in 0.25s]
+- Downloading highr 0.11 ...                    OK [36.7 Kb in 0.29s]
+- Downloading xfun 0.56 ...                     OK [581.3 Kb in 0.33s]
+- Downloading tinytex 0.58 ...                  OK [140.4 Kb in 0.24s]
+- Downloading vctrs 0.7.1 ...                   OK [1.4 Mb in 0.31s]
+- Downloading cpp11 0.5.3 ...                   OK [293 Kb in 0.25s]
+- Downloading backports 1.5.0 ...               OK [113 Kb in 0.3s]
+- Downloading data.table 1.18.0 ...             OK [2.8 Mb in 0.39s]
+- Downloading dplyr 1.1.4 ...                   OK [1.4 Mb in 0.36s]
+- Downloading ggplot2 4.0.1 ...                 OK [8.1 Mb in 0.34s]
+- Downloading viridisLite 0.4.2 ...             OK [1.2 Mb in 0.32s]
+- Downloading purrr 1.2.1 ...                   OK [540.8 Kb in 0.35s]
+- Downloading bayestestR 0.17.0 ...             OK [1.1 Mb in 0.28s]
+- Downloading insight 1.4.4 ...                 OK [2.4 Mb in 0.31s]
+- Downloading datawizard 1.3.0 ...              OK [1.1 Mb in 0.27s]
+- Downloading checkmate 2.3.3 ...               OK [759.1 Kb in 0.28s]
+- Downloading modelsummary 2.5.0 ...            OK [3.1 Mb in 0.27s]
+- Downloading parameters 0.28.3 ...             OK [2.1 Mb in 0.5s]
+- Downloading performance 0.15.3 ...            OK [3.1 Mb in 0.34s]
+- Downloading tables 0.9.33 ...                 OK [856.4 Kb in 0.27s]
+- Downloading tinytable 0.15.2 ...              OK [941.1 Kb in 0.29s]
+- Downloading patchwork 1.3.2 ...               OK [3.2 Mb in 0.31s]
+- Downloading showtext 0.9-7 ...                OK [271.9 Kb in 0.47s]
+- Downloading sysfonts 0.8.9 ...                OK [1.2 Mb in 0.37s]
+- Downloading showtextdb 3.0 ...                OK [1.9 Mb in 0.48s]
+Successfully downloaded 31 packages in 14 seconds.
+
+# Installing packages --------------------------------------------------------
+- Installing magrittr 2.0.4 ...                 OK [installed binary and cached in 0.26s]
+- Installing base64enc 0.1-3 ...                OK [installed binary and cached in 0.21s]
+- Installing rlang 1.1.7 ...                    OK [installed binary and cached in 0.35s]
+- Installing cli 3.6.5 ...                      OK [installed binary and cached in 0.34s]
+- Installing fs 1.6.6 ...                       OK [installed binary and cached in 0.27s]
+- Installing bslib 0.9.0 ...                    OK [installed binary and cached in 0.57s]
+- Installing xfun 0.56 ...                      OK [installed binary and cached in 0.23s]
+- Installing highr 0.11 ...                     OK [installed binary and cached in 0.25s]
+- Installing tinytex 0.58 ...                   OK [installed binary and cached in 0.23s]
+- Installing rmarkdown 2.30 ...                 OK [installed binary and cached in 0.48s]
+- Installing vctrs 0.7.1 ...                    OK [installed binary and cached in 0.35s]
+- Installing cpp11 0.5.3 ...                    OK [installed binary and cached in 0.24s]
+- Installing backports 1.5.0 ...                OK [installed binary and cached in 0.22s]
+- Installing data.table 1.18.0 ...              OK [installed binary and cached in 0.36s]
+- Installing dplyr 1.1.4 ...                    OK [installed binary and cached in 0.52s]
+- Installing viridisLite 0.4.2 ...              OK [installed binary and cached in 0.23s]
+- Installing ggplot2 4.0.1 ...                  OK [installed binary and cached in 0.99s]
+- Installing purrr 1.2.1 ...                    OK [installed binary and cached in 0.39s]
+- Installing insight 1.4.4 ...                  OK [installed binary and cached in 0.31s]
+- Installing datawizard 1.3.0 ...               OK [installed binary and cached in 0.29s]
+- Installing bayestestR 0.17.0 ...              OK [installed binary and cached in 0.29s]
+- Installing checkmate 2.3.3 ...                OK [installed binary and cached in 0.24s]
+- Installing parameters 0.28.3 ...              OK [installed binary and cached in 0.34s]
+- Installing performance 0.15.3 ...             OK [installed binary and cached in 0.34s]
+- Installing tables 0.9.33 ...                  OK [installed binary and cached in 0.36s]
+- Installing tinytable 0.15.2 ...               OK [installed binary and cached in 0.31s]
+- Installing modelsummary 2.5.0 ...             OK [installed binary and cached in 0.47s]
+- Installing patchwork 1.3.2 ...                OK [installed binary and cached in 0.92s]
+- Installing sysfonts 0.8.9 ...                 OK [installed binary and cached in 0.26s]
+- Installing showtextdb 3.0 ...                 OK [installed binary and cached in 0.26s]
+- Installing showtext 0.9-7 ...                 OK [installed binary and cached in 0.3s]
+tlmgr: package repository https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet (verified)
+tlmgr: no self-updates for tlmgr available
+Using CTAN mirror: https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet

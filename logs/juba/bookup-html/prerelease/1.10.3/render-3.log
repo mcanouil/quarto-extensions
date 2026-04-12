@@ -1,0 +1,43 @@
+pandoc 
+
+  to: html
+  output-file: summary.html
+  standalone: true
+  toc: true
+  number-sections: true
+  title-prefix: Sample bookup-html book project
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  number-offset:
+    - 3
+  variables: {}
+  
+
+metadata
+
+  crossref:
+    chapters: true
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  embed-fonts: true
+  theme:
+    light:
+      - _extensions/bookup/bookup.scss
+    dark:
+      - _extensions/bookup/bookup.scss
+      - _extensions/bookup/bookup_dark.scss
+  bibliography:
+    - references.bib
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  hide-description: true
+  title: "[3]{.chapter-number}\_ [An empty page]{.chapter-title}"
+  
+
+Output created: _book/summary.html
+
+

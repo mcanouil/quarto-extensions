@@ -1,0 +1,206 @@
+Cloning into 'repo'...
+pandoc 
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  block-headings: true
+  date-format: long
+  documentclass: article
+  fontfamily: helvet
+  fontsize: 12pt
+  geometry:
+    - left=2.5cm
+    - right=2cm
+    - top=2cm
+    - bottom=2cm
+  colorlinks: true
+  header-includes:
+    - |
+      \usepackage{graphicx}
+      \usepackage{xcolor}
+      \usepackage[absolute,overlay]{textpos}
+      \setlength{\TPHorizModule}{1cm}
+      \setlength{\TPVertModule}{1cm}
+      \definecolor{fublue}{HTML}{004659}
+      \definecolor{fulime}{HTML}{CCFF00}
+      \setlength{\parskip}{0.5em}
+      \setlength{\parindent}{0pt}
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  sender-name: Dr. Max Mustermann
+  sender-department: FR Beispielabteilung
+  sender-institute: Institut für Beispielforschung
+  sender-faculty: Fachbereich Beispielwissenschaften
+  sender-address: Musterstraße 123
+  sender-city: 14195 Berlin
+  sender-phone: +49 30 12345678
+  sender-email: max.mustermann@fu-berlin.de
+  recipient-organization: Beispielorganisation
+  recipient-department: Abteilung Forschung
+  recipient-name: Prof. Dr. Erika Beispiel
+  recipient-address: Beispielweg 45
+  recipient-city: 12345 Musterstadt
+  letter-subject: Bewerbung um eine Forschungsposition
+  letter-lang: de
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+updating tlmgr
+
+updating existing packages
+finding package for textpos.sty
+> 1 package to install
+> installing textpos (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: ../_output/template.pdf
+
+pandoc 
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  block-headings: true
+  date-format: long
+  documentclass: article
+  fontfamily: helvet
+  fontsize: 12pt
+  geometry:
+    - left=2.5cm
+    - right=2cm
+    - top=2cm
+    - bottom=2cm
+  colorlinks: true
+  header-includes:
+    - |
+      \usepackage{graphicx}
+      \usepackage{xcolor}
+      \usepackage[absolute,overlay]{textpos}
+      \setlength{\TPHorizModule}{1cm}
+      \setlength{\TPVertModule}{1cm}
+      \definecolor{fublue}{HTML}{004659}
+      \definecolor{fulime}{HTML}{CCFF00}
+      \setlength{\parskip}{0.5em}
+      \setlength{\parindent}{0pt}
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  sender-name: Dr. Jane Smith
+  sender-department: Department of Example Research
+  sender-institute: Institute for Sample Studies
+  sender-faculty: Faculty of Example Sciences
+  sender-address: Sample Street 123
+  sender-city: 14195 Berlin
+  sender-phone: +49 30 12345678
+  sender-email: jane.smith@fu-berlin.de
+  recipient-organization: Example University
+  recipient-department: Department of Research
+  recipient-name: Prof. Dr. John Doe
+  recipient-address: Research Avenue 45
+  recipient-city: 12345 Sample City
+  letter-subject: Application for Research Position
+  letter-lang: en
+  letter-greeting: Dear Prof. Dr. Doe,
+  letter-closing: Best regards,
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: ../_output/template.pdf
+
+pandoc 
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  block-headings: true
+  date-format: long
+  documentclass: article
+  fontfamily: helvet
+  fontsize: 12pt
+  geometry:
+    - left=2.5cm
+    - right=2cm
+    - top=2cm
+    - bottom=2cm
+  colorlinks: true
+  header-includes:
+    - |
+      \usepackage{graphicx}
+      \usepackage{xcolor}
+      \usepackage[absolute,overlay]{textpos}
+      \setlength{\TPHorizModule}{1cm}
+      \setlength{\TPVertModule}{1cm}
+      \definecolor{fublue}{HTML}{004659}
+      \definecolor{fulime}{HTML}{CCFF00}
+      \setlength{\parskip}{0.5em}
+      \setlength{\parindent}{0pt}
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  sender-name: Dr. Your Name
+  sender-department: Your Department
+  sender-institute: Your Institute
+  sender-faculty: Your Faculty
+  sender-address: Your Street Address
+  sender-city: Postal Code City
+  sender-phone: +49 30 12345678
+  sender-email: your.email@fu-berlin.de
+  recipient-organization: Organization Name
+  recipient-department: ''
+  recipient-name: Recipient Name
+  recipient-address: Street Address
+  recipient-city: Postal Code City
+  letter-subject: Subject Line
+  letter-lang: en
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: _output/template.pdf
+

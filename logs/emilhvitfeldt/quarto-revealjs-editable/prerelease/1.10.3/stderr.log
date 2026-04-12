@@ -1,0 +1,216 @@
+Cloning into 'repo'...
+
+pandoc 
+  to: html
+  output-file: features.html
+  standalone: true
+  title-prefix: Editable Extension
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Features
+  
+
+Output created: _site/features.html
+
+
+pandoc 
+  to: html
+  output-file: keyboard-shortcuts.html
+  standalone: true
+  title-prefix: Editable Extension
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Keyboard Shortcuts
+  
+
+Output created: _site/keyboard-shortcuts.html
+
+
+pandoc 
+  to: html
+  output-file: customization.html
+  standalone: true
+  title-prefix: Editable Extension
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Customization
+  
+
+Output created: _site/customization.html
+
+
+pandoc 
+  to: html
+  output-file: getting-started.html
+  standalone: true
+  title-prefix: Editable Extension
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Getting Started
+  
+
+Output created: _site/getting-started.html
+
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Editable Extension
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Editable Extension for Quarto Revealjs
+  
+
+Output created: _site/index.html
+
+
+pandoc 
+  to: revealjs
+  output-file: example.html
+  standalone: true
+  title-prefix: Editable Extension
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  variables: {}
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Interactive Demo
+  revealjs-plugins:
+    - editable
+  
+
+Output created: _site/example.html
+
+ERROR: Specified Reveal plugin directory 'editable' does not exist.
+
+Stack trace:
+    at pluginFromBundle (file:///opt/quarto/bin/quarto.js:183972:11)
+    at revealPluginExtras (file:///opt/quarto/bin/quarto.js:183768:52)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async Object.formatExtras (file:///opt/quarto/bin/quarto.js:184364:34)
+    at async runPandoc (file:///opt/quarto/bin/quarto.js:129151:56)
+    at async renderPandoc (file:///opt/quarto/bin/quarto.js:130856:24)
+    at async Object.onRender (file:///opt/quarto/bin/quarto.js:136889:30)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:136866:9)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136597:9)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:137166:23)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142496:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102027:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101904:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187717:5)
+    at async file:///opt/quarto/bin/quarto.js:187746:5
+    at async file:///opt/quarto/bin/quarto.js:187600:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187602:5)
+    at async file:///opt/quarto/bin/quarto.js:187739:3
+Render failed, retrying once...
+ERROR: Specified Reveal plugin directory 'editable' does not exist.
+
+Stack trace:
+    at pluginFromBundle (file:///opt/quarto/bin/quarto.js:183972:11)
+    at revealPluginExtras (file:///opt/quarto/bin/quarto.js:183768:52)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async Object.formatExtras (file:///opt/quarto/bin/quarto.js:184364:34)
+    at async runPandoc (file:///opt/quarto/bin/quarto.js:129151:56)
+    at async renderPandoc (file:///opt/quarto/bin/quarto.js:130856:24)
+    at async Object.onRender (file:///opt/quarto/bin/quarto.js:136889:30)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:136866:9)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136597:9)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:137166:23)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142496:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102027:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101904:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187717:5)
+    at async file:///opt/quarto/bin/quarto.js:187746:5
+    at async file:///opt/quarto/bin/quarto.js:187600:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187602:5)
+    at async file:///opt/quarto/bin/quarto.js:187739:3

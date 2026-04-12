@@ -1,0 +1,48 @@
+pandoc 
+
+  to: html
+  output-file: index.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Quarto Badge Extension Example
+  subtitle: Quarto Extension
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  extensions:
+    badge:
+      - key: current
+        colour: springgreen
+      - key: future
+        class: bg-danger
+        href: https://github.com/mcanouil/quarto-badge@2.4.0
+      - key: deprecated
+        class: bg-warning
+        href: https://github.com/mcanouil/quarto-badge@2.4.0/releases/tag/{{value}}
+      - key: stable
+        colour: '#28a745'
+      - key: beta
+        colour: '#ffc107'
+      - key: experimental
+        class: bg-info
+  
+
+Output created: index.html
+
+

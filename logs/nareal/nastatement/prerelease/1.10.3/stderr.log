@@ -1,0 +1,74 @@
+Cloning into 'repo'...
+pandoc 
+  to: latex
+  output-file: template.tex
+  template: _extensions/nastatement/template.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  block-headings: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: To whom it may concern
+  fromname: Nelson Areal
+  fromtitle: Associate Professor
+  fromWWW: https://nelsonareal.net
+  fromemail: nareal@eeg.uminho.pt
+  fromphone: +351 253 601 923
+  fromaddress: |
+    | School of Economics and Management
+    | University of Minho
+    | Campus de Gualtar
+    | 4710-057 Braga - Portugal
+  closing: Best regards,
+  spacing: 1.4
+  lang: en-GB
+  babel-lang: british
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+updating tlmgr
+
+updating existing packages
+finding package for bera.sty
+> 1 package to install
+> installing bera (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for datetime2.sty
+> 1 package to install
+> installing datetime2 (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for textpos.sty
+> 1 package to install
+> installing textpos (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for setspace.sty
+> 1 package to install
+> installing setspace (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: template.pdf
+

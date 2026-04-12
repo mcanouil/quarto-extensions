@@ -1,0 +1,316 @@
+Cloning into 'repo'...
+pandoc 
+  to: typst
+  output-file: template.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  variables: {}
+  
+metadata
+  date: today
+  date-format: MMMM DD, YYYY
+  margin:
+    left: 1in
+    right: 3.5in
+    top: 1.5in
+    bottom: 1.5in
+  mainfont:
+    - Lucida Bright
+    - New CM
+    - Linux Libertine
+  codefont:
+    - Lucida Console
+  sansfont:
+    - Gill Sans MT
+    - TeX Gyre Heros
+    - Noto Sans
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Tufte inspired Typst template (in Quarto)
+  shorttitle: Tufte-Memo Usage Guide
+  subtitle: The Tufte-Memo Usage guide and background
+  author:
+    - name: Author One
+      affiliations:
+        - name: An Organization
+      email: email@email.com
+    - name: Noah Gula
+      email: github.com/nogula
+    - name: Christopher T. Kenny
+      email: github.com/christopherkenny
+  abstract: This Quarto template adopts many aspects of the design and typography of Edward Tufte's books and extends [nogula](https://github.com/nogula)'s Typst template. The document itself demonstrates the functionality and usage of the template, including setup, sidenotes, figure display, citations, and more.
+  bibliography:
+    - bibliography.bib
+  functions:
+    - note
+    - wideblock
+  
+WARN: typst-gather analyze failed; staging all packages as fallback
+[typst]: Compiling template.typ to template.pdf...error: Uncaught (in promise) TypeError: Writable stream is closed or errored.
+      process4.stdin.close();
+                     ^
+    at writableStreamClose (ext:deno_web/06_streams.js:4352:7)
+    at WritableStream.close (ext:deno_web/06_streams.js:6466:12)
+    at execProcess (file:///opt/quarto/bin/quarto.js:7857:22)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async runAnalyze (file:///opt/quarto/bin/quarto.js:135839:19)
+    at async analyzeNeededPackages (file:///opt/quarto/bin/quarto.js:135888:21)
+    at async stageTypstPackages (file:///opt/quarto/bin/quarto.js:135939:26)
+    at async Object.complete (file:///opt/quarto/bin/quarto.js:135977:27)
+    at async file:///opt/quarto/bin/quarto.js:130926:23
+    at async withTimingAsync (file:///opt/quarto/bin/quarto.js:15990:21)
+    at async Object.complete (file:///opt/quarto/bin/quarto.js:130912:7)
+    at async Object.onPostProcess (file:///opt/quarto/bin/quarto.js:136894:28)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:136878:3)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136597:9)
+    at async render (file:///opt/quarto/bin/quarto.js:142251:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142496:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102027:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101904:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187717:5)
+    at async file:///opt/quarto/bin/quarto.js:187746:5
+    at async file:///opt/quarto/bin/quarto.js:187600:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187602:5)
+    at async file:///opt/quarto/bin/quarto.js:187739:3
+Render failed, retrying once...
+pandoc 
+  to: typst
+  output-file: template.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  variables: {}
+  
+metadata
+  date: today
+  date-format: MMMM DD, YYYY
+  margin:
+    left: 1in
+    right: 3.5in
+    top: 1.5in
+    bottom: 1.5in
+  mainfont:
+    - Lucida Bright
+    - New CM
+    - Linux Libertine
+  codefont:
+    - Lucida Console
+  sansfont:
+    - Gill Sans MT
+    - TeX Gyre Heros
+    - Noto Sans
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Tufte inspired Typst template (in Quarto)
+  shorttitle: Tufte-Memo Usage Guide
+  subtitle: The Tufte-Memo Usage guide and background
+  author:
+    - name: Author One
+      affiliations:
+        - name: An Organization
+      email: email@email.com
+    - name: Noah Gula
+      email: github.com/nogula
+    - name: Christopher T. Kenny
+      email: github.com/christopherkenny
+  abstract: This Quarto template adopts many aspects of the design and typography of Edward Tufte's books and extends [nogula](https://github.com/nogula)'s Typst template. The document itself demonstrates the functionality and usage of the template, including setup, sidenotes, figure display, citations, and more.
+  bibliography:
+    - bibliography.bib
+  functions:
+    - note
+    - wideblock
+  
+WARN: typst-gather analyze failed; staging all packages as fallback
+[typst]: Compiling template.typ to template.pdf...downloading @preview/drafting:0.2.2
+  9.3 KiB /   9.3 KiB (100 %)   9.3 KiB/s in 1.53 ms ETA: 0 s
+
+warning: unknown font family: gill sans mt
+    ┌─ template.typ:763:35
+    │
+763 │ #show bibliography: set text(font: sansfont)
+    │                                    ^^^^^^^^
+
+warning: unknown font family: tex gyre heros
+    ┌─ template.typ:763:35
+    │
+763 │ #show bibliography: set text(font: sansfont)
+    │                                    ^^^^^^^^
+
+warning: unknown font family: noto sans
+    ┌─ template.typ:763:35
+    │
+763 │ #show bibliography: set text(font: sansfont)
+    │                                    ^^^^^^^^
+
+warning: unknown font family: gill sans mt
+    ┌─ template.typ:331:38
+    │
+331 │   show figure.caption: set text(font: sansfont)
+    │                                       ^^^^^^^^
+
+warning: unknown font family: tex gyre heros
+    ┌─ template.typ:331:38
+    │
+331 │   show figure.caption: set text(font: sansfont)
+    │                                       ^^^^^^^^
+
+warning: unknown font family: noto sans
+    ┌─ template.typ:331:38
+    │
+331 │   show figure.caption: set text(font: sansfont)
+    │                                       ^^^^^^^^
+
+warning: unknown font family: lucida console
+    ┌─ template.typ:349:27
+    │
+349 │   show raw: set text(font: "Lucida Console", size: 10pt)
+    │                            ^^^^^^^^^^^^^^^^
+
+warning: `show par: set block(spacing: ..)` has no effect anymore
+    ┌─ template.typ:480:2
+    │
+480 │   show par: set block(spacing: 0.65em)
+    │   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    │
+    = hint: write `set par(spacing: ..)` instead
+    = hint: this is specific to paragraphs as they are not considered blocks anymore
+
+warning: unknown font family: gill sans mt
+    ┌─ template.typ:489:14
+    │
+489 │         font: sansfont,
+    │               ^^^^^^^^
+
+warning: unknown font family: tex gyre heros
+    ┌─ template.typ:489:14
+    │
+489 │         font: sansfont,
+    │               ^^^^^^^^
+
+warning: unknown font family: noto sans
+    ┌─ template.typ:489:14
+    │
+489 │         font: sansfont,
+    │               ^^^^^^^^
+
+warning: unknown font family: gill sans mt
+    ┌─ template.typ:505:21
+    │
+505 │       set text(font: sansfont, size: fontsize)
+    │                      ^^^^^^^^
+
+warning: unknown font family: tex gyre heros
+    ┌─ template.typ:505:21
+    │
+505 │       set text(font: sansfont, size: fontsize)
+    │                      ^^^^^^^^
+
+warning: unknown font family: noto sans
+    ┌─ template.typ:505:21
+    │
+505 │       set text(font: sansfont, size: fontsize)
+    │                      ^^^^^^^^
+
+warning: unknown font family: gill sans mt
+    ┌─ template.typ:545:21
+    │
+545 │       set text(font: sansfont)
+    │                      ^^^^^^^^
+
+warning: unknown font family: tex gyre heros
+    ┌─ template.typ:545:21
+    │
+545 │       set text(font: sansfont)
+    │                      ^^^^^^^^
+
+warning: unknown font family: noto sans
+    ┌─ template.typ:545:21
+    │
+545 │       set text(font: sansfont)
+    │                      ^^^^^^^^
+
+warning: unknown font family: lucida bright
+    ┌─ template.typ:573:10
+    │
+573 │     font: font,
+    │           ^^^^
+
+warning: unknown font family: new cm
+    ┌─ template.typ:573:10
+    │
+573 │     font: font,
+    │           ^^^^
+
+warning: unknown font family: linux libertine
+    ┌─ template.typ:573:10
+    │
+573 │     font: font,
+    │           ^^^^
+
+warning: unknown font family: gill sans mt
+    ┌─ template.typ:236:10
+    │
+236 │     font: sansfont,
+    │           ^^^^^^^^
+
+warning: unknown font family: tex gyre heros
+    ┌─ template.typ:236:10
+    │
+236 │     font: sansfont,
+    │           ^^^^^^^^
+
+warning: unknown font family: noto sans
+    ┌─ template.typ:236:10
+    │
+236 │     font: sansfont,
+    │           ^^^^^^^^
+
+warning: unknown font family: lucida bright
+    ┌─ template.typ:241:16
+    │
+241 │           font: "Lucida Bright",
+    │                 ^^^^^^^^^^^^^^^
+
+warning: unknown font family: gill sans mt
+    ┌─ template.typ:405:21
+    │
+405 │       set text(font: sansfont)
+    │                      ^^^^^^^^
+
+warning: unknown font family: tex gyre heros
+    ┌─ template.typ:405:21
+    │
+405 │       set text(font: sansfont)
+    │                      ^^^^^^^^
+
+warning: unknown font family: noto sans
+    ┌─ template.typ:405:21
+    │
+405 │       set text(font: sansfont)
+    │                      ^^^^^^^^
+
+warning: unknown font family: gill sans mt
+    ┌─ template.typ:429:21
+    │
+429 │       set text(font: sansfont, size: 8pt)
+    │                      ^^^^^^^^
+
+warning: unknown font family: tex gyre heros
+    ┌─ template.typ:429:21
+    │
+429 │       set text(font: sansfont, size: 8pt)
+    │                      ^^^^^^^^
+
+warning: unknown font family: noto sans
+    ┌─ template.typ:429:21
+    │
+429 │       set text(font: sansfont, size: 8pt)
+    │                      ^^^^^^^^
+
+DONE
+
+Output created: template.pdf
+

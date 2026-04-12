@@ -1,0 +1,44 @@
+Dependency install phase for aarongullickson/aog-article-quarto: auto-detect
+Auto-detecting R dependencies for aarongullickson/aog-article-quarto (knitr engine, no renv.lock).
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c renv.c -o renv.o
+gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o renv.so renv.o -L/opt/R/4.5.3/lib/R/lib -lR
+Installing R packages: modelsummary, tidyverse 
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c all_missing.c -o all_missing.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c any_infinite.c -o any_infinite.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c any_missing.c -o any_missing.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c any_nan.c -o any_nan.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c checks.c -o checks.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c find_nchar.c -o find_nchar.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c guess_type.c -o guess_type.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c helper.c -o helper.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c integerish.c -o integerish.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c is_sorted.c -o is_sorted.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c qassert.c -o qassert.o
+gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c which_first.c -o which_first.o
+gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o checkmate.so all_missing.o any_infinite.o any_missing.o any_nan.o checks.o find_nchar.o guess_type.o helper.o init.o integerish.o is_sorted.o qassert.o which_first.o -L/opt/R/4.5.3/lib/R/lib -lR
+Creating a generic function for 'nrow' from package 'base' in package 'tinytable'
+Creating a generic function for 'ncol' from package 'base' in package 'tinytable'
+Creating a generic function for 'colnames' from package 'base' in package 'tinytable'
+Creating a generic function for 'colnames<-' from package 'base' in package 'tinytable'
+Using PKG_CFLAGS=
+Using PKG_LIBS=-lfreetype -lpng16 -ltiff -lz -ljpeg -lbz2 -lwebp -lwebpmux
+-----------------------------[ ANTICONF ]-------------------------------
+Configuration failed to find one of freetype2 libpng libtiff-4 libjpeg libwebp libwebpmux. Try installing:
+ * deb: libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev libwebp-dev (Debian, Ubuntu, etc)
+ * rpm: freetype-devel libpng-devel libtiff-devel libjpeg-devel libwebp-devel (Fedora, CentOS, RHEL)
+ * apk: harfbuzz-dev fribidi-dev (Alpine)
+ * brew: freetype libpng libtiff zlib libjpeg-turbo webp (OSX)
+If freetype2 libpng libtiff-4 libjpeg libwebp libwebpmux is already installed, check that 'pkg-config' is in your
+PATH and PKG_CONFIG_PATH contains a freetype2 libpng libtiff-4 libjpeg libwebp libwebpmux.pc file. If pkg-config
+is unavailable you can set INCLUDE_DIR and LIB_DIR manually via:
+R CMD INSTALL --configure-vars='INCLUDE_DIR=... LIB_DIR=...'
+-------------------------- [ERROR MESSAGE] ---------------------------
+<stdin>:1:10: fatal error: ft2build.h: No such file or directory
+compilation terminated.
+--------------------------------------------------------------------
+tlmgr: package repository https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet (verified)
+tlmgr: no self-updates for tlmgr available
+Using CTAN mirror: https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet

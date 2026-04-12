@@ -1,0 +1,85 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: boxtypes.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Custom Numbered Blocks Extension
+  search-replace:
+    +rend: '`<div class=rendered>`{=html}'
+    +/div: '`</div>`{=html}'
+  extensions:
+    custom-numbered-blocks:
+      styles:
+        txtbx:
+          appearance: textbox
+          sizes:
+            margin: 1em
+            padding: 1em
+          color: '#aabbdd'
+      classes:
+        Box:
+          style: txtbx
+        ToDo: default
+        TODOplain:
+          boxtype: fallback
+  crossref:
+    chapters: false
+  
+Output created: boxtypes.html
+
+ERROR: Include directive failed.
+  in file example.qmd, 
+  could not find file /home/runner/work/quarto-extensions/quarto-extensions/test-6/repo/list-of-news.qmd.
+
+Stack trace:
+    at retrieveInclude (file:///opt/quarto/bin/quarto.js:68493:17)
+    at standaloneInclude (file:///opt/quarto/bin/quarto.js:68526:13)
+    at processMarkdownIncludes (file:///opt/quarto/bin/quarto.js:68986:34)
+    at expandIncludes (file:///opt/quarto/bin/quarto.js:68751:9)
+    at async projectResolveFullMarkdownForFile (file:///opt/quarto/bin/quarto.js:76838:21)
+    at async fileExecutionEngine (file:///opt/quarto/bin/quarto.js:77269:22)
+    at async fileExecutionEngineAndTarget (file:///opt/quarto/bin/quarto.js:77294:18)
+    at async render (file:///opt/quarto/bin/quarto.js:142259:22)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142496:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102027:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101904:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187717:5)
+    at async file:///opt/quarto/bin/quarto.js:187746:5
+    at async file:///opt/quarto/bin/quarto.js:187600:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187602:5)
+    at async file:///opt/quarto/bin/quarto.js:187739:3
+Render failed, retrying once...
+ERROR: Include directive failed.
+  in file example.qmd, 
+  could not find file /home/runner/work/quarto-extensions/quarto-extensions/test-6/repo/list-of-news.qmd.
+
+Stack trace:
+    at retrieveInclude (file:///opt/quarto/bin/quarto.js:68493:17)
+    at standaloneInclude (file:///opt/quarto/bin/quarto.js:68526:13)
+    at processMarkdownIncludes (file:///opt/quarto/bin/quarto.js:68986:34)
+    at expandIncludes (file:///opt/quarto/bin/quarto.js:68751:9)
+    at async projectResolveFullMarkdownForFile (file:///opt/quarto/bin/quarto.js:76838:21)
+    at async fileExecutionEngine (file:///opt/quarto/bin/quarto.js:77269:22)
+    at async fileExecutionEngineAndTarget (file:///opt/quarto/bin/quarto.js:77294:18)
+    at async render (file:///opt/quarto/bin/quarto.js:142259:22)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142496:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102027:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101904:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187717:5)
+    at async file:///opt/quarto/bin/quarto.js:187746:5
+    at async file:///opt/quarto/bin/quarto.js:187600:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187602:5)
+    at async file:///opt/quarto/bin/quarto.js:187739:3
