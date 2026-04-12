@@ -1,231 +1,621 @@
 <!-- Custom JavaScript for enhanced functionality -->
 <script id="quarto-extensions-listing" type="text/javascript">
   document.addEventListener('DOMContentLoaded', function () {
-    // Cache DOM elements
-    const initialListContainer = document.querySelector('#list-view-container .list-group');
-    const initialGridContainer = document.querySelector('#grid-view-container .grid');
+    // --- Constants ---
+    const GRID_BATCH_SIZE = 30;
+    const LIST_BATCH_SIZE = 20;
+    const SEARCH_DEBOUNCE_MS = 300;
+    const EXCLUDE_CATEGORIES = [
+      'example', 'template',
+      'format', 'formats',
+      'filter', 'filters',
+      'shortcode', 'shortcodes'
+    ];
+    const FILTER_CHIP_VALUES = [
+      'shortcode', 'filter', 'format',
+      'project', 'revealjs-plugin', 'metadata'
+    ];
+
+    // --- Extensions data (loaded asynchronously) ---
+    let allExtensionsData = [];
+
+    // --- Cache DOM elements ---
+    const gridContainer = document.getElementById('grid-view-container');
+    const listContainer = document.getElementById('list-view-container');
+    const gridEl = document.getElementById('extensions-grid');
+    const listEl = document.getElementById('extensions-list');
     const listViewBtn = document.getElementById('list-view');
     const gridViewBtn = document.getElementById('grid-view');
-    const listContainer = document.getElementById('list-view-container');
-    const gridContainer = document.getElementById('grid-view-container');
     const searchInput = document.getElementById('extension-search');
-    const filterChips = document.querySelectorAll('.filter-chip');
     const clearFiltersBtn = document.getElementById('clear-filters');
     const gridCounterElement = document.getElementById('grid-extensions-count');
     const listCounterElement = document.getElementById('list-extensions-count');
 
-    // Defensive: check required elements
-    if (!initialListContainer || !initialGridContainer || !listViewBtn || !gridViewBtn || !listContainer || !gridContainer || !searchInput || !clearFiltersBtn) {
-      // Optionally log error
-      return;
+    if (!gridEl || !listEl || !gridViewBtn || !searchInput || !clearFiltersBtn) return;
+
+    // --- State ---
+    let activeFilters = new Set();
+    let activeAuthorLogin = null;
+    let sortState = { field: 'modified', direction: 'desc' };
+    let currentVisibleItems = [];
+    let gridRenderedCount = 0;
+    let listRenderedCount = 0;
+
+    // --- Helpers ---
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      const div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
     }
 
-    // Store original order for reset functionality
-    let originalListOrder = Array.from(initialListContainer.querySelectorAll('.list-group-item'));
-    let originalGridOrder = Array.from(initialGridContainer.querySelectorAll('.g-col-12, .g-col-sm-6, .g-col-lg-4'));
-
-    // Function definitions (moved up for early initialization)
-    function sortExtensions(field, direction) {
-      // Sort list view
-      if (initialListContainer) {
-        const listItems = Array.from(initialListContainer.querySelectorAll('.list-group-item'));
-        sortItems(listItems, field, direction);
-        listItems.forEach(item => initialListContainer.appendChild(item));
-      }
-      // Sort grid view
-      if (initialGridContainer) {
-        const gridItems = Array.from(initialGridContainer.querySelectorAll('.g-col-12, .g-col-sm-6, .g-col-lg-4'));
-        sortItems(gridItems, field, direction);
-        gridItems.forEach(item => initialGridContainer.appendChild(item));
-      }
+    function debounce(func, wait) {
+      let timeout;
+      return function (...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          try {
+            func.apply(this, args);
+          } catch (error) {
+            console.warn('Error in debounced function:', error);
+          }
+        }, wait);
+      };
     }
+
+    function getRelativeTime(fileModified) {
+      const modifiedDate = new Date(fileModified);
+      const now = new Date();
+      const diffTime = Math.abs(now - modifiedDate);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+      if (diffDays === 1) return '1 day ago';
+      if (diffDays < 7) return `${diffDays} days ago`;
+      if (diffDays < 30) {
+        const weeks = Math.floor(diffDays / 7);
+        return weeks === 1 ? '1 week ago' : `${weeks} weeks ago`;
+      }
+      if (diffDays < 365) {
+        const months = Math.floor(diffDays / 30);
+        return months === 1 ? '1 month ago' : `${months} months ago`;
+      }
+      const years = Math.floor(diffDays / 365);
+      return years === 1 ? '1 year ago' : `${years} years ago`;
+    }
+
+    // Priority: superseded > deprecated > archived > experimental > stable
+    function getStatusBanner(categories) {
+      const lower = categories.map(c => c.toLowerCase());
+      if (lower.includes('superseded')) {
+        return { type: 'superseded', text: 'Superseded', class: 'warning', icon: 'bi-exclamation-triangle-fill' };
+      }
+      if (lower.includes('deprecated')) {
+        return { type: 'deprecated', text: 'Deprecated', class: 'warning', icon: 'bi-exclamation-triangle-fill' };
+      }
+      if (lower.includes('archived')) {
+        return { type: 'archived', text: 'Archived', class: 'secondary', icon: 'bi-archive-fill' };
+      }
+      if (lower.includes('experimental')) {
+        return { type: 'experimental', text: 'Experimental', class: 'info', icon: 'bi-flask' };
+      }
+      if (lower.includes('stable')) {
+        return { type: 'stable', text: 'Stable', class: 'success', icon: 'bi-check-circle-fill' };
+      }
+      return null;
+    }
+
+    function renderCategoryBadges(categories, idPrefix, maxVisible) {
+      const filtered = categories.filter(c => !EXCLUDE_CATEGORIES.includes(c.toLowerCase()));
+      const main = filtered.slice(0, maxVisible);
+      const extra = filtered.slice(maxVisible);
+      let html = '<span class="category-badges">';
+      main.forEach(cat => {
+        html += `<span class="badge bg-light text-dark me-1">${escapeHtml(cat)}</span>`;
+      });
+      if (extra.length > 0) {
+        extra.forEach(cat => {
+          html += `<span class="badge bg-light text-dark me-1 extra-category d-none" data-extra="${idPrefix}">${escapeHtml(cat)}</span>`;
+        });
+        html += `<button class="btn btn-link btn-sm p-0 text-muted category-expand-toggle" type="button" data-id="${idPrefix}">+${extra.length}${maxVisible > 2 ? ' more' : ''}</button>`;
+      }
+      html += '</span>';
+      return html;
+    }
+
+    // --- Rendering functions ---
+    // These match the HTML output of _grid.ejs and _list.ejs
+
+    function renderGridCard(item) {
+      const relativeTime = getRelativeTime(item.fileModified);
+      const statusBanner = getStatusBanner(item.categories);
+      const authorDisplay = (!item.author || item.author === 'null') ? item.login : item.author;
+      const gridCatId = `grid-cat-${item.id}`;
+
+      let statusHtml = '';
+      if (statusBanner) {
+        statusHtml = `<div class="alert alert-${statusBanner.class} status-banner mb-0 rounded-0 text-center py-1" role="alert">`;
+        if (statusBanner.icon) {
+          statusHtml += `<i class="bi ${statusBanner.icon}"></i> `;
+        }
+        statusHtml += `<strong>${statusBanner.text}</strong></div>`;
+      }
+
+      let templateBadge = '';
+      if (item.template) templateBadge = '<span class="badge bg-success ms-1">Template</span>';
+      let exampleBadge = '';
+      if (item.example) exampleBadge = '<span class="badge bg-info ms-1">Example</span>';
+
+      let actionButtons = `<button class="btn btn-primary btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#install-modal-${item.id}"><i class="bi bi-download"></i> Install</button>`;
+      if (item.template) {
+        actionButtons += `<button class="btn btn-outline-success btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#use-modal-${item.id}"><i class="bi bi-file-plus"></i> Use</button>`;
+      }
+      if (item.example) {
+        actionButtons += `<button class="btn btn-outline-info btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#use-modal-${item.id}"><i class="bi bi-eye"></i> Use</button>`;
+      }
+
+      return `<div class="g-col-12 g-col-sm-6 g-col-lg-4">
+    <div class="card extension-card h-100"
+         data-categories="${escapeHtml(item.categories.join(','))}"
+         data-contributes="${escapeHtml(item.contributes.join(','))}"
+         data-author="${escapeHtml(item.author)}"
+         data-login="${escapeHtml(item.login)}"
+         data-license="${escapeHtml(item.license)}"
+         data-stars="${item.stars}"
+         data-modified="${escapeHtml(item.fileModified)}"
+         data-template="${item.template}"
+         data-example="${item.example}">
+      <div class="card-img-wrapper">
+        <img src="${escapeHtml(item.image)}" loading="lazy" alt="${escapeHtml(item.imageAlt)}" class="card-img-top">
+      </div>
+      ${statusHtml}
+      <div class="card-body d-flex flex-column">
+        <h6 class="card-title d-flex align-items-center justify-content-between no-anchor extension-title">
+          <span>
+            <a href="${escapeHtml(item.githubUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.title)}</a>
+            ${templateBadge}${exampleBadge}
+          </span>
+          <a href="${escapeHtml(item.githubUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm ms-auto"><i class="bi bi-github"></i></a>
+        </h6>
+        <p class="card-text small text-muted mb-2">
+          <button class="btn btn-link p-0 text-muted text-decoration-none filter-chip" data-filter="author" data-login="${escapeHtml(item.login)}">
+            <i class="bi bi-person"></i> ${escapeHtml(authorDisplay)}
+          </button>
+        </p>
+        <p class="card-text flex-grow-1 extension-description">${item.description}</p>
+        <div class="card-categories mb-2 extension-categories">
+          ${renderCategoryBadges(item.categories, gridCatId, 2)}
+        </div>
+        <div class="card-footer-info d-flex justify-content-between align-items-center small text-muted">
+          <span><i class="bi bi-star-fill text-warning"></i> ${item.stars}</span>
+          <span><i class="bi bi-clock"></i> ${relativeTime}</span>
+        </div>
+      </div>
+      <div class="card-footer bg-transparent">
+        <div class="d-flex gap-2 flex-wrap flex-sm-nowrap">${actionButtons}</div>
+      </div>
+    </div>
+  </div>`;
+    }
+
+    function renderListItem(item) {
+      const relativeTime = getRelativeTime(item.fileModified);
+      const statusBanner = getStatusBanner(item.categories);
+      const authorDisplay = (!item.author || item.author === 'null') ? item.login : item.author;
+      const listCatId = `list-cat-${item.id}`;
+
+      let statusHtml = '';
+      if (statusBanner) {
+        statusHtml = `<div class="alert alert-${statusBanner.class} status-banner mb-0 mt-2 rounded text-center py-1 px-2 small" role="alert">`;
+        if (statusBanner.icon) {
+          statusHtml += `<i class="bi ${statusBanner.icon}"></i> `;
+        }
+        statusHtml += `<strong>${statusBanner.text}</strong></div>`;
+      }
+
+      let templateBadge = '';
+      if (item.template) templateBadge = '<span class="badge bg-success ms-2">Template</span>';
+      let exampleBadge = '';
+      if (item.example) exampleBadge = '<span class="badge bg-info ms-2">Example</span>';
+
+      let licenseHtml = '';
+      if (item.license && item.license !== 'none') {
+        licenseHtml = `<span class="text-muted small"><i class="bi bi-file-text"></i> ${escapeHtml(item.license)}</span>`;
+      }
+
+      let actionButtons = `<button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#install-modal-${item.id}"><i class="bi bi-download"></i> Install</button>`;
+      if (item.template) {
+        actionButtons += `<button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#use-modal-${item.id}"><i class="bi bi-file-plus"></i> Use</button>`;
+      }
+      if (item.example) {
+        actionButtons += `<button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#use-modal-${item.id}"><i class="bi bi-eye"></i> Use</button>`;
+      }
+
+      return `<div class="list-group-item extension-item"
+       data-categories="${escapeHtml(item.categories.join(','))}"
+       data-contributes="${escapeHtml(item.contributes.join(','))}"
+       data-author="${escapeHtml(item.author)}"
+       data-login="${escapeHtml(item.login)}"
+       data-license="${escapeHtml(item.license)}"
+       data-stars="${item.stars}"
+       data-modified="${escapeHtml(item.fileModified)}"
+       data-template="${item.template}"
+       data-example="${item.example}">
+    <div class="d-flex flex-column flex-md-row align-items-start">
+      <div class="extension-image me-0 mb-3 mb-md-0 me-md-3 flex-shrink-0" style="width:150px;">
+        <img src="${escapeHtml(item.image)}" loading="lazy" alt="${escapeHtml(item.imageAlt)}" class="img-fluid rounded" style="max-width:150px;">
+        ${statusHtml}
+      </div>
+      <div class="flex-grow-1">
+        <div class="extension-header d-flex justify-content-between align-items-center mb-2">
+          <div class="extension-title-section">
+            <h5 class="extension-title mb-0 no-anchor">
+              <a href="${escapeHtml(item.githubUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.title)}</a>
+              ${templateBadge}${exampleBadge}
+            </h5>
+          </div>
+          <div class="extension-metrics-header">
+            <div class="d-flex gap-3 align-items-center">
+              <span class="text-muted small"><i class="bi bi-star-fill text-warning"></i> ${item.stars}</span>
+              <span class="text-muted small"><i class="bi bi-clock"></i> ${relativeTime}</span>
+              ${licenseHtml}
+              <a href="${escapeHtml(item.githubUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm"><i class="bi bi-github"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="extension-content">
+          <div class="extension-author mb-1">
+            <button class="btn btn-link p-0 text-muted text-decoration-none filter-chip" data-filter="author" data-login="${escapeHtml(item.login)}">
+              <i class="bi bi-person"></i> ${escapeHtml(authorDisplay)}
+            </button>
+          </div>
+          <div class="extension-description mb-2">${item.description}</div>
+        </div>
+        <div class="extension-footer d-flex justify-content-between align-items-center">
+          <div class="extension-categories">
+            ${renderCategoryBadges(item.categories, listCatId, 3)}
+          </div>
+          <div class="extension-actions">${actionButtons}</div>
+        </div>
+      </div>
+    </div>
+  </div>`;
+    }
+
+    // --- Modal rendering ---
+    // Uses raw HTML with iconify-icon web component (already loaded by quarto-iconify extension)
+
+    function renderCodeBlock(command) {
+      return `<div class="code-with-filename code-window-macos">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" data-filename="Terminal" style="font-size: 0.8em; text-align: left;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span class="ex">quarto</span> ${command}</code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>`;
+    }
+
+    function renderInstallModal(item) {
+      return `<div class="modal fade" id="install-modal-${item.id}" tabindex="-1" aria-labelledby="install-modal-label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title no-anchor" id="install-modal-label">Install Options</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item list-group-item-action">
+<div class="fw-bold" style="text-align: left;">
+<p><iconify-icon icon="octicon:terminal" title="Terminal Icon" aria-label="Terminal Icon"></iconify-icon> Manually</p>
+</div>
+${renderCodeBlock(`add ${escapeHtml(item.usage)}`)}
+          </li>
+          <li class="list-group-item list-group-item-action">
+<div class="fw-bold" style="text-align: left;">
+<p><span class="quarto-wizard" title="Quarto Wizard Logo" aria-label="Quarto Wizard Logo"></span> Quarto Wizard</p>
+</div>
+            <div class="btn-group d-flex justify-content-center" role="group" aria-label="Quarto Wizard extension installer options">
+              <button type="button" class="btn btn-outline-light" onclick="window.location.href='vscode://mcanouil.quarto-wizard/install?repo=${encodeURIComponent(item.usage)}'" data-bs-toggle="tooltip" title="Install ${escapeHtml(item.usage)} in Visual Studio Code using Quarto Wizard extension.">Visual Studio Code</button>
+              <button type="button" class="btn btn-outline-light" onclick="window.location.href='positron://mcanouil.quarto-wizard/install?repo=${encodeURIComponent(item.usage)}'" data-bs-toggle="tooltip" title="Install ${escapeHtml(item.usage)} in Positron using Quarto Wizard extension.">Positron</button>
+              <button type="button" class="btn btn-outline-light" onclick="window.location.href='vscodium://mcanouil.quarto-wizard/install?repo=${encodeURIComponent(item.usage)}'" data-bs-toggle="tooltip" title="Install ${escapeHtml(item.usage)} in VSCodium using Quarto Wizard extension.">VSCodium</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>`;
+    }
+
+    function renderUseModal(item) {
+      return `<div class="modal fade" id="use-modal-${item.id}" tabindex="-1" aria-labelledby="use-modal-label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title no-anchor" id="use-modal-label">Use Options</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item list-group-item-action">
+<div class="fw-bold" style="text-align: left;">
+<p><iconify-icon icon="octicon:terminal" title="Terminal Icon" aria-label="Terminal Icon"></iconify-icon> Manually</p>
+</div>
+${renderCodeBlock(`use template ${escapeHtml(item.usage)}`)}
+          </li>
+          <li class="list-group-item list-group-item-action">
+<div class="fw-bold" style="text-align: left;">
+<p><span class="quarto-wizard" title="Quarto Wizard Logo" aria-label="Quarto Wizard Logo"></span> Quarto Wizard</p>
+</div>
+            <div class="btn-group d-flex justify-content-center" role="group" aria-label="Quarto Wizard extension template installer options">
+              <button type="button" class="btn btn-outline-light" onclick="window.location.href='vscode://mcanouil.quarto-wizard/use?repo=${encodeURIComponent(item.usage)}'" data-bs-toggle="tooltip" title="Use ${escapeHtml(item.usage)} template in Visual Studio Code using Quarto Wizard extension.">Visual Studio Code</button>
+              <button type="button" class="btn btn-outline-light" onclick="window.location.href='positron://mcanouil.quarto-wizard/use?repo=${encodeURIComponent(item.usage)}'" data-bs-toggle="tooltip" title="Use ${escapeHtml(item.usage)} template in Positron using Quarto Wizard extension.">Positron</button>
+              <button type="button" class="btn btn-outline-light" onclick="window.location.href='vscodium://mcanouil.quarto-wizard/use?repo=${encodeURIComponent(item.usage)}'" data-bs-toggle="tooltip" title="Use ${escapeHtml(item.usage)} template in VSCodium using Quarto Wizard extension.">VSCodium</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>`;
+    }
+
+    // --- Data operations ---
 
     function sortItems(items, field, direction) {
-      items.sort((a, b) => {
-        try {
-          // For list view, the data is on the .list-group-item itself (which has .extension-item class)
-          // For grid view, the data is on the .extension-card inside the .g-col-* container
-          const extA = a.classList.contains('list-group-item') ? a : a.querySelector('.extension-card');
-          const extB = b.classList.contains('list-group-item') ? b : b.querySelector('.extension-card');
-
-          // Defensive checks
-          if (!extA || !extB) return 0;
-
-          let valueA, valueB;
-
-          if (field === 'modified') {
-            valueA = new Date(extA.dataset.modified || 0);
-            valueB = new Date(extB.dataset.modified || 0);
-          } else if (field === 'stars') {
-            valueA = parseInt(extA.dataset.stars || 0);
-            valueB = parseInt(extB.dataset.stars || 0);
-          } else {
-            return 0; // Unknown field
-          }
-
-          return direction === 'desc' ? valueB - valueA : valueA - valueB;
-        } catch (error) {
-          console.warn('Error during sorting:', error);
+      return items.slice().sort((a, b) => {
+        let valueA, valueB;
+        if (field === 'modified') {
+          valueA = new Date(a.fileModified || 0);
+          valueB = new Date(b.fileModified || 0);
+        } else if (field === 'stars') {
+          valueA = parseInt(a.stars || 0);
+          valueB = parseInt(b.stars || 0);
+        } else {
           return 0;
         }
+        return direction === 'desc' ? valueB - valueA : valueA - valueB;
       });
     }
 
-    // Apply default sorting (Recently Updated - most recent first)
-    const defaultSortField = 'modified';
-    const defaultSortDirection = 'desc';
-    sortExtensions(defaultSortField, defaultSortDirection);
-
-    // Update the Recently Updated chip to show it's active with down arrow
-    const recentChip = document.querySelector('.filter-chip[data-filter="recent"]');
-    if (recentChip) {
-      const icon = document.createElement('i');
-      icon.className = 'sort-icon ms-1 bi bi-arrow-down';
-      recentChip.appendChild(icon);
+    function matchesSearch(item, query) {
+      if (!query) return true;
+      const fields = [
+        item.title,
+        item.description,
+        item.author,
+        item.login,
+        (item.categories || []).join(','),
+        (item.contributes || []).join(',')
+      ];
+      return fields.some(f => (f || '').toLowerCase().includes(query));
     }
 
-    // Initialize sort state
-    let sortState = { field: defaultSortField, direction: defaultSortDirection };
-
-    // Initialize counter on page load
-    updateExtensionsCounter();
-
-    // View toggle functionality
-    listViewBtn.addEventListener('change', function () {
-      if (this.checked) {
-        listContainer.classList.remove('d-none');
-        gridContainer.classList.add('d-none');
-        // Update ARIA attributes for accessibility
-        listContainer.setAttribute('aria-hidden', 'false');
-        gridContainer.setAttribute('aria-hidden', 'true');
+    function matchesFilters(item) {
+      // Author filter
+      if (activeAuthorLogin) {
+        if (item.login !== activeAuthorLogin) return false;
       }
-    });
+      // Category filters
+      if (activeFilters.size > 0) {
+        const contributesLower = (item.contributes || []).map(v => v.toLowerCase().trim());
+        for (const filter of activeFilters) {
+          if (FILTER_CHIP_VALUES.includes(filter)) {
+            const hasMatch = contributesLower.some(val => val.startsWith(filter));
+            if (!hasMatch) return false;
+          }
+        }
+      }
+      return true;
+    }
+
+    // --- Rendering engine ---
+
+    function clearContainer(container) {
+      container.innerHTML = '';
+    }
+
+    function renderBatch(view) {
+      if (view === 'grid') {
+        const start = gridRenderedCount;
+        const end = Math.min(start + GRID_BATCH_SIZE, currentVisibleItems.length);
+        if (start >= end) return;
+
+        const fragment = document.createDocumentFragment();
+        for (let i = start; i < end; i++) {
+          const temp = document.createElement('div');
+          temp.innerHTML = renderGridCard(currentVisibleItems[i]);
+          fragment.appendChild(temp.firstElementChild);
+        }
+        gridEl.appendChild(fragment);
+        gridRenderedCount = end;
+      } else {
+        const start = listRenderedCount;
+        const end = Math.min(start + LIST_BATCH_SIZE, currentVisibleItems.length);
+        if (start >= end) return;
+
+        const fragment = document.createDocumentFragment();
+        for (let i = start; i < end; i++) {
+          const temp = document.createElement('div');
+          temp.innerHTML = renderListItem(currentVisibleItems[i]);
+          fragment.appendChild(temp.firstElementChild);
+        }
+        listEl.appendChild(fragment);
+        listRenderedCount = end;
+      }
+
+      updateExtensionsCounter();
+    }
+
+    function rebuildView() {
+      // Compute filtered + searched + sorted items
+      const query = searchInput.value.trim().toLowerCase();
+
+      currentVisibleItems = allExtensionsData.filter(item =>
+        matchesSearch(item, query) && matchesFilters(item)
+      );
+      currentVisibleItems = sortItems(currentVisibleItems, sortState.field, sortState.direction);
+
+      // Clear and re-render grid
+      clearContainer(gridEl);
+      gridRenderedCount = 0;
+      renderBatch('grid');
+
+      // Clear and re-render list
+      clearContainer(listEl);
+      listRenderedCount = 0;
+      renderBatch('list');
+
+      // Update author styling
+      updateAuthorStyling(activeAuthorLogin);
+    }
+
+    // --- Unified visibility (search + filters + sort) ---
+
+    function applyVisibility() {
+      if (allExtensionsData.length === 0) return; // Data not loaded yet
+      rebuildView();
+    }
+
+    // --- Extensions counter ---
+
+    function updateExtensionsCounter() {
+      const total = currentVisibleItems.length;
+      if (gridCounterElement) {
+        gridCounterElement.textContent = total;
+        gridCounterElement.setAttribute('aria-live', 'polite');
+        gridCounterElement.setAttribute('aria-label', `${total} extensions shown`);
+      }
+      if (listCounterElement) {
+        listCounterElement.textContent = total;
+        listCounterElement.setAttribute('aria-live', 'polite');
+        listCounterElement.setAttribute('aria-label', `${total} extensions shown`);
+      }
+    }
+
+    // --- Infinite scroll ---
+
+    let loading = false;
+    const SCROLL_THRESHOLD = 400; // pixels from bottom to trigger load
+
+    function onScroll() {
+      if (loading) return;
+      const scrollY = window.scrollY || document.documentElement.scrollTop;
+      const viewportH = window.innerHeight;
+      const docH = document.documentElement.scrollHeight;
+      if (scrollY + viewportH + SCROLL_THRESHOLD < docH) return;
+
+      const isGridVisible = !gridContainer.classList.contains('d-none');
+      const isListVisible = !listContainer.classList.contains('d-none');
+      const gridNeeds = isGridVisible && gridRenderedCount < currentVisibleItems.length;
+      const listNeeds = isListVisible && listRenderedCount < currentVisibleItems.length;
+      if (!gridNeeds && !listNeeds) return;
+
+      loading = true;
+      if (gridNeeds) renderBatch('grid');
+      if (listNeeds) renderBatch('list');
+      // Allow next load only after browser has painted the new items
+      requestAnimationFrame(() => { loading = false; });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // --- On-demand modal creation ---
+
+    const itemsById = new Map();
+
+    document.addEventListener('click', function (e) {
+      const trigger = e.target.closest('[data-bs-toggle="modal"]');
+      if (!trigger) return;
+      const targetSelector = trigger.getAttribute('data-bs-target');
+      if (!targetSelector) return;
+      const modalId = targetSelector.replace('#', '');
+
+      // If the modal already exists in the DOM, let Bootstrap handle it
+      if (document.getElementById(modalId)) return;
+
+      // Extract item ID and modal type from the modal ID
+      let itemId, modalType;
+      if (modalId.startsWith('install-modal-')) {
+        itemId = modalId.replace('install-modal-', '');
+        modalType = 'install';
+      } else if (modalId.startsWith('use-modal-')) {
+        itemId = modalId.replace('use-modal-', '');
+        modalType = 'use';
+      } else {
+        return;
+      }
+
+      const item = itemsById.get(itemId);
+      if (!item) return;
+
+      // Prevent Bootstrap's default handler from running before modal exists
+      e.stopPropagation();
+      e.preventDefault();
+
+      // Generate and insert the modal
+      const html = modalType === 'install' ? renderInstallModal(item) : renderUseModal(item);
+      const temp = document.createElement('div');
+      temp.innerHTML = html;
+      const modalEl = temp.firstElementChild;
+      document.body.appendChild(modalEl);
+
+      // Open explicitly
+      new bootstrap.Modal(modalEl).show();
+    }, true); // Capture phase
+
+    // --- View toggle ---
+
+    if (listViewBtn) {
+      listViewBtn.addEventListener('change', function () {
+        if (this.checked) {
+          listContainer.classList.remove('d-none');
+          gridContainer.classList.add('d-none');
+          listContainer.setAttribute('aria-hidden', 'false');
+          gridContainer.setAttribute('aria-hidden', 'true');
+          // Trigger list rendering if needed
+          onScroll();
+        }
+      });
+    }
 
     gridViewBtn.addEventListener('change', function () {
       if (this.checked) {
         gridContainer.classList.remove('d-none');
         listContainer.classList.add('d-none');
-        // Update ARIA attributes for accessibility
         gridContainer.setAttribute('aria-hidden', 'false');
         listContainer.setAttribute('aria-hidden', 'true');
+        // Trigger grid rendering if needed
+        onScroll();
       }
     });
 
-    // Search functionality with performance optimisations
-    searchInput.addEventListener('input', debounce(performSearch, 300));
+    // --- Search ---
 
-    function performSearch() {
-      const query = searchInput.value.trim().toLowerCase();
-      const extensions = document.querySelectorAll('.extension-item, .extension-card');
+    searchInput.addEventListener('input', debounce(applyVisibility, SEARCH_DEBOUNCE_MS));
 
-      // Early return for empty search
-      if (!query) {
-        extensions.forEach(ext => {
-          const container = ext.closest('.list-group-item, .g-col-12, .g-col-sm-6, .g-col-lg-4');
-          if (container) container.style.display = '';
-        });
-        updateExtensionsCounter();
-        return;
-      }
-
-      extensions.forEach(ext => {
-        try {
-          const titleEl = ext.querySelector('.extension-title');
-          const descEl = ext.querySelector('.extension-description');
-
-          // Defensive checks for missing elements
-          const title = titleEl ? titleEl.textContent.toLowerCase() : '';
-          const description = descEl ? descEl.textContent.toLowerCase() : '';
-          const author = (ext.dataset.author || '').toLowerCase();
-          const login = (ext.dataset.login || '').toLowerCase();
-          const categories = (ext.dataset.categories || '').toLowerCase();
-          const contributes = (ext.dataset.contributes || '').toLowerCase();
-
-          const matches = title.includes(query) ||
-            description.includes(query) ||
-            author.includes(query) ||
-            login.includes(query) ||
-            categories.includes(query) ||
-            contributes.includes(query);
-
-          const container = ext.closest('.list-group-item, .g-col-12, .g-col-sm-6, .g-col-lg-4');
-          if (container) {
-            container.style.display = matches ? '' : 'none';
-          }
-        } catch (error) {
-          // Silently handle any errors during search
-          console.warn('Error processing extension during search:', error);
-        }
-      });
-
-      updateExtensionsCounter();
-    }
-
-    // Filter chip functionality with improved event handling
-    let activeFilters = new Set();
-    let activeAuthorLogin = null;
-
-    // Use event delegation for better performance
-    document.addEventListener('click', function (e) {
-      const chip = e.target.closest('.filter-chip');
-      if (!chip) return;
-
-      const filter = chip.dataset.filter;
-
-      // Author filter logic
-      if (filter === 'author' && chip.dataset.login) {
-        handleAuthorFilter(chip);
-        return;
-      }
-
-      // Handle sorting for Recently Updated and Popular
-      if (filter === 'recent') {
-        handleSorting('modified', chip);
-        return;
-      } else if (filter === 'popular') {
-        handleSorting('stars', chip);
-        return;
-      }
-
-      // Handle regular filters
-      handleRegularFilter(chip, filter);
-    });
+    // --- Filter chips ---
 
     function handleAuthorFilter(chip) {
       const clickedLogin = chip.dataset.login;
 
-      // Check if this author is already active (toggle behavior)
       if (activeAuthorLogin === clickedLogin) {
-        // Deactivate the current author filter
         chip.classList.remove('active');
         chip.setAttribute('aria-pressed', 'false');
         activeAuthorLogin = null;
-        // Remove bold styling from all author elements with this login
-        updateAuthorStyling(null);
       } else {
-        // Remove active state from all author filter chips
         document.querySelectorAll('.filter-chip[data-filter="author"][data-login]').forEach(btn => {
           btn.classList.remove('active');
           btn.setAttribute('aria-pressed', 'false');
         });
-        // Set active state for clicked chip
         chip.classList.add('active');
         chip.setAttribute('aria-pressed', 'true');
         activeAuthorLogin = clickedLogin;
-        // Apply bold styling to all author elements with this login
-        updateAuthorStyling(clickedLogin);
       }
-      applyFilters();
+      applyVisibility();
     }
 
     function updateAuthorStyling(activeLogin) {
-      // Update styling for all author filter chips (including those in extension items)
       document.querySelectorAll('.filter-chip[data-filter="author"][data-login]').forEach(btn => {
-        if (activeLogin && btn.dataset.login === activeLogin) {
-          btn.style.fontWeight = 'bold';
-        } else {
-          btn.style.fontWeight = '';
-        }
+        btn.style.fontWeight = (activeLogin && btn.dataset.login === activeLogin) ? 'bold' : '';
       });
     }
 
@@ -239,212 +629,96 @@
         chip.setAttribute('aria-pressed', 'true');
         activeFilters.add(filter);
       }
-      applyFilters();
+      applyVisibility();
     }
 
-    // Clear filters
-    clearFiltersBtn.addEventListener('click', function () {
-      // Reset all filter chips
-      document.querySelectorAll('.filter-chip').forEach(chip => {
-        chip.classList.remove('active');
-        chip.setAttribute('aria-pressed', 'false');
-        // Remove sort icons
-        const icon = chip.querySelector('.sort-icon');
-        if (icon) icon.remove();
-      });
-
-      // Clear filter state
-      activeFilters.clear();
-      activeAuthorLogin = null;
-
-      // Reset all author styling
-      updateAuthorStyling(null);
-
-      // Restore default sort state
-      sortState = { field: defaultSortField, direction: defaultSortDirection };
-      sortExtensions(defaultSortField, defaultSortDirection);
-
-      // Restore visual indicator for 'Recently Updated' chip
-      const recentChip = document.querySelector('.filter-chip[data-filter="recent"]');
-      if (recentChip) {
-        const icon = document.createElement('i');
-        icon.className = 'sort-icon ms-1 bi bi-arrow-down';
-        icon.setAttribute('aria-hidden', 'true'); // Decorative icon
-        recentChip.appendChild(icon);
-      }
-
-      // Clear search input and re-apply filters
-      if (searchInput.value) {
-        searchInput.value = '';
-      }
-      applyFilters();
-    });
-
     function handleSorting(field, chip) {
-      // Toggle sort direction if same field, otherwise set to descending
       if (sortState.field === field) {
         sortState.direction = sortState.direction === 'desc' ? 'asc' : 'desc';
       } else {
         sortState.field = field;
         sortState.direction = 'desc';
       }
-
-      // Update visual indicators
       updateSortIcons(chip, sortState.direction);
-
-      // Apply sorting
-      sortExtensions(field, sortState.direction);
+      applyVisibility();
     }
 
     function updateSortIcons(activeChip, direction) {
-      // Remove all existing sort icons
       document.querySelectorAll('.filter-chip .sort-icon').forEach(icon => icon.remove());
-
-      // Add icon to active chip
       const icon = document.createElement('i');
       icon.className = `sort-icon ms-1 bi bi-arrow-${direction === 'desc' ? 'down' : 'up'}`;
-      icon.setAttribute('aria-hidden', 'true'); // Decorative icon
+      icon.setAttribute('aria-hidden', 'true');
       activeChip.appendChild(icon);
     }
 
-    function resetSort() {
-      // Reset to original order using stored arrays
-      try {
-        if (initialListContainer && originalListOrder.length > 0) {
-          originalListOrder.forEach(item => {
-            if (item.parentNode === initialListContainer) return; // Already in place
-            initialListContainer.appendChild(item);
-          });
-        }
+    // Event delegation for filter chips
+    document.addEventListener('click', function (e) {
+      const chip = e.target.closest('.filter-chip');
+      if (!chip) return;
 
-        if (initialGridContainer && originalGridOrder.length > 0) {
-          originalGridOrder.forEach(item => {
-            if (item.parentNode === initialGridContainer) return; // Already in place
-            initialGridContainer.appendChild(item);
-          });
-        }
-      } catch (error) {
-        console.warn('Error during sort reset:', error);
+      const filter = chip.dataset.filter;
+
+      if (filter === 'author' && chip.dataset.login) {
+        handleAuthorFilter(chip);
+        return;
       }
-    }
+      if (filter === 'recent') {
+        handleSorting('modified', chip);
+        return;
+      }
+      if (filter === 'popular') {
+        handleSorting('stars', chip);
+        return;
+      }
 
-    function applyFilters() {
-      const extensions = document.querySelectorAll('.extension-item, .extension-card');
-      const filterChipValues = [
-        'shortcode',
-        'filter',
-        'format',
-        'project',
-        'revealjs-plugin',
-        'metadata'
-      ];
+      handleRegularFilter(chip, filter);
+    });
 
-      extensions.forEach(ext => {
-        let show = true;
+    // --- Clear filters ---
 
-        try {
-          // Author filter
-          if (activeAuthorLogin) {
-            const extLogin = ext.getAttribute('data-login');
-            if (extLogin !== activeAuthorLogin) {
-              show = false;
-            }
-          }
-
-          // Category filters with improved performance
-          if (show && activeFilters.size > 0) {
-            const contributes = (ext.dataset.contributes || '').toLowerCase().split(',');
-            const contributesSet = new Set(contributes.map(val => val.trim()));
-
-            for (const filter of activeFilters) {
-              if (filterChipValues.includes(filter)) {
-                const hasMatch = Array.from(contributesSet).some(val => val.startsWith(filter));
-                if (!hasMatch) {
-                  show = false;
-                  break;
-                }
-              }
-            }
-          }
-
-          const container = ext.closest('.list-group-item, .g-col-12, .g-col-sm-6, .g-col-lg-4');
-          if (container) {
-            container.style.display = show ? '' : 'none';
-          }
-        } catch (error) {
-          console.warn('Error processing extension filter:', error);
-          // Default to showing the extension on error
-          const container = ext.closest('.list-group-item, .g-col-12, .g-col-sm-6, .g-col-lg-4');
-          if (container) {
-            container.style.display = '';
-          }
-        }
+    clearFiltersBtn.addEventListener('click', function () {
+      document.querySelectorAll('.filter-chip').forEach(chip => {
+        chip.classList.remove('active');
+        chip.setAttribute('aria-pressed', 'false');
+        const icon = chip.querySelector('.sort-icon');
+        if (icon) icon.remove();
       });
 
-      updateExtensionsCounter();
-    }
+      activeFilters.clear();
+      activeAuthorLogin = null;
+      updateAuthorStyling(null);
 
-    // Function to update extensions counter
-    function updateExtensionsCounter() {
-      if (gridCounterElement) {
-        // Count visible extensions in grid view
-        const gridExtensions = document.querySelectorAll('#grid-view-container .extension-card');
-        const visibleGridExtensions = Array.from(gridExtensions).filter(ext => {
-          const container = ext.closest('.g-col-12, .g-col-sm-6, .g-col-lg-4');
-          return container && container.style.display !== 'none';
-        });
-        gridCounterElement.textContent = visibleGridExtensions.length;
-        gridCounterElement.setAttribute('aria-live', 'polite');
-        gridCounterElement.setAttribute('aria-label', `${visibleGridExtensions.length} extensions shown`);
+      sortState = { field: 'modified', direction: 'desc' };
+
+      // Restore visual indicator for 'Recently Updated' chip
+      const recentChip = document.querySelector('.filter-chip[data-filter="recent"]');
+      if (recentChip) {
+        const icon = document.createElement('i');
+        icon.className = 'sort-icon ms-1 bi bi-arrow-down';
+        icon.setAttribute('aria-hidden', 'true');
+        recentChip.appendChild(icon);
       }
-      if (listCounterElement) {
-        // Count visible extensions in list view
-        const listExtensions = document.querySelectorAll('#list-view-container .extension-item');
-        const visibleListExtensions = Array.from(listExtensions).filter(ext => {
-          const container = ext.closest('.list-group-item');
-          return container && container.style.display !== 'none';
-        });
-        listCounterElement.textContent = visibleListExtensions.length;
-        listCounterElement.setAttribute('aria-live', 'polite');
-        listCounterElement.setAttribute('aria-label', `${visibleListExtensions.length} extensions shown`);
+
+      if (searchInput.value) {
+        searchInput.value = '';
       }
-    }
+      applyVisibility();
+    });
 
-    // Improved debounce utility function
-    function debounce(func, wait) {
-      let timeout;
-      return function executedFunction(...args) {
-        const later = () => {
-          clearTimeout(timeout);
-          try {
-            func.apply(this, args);
-          } catch (error) {
-            console.warn('Error in debounced function:', error);
-          }
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-      };
-    }
+    // --- Category expansion ---
 
-    // Category expansion for list view
-    // Event delegation for category expansion (improves performance for many items)
     document.body.addEventListener('click', function (e) {
       const btn = e.target.closest('.category-expand-toggle');
       if (btn) {
         e.stopPropagation();
         const targetId = btn.getAttribute('data-id');
-        // For inline badges (list view):
         const extraBadges = document.querySelectorAll('.extra-category[data-extra="' + targetId + '"]');
         if (extraBadges.length > 0) {
-          extraBadges.forEach(function (badge) {
-            badge.classList.remove('d-none');
-          });
+          extraBadges.forEach(badge => badge.classList.remove('d-none'));
           btn.classList.add('category-expanded');
           btn.style.display = 'none';
           return;
         }
-        // For grid view fallback (span block):
         const target = document.getElementById(targetId);
         if (target) {
           target.classList.remove('d-none');
@@ -454,30 +728,25 @@
       }
     });
 
-    // Collapse expanded categories when clicking elsewhere
     document.addEventListener('click', function (e) {
       document.querySelectorAll('.category-expand-toggle.category-expanded').forEach(function (btn) {
         const targetId = btn.getAttribute('data-id');
-        // Find the closest container (list-group-item or .extension-card)
         let container = btn.closest('.list-group-item, .extension-card');
         let clickedInside = btn.contains(e.target);
-        // For inline badges (list/grid):
+
         if (container) {
           const extraBadges = container.querySelectorAll('.extra-category[data-extra="' + targetId + '"]');
-          // If click is inside any badge, do not collapse
-          extraBadges.forEach(function (badge) {
+          extraBadges.forEach(badge => {
             if (badge.contains(e.target)) clickedInside = true;
           });
           if (!clickedInside && extraBadges.length > 0) {
-            extraBadges.forEach(function (badge) {
-              badge.classList.add('d-none');
-            });
+            extraBadges.forEach(badge => badge.classList.add('d-none'));
             btn.classList.remove('category-expanded');
             btn.style.display = '';
           }
           return;
         }
-        // For grid view fallback (span block):
+
         const target = document.getElementById(targetId);
         if (target && !btn.contains(e.target) && !target.contains(e.target)) {
           target.classList.add('d-none');
@@ -486,60 +755,90 @@
         }
       });
     });
+
+    // --- Initialise ---
+
+    // Set default sort icon
+    const recentChip = document.querySelector('.filter-chip[data-filter="recent"]');
+    if (recentChip) {
+      const icon = document.createElement('i');
+      icon.className = 'sort-icon ms-1 bi bi-arrow-down';
+      icon.setAttribute('aria-hidden', 'true');
+      recentChip.appendChild(icon);
+    }
+
+    // Count server-rendered initial items and show counter immediately
+    const initialGridItems = gridEl.querySelectorAll('.g-col-12.g-col-sm-6.g-col-lg-4');
+    const initialListItems = listEl.querySelectorAll('.list-group-item.extension-item');
+    gridRenderedCount = initialGridItems.length;
+    listRenderedCount = initialListItems.length;
+    if (gridCounterElement) gridCounterElement.textContent = gridRenderedCount;
+    if (listCounterElement) listCounterElement.textContent = listRenderedCount;
+
+    // Fetch extensions data asynchronously for progressive loading, search, and filtering
+    fetch('extensions-listing.json')
+      .then(response => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      })
+      .then(data => {
+        allExtensionsData = data;
+        // Build lookup for on-demand modals
+        data.forEach(item => itemsById.set(item.id, item));
+        // Replace server-rendered items with properly sorted JS-rendered items
+        rebuildView();
+      })
+      .catch(error => {
+        console.warn('Failed to load extensions data:', error);
+        // Graceful degradation: server-rendered items remain visible
+        // but search/filter/progressive loading will not work
+      });
   });
 </script>
 <!-- Custom JavaScript for clipboard.js to properly access code inside modals -->
 <script id="quarto-extensions-listing-clipboardjs" type="text/javascript">
-  // General clipboard.js setup for modals
   window.document.addEventListener('DOMContentLoaded', (event) => {
     /**
-    * Initialise clipboard functionality for any modal
-    */
+     * Initialise clipboard functionality for any modal
+     */
     const initialiseModalClipboard = () => {
-      // Find all modals in the document
       const modals = document.querySelectorAll('.modal');
 
       modals.forEach((modal) => {
         const modalId = modal.getAttribute('id');
         if (!modalId) return;
 
-        // Find code copy buttons within this modal
         const copyButtons = modal.querySelectorAll('.code-copy-button');
         if (copyButtons.length === 0) return;
 
-        // Add data-in-quarto-modal attribute to buttons in this modal
+        // Skip if already initialised
+        if (modal.dataset.clipboardInitialised === 'true') return;
+        modal.dataset.clipboardInitialised = 'true';
+
         copyButtons.forEach((button) => {
           button.setAttribute('data-in-quarto-modal', modalId);
         });
 
-        console.log(`Initialising clipboard for modal: ${modalId}`);
-
-        // Create clipboard instance for this modal
         const clipboardModal = new window.ClipboardJS(
           `.code-copy-button[data-in-quarto-modal="${modalId}"]`,
           {
             text: (trigger) => {
-              // Get text from the code element, excluding annotations
               const codeEl = trigger.previousElementSibling.cloneNode(true);
               const annotations = codeEl.querySelectorAll('[class*="code-annotation-"]');
               annotations.forEach((annotation) => annotation.remove());
               return codeEl.innerText;
             },
-            container: modal // Set the modal as container for clipboard operations
+            container: modal
           }
         );
 
-        // Success handler with visual feedback
         clipboardModal.on('success', (e) => {
           const button = e.trigger;
           button.blur();
-
-          // Visual feedback
           button.classList.add('code-copy-button-checked');
           const currentTitle = button.getAttribute('title');
           button.setAttribute('title', 'Copied!');
 
-          // Bootstrap tooltip feedback
           let tooltip;
           if (window.bootstrap) {
             button.setAttribute('data-bs-toggle', 'tooltip');
@@ -553,7 +852,6 @@
             tooltip.show();
           }
 
-          // Reset after 1 second
           setTimeout(() => {
             if (tooltip) {
               tooltip.hide();
@@ -566,16 +864,12 @@
           }, 1000);
 
           e.clearSelection();
-          console.log(`Copied from modal ${modalId}:`, e.text);
         });
 
-        // Error handler
         clipboardModal.on('error', (e) => {
           console.error(`Clipboard error in modal ${modalId}:`, e);
           const button = e.trigger;
           button.setAttribute('title', 'Press Ctrl+C to copy');
-
-          // Visual feedback for error
           button.style.backgroundColor = '#f8d7da';
           setTimeout(() => {
             button.style.backgroundColor = '';
@@ -585,10 +879,9 @@
       });
     };
 
-    // Initialise clipboard for modals
     initialiseModalClipboard();
 
-    // Also initialise when modals are shown (in case of dynamic content)
+    // Re-initialise when modals are shown (handles dynamically created modals)
     document.addEventListener('shown.bs.modal', () => {
       initialiseModalClipboard();
     });

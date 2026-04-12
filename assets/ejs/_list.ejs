@@ -7,7 +7,8 @@
 <div id="extensions-list" class="list-group">
 ```
 
-<% for (const item of items) { %>
+<% const LIST_INITIAL_COUNT = 20; %>
+<% for (const item of items.slice(0, LIST_INITIAL_COUNT)) { %>
 <%
 const usage = item.usage;
 const id = utils.b64encode(usage);
