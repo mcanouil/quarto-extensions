@@ -7,7 +7,7 @@ USER root
 RUN apt-get update -qq && apt-get install -y -qq --no-install-recommends \
     jq libcurl4-openssl-dev libssl-dev libxml2-dev libfontconfig1-dev \
     libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev \
-    libtiff5-dev libjpeg-dev libgit2-dev zlib1g-dev cmake \
+    libtiff5-dev libjpeg-dev libwebp-dev libgit2-dev zlib1g-dev cmake \
     ghostscript \
     && rm -rf /var/lib/apt/lists/*
 

@@ -123,12 +123,13 @@ if [[ ! -f renv.lock ]]; then
   if echo "${engines}" | grep -qx "knitr"; then
     echo "Auto-detecting R dependencies for ${EXT_ID} (knitr engine, no renv.lock)." >>"${LOG_DIR}/stdout.log"
     Rscript -e '
-      if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+      ppm <- Sys.getenv("RENV_CONFIG_REPOS_OVERRIDE", "https://cloud.r-project.org")
+      if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv", repos = ppm)
       deps <- unique(renv::dependencies(quiet = TRUE)[["Package"]])
       deps <- setdiff(deps, rownames(installed.packages()))
       if (length(deps) > 0L) {
         cat("Installing R packages:", paste(deps, collapse = ", "), "\n")
-        install.packages(deps, repos = "https://cloud.r-project.org")
+        install.packages(deps, repos = ppm)
       } else {
         cat("No additional R packages to install.\n")
       }
