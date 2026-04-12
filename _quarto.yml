@@ -7,9 +7,12 @@ project:
     - git restore --source=quarto-wizard quarto-extensions.json
     - mv quarto-extensions.json extensions.json
     - bash assets/scripts/generate-listing-data.sh
+    - bash -c "git fetch origin quarto-tests:quarto-tests || true"
+    - bash -c "git restore --source=quarto-tests test-results.json || echo '{}' > test-results.json"
   resources:
     - extensions.json
     - extensions-listing.json
+    - test-results.json
 
 date-meta: 2023-12-09
 
@@ -64,6 +67,7 @@ brand: _brand.yml
 
 format:
   mcanouil-html:
+    html-table-processing: none
     include-in-header:
       - text: |
           <style> #title-block-header, #quarto-appendix { display: none; } </style>

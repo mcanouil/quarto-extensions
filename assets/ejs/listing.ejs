@@ -136,6 +136,49 @@ partial("_list.ejs", { items, excludeCategories, utils, getStatusBanner })
   }
 }
 
+/* Test status badges */
+.test-status-badges {
+  flex-wrap: wrap;
+}
+
+.test-badge-btn {
+  font-size: 0.75rem;
+  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.test-badge-btn:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+[data-bs-theme="dark"] .test-badge-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.test-badge-btn i {
+  font-size: 0.8rem;
+}
+
+.test-status-badges-row {
+  min-height: 0;
+}
+
+#test-history-modal .table {
+  font-size: 0.875rem;
+}
+
+#test-history-modal code {
+  font-size: 0.8rem;
+}
+
 @media (max-width: 767px) {
   .btn-group {
     max-width: 100%;

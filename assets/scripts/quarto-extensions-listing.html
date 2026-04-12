@@ -18,6 +18,12 @@
 
     // --- Extensions data (loaded asynchronously) ---
     let allExtensionsData = [];
+    let testResultsData = {};
+
+    // --- Test results constants ---
+    const REPO_URL = 'https://github.com/mcanouil/quarto-extensions';
+    const CHANNEL_LABELS = { release: 'Release', prerelease: 'Pre-release' };
+    const CHANNEL_ORDER = ['release', 'prerelease'];
 
     // --- Cache DOM elements ---
     const gridContainer = document.getElementById('grid-view-container');
@@ -106,6 +112,108 @@
       return null;
     }
 
+    // --- Test results helpers ---
+
+    function getLatestTestResults(usageKey) {
+      const key = usageKey.split('@')[0];
+      const entry = testResultsData[key];
+      if (!entry || !entry.results || entry.results.length === 0) return null;
+      const byChannel = {};
+      for (const r of entry.results) {
+        const ch = r.quarto_channel;
+        if (!byChannel[ch] || r.date > byChannel[ch].date) {
+          byChannel[ch] = r;
+        }
+      }
+      return { type: entry.type, latest: byChannel, allResults: entry.results };
+    }
+
+    function getTestStatusIcon(status) {
+      switch (status) {
+        case 'pass': return { icon: 'bi-check-circle-fill', colour: 'text-success', label: 'Pass' };
+        case 'fail': return { icon: 'bi-x-circle-fill', colour: 'text-danger', label: 'Fail' };
+        case 'skip': return { icon: 'bi-dash-circle-fill', colour: 'text-secondary', label: 'Skipped' };
+        default:     return { icon: 'bi-question-circle', colour: 'text-muted', label: 'Unknown' };
+      }
+    }
+
+    function renderTestBadges(usageKey, compact) {
+      const data = getLatestTestResults(usageKey);
+      if (!data) return '';
+      let html = '';
+      for (const ch of CHANNEL_ORDER) {
+        const result = data.latest[ch];
+        if (!result) continue;
+        const s = getTestStatusIcon(result.status);
+        const label = compact ? '' : ` ${CHANNEL_LABELS[ch] || ch}`;
+        const version = result.quarto_version;
+        html += `<button class="btn btn-link btn-sm p-0 test-badge-btn text-decoration-none"
+          data-usage="${escapeHtml(usageKey)}"
+          title="${s.label} on Quarto ${version} (${CHANNEL_LABELS[ch] || ch})">
+          <i class="bi ${s.icon} ${s.colour}"></i>
+          <span class="small text-muted">${escapeHtml(version)}${label}</span>
+        </button>`;
+      }
+      return html ? `<span class="test-status-badges d-inline-flex gap-2 align-items-center">${html}</span>` : '';
+    }
+
+    function renderTestHistoryModal(usageKey) {
+      const data = getLatestTestResults(usageKey);
+      if (!data) return '';
+      const key = usageKey.split('@')[0];
+      const byChannel = {};
+      for (const r of data.allResults) {
+        if (!byChannel[r.quarto_channel]) byChannel[r.quarto_channel] = [];
+        byChannel[r.quarto_channel].push(r);
+      }
+      for (const ch of Object.keys(byChannel)) {
+        byChannel[ch].sort((a, b) => b.date.localeCompare(a.date));
+      }
+      let channelsHtml = '';
+      for (const ch of CHANNEL_ORDER) {
+        const results = byChannel[ch];
+        if (!results) continue;
+        let rowsHtml = '';
+        for (const r of results) {
+          const s = getTestStatusIcon(r.status);
+          const logUrl = `${REPO_URL}/tree/quarto-tests/${r.log}`;
+          rowsHtml += `<tr>
+            <td><code>${escapeHtml(r.quarto_version)}</code></td>
+            <td><i class="bi ${s.icon} ${s.colour}"></i> ${s.label}</td>
+            <td>${escapeHtml(r.date)}</td>
+            <td><a href="${escapeHtml(logUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm">
+              <i class="bi bi-file-text"></i> Logs
+            </a></td>
+          </tr>`;
+        }
+        channelsHtml += `
+          <h6 class="mt-3 mb-2">${CHANNEL_LABELS[ch] || ch} Channel</h6>
+          <div class="table-responsive">
+            <table class="table table-sm table-hover mb-0">
+              <thead><tr>
+                <th>Version</th><th>Status</th><th>Date</th><th>Logs</th>
+              </tr></thead>
+              <tbody>${rowsHtml}</tbody>
+            </table>
+          </div>`;
+      }
+      return `<div class="modal fade" id="test-history-modal" tabindex="-1" aria-labelledby="test-history-modal-label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title no-anchor" id="test-history-modal-label">
+                Test Results: <code>${escapeHtml(key)}</code>
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ${channelsHtml}
+            </div>
+          </div>
+        </div>
+      </div>`;
+    }
+
     function renderCategoryBadges(categories, idPrefix, maxVisible) {
       const filtered = categories.filter(c => !EXCLUDE_CATEGORIES.includes(c.toLowerCase()));
       const main = filtered.slice(0, maxVisible);
@@ -156,6 +264,8 @@
         actionButtons += `<button class="btn btn-outline-info btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#use-modal-${sid}"><i class="bi bi-eye"></i> Use</button>`;
       }
 
+      const testBadgesHtml = renderTestBadges(item.usage, true);
+
       return `<div class="g-col-12 g-col-sm-6 g-col-lg-4">
     <div class="card extension-card h-100"
          data-categories="${escapeHtml(item.categories.join(','))}"
@@ -172,11 +282,12 @@
       </div>
       ${statusHtml}
       <div class="card-body d-flex flex-column">
+        <div class="d-flex justify-content-between align-items-center mb-1">
+          <div class="test-status-badges-row">${testBadgesHtml}</div>
+          <div>${templateBadge}${exampleBadge}</div>
+        </div>
         <h6 class="card-title d-flex align-items-center justify-content-between no-anchor extension-title">
-          <span>
-            <a href="${escapeHtml(item.githubUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.title)}</a>
-            ${templateBadge}${exampleBadge}
-          </span>
+          <a href="${escapeHtml(item.githubUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.title)}</a>
           <a href="${escapeHtml(item.githubUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm ms-auto"><i class="bi bi-github"></i></a>
         </h6>
         <p class="card-text small text-muted mb-2">
@@ -234,6 +345,8 @@
         actionButtons += `<button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#use-modal-${sid}"><i class="bi bi-eye"></i> Use</button>`;
       }
 
+      const testBadgesHtml = renderTestBadges(item.usage, false);
+
       return `<div class="list-group-item extension-item"
        data-categories="${escapeHtml(item.categories.join(','))}"
        data-contributes="${escapeHtml(item.contributes.join(','))}"
@@ -250,11 +363,14 @@
         ${statusHtml}
       </div>
       <div class="flex-grow-1">
+        <div class="d-flex justify-content-between align-items-center mb-1">
+          <div class="test-status-badges-row">${testBadgesHtml}</div>
+          <div>${templateBadge}${exampleBadge}</div>
+        </div>
         <div class="extension-header d-flex justify-content-between align-items-center mb-2">
           <div class="extension-title-section">
             <h5 class="extension-title mb-0 no-anchor">
               <a href="${escapeHtml(item.githubUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.title)}</a>
-              ${templateBadge}${exampleBadge}
             </h5>
           </div>
           <div class="extension-metrics-header">
@@ -399,11 +515,21 @@ ${renderCodeBlock(`use template ${escapeHtml(item.usage)}`)}
       if (activeAuthorLogin) {
         if (item.login !== activeAuthorLogin) return false;
       }
-      // Category filters
+      // Category and test status filters
       if (activeFilters.size > 0) {
         const contributesLower = (item.contributes || []).map(v => v.toLowerCase().trim());
         for (const filter of activeFilters) {
-          if (FILTER_CHIP_VALUES.includes(filter)) {
+          if (filter === 'test-pass') {
+            const data = getLatestTestResults(item.usage);
+            if (!data) return false;
+            const hasPass = Object.values(data.latest).some(r => r.status === 'pass');
+            if (!hasPass) return false;
+          } else if (filter === 'test-fail') {
+            const data = getLatestTestResults(item.usage);
+            if (!data) return false;
+            const hasFail = Object.values(data.latest).some(r => r.status === 'fail');
+            if (!hasFail) return false;
+          } else if (FILTER_CHIP_VALUES.includes(filter)) {
             const hasMatch = contributesLower.some(val => val.startsWith(filter));
             if (!hasMatch) return false;
           }
@@ -573,6 +699,39 @@ ${renderCodeBlock(`use template ${escapeHtml(item.usage)}`)}
       // Open explicitly
       new bootstrap.Modal(modalEl).show();
     }, true); // Capture phase
+
+    // --- Test history modal ---
+
+    document.addEventListener('click', function (e) {
+      const badge = e.target.closest('.test-badge-btn');
+      if (!badge) return;
+      e.preventDefault();
+      e.stopPropagation();
+
+      const usageKey = badge.dataset.usage;
+      const existing = document.getElementById('test-history-modal');
+      if (existing) {
+        const bsModal = bootstrap.Modal.getInstance(existing);
+        if (bsModal) bsModal.dispose();
+        existing.remove();
+      }
+
+      const html = renderTestHistoryModal(usageKey);
+      if (!html) return;
+
+      const temp = document.createElement('div');
+      temp.innerHTML = html;
+      const modalEl = temp.firstElementChild;
+      document.body.appendChild(modalEl);
+
+      modalEl.addEventListener('hidden.bs.modal', function () {
+        const bsModal = bootstrap.Modal.getInstance(modalEl);
+        if (bsModal) bsModal.dispose();
+        modalEl.remove();
+      });
+
+      new bootstrap.Modal(modalEl).show();
+    }, true);
 
     // --- View toggle ---
 
@@ -787,17 +946,18 @@ ${renderCodeBlock(`use template ${escapeHtml(item.usage)}`)}
     if (gridCounterElement) gridCounterElement.textContent = gridRenderedCount;
     if (listCounterElement) listCounterElement.textContent = listRenderedCount;
 
-    // Fetch extensions data asynchronously for progressive loading, search, and filtering
-    fetch('extensions-listing.json')
-      .then(response => {
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        return response.json();
-      })
-      .then(data => {
-        allExtensionsData = data;
-        // Build lookup for on-demand modals
-        data.forEach(item => itemsById.set(item.id, item));
-        // Replace server-rendered items with properly sorted JS-rendered items
+    // Fetch extensions and test results data in parallel
+    Promise.all([
+      fetch('extensions-listing.json').then(r => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      }),
+      fetch('test-results.json').then(r => r.ok ? r.json() : {}).catch(() => ({}))
+    ])
+      .then(([extensions, testResults]) => {
+        allExtensionsData = extensions;
+        testResultsData = testResults;
+        extensions.forEach(item => itemsById.set(item.id, item));
         rebuildView();
       })
       .catch(error => {
