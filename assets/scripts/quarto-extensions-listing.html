@@ -182,12 +182,12 @@
             <i class="bi bi-person"></i> ${escapeHtml(authorDisplay)}
           </button>
         </p>
-        <p class="card-text flex-grow-1 extension-description">${item.description}</p>
+        <p class="card-text flex-grow-1 extension-description">${escapeHtml(item.description)}</p>
         <div class="card-categories mb-2 extension-categories">
           ${renderCategoryBadges(item.categories, gridCatId, 2)}
         </div>
         <div class="card-footer-info d-flex justify-content-between align-items-center small text-muted">
-          <span><i class="bi bi-star-fill text-warning"></i> ${item.stars}</span>
+          <span><i class="bi bi-star-fill text-warning"></i> ${escapeHtml(String(item.stars))}</span>
           <span><i class="bi bi-clock"></i> ${relativeTime}</span>
         </div>
       </div>
@@ -256,7 +256,7 @@
           </div>
           <div class="extension-metrics-header">
             <div class="d-flex gap-3 align-items-center">
-              <span class="text-muted small"><i class="bi bi-star-fill text-warning"></i> ${item.stars}</span>
+              <span class="text-muted small"><i class="bi bi-star-fill text-warning"></i> ${escapeHtml(String(item.stars))}</span>
               <span class="text-muted small"><i class="bi bi-clock"></i> ${relativeTime}</span>
               ${licenseHtml}
               <a href="${escapeHtml(item.githubUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm"><i class="bi bi-github"></i></a>
@@ -269,7 +269,7 @@
               <i class="bi bi-person"></i> ${escapeHtml(authorDisplay)}
             </button>
           </div>
-          <div class="extension-description mb-2">${item.description}</div>
+          <div class="extension-description mb-2">${escapeHtml(item.description)}</div>
         </div>
         <div class="extension-footer d-flex justify-content-between align-items-center">
           <div class="extension-categories">
