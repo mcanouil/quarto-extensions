@@ -135,7 +135,7 @@ jobs:
               libtiff5-dev libjpeg-dev libgit2-dev zlib1g-dev cmake \
               ghostscript \
               && rm -rf /var/lib/apt/lists/*
-          RUN Rscript -e 'install.packages(c("rmarkdown", "knitr", "reticulate", "ggplot2", "dplyr", "tidyverse", "kableExtra", "palmerpenguins", "gt", "tibble", "ragg"), repos = "https://cloud.r-project.org", lib = .Library)'
+          RUN Rscript -e 'install.packages(c("rmarkdown", "knitr", "reticulate", "ggplot2", "dplyr", "tidyverse", "kableExtra", "palmerpenguins", "gt", "tibble", "ragg", "DT", "showtext"), repos = "https://cloud.r-project.org", lib = .Library)'
           ARG HOST_UID
           ARG HOST_GID
           RUN if [ -d /opt/tinytex ]; then chown -R ${HOST_UID}:${HOST_GID} /opt/tinytex; fi
@@ -143,7 +143,7 @@ jobs:
           ENV UV_LINK_MODE=copy
           RUN uv venv /home/vscode/.venv \
               && . /home/vscode/.venv/bin/activate \
-              && uv pip install jupyter papermill matplotlib shinylive
+              && uv pip install jupyter papermill matplotlib shinylive pyyaml
           ENV VIRTUAL_ENV=/home/vscode/.venv
           ENV PATH="/home/vscode/.venv/bin:${PATH}"
           DOCKERFILE
