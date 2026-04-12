@@ -20,9 +20,9 @@ ext_count=$(jq 'length' clone-manifest.json)
 
 # Fix TinyTeX ownership so tlmgr works when container runs as host UID:GID
 docker build -t render-image \
-  --build-arg HOST_UID="$(id -u)" \
-  --build-arg HOST_GID="$(id -g)" \
-  - <<'TINYTEX_FIX'
+	--build-arg HOST_UID="$(id -u)" \
+	--build-arg HOST_GID="$(id -g)" \
+	- <<'TINYTEX_FIX'
 FROM render-image
 ARG HOST_UID
 ARG HOST_GID
@@ -31,71 +31,71 @@ RUN if [ -d /opt/tinytex ]; then chown -R "${HOST_UID}:${HOST_GID}" /opt/tinytex
 TINYTEX_FIX
 
 docker_run_render() {
-  local run_timeout="$1" workdir="$2" log_dir="$3" render_dir="$4"
-  shift 4
-  timeout --kill-after=30 "${run_timeout}" docker run --rm -i \
-    --user "${DOCKER_USER}" \
-    "${DOCKER_SECURITY_OPTS[@]}" \
-    "$@" \
-    -e NO_COLOR=1 \
-    -e RENV_CONFIG_SANDBOX_ENABLED=FALSE \
-    -e RENV_CONFIG_PPM_ENABLED=TRUE \
-    -e RENV_CONFIG_REPOS_OVERRIDE="https://packagemanager.posit.co/cran/latest" \
-    -e QUARTO_CHROMIUM="/usr/bin/google-chrome-stable" \
-    -e HOME="${workdir}" \
-    -e XDG_CACHE_HOME="${workdir}/.cache" \
-    -e TEXMFVAR="/tmp/texmf-var" \
-    -e TEXMFCONFIG="/tmp/texmf-config" \
-    -v "${workdir}:${workdir}" \
-    -v "${log_dir}:${log_dir}" \
-    -w "${render_dir}" \
-    render-image \
-    bash
+	local run_timeout="$1" workdir="$2" log_dir="$3" render_dir="$4"
+	shift 4
+	timeout --kill-after=30 "${run_timeout}" docker run --rm -i \
+		--user "${DOCKER_USER}" \
+		"${DOCKER_SECURITY_OPTS[@]}" \
+		"$@" \
+		-e NO_COLOR=1 \
+		-e RENV_CONFIG_SANDBOX_ENABLED=FALSE \
+		-e RENV_CONFIG_PPM_ENABLED=TRUE \
+		-e RENV_CONFIG_REPOS_OVERRIDE="https://packagemanager.posit.co/cran/latest" \
+		-e QUARTO_CHROMIUM="/usr/bin/google-chrome-stable" \
+		-e HOME="${workdir}" \
+		-e XDG_CACHE_HOME="${workdir}/.cache" \
+		-e TEXMFVAR="/tmp/texmf-var" \
+		-e TEXMFCONFIG="/tmp/texmf-config" \
+		-v "${workdir}:${workdir}" \
+		-v "${log_dir}:${log_dir}" \
+		-w "${render_dir}" \
+		render-image \
+		bash
 }
 
 render_extension() {
-  local i="$1"
+	local i="$1"
 
-  local id ext_type status workdir render_dir log_dir log_path ext
-  IFS=$'\t' read -r id ext_type status workdir render_dir log_dir log_path < <(
-    jq -r ".[${i}] | [.id // \"\", .type // \"\", .clone_status // \"\", .workdir // \"\", .render_dir // \"\", .log_dir // \"\", .log_path // \"\"] | @tsv" clone-manifest.json
-  )
-  ext=$(jq -c ".[${i}].ext" clone-manifest.json)
+	local id ext_type status workdir render_dir log_dir log_path ext
+	IFS=$'\t' read -r id ext_type status workdir render_dir log_dir log_path < <(
+		jq -r ".[${i}] | [.id // \"\", .type // \"\", .clone_status // \"\", .workdir // \"\", .render_dir // \"\", .log_dir // \"\", .log_path // \"\"] | @tsv" clone-manifest.json
+	)
+	ext=$(jq -c ".[${i}].ext" clone-manifest.json)
 
-  if [[ -z "${id}" ]] || [[ -z "${ext_type}" ]] || [[ -z "${status}" ]] || [[ -z "${workdir}" ]] || [[ -z "${render_dir}" ]] || [[ -z "${log_dir}" ]] || [[ -z "${log_path}" ]]; then
-    echo "::warning::Skipping malformed clone-manifest entry at index ${i}."
-    return
-  fi
+	if [[ -z "${id}" ]] || [[ -z "${ext_type}" ]] || [[ -z "${status}" ]] || [[ -z "${workdir}" ]] || [[ -z "${render_dir}" ]] || [[ -z "${log_dir}" ]] || [[ -z "${log_path}" ]]; then
+		echo "::warning::Skipping malformed clone-manifest entry at index ${i}."
+		return
+	fi
 
-  if [[ "${status}" == "pass" ]]; then
-    printf '%s\n' "${ext}" >"${workdir}/ext-meta.json"
+	if [[ "${status}" == "pass" ]]; then
+		printf '%s\n' "${ext}" >"${workdir}/ext-meta.json"
 
-    # Dependency source policy check
-    if [[ -f "${render_dir}/renv.lock" ]] || [[ -f "${render_dir}/uv.lock" ]] || [[ -f "${render_dir}/requirements.txt" ]] || [[ -f "${render_dir}/Project.toml" ]] || [[ -f "${render_dir}/JuliaProject.toml" ]]; then
-      if ! (cd "${render_dir}" && EXT_ID="${id}" bash "${SCRIPT_DIR}/dependency-policy.sh") \
-        >>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log"; then
-        echo "::warning::Dependency policy check failed for ${id}."
-        status="fail"
-      fi
-    fi
+		# Dependency source policy check
+		if [[ -f "${render_dir}/renv.lock" ]] || [[ -f "${render_dir}/uv.lock" ]] || [[ -f "${render_dir}/requirements.txt" ]] || [[ -f "${render_dir}/Project.toml" ]] || [[ -f "${render_dir}/JuliaProject.toml" ]]; then
+			if ! (cd "${render_dir}" && EXT_ID="${id}" bash "${SCRIPT_DIR}/dependency-policy.sh") \
+				>>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log"; then
+				echo "::warning::Dependency policy check failed for ${id}."
+				status="fail"
+			fi
+		fi
 
-    # Phase A: Install dependencies (network allowed)
-    if [[ "${status}" == "pass" ]]; then
-      dep_sources=()
-      [[ -f "${render_dir}/renv.lock" ]] && dep_sources+=("renv.lock")
-      [[ -f "${render_dir}/uv.lock" ]] && dep_sources+=("uv.lock")
-      [[ -f "${render_dir}/requirements.txt" ]] && dep_sources+=("requirements.txt")
-      [[ -f "${render_dir}/Project.toml" ]] && dep_sources+=("Project.toml")
-      [[ -f "${render_dir}/JuliaProject.toml" ]] && dep_sources+=("JuliaProject.toml")
-      if [[ ${#dep_sources[@]} -eq 0 ]]; then
-        dep_sources+=("auto-detect")
-      fi
-      echo "Dependency install phase for ${id}: ${dep_sources[*]}" >>"${log_dir}/stdout.log"
-      dep_rc=0
-      docker_run_render 600 "${workdir}" "${log_dir}" "${render_dir}" \
-        -e EXT_ID="${id}" \
-        -e LOG_DIR="${log_dir}" \
-        <<'DEPS_SCRIPT' || dep_rc=$?
+		# Phase A: Install dependencies (network allowed)
+		if [[ "${status}" == "pass" ]]; then
+			dep_sources=()
+			[[ -f "${render_dir}/renv.lock" ]] && dep_sources+=("renv.lock")
+			[[ -f "${render_dir}/uv.lock" ]] && dep_sources+=("uv.lock")
+			[[ -f "${render_dir}/requirements.txt" ]] && dep_sources+=("requirements.txt")
+			[[ -f "${render_dir}/Project.toml" ]] && dep_sources+=("Project.toml")
+			[[ -f "${render_dir}/JuliaProject.toml" ]] && dep_sources+=("JuliaProject.toml")
+			if [[ ${#dep_sources[@]} -eq 0 ]]; then
+				dep_sources+=("auto-detect")
+			fi
+			echo "Dependency install phase for ${id}: ${dep_sources[*]}" >>"${log_dir}/stdout.log"
+			dep_rc=0
+			docker_run_render 600 "${workdir}" "${log_dir}" "${render_dir}" \
+				-e EXT_ID="${id}" \
+				-e LOG_DIR="${log_dir}" \
+				<<'DEPS_SCRIPT' || dep_rc=$?
 set -euo pipefail
 
 detect_engines() {
@@ -301,31 +301,41 @@ if [[ -f Project.toml ]] || [[ -f JuliaProject.toml ]]; then
   }
 fi
 DEPS_SCRIPT
-      if [[ "${dep_rc}" -eq 124 ]]; then
-        echo "Dependency install timed out (exit 124) for ${id}." >>"${log_dir}/stderr.log"
-        echo "::warning::Dependency install timed out for ${id}."
-        status="fail"
-      elif [[ "${dep_rc}" -ne 0 ]]; then
-        echo "Dependency install failed (exit ${dep_rc}) for ${id}." >>"${log_dir}/stderr.log"
-        echo "::warning::Dependency install failed (exit ${dep_rc}) for ${id}."
-        status="fail"
-      fi
-    fi
+			if [[ "${dep_rc}" -eq 124 ]]; then
+				echo "Dependency install timed out (exit 124) for ${id}." >>"${log_dir}/stderr.log"
+				echo "::warning::Dependency install timed out for ${id}."
+				status="fail"
+			elif [[ "${dep_rc}" -ne 0 ]]; then
+				echo "Dependency install failed (exit ${dep_rc}) for ${id}." >>"${log_dir}/stderr.log"
+				echo "::warning::Dependency install failed (exit ${dep_rc}) for ${id}."
+				status="fail"
+			fi
+		fi
 
-    # Phase B: Render
-    if [[ "${status}" == "pass" ]]; then
-      render_count=$((render_count + 1))
-      docker_run_render 300 "${workdir}" "${log_dir}" "${render_dir}" \
-        -e EXT_TYPE="${ext_type}" \
-        -e EXT_ID="${id}" \
-        -e WORKDIR="${workdir}" \
-        -e LOG_DIR="${log_dir}" \
-        <<'RENDER_SCRIPT' || status="fail"
+		# Phase B: Render
+		if [[ "${status}" == "pass" ]]; then
+			render_count=$((render_count + 1))
+			docker_run_render 300 "${workdir}" "${log_dir}" "${render_dir}" \
+				-e EXT_TYPE="${ext_type}" \
+				-e EXT_ID="${id}" \
+				-e WORKDIR="${workdir}" \
+				-e LOG_DIR="${log_dir}" \
+				<<'RENDER_SCRIPT' || status="fail"
 set -euo pipefail
 
-# Activate venv if it was created during dependency install
+# Activate local venv if created during dependency install.
+# Preserve access to the image-level venv site-packages so pre-installed
+# packages (jupyter, shinylive, pyyaml, etc.) remain importable.
+IMAGE_VENV="/home/vscode/.venv"
 if [[ -f .venv/bin/activate ]]; then
+  image_sp=""
+  for sp in "${IMAGE_VENV}"/lib/python*/site-packages; do
+    if [[ -d "${sp}" ]]; then image_sp="${sp}"; break; fi
+  done
   source .venv/bin/activate
+  if [[ -n "${image_sp}" ]]; then
+    export PYTHONPATH="${PYTHONPATH:+${PYTHONPATH}:}${image_sp}"
+  fi
 fi
 
 render_idx=0
@@ -392,46 +402,46 @@ else
   done < <(find . -name '*.qmd' -not -path './_extensions/*' -print0)
 fi
 RENDER_SCRIPT
-    fi
-  fi
+		fi
+	fi
 
-  # Copy render logs to log directory
-  find "${workdir}" -maxdepth 1 -name 'render-*.log' -type f -exec cp --no-dereference {} "${log_dir}/" \; 2>/dev/null || true
+	# Copy render logs to log directory
+	find "${workdir}" -maxdepth 1 -name 'render-*.log' -type f -exec cp --no-dereference {} "${log_dir}/" \; 2>/dev/null || true
 
-  if [[ "${status}" == "pass" ]]; then
-    echo "Result: ${id} PASSED"
-  else
-    echo "::warning::Result: ${id} FAILED"
-  fi
+	if [[ "${status}" == "pass" ]]; then
+		echo "Result: ${id} PASSED"
+	else
+		echo "::warning::Result: ${id} FAILED"
+	fi
 
-  # Clean up workdir now that logs are copied
-  chmod -R u+w "${workdir}" 2>/dev/null || true
-  rm -rf "${workdir}"
+	# Clean up workdir now that logs are copied
+	chmod -R u+w "${workdir}" 2>/dev/null || true
+	rm -rf "${workdir}"
 
-  jq -cn \
-    --arg id "${id}" \
-    --arg t "${ext_type}" \
-    --arg s "${status}" \
-    --arg l "${log_path}" \
-    --arg qv "${quarto_version}" \
-    --arg qc "${QUARTO_CHANNEL}" \
-    '{id: $id, type: $t, status: $s, log: $l, quarto_version: $qv, quarto_channel: $qc}' \
-    >>"${results_file}"
+	jq -cn \
+		--arg id "${id}" \
+		--arg t "${ext_type}" \
+		--arg s "${status}" \
+		--arg l "${log_path}" \
+		--arg qv "${quarto_version}" \
+		--arg qc "${QUARTO_CHANNEL}" \
+		'{id: $id, type: $t, status: $s, log: $l, quarto_version: $qv, quarto_channel: $qc}' \
+		>>"${results_file}"
 }
 
 for ((i = 0; i < ext_count; i++)); do
-  render_extension "${i}"
+	render_extension "${i}"
 done
 
 if [[ -s "${results_file}" ]]; then
-  jq -sc '.' "${results_file}" >results.json
+	jq -sc '.' "${results_file}" >results.json
 else
-  echo '[]' >results.json
+	echo '[]' >results.json
 fi
 
 if [[ "${ext_count}" -gt 0 ]] && [[ "${render_count}" -eq 0 ]]; then
-  echo "::error::No quarto render was executed for ${ext_count} extensions."
-  exit 1
+	echo "::error::No quarto render was executed for ${ext_count} extensions."
+	exit 1
 fi
 
 echo "Rendered ${render_count}/${ext_count} extensions."

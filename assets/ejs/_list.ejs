@@ -7,10 +7,11 @@
 <div id="extensions-list" class="list-group">
 ```
 
-<% for (const item of items) { %>
+<% const LIST_INITIAL_COUNT = 20; %>
+<% for (const item of items.slice(0, LIST_INITIAL_COUNT)) { %>
 <%
 const usage = item.usage;
-const id = utils.b64encode(usage);
+const id = utils.b64encode(encodeURIComponent(usage)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 const isTemplate = item.template === true;
 const isExample = item.example === true;
 
@@ -113,7 +114,7 @@ const statusBanner = getStatusBanner(item.categories);
             </button>
           </div>
           <div class="extension-description mb-2">
-            <%- item.description %>
+            <%= item.description %>
           </div>
         </div>
         

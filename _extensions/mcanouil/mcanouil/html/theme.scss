@@ -1903,6 +1903,9 @@ div.sourceCode {
   // Filename header (title bar)
   .code-with-filename-file {
     background-color: body-mix(92%);
+    .quarto-dark & {
+      background-color: body-mix(92%);
+    }
     border-bottom: 1px solid rgba($body-color, 0.5);
     padding: 0.2em 1em;
     line-height: 1.2;

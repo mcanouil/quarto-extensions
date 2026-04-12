@@ -7,10 +7,11 @@
 <div id="extensions-grid" class="grid">
 ```
 
-<% for (const item of items) { %>
+<% const GRID_INITIAL_COUNT = 30; %>
+<% for (const item of items.slice(0, GRID_INITIAL_COUNT)) { %>
 <%
 const usage = item.usage;
-const id = utils.b64encode(usage);
+const id = utils.b64encode(encodeURIComponent(usage)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 const isTemplate = item.template === true;
 const isExample = item.example === true;
 
@@ -93,7 +94,7 @@ const statusBanner = getStatusBanner(item.categories);
         </p>
         
         <p class="card-text flex-grow-1 extension-description">
-          <%- item.description %>
+          <%= item.description %>
         </p>
         
         <!-- Categories -->
