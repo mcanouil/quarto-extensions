@@ -50,6 +50,10 @@
       return div.innerHTML;
     }
 
+    function safeId(str) {
+      return String(str).replace(/[^a-zA-Z0-9_-]/g, '-');
+    }
+
     function debounce(func, wait) {
       let timeout;
       return function (...args) {
@@ -130,7 +134,8 @@
       const relativeTime = getRelativeTime(item.fileModified);
       const statusBanner = getStatusBanner(item.categories);
       const authorDisplay = (!item.author || item.author === 'null') ? item.login : item.author;
-      const gridCatId = `grid-cat-${item.id}`;
+      const sid = safeId(item.id);
+      const gridCatId = `grid-cat-${sid}`;
 
       let statusHtml = '';
       if (statusBanner) {
@@ -146,12 +151,12 @@
       let exampleBadge = '';
       if (item.example) exampleBadge = '<span class="badge bg-info ms-1">Example</span>';
 
-      let actionButtons = `<button class="btn btn-primary btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#install-modal-${item.id}"><i class="bi bi-download"></i> Install</button>`;
+      let actionButtons = `<button class="btn btn-primary btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#install-modal-${sid}"><i class="bi bi-download"></i> Install</button>`;
       if (item.template) {
-        actionButtons += `<button class="btn btn-outline-success btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#use-modal-${item.id}"><i class="bi bi-file-plus"></i> Use</button>`;
+        actionButtons += `<button class="btn btn-outline-success btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#use-modal-${sid}"><i class="bi bi-file-plus"></i> Use</button>`;
       }
       if (item.example) {
-        actionButtons += `<button class="btn btn-outline-info btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#use-modal-${item.id}"><i class="bi bi-eye"></i> Use</button>`;
+        actionButtons += `<button class="btn btn-outline-info btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#use-modal-${sid}"><i class="bi bi-eye"></i> Use</button>`;
       }
 
       return `<div class="g-col-12 g-col-sm-6 g-col-lg-4">
@@ -202,7 +207,8 @@
       const relativeTime = getRelativeTime(item.fileModified);
       const statusBanner = getStatusBanner(item.categories);
       const authorDisplay = (!item.author || item.author === 'null') ? item.login : item.author;
-      const listCatId = `list-cat-${item.id}`;
+      const sid = safeId(item.id);
+      const listCatId = `list-cat-${sid}`;
 
       let statusHtml = '';
       if (statusBanner) {
@@ -223,12 +229,12 @@
         licenseHtml = `<span class="text-muted small"><i class="bi bi-file-text"></i> ${escapeHtml(item.license)}</span>`;
       }
 
-      let actionButtons = `<button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#install-modal-${item.id}"><i class="bi bi-download"></i> Install</button>`;
+      let actionButtons = `<button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#install-modal-${sid}"><i class="bi bi-download"></i> Install</button>`;
       if (item.template) {
-        actionButtons += `<button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#use-modal-${item.id}"><i class="bi bi-file-plus"></i> Use</button>`;
+        actionButtons += `<button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#use-modal-${sid}"><i class="bi bi-file-plus"></i> Use</button>`;
       }
       if (item.example) {
-        actionButtons += `<button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#use-modal-${item.id}"><i class="bi bi-eye"></i> Use</button>`;
+        actionButtons += `<button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#use-modal-${sid}"><i class="bi bi-eye"></i> Use</button>`;
       }
 
       return `<div class="list-group-item extension-item"
@@ -293,7 +299,8 @@
     }
 
     function renderInstallModal(item) {
-      return `<div class="modal fade" id="install-modal-${item.id}" tabindex="-1" aria-labelledby="install-modal-label" aria-hidden="true">
+      const sid = safeId(item.id);
+      return `<div class="modal fade" id="install-modal-${sid}" tabindex="-1" aria-labelledby="install-modal-label" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -326,7 +333,8 @@ ${renderCodeBlock(`add ${escapeHtml(item.usage)}`)}
     }
 
     function renderUseModal(item) {
-      return `<div class="modal fade" id="use-modal-${item.id}" tabindex="-1" aria-labelledby="use-modal-label" aria-hidden="true">
+      const sid = safeId(item.id);
+      return `<div class="modal fade" id="use-modal-${sid}" tabindex="-1" aria-labelledby="use-modal-label" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
