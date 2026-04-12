@@ -252,19 +252,20 @@ total=$(echo "${entries}" | jq 'length')
 echo "Total extensions to test: ${total}"
 
 matrix=$(echo "${entries}" | jq -c --argjson n "${BATCH_SIZE}" --argjson meta "${image_meta_map}" '
+  def pad3: tostring | if length < 3 then ("000" + .)[-3:] else . end;
   . as $all
   | if ($all | length) == 0 then
       {
         include: [
           {
-            batch_index: 0,
+            batch_index: (0 | pad3),
             quarto_channel: "release",
             image_ref: $meta.release.image_ref,
             image_ready: $meta.release.image_ready,
             extensions: []
           },
           {
-            batch_index: 0,
+            batch_index: (0 | pad3),
             quarto_channel: "prerelease",
             image_ref: $meta.prerelease.image_ref,
             image_ready: $meta.prerelease.image_ready,
@@ -283,14 +284,14 @@ matrix=$(echo "${entries}" | jq -c --argjson n "${BATCH_SIZE}" --argjson meta "$
                 | .key as $bi
                   | [
                     {
-                      batch_index: $bi,
+                      batch_index: ($bi | pad3),
                       quarto_channel: "release",
                       image_ref: $meta.release.image_ref,
                       image_ready: $meta.release.image_ready,
                       extensions: $all[$s:($s + $n)]
                     },
                     {
-                      batch_index: $bi,
+                      batch_index: ($bi | pad3),
                       quarto_channel: "prerelease",
                       image_ref: $meta.prerelease.image_ref,
                       image_ready: $meta.prerelease.image_ready,
