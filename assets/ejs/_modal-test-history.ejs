@@ -1,0 +1,61 @@
+```{=html}
+<div class="modal fade" id="test-history-modal-<%= id %>" tabindex="-1" aria-labelledby="test-history-modal-label-<%= id %>" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title no-anchor" id="test-history-modal-label-<%= id %>">
+          Test Results: <code><%= key %></code>
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%
+        const CHANNEL_ORDER = ['release', 'prerelease'];
+        const CHANNEL_LABELS = { release: 'Release', prerelease: 'Pre-release' };
+
+        // Group results by channel
+        const byChannel = {};
+        testResults.forEach(r => {
+          const ch = r['quarto-channel'] || 'unknown';
+          if (!byChannel[ch]) byChannel[ch] = [];
+          byChannel[ch].push(r);
+        });
+
+        // Sort each channel by date descending
+        for (const ch of Object.keys(byChannel)) {
+          byChannel[ch].sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+        }
+
+        for (const ch of CHANNEL_ORDER) {
+          const items = byChannel[ch];
+          if (!items) continue;
+        %>
+        <h6 class="mt-3 mb-2"><%= CHANNEL_LABELS[ch] || ch %> Channel</h6>
+        <div class="table-responsive">
+          <table class="table table-sm table-hover mb-0">
+            <thead>
+              <tr><th scope="col">Version</th><th scope="col">Status</th><th scope="col">Date</th><th scope="col">Logs</th></tr>
+            </thead>
+            <tbody>
+              <% items.forEach(r => {
+                const icon = r.status === 'pass' ? 'bi-check-circle-fill' : r.status === 'fail' ? 'bi-x-circle-fill' : 'bi-dash-circle-fill';
+                const colour = r.status === 'pass' ? 'text-success' : r.status === 'fail' ? 'text-danger' : 'text-secondary';
+                const statusLabel = r.status.charAt(0).toUpperCase() + r.status.slice(1);
+                const logUrl = 'https://github.com/mcanouil/quarto-extensions/tree/quarto-tests/' + r.log;
+              %>
+              <tr>
+                <td><code><%= r['quarto-version'] %></code></td>
+                <td><i class="bi <%= icon %> <%= colour %>" aria-hidden="true"></i> <%= statusLabel %></td>
+                <td><%= r.date %></td>
+                <td><a href="<%= logUrl %>" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm" aria-label="View logs for Quarto <%= r['quarto-version'] %>"><i class="bi bi-file-text" aria-hidden="true"></i> Logs</a></td>
+              </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>
+```

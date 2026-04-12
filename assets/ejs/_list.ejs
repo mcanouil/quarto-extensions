@@ -50,7 +50,8 @@ const statusBanner = getStatusBanner(item.categories);
        data-stars="<%= item.stars %>"
        data-modified="<%= item['file-modified'] %>"
        data-template="<%= isTemplate %>"
-       data-example="<%= isExample %>">
+       data-example="<%= isExample %>"
+       data-test-status="<%= item['test-results'] ? (item['test-results'].some(r => r.status === 'fail') ? 'fail' : item['test-results'].some(r => r.status === 'pass') ? 'pass' : 'skip') : 'none' %>">
     <div class="d-flex flex-column flex-md-row align-items-start">
       <!-- Extension Image -->
       <% let image = item.image; let imageAlt = item['image-alt']; if (!image) { image = "assets/media/github-placeholder.png"; imageAlt = "GitHub Placeholder Image"; } %>
@@ -60,7 +61,7 @@ const statusBanner = getStatusBanner(item.categories);
         <!-- Status Banner -->
         <div class="alert alert-<%= statusBanner.class %> status-banner mb-0 mt-2 rounded text-center py-1 px-2 small" role="alert">
           <% if (statusBanner.icon) { %>
-          <i class="bi <%= statusBanner.icon %>"></i>
+          <i class="bi <%= statusBanner.icon %>" aria-hidden="true"></i>
           <% } %>
           <strong><%= statusBanner.text %></strong>
         </div>
@@ -68,6 +69,39 @@ const statusBanner = getStatusBanner(item.categories);
       </div>
 
       <div class="flex-grow-1">
+        <div class="d-flex justify-content-between align-items-center mb-1">
+          <div class="test-status-badges-row d-flex flex-wrap gap-1">
+            <% if (item['test-results']) {
+              const latestByChannel = {};
+              item['test-results'].forEach(r => {
+                const ch = r['quarto-channel'];
+                if (!latestByChannel[ch]) latestByChannel[ch] = r;
+              });
+              ['release', 'prerelease'].forEach(ch => {
+                const r = latestByChannel[ch];
+                if (!r) return;
+                const icon = r.status === 'pass' ? 'bi-check-circle-fill' : r.status === 'fail' ? 'bi-x-circle-fill' : 'bi-dash-circle-fill';
+                const colour = r.status === 'pass' ? 'text-success' : r.status === 'fail' ? 'text-danger' : 'text-secondary';
+                const label = ch === 'prerelease' ? 'Pre-release' : 'Release';
+            %>
+            <button class="test-badge-btn" type="button"
+                    data-bs-toggle="modal" data-bs-target="#test-history-modal-<%= id %>"
+                    data-usage="<%= usage %>"
+                    aria-label="<%= r.status.charAt(0).toUpperCase() + r.status.slice(1) %> on Quarto <%= r['quarto-version'] %> (<%= label %>). View test history.">
+              <i class="bi <%= icon %> <%= colour %>" aria-hidden="true"></i>
+              <span class="<%= colour %>"><%= r['quarto-version'] %> (<%= label %>)</span>
+            </button>
+            <% }); } %>
+          </div>
+          <div>
+            <% if (isTemplate) { %>
+            <span class="badge bg-success ms-2">Template</span>
+            <% } %>
+            <% if (isExample) { %>
+            <span class="badge bg-info ms-2">Example</span>
+            <% } %>
+          </div>
+        </div>
         <!-- Extension Header -->
         <div class="extension-header d-flex justify-content-between align-items-center mb-2">
           <div class="extension-title-section">
@@ -75,12 +109,6 @@ const statusBanner = getStatusBanner(item.categories);
               <a href="<%= item['github-url'] %>" target="_blank" rel="noopener noreferrer">
                 <%= item.title %>
               </a>
-              <% if (isTemplate) { %>
-              <span class="badge bg-success ms-2">Template</span>
-              <% } %>
-              <% if (isExample) { %>
-              <span class="badge bg-info ms-2">Example</span>
-              <% } %>
             </h5>
           </div>
           
@@ -88,18 +116,18 @@ const statusBanner = getStatusBanner(item.categories);
           <div class="extension-metrics-header">
             <div class="d-flex gap-3 align-items-center">
               <span class="text-muted small">
-                <i class="bi bi-star-fill text-warning"></i> <%= item.stars %>
+                <i class="bi bi-star-fill text-warning" aria-hidden="true"></i> <span class="visually-hidden">Stars:</span> <%= item.stars %>
               </span>
               <span class="text-muted small">
-                <i class="bi bi-clock"></i> <%= relativeTime %>
+                <i class="bi bi-clock" aria-hidden="true"></i> <span class="visually-hidden">Updated:</span> <%= relativeTime %>
               </span>
               <% if (item.license && item.license !== 'none') { %>
               <span class="text-muted small">
-                <i class="bi bi-file-text"></i> <%= item.license %>
+                <i class="bi bi-file-text" aria-hidden="true"></i> <span class="visually-hidden">Licence:</span> <%= item.license %>
               </span>
               <% } %>
-              <a href="<%= item['github-url'] %>" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm">
-                <i class="bi bi-github"></i>
+              <a href="<%= item['github-url'] %>" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm" aria-label="View <%= item.title %> on GitHub">
+                <i class="bi bi-github" aria-hidden="true"></i>
               </a>
             </div>
           </div>
@@ -109,7 +137,7 @@ const statusBanner = getStatusBanner(item.categories);
         <div class="extension-content">
           <div class="extension-author mb-1">
             <button class="btn btn-link p-0 text-muted text-decoration-none filter-chip" data-filter="author" data-login="<%= item.login %>">
-              <i class="bi bi-person"></i> <%= (!item.author || item.author === 'null') ? item.login : item.author %>
+              <i class="bi bi-person" aria-hidden="true"></i> <%= (!item.author || item.author === 'null') ? item.login : item.author %>
             </button>
           </div>
           <div class="extension-description mb-2">
@@ -135,7 +163,7 @@ const statusBanner = getStatusBanner(item.categories);
                 <% extraCategories.forEach(category => { %>
                   <span class="badge bg-light text-dark me-1 extra-category d-none" data-extra="<%= listCatId %>"><%= category %></span>
                 <% }); %>
-                <button class="btn btn-link btn-sm p-0 text-muted category-expand-toggle" type="button" data-id="<%= listCatId %>">
+                <button class="btn btn-link btn-sm p-0 text-muted category-expand-toggle" type="button" data-id="<%= listCatId %>" aria-expanded="false" aria-label="Show <%= extraCategories.length %> more categories">
                   +<%= extraCategories.length %> more
                 </button>
               <% } %>
@@ -144,16 +172,16 @@ const statusBanner = getStatusBanner(item.categories);
           
           <div class="extension-actions">
             <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#install-modal-<%= id %>">
-              <i class="bi bi-download"></i> Install
+              <i class="bi bi-download" aria-hidden="true"></i> Install
             </button>
             <% if (isTemplate) { %>
             <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#use-modal-<%= id %>">
-              <i class="bi bi-file-plus"></i> Use
+              <i class="bi bi-file-plus" aria-hidden="true"></i> Use
             </button>
             <% } %>
             <% if (isExample) { %>
             <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#use-modal-<%= id %>">
-              <i class="bi bi-eye"></i> Use
+              <i class="bi bi-eye" aria-hidden="true"></i> Use
             </button>
             <% } %>
           </div>
