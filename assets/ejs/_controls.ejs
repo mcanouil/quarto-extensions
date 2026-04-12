@@ -3,7 +3,7 @@
 ::: {.g-col-8}
 ```{=html}
 <div class="input-group">
-  <span class="input-group-text"><i class="bi bi-search"></i></span>
+  <span class="input-group-text"><i class="bi bi-search" aria-hidden="true"></i></span>
   <input type="text" id="extension-search" class="form-control" placeholder="Search extensions, authors, categories..."
     aria-label="Search extensions">
 </div>
@@ -14,11 +14,11 @@
 <div class="btn-group" role="group" aria-label="View toggle">
   <input type="radio" class="btn-check" name="view-toggle" id="grid-view" checked>
   <label class="btn btn-outline-light" for="grid-view">
-    <i class="bi bi-grid-3x3-gap"></i> Grid
+    <i class="bi bi-grid-3x3-gap" aria-hidden="true"></i> Grid
   </label>
   <input type="radio" class="btn-check d-none d-md-inline" name="view-toggle" id="list-view">
   <label class="btn btn-outline-light d-none d-md-inline" for="list-view">
-    <i class="bi bi-list-ul"></i> List
+    <i class="bi bi-list-ul" aria-hidden="true"></i> List
   </label>
 </div>
 ```
@@ -29,11 +29,17 @@
 :::: {.quick-filters .mb-3}
 ```{=html}
 <div class="d-flex flex-wrap gap-2 justify-content-center">
-  <button class="btn btn-sm btn-outline-success filter-chip" data-filter="recent">
-    <i class="bi bi-clock-history"></i> Recently Updated
+  <button class="btn btn-sm btn-outline-success filter-chip" data-filter="recent" aria-pressed="false">
+    <i class="bi bi-clock-history" aria-hidden="true"></i> Recently Updated
   </button>
-  <button class="btn btn-sm btn-outline-warning filter-chip" data-filter="popular">
-    <i class="bi bi-star-fill"></i> Popular
+  <button class="btn btn-sm btn-outline-warning filter-chip" data-filter="popular" aria-pressed="false">
+    <i class="bi bi-star-fill" aria-hidden="true"></i> Popular
+  </button>
+  <button class="btn btn-sm btn-outline-success filter-chip" data-filter="test-pass" aria-pressed="false">
+    <i class="bi bi-check-circle-fill" aria-hidden="true"></i> Passing
+  </button>
+  <button class="btn btn-sm btn-outline-danger filter-chip" data-filter="test-fail" aria-pressed="false">
+    <i class="bi bi-x-circle-fill" aria-hidden="true"></i> Failing
   </button>
   <% const filterChips=[ { value: 'shortcode' , label: 'Shortcodes' , icon: 'bi-code-square' }, { value: 'filter' ,
     label: 'Filters' , icon: 'bi-funnel' }, { value: 'format' , label: 'Formats' , icon: 'bi-file-earmark-code' }, {
@@ -41,19 +47,19 @@
     , icon: 'bi-sliders' }, { value: 'metadata' , label: 'Metadata' , icon: 'bi-info-circle' } ]; %>
     <div class="btn-group flex-wrap" role="group" aria-label="Category filters" style="max-width: 100%;">
       <% filterChips.forEach(function(chip) { %>
-        <button class="btn btn-sm btn-outline-primary filter-chip" data-filter="<%= chip.value %>">
-          <i class="bi <%= chip.icon %>"></i>
+        <button class="btn btn-sm btn-outline-primary filter-chip" data-filter="<%= chip.value %>" aria-label="<%= chip.label %>" aria-pressed="false">
+          <i class="bi <%= chip.icon %>" aria-hidden="true"></i>
           <span class="d-none d-sm-inline">
             <%= chip.label %>
           </span>
-          <span class="d-inline d-sm-none" aria-label="<%= chip.label %>">
+          <span class="d-inline d-sm-none" aria-hidden="true">
             <%= chip.label.charAt(0) %>
           </span>
         </button>
         <% }); %>
     </div>
     <button class="btn btn-sm btn-outline-light" id="clear-filters">
-      <i class="bi bi-x-circle"></i> Clear
+      <i class="bi bi-x-circle" aria-hidden="true"></i> Clear
     </button>
 </div>
 ```

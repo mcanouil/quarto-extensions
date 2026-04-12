@@ -355,11 +355,22 @@
           if (show && activeFilters.size > 0) {
             const contributes = (ext.dataset.contributes || '').toLowerCase().split(',');
             const contributesSet = new Set(contributes.map(val => val.trim()));
+            const testStatus = ext.dataset.testStatus || 'none';
 
             for (const filter of activeFilters) {
               if (filterChipValues.includes(filter)) {
                 const hasMatch = Array.from(contributesSet).some(val => val.startsWith(filter));
                 if (!hasMatch) {
+                  show = false;
+                  break;
+                }
+              } else if (filter === 'test-pass') {
+                if (testStatus !== 'pass') {
+                  show = false;
+                  break;
+                }
+              } else if (filter === 'test-fail') {
+                if (testStatus !== 'fail') {
                   show = false;
                   break;
                 }
@@ -486,6 +497,7 @@
         }
       });
     });
+
   });
 </script>
 <!-- Custom JavaScript for clipboard.js to properly access code inside modals -->
