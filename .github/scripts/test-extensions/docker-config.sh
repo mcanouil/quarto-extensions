@@ -11,6 +11,6 @@ DOCKER_SECURITY_OPTS=(
   --pids-limit=512
   --memory=3g
   --cpus=2
-  --tmpfs /tmp:rw,nosuid,size=512m
+  --tmpfs /tmp:rw,exec,nosuid,size=512m
   --tmpfs /var/tmp:rw,noexec,nosuid,size=128m
 )
