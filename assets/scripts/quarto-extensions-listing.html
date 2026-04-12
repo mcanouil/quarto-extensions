@@ -799,7 +799,7 @@ ${renderCodeBlock(`use template ${escapeHtml(item.usage)}`)}
       .then(data => {
         allExtensionsData = data;
         // Build lookup for on-demand modals
-        data.forEach(item => itemsById.set(item.id, item));
+        data.forEach(item => itemsById.set(safeId(item.id), item));
         // Replace server-rendered items with properly sorted JS-rendered items
         rebuildView();
       })
