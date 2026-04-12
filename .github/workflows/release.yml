@@ -58,12 +58,16 @@ jobs:
           VERSION=$(date +%Y.%m.%d)
           sed -i "s/^version:.*/version: ${VERSION}/" CITATION.cff
           sed -i "s/^date-released:.*/date-released: \"${DATE}\"/" CITATION.cff
-          git add CITATION.cff || echo "No changes to add"
-          git commit -m "${COMMIT}" || echo "No changes to commit"
-          git push --force origin ${BRANCH} || echo "No changes to push"
-          sleep 5
-          gh pr create --fill-first --base "main" --head "${BRANCH}" --label "Type: CI/CD :robot:"
-          sleep 5
-          gh pr merge --auto --squash --delete-branch
-          sleep 5
-          gh release create ${VERSION} --title ${DATE} --generate-notes
+          if git diff --quiet CITATION.cff; then
+            echo "CITATION.cff is already up to date. Skipping PR creation."
+          else
+            git add CITATION.cff
+            git commit -m "${COMMIT}"
+            git push --force origin "${BRANCH}"
+            sleep 5
+            gh pr create --fill-first --base "main" --head "${BRANCH}" --label "Type: CI/CD :robot:"
+            sleep 5
+            gh pr merge --auto --squash --delete-branch
+            sleep 5
+          fi
+          gh release create "${VERSION}" --title "${DATE}" --generate-notes
