@@ -213,6 +213,7 @@ jobs:
           user_id=$(gh api "/users/${APP_SLUG}[bot]" --jq .id)
           git config --global user.name "${APP_SLUG}[bot]"
           git config --global user.email "${user_id}+${APP_SLUG}[bot]@users.noreply.github.com"
+          gh auth setup-git
           if gh api "repos/${GITHUB_REPOSITORY}/branches/quarto-tests" >/dev/null 2>&1; then
             echo "branch-exists=true" >> "${GITHUB_OUTPUT}"
           else
@@ -233,7 +234,6 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          gh auth setup-git
           git init
           git remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
           git checkout --orphan quarto-tests
@@ -268,6 +268,7 @@ jobs:
 
       - name: Publish results
         env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
           SKIPPED: ${{ needs.build-matrix.outputs.skipped }}
         shell: bash
         run: bash "${GITHUB_WORKSPACE}/_scripts/.github/scripts/test-extensions/publish-results.sh"
