@@ -2,8 +2,7 @@ name: Build Test Image
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 10 15 * *"
+  workflow_call:
 
 permissions:
   contents: read

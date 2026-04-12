@@ -16,12 +16,17 @@ concurrency:
   group: test-extensions
   cancel-in-progress: false
 
-permissions:
-  contents: read
-
 jobs:
+  build-test-image:
+    uses: ./.github/workflows/build-test-image.yml
+    permissions:
+      contents: read
+      packages: write
+
   build-matrix:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     outputs:
       matrix: ${{ steps.matrix.outputs.matrix }}
       skipped: ${{ steps.matrix.outputs.skipped }}
@@ -61,8 +66,10 @@ jobs:
 
   test-extensions:
     name: test-extensions (batch ${{ matrix.batch_index }}, ${{ matrix.quarto_channel }})
-    needs: build-matrix
+    needs: [build-test-image, build-matrix]
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     strategy:
       fail-fast: false
       max-parallel: 10
@@ -179,6 +186,8 @@ jobs:
     needs: [build-matrix, test-extensions]
     if: always() && needs.build-matrix.result == 'success'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Create GitHub App token
         uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3
