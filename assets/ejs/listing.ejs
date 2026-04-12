@@ -25,7 +25,6 @@ const getStatusBanner = (categories) => {
   }
   return null;
 };
-
 %>
 
 :::: {#extensions-listing-container}
@@ -57,7 +56,19 @@ partial("_list.ejs", { items, excludeCategories, utils, getStatusBanner })
 %>
 ::::
 
-<!-- Modals are generated on demand by JavaScript -->
+<!-- Include modals for each extension -->
+<% for (const item of items) { %>
+<%
+const usage = item.usage;
+const id = utils.b64encode(usage);
+const isTemplate = item.template === true;
+const isExample = item.example === true;
+partial("_modal-install.ejs", { id, usage });
+if (isTemplate || isExample) {
+  partial("_modal-use.ejs", { id, usage });
+}
+%>
+<% } %>
 
 ::::
 :::
@@ -71,16 +82,6 @@ partial("_list.ejs", { items, excludeCategories, utils, getStatusBanner })
 }
 .extension-card {
   border-color: var(--bs-border-colour, #dee2e6);
-}
-.card-img-wrapper {
-  aspect-ratio: 2 / 1;
-  overflow: hidden;
-  background: var(--bs-tertiary-bg, #f8f9fa);
-}
-.card-img-wrapper .card-img-top {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 .card-footer {
   border-color: var(--bs-border-colour, #dee2e6);
@@ -134,49 +135,6 @@ partial("_list.ejs", { items, excludeCategories, utils, getStatusBanner })
       display: none;
     }
   }
-}
-
-/* Test status badges */
-.test-status-badges {
-  flex-wrap: wrap;
-}
-
-.test-badge-btn {
-  font-size: 0.75rem;
-  line-height: 1.2;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  border: none;
-  background: none;
-  cursor: pointer;
-  padding: 0.125rem 0.25rem;
-  border-radius: 0.25rem;
-  transition: background-color 0.15s ease-in-out;
-}
-
-.test-badge-btn:hover {
-  background-color: rgba(0, 0, 0, 0.075);
-}
-
-[data-bs-theme="dark"] .test-badge-btn:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.test-badge-btn i {
-  font-size: 0.8rem;
-}
-
-.test-status-badges-row {
-  min-height: 0;
-}
-
-#test-history-modal .table {
-  font-size: 0.875rem;
-}
-
-#test-history-modal code {
-  font-size: 0.8rem;
 }
 
 @media (max-width: 767px) {
