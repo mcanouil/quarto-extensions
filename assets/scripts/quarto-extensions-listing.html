@@ -558,6 +558,13 @@ ${renderCodeBlock(`use template ${escapeHtml(item.usage)}`)}
       const modalEl = temp.firstElementChild;
       document.body.appendChild(modalEl);
 
+      // Clean up modal DOM and clipboard instances on close
+      modalEl.addEventListener('hidden.bs.modal', function () {
+        const bsModal = bootstrap.Modal.getInstance(modalEl);
+        if (bsModal) bsModal.dispose();
+        modalEl.remove();
+      });
+
       // Open explicitly
       new bootstrap.Modal(modalEl).show();
     }, true); // Capture phase
