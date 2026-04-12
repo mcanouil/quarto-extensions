@@ -25,10 +25,10 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/Rtmpo2y73A/downloaded_packages'
+	'/tmp/RtmpV1W5DC/downloaded_packages'
 Installing packages into '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5'
 (as 'lib' is unspecified)
-also installing the dependencies 'fontBitstreamVera', 'fontLiberation', 'bayestestR', 'insight', 'datawizard', 'mnormt', 'GPArotation', 'httpuv', 'later', 'otel', 'promises', 'sourcetools', 'xtable', 'fontquiver', 'zip', 'effectsize', 'parameters', 'performance', 'psych', 'shiny', 'signs', 'gdtools', 'officer', 'ragg'
+also installing the dependencies 'fontBitstreamVera', 'fontLiberation', 'bayestestR', 'insight', 'datawizard', 'mnormt', 'GPArotation', 'httpuv', 'later', 'otel', 'promises', 'sourcetools', 'xtable', 'fontquiver', 'zip', 'effectsize', 'parameters', 'performance', 'psych', 'shiny', 'signs', 'gdtools', 'officer'
 
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fontBitstreamVera_0.1.1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fontLiberation_0.1.0.tar.gz'
@@ -53,11 +53,9 @@ trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/shiny_1.13.0
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/signs_0.1.2.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/gdtools_0.5.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/officer_0.7.3.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/ragg_1.5.2.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/apa7_0.1.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/flextable_0.9.11.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/ftExtra_0.6.4.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/tidyverse_2.0.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/tinytable_0.16.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/snakecase_0.11.1.tar.gz'
 * installing *source* package 'fontBitstreamVera' ...
@@ -247,28 +245,6 @@ installing via 'install.libs.R' to /home/runner/work/quarto-extensions/quarto-ex
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (signs)
-* installing *source* package 'ragg' ...
-** this is package 'ragg' version '1.5.2'
-** package 'ragg' successfully unpacked and MD5 sums checked
-** using staged installation
-Package libwebp was not found in the pkg-config search path.
-Perhaps you should add the directory containing `libwebp.pc'
-to the PKG_CONFIG_PATH environment variable
-No package 'libwebp' found
-Package libwebpmux was not found in the pkg-config search path.
-Perhaps you should add the directory containing `libwebpmux.pc'
-to the PKG_CONFIG_PATH environment variable
-No package 'libwebpmux' found
-Package libwebp was not found in the pkg-config search path.
-Perhaps you should add the directory containing `libwebp.pc'
-to the PKG_CONFIG_PATH environment variable
-No package 'libwebp' found
-Package libwebpmux was not found in the pkg-config search path.
-Perhaps you should add the directory containing `libwebpmux.pc'
-to the PKG_CONFIG_PATH environment variable
-No package 'libwebpmux' found
-ERROR: configuration failed for package 'ragg'
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/ragg'
 * installing *source* package 'tinytable' ...
 ** this is package 'tinytable' version '0.16.0'
 ** package 'tinytable' successfully unpacked and MD5 sums checked
@@ -410,14 +386,21 @@ Warning in parse(...) :
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (psych)
-ERROR: dependency 'ragg' is not available for package 'officer'
-Perhaps try a variation of:
-install.packages('ragg')
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/officer'
-ERROR: dependency 'ragg' is not available for package 'tidyverse'
-Perhaps try a variation of:
-install.packages('ragg')
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/tidyverse'
+* installing *source* package 'officer' ...
+** this is package 'officer' version '0.7.3'
+** package 'officer' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (officer)
 * installing *source* package 'bayestestR' ...
 ** this is package 'bayestestR' version '0.17.0'
 ** package 'bayestestR' successfully unpacked and MD5 sums checked
@@ -526,9 +509,9 @@ ERROR: configuration failed for package 'gdtools'
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (shiny)
-ERROR: dependencies 'gdtools', 'officer', 'ragg' are not available for package 'flextable'
+ERROR: dependency 'gdtools' is not available for package 'flextable'
 Perhaps try a variation of:
-install.packages(c('gdtools', 'officer', 'ragg'))
+install.packages('gdtools')
 * removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/flextable'
 * installing *source* package 'effectsize' ...
 ** this is package 'effectsize' version '1.0.2'
@@ -557,21 +540,15 @@ install.packages(c('flextable', 'ftExtra'))
 * removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/apa7'
 
 The downloaded source packages are in
-	'/tmp/Rtmpo2y73A/downloaded_packages'
+	'/tmp/RtmpV1W5DC/downloaded_packages'
 Warning messages:
 1: In install.packages(deps, repos = ppm) :
-  installation of package 'ragg' had non-zero exit status
-2: In install.packages(deps, repos = ppm) :
-  installation of package 'officer' had non-zero exit status
-3: In install.packages(deps, repos = ppm) :
-  installation of package 'tidyverse' had non-zero exit status
-4: In install.packages(deps, repos = ppm) :
   installation of package 'gdtools' had non-zero exit status
-5: In install.packages(deps, repos = ppm) :
+2: In install.packages(deps, repos = ppm) :
   installation of package 'flextable' had non-zero exit status
-6: In install.packages(deps, repos = ppm) :
+3: In install.packages(deps, repos = ppm) :
   installation of package 'ftExtra' had non-zero exit status
-7: In install.packages(deps, repos = ppm) :
+4: In install.packages(deps, repos = ppm) :
   installation of package 'apa7' had non-zero exit status
 [1/7] index.qmd
 [2/7] installation.qmd

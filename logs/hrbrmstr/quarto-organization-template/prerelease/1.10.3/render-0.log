@@ -6,16 +6,42 @@ processing file: template.qmd
 
 2/4 [unnamed-chunk-1]
 
-Error in `library()`:
-! there is no package called 'tidyverse'
-Backtrace:
-    x
- 1. \-base::library(tidyverse)
+3/4                  
+
+4/4 [unnamed-chunk-2]
+
+output file: template.knit.md
 
 
-Quitting from template.qmd:20-24 [unnamed-chunk-1]
+(ERROR) Theme file compilation failed:
 
-Execution halted
+Error: There is no module with the namespace "sass-color".
+     ╷
+3131 │ @if (sass-color.blackness($backgroundColor) > $code-block-theme-dark-threshhold) {
+     │      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     ╵
 
-(WARN) Error encountered when rendering files
+Stack trace:
+    at dartCommand (file:///opt/quarto/bin/quarto.js:79096:11)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async dartCompile (file:///opt/quarto/bin/quarto.js:79050:3)
+    at async file:///opt/quarto/bin/quarto.js:87537:9
+    at async SassCache.setFromHash (file:///opt/quarto/bin/quarto.js:79973:11)
+    at async compileSass (file:///opt/quarto/bin/quarto.js:87348:19)
+    at async revealTheme (file:///opt/quarto/bin/quarto.js:184201:15)
+    at async Object.formatExtras (file:///opt/quarto/bin/quarto.js:184358:23)
+    at async runPandoc (file:///opt/quarto/bin/quarto.js:129151:56)
+    at async renderPandoc (file:///opt/quarto/bin/quarto.js:130856:24)
+    at async Object.onRender (file:///opt/quarto/bin/quarto.js:136889:30)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:136866:9)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136597:9)
+    at async render (file:///opt/quarto/bin/quarto.js:142251:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142496:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102027:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101904:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187717:5)
+    at async file:///opt/quarto/bin/quarto.js:187746:5
+    at async file:///opt/quarto/bin/quarto.js:187600:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187602:5)
+    at async file:///opt/quarto/bin/quarto.js:187739:3
 

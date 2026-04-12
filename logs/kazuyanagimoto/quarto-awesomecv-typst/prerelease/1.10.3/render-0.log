@@ -42,39 +42,54 @@ error: unclosed label
 error: unclosed label
     ┌─ template-typstcv.typ:716:121
     │
-716 │ #resume-entry(title: [Ph.D.
- in Physics],location: [Z<U+00FC>rich, Switzerland],date: [1905],description: [University of Z<U+00FC>r
-ich],)
-    │                                                                        
-                                                  ^^
+716 │ #resume-entry(title: [Ph.D. in
+ Physics],location: [Z<U+00FC>rich, Switzerland],date: [1905],d
+escription: [University of Z<U+00FC>rich],)
+
+    │                               
+                                    
+                                                       ^^
 
 error: unclosed label
-    ┌─ template-typstcv.typ:717:53
-  
-  │
-717 │ #resume-entry(title: [Master of Science],location: [Z<U+00FC>r
-ich, Switzerland],date: [1896 - 1900],description: [ETH],)
-    │       
-                                               ^^
-
-error: unclosed label
-    ┌─ template-typstcv.typ:724:
-55
+    ┌─ 
+template-typstcv.typ:717:53
     │
-724 │ #resume-entry(title: [Associate Professor],location: [Z<U+0
-0FC>rich, Switzerland],date: [1909 - 1911],description: [University of 
-Z<U+00FC>rich],)
-    │                                               
-         ^^
+717 │ #resume-entry(title: [Master 
+of Science],location: [Z<U+00FC>rich
+, Switzerland],date: [1896 - 1900
+],description: [ETH],)
+    │     
+                                  
+               ^^
 
 error: unclosed label
-    ┌─ template-typstcv.typ:724:131
+    ┌─ template-typstcv.typ:724:55
     │
-724 │ #resume-entry(title: [Associate Professor],location: [Z<U+00FC>rich, Switzerland],date
-: [1909 - 1911],description: [University of Z<U+00FC>rich],)
-    │                              
-                                                          
-                                            ^^
+724 │ #res
+ume-entry(title: [Associate Profess
+or],location: [Z<U+00FC>rich, 
+Switzerland],date: [1909 - 19
+11],description: [University 
+of Z<U+00FC>rich],)
+    │               
+                               
+          ^^
+
+error: unclosed label
+    
+┌─ template-typstcv.typ:724:131
+    │
+724 │ #resume-entry
+(title: [Associate Professor],loc
+ation: [Z<U+00FC>rich, Switzerlan
+d],date: [1909 - 1911],descripti
+on: [University of Z<U+00FC>rich
+],)
+    │                        
+                                
+                                
+                                
+            ^^
 
 
 (ERROR) error: unclosed label

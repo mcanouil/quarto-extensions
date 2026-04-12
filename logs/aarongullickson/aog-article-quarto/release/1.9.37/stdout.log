@@ -4,7 +4,7 @@ Auto-detecting R dependencies for aarongullickson/aog-article-quarto (knitr engi
 using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
 gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c renv.c -o renv.o
 gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o renv.so renv.o -L/opt/R/4.5.3/lib/R/lib -lR
-Installing R packages: modelsummary, tidyverse 
+Installing R packages: modelsummary 
 gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c all_missing.c -o all_missing.o
 gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c any_infinite.c -o any_infinite.o
 gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c any_missing.c -o any_missing.o
@@ -23,22 +23,6 @@ Creating a generic function for 'nrow' from package 'base' in package 'tinytable
 Creating a generic function for 'ncol' from package 'base' in package 'tinytable'
 Creating a generic function for 'colnames' from package 'base' in package 'tinytable'
 Creating a generic function for 'colnames<-' from package 'base' in package 'tinytable'
-Using PKG_CFLAGS=
-Using PKG_LIBS=-lfreetype -lpng16 -ltiff -lz -ljpeg -lbz2 -lwebp -lwebpmux
------------------------------[ ANTICONF ]-------------------------------
-Configuration failed to find one of freetype2 libpng libtiff-4 libjpeg libwebp libwebpmux. Try installing:
- * deb: libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev libwebp-dev (Debian, Ubuntu, etc)
- * rpm: freetype-devel libpng-devel libtiff-devel libjpeg-devel libwebp-devel (Fedora, CentOS, RHEL)
- * apk: harfbuzz-dev fribidi-dev (Alpine)
- * brew: freetype libpng libtiff zlib libjpeg-turbo webp (OSX)
-If freetype2 libpng libtiff-4 libjpeg libwebp libwebpmux is already installed, check that 'pkg-config' is in your
-PATH and PKG_CONFIG_PATH contains a freetype2 libpng libtiff-4 libjpeg libwebp libwebpmux.pc file. If pkg-config
-is unavailable you can set INCLUDE_DIR and LIB_DIR manually via:
-R CMD INSTALL --configure-vars='INCLUDE_DIR=... LIB_DIR=...'
--------------------------- [ERROR MESSAGE] ---------------------------
-<stdin>:1:10: fatal error: ft2build.h: No such file or directory
-compilation terminated.
---------------------------------------------------------------------
 tlmgr: package repository https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet (verified)
 tlmgr: no self-updates for tlmgr available
 Using CTAN mirror: https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet

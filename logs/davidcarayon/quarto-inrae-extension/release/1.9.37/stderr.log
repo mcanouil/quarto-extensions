@@ -25,10 +25,10 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/RtmpUuCM0B/downloaded_packages'
+	'/tmp/RtmpmRiXCx/downloaded_packages'
 Installing packages into '/home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5'
 (as 'lib' is unspecified)
-also installing the dependencies 'fontBitstreamVera', 'fontLiberation', 'fontquiver', 'zip', 'extrafontdb', 'Rttf2pt1', 'gdtools', 'officer', 'ragg'
+also installing the dependencies 'fontBitstreamVera', 'fontLiberation', 'fontquiver', 'zip', 'extrafontdb', 'Rttf2pt1', 'gdtools', 'officer'
 
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fontBitstreamVera_0.1.1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fontLiberation_0.1.0.tar.gz'
@@ -38,7 +38,6 @@ trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/extrafontdb_
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/Rttf2pt1_1.3.14.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/gdtools_0.5.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/officer_0.7.3.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/ragg_1.5.2.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/extrafont_0.20.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/flextable_0.9.11.tar.gz'
 * installing *source* package 'fontBitstreamVera' ...
@@ -121,28 +120,6 @@ Installing ttf2pt1/ttf2pt1 to /home/runner/work/quarto-extensions/quarto-extensi
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (Rttf2pt1)
-* installing *source* package 'ragg' ...
-** this is package 'ragg' version '1.5.2'
-** package 'ragg' successfully unpacked and MD5 sums checked
-** using staged installation
-Package libwebp was not found in the pkg-config search path.
-Perhaps you should add the directory containing `libwebp.pc'
-to the PKG_CONFIG_PATH environment variable
-No package 'libwebp' found
-Package libwebpmux was not found in the pkg-config search path.
-Perhaps you should add the directory containing `libwebpmux.pc'
-to the PKG_CONFIG_PATH environment variable
-No package 'libwebpmux' found
-Package libwebp was not found in the pkg-config search path.
-Perhaps you should add the directory containing `libwebp.pc'
-to the PKG_CONFIG_PATH environment variable
-No package 'libwebp' found
-Package libwebpmux was not found in the pkg-config search path.
-Perhaps you should add the directory containing `libwebpmux.pc'
-to the PKG_CONFIG_PATH environment variable
-No package 'libwebpmux' found
-ERROR: configuration failed for package 'ragg'
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5/ragg'
 * installing *source* package 'fontquiver' ...
 ** this is package 'fontquiver' version '0.2.1'
 ** package 'fontquiver' successfully unpacked and MD5 sums checked
@@ -157,10 +134,21 @@ ERROR: configuration failed for package 'ragg'
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (fontquiver)
-ERROR: dependency 'ragg' is not available for package 'officer'
-Perhaps try a variation of:
-install.packages('ragg')
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5/officer'
+* installing *source* package 'officer' ...
+** this is package 'officer' version '0.7.3'
+** package 'officer' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (officer)
 * installing *source* package 'extrafont' ...
 ** this is package 'extrafont' version '0.20'
 ** package 'extrafont' successfully unpacked and MD5 sums checked
@@ -188,13 +176,13 @@ to the PKG_CONFIG_PATH environment variable
 No package 'cairo' found
 ERROR: configuration failed for package 'gdtools'
 * removing '/home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5/gdtools'
-ERROR: dependencies 'gdtools', 'officer', 'ragg' are not available for package 'flextable'
+ERROR: dependency 'gdtools' is not available for package 'flextable'
 Perhaps try a variation of:
-install.packages(c('gdtools', 'officer', 'ragg'))
+install.packages('gdtools')
 * removing '/home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5/flextable'
 
 The downloaded source packages are in
-	'/tmp/RtmpUuCM0B/downloaded_packages'
+	'/tmp/RtmpmRiXCx/downloaded_packages'
 Warning messages:
 1: package 'InraeThemes' is not available for this version of R
 
@@ -202,12 +190,8 @@ A version of this package for your version of R might be available elsewhere,
 see the ideas at
 https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages 
 2: In install.packages(deps, repos = ppm) :
-  installation of package 'ragg' had non-zero exit status
-3: In install.packages(deps, repos = ppm) :
-  installation of package 'officer' had non-zero exit status
-4: In install.packages(deps, repos = ppm) :
   installation of package 'gdtools' had non-zero exit status
-5: In install.packages(deps, repos = ppm) :
+3: In install.packages(deps, repos = ppm) :
   installation of package 'flextable' had non-zero exit status
 [1/8] template_revealjs.qmd
 

@@ -25,16 +25,14 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/RtmpjZ2nV7/downloaded_packages'
+	'/tmp/Rtmp4QIz1P/downloaded_packages'
 Installing packages into '/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5'
 (as 'lib' is unspecified)
-also installing the dependencies 'later', 'ragg'
+also installing the dependency 'later'
 
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/later_1.4.8.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/ragg_1.5.2.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/magick_2.9.1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/quarto_1.5.1.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/tidyverse_2.0.0.tar.gz'
 * installing *source* package 'later' ...
 ** this is package 'later' version '1.4.8'
 ** package 'later' successfully unpacked and MD5 sums checked
@@ -55,28 +53,6 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x8
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (later)
-* installing *source* package 'ragg' ...
-** this is package 'ragg' version '1.5.2'
-** package 'ragg' successfully unpacked and MD5 sums checked
-** using staged installation
-Package libwebp was not found in the pkg-config search path.
-Perhaps you should add the directory containing `libwebp.pc'
-to the PKG_CONFIG_PATH environment variable
-No package 'libwebp' found
-Package libwebpmux was not found in the pkg-config search path.
-Perhaps you should add the directory containing `libwebpmux.pc'
-to the PKG_CONFIG_PATH environment variable
-No package 'libwebpmux' found
-Package libwebp was not found in the pkg-config search path.
-Perhaps you should add the directory containing `libwebp.pc'
-to the PKG_CONFIG_PATH environment variable
-No package 'libwebp' found
-Package libwebpmux was not found in the pkg-config search path.
-Perhaps you should add the directory containing `libwebpmux.pc'
-to the PKG_CONFIG_PATH environment variable
-No package 'libwebpmux' found
-ERROR: configuration failed for package 'ragg'
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5/ragg'
 * installing *source* package 'magick' ...
 ** this is package 'magick' version '2.9.1'
 ** package 'magick' successfully unpacked and MD5 sums checked
@@ -103,30 +79,22 @@ ERROR: configuration failed for package 'magick'
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (quarto)
-ERROR: dependency 'ragg' is not available for package 'tidyverse'
-Perhaps try a variation of:
-install.packages('ragg')
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.5/tidyverse'
 
 The downloaded source packages are in
-	'/tmp/RtmpjZ2nV7/downloaded_packages'
-Warning messages:
-1: In install.packages(deps, repos = ppm) :
-  installation of package 'ragg' had non-zero exit status
-2: In install.packages(deps, repos = ppm) :
+	'/tmp/Rtmp4QIz1P/downloaded_packages'
+Warning message:
+In install.packages(deps, repos = ppm) :
   installation of package 'magick' had non-zero exit status
-3: In install.packages(deps, repos = ppm) :
-  installation of package 'tidyverse' had non-zero exit status
 
 
 processing file: README.qmd
 1/3                  
 2/3 [unnamed-chunk-1]
 Error in `library()`:
-! there is no package called 'tidyverse'
+! there is no package called 'magick'
 Backtrace:
     x
- 1. \-base::library(tidyverse)
+ 1. \-base::library(magick)
 
 Quitting from README.qmd:7-24 [unnamed-chunk-1]
 Execution halted
@@ -138,10 +106,10 @@ processing file: README.qmd
 1/3                  
 2/3 [unnamed-chunk-1]
 Error in `library()`:
-! there is no package called 'tidyverse'
+! there is no package called 'magick'
 Backtrace:
     x
- 1. \-base::library(tidyverse)
+ 1. \-base::library(magick)
 
 Quitting from README.qmd:7-24 [unnamed-chunk-1]
 Execution halted

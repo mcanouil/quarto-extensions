@@ -48,24 +48,23 @@ Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/
 Error runni
 ng filter /opt/quarto/share/filters/main.lua:
 /opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERROR
-stack trac
-eback:
-	/opt/quarto/share/filters/main.lua:2622: in function 'fatal'
-	/op
-t/quarto/share/filters/main.lua:2202: in function 'fail'
-	/opt/quarto
-/share/filters/main.lua:3760: in field 'Pandoc'
-	/opt/quarto/share/filt
-ers/main.lua:588: in function 'run_emulated_filter'
 
-	/opt/quarto/share/filters/main.lua:1317: in lo
-cal 'callback'
-	/opt/quarto/share/filters/main.lua:1
-335: in upvalue 'run_emulated_filter_chain'
-	/opt/quarto/share/fil
-ters/main.lua:1371: in function </opt/q
-uarto/share/filters/main.lua:
-1368>
+stack traceback:
+	/opt/quarto/share/filters/main.lua:2622: in function 'fatal'
+
+	/opt/quarto/share/filters/main.lua:2202: in function 'fail'
+	/opt/quarto/sh
+are/filters/main.lua:3760: in field 'Pandoc'
+	/opt/quarto/share/filte
+rs/main.lua:588: in function 'run_emulated_filter'
+	
+/opt/quarto/share/filters/main.lua:1317: in loc
+al 'callback'
+	/opt/quarto/share/filters/main.lu
+a:1335: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filt
+ers/main.lua:1371: in function </opt/quarto/share/f
+ilters/main.lua:1368>
 
 (WARN) Error encountered when rendering files
 

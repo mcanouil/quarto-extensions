@@ -33,8 +33,8 @@ output file: template-typstcv.knit.md
 error: unclosed label
     ┌─ template-typstcv.typ:716:52
     │
-716 │ #resume-ent
-ry(title: [Ph.D. in Physics],location: [Z<U+00FC>rich, Switzerland],date: [1905],description: [University of Z<U+00FC>rich],)
+716 │ #resume-entry(t
+itle: [Ph.D. in Physics],location: [Z<U+00FC>rich, Switzerland],date: [1905],description: [University of Z<U+00FC>rich],)
     │                                                     ^^
 
 error: unclosed label
@@ -46,28 +46,27 @@ error: unclosed label
 error: unclosed label
     ┌─ template-typstcv.typ:717:53
     │
-717 │ #resume-entry(title: [Master of Scie
-nce],location: [Z<U+00FC>rich, Switzerland],date: [1896 - 1900],description: [ETH],)
-    │                                                      ^^
+717 │ #resume-entry(title: [Master of Science],location: [Z<U+00FC>rich, Switzerland],date: [1896 - 1900],description: [ETH],)
+    │             
+                                         ^^
 
 error: unclosed label
-    
-┌─ template-typstcv.typ:724:55
+    ┌─ template-typstcv.typ:724:55
     │
-724 │ #resume-entry(title: [Associate Professor],location: [Z<U+00FC>rich, Switzerland],d
-ate: [1909 - 1911],description: [University of Z<U+00FC>rich],)
-    │                
-                                        ^^
+724 │ #resume-entry(title: [Associate Professor],location: [Z<U+00FC>rich, S
+witzerland],date: [1909 - 1911],description: [University of Z<U+00FC>rich],)
+    │                      
+                                  ^^
 
 error: unclosed label
     ┌─ template-typstcv.typ:724:131
     │
-724 │ #resume-entry(title:
- [Associate Professor],location: [Z<U+00FC>rich, Switzerland],date: [1909 - 1911],
-description: [University of Z<U+00FC>rich],)
-    │                          
-                                                                                      
-                    ^^
+724 │ #resume-entry(title: [Assoc
+iate Professor],location: [Z<U+00FC>rich, Switzerland],date: [1909 - 1911],description
+: [University of Z<U+00FC>rich],)
+    │                                  
+                                                                    
+                              ^^
 
 
 (ERROR) error: unclosed label

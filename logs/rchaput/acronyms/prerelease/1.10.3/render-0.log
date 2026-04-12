@@ -34,30 +34,26 @@ The original Pandoc error follows below.
 Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/tests/05-keep-duplicates/acronyms:
 Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/tests/05-keep-duplicates/acronyms
 
-Error running filter /
-opt/quarto/share/filters/main.lua:
-/opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERROR
+Error runn
+ing filter /opt/quarto/share/filters/main.lua:
+/opt/quarto/share/filters/main.lua:588: FATAL
+ QUARTO ERROR
 stack traceback:
-	/opt/quarto/
-share/filters/main.lua:2622: in function 'fatal'
-	/opt/quarto/
-share/filters/main.lua:2202: in function 'f
-ail'
-	/opt/quarto/share/filters/main.lua:3760: in fie
-ld 'Pandoc'
-	/opt/quarto/share/filters/main.lua:588: 
-in function 'run_emulated_filter'
-	/opt/quarto/share
-/filters/main.lua:1317: in local
- 'callback'
-	/opt/quarto/
-share/filters/main.lua:1
-335: in upvalue 'run_emulated_fil
-ter_chain'
-	/opt/quarto/share/
-filters/main.lua:1371: in function </
-opt/quarto/share/filters/main.lua:13
-68>
+	/opt/quarto/share/filters/ma
+in.lua:2622: in function 'fatal'
+	/opt/quarto/share/filters/main.lua:2
+202: in function 'fail'
+	/opt/quarto/share/filters/main.lua:3760: in field 'Pand
+oc'
+	/opt/quarto/share/filters/main.lua:588: in function 'run_emulated_filter'
+	/
+opt/quarto/share/filters/main.lua:1317: in local 'callback'
+	/
+opt/quarto/share/filters/main.lua:1335: in upvalu
+e 'run_emulated_filter_chain'
+	/opt/quarto/share/f
+ilters/main.lua:1371: in function </opt/q
+uarto/share/filters/main.lua:1368>
 
 (WARN) Error encountered when rendering files
 

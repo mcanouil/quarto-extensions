@@ -25,10 +25,10 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/RtmpTcK7Jz/downloaded_packages'
+	'/tmp/RtmpJyUqU0/downloaded_packages'
 Installing packages into '/home/runner/work/quarto-extensions/quarto-extensions/test-23/R/x86_64-pc-linux-gnu-library/4.5'
 (as 'lib' is unspecified)
-also installing the dependencies 'fontBitstreamVera', 'fontLiberation', 'proxy', 'lazyeval', 'sp', 'terra', 'later', 'otel', 'fontquiver', 'e1071', 'wk', 'ragg', 'gridExtra', 'crosstalk', 'leaflet.providers', 'raster', 'promises', 'gdtools', 'classInt', 's2', 'units'
+also installing the dependencies 'fontBitstreamVera', 'fontLiberation', 'proxy', 'lazyeval', 'sp', 'terra', 'later', 'otel', 'fontquiver', 'e1071', 'wk', 'gridExtra', 'crosstalk', 'leaflet.providers', 'raster', 'promises', 'gdtools', 'classInt', 's2', 'units'
 
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fontBitstreamVera_0.1.1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fontLiberation_0.1.0.tar.gz'
@@ -41,7 +41,6 @@ trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/otel_0.2.0.t
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fontquiver_0.2.1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/e1071_1.7-17.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/wk_0.9.5.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/ragg_1.5.2.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/gridExtra_2.3.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/crosstalk_1.2.2.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/leaflet.providers_3.0.0.tar.gz'
@@ -52,7 +51,6 @@ trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/classInt_0.4
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/s2_1.1.9.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/units_1.0-1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/patchwork_1.3.2.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/tidyverse_2.0.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/viridis_0.6.5.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/leaflet_2.2.3.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/DT_0.34.0.tar.gz'
@@ -206,28 +204,6 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-23/R/x8
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (wk)
-* installing *source* package 'ragg' ...
-** this is package 'ragg' version '1.5.2'
-** package 'ragg' successfully unpacked and MD5 sums checked
-** using staged installation
-Package libwebp was not found in the pkg-config search path.
-Perhaps you should add the directory containing `libwebp.pc'
-to the PKG_CONFIG_PATH environment variable
-No package 'libwebp' found
-Package libwebpmux was not found in the pkg-config search path.
-Perhaps you should add the directory containing `libwebpmux.pc'
-to the PKG_CONFIG_PATH environment variable
-No package 'libwebpmux' found
-Package libwebp was not found in the pkg-config search path.
-Perhaps you should add the directory containing `libwebp.pc'
-to the PKG_CONFIG_PATH environment variable
-No package 'libwebp' found
-Package libwebpmux was not found in the pkg-config search path.
-Perhaps you should add the directory containing `libwebpmux.pc'
-to the PKG_CONFIG_PATH environment variable
-No package 'libwebpmux' found
-ERROR: configuration failed for package 'ragg'
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-23/R/x86_64-pc-linux-gnu-library/4.5/ragg'
 * installing *source* package 'gridExtra' ...
 ** this is package 'gridExtra' version '2.3'
 ** package 'gridExtra' successfully unpacked and MD5 sums checked
@@ -261,7 +237,7 @@ ERROR: configuration failed for package 'ragg'
 ** this is package 'units' version '1.0-1'
 ** package 'units' successfully unpacked and MD5 sums checked
 ** using staged installation
-configure: error: in '/tmp/Rtmprdbper/R.INSTALL8474d9c106b/units':
+configure: error: in '/tmp/RtmpAHlcEK/R.INSTALL73d80bbf51/units':
 configure: error: 
 --------------------------------------------------------------------------------
   Configuration failed because libudunits2.so was not found. Try installing:
@@ -403,10 +379,6 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-23/R/x8
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (s2)
-ERROR: dependency 'ragg' is not available for package 'tidyverse'
-Perhaps try a variation of:
-install.packages('ragg')
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-23/R/x86_64-pc-linux-gnu-library/4.5/tidyverse'
 * installing *source* package 'viridis' ...
 ** this is package 'viridis' version '0.6.5'
 ** package 'viridis' successfully unpacked and MD5 sums checked
@@ -488,7 +460,7 @@ install.packages(c('raster', 'sf'))
 * removing '/home/runner/work/quarto-extensions/quarto-extensions/test-23/R/x86_64-pc-linux-gnu-library/4.5/leaflet'
 
 The downloaded source packages are in
-	'/tmp/RtmpTcK7Jz/downloaded_packages'
+	'/tmp/RtmpJyUqU0/downloaded_packages'
 Warning messages:
 1: package 'hrbrthemes' is not available for this version of R
 
@@ -498,20 +470,16 @@ https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-package
 2: In install.packages(deps, repos = ppm) :
   installation of package 'terra' had non-zero exit status
 3: In install.packages(deps, repos = ppm) :
-  installation of package 'ragg' had non-zero exit status
-4: In install.packages(deps, repos = ppm) :
   installation of package 'units' had non-zero exit status
-5: In install.packages(deps, repos = ppm) :
+4: In install.packages(deps, repos = ppm) :
   installation of package 'raster' had non-zero exit status
-6: In install.packages(deps, repos = ppm) :
-  installation of package 'tidyverse' had non-zero exit status
-7: In install.packages(deps, repos = ppm) :
+5: In install.packages(deps, repos = ppm) :
   installation of package 'gdtools' had non-zero exit status
-8: In install.packages(deps, repos = ppm) :
+6: In install.packages(deps, repos = ppm) :
   installation of package 'ggiraph' had non-zero exit status
-9: In install.packages(deps, repos = ppm) :
+7: In install.packages(deps, repos = ppm) :
   installation of package 'sf' had non-zero exit status
-10: In install.packages(deps, repos = ppm) :
+8: In install.packages(deps, repos = ppm) :
   installation of package 'leaflet' had non-zero exit status
 
 
@@ -519,10 +487,10 @@ processing file: template.qmd
 1/19                  
 2/19 [unnamed-chunk-1]
 Error in `library()`:
-! there is no package called 'tidyverse'
+! there is no package called 'hrbrthemes'
 Backtrace:
     x
- 1. \-base::library(tidyverse)
+ 1. \-base::library(hrbrthemes)
 
 Quitting from template.qmd:42-47 [unnamed-chunk-1]
 Execution halted
@@ -534,10 +502,10 @@ processing file: template.qmd
 1/19                  
 2/19 [unnamed-chunk-1]
 Error in `library()`:
-! there is no package called 'tidyverse'
+! there is no package called 'hrbrthemes'
 Backtrace:
     x
- 1. \-base::library(tidyverse)
+ 1. \-base::library(hrbrthemes)
 
 Quitting from template.qmd:42-47 [unnamed-chunk-1]
 Execution halted

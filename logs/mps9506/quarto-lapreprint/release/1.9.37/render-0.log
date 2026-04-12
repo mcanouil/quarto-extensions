@@ -75,9 +75,9 @@ metadata
 error: only element functions can be used as selectors
     ┌─ template.typ:323:19
     │  
-323 │       header: locate(loc => {
-    │ ╭────────
-────────────^
+323 │      
+ header: locate(loc => {
+    │ ╭────────────────────^
 324 │ │       if(loc.page() == 1) {
 325 │ │         let headers = (
 326 │ │           if (open-access) {smallcaps[Open Access]},

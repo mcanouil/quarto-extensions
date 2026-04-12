@@ -23,105 +23,95 @@ metadata
 
 sh: 1: d2: Permission denied
 
-Error running
- filter /opt/quarto/share/filters/main.lua:
-/opt/quarto/share/pandoc/datadir/_base64.lua:81: attempt to get length of a nil value (local 'str')
-stack 
-traceback:
-	...uarto-extensions/test-9/repo/tests/_extensions/d2/d2.lua:210: in functi
-on <...uarto-extensions/test-9/repo/tests/_extensions/d2/d2.lua:181>
-	[C
-]: in ?
+Error run
+ning filter /opt/quarto/share/filters/main.lua:
+/opt/quarto/share/pandoc/datadir/_base64.lua:81: attempt to get length of a ni
+l value (local 'str')
+stack traceback:
+	...uarto-extensions/te
+st-9/repo/tests/_extensions/d2/d2.lua:210: in function <...
+uarto-extensions/test-9/repo/tests/_extensions/d2/d2.lua:181>
+	[
+C]: in ?
 	[C]: in method 'walk'
-	...uarto-extensions/test-9/repo/t
-ests/_extensions/d2/d2.lua:366: in function <...uarto-extension
-s/test-9/repo/tests/_extensions/d2/d2.lua:339>
-
-	[C]: in ?
+	...uarto-extensions/test-9/repo/test
+s/_extensions/d2/d2.lua:366: in function <...uarto-extensions
+/test-9/repo/tests/_extensions/d2/d2.lua:339>
+	[
+C]: in ?
 	[C]: in method 'walk'
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in functio
+n '_utils.walk'
+	/opt/quarto/share/filters/main.lua:574: in local 'checked_walk
+'
+	/opt/quarto/share/filters/main.lua:629: in functio
+n 'run_emulated_filter'
+	/opt/quarto/s
+hare/filters/main.lua:1317: in local '
+callback'
+	[string "if pandoc.system.os == "m
+ingw32" then..."]:778: in field 'w
+ithScriptFile'
 	/opt/quarto/shar
-e/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
-	/opt/quarto/share/filters/main.lua:574: in local 'checked_walk'
-	/opt/quarto/share/filters/main.lua:629: in function 'run_emulated_filter'
-	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
-	[stri
-ng "if pandoc.system.os == "mingw32" then..."]:778: in field 'wit
-hScriptFile'
-	/opt/quarto/share/filt
-ers/main.lua:1333: in upvalue
- 'run_emulated_filter_chain'
-
-	/opt/quarto/share/filters/m
-ain.lua:1371: in function </
-opt/quarto/share/filters/m
-ain.lua:1368>
-stack traceb
-ack:
-	...uarto-extensions/
-test-9/repo/tests/_extensi
-ons/d2/d2.lua:366: in fun
-ction <...uarto-extensions
-/test-9/repo/tests/_exten
-sions/d2/d2.lua:339>
-	[C]:
- in ?
-	[C]: in method 'wa
-lk'
-	/opt/quarto/share/pando
-c/datadir/_utils.lua:607: in func
-tion '_utils.walk'
-	/opt/qua
-rto/share/filters/main.lua
-:574: in local 'checked_w
-alk'
-	/opt/quarto/share/fi
-lters/main.lua:629: in fun
-ction 'run_emulated_filte
-r'
-	/opt/quarto/share/fil
-ters/main.lua:1317: in loc
-al 'callback'
-	[string "
-if pandoc.system.os == "m
-ingw32" then..."]:778: in 
-field 'withScriptFile'
+e/filters/main.lua:1333: in upva
+lue 'run_emulated_filter_chain'
 	/
-opt/quarto/share/filters
-/main.lua:1333: in upvalu
-e 'run_emulated_filter_cha
-in'
-	/opt/quarto/share/filters/mai
-n.lua:1371: in function </o
-pt/quarto/share/filters/m
-ain.lua:1368>
-stack traceb
-ack:
-	/opt/quarto/share/
-pandoc/datadir/_utils.lua
-:607: in function '_utils.walk'
-	/opt/
-quarto/share/filters/main.lua:574:
- in local 'checked_walk'
-	/op
-t/quarto/share/filters/mai
-n.lua:629: in function 'r
-un_emulated_filter'
-	/opt/quarto/sh
-are/filters/main.lua:1317: i
-n local 'callback'
-	[string "if pan
-doc.system.os == "mingw32" then..
-."]:778: in field 'withScr
-iptFile'
+opt/quarto/share/filters/main.lua
+:1371: in function </opt/quarto/share/filter
+s/main.lua:1368>
+stack traceback:
+
+	...uarto-extensions/test-9/rep
+o/tests/_extensions/d2/d2.lua:36
+6: in function <...uarto-extensi
+ons/test-9/repo/tests/_extensio
+ns/d2/d2.lua:339>
+	[C]: in ?
+	
+[C]: in method 'walk'
+	/opt/qu
+arto/share/pandoc/datadir/_uti
+ls.lua:607: in function '_util
+s.walk'
+	/opt/quarto/share/fil
+ters/main.lua:574: in local 'c
+hecked_walk'
 	/opt/quarto/sha
-re/filters/main.lua:1333:
- in upvalue 'run_emulate
-d_filter_chain'
-	/opt/qua
-rto/share/filters/main.lu
-a:1371: in function </op
-t/quarto/share/filters/ma
-in.lua:1368>
+re/filters/main.lua:629: in fu
+nction 'run_emulated_filter'
+	
+/opt/quarto/share/filters/main
+.lua:1317: in local 'callback'
+
+	[string "if pandoc.system.os
+ == "mingw32" then..."]:778: in
+ field 'withScriptFile'
+	/opt/
+quarto/share/filters/main.lua:1333: i
+n upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/
+main.lua:1371: in function </opt/quarto
+/share/filters/main.lua:1368>
+sta
+ck traceback:
+	/opt/quarto/sha
+re/pandoc/datadir/_utils.lua:6
+07: in function '_utils.walk'
+
+	/opt/quarto/share/filters/mai
+n.lua:574: in local 'checked_walk'
+	/opt/quarto/share/filters
+/main.lua:629: in function 'run_emulated_filter'
+	/opt/quarto/share
+/filters/main.lua:1317: in local 'callback'
+	[string "if pandoc
+.system.os == "mingw32" then..."]:77
+8: in field 'withScriptFile'
+	/o
+pt/quarto/share/filters/main.lua:1333: in upvalue 'run
+_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1
+371: in function </opt/quarto/share/filters/main.lua:1368>
 
 (WARN) Error encountered when rendering files
 

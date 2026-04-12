@@ -51,31 +51,22 @@ The original Pandoc error follows below.
 Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/mergemeta:
 Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/mergemeta
 
-Error running filter 
-/opt/quarto/share/filters/main.lua:
+Error running filter /opt/quarto/s
+hare/filters/main.lua:
 /opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERROR
 stack traceback:
-	/opt/
-quarto/share/filters/main.lua:2622: in function
- 'fatal'
-	/opt/quarto/share/filters/main
-.lua:2202: in function 'fail'
-	/opt/qu
-arto/share/filters/main.lua:3760: in field 'Pand
-oc'
-	/opt/quarto/share/filters/main
-.lua:588: in function 'run_
-emulated_filter'
-	/opt/quarto/share/filters/main.lua:1317: in local '
-callback'
-	/opt/quarto/share/filters/main.lua:1335: in upvalue 'ru
-n_emulated_filter_chain'
-	/opt/quarto/s
-hare/filters/main.lua:
-1371: in function 
-</opt/quarto/shar
-e/filters/main.lu
-a:1368>
+	/opt/quarto/share/filters/main.lua:2622: in function 'fatal'
+	/opt/quarto/share/filters/main.lua:2202: in function 'fail'
+	/opt/quarto/share/filters/main.
+lua:3760: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:588: in function 'run_em
+ulated_filter'
+	/opt/quarto/share/filters/main.lua:1317: in local 'call
+back'
+	/opt/quarto/share/filters/main.lua:1335: in upvalue 'run_emulated_filter_c
+hain'
+	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filt
+ers/main.lua:1368>
 
 (WARN) Error encountered when rendering files
 
