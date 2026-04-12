@@ -50,9 +50,6 @@
       return div.innerHTML;
     }
 
-    function safeId(str) {
-      return String(str).replace(/[^a-zA-Z0-9_-]/g, '-');
-    }
 
     function debounce(func, wait) {
       let timeout;
@@ -134,7 +131,7 @@
       const relativeTime = getRelativeTime(item.fileModified);
       const statusBanner = getStatusBanner(item.categories);
       const authorDisplay = (!item.author || item.author === 'null') ? item.login : item.author;
-      const sid = safeId(item.id);
+      const sid = item.id;
       const gridCatId = `grid-cat-${sid}`;
 
       let statusHtml = '';
@@ -207,7 +204,7 @@
       const relativeTime = getRelativeTime(item.fileModified);
       const statusBanner = getStatusBanner(item.categories);
       const authorDisplay = (!item.author || item.author === 'null') ? item.login : item.author;
-      const sid = safeId(item.id);
+      const sid = item.id;
       const listCatId = `list-cat-${sid}`;
 
       let statusHtml = '';
@@ -299,7 +296,7 @@
     }
 
     function renderInstallModal(item) {
-      const sid = safeId(item.id);
+      const sid = item.id;
       return `<div class="modal fade" id="install-modal-${sid}" tabindex="-1" aria-labelledby="install-modal-label" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -333,7 +330,7 @@ ${renderCodeBlock(`add ${escapeHtml(item.usage)}`)}
     }
 
     function renderUseModal(item) {
-      const sid = safeId(item.id);
+      const sid = item.id;
       return `<div class="modal fade" id="use-modal-${sid}" tabindex="-1" aria-labelledby="use-modal-label" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -799,7 +796,7 @@ ${renderCodeBlock(`use template ${escapeHtml(item.usage)}`)}
       .then(data => {
         allExtensionsData = data;
         // Build lookup for on-demand modals
-        data.forEach(item => itemsById.set(safeId(item.id), item));
+        data.forEach(item => itemsById.set(item.id, item));
         // Replace server-rendered items with properly sorted JS-rendered items
         rebuildView();
       })

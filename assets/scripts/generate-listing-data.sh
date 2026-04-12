@@ -82,7 +82,7 @@ for root, dirs, files in os.walk('extensions'):
     else:
         continue
 
-    encoded_id = base64.b64encode(urllib.parse.quote(str(usage), safe='').encode()).decode()
+    encoded_id = base64.urlsafe_b64encode(urllib.parse.quote(str(usage), safe='').encode()).decode().rstrip('=')
 
     categories = data.get('categories', [])
     if isinstance(categories, str):
