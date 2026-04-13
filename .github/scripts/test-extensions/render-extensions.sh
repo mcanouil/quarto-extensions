@@ -339,8 +339,6 @@ if [[ -f .venv/bin/activate ]]; then
   fi
 fi
 
-render_idx=0
-
 if command -v tlmgr >/dev/null 2>&1; then
   CTAN_MIRRORS=(
     "https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet"
@@ -364,31 +362,33 @@ if command -v tlmgr >/dev/null 2>&1; then
 fi
 
 quarto_render() {
-  if ! quarto render "$@" --log "${WORKDIR}/render-${render_idx}.log" --log-level info \
+  local log_name="$1"
+  shift
+  if ! quarto render "$@" --log "${WORKDIR}/${log_name}.log" --log-level info \
     >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log"; then
     echo "Render failed, retrying once..." >>"${LOG_DIR}/stderr.log"
-    quarto render "$@" --log "${WORKDIR}/render-${render_idx}.log" --log-level info \
+    quarto render "$@" --log "${WORKDIR}/${log_name}.log" --log-level info \
       >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || return 1
   fi
 }
 
 render_single_qmd() {
   local qmd="$1"
+  local base
+  base="$(basename "${qmd}" .qmd)"
   local formats
   formats=$(quarto inspect "${qmd}" 2>/dev/null | jq -r '.formats | keys[]' 2>/dev/null) || formats=""
   if [[ -z "${formats}" ]]; then
-    quarto_render "${qmd}" || exit 1
-    render_idx=$((render_idx + 1))
+    quarto_render "${base}" "${qmd}" || exit 1
   else
     while IFS= read -r fmt; do
-      quarto_render "${qmd}" --to "${fmt}" || exit 1
-      render_idx=$((render_idx + 1))
+      quarto_render "${base}-${fmt}" "${qmd}" --to "${fmt}" || exit 1
     done <<< "${formats}"
   fi
 }
 
 if [[ -f _quarto.yml ]] || [[ -f _quarto.yaml ]]; then
-  quarto_render || exit 1
+  quarto_render "project" || exit 1
 elif [[ "${EXT_TYPE}" == "document" ]]; then
   qmd_files=$(jq -r '.qmd_files[]?' "${WORKDIR}/ext-meta.json")
   while IFS= read -r qmd; do
@@ -407,7 +407,7 @@ RENDER_SCRIPT
 	fi
 
 	# Copy render logs to log directory
-	find "${workdir}" -maxdepth 1 -name 'render-*.log' -type f -exec cp --no-dereference {} "${log_dir}/" \; 2>/dev/null || true
+	find "${workdir}" -maxdepth 1 -name '*.log' -not -name 'stdout.log' -not -name 'stderr.log' -type f -exec cp --no-dereference {} "${log_dir}/" \; 2>/dev/null || true
 
 	if [[ "${status}" == "pass" ]]; then
 		echo "Result: ${id} PASSED"
