@@ -1,0 +1,43 @@
+
+
+processing file: example_html.qmd
+
+1/3                  
+
+2
+/3 [unnamed-chunk-1]
+
+3/3                  
+
+output file: example_html.knit.md
+
+
+pandoc 
+
+  to: html
+  output-file: example_html.html
+  standalone: true
+  self-contained: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: bsicons Example
+  author: Shafayet Khan Shafee
+  date: last-modified
+  date-format: DD MMM, YYYY
+  
+
+Output created: example_html.html
+
+

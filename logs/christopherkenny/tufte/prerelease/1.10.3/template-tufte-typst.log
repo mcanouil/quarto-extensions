@@ -1,0 +1,306 @@
+pandoc 
+
+  to: typst
+  output-file: template.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  variables: {}
+  
+
+metadata
+
+  date: today
+  date-format: MMMM DD, YYYY
+  margin:
+    left: 1in
+    right: 3.5in
+    top: 1.5in
+    bottom: 1.5in
+  mainfont:
+    - Lucida Bright
+    - New CM
+    - Linux Libertine
+  codefont:
+    - Lucida Console
+  sansfont:
+    - Gill Sans MT
+    - TeX Gyre Heros
+    - Noto Sans
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Tufte inspired Typst template (in Quarto)
+  shorttitle: Tufte-Memo Usage Guide
+  subtitle: The Tufte-Memo Usage guide and background
+  author:
+    - name: Author One
+      affiliations:
+        - name: An Organization
+      email: email@email.com
+    - name: Noah Gula
+      email: github.com/nogula
+    - name: Christopher T. Kenny
+      email: github.com/christopherkenny
+  abstract: This Quarto template adopts many aspects of the design and typography of Edward Tufte's books and extends [nogula](https://github.com/nogula)'s Typst template. The document itself demonstrates the functionality and usage of the template, including setup, sidenotes, figure display, citations, and more.
+  bibliography:
+    - bibliography.bib
+  functions:
+    - note
+    - wideblock
+  
+
+(WARN) typst-gather analyze failed; staging all packages as fallback
+
+[typst]: Compiling template.typ to template.pdf...
+downloading @preview/drafting:0.2.2
+
+  9.3 KiB /   9.3 KiB (100 %)   9.3 KiB/s in 1.27 ms ETA: 0 s
+
+
+warning: unknown font family: gill sans mt
+    ┌─ template.typ:763:35
+    │
+763 │ #show bi
+bliography: set text(font: sansfont)
+    │                                    ^^^^^^^^
+
+warning: unknown font family: tex gyre heros
+    ┌─ template.typ:763:35
+    │
+763 │ #show bibliography: set text(font: sansfont)
+    │                                    ^^^^^^^^
+
+warning: unknown font family: noto sans
+    ┌─ template.typ:763:35
+    │
+763 │ #show bibliography: set text(font: sansfont)
+    │                                    ^^^^^^^^
+
+warning: unknown font family: gill sans mt
+    ┌─ template.typ:331:38
+    │
+331 │   show figure.caption: set text(font: sansfont)
+    │                                       ^^^^^^^^
+
+warning: unknown font family: tex gyre heros
+    ┌─ template.typ:331:38
+
+    │
+331 │   show figure.caption: set text(font: sansfont)
+    │                                       ^^^^^^^^
+
+
+warning: unknown font family: noto sans
+    ┌─ template.typ:331:38
+    │
+331 │   show figure.caption: set text(font: sansfont)
+
+    │                                       ^^^^^^^^
+
+warning: unknown font family: lucida console
+    ┌─ template.typ:349:27
+    │
+349 │   show raw: set text(font: "Lu
+cida Console", size: 10pt)
+    │                            ^^^^^^^^^^^^^^^^
+
+warning: `show par: set block(spacing: ..)` has no effect anymore
+    ┌─ template.typ:480:2
+    │
+480 │   s
+how par: set block(spacing: 0.65em)
+    │   ^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
+    │
+    = hint: write `set par(spacing: ..)` instead
+    = 
+hint: this is specific to paragraphs as they are not considered blocks anymore
+
+warning: unknown font family: gill sans mt
+    ┌─ template.typ:489:14
+    │
+489 │ 
+        font: sansfont,
+    │          
+     ^^^^^^^^
+
+warning: unknown font family: tex gyre heros
+    ┌─ template.typ:489:14
+    │
+489 │         font:
+ sansfont,
+    │               ^^^^^^^^
+
+
+warning: unknown font family: noto sans
+    ┌─ template.typ:489:14
+    │
+489 │        
+ font: sansfont,
+    │             
+  ^^^^^^^^
+
+warning: unknown font family: gill sans mt
+    ┌─ template.typ:505:
+21
+    │
+505 │       set text(font: s
+ansfont, size: fontsize)
+    │    
+                  ^^^^^^^^
+
+
+warning: unknown font family: tex gyre heros
+    ┌─ template.typ:505:21
+    │
+505 │       set text(fo
+nt: sansfont, size: fontsize)
+    │ 
+                     ^^^^^^^^
+
+
+warning: unknown font family: noto sans
+    ┌─ template.typ:505:21
+    │
+505 │       
+set text(font: sansfont, size: fontsize)
+    │       
+               ^^^^^^^^
+
+warning: 
+unknown font family: gill sans mt
+    ┌─ template.typ:545:21
+    │
+545 │       set
+ text(font: sansfont)
+    │     
+                 ^^^^^^^^
+
+warning
+: unknown font family: tex gyre heros
+    ┌─ template.typ:545:21
+    │
+545 │       se
+t text(font: sansfont)
+    │    
+                  ^^^^^^^^
+
+
+warning: unknown font family: noto sans
+    ┌─ template.typ:545:21
+    │
+545 │    
+   set text(font: sansfont)
+    
+│                      ^^^^^^^
+^
+
+warning: unknown font family: lucida bright
+    ┌─ template.typ:573:10
+    │
+573 
+│     font: font,
+    │         
+  ^^^^
+
+warning: unknown font family: new cm
+    ┌─ template.typ:573:10
+    
+│
+573 │     font: font,
+    │     
+      ^^^^
+
+warning: unknown font family: linux libertine
+    ┌─ template.typ:573:10
+
+    │
+573 │     font: font,
+    │ 
+          ^^^^
+
+warning: unknown font family: gill sans mt
+    ┌─ template.typ:236:10
+    │
+
+236 │     font: sansfont,
+    │     
+      ^^^^^^^^
+
+warning: unknown font family: tex gyre heros
+    ┌─ template.typ:236:10
+    │
+236 │     font: sansfont,
+    │           ^^^^^^^^
+
+warning: unknown font family: noto sans
+    ┌─ template.typ:236:10
+    │
+236 │     font: sa
+nsfont,
+    │           ^^^^^^^^
+
+warning: unknown font family: lucida bright
+    ┌─ template.typ:241:16
+    │
+241 │     
+      font: "Lucida Bright",
+    │                 ^^^^^
+^^^^^^^^^^
+
+warning: unknown font family: gill sans mt
+    ┌─ template.typ:405:21
+    │
+405 │       set text(font: sansfont)
+    │    
+                  ^^^^^^^^
+
+warning: unknown font family: tex gyre heros
+    ┌─ template.typ:405:21
+
+    │
+405 │       set text(font: sansfo
+nt)
+    │                      ^^
+^^^^^^
+
+warning: unknown font family: noto sans
+    ┌─ template.typ:405:21
+    │
+405 │       set text(font: sans
+font)
+    │                      ^^^^^^^^
+
+warning: unknown font family: gill sans mt
+    ┌─ template.typ:429:21
+    
+│
+429 │       set text(font: sansfont, size: 8pt)
+    │                      ^^^^^^^^
+
+warning
+: unknown font family: tex gyre heros
+    ┌─ template.typ:429:21
+    │
+429 │       set text(font: sansfont, size: 8
+pt)
+    │                      ^^^^^^^
+^
+
+warning: unknown font family: noto sans
+    ┌─ template.typ:429:21
+    │
+429 
+│       set text(font: sansfont, 
+size: 8pt)
+    │               
+       ^^^^^^^^
+
+
+DONE
+
+
+Output created: template.pdf
+
+

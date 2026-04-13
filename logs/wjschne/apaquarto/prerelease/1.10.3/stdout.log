@@ -128,7 +128,7 @@ chmod +x configure; \
 CC="gcc" CFLAGS="-g -O2  -fpic -fvisibility=hidden -DNDEBUG" CPPFLAGS="-I/usr/local/include" AR="ar" RANLIB="ranlib" LDFLAGS="-L/usr/local/lib" ./configure lt_cv_apple_cc_single_mod=no "--quiet"
 make --directory=libuv \
 	HAVE_DTRACE=0
-make[1]: Entering directory '/tmp/RtmpjDgDfm/R.INSTALL7297237125/httpuv/src/libuv'
+make[1]: Entering directory '/tmp/RtmpMa62Ol/R.INSTALL7292b256b0d/httpuv/src/libuv'
   CC       src/libuv_la-fs-poll.lo
   CC       src/libuv_la-idna.lo
   CC       src/libuv_la-inet.lo
@@ -166,7 +166,7 @@ make[1]: Entering directory '/tmp/RtmpjDgDfm/R.INSTALL7297237125/httpuv/src/libu
   CC       src/unix/libuv_la-random-sysctl-linux.lo
   CC       src/unix/libuv_la-epoll.lo
   CCLD     libuv.la
-make[1]: Leaving directory '/tmp/RtmpjDgDfm/R.INSTALL7297237125/httpuv/src/libuv'
+make[1]: Leaving directory '/tmp/RtmpMa62Ol/R.INSTALL7292b256b0d/httpuv/src/libuv'
 gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2  -c http-parser/http_parser.c -o http-parser/http_parser.o
 gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2  -c sha1/sha1.c -o sha1/sha1.o
 g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c base64/base64.cpp -o base64/base64.o

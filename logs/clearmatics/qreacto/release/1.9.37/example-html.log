@@ -1,0 +1,40 @@
+pandoc 
+
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Qreacto
+  sidebar: false
+  navbar: false
+  
+
+MyComponent > react-MyComponent-GDr7ippF
+
+MyStyledComponent > react-MyStyledComponent-2HTfCWtd
+
+EmojiComponent > react-EmojiComponent-0HDb1hCy
+
+RandomWordsComponent > react-RandomWordsComponent-fuvCn219
+
+MyNestedComponent > react-MyNestedComponent-vWdQoOWE
+
+EnvironmentReadingComponent > react-EnvironmentReadingComponent-GcC1TMqF
+
+Output created: example.html
+
+
