@@ -41,7 +41,7 @@
                 const icon = r.status === 'pass' ? 'bi-check-circle-fill' : r.status === 'fail' ? 'bi-x-circle-fill' : 'bi-dash-circle-fill';
                 const colour = r.status === 'pass' ? 'text-success' : r.status === 'fail' ? 'text-danger' : 'text-secondary';
                 const statusLabel = r.status.charAt(0).toUpperCase() + r.status.slice(1);
-                const logUrl = 'https://github.com/mcanouil/quarto-extensions/tree/quarto-tests/' + r.log;
+                const logUrl = 'https://github.com/mcanouil/quarto-extensions/blob/quarto-tests/' + r.log + '/stderr.log';
               %>
               <tr>
                 <td><code><%= r['quarto-version'] %></code></td>
