@@ -15,64 +15,60 @@ processing file: qtabby-faq.qmd
 output file: qtabby-faq.knit.md
 
 
-Error running filt
-er /opt/quarto/share/filters/main.lua:
+Error runnin
+g filter /opt/quarto/share/filters/main.lua:
 /opt/quarto/share/filters/main.lua:23084: attempt to call a nil value (method 'map')
 stack traceback:
 	/opt/quarto/share/filters/main.lua:937: in field 'Tabset'
-	...extensions/test-23/repo/docs/_extensions/t
-abby/tabby.lua:212: in function <...extensions/test-23/repo/docs/_extensio
-ns/tabby/tabby.lua:147>
+	...extensions/test-23/repo/docs/_extensions/tabby/tabby
+.lua:212: in function <...extensions/test-23/repo/docs/_extensions/tabb
+y/tabby.lua:147>
 	(...tail calls...)
 	[C]: i
 n ?
 	[C]: in method 'walk'
-	/opt/qua
-rto/share/pandoc/datadir/_util
-s.lua:607: in function '_uti
-ls.walk'
-	/opt/quarto/share/f
-ilters/main.lua:574: in fu
-nction </opt/quarto/share/f
-ilters/main.lua:552>
-	(..
-.tail calls...)
-	/opt/quart
-o/share/filters/main.lua:
-1317: in local 'callback'
-
-	[string "if pandoc.syste
-m.os == "mingw32" then...
-"]:778: in field 'withScriptFile'
-	/opt/quarto/share/filters/main.lua:1333: in upvalue 'run_emulated_filter_chain'
-	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:
-1368>
+	/opt/q
+uarto/share/pandoc/datadir/_util
+s.lua:607: in function '_utils.walk'
+	/opt/
+quarto/share/filters/main.lua:574: i
+n function </opt/quarto/share/filt
+ers/main.lua:552>
+	(...tail 
+calls...)
+	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
+	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
+	/opt/quarto/share/filters/main.lua:1333: in upvalue 'run_emulated_f
+ilter_chain'
+	/opt/quarto/share/filters/main.lu
+a:1371: in function </opt/qua
+rto/share/filters/main.lua:1368
+>
 stack traceback:
-	/opt/quarto/share/pand
-oc/datadir/_utils.lua:607: in 
-function '_utils.walk'
-	/op
-t/quarto/share/filters/mai
-n.lua:574: in function </o
-pt/quarto/share/filters/ma
-in.lua:552>
-	(...tail call
-s...)
-	/opt/quarto/share/filters/main.lua:
-1317: in local 'callback'
-	[st
-ring "if pandoc.system.os == "mingw32" the
-n..."]:778: in field 'withSc
-riptFile'
-	/opt/quarto/share
-/filters/main.lua:1333: i
-n upvalue 'run_emulated_fi
-lter_chain'
+	/opt/quarto/sh
+are/pandoc/datadir/_utils.lu
+a:607: in function '_utils.w
+alk'
+	/opt/quarto/share/fil
+ters/main.lua:574: in funct
+ion </opt/quarto/share/fi
+lters/main.lua:552>
+	(...t
+ail calls...)
+	/opt/quarto
+/share/filters/main.lua:131
+7: in local 'callback'
+	[
+string "if pandoc.system.os == "mingw32" the
+n..."]:778: in field 'withScr
+iptFile'
+	/opt/quarto/share/
+filters/main.lua:1333: in upvalue 'run_
+emulated_filter_chain'
 	/opt/quarto/s
-hare/filters/main.lua:1371
-: in function </opt/quarto
-/share/filters/main.lua:13
-68>
+hare/filters/main.lua:1371:
+ in function </opt/quarto/shar
+e/filters/main.lua:1368>
 
 (WARN) Error encountered when rendering files
 

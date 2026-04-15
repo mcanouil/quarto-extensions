@@ -25,7 +25,7 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/RtmpishhYH/downloaded_packages'
+	'/tmp/RtmpedKgXb/downloaded_packages'
 Installing packages into '/home/runner/work/quarto-extensions/quarto-extensions/test-17/R/x86_64-pc-linux-gnu-library/4.5'
 (as 'lib' is unspecified)
 also installing the dependencies 'fracdiff', 'timeDate', 'urca', 'RcppArmadillo', 'Deriv', 'forecast', 'microbenchmark', 'rbibutils', 'numDeriv', 'doBy', 'SparseM', 'MatrixModels', 'Rdpack', 'minqa', 'nloptr', 'reformulas', 'RcppEigen', 'R.oo', 'R.methodsS3', 'carData', 'abind', 'Formula', 'pbkrtest', 'quantreg', 'lme4', 'fontBitstreamVera', 'fontLiberation', 'writexl', 'R.utils', 'corrplot', 'car', 'fontquiver', 'zip', 'miniUI', 'rio', 'openxlsx', 'ggrepel', 'ggsci', 'cowplot', 'ggsignif', 'gridExtra', 'polynom', 'rstatix', 'zoo', 'lazyeval', 'later', 'otel', 'nortest', 'sjmisc', 'httpuv', 'sourcetools', 'xtable', 'insight', 'datawizard', 'gdtools', 'officer', 'rvg', 'devEMF', 'editData', 'shinyWidgets', 'ggpubr', 'mnormt', 'GPArotation', 'tweenr', 'polyclip', 'colorspace', 'lmtest', 'crosstalk', 'promises', 'moonBook', 'shiny', 'sjlabelled', 'flextable', 'rrtable', 'psych', 'ztable', 'ggforce', 'vcd'
@@ -82,7 +82,7 @@ trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/sjmisc_2.8.1
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/httpuv_1.6.17.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/sourcetools_0.1.7-2.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/xtable_1.8-8.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/insight_1.4.6.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/insight_1.5.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/datawizard_1.3.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/gdtools_0.5.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/officer_0.7.3.tar.gz'
@@ -8641,7 +8641,7 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-17/R/x8
 ** testing if installed package keeps a record of temporary installation path
 * DONE (xtable)
 * installing *source* package 'insight' ...
-** this is package 'insight' version '1.4.6'
+** this is package 'insight' version '1.5.0'
 ** package 'insight' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
@@ -9246,59 +9246,8 @@ install.packages('gdtools')
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (miniUI)
-* installing *source* package 'shinyWidgets' ...
-** this is package 'shinyWidgets' version '0.9.1'
-** package 'shinyWidgets' successfully unpacked and MD5 sums checked
-** using staged installation
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-*** copying figures
-** building package indices
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (shinyWidgets)
-* installing *source* package 'moonBook' ...
-** this is package 'moonBook' version '0.3.1'
-** package 'moonBook' successfully unpacked and MD5 sums checked
-** using staged installation
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-*** copying figures
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (moonBook)
-ERROR: dependency 'flextable' is not available for package 'ztable'
-Perhaps try a variation of:
-install.packages('flextable')
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-17/R/x86_64-pc-linux-gnu-library/4.5/ztable'
-* installing *source* package 'car' ...
-** this is package 'car' version '3.1-5'
-** package 'car' successfully unpacked and MD5 sums checked
-** using staged installation
-** R
-** inst
-** byte-compile and prepare package for lazy loading
 Dependency install failed (exit 137) for r-wasm/quarto-live.
-** help
-Warning in gzfile(file, mode) :
-  cannot open compressed file '/home/runner/work/quarto-extensions/quarto-extensions/test-17/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-car/00new/car/help/paths.rds', probable reason 'No such file or directory'
-Error in gzfile(file, mode) : cannot open the connection
-ERROR: installing Rd objects failed for package 'car'
-Error in setwd(startdir) : cannot change working directory
+Error in setwd(od) : cannot change working directory
 Error in setwd(startdir) : cannot change working directory
 Execution halted
 sh: 0: getcwd() failed: No such file or directory
@@ -9351,28 +9300,38 @@ sh: 0: getcwd() failed: No such file or directory
 Error in tools:::.install_packages() : 
   current working directory cannot be ascertained
 sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+Error in tools:::.install_packages() : 
+  current working directory cannot be ascertained
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+Error in tools:::.install_packages() : 
+  current working directory cannot be ascertained
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+Error in tools:::.install_packages() : 
+  current working directory cannot be ascertained
+sh: 0: getcwd() failed: No such file or directory
 
 The downloaded source packages are in
-	'/tmp/RtmpishhYH/downloaded_packages'
-Warning messages:
-1: In install.packages(deps, repos = ppm) :
-  installation of package 'gdtools' had non-zero exit status
-2: In install.packages(deps, repos = ppm) :
-  installation of package 'rvg' had non-zero exit status
-3: In install.packages(deps, repos = ppm) :
-  installation of package 'flextable' had non-zero exit status
-4: In install.packages(deps, repos = ppm) :
-  installation of package 'ztable' had non-zero exit status
-5: In install.packages(deps, repos = ppm) :
-  installation of package 'car' had non-zero exit status
-6: In install.packages(deps, repos = ppm) :
-  installation of package 'editData' had non-zero exit status
-7: In install.packages(deps, repos = ppm) :
-  installation of package 'rstatix' had non-zero exit status
-8: In install.packages(deps, repos = ppm) :
-  installation of package 'ggpubr' had non-zero exit status
-9: In install.packages(deps, repos = ppm) :
-  installation of package 'rrtable' had non-zero exit status
-10: In install.packages(deps, repos = ppm) :
-  installation of package 'webr' had non-zero exit status
+	'/tmp/RtmpedKgXb/downloaded_packages'
+There were 12 warnings (use warnings() to see them)
 sh: 0: getcwd() failed: No such file or directory

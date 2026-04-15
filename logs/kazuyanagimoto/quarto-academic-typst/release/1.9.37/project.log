@@ -7,6 +7,7 @@ renv 1.1.6 was loaded from project library, but this project is configured to us
 processing file: template-full.qmd
 
 1/15                   
+
 2/15 [setup]           
 
 3/15                   
@@ -43,24 +44,24 @@ There were 50 or more warnings (use warnings() to see the first 50)
 [typst]: Compiling template-full.typ to template-full.pdf...
 downloading @preview/fontawesome:0.6.0
 
- 81.9 KiB /  81.9 KiB (100 %)  81.9 KiB/s in 2.34 ms ETA: 0 s
+ 81.9 KiB /  81.9 KiB (100 %)  81.9 KiB/s in 2.33 ms ETA: 0 s
 
 
 downloading @preview/mitex:0.2.4
 
-106.4 KiB / 106.4 KiB (100 %) 106.4 KiB/s in 2.93 ms ETA: 0 s
+106.4 KiB / 106.4 KiB (100 %) 106.4 KiB/s in 7.53 ms ETA: 0 s
 
 
 downloading @preview/xarrow:0.2.0
 
- 14.1 KiB /  14.1 KiB (100 %)  14.1 KiB/s in 1.22 ms ETA: 0 s
+ 14.1 KiB /  14.1 KiB (100 %)  14.1 KiB/s in 1.39 ms ETA: 0 s
 
 
 warning: `kai` is deprecated, use ϗ or `\u{3d7}` instead
      ┌─ @preview/mitex:0.2.4/specs/latex/standard.typ:1030:30
      │
-1030 │   Ka
-TeX: of-sym(math.upright($kai A T E X$)),
+1030 │   KaTeX: of-sy
+m(math.upright($kai A T E X$)),
      │                               ^^^
 
 warning: unknown font family: font awesome 7 free
@@ -108,8 +109,8 @@ output file: template.knit.md
 warning: unknown font family: libertinus sans
     ┌─ template.typ:318:31
     │
-318 │   show hea
-ding: set text(font: sansfont, weight: "semibold")
+318 │   show headin
+g: set text(font: sansfont, weight: "semibold")
     │                                ^^^^^^^^
 
 warning: unknown font family: libertinus sans
@@ -122,12 +123,11 @@ warning: unknown font family: libertinus sans
     ┌─ template.typ:381:53
     │
 381 │         #text(weight: "semibold", size: 1.5em, font: sansfont)[
-
     │                                                      ^^^^^^^^
 
+
 warning: unknown font family: libertinus sans
-    ┌─ template.typ
-:400:33
+    ┌─ template.typ:400:33
     │
 400 │         #text(size: 1.2em, font: sansfont)[#author.name]
     │        
@@ -136,32 +136,32 @@ warning: unknown font family: libertinus sans
 warning: unknown font family: libertinus sans
     ┌─ template.typ:407:34
     │
-407 │       
-  #text(size: 0.85em, font: sansfont)[#author.affiliation] \
-    │           
-                        ^^^^^^^^
+407 │         #text(size:
+ 0.85em, font: sansfont)[#author.affiliation] \
+    │                               
+    ^^^^^^^^
 
 warning: unknown font family: libertinus sans
     ┌─ template.typ:408:33
     │
-408 │
-         #text(size: 0.7em, font: sansfont, fill: link-color)[
-    │       
-                           ^^^^^^^^
+408 │         #text(size: 0.7em, 
+font: sansfont, fill: link-color)[
+    │                                  ^
+^^^^^^^
 
 warning: unknown font family: libertinus sans
     ┌─ template.typ:417:38
     │
-
-417 │       #text(weight: "semibold", font: sansfont, size: 0.9em)[#abstract-
-title] #h(0.5em)
-    │                                       ^^^^^^^^
-
+417 │       #text(weight: "semibol
+d", font: sansfont, size: 0.9em)[#abstract-title] #h(0.5em)
+    │           
+                            ^^^^^^^^
 
 warning: unknown font family: libertinus sans
     ┌─ template.typ:418:18
     │
-418 │       #text(font: sansfont)[#abstract]
+418 │       
+#text(font: sansfont)[#abstract]
     │                   ^^^^^^^^
 
 warning: unknown font family: libertinus sans
@@ -169,39 +169,34 @@ warning: unknown font family: libertinus sans
     ┌─ template.typ:420:39
     │
 420 │         text(weight: "semibold", font: sansfont, size: 0.9em)[\ Keywords:]
- 
-   │                                        ^^^^^^^^
+    │                                        ^^^^^^^^
 
 warning: unknown font family: libertinus sans
     ┌─ template.typ:422:19
     │
-422 │         text(font: sansfont)[#
-keywords]
+422 │         text(font: sansfont)[#keywords]
     │                    ^^^^^^^^
 
 warning: unknown font family: font awesome 7 free
    ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
-
    │
-80 │       font: default_fonts, // If you see warning here, please 
-check whether the FA font is installed
-   │             ^^^^^^^^^
-^^^^
+80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
+   │             ^^^^^^^^^^^^^
 
 warning: unknown font family: font awesome 7 brands
    ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
    │
-80 │       font: default_fonts, // If 
-you see warning here, please check whether the FA font is installed
-
+80 │     
+  font: default_fonts, // If you see warning here, please check whether the FA font is installed
    │             ^^^^^^^^^^^^^
 
 warning: unknown font family: libertinus sans
-    ┌─ template.typ:321:20
+ 
+   ┌─ template.typ:321:20
     │
-321 │     #set text(font: sansfont, size: 0
-.9em)
-    │                     ^^^^^^^^
+321 │     #set text(font: sansfont, size: 0.9em)
+    │             
+        ^^^^^^^^
 
 
 DONE

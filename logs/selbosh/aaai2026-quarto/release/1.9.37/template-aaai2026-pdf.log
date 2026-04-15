@@ -61,191 +61,189 @@ metadata
     - \usepackage{booktabs}
   
 
-Error running filter
- /opt/quarto/share/filters/main.lua:
+Error running filte
+r /opt/quarto/share/filters/main.lua:
 Could not fetch https://upload.wikimedia.org/wikipedia/commons/f/ff/AAAI_Conference.png
 HttpExceptionRequest Request {
   host                 = "upload.wikimedia.org"
   port                 = 443
-  
-secure               = True
-  requestHeaders       = []
-  path                 = "/wikipedia/
-commons/f/ff/AAAI_Conference.png"
-  queryString          = "
-"
-  method               = "GET"
-  proxy                =
- Nothing
-  rawBody              = False
-  redir
-ectCount        = 10
-  responseTimeout      = ResponseTimeoutDefault
-  requestV
-ersion       = HTTP/1.1
-  proxySecureMode      = 
-ProxySecureWithConnect
-}
- (StatusCodeException (Respons
-e {responseStatus = Status {statusCod
-e = 403, statusMessage = "
-Forbidden"}, responseVersi
-on = HTTP/1.1, responseHeaders = [("co
-ntent-length","126"),("content-t
-ype","text/plain"),("x-re
-quest-id","39fc2cd6-7931
--4842-9376-4ad186417345")
-,("server","HAProxy"),("x-cach
-e","cp1105 int"),("x-cache-st
-atus","int-tls"),("x-analy
-tics","")], responseBody
- = (), responseCookieJar
- = CJ {expose = []}, res
-ponseClose' = ResponseClo
-se, responseOriginalReque
-st = Request {
-  host    
-             = "upload.wi
-kimedia.org"
-  port       
-          = 443
-  secure
-               = True
- 
- requestHeaders       = [
-]
-  path                
- = "/wikipedia/commons/f
-/ff/AAAI_Conference.png"
 
+  secure               = True
+  requestHeaders       = []
+  path                 = "/wikipedi
+a/commons/f/ff/AAAI_Conference.png"
   queryString          = ""
-  meth
-od               = "GET"
- 
- proxy                = N
-othing
-  rawBody              
-= False
-  redirectCount       
- = 10
-  responseTimeout   
-   = ResponseTimeoutDefaul
-t
-  requestVersion       =
- HTTP/1.1
-  proxySecureMo
-de      = ProxySecureWith
+  method
+               = "GET"
+  proxy                = Nothing
+  
+rawBody              = False
+  redirectCount      
+  = 10
+  responseTimeout      = ResponseTimeoutDefault
+  requestVersio
+n       = HTTP/1.1
+  proxySecureMode      = Prox
+ySecureWithConnect
+}
+ (StatusCodeException (Response {responseSt
+atus = Status {statusCode = 403,
+ statusMessage = "Forbidden
+"}, responseVersion = HTTP/1.1, res
+ponseHeaders = [("content-len
+gth","126"),("content-type
+","text/plain"),("x-reques
+t-id","564aa07e-6d5f-4505-
+bac7-08be723ebdb3"),("serve
+r","HAProxy"),("x-cache",
+"cp1109 int"),("x-cache-s
+tatus","int-tls"),("x-anal
+ytics","")], responseBody
+ = (), responseCookieJar 
+= CJ {expose = []}, respon
+seClose' = ResponseClose,
+ responseOriginalRequest = 
+Request {
+  host         
+        = "upload.wikimedia.
+org"
+  port                 = 44
+3
+  secure               = 
+True
+  requestHeaders    
+   = []
+  path            
+     = "/wikipedia/commons
+/f/ff/AAAI_Conference.png"
+
+  queryString          = 
+""
+  method               
+= "GET"
+  proxy          
+      = Nothing
+  rawBody
+              = False
+  
+redirectCount        = 10
+  r
+esponseTimeout      = Response
+TimeoutDefault
+  requestVe
+rsion       = HTTP/1.1
+  
+proxySecureMode      = ProxySecureWith
 Connect
 }
-, responseEarly
-Hints = []}) "Please set
- a user-agent and respect
- our robot policy https:
-//w.wiki/4wJS. See also 
-https://phabricator.wikimedia.org/T40
-0119.\n")
+, responseEarlyH
+ints = []}) "Please set a 
+user-agent and respect ou
+r robot policy https://w.w
+iki/4wJS. See also https:
+//phabricator.wikimedia.o
+rg/T400119.\n")
 stack traceback:
 	.
-../share/pandoc/datadir/../../f
-ilters/modules/mediabag.lu
-a:29: in function 'modules/mediaba
-g.fetch_and_store_image'
-	..
-./share/pandoc/datadir/../../fi
-lters/modules/mediabag.lua
-:72: in function 'module
-s/mediabag.resolve_image_
-from_url'
-	(...tail call
-s...)
-	/opt/quarto/share/
-filters/main.lua:2930: i
-n local 'fn'
-	...uarto/sh
-are/pandoc/datadir/../../f
-ilters/modules/jog.lua:34: in 
-upvalue 'run_filter_function'
-	...u
-arto/share/pandoc/datadir/../..
-/filters/modules/jog.lua:223: in func
-tion <...uarto/share/pandoc
-/datadir/../../filters/modules/j
-og.lua:202>
-	(...tail calls...)
-	[C
-]: in function 'pandoc.List.map'
-
-	...uarto/share/pandoc/dat
-adir/../../filters/modules/jog.lu
-a:125: in upvalue 'recurse'
-	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:222: in local 'jogger'
-	...uarto/share/pandoc/datadir/../../filters/modules/
-jog.lua:98: in upvalue 'recurse'
-	...uarto/s
-hare/pandoc/datadir/../../fi
-lters/modules/jog.lua:222: 
-in function <...uarto/sha
-re/pandoc/datadir/../../
-filters/modules/jog.lua:2
-02>
-	(...tail calls...)
-	.
-..	(skipping 2 levels)
-	.
-..uarto/share/pandoc/dat
-adir/../../filters/modul
-es/jog.lua:111: in upval
-ue 'recurse'
-	...uarto/sh
-are/pandoc/datadir/../..
-/filters/modules/jog.lua:222: in
- function <...uarto/share/p
-andoc/datadir/../../filt
-ers/modules/jog.lua:202>
-
-	(...tail calls...)
-	[C
-]: in function 'pandoc.L
-ist.map'
-	...uarto/share
-/pandoc/datadir/../../fil
-ters/modules/jog.lua:12
-5: in upvalue 'recurse'
-
-	...uarto/share/pandoc/d
-atadir/../../filters/mod
-ules/jog.lua:222: in loc
-al 'jogger'
-	...uarto/sh
-are/pandoc/datadir/../..
-/filters/modules/jog.lua
-:171: in upvalue 'recur
-se'
+../share/pandoc/datadir/../.
+./filters/modules/mediabag.lua:29
+: in function 'modules/medi
+abag.fetch_and_store_image'
+	.../
+share/pandoc/datadir/../../
+filters/modules/mediabag.lua:72:
+ in function 'modules/mediabag.re
+solve_image_from_url'
+	(...t
+ail calls...)
+	/opt/quart
+o/share/filters/main.lua:2
+930: in local 'fn'
+	...uart
+o/share/pandoc/datadir/..
+/../filters/modules/jog.l
+ua:34: in upvalue 'run_f
+ilter_function'
+	...uarto
+/share/pandoc/datadir/../../filters
+/modules/jog.lua:223: in func
+tion <...uarto/share/pandoc/datadir
+/../../filters/modules/jog.lua:202>
+	
+(...tail calls...)
+	[C]: i
+n function 'tmap'
+	...uarto/share/pan
+doc/datadir/../../filters/modules/jog.
+lua:125: in upvalue 'recurse
+'
 	...uarto/share/pandoc/datadir/..
-/../filters/modules/jog.lu
-a:222: in function <...u
-arto/share/pandoc/datadi
-r/../../filters/modules/j
-og.lua:202>
-	(...tail c
-alls...)
-	/opt/quarto/sh
-are/filters/main.lua:574:
- in function </opt/quar
-to/share/filters/main.lua
-:552>
-	(...tail calls...
-)
-	/opt/quarto/share/fil
-ters/main.lua:1317: in lo
-cal 'callback'
+/../filters/modules/jog.lua:222: in local 'jogger'
+	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:98: in upvalue 'recurse'
+	...uarto/share/pandoc/datadir/../../filters/modules
+/jog.lua:222: in function <...uarto/sh
+are/pandoc/datadir/../../fil
+ters/modules/jog.lua:202>
+
+	(...tail calls...)
+	...
+	(skipping 2 levels)
+	...uar
+to/share/pandoc/datadir/../../
+filters/modules/jog.lua:11
+1: in upvalue 'recurse'
+	
+...uarto/share/pandoc/da
+tadir/../../filters/modul
+es/jog.lua:222: in functi
+on <...uarto/share/pandoc
+/datadir/../../filters/mo
+dules/jog.lua:202>
+	(...
+tail calls...)
+	[C]: in 
+function 'tmap'
+	...uarto
+/share/pandoc/datadir/..
+/../filters/modules/jog
+.lua:125: in upvalue 're
+curse'
+	...uarto/share/pa
+ndoc/datadir/../../filte
+rs/modules/jog.lua:222: in lo
+cal 'jogger'
+	...uarto/sh
+are/pandoc/datadir/../../
+filters/modules/jog.lua:1
+71: in upvalue 'recurse'
+
+	...uarto/share/pandoc/datad
+ir/../../filters/modules
+/jog.lua:222: in functio
+n <...uarto/share/pandoc
+/datadir/../../filters/mo
+dules/jog.lua:202>
+	(..
+.tail calls...)
 	/opt/qua
 rto/share/filters/main.lu
-a:1335: in upvalue 'run_emulat
-ed_filter_chain'
+a:574: in function </opt
+/quarto/share/filters/ma
+in.lua:552>
+	(...tail cal
+ls...)
 	/opt/quarto/share/filter
-s/main.lua:1371: in function </opt/quart
-o/share/filters/main.lua:1368>
+s/main.lua:1317: in local
+ 'callback'
+	/opt/quarto/
+share/filters/main.lua:13
+35: in upvalue 'run_emula
+ted_filter_chain'
+	/opt/q
+uarto/share/filters/main
+.lua:1371: in function </o
+pt/quarto/share/filters/main.lua:1
+368>
 
 (WARN) Error encountered when rendering files
 

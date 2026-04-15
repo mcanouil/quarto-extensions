@@ -61,163 +61,155 @@ metadata
     - \usepackage{booktabs}
   
 
-Error running filter /op
-t/quarto/share/filters/main.lua:
+Error running filter /opt/quarto/shar
+e/filters/main.lua:
 Could not fetch https://upload.wikimedia.org/wikipedia/commons/f/ff/AAAI_Conference.png
 HttpExceptionRequest Request {
   host                 = "upload.wikimedia.org"
   port                 = 443
   secure               = True
   requestHeaders       = []
-  path              
-   = "/wikipedia/commons/f/ff/AAAI_Conference.png"
-  queryString          = ""
+  path
+                 = "/wikipedia/commons/f/ff/AAAI_Conference.png"
+  queryString     
+     = ""
   method               = "GET"
-  proxy                = Nothing
-  r
-awBody              = False
-  redirectCount        = 10
-  responseTimeout      = ResponseTimeoutDefault
-  requestV
-ersion       = HTTP/1.1
-  proxySecureMode      = ProxySecureWithConnect
-}
- (StatusCodeEx
-ception (Response {responseStatus = Status {statusCode = 403, statusMessage = "Forbidden"}, responseVers
-ion = HTTP/1.1, responseHeaders = [("content-length","126"),("content-type","text/plain"),("x-request-id","d6798ab
-1-d8dd-4b1b-9379-58f7fd2c3261"),("server","HAProxy"),("x
--cache","cp1105 int"),("x-cache-status","int-tls"),("x-analytics","")], response
-Body = (), responseCookieJar = CJ {expose = 
-[]}, responseClose' = ResponseClose,
- responseOriginalRequest = Request
- {
-  host                 = "upload
-.wikimedia.org"
-  port           
-      = 443
-  secure             
-  = True
-  requestHeaders     
-  = []
-  path                 = 
-"/wikipedia/commons/f/ff/AAAI_C
-onference.png"
-  queryString   
-       = ""
-  method          
-     = "GET"
-  proxy                = Nothi
-ng
+  proxy      
+          = Nothing
   rawBody              = False
-
-  redirectCount        = 10
- 
- responseTimeout      = Respon
-seTimeoutDefault
-  requestVers
-ion       = HTTP/1.1
-  proxySe
-cureMode      = ProxySecureWith
-Connect
+  redir
+ectCount        = 10
+  responseTimeout      = Res
+ponseTimeoutDefault
+  requestVersion       = HTTP/1.1
+  proxySecur
+eMode      = ProxySecureWithConnect
 }
-, responseEarlyHints
- = []}) "Please set a user-age
-nt and respect our robot pol
-icy https://w.wiki/4wJS. See a
-lso https://phabricator.wikim
-edia.org/T400119.\n")
-stack t
-raceback:
-	.../share/pandoc/d
-atadir/../../filters/modules/medi
-abag.lua:29: in function 'modul
-es/mediabag.fetch_and_store_i
-mage'
+ (StatusCodeException (Response {res
+ponseStatus = Status {statusCode = 403, statusMessage = "Forbidden"}, responseVersion = HTTP/1.1
+, responseHeaders = [("content-length","126"),(
+"content-type","text/plain"),("x-re
+quest-id","f346cf3c-c546-47ed-83
+e2-e79fd5c5b6d8"),("server","HAPro
+xy"),("x-cache","cp2046 int"),(
+"x-cache-status","int-tls"),("x-
+analytics","")], responseBody =
+ (), responseCookieJar = CJ {ex
+pose = []}, responseClose' = R
+esponseClose, responseOriginal
+Request = Request {
+  host    
+             = "upload.wikimed
+ia.org"
+  port               
+  = 443
+  secure              
+ = True
+  requestHeaders       =
+ []
+  path                 = "
+/wikipedia/commons/f/ff/AAAI_Confere
+nce.png"
+  queryString          = ""
+  
+method               = "GET"
+  
+proxy                = Nothin
+g
+  rawBody              = Fa
+lse
+  redirectCount        = 
+10
+  responseTimeout      = Re
+sponseTimeoutDefault
+  reques
+tVersion       = HTTP/1.1
+  pr
+oxySecureMode      = ProxySec
+ureWithConnect
+}
+, responseEa
+rlyHints = []}) "Please set a
+ user-agent and respect our r
+obot policy https://w.wiki/4wJS. See
+ also https://phabricator.wiki
+media.org/T400119.\n")
+stack tracebac
+k:
+	.../share/pandoc/datadir/
+../../filters/modules/mediaba
+g.lua:29: in function 'module
+s/mediabag.fetch_and_store_im
+age'
 	.../share/pandoc/datad
-ir/../../filters/modules/media
-bag.lua:72: in function 'modu
-les/mediabag.resolve_image_from_url'
+ir/../../filters/modules/medi
+abag.lua:72: in function 'mod
+ules/mediabag.resolve_image_from_url'
 
 	(...tail calls...)
-	/opt/quart
-o/share/filters/main.lua:2930: in local 'fn
-'
-	...uarto/share/pandoc/datadir/../../filters/modules
-/jog.lua:34: in upvalue 'run_filt
-er_function'
-	...uarto/share/p
-andoc/datadir/../../filters/mo
-dules/jog.lua:223: in functio
-n <...uarto/share/pandoc/datad
-ir/../../filters/modules/jog.lua:202>
-
-	(...tail calls...)
-	[C]: i
-n function 'tmap'
-	..
-.uarto/share/pandoc/dat
-adir/../../filters/modules/jog
-.lua:125: in upvalue '
-recurse'
-	...uarto
-/share/pandoc/datadir/..
-/../filters/modules/jog.lua
-:222: in local 'jogger'
-	...
-uarto/share/pandoc/datadir/..
-/../filters/modules/jog.lua:98: in up
-value 'recurse'
-	...uarto/shar
-e/pandoc/datadir/../../filter
-s/modules/jog.lua:222: in 
-function <...uarto/share/pando
-c/datadir/../../filters/modules/jog.l
-ua:202>
-	(...tail ca
-lls...)
-	...	(ski
-pping 2 levels)
-	...uarto/s
-hare/pandoc/datadir/../../filters/modules/jog.l
-ua:111: in upvalue 'recurse'
-	...uarto/share/pandoc/datadir/.
-./../filters/modules/jog.lua:222: in function <...uarto/share/pandoc/da
-tadir/../../filters/modules/jog.lua:202>
-	(...tail calls
-...)
+	/opt/quarto/share/filters/main.lu
+a:2930: in local 'fn'
+	...uarto/share/pandoc/datadir/../..
+/filters/modules/jog.lua:34: in upvalue 'run_filter_function'
+	...ua
+rto/share/pandoc/datadir/../../filters/m
+odules/jog.lua:223: in function <...uarto/share/pa
+ndoc/datadir/../../filters/modules/jog.lua:202>
+	(...tail 
+calls...)
 	[C]: in function 'tmap'
-	...uarto/share/pandoc/datadir/../../filte
-rs/modules/jog.lua:125: in upvalue 'recurse'
-	...uarto/share/pandoc/dat
-adir/../../filters/modules/jog.lua:22
-2: in local 'jogger'
-	...uarto/s
-hare/pandoc/datadir/../../filt
-ers/modules/jog.lua:171: in upvalue 'recurse
-'
-	...uarto/share/pandoc/datadir/../../
-filters/modules/jog.lua:222: in 
+	...uarto/share/pandoc/datadir/../../filters
+/modules/jog.lua:125: in upvalue 're
+curse'
+	...uarto/share/pandoc/d
+atadir/../../filters/modules/jog.lua:
+222: in local 'jogger'
+	...uar
+to/share/pandoc/datadir/../../
+filters/modules/jog.lua:98: i
+n upvalue 'recurse'
+	...uarto/share/pan
+doc/datadir/../../filters/modules/jog.lua:22
+2: in function <...uarto/share/pandoc/datadir/../../f
+ilters/modules/jog.lua:202>
+	(...tail calls...)
+	...	
+(skipping 2 levels)
+	...uarto/share/pandoc/datadir/../../filt
+ers/modules/jog.lua:111: in upvalue 'recurse'
+	...uarto/share/pandoc/data
+dir/../../filters/modules/jog.lua:222: in 
 function <...uarto/share/pando
-c/datadir/../../filters/modul
-es/jog.lua:202>
-	(...tail calls
-...)
-	/opt/quarto/share/filte
-rs/main.lua:574: in function 
-</opt/quarto/share/filters/ma
-in.lua:552>
+c/datadir/../../filters/modules/jog.lua:202>
+	(...tail calls...)
+
+	[C]: in function 'tmap'
+	...uarto/share/pandoc/datadir/../../filters/mod
+ules/jog.lua:125: in upvalue 'recu
+rse'
+	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:222: in local 'jogger'
+	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:171: in upvalue 'recurse'
+	...uarto/share/pandoc/datadir/../../filters/modu
+les/jog.lua:222: in function <...uarto/share/pandoc/datadir/../../filters/
+modules/jog.lua:202>
 	(...tail calls..
 .)
-	/opt/quarto/share/filters
-/main.lua:1317: in local 'ca
-llback'
-	/opt/quarto/share/f
-ilters/main.lua:1335: in upva
-lue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/ma
+in.lua:574: in function </opt/qua
+rto/share/filters/main.lua:552
+>
+	(...tail calls...)
 	/opt/qu
-arto/share/filters/main.lua:1371: in function
- </opt/quarto/share/filters/main
-.lua:1368>
+arto/share/filters/main.lua:131
+7: in local 'callback'
+	/opt/
+quarto/share/filters/main.lua:
+1335: in upvalue 'run_emulate
+d_filter_chain'
+	/opt/quarto/
+share/filters/main.lua:1371: 
+in function </opt/quarto/sha
+re/filters/main.lua:1368>
 
 (WARN) Error encountered when rendering files
 

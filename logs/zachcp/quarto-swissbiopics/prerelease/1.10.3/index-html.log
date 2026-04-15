@@ -33,20 +33,24 @@ The original Pandoc error follows below.
 Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-19/repo/docs/swissbiopics:
 Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-19/repo/docs/swissbiopics
 
-Error running filter /opt/q
-uarto/share/filters/main.lua:
+Error ru
+nning filter /opt/quarto/share/filters/main.lua:
 /opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERROR
-stack traceback:
+stac
+k traceback:
 	/opt/quarto/share/filters/main.lua:2622: in function 'fatal'
-	/opt/quarto/share/filters/main.lua:2202: in
- function 'fail'
-	/opt/quarto/share/filters/main.lua:3760: in field 'Pandoc'
+	/opt/quarto/share/fil
+ters/main.lua:2202: in function 'fail'
+	/opt/quarto/share/filters/main.lua:3760: in f
+ield 'Pandoc'
 	/opt/quarto/share/filters/main.lua:588: in function 'run_emulated_filter'
-	/opt/quarto/share/filt
-ers/main.lua:1317: in local 'callback'
-	/opt/quarto/share/filters/main.lua:1335: in upvalue 'run_emulated_filter_chain'
-	/opt/quarto/share/filters/m
-ain.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
+	/opt/quar
+to/share/filters/main.lua:1317: in local 'callback'
+	/opt/quart
+o/share/filters/main.lua:1335: in up
+value 'run_emulated_filter_chain'
+	/opt/quarto/share/filters
+/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
 
 (WARN) Error encountered when rendering files
 

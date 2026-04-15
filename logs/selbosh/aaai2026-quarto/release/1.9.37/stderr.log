@@ -128,7 +128,7 @@ HttpExceptionRequest Request {
   requestVersion       = HTTP/1.1
   proxySecureMode      = ProxySecureWithConnect
 }
- (StatusCodeException (Response {responseStatus = Status {statusCode = 403, statusMessage = "Forbidden"}, responseVersion = HTTP/1.1, responseHeaders = [("content-length","126"),("content-type","text/plain"),("x-request-id","39082225-83e8-4c0b-9176-a76c9bfd995e"),("server","HAProxy"),("x-cache","cp1105 int"),("x-cache-status","int-tls"),("x-analytics","")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
+ (StatusCodeException (Response {responseStatus = Status {statusCode = 403, statusMessage = "Forbidden"}, responseVersion = HTTP/1.1, responseHeaders = [("content-length","126"),("content-type","text/plain"),("x-request-id","ce170cde-eadb-452c-916c-31a423274912"),("server","HAProxy"),("x-cache","cp1109 int"),("x-cache-status","int-tls"),("x-analytics","")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
   host                 = "upload.wikimedia.org"
   port                 = 443
   secure               = True
@@ -152,7 +152,7 @@ stack traceback:
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:34: in upvalue 'run_filter_function'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:223: in function <...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:202>
 	(...tail calls...)
-	[C]: in function 'tmap'
+	[C]: in function 'pandoc.List.map'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:125: in upvalue 'recurse'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:222: in local 'jogger'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:98: in upvalue 'recurse'
@@ -162,7 +162,7 @@ stack traceback:
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:111: in upvalue 'recurse'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:222: in function <...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:202>
 	(...tail calls...)
-	[C]: in function 'tmap'
+	[C]: in function 'pandoc.List.map'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:125: in upvalue 'recurse'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:222: in local 'jogger'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:171: in upvalue 'recurse'
@@ -251,7 +251,7 @@ HttpExceptionRequest Request {
   requestVersion       = HTTP/1.1
   proxySecureMode      = ProxySecureWithConnect
 }
- (StatusCodeException (Response {responseStatus = Status {statusCode = 403, statusMessage = "Forbidden"}, responseVersion = HTTP/1.1, responseHeaders = [("content-length","126"),("content-type","text/plain"),("x-request-id","39fc2cd6-7931-4842-9376-4ad186417345"),("server","HAProxy"),("x-cache","cp1105 int"),("x-cache-status","int-tls"),("x-analytics","")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
+ (StatusCodeException (Response {responseStatus = Status {statusCode = 403, statusMessage = "Forbidden"}, responseVersion = HTTP/1.1, responseHeaders = [("content-length","126"),("content-type","text/plain"),("x-request-id","564aa07e-6d5f-4505-bac7-08be723ebdb3"),("server","HAProxy"),("x-cache","cp1109 int"),("x-cache-status","int-tls"),("x-analytics","")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
   host                 = "upload.wikimedia.org"
   port                 = 443
   secure               = True
@@ -275,7 +275,7 @@ stack traceback:
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:34: in upvalue 'run_filter_function'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:223: in function <...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:202>
 	(...tail calls...)
-	[C]: in function 'pandoc.List.map'
+	[C]: in function 'tmap'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:125: in upvalue 'recurse'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:222: in local 'jogger'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:98: in upvalue 'recurse'
@@ -285,7 +285,7 @@ stack traceback:
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:111: in upvalue 'recurse'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:222: in function <...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:202>
 	(...tail calls...)
-	[C]: in function 'pandoc.List.map'
+	[C]: in function 'tmap'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:125: in upvalue 'recurse'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:222: in local 'jogger'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:171: in upvalue 'recurse'

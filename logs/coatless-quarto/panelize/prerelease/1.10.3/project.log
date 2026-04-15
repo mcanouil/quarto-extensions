@@ -2,8 +2,7 @@
 
 processing file: qpanelize-pyodide.qmd
 
-1/
-7                  
+1/7                  
 
 2/7 [unnamed-chunk-1]
 
@@ -31,30 +30,33 @@ The original Pandoc error follows below.
 Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/docs/panelize:
 Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/docs/panelize
 
-Error running
- filter /opt/quarto/share/filters/main.lua:
-/opt/quarto/share/filters/main.lua:588: FA
-TAL QUARTO ERROR
+Error ru
+nning filter /opt/quarto/share/filters/main.lua:
+/opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERROR
 stack traceback:
-	/opt/quarto/sha
-re/filters/main.lua:2622: in function 'fat
-al'
-	/opt/quarto/share/filters/main.lua:2202
-: in function 'fail'
-	/opt/quarto/share/filters/m
-ain.lua:3760: in field 'Pandoc'
-	/opt/
-quarto/share/filters/main.lua:588: in
- function 'run_emulated_filter'
-	/opt
-/quarto/share/filters/main.lua:1317:
- in local 'callback'
-	/opt/quarto/sha
-re/filters/main.lua:1335: in upvalue
- 'run_emulated_filter_chain'
+	/o
+pt/quarto/share/filters/main.lua:26
+22: in function 'fatal'
 	/opt/q
-uarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.l
-ua:1368>
+uarto/share/filters/main.lua
+:2202: in function 'fail'
+	/
+opt/quarto/share/filters/mai
+n.lua:3760: in field 'Pando
+c'
+	/opt/quarto/share/filte
+rs/main.lua:588: in functio
+n 'run_emulated_filter'
+	/o
+pt/quarto/share/filters/ma
+in.lua:1317: in local 'callbac
+k'
+	/opt/quarto/share/filters/main.lu
+a:1335: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/
+share/filters/main.lua:1371: 
+in function </opt/quarto/s
+hare/filters/main.lua:1368>
 
 (WARN) Error encountered when rendering files
 

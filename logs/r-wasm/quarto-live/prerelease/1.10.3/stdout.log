@@ -279,10 +279,10 @@ set LDFLAGS=-L/usr/local/lib
 -- Could NOT find Java (missing: Java_JAVA_EXECUTABLE Java_JAR_EXECUTABLE Java_JAVAC_EXECUTABLE Java_JAVAH_EXECUTABLE Java_JAVADOC_EXECUTABLE) (Required is at least version "1.5")
 -- Configuring done
 -- Generating done
--- Build files have been written to: /tmp/RtmpxZbST7/R.INSTALLd8c2d6cf528/nloptr/src/nlopt-build
+-- Build files have been written to: /tmp/RtmpIA1cJX/R.INSTALLd8c5c16e84e/nloptr/src/nlopt-build
 [  2%] Generating nlopt.hpp
 [  2%] Built target generate-cpp
-[  4%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRect.c.o
+[  6%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRect.c.o
 [  6%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/direct_wrap.c.o
 [  8%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRserial.c.o
 [ 10%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRsubrout.c.o
@@ -335,17 +335,17 @@ Consolidate compiler generated dependencies of target nlopt
 [100%] Built target nlopt
 Install the project...
 -- Install configuration: "Release"
--- Installing: /tmp/RtmpxZbST7/R.INSTALLd8c2d6cf528/nloptr/src/nlopt/lib/pkgconfig/nlopt.pc
--- Installing: /tmp/RtmpxZbST7/R.INSTALLd8c2d6cf528/nloptr/src/nlopt/include/nlopt.h
--- Installing: /tmp/RtmpxZbST7/R.INSTALLd8c2d6cf528/nloptr/src/nlopt/include/nlopt.hpp
--- Installing: /tmp/RtmpxZbST7/R.INSTALLd8c2d6cf528/nloptr/src/nlopt/lib/libnlopt.a
--- Installing: /tmp/RtmpxZbST7/R.INSTALLd8c2d6cf528/nloptr/src/nlopt/share/man/man3/nlopt.3
--- Installing: /tmp/RtmpxZbST7/R.INSTALLd8c2d6cf528/nloptr/src/nlopt/share/man/man3/nlopt_minimize.3
--- Installing: /tmp/RtmpxZbST7/R.INSTALLd8c2d6cf528/nloptr/src/nlopt/share/man/man3/nlopt_minimize_constrained.3
--- Installing: /tmp/RtmpxZbST7/R.INSTALLd8c2d6cf528/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends.cmake
--- Installing: /tmp/RtmpxZbST7/R.INSTALLd8c2d6cf528/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends-release.cmake
--- Installing: /tmp/RtmpxZbST7/R.INSTALLd8c2d6cf528/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfig.cmake
--- Installing: /tmp/RtmpxZbST7/R.INSTALLd8c2d6cf528/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfigVersion.cmake
+-- Installing: /tmp/RtmpIA1cJX/R.INSTALLd8c5c16e84e/nloptr/src/nlopt/lib/pkgconfig/nlopt.pc
+-- Installing: /tmp/RtmpIA1cJX/R.INSTALLd8c5c16e84e/nloptr/src/nlopt/include/nlopt.h
+-- Installing: /tmp/RtmpIA1cJX/R.INSTALLd8c5c16e84e/nloptr/src/nlopt/include/nlopt.hpp
+-- Installing: /tmp/RtmpIA1cJX/R.INSTALLd8c5c16e84e/nloptr/src/nlopt/lib/libnlopt.a
+-- Installing: /tmp/RtmpIA1cJX/R.INSTALLd8c5c16e84e/nloptr/src/nlopt/share/man/man3/nlopt.3
+-- Installing: /tmp/RtmpIA1cJX/R.INSTALLd8c5c16e84e/nloptr/src/nlopt/share/man/man3/nlopt_minimize.3
+-- Installing: /tmp/RtmpIA1cJX/R.INSTALLd8c5c16e84e/nloptr/src/nlopt/share/man/man3/nlopt_minimize_constrained.3
+-- Installing: /tmp/RtmpIA1cJX/R.INSTALLd8c5c16e84e/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends.cmake
+-- Installing: /tmp/RtmpIA1cJX/R.INSTALLd8c5c16e84e/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends-release.cmake
+-- Installing: /tmp/RtmpIA1cJX/R.INSTALLd8c5c16e84e/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfig.cmake
+-- Installing: /tmp/RtmpIA1cJX/R.INSTALLd8c5c16e84e/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfigVersion.cmake
 Moving nlopt/lib to nlopt/lib
 Copying headers found in src/nlopt/include into inst/include
 configure: creating ./config.status
@@ -622,7 +622,7 @@ chmod +x configure; \
 CC="gcc" CFLAGS="-g -O2  -fpic -fvisibility=hidden -DNDEBUG" CPPFLAGS="-I/usr/local/include" AR="ar" RANLIB="ranlib" LDFLAGS="-L/usr/local/lib" ./configure lt_cv_apple_cc_single_mod=no "--quiet"
 make --directory=libuv \
 	HAVE_DTRACE=0
-make[1]: Entering directory '/tmp/RtmpN1tEkG/R.INSTALL29406d007e28/httpuv/src/libuv'
+make[1]: Entering directory '/tmp/RtmpEvL9WD/R.INSTALL29404254591e/httpuv/src/libuv'
   CC       src/libuv_la-fs-poll.lo
   CC       src/libuv_la-idna.lo
   CC       src/libuv_la-inet.lo
@@ -660,7 +660,7 @@ make[1]: Entering directory '/tmp/RtmpN1tEkG/R.INSTALL29406d007e28/httpuv/src/li
   CC       src/unix/libuv_la-random-sysctl-linux.lo
   CC       src/unix/libuv_la-epoll.lo
   CCLD     libuv.la
-make[1]: Leaving directory '/tmp/RtmpN1tEkG/R.INSTALL29406d007e28/httpuv/src/libuv'
+make[1]: Leaving directory '/tmp/RtmpEvL9WD/R.INSTALL29404254591e/httpuv/src/libuv'
 gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-17/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2  -c http-parser/http_parser.c -o http-parser/http_parser.o
 gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-17/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2  -c sha1/sha1.c -o sha1/sha1.o
 g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -Ilibuv/include -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-17/R/x86_64-pc-linux-gnu-library/4.5/later/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c base64/base64.cpp -o base64/base64.o
@@ -691,7 +691,3 @@ g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/
 g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/Matrix/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-17/R/x86_64-pc-linux-gnu-library/4.5/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c predModule.cpp -o predModule.o
 g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/Matrix/include' -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-17/R/x86_64-pc-linux-gnu-library/4.5/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c respModule.cpp -o respModule.o
 g++ -std=gnu++17 -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o lme4.so external.o glmFamily.o optimizer.o predModule.o respModule.o -L/opt/R/4.5.3/lib/R/lib -lR
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called 'rio'
-Calls: <Anonymous> ... loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
-Execution halted

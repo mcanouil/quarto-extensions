@@ -18,7 +18,7 @@ gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o zip.so init.o miniz.o r
 echo "make ttf2pt1 in ttf2pt1/ ..."
 make ttf2pt1 in ttf2pt1/ ...
 (cd ttf2pt1; make CC="`"/opt/R/4.5.3/lib/R/bin/R" CMD config CC`" CFLAGS="`"/opt/R/4.5.3/lib/R/bin/R" CMD config CFLAGS`" ttf2pt1)
-make[1]: Entering directory '/tmp/Rtmpz5yCK8/R.INSTALL1e4149da45b/Rttf2pt1/src/ttf2pt1'
+make[1]: Entering directory '/tmp/RtmpZNZXS7/R.INSTALL1e418f0245/Rttf2pt1/src/ttf2pt1'
 gcc -g -O2 -c ttf2pt1.c
 gcc -g -O2 -c pt1.c
 gcc -g -O2  -c runt1asm.c
@@ -27,7 +27,7 @@ gcc -g -O2 -c ft.c
 gcc -g -O2 -c bdf.c
 gcc -g -O2 -c bitmap.c
 gcc -g -O2 -o ttf2pt1 ttf2pt1.o pt1.o runt1asm.o ttf.o ft.o bdf.o bitmap.o -lm  
-make[1]: Leaving directory '/tmp/Rtmpz5yCK8/R.INSTALL1e4149da45b/Rttf2pt1/src/ttf2pt1'
+make[1]: Leaving directory '/tmp/RtmpZNZXS7/R.INSTALL1e418f0245/Rttf2pt1/src/ttf2pt1'
 [1] ""
 Using PKG_CFLAGS=
 Using PKG_LIBS=-lcairo -lfreetype

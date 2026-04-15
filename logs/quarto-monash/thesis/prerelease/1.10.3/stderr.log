@@ -25,7 +25,7 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/RtmpJOqxVc/downloaded_packages'
+	'/tmp/Rtmp4wu8jS/downloaded_packages'
 Installing packages into '/home/runner/work/quarto-extensions/quarto-extensions/test-10/R/x86_64-pc-linux-gnu-library/4.5'
 (as 'lib' is unspecified)
 also installing the dependencies 'quadprog', 'progressr', 'ggdist', 'numDeriv', 'warp', 'BH', 'fabletools', 'distributional', 'slider', 'ggtime', 'anytime', 'later'
@@ -40,7 +40,7 @@ trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fabletools_0
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/distributional_0.7.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/slider_0.3.3.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/ggtime_0.2.0.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/anytime_0.3.12.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/anytime_0.3.13.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/later_1.4.8.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fable_0.5.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/feasts_0.5.0.tar.gz'
@@ -193,7 +193,7 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-10/R/x8
 ** testing if installed package keeps a record of temporary installation path
 * DONE (slider)
 * installing *source* package 'anytime' ...
-** this is package 'anytime' version '0.3.12'
+** this is package 'anytime' version '0.3.13'
 ** package 'anytime' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** libs
@@ -1321,7 +1321,7 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-10/R/x8
 * DONE (feasts)
 
 The downloaded source packages are in
-	'/tmp/RtmpJOqxVc/downloaded_packages'
+	'/tmp/Rtmp4wu8jS/downloaded_packages'
 Warning message:
 In install.packages(deps, repos = ppm) :
   installation of package 'magick' had non-zero exit status
@@ -1707,8 +1707,8 @@ finding package for biber
   INFO - Looking for bibtex file 'thesisrefs.bib' for section 0
   INFO - LaTeX decoding ...
   INFO - Found BibTeX data source 'thesisrefs.bib'
-  INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
   INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+  INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
   INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'en-US'
   INFO - No sort tailoring available for locale 'en-US'
   INFO - Writing 'index.bbl' with encoding 'UTF-8'

@@ -74,3 +74,36 @@ metadata
 (WARN) typst-gather analyze failed; staging all packages as fallback
 
 [typst]: Compiling template.typ to template.pdf...
+error: only element functions can be used as selectors
+    ┌─ template.typ:323:19
+    │
+  
+323 │       header: locate(loc => {
+    │ ╭────────────────────^
+324 │ │       if(loc.page() == 1) {
+325 │ │         let headers = (
+326 │ │           if (open-access) {smallcaps[Open Access]},
+    · │
+334 │ │    
+   }
+335 │ │     }),
+    │ ╰─────^
+
+
+(ERROR) error: only element functions can be used as selectors
+    ┌─ template.typ:323:19
+    │  
+323 │       header: locate(loc => {
+    │ ╭────────────────────^
+324 │ │       if(loc.page() == 1) {
+325 │ │         let headers = (
+326 │ │           if (open-access) {smallcaps[Open Access]},
+    · │
+334 │ │       }
+335 │ │     }),
+    │ ╰─────^
+
+
+
+(ERROR) Typst compilation failed
+

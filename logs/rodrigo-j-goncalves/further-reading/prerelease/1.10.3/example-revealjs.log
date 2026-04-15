@@ -53,20 +53,19 @@ Error runnin
 g filter /opt/quarto/share/filters/main.lua:
 /opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERROR
 stack traceback:
-	/opt/quarto/shar
-e/filters/main.lua:2622: in function 'fatal'
-	/opt/quarto/share
-/filters/main.lua:2202: in function 'fail'
-	/opt/quart
-o/share/filters/main.lua:3760: in field 'Pandoc'
-	/opt/quarto/sh
-are/filters/main.lua:588: in function 'run_emulated_filter'
-	/opt/quarto/share/filters/main.
-lua:1317: in local 'callback'
-	/opt/quarto/share/filters/main.lua:1335: in upva
-lue 'run_emulated_filter_chain'
-	/opt/quarto/sh
-are/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
+	/opt/quarto/share/filters/main.lua:2622: in func
+tion 'fatal'
+	/opt/quarto/share/filters/main.lua:2202: in function 'fail'
+	/opt
+/quarto/share/filters/main.lua:3760: in field 'Pandoc'
+	/opt/quarto/share/f
+ilters/main.lua:588: in function 'run_emulated_filter'
+	/opt/quarto/share/fil
+ters/main.lua:1317: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1335:
+ in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters
+/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
 
 (WARN) Error encountered when rendering files
 
