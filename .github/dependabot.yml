@@ -6,3 +6,7 @@ updates:
       interval: "weekly"
     labels:
       - "Type: Dependencies :arrow_up:"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
