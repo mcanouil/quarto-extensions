@@ -24,17 +24,23 @@ extract_extension_manifest() {
     return
   fi
 
-  # Extract both fields with yq in single pass, then aggregate with jq
-  echo "${extension_files}" |
-    while read -r url; do
-      gh api "${url}" --jq '.content' | base64 --decode | yq -o json '{
-        "contributes": (.contributes | keys // []),
-        "quartoRequired": (."quarto-required" // null)
-      }'
-    done | jq -s '{
-      contributes: (map(.contributes) | add | map(select(. != null)) | map(if type=="string" then sub("s$"; "") else . end) | unique),
-      quartoRequired: (map(.quartoRequired) | map(select(. != null)) | if length > 0 then first else null end)
-    }'
+  # Extract both fields with yq per file; skip unparseable manifests with a warning
+  # so one malformed _extension.yml does not abort the whole run.
+  while IFS= read -r url; do
+    local yaml_content parsed
+    yaml_content=$(gh api "${url}" --jq '.content' | base64 --decode)
+    if ! parsed=$(printf '%s' "${yaml_content}" | yq -o json '{
+      "contributes": (.contributes | keys // []),
+      "quartoRequired": (."quarto-required" // null)
+    }' 2>/dev/null); then
+      echo "::warning title=Invalid Extension Manifest::${repo}@${repo_branch} ${url}" >&2
+      continue
+    fi
+    printf '%s\n' "${parsed}"
+  done <<< "${extension_files}" | jq -s '{
+    contributes: ([.[].contributes // empty] | add // [] | map(select(. != null)) | map(if type=="string" then sub("s$"; "") else . end) | unique),
+    quartoRequired: (map(.quartoRequired) | map(select(. != null)) | if length > 0 then first else null end)
+  }'
 }
 
 # Main function to process extensions from CSV
