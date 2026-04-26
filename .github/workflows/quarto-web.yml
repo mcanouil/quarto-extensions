@@ -32,7 +32,8 @@ jobs:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
         shell: bash
-        run: echo "user-id=$(gh api "/users/${APP_SLUG}[bot]" --jq .id)" >> "${GITHUB_OUTPUT}"
+        run: echo "user-id=$(gh api "/users/${APP_SLUG}[bot]" --jq .id)" >>
+          "${GITHUB_OUTPUT}"
 
       - name: Git Config
         env:
@@ -82,5 +83,3 @@ jobs:
             --head "${BRANCH}" \
             --label "Type: CI/CD :robot:" \
             --reviewer "${GITHUB_REPOSITORY_OWNER}"
-          sleep 5
-          gh pr merge --auto --squash --delete-branch
