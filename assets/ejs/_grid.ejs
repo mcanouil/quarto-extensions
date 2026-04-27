@@ -93,7 +93,12 @@ const statusBanner = getStatusBanner(item.categories);
               <i class="bi <%= icon %> <%= colour %>" aria-hidden="true"></i>
               <span class="<%= colour %>"><%= r['quarto-version'] %></span>
             </button>
-            <% }); } %>
+            <% }); } else { %>
+            <span class="test-badge-btn" style="cursor: default;" aria-label="No tests available">
+              <i class="bi bi-question-circle text-muted" aria-hidden="true"></i>
+              <span class="text-muted">No tests</span>
+            </span>
+            <% } %>
           </div>
           <div>
             <% if (isTemplate) { %>
