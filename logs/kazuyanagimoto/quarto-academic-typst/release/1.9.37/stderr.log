@@ -3,6 +3,7 @@ Cloning into 'repo'...
 renv 1.1.6 was loaded from project library, but this project is configured to use renv 1.1.6.
 - Use `renv::record("renv@1.1.6")` to record renv 1.1.6 in the lockfile.
 - Use `renv::restore(packages = "renv")` to install renv 1.1.6 into the project library.
+- The project is out-of-sync -- use `renv::status()` for details.
 
 
 processing file: template-full.qmd
@@ -25,13 +26,13 @@ output file: template-full.knit.md
 
 There were 50 or more warnings (use warnings() to see the first 50)
 [typst]: Compiling template-full.typ to template-full.pdf...downloading @preview/fontawesome:0.6.0
- 81.9 KiB /  81.9 KiB (100 %)  81.9 KiB/s in 2.33 ms ETA: 0 s
+ 81.9 KiB /  81.9 KiB (100 %)  81.9 KiB/s in 16.71 ms ETA: 0 s
 
 downloading @preview/mitex:0.2.4
-106.4 KiB / 106.4 KiB (100 %) 106.4 KiB/s in 7.53 ms ETA: 0 s
+106.4 KiB / 106.4 KiB (100 %) 106.4 KiB/s in 6.12 ms ETA: 0 s
 
 downloading @preview/xarrow:0.2.0
- 14.1 KiB /  14.1 KiB (100 %)  14.1 KiB/s in 1.39 ms ETA: 0 s
+ 14.1 KiB /  14.1 KiB (100 %)  14.1 KiB/s in 1.18 ms ETA: 0 s
 
 warning: `kai` is deprecated, use ϗ or `\u{3d7}` instead
      ┌─ @preview/mitex:0.2.4/specs/latex/standard.typ:1030:30
@@ -57,6 +58,7 @@ DONE
 renv 1.1.6 was loaded from project library, but this project is configured to use renv 1.1.6.
 - Use `renv::record("renv@1.1.6")` to record renv 1.1.6 in the lockfile.
 - Use `renv::restore(packages = "renv")` to install renv 1.1.6 into the project library.
+- The project is out-of-sync -- use `renv::status()` for details.
 
 
 processing file: template.qmd

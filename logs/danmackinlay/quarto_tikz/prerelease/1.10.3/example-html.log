@@ -25,9 +25,9 @@ metadata
     tex-dir: tikz-tex
   
 
-ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/_extensions/tikz/tikz.lua:182) Inkscape not found. Please install Inkscape to convert PDFs to SVG.
+ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:182) Inkscape not found. Please install Inkscape to convert PDFs to SVG.
 
-ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/_extensions/tikz/tikz.lua:233) Error compiling TikZ figure 'stick-figure':
+ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:233) Error compiling TikZ figure 'stick-figure':
 Error running pdflatex (error code 1): This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
@@ -50,7 +50,7 @@ l.3 ^^M
 Transcript written on stick-figure.log.
 
 LaTeX Log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.13)  15 APR 2026 15:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.15)  26 APR 2026 23:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -98,7 +98,7 @@ TikZ Code:
   \draw (-1,-4) -- (0,-3) -- (1,-4);
 \end{tikzpicture}
 
-ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/_extensions/tikz/tikz.lua:250) Error converting PDF to SVG for TikZ figure 'stick-figure':
+ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:250) Error converting PDF to SVG for TikZ figure 'stick-figure':
 inkscape: createProcess: posix_spawnp: permission denied (Permission denied)
 TikZ Code:
 %%| filename: stick-figure
@@ -114,7 +114,7 @@ TikZ Code:
   % Legs
   \draw (-1,-4) -- (0,-3) -- (1,-4);
 \end{tikzpicture}
-ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/_extensions/tikz/tikz.lua:257) Failed to read generated SVG file for TikZ figure 'stick-figure'.
+ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:257) Failed to read generated SVG file for TikZ figure 'stick-figure'.
 TikZ Code:
 %%| filename: stick-figure
 %%| caption: A Stick Figure
@@ -130,88 +130,79 @@ TikZ Code:
   \draw (-1,-4) -- (0,-3) -- (1,-4);
 \end{tikzpicture}
 
-Error running fi
-lter /opt/quarto/share/filters/main.lua:
+Error running filter /opt/quarto/
+share/filters/main.lua:
 string expected, got nil
 	while retrieving function argument contents
 	while retrieving arguments for function insert
 stack traceback:
-	...quarto-extens
-ions/test-14/repo/_extensions/tikz/tikz.lua:321: in function <...quarto-extensions/test-1
-4/repo/_extensions/tikz/tikz.lua:279>
+	...quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:321: in function <...quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:279>
 	[C]: in ?
 	[C]: in method 'walk'
-	...quarto-extensions/test-14/rep
-o/_extensions/tikz/tikz.lua:387: in function <...quarto-extensions/test-14
-/repo/_extensions/tikz/tikz.lua:385>
+	...qu
+arto-extensions/test-15/repo/_extensions/tikz/tikz.lua:387: in function <...quarto-extensions/test-15/repo/_extens
+ions/tikz/tikz.lua:385>
 	[C]: in ?
-	[C]: in method 'wal
-k'
-	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
-	/opt/quarto/share/filters/main.lua:574
-: in local 'checked_walk'
-	/opt/quarto/share/filters/main.lua:629: in function 'run_emu
-lated_filter'
-	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
-	[string "if pandoc.sys
-tem.os == "mingw32" then..."]:778: in field 'withScriptFile'
-
-	/opt/quarto/share/filters/main.lua:1333: in
- upvalue 'run_emulated_filter_chain'
-	/opt/
-quarto/share/filters/main.lua:1371: in functi
-on </opt/quarto/share/filters/main.lua:1368
->
-stack traceback:
-	...quarto-extensions/t
-est-14/repo/_extensions/tikz/tikz.lua:387
-: in function <...quarto-extensions/test
--14/repo/_extensions/tikz/tikz.lua:385>
-	[
-C]: in ?
 	[C]: in method 'walk'
-	/opt/qu
-arto/share/pandoc/datadir/_utils.lua:607:
- in function '_utils.walk'
-	/opt/quarto/s
-hare/filters/main.lua:574: in local 'checke
-d_walk'
-	/opt/quarto/share/filters/main.lu
-a:629: in function 'run_emulated_filter'
-
-	/opt/quarto/share/filters/main.lua:1317:
- in local 'callback'
-	[string "if pandoc.sy
-stem.os == "mingw32" then..."]:778: in f
-ield 'withScriptFile'
-	/opt/quarto/shar
-e/filters/main.lua:1333: in upvalue 'ru
-n_emulated_filter_chain'
-	/opt/quarto/sh
-are/filters/main.lua:1371: in function 
-</opt/quarto/share/filters/main.lua:1368
->
-stack traceback:
-	/opt/quarto/share/pa
-ndoc/datadir/_utils.lua:607: in function
- '_utils.walk'
+	/opt/quarto/share/pandoc/datadir/_utils
+.lua:607: in function '_utils.walk'
 	/opt/quarto/share/filter
 s/main.lua:574: in local 'checked_walk'
+	/opt/quarto/share/filters/main
+.lua:629: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
+	[string 
+"if pandoc.system.os == "mingw32" then..."]:778: in
+ field 'wi
+thScriptFile'
+	/opt/quarto/share/filters/main.lua:1333: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
+stack traceback:
 
-	/opt/quarto/share/filters/main.lua:629: 
-in function 'run_emulated_filter'
-	/opt/q
-uarto/share/filters/main.lua:1317: in loc
-al 'callback'
-	[string "if pandoc.system
-.os == "mingw32" then..."]:778: in field 
-'withScriptFile'
-	/opt/quarto/share/filte
-rs/main.lua:1333: in upvalue 'run_emulat
-ed_filter_chain'
-	/opt/quarto/share/filt
-ers/main.lua:1371: in function </opt/qua
-rto/share/filters/main.lua:1368>
+	...quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:387
+: in function <...quarto-extensions/test-15/repo/
+_extensions/tikz/tikz.lua:385>
+	[C]: in ?
+	[C]
+: in method 'walk'
+	/opt/quarto/share/pandoc/
+datadir/_utils.lua:607: in function '_utils.wa
+lk'
+	/opt/quarto/share/filters/main.lua:574:
+ in local 'checked_walk'
+	/opt/quarto/share
+/filters/main.lua:629: in function 'run_emul
+ated_filter'
+	/opt/quarto/share/filters/mai
+n.lua:1317: in local 'callback'
+	[string "if
+ pandoc.system.os == "mingw32" then..."]:
+778: in field 'withScriptFile'
+	/opt/quarto
+/share/filters/main.lua:1333: in upvalue 'r
+un_emulated_filter_chain'
+	/opt/quarto/share
+/filters/main.lua:1371: in function </opt/qu
+arto/share/filters/main.lua:1368>
+stack trace
+back:
+	/opt/quarto/share/pandoc/datadir/_ut
+ils.lua:607: in function '_utils.walk'
+	/op
+t/quarto/share/filters/main.lua:574: in local
+ 'checked_walk'
+	/opt/quarto/share/filters/
+main.lua:629: in function 'run_emulated_filter'
+	/opt/quarto
+/share/filters/main.lua:1317: in local 'callback'
+	[string "if 
+pandoc.system.os == "mingw32" then..."]:778: i
+n field 'withScriptFile'
+	/opt/quarto/share/fil
+ters/main.lua:1333: in upvalue 'run_emulated_fi
+lter_chain'
+	/opt/quarto/share/filters/main.l
+ua:1371: in function </opt/quarto/share/filters/main.lua:1368>
 
 (WARN) Error encountered when rendering files
 

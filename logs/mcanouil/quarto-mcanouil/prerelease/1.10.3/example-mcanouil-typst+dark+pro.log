@@ -139,3 +139,44 @@ metadata
 (WARN) typst-gather analyze failed; staging all packages as fallback
 
 [typst]: Compiling example.typ to example.pdf...
+warning: unknown font family: menlo
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fir
+a Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: monaco
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: courier new
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^
+
+warning: unknown font family: georgia
+     ┌─ example.typ:5588:80
+     │
+5588 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgi
+a", ["]),
+     │                                                                                 ^^^^^^^^^
+
+warning: unknown font family: georgia
+     ┌─ example.typ:5598:80
+     │
+5598 │             tex
+t(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+     │                                                                                 ^^^^^^^^^
+
+
+DONE
+
+
+Output created: example-dark-professional.pdf
+
+

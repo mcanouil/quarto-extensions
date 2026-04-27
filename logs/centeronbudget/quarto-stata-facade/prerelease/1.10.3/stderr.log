@@ -2,23 +2,23 @@ Cloning into 'repo'...
 Using CPython 3.13.9 interpreter at: /usr/local/python/current/bin/python
 Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
-Resolved 21 packages in 1.00s
+Resolved 22 packages in 957ms
    Building stata-setup==0.1.3
 Downloading jedi (1.5MiB)
+Downloading pygments (1.2MiB)
 Downloading numpy (15.9MiB)
 Downloading pandas (10.4MiB)
-Downloading pygments (1.2MiB)
  Downloaded pygments
       Built stata-setup==0.1.3
  Downloaded numpy
  Downloaded pandas
  Downloaded jedi
-Prepared 21 packages in 682ms
-Installed 21 packages in 520ms
+Prepared 22 packages in 719ms
+Installed 22 packages in 529ms
  + asttokens==3.0.1
  + decorator==5.2.1
  + executing==2.2.1
- + ipython==9.12.0
+ + ipython==9.13.0
  + ipython-pygments-lexers==1.1.1
  + jedi==0.19.2
  + matplotlib-inline==0.2.1
@@ -27,6 +27,7 @@ Installed 21 packages in 520ms
  + parso==0.8.6
  + pexpect==4.9.0
  + prompt-toolkit==3.0.52
+ + psutil==7.2.2
  + ptyprocess==0.7.0
  + pure-eval==0.2.3
  + pygments==2.20.0

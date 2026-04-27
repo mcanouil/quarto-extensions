@@ -22,7 +22,8 @@ processing file: template.qmd
 
 10/11 [unnamed-chunk-5]
 
-11/11                  
+11
+/11                  
 
 output file: template.knit.md
 
@@ -102,44 +103,6 @@ running lualatex - 1
   This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
    restricted system commands enabled.
   
-  luaotfload | db : Font names database not found, generating new one.
-  luaotfload | db : This can take several minutes; please be patient.
-
-updating tlmgr
-
-
-
-updating existing packages
-
-finding package for ae.sty
-
-> 1 package to install
-
-> installing ae (1 of 1)
-
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-
-finding package for orcidlink.sty
-
-> 1 package to install
-
-> installing orcidlink (1 of 1)
-
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-
-finding package for thumbpdf.sty
-
-> 1 package to install
-
-> installing thumbpdf (1 of 1)
-
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
 
 generating bibliography
 
@@ -161,8 +124,18 @@ running lualatex - 3
    restricted system commands enabled.
   
 
+(ERROR) 
+compilation failed- Error compiling latex
+
+Undefined control sequence.
+<argument> cite.\@citeb 
+             \@extra@b@citeb 
+l.237 \begin{document}
+                    
 
 
-Output created: template.pdf
 
+see template.log for more information.
+
+(WARN) Error encountered when rendering files
 

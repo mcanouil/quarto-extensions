@@ -35,7 +35,7 @@ HttpExceptionRequest Request {
   requestVersion       = HTTP/1.1
   proxySecureMode      = ProxySecureWithConnect
 }
- (StatusCodeException (Response {responseStatus = Status {statusCode = 503, statusMessage = "Service Unavailable"}, responseVersion = HTTP/1.1, responseHeaders = [("Cache-Control","no-cache, no-store"),("Content-Type","text/html; charset=utf-8"),("Nel","{\"report_to\":\"heroku-nel\",\"response_headers\":[\"Via\"],\"max_age\":3600,\"success_fraction\":0.01,\"failure_fraction\":0.1}"),("Report-To","{\"group\":\"heroku-nel\",\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?s=hAdPb6Ija4hl8Tx672And5QN%2Fcfr1Zlk2TUWTC72zdI%3D\\u0026sid=af571f24-03ee-46d1-9f90-ab9030c2c74c\\u0026ts=1776266913\"}],\"max_age\":3600}"),("Reporting-Endpoints","heroku-nel=\"https://nel.heroku.com/reports?s=hAdPb6Ija4hl8Tx672And5QN%2Fcfr1Zlk2TUWTC72zdI%3D&sid=af571f24-03ee-46d1-9f90-ab9030c2c74c&ts=1776266913\""),("Server","Heroku"),("Via","1.1 heroku-router"),("Date","Wed, 15 Apr 2026 15:28:33 GMT"),("Content-Length","567")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
+ (StatusCodeException (Response {responseStatus = Status {statusCode = 503, statusMessage = "Service Unavailable"}, responseVersion = HTTP/1.1, responseHeaders = [("Cache-Control","no-cache, no-store"),("Content-Type","text/html; charset=utf-8"),("Nel","{\"report_to\":\"heroku-nel\",\"response_headers\":[\"Via\"],\"max_age\":3600,\"success_fraction\":0.01,\"failure_fraction\":0.1}"),("Report-To","{\"group\":\"heroku-nel\",\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?s=w48djkZ4jAkVomU6yIq5reC%2BncsWXpvjzyUGBIDHRpU%3D\\u0026sid=af571f24-03ee-46d1-9f90-ab9030c2c74c\\u0026ts=1777248985\"}],\"max_age\":3600}"),("Reporting-Endpoints","heroku-nel=\"https://nel.heroku.com/reports?s=w48djkZ4jAkVomU6yIq5reC%2BncsWXpvjzyUGBIDHRpU%3D&sid=af571f24-03ee-46d1-9f90-ab9030c2c74c&ts=1777248985\""),("Server","Heroku"),("Via","1.1 heroku-router"),("Date","Mon, 27 Apr 2026 00:16:25 GMT"),("Content-Length","567")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
   host                 = "source.unsplash.com"
   port                 = 443
   secure               = True
@@ -52,7 +52,7 @@ HttpExceptionRequest Request {
 }
 , responseEarlyHints = []}) "<!DOCTYPE html>\n<html>\n  <head>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <meta charset=\"utf-8\">\n    <title>Application Error</title>\n    <style media=\"screen\">\n      html,body,iframe {\n        margin: 0;\n        padding: 0;\n      }\n\n      html,body {\n        height: 100%;\n        overflow: hidden;\n      }\n\n      iframe {\n        width: 100%;\n        height: 100%;\n        border: 0;\n      }\n    </style>\n  </head>\n  <body>\n    <iframe src=\"https://www.herokucdn.com/error-pages/application-error.html\"></iframe>\n  </body>\n</html>")
 stack traceback:
-	...xtensions/test-23/repo/_extensions/unsplash/unsplash.lua:179: in function <...xtensions/test-23/repo/_extensions/unsplash/unsplash.lua:41>
+	...xtensions/test-24/repo/_extensions/unsplash/unsplash.lua:179: in function <...xtensions/test-24/repo/_extensions/unsplash/unsplash.lua:41>
 	(...tail calls...)
 	[string "if pandoc.system.os == "mingw32" then..."]:778: in function <[string "if pandoc.system.os == "mingw32" then..."]:776>
 	(...tail calls...)
@@ -115,7 +115,7 @@ HttpExceptionRequest Request {
   requestVersion       = HTTP/1.1
   proxySecureMode      = ProxySecureWithConnect
 }
- (StatusCodeException (Response {responseStatus = Status {statusCode = 503, statusMessage = "Service Unavailable"}, responseVersion = HTTP/1.1, responseHeaders = [("Cache-Control","no-cache, no-store"),("Content-Type","text/html; charset=utf-8"),("Nel","{\"report_to\":\"heroku-nel\",\"response_headers\":[\"Via\"],\"max_age\":3600,\"success_fraction\":0.01,\"failure_fraction\":0.1}"),("Report-To","{\"group\":\"heroku-nel\",\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?s=9otkXA21KCzQU3ZEx5Q%2BGNiF9MagZkZMrv1k%2BEUQOpI%3D\\u0026sid=af571f24-03ee-46d1-9f90-ab9030c2c74c\\u0026ts=1776266915\"}],\"max_age\":3600}"),("Reporting-Endpoints","heroku-nel=\"https://nel.heroku.com/reports?s=9otkXA21KCzQU3ZEx5Q%2BGNiF9MagZkZMrv1k%2BEUQOpI%3D&sid=af571f24-03ee-46d1-9f90-ab9030c2c74c&ts=1776266915\""),("Server","Heroku"),("Via","1.1 heroku-router"),("Date","Wed, 15 Apr 2026 15:28:35 GMT"),("Content-Length","567")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
+ (StatusCodeException (Response {responseStatus = Status {statusCode = 503, statusMessage = "Service Unavailable"}, responseVersion = HTTP/1.1, responseHeaders = [("Cache-Control","no-cache, no-store"),("Content-Type","text/html; charset=utf-8"),("Nel","{\"report_to\":\"heroku-nel\",\"response_headers\":[\"Via\"],\"max_age\":3600,\"success_fraction\":0.01,\"failure_fraction\":0.1}"),("Report-To","{\"group\":\"heroku-nel\",\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?s=qMfbgCrqkGGTMwbQuhXYZ5lGW01aYXRoctPTOQ8sX5c%3D\\u0026sid=af571f24-03ee-46d1-9f90-ab9030c2c74c\\u0026ts=1777248987\"}],\"max_age\":3600}"),("Reporting-Endpoints","heroku-nel=\"https://nel.heroku.com/reports?s=qMfbgCrqkGGTMwbQuhXYZ5lGW01aYXRoctPTOQ8sX5c%3D&sid=af571f24-03ee-46d1-9f90-ab9030c2c74c&ts=1777248987\""),("Server","Heroku"),("Via","1.1 heroku-router"),("Date","Mon, 27 Apr 2026 00:16:27 GMT"),("Content-Length","567")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
   host                 = "source.unsplash.com"
   port                 = 443
   secure               = True
@@ -132,7 +132,7 @@ HttpExceptionRequest Request {
 }
 , responseEarlyHints = []}) "<!DOCTYPE html>\n<html>\n  <head>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <meta charset=\"utf-8\">\n    <title>Application Error</title>\n    <style media=\"screen\">\n      html,body,iframe {\n        margin: 0;\n        padding: 0;\n      }\n\n      html,body {\n        height: 100%;\n        overflow: hidden;\n      }\n\n      iframe {\n        width: 100%;\n        height: 100%;\n        border: 0;\n      }\n    </style>\n  </head>\n  <body>\n    <iframe src=\"https://www.herokucdn.com/error-pages/application-error.html\"></iframe>\n  </body>\n</html>")
 stack traceback:
-	...xtensions/test-23/repo/_extensions/unsplash/unsplash.lua:179: in function <...xtensions/test-23/repo/_extensions/unsplash/unsplash.lua:41>
+	...xtensions/test-24/repo/_extensions/unsplash/unsplash.lua:179: in function <...xtensions/test-24/repo/_extensions/unsplash/unsplash.lua:41>
 	(...tail calls...)
 	[string "if pandoc.system.os == "mingw32" then..."]:778: in function <[string "if pandoc.system.os == "mingw32" then..."]:776>
 	(...tail calls...)

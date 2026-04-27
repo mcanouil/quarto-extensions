@@ -1,13 +1,13 @@
 Cloning into 'repo'...
-Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-14/R/x86_64-pc-linux-gnu-library/4.5'
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-17/R/x86_64-pc-linux-gnu-library/4.5'
 (as 'lib' is unspecified)
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.1.tar.gz'
-Content type 'binary/octet-stream' length 1357218 bytes (1.3 MB)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.2.tar.gz'
+Content type 'binary/octet-stream' length 1356485 bytes (1.3 MB)
 ==================================================
 downloaded 1.3 MB
 
 * installing *source* package 'renv' ...
-** this is package 'renv' version '1.2.1'
+** this is package 'renv' version '1.2.2'
 ** package 'renv' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
@@ -25,7 +25,7 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/RtmpycLaCf/downloaded_packages'
+	'/tmp/Rtmpj7ezkT/downloaded_packages'
 
 
 processing file: _revealjs-example.qmd
@@ -112,10 +112,10 @@ metadata
     - _extensions/mcanouil/revealjs/theme.scss
     - brand
   revealjs-plugins:
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/_extensions/mcanouil/revealjs-plugin/mcanouil
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/_extensions/mcanouil/revealjs-plugin/tabset
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/_extensions/mcanouil/revealjs-plugin/line-fragment-indices
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/_extensions/mcanouil/revealjs-plugin/code-annotation-fragments
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/_extensions/mcanouil/revealjs-plugin/mcanouil
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/_extensions/mcanouil/revealjs-plugin/tabset
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/_extensions/mcanouil/revealjs-plugin/line-fragment-indices
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/_extensions/mcanouil/revealjs-plugin/code-annotation-fragments
   slideNumber: c
   code-annotations: select
   footer: |
@@ -433,10 +433,10 @@ metadata
     - _extensions/mcanouil/revealjs/theme.scss
     - brand
   revealjs-plugins:
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/_extensions/mcanouil/revealjs-plugin/mcanouil
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/_extensions/mcanouil/revealjs-plugin/tabset
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/_extensions/mcanouil/revealjs-plugin/line-fragment-indices
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/_extensions/mcanouil/revealjs-plugin/code-annotation-fragments
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/_extensions/mcanouil/revealjs-plugin/mcanouil
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/_extensions/mcanouil/revealjs-plugin/tabset
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/_extensions/mcanouil/revealjs-plugin/line-fragment-indices
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/_extensions/mcanouil/revealjs-plugin/code-annotation-fragments
   slideNumber: c
   code-annotations: select
   footer: |
@@ -576,10 +576,10 @@ metadata
     - _extensions/mcanouil/revealjs/theme.scss
     - brand
   revealjs-plugins:
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/_extensions/mcanouil/revealjs-plugin/mcanouil
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/_extensions/mcanouil/revealjs-plugin/tabset
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/_extensions/mcanouil/revealjs-plugin/line-fragment-indices
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/_extensions/mcanouil/revealjs-plugin/code-annotation-fragments
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/_extensions/mcanouil/revealjs-plugin/mcanouil
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/_extensions/mcanouil/revealjs-plugin/tabset
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/_extensions/mcanouil/revealjs-plugin/line-fragment-indices
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/_extensions/mcanouil/revealjs-plugin/code-annotation-fragments
   slideNumber: c
   code-annotations: select
   footer: |
@@ -942,33 +942,40 @@ metadata
   watermark-text: DEMO
   
 WARN: typst-gather analyze failed; staging all packages as fallback
-[typst]: Compiling example.typ to example.pdf...error: Uncaught (in promise) TypeError: Writable stream is closed or errored.
-      process4.stdin.close();
-                     ^
-    at writableStreamClose (ext:deno_web/06_streams.js:4352:7)
-    at WritableStream.close (ext:deno_web/06_streams.js:6466:12)
-    at execProcess (file:///opt/quarto/bin/quarto.js:7857:22)
-    at eventLoopTick (ext:core/01_core.js:179:7)
-    at async runAnalyze (file:///opt/quarto/bin/quarto.js:135839:19)
-    at async analyzeNeededPackages (file:///opt/quarto/bin/quarto.js:135888:21)
-    at async stageTypstPackages (file:///opt/quarto/bin/quarto.js:135939:26)
-    at async Object.complete (file:///opt/quarto/bin/quarto.js:135977:27)
-    at async file:///opt/quarto/bin/quarto.js:130926:23
-    at async withTimingAsync (file:///opt/quarto/bin/quarto.js:15990:21)
-    at async Object.complete (file:///opt/quarto/bin/quarto.js:130912:7)
-    at async Object.onPostProcess (file:///opt/quarto/bin/quarto.js:136894:28)
-    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:136878:3)
-    at async renderFiles (file:///opt/quarto/bin/quarto.js:136597:9)
-    at async render (file:///opt/quarto/bin/quarto.js:142251:19)
-    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142496:24)
-    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102027:7)
-    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101904:14)
-    at async quarto4 (file:///opt/quarto/bin/quarto.js:187717:5)
-    at async file:///opt/quarto/bin/quarto.js:187746:5
-    at async file:///opt/quarto/bin/quarto.js:187600:14
-    at async mainRunner (file:///opt/quarto/bin/quarto.js:187602:5)
-    at async file:///opt/quarto/bin/quarto.js:187739:3
-Render failed, retrying once...
+[typst]: Compiling example.typ to example.pdf...warning: unknown font family: menlo
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: monaco
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: courier new
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: georgia
+     ┌─ example.typ:5588:80
+     │
+5588 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+     │                                                                                 ^^^^^^^^^
+
+warning: unknown font family: georgia
+     ┌─ example.typ:5598:80
+     │
+5598 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+     │                                                                                 ^^^^^^^^^
+
+DONE
+
+Output created: example-dark-professional.pdf
+
 pandoc 
   to: typst-citations
   output-file: example.typ
@@ -1018,7 +1025,176 @@ metadata
     mcanouil:
       grid-background: true
   document-type: report
-  brand-mode: dark
+  brand-mode: light
+  style: academic
+  show-corner-brackets: true
+  show-margin-decoration: true
+  show-title-page-background: true
+  show-heading-underlines: true
+  show-logo: true
+  logo:
+    light:
+      path: dark
+      alt: Mickaël CANOUIL Logo
+      width: 7cm
+    dark:
+      path: light
+      alt: Mickaël CANOUIL Logo
+      width: 7cm
+  orcid-icon: _extensions/mcanouil/typst/assets/orcid.svg
+  mainfont: Alegreya Sans
+  sansfont: Alegreya Sans
+  fontsize: 11pt
+  papersize: a4
+  margin:
+    top: 2.5cm
+    bottom: 2.5cm
+    left: 2.5cm
+    right: 2.5cm
+  title-page: true
+  section-numbering: 1.1.1.
+  section-page: true
+  section-pagebreak: true
+  special-sections:
+    references:
+      name: References
+      numbering: none
+      prefix: false
+    appendix:
+      name: Appendix
+      numbering: A.a.
+      prefix: true
+    supplementary:
+      name: Supplementary
+      numbering: I.i.
+      prefix: true
+  list-of: true
+  bibliographystyle: apa
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Mickaël CANOUIL Template
+  subtitle: Complete Guide
+  date-modified: today
+  abstract: |
+    This document showcases all features of the Mickaël CANOUIL template for Quarto, spanning HTML, Typst (PDF), and Reveal.js (presentations) formats.
+    It demonstrates template-specific components including value boxes, info panels, status badges, dividers, progress bars, cards, card grids, executive summaries, and highlighted blocks.
+    Additionally, it covers standard Quarto features such as figures, tables, mathematical notation, callouts, code blocks, code annotations, mermaid diagrams, and cross-references.
+    Use this document as both a learning resource and a quick reference guide for all available template capabilities.
+  keywords:
+    - Quarto
+    - Typst
+    - Template
+    - Documentation
+    - Tutorial
+  crossref:
+    custom:
+      - kind: float
+        reference-prefix: Text
+        key: txt
+  references:
+    - id: example_2024
+      author:
+        - family: Example
+          given: Jane
+        - family: Author
+          given: John
+      container-title: Journal of Examples
+      doi: 10.1234/example.2024
+      issued: 2024
+      title: An Example Article for Demonstrating Citations
+      type: article-journal
+  other-links:
+    - text: HTML (Academic Style)
+      href: example-academic.html
+      target: _blank
+      rel: noopener noreferrer
+  watermark-text: DEMO
+  
+WARN: typst-gather analyze failed; staging all packages as fallback
+[typst]: Compiling example.typ to example.pdf...warning: unknown font family: menlo
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: monaco
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: courier new
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: georgia
+     ┌─ example.typ:5588:80
+     │
+5588 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+     │                                                                                 ^^^^^^^^^
+
+warning: unknown font family: georgia
+     ┌─ example.typ:5598:80
+     │
+5598 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+     │                                                                                 ^^^^^^^^^
+
+DONE
+
+Output created: example-light-academic.pdf
+
+pandoc 
+  to: typst-citations
+  output-file: example.typ
+  template: _extensions/mcanouil/typst/template.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  number-sections: true
+  toc: true
+  variables: {}
+  
+metadata
+  columns: 1
+  author:
+    - name:
+        given: Mickaël
+        family: CANOUIL
+      degrees: Ph.D.
+      email: pro@mickael.canouil.dev
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+      attributes:
+        corresponding: true
+      affiliations:
+        - name: Independent Contractor
+          city: Lille
+          country: France
+    - name:
+        given: Jane
+        family: Doe
+      orcid: 0000-0001-2345-6789
+      affiliations:
+        - name: Example University
+          department: Department of Statistics
+          city: London
+          country: United Kingdom
+  copyright: © 2026 Mickaël CANOUIL
+  license: CC BY-NC-SA
+  lang: en-GB
+  code-copy: true
+  date: today
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  mermaid:
+    theme: dark
+  extensions:
+    mcanouil:
+      grid-background: true
+  document-type: report
+  brand-mode: light
   style: professional
   show-corner-brackets: true
   show-margin-decoration: true
@@ -1104,29 +1280,37 @@ metadata
   watermark-text: DEMO
   
 WARN: typst-gather analyze failed; staging all packages as fallback
-[typst]: Compiling example.typ to example.pdf...error: Uncaught (in promise) TypeError: Writable stream is closed or errored.
-      process4.stdin.close();
-                     ^
-    at writableStreamClose (ext:deno_web/06_streams.js:4352:7)
-    at WritableStream.close (ext:deno_web/06_streams.js:6466:12)
-    at execProcess (file:///opt/quarto/bin/quarto.js:7857:22)
-    at eventLoopTick (ext:core/01_core.js:179:7)
-    at async runAnalyze (file:///opt/quarto/bin/quarto.js:135839:19)
-    at async analyzeNeededPackages (file:///opt/quarto/bin/quarto.js:135888:21)
-    at async stageTypstPackages (file:///opt/quarto/bin/quarto.js:135939:26)
-    at async Object.complete (file:///opt/quarto/bin/quarto.js:135977:27)
-    at async file:///opt/quarto/bin/quarto.js:130926:23
-    at async withTimingAsync (file:///opt/quarto/bin/quarto.js:15990:21)
-    at async Object.complete (file:///opt/quarto/bin/quarto.js:130912:7)
-    at async Object.onPostProcess (file:///opt/quarto/bin/quarto.js:136894:28)
-    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:136878:3)
-    at async renderFiles (file:///opt/quarto/bin/quarto.js:136597:9)
-    at async render (file:///opt/quarto/bin/quarto.js:142251:19)
-    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142496:24)
-    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102027:7)
-    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101904:14)
-    at async quarto4 (file:///opt/quarto/bin/quarto.js:187717:5)
-    at async file:///opt/quarto/bin/quarto.js:187746:5
-    at async file:///opt/quarto/bin/quarto.js:187600:14
-    at async mainRunner (file:///opt/quarto/bin/quarto.js:187602:5)
-    at async file:///opt/quarto/bin/quarto.js:187739:3
+[typst]: Compiling example.typ to example.pdf...warning: unknown font family: menlo
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: monaco
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: courier new
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: georgia
+     ┌─ example.typ:5588:80
+     │
+5588 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+     │                                                                                 ^^^^^^^^^
+
+warning: unknown font family: georgia
+     ┌─ example.typ:5598:80
+     │
+5598 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+     │                                                                                 ^^^^^^^^^
+
+DONE
+
+Output created: example-light-professional.pdf
+

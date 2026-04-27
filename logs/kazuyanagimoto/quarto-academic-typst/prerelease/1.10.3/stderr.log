@@ -3,6 +3,61 @@ Cloning into 'repo'...
 renv 1.1.6 was loaded from project library, but this project is configured to use renv 1.1.6.
 - Use `renv::record("renv@1.1.6")` to record renv 1.1.6 in the lockfile.
 - Use `renv::restore(packages = "renv")` to install renv 1.1.6 into the project library.
+- The project is out-of-sync -- use `renv::status()` for details.
+
+
+processing file: template-full.qmd
+1/15                   
+2/15 [setup]           
+3/15                   
+4/15 [fig-facet]       
+5/15                   
+6/15 [fig-patchwork]   
+7/15                   
+8/15 [tbl-sum-penguins]
+9/15                   
+10/15 [tbl-regression]  
+11/15                   
+12/15 [prep-mitex]      
+13/15                   
+14/15 [tbl-math]        
+15/15                   
+output file: template-full.knit.md
+
+There were 50 or more warnings (use warnings() to see the first 50)
+WARN: typst-gather analyze failed; staging all packages as fallback
+[typst]: Compiling template-full.typ to template-full.pdf...error: Uncaught (in promise) TypeError: Writable stream is closed or errored.
+      process4.stdin.close();
+                     ^
+    at writableStreamClose (ext:deno_web/06_streams.js:4352:7)
+    at WritableStream.close (ext:deno_web/06_streams.js:6466:12)
+    at execProcess (file:///opt/quarto/bin/quarto.js:7857:22)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async runAnalyze (file:///opt/quarto/bin/quarto.js:135839:19)
+    at async analyzeNeededPackages (file:///opt/quarto/bin/quarto.js:135888:21)
+    at async stageTypstPackages (file:///opt/quarto/bin/quarto.js:135939:26)
+    at async Object.complete (file:///opt/quarto/bin/quarto.js:135977:27)
+    at async file:///opt/quarto/bin/quarto.js:130926:23
+    at async withTimingAsync (file:///opt/quarto/bin/quarto.js:15990:21)
+    at async Object.complete (file:///opt/quarto/bin/quarto.js:130912:7)
+    at async Object.onPostProcess (file:///opt/quarto/bin/quarto.js:136894:28)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:136878:3)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136597:9)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:137166:23)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142496:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102027:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101904:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187717:5)
+    at async file:///opt/quarto/bin/quarto.js:187746:5
+    at async file:///opt/quarto/bin/quarto.js:187600:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187602:5)
+    at async file:///opt/quarto/bin/quarto.js:187739:3
+Render failed, retrying once...
+[1/2] template-full.qmd
+renv 1.1.6 was loaded from project library, but this project is configured to use renv 1.1.6.
+- Use `renv::record("renv@1.1.6")` to record renv 1.1.6 in the lockfile.
+- Use `renv::restore(packages = "renv")` to install renv 1.1.6 into the project library.
+- The project is out-of-sync -- use `renv::status()` for details.
 
 
 processing file: template-full.qmd
@@ -26,13 +81,13 @@ output file: template-full.knit.md
 There were 50 or more warnings (use warnings() to see the first 50)
 WARN: typst-gather analyze failed; staging all packages as fallback
 [typst]: Compiling template-full.typ to template-full.pdf...downloading @preview/fontawesome:0.6.0
- 81.9 KiB /  81.9 KiB (100 %)  81.9 KiB/s in 2.17 ms ETA: 0 s
+ 81.9 KiB /  81.9 KiB (100 %)  81.9 KiB/s in 1.81 ms ETA: 0 s
 
 downloading @preview/mitex:0.2.4
-106.4 KiB / 106.4 KiB (100 %) 106.4 KiB/s in 2.54 ms ETA: 0 s
+106.4 KiB / 106.4 KiB (100 %) 106.4 KiB/s in 2.63 ms ETA: 0 s
 
 downloading @preview/xarrow:0.2.0
- 14.1 KiB /  14.1 KiB (100 %)  14.1 KiB/s in 1.3 ms ETA: 0 s
+ 14.1 KiB /  14.1 KiB (100 %)  14.1 KiB/s in 1.71 ms ETA: 0 s
 
 warning: `kai` is deprecated, use ϗ or `\u{3d7}` instead
      ┌─ @preview/mitex:0.2.4/specs/latex/standard.typ:1030:30
@@ -58,6 +113,7 @@ DONE
 renv 1.1.6 was loaded from project library, but this project is configured to use renv 1.1.6.
 - Use `renv::record("renv@1.1.6")` to record renv 1.1.6 in the lockfile.
 - Use `renv::restore(packages = "renv")` to install renv 1.1.6 into the project library.
+- The project is out-of-sync -- use `renv::status()` for details.
 
 
 processing file: template.qmd

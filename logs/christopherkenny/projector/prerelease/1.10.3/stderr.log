@@ -28,8 +28,64 @@ metadata
   theme: greyer.typ
   
 WARN: typst-gather analyze failed; staging all packages as fallback
+[typst]: Compiling template.typ to template.pdf...error: Uncaught (in promise) TypeError: Writable stream is closed or errored.
+      process4.stdin.close();
+                     ^
+    at writableStreamClose (ext:deno_web/06_streams.js:4352:7)
+    at WritableStream.close (ext:deno_web/06_streams.js:6466:12)
+    at execProcess (file:///opt/quarto/bin/quarto.js:7857:22)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async runAnalyze (file:///opt/quarto/bin/quarto.js:135839:19)
+    at async analyzeNeededPackages (file:///opt/quarto/bin/quarto.js:135888:21)
+    at async stageTypstPackages (file:///opt/quarto/bin/quarto.js:135939:26)
+    at async Object.complete (file:///opt/quarto/bin/quarto.js:135977:27)
+    at async file:///opt/quarto/bin/quarto.js:130926:23
+    at async withTimingAsync (file:///opt/quarto/bin/quarto.js:15990:21)
+    at async Object.complete (file:///opt/quarto/bin/quarto.js:130912:7)
+    at async Object.onPostProcess (file:///opt/quarto/bin/quarto.js:136894:28)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:136878:3)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136597:9)
+    at async render (file:///opt/quarto/bin/quarto.js:142251:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142496:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102027:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101904:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187717:5)
+    at async file:///opt/quarto/bin/quarto.js:187746:5
+    at async file:///opt/quarto/bin/quarto.js:187600:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187602:5)
+    at async file:///opt/quarto/bin/quarto.js:187739:3
+Render failed, retrying once...
+pandoc 
+  to: typst
+  output-file: template.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  toc: true
+  variables: {}
+  
+metadata
+  date-format: long
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: A presentation with Polylux via Quarto
+  subtitle: using `projector`
+  author:
+    - name: Author One
+      affiliations:
+        - name: Harvard University
+    - name: Author Two
+      affiliations:
+        - name: Yale University
+  date: today
+  bullet-incremental: true
+  handout: false
+  theme: greyer.typ
+  
+WARN: typst-gather analyze failed; staging all packages as fallback
 [typst]: Compiling template.typ to template.pdf...downloading @preview/polylux:0.4.0
-  6.4 KiB /   6.4 KiB (100 %)   6.4 KiB/s in 10.94 µs ETA: 0 s
+  6.4 KiB /   6.4 KiB (100 %)   6.4 KiB/s in 12.55 µs ETA: 0 s
 
 DONE
 

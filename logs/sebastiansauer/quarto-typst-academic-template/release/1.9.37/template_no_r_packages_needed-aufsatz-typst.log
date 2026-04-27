@@ -1,0 +1,78 @@
+
+
+processing file: template_no_r_packages_needed.qmd
+
+1/5                  
+
+2/5 [unnamed-chunk-1]
+
+3/5                  
+
+4/5 [fig-mtcars1]    
+
+5/5                  
+
+output file: template_no_r_packages_needed.knit.md
+
+
+pandoc 
+
+  to: typst-citations
+  output-file: template_no_r_packages_needed.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  number-sections: true
+  toc: true
+  toc-depth: 3
+  variables: {}
+  
+
+metadata
+
+  knitr:
+    opts_chunk:
+      echo: false
+  csl: apa.csl
+  section-numbering: 1.1.1
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Titel des Aufsatzes
+  author:
+    - name: Vorname Nachname
+  date: today
+  institution: Musterhochschule
+  department: Studiengang XYZ
+  course: Einführung in die Raketenwissenschaft (SoSe 2026)
+  supervisor: Prof. Dr. Musterfrau
+  student-id: '0012345'
+  lang: de
+  bibliography:
+    - referenzen.bib
+  logo: logo.png
+  abstract: |
+    Hier steht eine kurze Zusammenfassung (Abstract) des Aufsatzes.
+    Der Abstract sollte den zentralen Inhalt, die Fragestellung und
+    die wichtigsten Ergebnisse des Aufsatzes in komprimierter Form
+    darstellen (ca. 150–200 Wörter).
+  paper-size: a4
+  font: Linux Libertine
+  
+
+WARNING (/opt/quarto/share/filters/main.lua:14920) Unable to resolve crossref @fig-hyp1
+
+[typst]: Compiling template_no_r_packages_needed.typ to template_no_r_packages_needed.pdf...
+warning: unknown font family: linux libertine
+    ┌─ template_no_r_packages_needed.typ:350:10
+    │
+350 │     font: font,
+    │           ^^
+^^
+
+
+DONE
+
+
+Output created: template_no_r_packages_needed.pdf
+
+

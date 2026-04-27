@@ -23,41 +23,37 @@ metadata
   
 
 FATAL (/opt/quarto/share/filters/main.lua:3760) An error occurred:
-Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-19/repo/docs/swissbiopics as a JSON filter.
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-22/repo/docs/swissbiopics as a JSON filter.
 Please make sure the file exists and is executable.
 
 Did you intend 'swissbiopics' as a Lua filter in an extension?
 If so, make sure you've spelled the name of the extension correctly.
 
 The original Pandoc error follows below.
-Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-19/repo/docs/swissbiopics:
-Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-19/repo/docs/swissbiopics
+Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-22/repo/docs/swissbiopics:
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-22/repo/docs/swissbiopics
 
-Error running filter /
-opt/quarto/share/filters/main.lua:
+Error runn
+ing filter /opt/quarto/share/filters/main.lua:
 /opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERROR
 stack traceback:
-	/opt/quarto/
-share/filters/main.lua:2622: in function 'fatal'
-
-	/opt/quarto/share/filters/main.lua:220
-2: in function 'fail'
-	/opt/quarto/sha
-re/filters/main.lua:3760: in field 
-'Pandoc'
+	/o
+pt/quarto/share/filters/main.lua:2622: in function 'fatal'
+	/opt/quarto/sh
+are/filters/main.lua:2202: in function 'fail'
 	/opt/quarto/share/filte
-rs/main.lua:588: in funct
-ion 'run_emulated_filter'
-	/opt/quarto/share/filters/main.lua:1317: in l
-ocal 'callback'
+rs/main.lua:3760: in field 'Pandoc'
 	/opt/quarto/share/filters/main.lu
-a:1335: in upvalue 'run_emulated_filter_chain'
-	/
-opt/quarto/share/filters/
-main.lua:1371: in f
-unction </opt/qua
-rto/share/filters/
-main.lua:1368>
+a:588: in function 'run_emulated_filter'
+	/opt/quarto/sha
+re/filters/main.lua:1317: 
+in local 'callback'
+	/opt/quarto/share/filters/main.
+lua:1335: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share
+/filters/main.lua:1371: in function </opt/q
+uarto/share/filters/main.lua:
+1368>
 
 (WARN) Error encountered when rendering files
 

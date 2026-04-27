@@ -32,3 +32,80 @@ output file: template-typstcv.knit.md
 (WARN) typst-gather analyze failed; staging all packages as fallback
 
 [typst]: Compiling template-typstcv.typ to template-typstcv.pdf...
+error: unclosed label
+    ┌─ template-typstcv.typ:716:52
+    │
+
+716 │ #resume-entry(title: [Ph.D. in Physics],location: [Z<U+00FC>rich, Switzerland],date: [1905],description: [University of Z<U+00FC>rich],)
+    │                                                     ^^
+
+error: unclosed label
+    ┌─ template-typstcv.typ:716:121
+    │
+716 │ #resume-entry(title: [Ph.D. in Physics],location: [Z<U+00FC>rich, Switzerland],date: [1905],description: [University of Z<U+00FC>rich],)
+    │                
+                                                                                                         
+ ^^
+
+error: unclosed label
+    ┌─ template-typstcv.typ:717:53
+    │
+717 │ #resume-entry(title: [Master of Science],location:
+ [Z<U+00FC>rich, Switzerland],date: [1896 - 1900],description: [ETH],)
+    │ 
+                                                     ^^
+
+error: unclosed label
+  
+  ┌─ template-typstcv.typ:724:55
+    │
+724 │ #resume-entry(title: [Associate Professor],locatio
+n: [Z<U+00FC>rich, Switzerland],date: [1909 - 1911],description: [Univers
+ity of Z<U+00FC>rich],)
+    │                                            
+            ^^
+
+error: unclosed label
+    ┌─ template-typstcv.typ:724:131
+    │
+724 │ #resume-entry(title: [A
+ssociate Professor],location: [Z<U+00FC>rich, Switzerland],date: [190
+9 - 1911],description: [University of Z<U+00FC>rich],)
+    │        
+                                                                                                                            ^^
+
+
+(ERROR) error: unclosed label
+    ┌─ template-typstcv.typ:716:52
+    │
+716 │ #resume-entry(title: [Ph.D. in Physics],location: [Z<U+00FC>rich, Switzerland],date: [1905],description: [University of Z<U+00FC>rich],)
+    │                                                     ^^
+
+error: unclosed label
+    ┌─ template-typstcv.typ:716:121
+    │
+716 │ #resume-entry(title: [Ph.D. in Physics],location: [Z<U+00FC>rich, Switzerland],date: [1905],description: [University of Z<U+00FC>rich],)
+    │                                                                                                                          ^^
+
+error: unclosed label
+    ┌─ template-typstcv.typ:717:53
+    │
+717 │ #resume-entry(title: [Master of Science],location: [Z<U+00FC>rich, Switzerland],date: [1896 - 1900],description: [ETH],)
+    │                                                      ^^
+
+error: unclosed label
+    ┌─ template-typstcv.typ:724:55
+    │
+724 │ #resume-entry(title: [Associate Professor],location: [Z<U+00FC>rich, Switzerland],date: [1909 - 1911],description: [University of Z<U+00FC>rich],)
+    │                                                        ^^
+
+error: unclosed label
+    ┌─ template-typstcv.typ:724:131
+    │
+724 │ #resume-entry(title: [Associate Professor],location: [Z<U+00FC>rich, Switzerland],date: [1909 - 1911],description: [University of Z<U+00FC>rich],)
+    │                                                                                                                                    ^^
+
+
+
+(ERROR) Typst compilation failed
+

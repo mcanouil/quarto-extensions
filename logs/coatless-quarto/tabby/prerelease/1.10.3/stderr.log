@@ -1,13 +1,13 @@
 Cloning into 'repo'...
-Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-23/R/x86_64-pc-linux-gnu-library/4.5'
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.5'
 (as 'lib' is unspecified)
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.1.tar.gz'
-Content type 'binary/octet-stream' length 1357218 bytes (1.3 MB)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.2.tar.gz'
+Content type 'binary/octet-stream' length 1356485 bytes (1.3 MB)
 ==================================================
 downloaded 1.3 MB
 
 * installing *source* package 'renv' ...
-** this is package 'renv' version '1.2.1'
+** this is package 'renv' version '1.2.2'
 ** package 'renv' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
@@ -25,32 +25,32 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/Rtmp7ZqwmM/downloaded_packages'
+	'/tmp/RtmpUQHESD/downloaded_packages'
 Using CPython 3.13.9 interpreter at: /usr/local/python/current/bin/python
 Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
-Resolved 13 packages in 158ms
+Resolved 13 packages in 139ms
 Downloading numpy (15.9MiB)
-Downloading matplotlib (8.3MiB)
-Downloading kiwisolver (1.4MiB)
 Downloading fonttools (4.7MiB)
-Downloading pandas (10.4MiB)
 Downloading pillow (6.8MiB)
+Downloading pandas (10.4MiB)
+Downloading kiwisolver (1.4MiB)
+Downloading matplotlib (8.4MiB)
  Downloaded kiwisolver
  Downloaded pillow
  Downloaded fonttools
  Downloaded matplotlib
  Downloaded numpy
  Downloaded pandas
-Prepared 13 packages in 707ms
-Installed 13 packages in 454ms
+Prepared 13 packages in 709ms
+Installed 13 packages in 355ms
  + contourpy==1.3.3
  + cycler==0.12.1
  + fonttools==4.62.1
  + kiwisolver==1.5.0
- + matplotlib==3.10.8
+ + matplotlib==3.10.9
  + numpy==2.4.4
- + packaging==26.1
+ + packaging==26.2
  + pandas==3.0.2
  + pillow==12.2.0
  + pyparsing==3.3.2
@@ -72,7 +72,7 @@ Error running filter /opt/quarto/share/filters/main.lua:
 /opt/quarto/share/filters/main.lua:23084: attempt to call a nil value (method 'map')
 stack traceback:
 	/opt/quarto/share/filters/main.lua:937: in field 'Tabset'
-	...extensions/test-23/repo/docs/_extensions/tabby/tabby.lua:212: in function <...extensions/test-23/repo/docs/_extensions/tabby/tabby.lua:147>
+	...-extensions/test-1/repo/docs/_extensions/tabby/tabby.lua:212: in function <...-extensions/test-1/repo/docs/_extensions/tabby/tabby.lua:147>
 	(...tail calls...)
 	[C]: in ?
 	[C]: in method 'walk'
@@ -108,7 +108,7 @@ Error running filter /opt/quarto/share/filters/main.lua:
 /opt/quarto/share/filters/main.lua:23084: attempt to call a nil value (method 'map')
 stack traceback:
 	/opt/quarto/share/filters/main.lua:937: in field 'Tabset'
-	...extensions/test-23/repo/docs/_extensions/tabby/tabby.lua:212: in function <...extensions/test-23/repo/docs/_extensions/tabby/tabby.lua:147>
+	...-extensions/test-1/repo/docs/_extensions/tabby/tabby.lua:212: in function <...-extensions/test-1/repo/docs/_extensions/tabby/tabby.lua:147>
 	(...tail calls...)
 	[C]: in ?
 	[C]: in method 'walk'

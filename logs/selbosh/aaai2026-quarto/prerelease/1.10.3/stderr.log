@@ -128,7 +128,7 @@ HttpExceptionRequest Request {
   requestVersion       = HTTP/1.1
   proxySecureMode      = ProxySecureWithConnect
 }
- (StatusCodeException (Response {responseStatus = Status {statusCode = 403, statusMessage = "Forbidden"}, responseVersion = HTTP/1.1, responseHeaders = [("content-length","126"),("content-type","text/plain"),("x-request-id","112b0868-4b20-494d-947a-89de4fc02f6c"),("server","HAProxy"),("x-cache","cp2046 int"),("x-cache-status","int-tls"),("x-analytics","")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
+ (StatusCodeException (Response {responseStatus = Status {statusCode = 403, statusMessage = "Forbidden"}, responseVersion = HTTP/1.1, responseHeaders = [("content-length","126"),("content-type","text/plain"),("x-request-id","71f4c2a8-e6e2-47d8-b4d3-c14135c0052b"),("server","HAProxy"),("x-cache","cp4048 int"),("x-cache-status","int-tls"),("x-analytics","")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
   host                 = "upload.wikimedia.org"
   port                 = 443
   secure               = True
@@ -152,7 +152,7 @@ stack traceback:
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:34: in upvalue 'run_filter_function'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:223: in function <...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:202>
 	(...tail calls...)
-	[C]: in function 'pandoc.List.map'
+	[C]: in function 'tmap'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:125: in upvalue 'recurse'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:222: in local 'jogger'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:98: in upvalue 'recurse'
@@ -162,7 +162,7 @@ stack traceback:
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:111: in upvalue 'recurse'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:222: in function <...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:202>
 	(...tail calls...)
-	[C]: in function 'pandoc.List.map'
+	[C]: in function 'tmap'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:125: in upvalue 'recurse'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:222: in local 'jogger'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:171: in upvalue 'recurse'
@@ -251,7 +251,7 @@ HttpExceptionRequest Request {
   requestVersion       = HTTP/1.1
   proxySecureMode      = ProxySecureWithConnect
 }
- (StatusCodeException (Response {responseStatus = Status {statusCode = 403, statusMessage = "Forbidden"}, responseVersion = HTTP/1.1, responseHeaders = [("content-length","126"),("content-type","text/plain"),("x-request-id","f346cf3c-c546-47ed-83e2-e79fd5c5b6d8"),("server","HAProxy"),("x-cache","cp2046 int"),("x-cache-status","int-tls"),("x-analytics","")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
+ (StatusCodeException (Response {responseStatus = Status {statusCode = 403, statusMessage = "Forbidden"}, responseVersion = HTTP/1.1, responseHeaders = [("content-length","126"),("content-type","text/plain"),("x-request-id","2753e0f8-ad96-4ea4-87ca-d1c2b847abfe"),("server","HAProxy"),("x-cache","cp4048 int"),("x-cache-status","int-tls"),("x-analytics","")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
   host                 = "upload.wikimedia.org"
   port                 = 443
   secure               = True

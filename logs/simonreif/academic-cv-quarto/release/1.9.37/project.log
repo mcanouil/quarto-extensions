@@ -1,0 +1,175 @@
+[typst]: Compiling Letter.typ to Letter.pdf...
+downloading @preview/fontawesome:0.6.0
+
+ 81.9 KiB /  81.9 KiB (100 %)  81.9 KiB/s in 2.94 ms ETA: 0 s
+
+
+warning: unknown font family: source sans 3
+    ┌─ Letter.typ
+:565:18
+    │
+565 │   #set text(font: body-font-str, size: body-size, weight: 400, fill: main_color)
+    │                   ^^^^^^^^^^^^^
+
+warning: unknown font family: roboto
+    ┌─ Letter.typ:682:16
+    │
+682 │           font: heading-font-str,
+    │                 ^^^^^^^^^^^^^^^^
+
+warning: unknown font family: roboto
+    ┌─ Letter.typ:691:23
+    │
+691 │            #text(font: heading-font-str, size: 9pt, weight: 700, fill: accent)[#research-area]
+    │                        ^^^^^^^^^^^^^^^^
+
+warning: unknown font family: roboto
+    ┌─ Letter.typ:695:27
+    │
+695 │                #text(font: heading-font-str, size: contact-size, weight: 700, fill: main_color)[#location]
+    │                            ^
+^^^^^^^^^^^^^^^
+
+warning: unknown font family: roboto
+    ┌─ Letter.typ:699:25
+    │
+699 │              #text(font: heading-font-str, size: contact-size, weight: 400, fill: light-color)[
+    │                          ^^^
+^^^^^^^^^^^^^
+
+warning: unknown font family: roboto
+    ┌─ Letter.typ:711:25
+    │
+711 │              #text(font: heading-font-str, size: contact-size, weight: 400, fill: light-color)[
+    │                   
+       ^^^^^^^^^^^^^^^^
+
+warning: unknown font family: font awesome 7 free
+   ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
+   │
+80 │       font: default_fonts, // If you see warning here, please check whet
+her the FA font is installed
+   │             ^^^^^^^^^^^^^
+
+warning: unknown font family: font awesome 7 brands
+   ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
+   │
+80 │       font: default_fonts, // If you see warning here, 
+please check whether the FA font is installed
+   │             ^^^^^^^^^^^^^
+
+
+DONE
+
+
+[typst]: Compiling CV.typ to CV.pdf...
+warning: unknown font family: source sans 3
+    ┌─ CV.typ:545:18
+    │
+545 │   #set text(font: 
+body-font-str, size: body-size, weight: 400, fill: main_color)
+    │                   ^^^^^^^^^^^^^
+
+warning: unknown font family: roboto
+    ┌─ CV.typ:664:16
+    │
+664 │           font: heading-font-str,
+    │                 ^^^^^^^^^^^^^^^^
+
+warning: unknown font family: roboto
+    ┌─ CV.typ:673:23
+    │
+673 │            #text(font: heading-font-str, size: 11pt, weight: 700, fill: accent)[#research-area]
+    │           
+             ^^^^^^^^^^^^^^^^
+
+warning: unknown font family: roboto
+    ┌─ CV.typ:677:26
+    │
+677 │               #text(font: heading-
+font-str, size: contact-size, weight: 400, fill: light-color)[#location]
+    │            
+               ^^^^^^^^^^^^^^^^
+
+warning: unknown font family: roboto
+    ┌─ CV.typ:681:25
+    │
+681 │              #
+text(font: heading-font-str, size: contact-size, weight: 400, fill: light-colo
+r)[
+    │                          ^^^^^^^^^^^^^^^^
+
+warning: unknown font family: roboto
+    ┌─ CV.typ:693:25
+    │
+693
+ │              #text(font: heading-font-str, size: contact-size, weight: 40
+0, fill: light-color)[
+    │                          ^^^^^^^^^^^^^^^^
+
+
+warning: unknown font family: roboto
+    ┌─ CV.typ:558:16
+    │
+558 │     #text(font: heading-font-str, size:
+ heading-1-size, weight: 600, fill: accent)[#it.body]
+    │                 
+^^^^^^^^^^^^^^^^
+
+warning: unknown font family: font awesome 7 free
+   ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
+   │
+80 │       font: defaul
+t_fonts, // If you see warning here, please check whether the FA font is
+ installed
+   │             ^^^^^^^^^^^^^
+
+warning: unknown font family: font awesome 7 brands
+   ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
+   │
+80 │
+       font: default_fonts, // If you see warning here, please check whether
+ the FA font is installed
+   │             ^^^^^^^^^^^^^
+
+warning: unknown font family: source sans 3
+    ┌─ 
+CV.typ:555:31
+    │
+555 │   #show emph: it => text(font: body-font-str, style: "italic")[#it.body]
+    │             
+                   ^^^^^^^^^^^^^
+
+warning: unknown font family: roboto
+    ┌─ CV.typ:567:36
+    │
+567 │       let text-content = tex
+t(font: heading-font-str, size: heading-2-size, weight: 500, fill: accen
+t)[#heading-text]
+    │                                     ^^^^^^^^^^^^^^^^
+
+warning
+: unknown font family: roboto
+    ┌─ CV.typ:572:29
+    │
+572 │         let dot = text(font: heading-font-str
+, size: heading-2-size, weight: 200, fill: accent)[·]
+  
+  │                              ^^^^^^^^^^^^^^^^
+
+warning: unknown font family: source sans 3
+    ┌─ CV.typ:458:14
+
+    │
+458 │   #text(font: body-font-str, size: footer-size, fill: light-color)[
+    │               ^^^^^^^^^^^^^
+
+
+DONE
+
+
+
+
+Output created: CV.pdf
+
+

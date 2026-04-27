@@ -1,13 +1,13 @@
 Cloning into 'repo'...
-Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5'
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-23/R/x86_64-pc-linux-gnu-library/4.5'
 (as 'lib' is unspecified)
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.1.tar.gz'
-Content type 'binary/octet-stream' length 1357218 bytes (1.3 MB)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.2.tar.gz'
+Content type 'binary/octet-stream' length 1356485 bytes (1.3 MB)
 ==================================================
 downloaded 1.3 MB
 
 * installing *source* package 'renv' ...
-** this is package 'renv' version '1.2.1'
+** this is package 'renv' version '1.2.2'
 ** package 'renv' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
@@ -25,30 +25,30 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/RtmplRWz73/downloaded_packages'
+	'/tmp/Rtmp3fRTNC/downloaded_packages'
 Using CPython 3.13.9 interpreter at: /usr/local/python/current/bin/python
 Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
-Resolved 11 packages in 158ms
-Downloading numpy (15.9MiB)
+Resolved 11 packages in 306ms
 Downloading pillow (6.8MiB)
-Downloading matplotlib (8.3MiB)
-Downloading fonttools (4.7MiB)
+Downloading matplotlib (8.4MiB)
 Downloading kiwisolver (1.4MiB)
+Downloading fonttools (4.7MiB)
+Downloading numpy (15.9MiB)
  Downloaded kiwisolver
  Downloaded pillow
  Downloaded fonttools
  Downloaded matplotlib
  Downloaded numpy
-Prepared 11 packages in 517ms
-Installed 11 packages in 253ms
+Prepared 11 packages in 530ms
+Installed 11 packages in 250ms
  + contourpy==1.3.3
  + cycler==0.12.1
  + fonttools==4.62.1
  + kiwisolver==1.5.0
- + matplotlib==3.10.8
+ + matplotlib==3.10.9
  + numpy==2.4.4
- + packaging==26.1
+ + packaging==26.2
  + pillow==12.2.0
  + pyparsing==3.3.2
  + python-dateutil==2.9.0.post0
@@ -67,15 +67,15 @@ processing file: qpanelize-pyodide.qmd
 output file: qpanelize-pyodide.knit.md
 
 [31mFATAL (/opt/quarto/share/filters/main.lua:3760) An error occurred:
-Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/docs/panelize as a JSON filter.
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-23/repo/docs/panelize as a JSON filter.
 Please make sure the file exists and is executable.
 
 Did you intend 'panelize' as a Lua filter in an extension?
 If so, make sure you've spelled the name of the extension correctly.
 
 The original Pandoc error follows below.
-Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/docs/panelize:
-Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/docs/panelize
+Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-23/repo/docs/panelize:
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-23/repo/docs/panelize
 [39mError running filter /opt/quarto/share/filters/main.lua:
 /opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERROR
 stack traceback:
@@ -102,15 +102,15 @@ processing file: qpanelize-pyodide.qmd
 output file: qpanelize-pyodide.knit.md
 
 [31mFATAL (/opt/quarto/share/filters/main.lua:3760) An error occurred:
-Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/docs/panelize as a JSON filter.
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-23/repo/docs/panelize as a JSON filter.
 Please make sure the file exists and is executable.
 
 Did you intend 'panelize' as a Lua filter in an extension?
 If so, make sure you've spelled the name of the extension correctly.
 
 The original Pandoc error follows below.
-Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/docs/panelize:
-Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/docs/panelize
+Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-23/repo/docs/panelize:
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-23/repo/docs/panelize
 [39mError running filter /opt/quarto/share/filters/main.lua:
 /opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERROR
 stack traceback:

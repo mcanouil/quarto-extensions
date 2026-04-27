@@ -37,8 +37,7 @@ metadata
   bibliography:
     - bibliography.bib
   
-WARN: typst-gather analyze failed; staging all packages as fallback
-[typst]: Compiling template.typ to template.pdf...error: Uncaught (in promise) TypeError: Writable stream is closed or errored.
+error: Uncaught (in promise) TypeError: Writable stream is closed or errored.
       process4.stdin.close();
                      ^
     at writableStreamClose (ext:deno_web/06_streams.js:4352:7)

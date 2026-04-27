@@ -1,13 +1,13 @@
 Cloning into 'repo'...
-Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5'
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-22/R/x86_64-pc-linux-gnu-library/4.5'
 (as 'lib' is unspecified)
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.1.tar.gz'
-Content type 'binary/octet-stream' length 1357218 bytes (1.3 MB)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.2.tar.gz'
+Content type 'binary/octet-stream' length 1356485 bytes (1.3 MB)
 ==================================================
 downloaded 1.3 MB
 
 * installing *source* package 'renv' ...
-** this is package 'renv' version '1.2.1'
+** this is package 'renv' version '1.2.2'
 ** package 'renv' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
@@ -25,8 +25,8 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/RtmpDGKV95/downloaded_packages'
-Installing packages into '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5'
+	'/tmp/RtmpaARDAz/downloaded_packages'
+Installing packages into '/home/runner/work/quarto-extensions/quarto-extensions/test-22/R/x86_64-pc-linux-gnu-library/4.5'
 (as 'lib' is unspecified)
 also installing the dependencies 'fontBitstreamVera', 'fontLiberation', 'bayestestR', 'insight', 'datawizard', 'mnormt', 'GPArotation', 'httpuv', 'later', 'otel', 'promises', 'sourcetools', 'xtable', 'fontquiver', 'zip', 'effectsize', 'parameters', 'performance', 'psych', 'shiny', 'signs', 'gdtools', 'officer'
 
@@ -106,7 +106,7 @@ trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/snakecase_0.
 ** libs
 using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
 using Fortran compiler: 'GNU Fortran (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-mnormt/00new/mnormt/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-22/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-mnormt/00new/mnormt/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -142,7 +142,7 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x8
 ** libs
 using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
 using C++ compiler: 'g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-later/00new/later/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-22/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-later/00new/later/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -176,7 +176,7 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x8
 ** libs
 using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
 using C++ compiler: 'g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-sourcetools/00new/sourcetools/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-22/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-sourcetools/00new/sourcetools/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -217,7 +217,7 @@ In file included from rzip.c:5:
 /usr/include/x86_64-linux-gnu/sys/stat.h:113: note: this is the location of the previous definition
   113 | #  define S_IFLNK       __S_IFLNK
       | 
-installing via 'install.libs.R' to /home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-zip/00new/zip
+installing via 'install.libs.R' to /home/runner/work/quarto-extensions/quarto-extensions/test-22/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-zip/00new/zip
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -435,7 +435,7 @@ src/unix/thread.c:243:20: warning: comparison of integer expressions of differen
   243 |     if (stack_size < PTHREAD_STACK_MIN)
       |                    ^
 ar: `u' modifier ignored since `D' is the default (see `U')
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-httpuv/00new/httpuv/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-22/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-httpuv/00new/httpuv/libs
 ** R
 ** demo
 ** inst
@@ -461,7 +461,7 @@ Perhaps you should add the directory containing `cairo.pc'
 to the PKG_CONFIG_PATH environment variable
 No package 'cairo' found
 ERROR: configuration failed for package 'gdtools'
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/gdtools'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-22/R/x86_64-pc-linux-gnu-library/4.5/gdtools'
 * installing *source* package 'parameters' ...
 ** this is package 'parameters' version '0.28.3'
 ** package 'parameters' successfully unpacked and MD5 sums checked
@@ -512,7 +512,7 @@ ERROR: configuration failed for package 'gdtools'
 ERROR: dependency 'gdtools' is not available for package 'flextable'
 Perhaps try a variation of:
 install.packages('gdtools')
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/flextable'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-22/R/x86_64-pc-linux-gnu-library/4.5/flextable'
 * installing *source* package 'effectsize' ...
 ** this is package 'effectsize' version '1.0.2'
 ** package 'effectsize' successfully unpacked and MD5 sums checked
@@ -533,14 +533,14 @@ install.packages('gdtools')
 ERROR: dependency 'flextable' is not available for package 'ftExtra'
 Perhaps try a variation of:
 install.packages('flextable')
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/ftExtra'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-22/R/x86_64-pc-linux-gnu-library/4.5/ftExtra'
 ERROR: dependencies 'flextable', 'ftExtra' are not available for package 'apa7'
 Perhaps try a variation of:
 install.packages(c('flextable', 'ftExtra'))
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/apa7'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-22/R/x86_64-pc-linux-gnu-library/4.5/apa7'
 
 The downloaded source packages are in
-	'/tmp/RtmpDGKV95/downloaded_packages'
+	'/tmp/RtmpaARDAz/downloaded_packages'
 Warning messages:
 1: In install.packages(deps, repos = ppm) :
   installation of package 'gdtools' had non-zero exit status

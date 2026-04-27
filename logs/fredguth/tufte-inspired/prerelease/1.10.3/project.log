@@ -5,7 +5,7 @@ Rendering HTML preview [index.qmd]
 pandoc 
 
   to: html
-  output-file: /home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/index.html
+  output-file: /home/runner/work/quarto-extensions/quarto-extensions/test-19/repo/index.html
   standalone: true
   section-divs: true
   html-math-method: mathjax
@@ -120,10 +120,11 @@ metadata
 [typst]: Compiling index.typ to index.pdf...
 error: unknown variable: NormalTok
     ┌─ index.typ:545:60
-    │
 
+    │
 545 │ You can include anything in the margin by places the class #NormalTok(".column-margin"); on the element. See an example on the right about the first fundamental theorem of calculus.
     │                                                             ^^^^^^^^^
+
 
 
 (ERROR) error: unknown variable: NormalTok

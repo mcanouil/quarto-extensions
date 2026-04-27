@@ -21,82 +21,59 @@ metadata
   title: Quarto-svgbob Example
   
 
-Error running filte
-r /opt/quarto/share/filters/main.lua:
+Error running filt
+er /opt/quarto/share/filters/main.lua:
 svgbob: createProcess: posix_spawnp: permission denied (Permission denied)
 stack traceback:
-	...test-17/repo/_extensions/quarto-svgbob/quarto-svgbob.lua:27: in local 'render_cmd'
-	...test-17/repo/
-_extensions/quarto-svgbob/quarto-svgbob.lua:43: in global 'Render'
-	...test-17/repo/_ex
-tensions/quarto-svgbob/quarto-svgbob.lua:64: in fu
-nction <...test-17/repo/_extensions/quarto-
-svgbob/quarto-svgbob.lua:63>
+	...test-18/repo/_extensions/quarto-svgbob/quarto-svgbob.lua:27: in local 'render_cmd'
+	...test-18/repo/_extensions/quarto-s
+vgbob/quarto-svgbob.lua:43: in global 'Render'
+	...test-18/repo/_extensions/quarto-svgbob/quarto-svgbob.lua
+:64: in function <...test-18/repo/_extensions/quarto-svgbob/qu
+arto-svgbob.lua:63>
 	[C]: in ?
-	[
-C]: in method 'walk'
-	/opt/quarto/
-share/pandoc/datadir/_utils.lua:607:
- in function '_utils.walk'
-
-	/opt/quarto/share/filters/main.lua:574: in local 'checked_walk
-'
-	/opt/quarto/share/filters/main.lua:629: 
-in function 'run_emulated_filter'
+	[C]: in method 'walk'
+	/o
+pt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.w
+alk'
+	/opt/quarto/share/filters/main.lua:574: in local 'chec
+ked_walk'
+	/opt/quarto/share/filters/main.lua:629: in fun
+ction 'run_emulated_filter'
 	/opt/quarto/share/
-filters/main.lua:1317: in l
-ocal 'callback'
-	[st
-ring "if pandoc.system.os =
-= "mingw32" then..."]:7
-78: in field 'withS
-criptFile'
-	/opt/
-quarto/share/filte
-rs/main.lua:1333: 
-in upvalue 'run_e
-mulated_filter_cha
-in'
-	/opt/quarto/s
-hare/filters/main.
-lua:1371: in functi
-on </opt/quarto/sh
-are/filters/main.
-lua:1368>
-stack tr
-aceback:
-	/opt/qu
-arto/share/pandoc/
-datadir/_utils.lu
-a:607: in functio
-n '_utils.walk'
-	/
-opt/quarto/share/
-filters/main.lua:
-574: in local 'ch
-ecked_walk'
-	/opt/q
-uarto/share/filter
-s/main.lua:629: in
- function 'run_em
-ulated_filter'
-	/
-opt/quarto/share/
-filters/main.lua:
-1317: in local 'c
-allback'
-	[string 
-"if pandoc.syst
-em.os == "mingw32" t
-hen..."]:778: in f
-ield 'withScriptFile'
-	/opt/quarto/share
-/filters/main.lua:1333: in upvalue 'run_emul
-ated_filter_chain'
+filters/main.lua:1317: in local 'callback'
+	[string "if pandoc.system.os == "mingw32" then..."]:77
+8: in field 'withScriptFile'
+	/opt/quarto/share/filters/main.lua:1333: in upvalue 'run_emulat
+ed_filter_chain'
 	/opt/quarto/share/filters/main.
-lua:1371: in function </opt
-/quarto/share/filter
-s/main.lua:1368>
+lua:1371: in function </opt/quarto/shar
+e/filters/main.lua:1368>
+stack traceb
+ack:
+	/opt/quarto/share/pandoc/dat
+adir/_utils.lua:607: in function 
+'_utils.walk'
+	/opt/quarto/share/
+filters/main.lua:574: in local 'c
+hecked_walk'
+	/opt/quarto/share/f
+ilters/main.lua:629: in function
+ 'run_emulated_filter'
+	/opt/qu
+arto/share/filters/main.lua:1317
+: in local 'callback'
+	[string "
+if pandoc.system.os == "mingw32" 
+then..."]:778: in field 'withScr
+iptFile'
+	/opt/quarto/share/filt
+ers/main.lua:1333: in upvalue 'r
+un_emulated_filter_chain'
+	/opt
+/quarto/share/filters/main.lua:1371:
+ in function </opt/quarto/share/filters/main.lua
+:1368>
 
 (WARN) Error encountered when rendering files
 
