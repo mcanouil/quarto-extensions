@@ -1,38 +1,23 @@
+Error in loadNamespace(x) : there is no package called 'rmarkdown'
+Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
+Execution halted
+
+R installation:
+
+  Version: 4.6.0
+  Path: /opt/R/4.6.0/lib/R
+  LibPaths:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.6
+    - /opt/R/4.6.0/lib/R/library
+  knitr: 1.51
+  rmarkdown: (None)
 
 
-processing file: example_filename.qmd
 
-1/1
-
-output file: example_filename.knit.md
+The rmarkdown package is not available in this R installation.
+Install with install.packages("rmarkdown")
 
 
-pandoc 
 
-  to: html
-  output-file: example_filename.html
-  standalone: true
-  embed-resources: true
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  variables: {}
-  
-
-metadata
-
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Add Code Files
-  author: Shafayet Khan Shafee
-  date: last-modified
-  
-
-Output created: example_filename.html
-
+(WARN) Error encountered when rendering files
 

@@ -1,112 +1,23 @@
+Error in loadNamespace(x) : there is no package called 'rmarkdown'
+Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
+Execution halted
+
+R installation:
+
+  Version: 4.6.0
+  Path: /opt/R/4.6.0/lib/R
+  LibPaths:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-3/R/x86_64-pc-linux-gnu-library/4.6
+    - /opt/R/4.6.0/lib/R/library
+  knitr: 1.51
+  rmarkdown: (None)
 
 
-processing file: template.qmd
 
-1/19                  
-
-2/19 [setup]          
-
-3/19                  
-
-4/19 [unnamed-chunk-1]
-
-5/19                  
-
-6/19 [unnamed-chunk-2]
-
-7/19                  
-
-8/19 [unnamed-chunk-3]
-
-9/19                  
-
-10/19 [kable-ex]       
-
-11/19                  
-
-12/19 [kable-ex]       
-
-13/19                  
-
-14/19 [unnamed-chunk-4]
-
-15/19                  
-
-16/19 [unnamed-chunk-5]
-
-17/19                  
-
-18/19 [unnamed-chunk-6]
-
-19/19                  
-
-output file: template.knit.md
+The rmarkdown package is not available in this R installation.
+Install with install.packages("rmarkdown")
 
 
-pandoc 
 
-  to: revealjs
-  output-file: template.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  incremental: true
-  variables: {}
-  
-
-metadata
-
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: fade
-  backgroundTransition: fade
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  knitr:
-    opts_chunk:
-      echo: true
-      warning: false
-      message: false
-      dev: ragg_png
-      dpi: 320
-      out.width: 80%
-      fig.width: 6
-      fig.asp: 0.618
-      fig.retina: 2
-      fig.align: center
-      fig.show: hold
-  theme: _extensions/kakashi/kakashi.scss
-  slideNumber: c/t
-  showSlideNumber: all
-  title-slide-attributes:
-    data-background-color: '#23373B'
-    data-color: '#EDEEF'
-  previewLinks: true
-  menu: false
-  autoAnimate: true
-  transitionSpeed: fast
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Quarto Kakashi Theme
-  author: Malcolm Barrett
-  
-
-Output created: template.html
-
+(WARN) Error encountered when rendering files
 

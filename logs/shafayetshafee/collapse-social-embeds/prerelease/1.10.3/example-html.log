@@ -23,102 +23,148 @@ metadata
   date: last-modified
   
 
-Error running filter /opt
-/quarto/share/filters/main.lua:
+Error running filte
+r /opt/quarto/share/filters/main.lua:
 Could not fetch https://publish.twitter.com/oembed?url=https://twitter.com/pandoc_tips/status/1576105972103516160&align=center
 HttpExceptionRequest Request {
-  host                 = "publish.twitter.com"
+  host                 = "publish.twi
+tter.com"
   port                 = 443
-
   secure               = True
-  requestHeaders       = []
+  requestH
+eaders       = []
   path                 = "/oembed"
-  queryString          =
- "?url=https://twitter.com/pandoc_tips/status/1576105972103516160&align=center"
+  queryString    
+      = "?url=https://twitter.com/pandoc_tips/status/1576105972
+103516160&align=center"
   method               = "GET"
-  proxy         
-       = Nothing
+  proxy 
+               = Nothing
   rawBody              = False
+
   redirectCount        = 10
-  responseTimeout      = ResponseTimeoutDefault
-  
-requestVersion       = HTTP/1.1
-  proxySecureMode      = ProxySecureWithConnect
+  responseTimeout   
+   = ResponseTimeoutDefault
+  requestVersion 
+      = HTTP/1.1
+  prox
+ySecureMode    
+  = ProxySecureWithConnect
 }
- (StatusCodeException (Response {resp
-onseStatus = Status {statusCode = 404, statusMessage = "Not Found"}, responseVersion = HTTP/1.1, responseHeade
-rs = [("Date","Sun, 26 Apr 2026 23:33:29 GMT"),("Content-Typ
-e","text/html;charset=utf-8"),("Transfer-Encoding","chunked"),("Connection","keep-aliv
-e"),("perf","7402827104"),("Server","cloudflare envoy"),("Cache-Control","max-age=0, no-cach
-e, no-store"),("x-frame-options",
-"SAMEORIGIN"),("x-transaction-i
-d","f99d6f048e21a29a"),("x-xss-pro
-tection","0"),("content-disposition","attachment; filena
-me=json.json"),("x-content-type-op
-tions","nosniff"),("content-secur
-ity-policy","default-src 'none'
-; img-src https://abs.twimg.com; 
-script-src https://abs.twimg.com about:
-; style-src https://abs.twimg.com 'unsafe-
-inline'; font-src https://abs.t
-wimg.com https://twitter.com; 
-connect-src 'none'; object-src
- 'none'; media-src 'none'; fra
-me-src 'none'; report-uri http
-s://twitter.com/i/csp_report?a=ORTGK%3D%
-3D%3D&ro=false"),("cf-cache-sta
-tus","DYNAMIC"),("Set-Cooki
-e","guest_id_marketing=v1%3A1777
-24640991045832; Max-Age=6307200
-0; Expires=Tue, 25 Apr 2028 23
-:33:29 GMT; Path=/; Domain=.twi
-tter.com; Secure; SameSite=Non
-e"),("Set-Cookie","guest_id_ads=v1%3A177724640
-991045832; Max-Age=63072000; Expires=Tue, 
-25 Apr 2028 23:33:29 GMT; Path=/;
- Domain=.twitter.com; Secure; 
-SameSite=None"),("Set-Cookie","
-personalization_id=\"v1_A7DYPl+7d4DHM
-DiaMRR8wQ==\"; Max-Age=63072000; Ex
-pires=Tue, 25 Apr 2028 23:33:29 GMT; Path=/
-; Domain=.twitter.com; Secure;
- SameSite=None"),("Set-Cookie"
-,"guest_id=v1%3A17772464099104
-5832; Max-Age=63072000; Expire
-s=Tue, 25 Apr 2028 23:33:29 G
-MT; Path=/; Domain=.twitter.co
-m; Secure; SameSite=None"),("
-set-cookie","__cf_bm=WLNS8UgbBUUVBoqr
-PQutYK.zpDBAVQ3vAdHpJ
-5BKzqs-1777246409.8
-958979-1.0.1.1-CmIU7sHl
-gGW9jTz3XE2oFVbXZwnLoUDMP8JK
-wmrQRcycyFqMtRjfWH7k1aVvfq9r81vwvNfm.9CLyfR8
-hXUhEjUPl2gMxV.7AVQJIeVw0an_iX
-JsLlliq5r5ShMlPztA; HttpO
-nly; Secure; Path=/; Domain=twi
-tter.com; Expires=Mon, 27 Apr 20
-26 00:03:29 GMT"),("x-response-time","76")
-,("origin-cf-ray","9f29648dd8d962e2-
-ATL"),("strict-transport-secur
-ity","max-age=631138519; includeSubdomain
-s"),("x-served-by","t4_a"),("v
-ary","accept-encoding"),("Con
-tent-Encoding","gzip"),("CF-RA
-Y","9f29648dd8d962e2-ORD")],
- responseBody = (), responseCookieJa
-r = CJ {expose = [Coo
-kie {cookie_name =
- "__cf_bm", cookie_value = 
-"WLNS8UgbBUUVBoqrPQut
-YK.zpDBAVQ3vAdHpJ5BKzqs-1777246409.
-8958979-1.0.1.1-Cm
-IU7sHlgGW9jTz3XE2oFVbXZwn
-LoUDMP8JKwmrQRcycyFqMtRjfWH7k
-1aVvfq9r81vwvNfm.9CLy
-fR8hXUhEjUPl2gMxV.7AVQJIeVw0an_iXJs
-Llliq5r5ShMlPztA", cookie_expiry_
-time = 3025-08-27 00:00:00 UTC, cookie_domain = "twitter.com", cookie_path = "/", cookie_creation_time = 2026-04-26 23:33:29.998293288 UTC, cookie_last_access_time = 2026-04-26 23:33:29.998293288 UTC, cookie_persistent = False, cookie_host_only = False, cookie_secure_only = True, cookie_http_only = True},Cookie {cookie_name = "guest_id", cookie_value = "v1%3A177724640991045832", cookie_expiry_time = 2028-04-25 23:33:29.998293288 UTC, cookie_domain = "twitter.com", cookie_path = "/", cookie_creation_time = 2026-04-26 23:33:29.998293288 UTC, cookie_last_access_time = 2026-04-26 23:33:29.998293288 UTC, cookie_persistent = True, cookie_host_only = False, cookie_secure_only = True, cookie_http_only = False},Cookie {cookie_name = "personalization_id", cookie_value = "v1_A7DYPl+7d4DHMDiaMRR8wQ==", cookie_expiry_time = 2028-04-25 23:33:29.998293288 UTC, cookie_domain = "twitter.com", cookie_path = "/", cookie_creation_time = 2026-04-26 23:33:29.998293288 UTC, cookie_last_access_time = 2026-04-26 23:33:29.998293288 UTC, cookie_persistent = True, cookie_host_only = False, cookie_secure_only = True, cookie_http_only = False},Cookie {cookie_name = "guest_id_ads", cookie_value = "v1%3A177724640991045832", cookie_expiry_time = 2028-04-25 23:33:29.998293288 UTC, cookie_domain = "twitter.com", cookie_path = "/", cookie_creation_time = 2026-04-26 23:33:29.998293288 UTC, cookie_last_access_time = 2026-04-26 23:33:29.998293288 UTC, cookie_persistent = True, cookie_host_only = False, cookie_secure_only = True, cookie_http_only = False},Cookie {cookie_name = "guest_id_marketing", cookie_value = "v1%3A177724640991045832", cookie_expiry_time = 2028-04-25 23:33:29.998293288 UTC, cookie_domain = "twitter.com", cookie_path = "/", cookie_creation_time = 2026-04-26 23:33:29.998293288 UTC, cookie_last_access_time = 2026-04-26 23:33:29.998293288 UTC, cookie_persistent = True, cookie_host_only = False, cookie_secure_only = True, cookie_http_only = False}]}, responseClose' = ResponseClose, responseOriginalRequest = Request {
+ (
+StatusCodeException (Respons
+e {responseStatus = Status
+ {statusCode = 404, status
+Message = "Not Found"}, re
+sponseVersion = HTTP/1.1, 
+responseHeaders = [("Date"
+,"Mon, 27 Apr 2026 19:25:06 
+GMT"),("Content-Type","text/htm
+l;charset=utf-8"),("Transf
+er-Encoding","chunked"),("C
+onnection","keep-alive"),
+("perf","7402827104"),("Se
+rver","cloudflare envoy"
+),("Cache-Control","max-a
+ge=0, no-cache, no-store"
+),("x-frame-options","SAM
+EORIGIN"),("x-transaction
+-id","fbda920ad037fc50"),
+("x-xss-protection","0"),
+("content-disposition","a
+ttachment; filename=json.jso
+n"),("x-content-type-optio
+ns","nosniff"),("content-securit
+y-policy","default-src 'none'; 
+img-src https://abs.twimg
+.com; script-src https://a
+bs.twimg.com about:; styl
+e-src https://abs.twimg.c
+om 'unsafe-inline'; font-sr
+c https://abs.twimg.com h
+ttps://twitter.com; conne
+ct-src 'none'; object-src
+ 'none'; media-src 'none';
+ frame-src 'none'; report-u
+ri https://twitter.com/i/csp_repo
+rt?a=ORTGK%3D%3D%3D&ro=fal
+se"),("cf-cache-status","DYNAMIC"),(
+"Set-Cookie","guest_id_marketi
+ng=v1%3A177731790660549077; Max-Age=63
+072000; Expires=Wed, 26
+ Apr 2028 19:25:06 GM
+T; Path=/; Domain=.twitter.com; Sec
+ure; SameSite=None"),("Set-C
+ookie","guest_id_ads=v1%3A177731790
+660549077; Max-Age=63072000
+; Expires=Wed, 26 Apr 20
+28 19:25:06 GMT; Path=/; 
+Domain=.twitter.com; Sec
+ure; SameSite=None"),("Se
+t-Cookie","personalizatio
+n_id=\"v1_n60s7qUKrxxO5d
+hp6Ru61w==\"; Max-Age=63
+072000; Expires=Wed, 26 Apr 
+2028 19:25:06 GMT; Path=/; Do
+main=.twitter.com; Secure; SameSit
+e=None"),("Set-Cookie","gues
+t_id=v1%3A177731790660549077; M
+ax-Age=63072000; Expires=Wed
+, 26 Apr 2028 19:25:06 GM
+T; Path=/; Domain=.twitter.com; Se
+cure; SameSite=None"),("set-cooki
+e","__cf_bm=JgKHafJjL0Ny_
+StBDEI2xMRAu9AzUzbPa6MH0i5Sj6Y-177
+7317906.5611932-1.0.1.1-ot824Q7
+7FVX6Ps29qIe6UN7bePz8hIKp
+nAt3ha0RV1iUEDGLMkLDckn6
+NJuguIFv9cwgO3vTa8oD6nx
+7Uw.pEKnB5N8tJK4UMgD_SVrD0KiEY
+m_WHlhBjf8BEZE3xEt6; Http
+Only; Secure; Path=/; Dom
+ain=twitter.com; Expires
+=Mon, 27 Apr 2026 19:55:0
+6 GMT"),("x-response-tim
+e","101"),("origin-cf-ra
+y","9f3036140bd435ac-ATL
+"),("strict-transport-s
+ecurity","max-age=631138
+519; includeSubdomains")
+,("x-served-by","t4_a")
+,("vary","accept-encodin
+g"),("Content-Encoding"
+,"gzip"),("CF-RAY","9f30
+36140bd435ac-ORD")], resp
+onseBody = (), responseCookie
+Jar = CJ {expose = [Cookie {
+cookie_name = "__cf_bm",
+ cookie_value = "JgKHafJ
+jL0Ny_StBDEI2xMRAu9AzUzb
+Pa6MH0i5Sj6Y-1777317906.
+5611932-1.0.1.1-ot824Q77
+FVX6Ps29qIe6UN7bePz8hIKp
+nAt3ha0RV1iUEDGLMkLDckn6
+NJuguIFv9cwgO3vTa8oD6nx7
+Uw.pEKnB5N8tJK4UMgD_SVrD
+0KiEYm_WHlhBjf8BEZE3xEt6
+", cookie_expiry_time = 
+3025-08-28 00:00:00 UTC, 
+cookie_domain = "twitter
+.com", cookie_path = "/
+", cookie_creation_time 
+= 2026-
+04-27 19:25:06.69230351
+5 UTC, cookie_last_access_time = 2026-0
+4-27 19:25:06.692303515 UTC,
+ cookie_persistent = False
+, cookie_host_only = False, co
+okie_secure_only = True, c
+ookie_http_only = True},C
+ookie {cookie_name = "gue
+st_id", cookie_value = "
+v1%3A177731790660549077",
+ cookie_expiry_time = 2028-04-26 19:
+25:06.692303515 UTC, cookie_domain = "twitter.com", cookie_path = "/", cookie_creation_time = 2026-04-27 19:25:06.692303515 UTC, cookie_last_access_time = 2026-04-27 19:25:06.692303515 UTC, cookie_persistent = True, cookie_host_only = False, cookie_secure_only = True, cookie_http_only = False},Cookie {cookie_name = "personalization_id", cookie_value = "v1_n60s7qUKrxxO5dhp6Ru61w==", cookie_expiry_time = 2028-04-26 19:25:06.692303515 UTC, cookie_domain = "twitter.com", cookie_path = "/", cookie_creation_time = 2026-04-27 19:25:06.692303515 UTC, cookie_last_access_time = 2026-04-27 19:25:06.692303515 UTC, cookie_persistent = True, cookie_host_only = False, cookie_secure_only = True, cookie_http_only = False},Cookie {cookie_name = "guest_id_ads", cookie_value = "v1%3A177731790660549077", cookie_expiry_time = 2028-04-26 19:25:06.692303515 UTC, cookie_domain = "twitter.com", cookie_path = "/", cookie_creation_time = 2026-04-27 19:25:06.692303515 UTC, cookie_last_access_time = 2026-04-27 19:25:06.692303515 UTC, cookie_persistent = True, cookie_host_only = False, cookie_secure_only = True, cookie_http_only = False},Cookie {cookie_name = "guest_id_marketing", cookie_value = "v1%3A177731790660549077", cookie_expiry_time = 2028-04-26 19:25:06.692303515 UTC, cookie_domain = "twitter.com", cookie_path = "/", cookie_creation_time = 2026-04-27 19:25:06.692303515 UTC, cookie_last_access_time = 2026-04-27 19:25:06.692303515 UTC, cookie_persistent = True, cookie_host_only = False, cookie_secure_only = True, cookie_http_only = False}]}, responseClose' = ResponseClose, responseOriginalRequest = Request {
   host                 = "publish.twitter.com"
   port                 = 443
   secure               = True
@@ -165,8 +211,7 @@ stack traceback:
 	/opt/quarto/share/filters/main.lua:629: in function 'run_emulated_filter'
 	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
 	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
-	/opt/quarto/share/filters/main.lua:1333: 
-in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1333: in upvalue 'run_emulated_filter_chain'
 	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
 
 (WARN) Error encountered when rendering files

@@ -1,5 +1,35 @@
 Cloning into 'repo'...
 pandoc 
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Interactive-sql Example
+  subtitle: Run SQL Interactively from HTML Documents Made with Quarto
+  author: Shafayet Khan Shafee
+  date: last-modified
+  date-format: DD MMM, YYYY
+  databases:
+    - name: hr
+      path: https://raw.githubusercontent.com/shafayetShafee/interactive-sql/main/hr.sql
+    - name: hr-not-editable
+      path: https://raw.githubusercontent.com/shafayetShafee/interactive-sql/main/hr.sql
+      editable: false
+  
+Output created: example.html
+
+pandoc 
   to: revealjs
   output-file: example-revealjs.html
   standalone: true
@@ -45,34 +75,4 @@ metadata
       editable: false
   
 Output created: example-revealjs.html
-
-pandoc 
-  to: html
-  output-file: example.html
-  standalone: true
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  variables: {}
-  
-metadata
-  document-css: false
-  link-citations: true
-  lang: en
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Interactive-sql Example
-  subtitle: Run SQL Interactively from HTML Documents Made with Quarto
-  author: Shafayet Khan Shafee
-  date: last-modified
-  date-format: DD MMM, YYYY
-  databases:
-    - name: hr
-      path: https://raw.githubusercontent.com/shafayetShafee/interactive-sql/main/hr.sql
-    - name: hr-not-editable
-      path: https://raw.githubusercontent.com/shafayetShafee/interactive-sql/main/hr.sql
-      editable: false
-  
-Output created: example.html
 

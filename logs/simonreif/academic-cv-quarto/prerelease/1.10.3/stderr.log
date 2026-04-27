@@ -31,7 +31,7 @@ Render failed, retrying once...
 [1/2] Letter.qmd
 WARN: typst-gather analyze failed; staging all packages as fallback
 [typst]: Compiling Letter.typ to Letter.pdf...downloading @preview/fontawesome:0.6.0
- 81.9 KiB /  81.9 KiB (100 %)  81.9 KiB/s in 17.08 ms ETA: 0 s
+ 81.9 KiB /  81.9 KiB (100 %)  81.9 KiB/s in 2.03 ms ETA: 0 s
 
 warning: unknown font family: source sans 3
     ┌─ Letter.typ:565:18
@@ -84,87 +84,29 @@ warning: unknown font family: font awesome 7 brands
 DONE
 
 [2/2] CV.qmd
-WARN: typst-gather analyze failed; staging all packages as fallback
-[typst]: Compiling CV.typ to CV.pdf...warning: unknown font family: source sans 3
-    ┌─ CV.typ:545:18
-    │
-545 │   #set text(font: body-font-str, size: body-size, weight: 400, fill: main_color)
-    │                   ^^^^^^^^^^^^^
-
-warning: unknown font family: roboto
-    ┌─ CV.typ:664:16
-    │
-664 │           font: heading-font-str,
-    │                 ^^^^^^^^^^^^^^^^
-
-warning: unknown font family: roboto
-    ┌─ CV.typ:673:23
-    │
-673 │            #text(font: heading-font-str, size: 11pt, weight: 700, fill: accent)[#research-area]
-    │                        ^^^^^^^^^^^^^^^^
-
-warning: unknown font family: roboto
-    ┌─ CV.typ:677:26
-    │
-677 │               #text(font: heading-font-str, size: contact-size, weight: 400, fill: light-color)[#location]
-    │                           ^^^^^^^^^^^^^^^^
-
-warning: unknown font family: roboto
-    ┌─ CV.typ:681:25
-    │
-681 │              #text(font: heading-font-str, size: contact-size, weight: 400, fill: light-color)[
-    │                          ^^^^^^^^^^^^^^^^
-
-warning: unknown font family: roboto
-    ┌─ CV.typ:693:25
-    │
-693 │              #text(font: heading-font-str, size: contact-size, weight: 400, fill: light-color)[
-    │                          ^^^^^^^^^^^^^^^^
-
-warning: unknown font family: roboto
-    ┌─ CV.typ:558:16
-    │
-558 │     #text(font: heading-font-str, size: heading-1-size, weight: 600, fill: accent)[#it.body]
-    │                 ^^^^^^^^^^^^^^^^
-
-warning: unknown font family: font awesome 7 free
-   ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
-   │
-80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
-   │             ^^^^^^^^^^^^^
-
-warning: unknown font family: font awesome 7 brands
-   ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
-   │
-80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
-   │             ^^^^^^^^^^^^^
-
-warning: unknown font family: source sans 3
-    ┌─ CV.typ:555:31
-    │
-555 │   #show emph: it => text(font: body-font-str, style: "italic")[#it.body]
-    │                                ^^^^^^^^^^^^^
-
-warning: unknown font family: roboto
-    ┌─ CV.typ:567:36
-    │
-567 │       let text-content = text(font: heading-font-str, size: heading-2-size, weight: 500, fill: accent)[#heading-text]
-    │                                     ^^^^^^^^^^^^^^^^
-
-warning: unknown font family: roboto
-    ┌─ CV.typ:572:29
-    │
-572 │         let dot = text(font: heading-font-str, size: heading-2-size, weight: 200, fill: accent)[·]
-    │                              ^^^^^^^^^^^^^^^^
-
-warning: unknown font family: source sans 3
-    ┌─ CV.typ:458:14
-    │
-458 │   #text(font: body-font-str, size: footer-size, fill: light-color)[
-    │               ^^^^^^^^^^^^^
-
-DONE
-
-
-Output created: CV.pdf
-
+error: Uncaught (in promise) TypeError: Writable stream is closed or errored.
+      process4.stdin.close();
+                     ^
+    at writableStreamClose (ext:deno_web/06_streams.js:4352:7)
+    at WritableStream.close (ext:deno_web/06_streams.js:6466:12)
+    at execProcess (file:///opt/quarto/bin/quarto.js:7857:22)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async runAnalyze (file:///opt/quarto/bin/quarto.js:135839:19)
+    at async analyzeNeededPackages (file:///opt/quarto/bin/quarto.js:135888:21)
+    at async stageTypstPackages (file:///opt/quarto/bin/quarto.js:135939:26)
+    at async Object.complete (file:///opt/quarto/bin/quarto.js:135977:27)
+    at async file:///opt/quarto/bin/quarto.js:130926:23
+    at async withTimingAsync (file:///opt/quarto/bin/quarto.js:15990:21)
+    at async Object.complete (file:///opt/quarto/bin/quarto.js:130912:7)
+    at async Object.onPostProcess (file:///opt/quarto/bin/quarto.js:136894:28)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:136878:3)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136597:9)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:137166:23)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142496:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102027:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101904:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187717:5)
+    at async file:///opt/quarto/bin/quarto.js:187746:5
+    at async file:///opt/quarto/bin/quarto.js:187600:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187602:5)
+    at async file:///opt/quarto/bin/quarto.js:187739:3

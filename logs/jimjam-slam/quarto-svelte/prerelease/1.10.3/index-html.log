@@ -45,21 +45,34 @@ The original Pandoc error follows below.
 Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/docs/examples/time-series/quarto-svelte:
 Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/docs/examples/time-series/quarto-svelte
 
-Error running filter /opt/quar
-to/share/filters/main.lua:
-/opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERROR
+Error ru
+nning filter /opt/quarto/share/filters/main.lua:
+/opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERRO
+R
 stack traceback:
-	/opt/quarto/share/filters/main.lua:2622: in function 'fatal'
+	/opt/quarto/share/filters/main.lua:
+2622: in function 'fatal'
+	/opt/quarto/sh
+are/filters/main.lua:2202: in functio
+n 'fail'
+	/opt/quarto/share/filter
+s/main.lua:3760: in field 'Pandoc
+'
 	/opt/quarto/share/filters
-/main.lua:2202: in function 'fail'
-	/opt/quarto/share/filters/main.lua:3760: in field 'Pandoc'
-	/opt/quarto/share/filters/main.lua:588: in
- function 'run_emulated_filter'
-	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
-	/opt/quarto/share/filters/main.lua:1335: in
- upvalue 'run_emulated_filter_chain'
-	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/mai
-n.lua:1368>
+/main.lua:588: in function 'run_emulated_filter'
+	/opt/qu
+arto/share/filters/main.lua:1317: in lo
+cal 'callback'
+	/opt/quarto/share/filters/m
+ain.lua:1335: in upvalue 'ru
+n_emulated_filter_c
+hain'
+	/opt/quart
+o/share/filters/m
+ain.lua:1371: in
+ function </opt/quarto/share/
+filters/main.lua:1368
+>
 
 (WARN) Error encountered when rendering files
 

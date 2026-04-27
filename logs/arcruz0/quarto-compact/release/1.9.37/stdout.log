@@ -2,9 +2,22 @@ Dependency install phase for arcruz0/quarto-compact: auto-detect
 Auto-detecting R dependencies for arcruz0/quarto-compact (knitr engine, no renv.lock).
 ** libs
 using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c renv.c -o renv.o
-gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o renv.so renv.o -L/opt/R/4.5.3/lib/R/lib -lR
-No additional R packages to install.
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c renv.c -o renv.o
+gcc -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o renv.so renv.o -L/opt/R/4.6.0/lib/R/lib -lR
+Installing R packages: rmarkdown 
+Using PKG_CFLAGS=
+Using PKG_LIBS=-luv
+--------------------------- [CONFIGURE] --------------------------------
+Configuration failed because libuv was not found. Try installing:
+ * deb: libuv1-dev (Debian, Ubuntu, etc)
+ * rpm: libuv-devel (Fedora, EPEL)
+ * brew: libuv (OSX)
+Alternatively set environment variable USE_BUNDLED_LIBUV=1 to build a static
+version of libuv that is included with this package.
+-------------------------- [ERROR MESSAGE] ---------------------------
+<stdin>:1:10: fatal error: uv.h: No such file or directory
+compilation terminated.
+--------------------------------------------------------------------
 tlmgr: package repository https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet (verified)
 tlmgr: no self-updates for tlmgr available
 Using CTAN mirror: https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet

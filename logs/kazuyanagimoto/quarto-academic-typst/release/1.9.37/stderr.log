@@ -1,156 +1,169 @@
 Cloning into 'repo'...
-[1/2] template-full.qmd
-renv 1.1.6 was loaded from project library, but this project is configured to use renv 1.1.6.
-- Use `renv::record("renv@1.1.6")` to record renv 1.1.6 in the lockfile.
-- Use `renv::restore(packages = "renv")` to install renv 1.1.6 into the project library.
-- The project is out-of-sync -- use `renv::status()` for details.
+Error: Error installing package 'rlang':
+=================================
 
-
-processing file: template-full.qmd
-1/15                   
-2/15 [setup]           
-3/15                   
-4/15 [fig-facet]       
-5/15                   
-6/15 [fig-patchwork]   
-7/15                   
-8/15 [tbl-sum-penguins]
-9/15                   
-10/15 [tbl-regression]  
-11/15                   
-12/15 [prep-mitex]      
-13/15                   
-14/15 [tbl-math]        
-15/15                   
-output file: template-full.knit.md
-
-There were 50 or more warnings (use warnings() to see the first 50)
-[typst]: Compiling template-full.typ to template-full.pdf...downloading @preview/fontawesome:0.6.0
- 81.9 KiB /  81.9 KiB (100 %)  81.9 KiB/s in 16.71 ms ETA: 0 s
-
-downloading @preview/mitex:0.2.4
-106.4 KiB / 106.4 KiB (100 %) 106.4 KiB/s in 6.12 ms ETA: 0 s
-
-downloading @preview/xarrow:0.2.0
- 14.1 KiB /  14.1 KiB (100 %)  14.1 KiB/s in 1.18 ms ETA: 0 s
-
-warning: `kai` is deprecated, use ϗ or `\u{3d7}` instead
-     ┌─ @preview/mitex:0.2.4/specs/latex/standard.typ:1030:30
-     │
-1030 │   KaTeX: of-sym(math.upright($kai A T E X$)),
-     │                               ^^^
-
-warning: unknown font family: font awesome 7 free
-   ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
-   │
-80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
-   │             ^^^^^^^^^^^^^
-
-warning: unknown font family: font awesome 7 brands
-   ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
-   │
-80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
-   │             ^^^^^^^^^^^^^
-
-DONE
-
-[2/2] template.qmd
-renv 1.1.6 was loaded from project library, but this project is configured to use renv 1.1.6.
-- Use `renv::record("renv@1.1.6")` to record renv 1.1.6 in the lockfile.
-- Use `renv::restore(packages = "renv")` to install renv 1.1.6 into the project library.
-- The project is out-of-sync -- use `renv::status()` for details.
-
-
-processing file: template.qmd
-1/7                  
-2/7 [fig-hist-mpg]   
-3/7                  
-4/7 [tbl-mtcars-head]
-5/7                  
-6/7 [fig-scatter-car]
-7/7                  
-output file: template.knit.md
-
-[typst]: Compiling template.typ to template.pdf...warning: unknown font family: libertinus sans
-    ┌─ template.typ:318:31
-    │
-318 │   show heading: set text(font: sansfont, weight: "semibold")
-    │                                ^^^^^^^^
-
-warning: unknown font family: libertinus sans
-    ┌─ template.typ:361:40
-    │
-361 │         #text(weight: "semibold", font: sansfont, size: 0.8em)[
-    │                                         ^^^^^^^^
-
-warning: unknown font family: libertinus sans
-    ┌─ template.typ:381:53
-    │
-381 │         #text(weight: "semibold", size: 1.5em, font: sansfont)[
-    │                                                      ^^^^^^^^
-
-warning: unknown font family: libertinus sans
-    ┌─ template.typ:400:33
-    │
-400 │         #text(size: 1.2em, font: sansfont)[#author.name]
-    │                                  ^^^^^^^^
-
-warning: unknown font family: libertinus sans
-    ┌─ template.typ:407:34
-    │
-407 │         #text(size: 0.85em, font: sansfont)[#author.affiliation] \
-    │                                   ^^^^^^^^
-
-warning: unknown font family: libertinus sans
-    ┌─ template.typ:408:33
-    │
-408 │         #text(size: 0.7em, font: sansfont, fill: link-color)[
-    │                                  ^^^^^^^^
-
-warning: unknown font family: libertinus sans
-    ┌─ template.typ:417:38
-    │
-417 │       #text(weight: "semibold", font: sansfont, size: 0.9em)[#abstract-title] #h(0.5em)
-    │                                       ^^^^^^^^
-
-warning: unknown font family: libertinus sans
-    ┌─ template.typ:418:18
-    │
-418 │       #text(font: sansfont)[#abstract]
-    │                   ^^^^^^^^
-
-warning: unknown font family: libertinus sans
-    ┌─ template.typ:420:39
-    │
-420 │         text(weight: "semibold", font: sansfont, size: 0.9em)[\ Keywords:]
-    │                                        ^^^^^^^^
-
-warning: unknown font family: libertinus sans
-    ┌─ template.typ:422:19
-    │
-422 │         text(font: sansfont)[#keywords]
-    │                    ^^^^^^^^
-
-warning: unknown font family: font awesome 7 free
-   ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
-   │
-80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
-   │             ^^^^^^^^^^^^^
-
-warning: unknown font family: font awesome 7 brands
-   ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
-   │
-80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
-   │             ^^^^^^^^^^^^^
-
-warning: unknown font family: libertinus sans
-    ┌─ template.typ:321:20
-    │
-321 │     #set text(font: sansfont, size: 0.9em)
-    │                     ^^^^^^^^
-
-DONE
-
-
-Output created: docs/template.pdf
-
+* installing *source* package 'rlang' ...
+** this is package 'rlang' version '1.1.7'
+** package 'rlang' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I./rlang/  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c capture.c -o capture.o
+capture.c: In function 'new_captured_promise':
+capture.c:39:20: warning: implicit declaration of function 'PRENV' [-Wimplicit-function-declaration]
+   39 |         expr_env = PRENV(expr);
+      |                    ^~~~~
+capture.c:39:18: warning: assignment to 'SEXP' {aka 'struct SEXPREC *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   39 |         expr_env = PRENV(expr);
+      |                  ^
+capture.c:40:16: warning: implicit declaration of function 'PREXPR' [-Wimplicit-function-declaration]
+   40 |         expr = PREXPR(expr);
+      |                ^~~~~~
+capture.c:40:14: warning: assignment to 'SEXP' {aka 'struct SEXPREC *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   40 |         expr = PREXPR(expr);
+      |              ^
+In file included from capture.c:1:
+capture.c: In function 'rlang_capturearginfo':
+/opt/R/4.6.0/lib/R/include/Rinternals.h:920:33: warning: implicit declaration of function 'Rf_findVarInFrame3'; did you mean 'findVarInFrame3'? [-Wimplicit-function-declaration]
+  920 | #define findVarInFrame3         Rf_findVarInFrame3
+      |                                 ^~~~~~~~~~~~~~~~~~
+capture.c:70:16: note: in expansion of macro 'findVarInFrame3'
+   70 |     SEXP sym = findVarInFrame3(rho, install("arg"), TRUE);
+      |                ^~~~~~~~~~~~~~~
+/opt/R/4.6.0/lib/R/include/Rinternals.h:920:33: warning: initialization of 'SEXP' {aka 'struct SEXPREC *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  920 | #define findVarInFrame3         Rf_findVarInFrame3
+      |                                 ^~~~~~~~~~~~~~~~~~
+capture.c:70:16: note: in expansion of macro 'findVarInFrame3'
+   70 |     SEXP sym = findVarInFrame3(rho, install("arg"), TRUE);
+      |                ^~~~~~~~~~~~~~~
+capture.c:80:9: warning: assignment to 'SEXP' {aka 'struct SEXPREC *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   80 |     sym = PREXPR(sym);
+      |         ^
+In file included from capture.c:1:
+/opt/R/4.6.0/lib/R/include/Rinternals.h:918:33: warning: implicit declaration of function 'Rf_findVar'; did you mean 'Rf_findFun'? [-Wimplicit-function-declaration]
+  918 | #define findVar                 Rf_findVar
+      |                                 ^~~~~~~~~~
+capture.c:94:15: note: in expansion of macro 'findVar'
+   94 |         arg = findVar(sym, frame);
+      |               ^~~~~~~
+capture.c:94:13: warning: assignment to 'SEXP' {aka 'struct SEXPREC *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   94 |         arg = findVar(sym, frame);
+      |             ^
+In file included from capture.c:1:
+capture.c: In function 'capturedots':
+/opt/R/4.6.0/lib/R/include/Rinternals.h:918:33: warning: passing argument 1 of 'Rf_protect' makes pointer from integer without a cast [-Wint-conversion]
+  918 | #define findVar                 Rf_findVar
+/opt/R/4.6.0/lib/R/include/Rinternals.h:357:36: note: in definition of macro 'PROTECT'
+  357 | #define PROTECT(s)      Rf_protect(s)
+      |                                    ^
+capture.c:113:25: note: in expansion of macro 'findVar'
+  113 |     SEXP dots = PROTECT(findVar(R_DotsSymbol, frame));
+      |                         ^~~~~~~
+In file included from capture.c:1:
+/opt/R/4.6.0/lib/R/include/Rinternals.h:1117:17: note: expected 'SEXP' {aka 'struct SEXPREC *'} but argument is of type 'int'
+ 1117 | SEXP Rf_protect(SEXP);
+      |                 ^~~~
+In file included from capture.c:1:
+capture.c: In function 'capturedot':
+/opt/R/4.6.0/lib/R/include/Rinternals.h:918:33: warning: passing argument 1 of 'Rf_protect' makes pointer from integer without a cast [-Wint-conversion]
+  918 | #define findVar                 Rf_findVar
+/opt/R/4.6.0/lib/R/include/Rinternals.h:357:36: note: in definition of macro 'PROTECT'
+  357 | #define PROTECT(s)      Rf_protect(s)
+      |                                    ^
+capture.c:177:25: note: in expansion of macro 'findVar'
+  177 |     SEXP dots = PROTECT(findVar(R_DotsSymbol, frame));
+      |                         ^~~~~~~
+In file included from capture.c:1:
+/opt/R/4.6.0/lib/R/include/Rinternals.h:1117:17: note: expected 'SEXP' {aka 'struct SEXPREC *'} but argument is of type 'int'
+ 1117 | SEXP Rf_protect(SEXP);
+      |                 ^~~~
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I./rlang/  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c internal.c -o internal.o
+In file included from ./rlang/rlang.h:48,
+                 from internal/internal.c:2,
+                 from internal.c:1:
+./rlang/attrib.h: In function 'r_attrib':
+./rlang/attrib.h:13:10: warning: implicit declaration of function 'ATTRIB' [-Wimplicit-function-declaration]
+   13 |   return ATTRIB(x);
+      |          ^~~~~~
+./rlang/attrib.h:13:10: warning: returning 'int' from a function with return type 'r_obj *' {aka 'struct SEXPREC *'} makes pointer from integer without a cast [-Wint-conversion]
+   13 |   return ATTRIB(x);
+      |          ^~~~~~~~~
+./rlang/attrib.h: In function 'r_poke_attrib':
+./rlang/attrib.h:17:3: warning: implicit declaration of function 'SET_ATTRIB'; did you mean 'ANY_ATTRIB'? [-Wimplicit-function-declaration]
+   17 |   SET_ATTRIB(x, attrs);
+      |   ^~~~~~~~~~
+      |   ANY_ATTRIB
+In file included from ./rlang/rlang.h:57,
+                 from internal/internal.c:2,
+                 from internal.c:1:
+./rlang/env.h: In function 'r_env_find':
+./rlang/env.h:55:10: warning: implicit declaration of function 'Rf_findVarInFrame3' [-Wimplicit-function-declaration]
+   55 |   return Rf_findVarInFrame3(env, sym, FALSE);
+      |          ^~~~~~~~~~~~~~~~~~
+./rlang/env.h:55:10: warning: returning 'int' from a function with return type 'r_obj *' {aka 'struct SEXPREC *'} makes pointer from integer without a cast [-Wint-conversion]
+   55 |   return Rf_findVarInFrame3(env, sym, FALSE);
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./rlang/env.h: In function 'r_env_find_anywhere':
+./rlang/env.h:59:10: warning: implicit declaration of function 'Rf_findVar'; did you mean 'Rf_findFun'? [-Wimplicit-function-declaration]
+   59 |   return Rf_findVar(sym, env);
+      |          ^~~~~~~~~~
+      |          Rf_findFun
+./rlang/env.h:59:10: warning: returning 'int' from a function with return type 'r_obj *' {aka 'struct SEXPREC *'} makes pointer from integer without a cast [-Wint-conversion]
+   59 |   return Rf_findVar(sym, env);
+      |          ^~~~~~~~~~~~~~~~~~~~
+In file included from internal/internal.c:13,
+                 from internal.c:1:
+internal/dots-ellipsis.c: In function 'ellipsis_promise_forced':
+internal/dots-ellipsis.c:59:12: warning: implicit declaration of function 'PRVALUE' [-Wimplicit-function-declaration]
+   59 |     return PRVALUE(x) != r_syms.unbound;
+      |            ^~~~~~~
+internal/dots-ellipsis.c:59:23: warning: comparison between pointer and integer
+   59 |     return PRVALUE(x) != r_syms.unbound;
+      |                       ^~
+In file included from internal/internal.c:19,
+                 from internal.c:1:
+internal/exported.c: In function 'ffi_ns_registry_env':
+internal/exported.c:513:10: error: 'R_NamespaceRegistry' undeclared (first use in this function)
+  513 |   return R_NamespaceRegistry;
+      |          ^~~~~~~~~~~~~~~~~~~
+internal/exported.c:513:10: note: each undeclared identifier is reported only once for each function it appears in
+In file included from internal/internal.c:19,
+                 from internal.c:1:
+internal/exported.c: In function 'ffi_promise_expr':
+internal/exported.c:755:10: warning: implicit declaration of function 'PREXPR'; did you mean 'PRIXPTR'? [-Wimplicit-function-declaration]
+  755 |   return PREXPR(prom);
+      |          ^~~~~~
+      |          PRIXPTR
+internal/exported.c:755:10: warning: returning 'int' from a function with return type 'r_obj *' {aka 'struct SEXPREC *'} makes pointer from integer without a cast [-Wint-conversion]
+  755 |   return PREXPR(prom);
+      |          ^~~~~~~~~~~~
+internal/exported.c: In function 'ffi_promise_env':
+internal/exported.c:759:10: warning: implicit declaration of function 'PRENV' [-Wimplicit-function-declaration]
+  759 |   return PRENV(prom);
+      |          ^~~~~
+internal/exported.c:759:10: warning: returning 'int' from a function with return type 'r_obj *' {aka 'struct SEXPREC *'} makes pointer from integer without a cast [-Wint-conversion]
+  759 |   return PRENV(prom);
+      |          ^~~~~~~~~~~
+internal/exported.c: In function 'ffi_promise_value':
+internal/exported.c:763:18: warning: initialization of 'r_obj *' {aka 'struct SEXPREC *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  763 |   r_obj* value = PRVALUE(prom);
+      |                  ^~~~~~~
+internal/exported.c: In function 'ffi_find_var':
+internal/exported.c:772:10: warning: returning 'int' from a function with return type 'r_obj *' {aka 'struct SEXPREC *'} makes pointer from integer without a cast [-Wint-conversion]
+  772 |   return Rf_findVar(sym, env);
+      |          ^~~~~~~~~~~~~~~~~~~~
+internal/exported.c: In function 'ffi_find_var_in_frame':
+internal/exported.c:775:10: warning: implicit declaration of function 'Rf_findVarInFrame'; did you mean 'R_existsVarInFrame'? [-Wimplicit-function-declaration]
+  775 |   return Rf_findVarInFrame(env, sym);
+      |          ^~~~~~~~~~~~~~~~~
+      |          R_existsVarInFrame
+internal/exported.c:775:10: warning: returning 'int' from a function with return type 'r_obj *' {aka 'struct SEXPREC *'} makes pointer from integer without a cast [-Wint-conversion]
+  775 |   return Rf_findVarInFrame(env, sym);
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [/opt/R/4.6.0/lib/R/etc/Makeconf:190: internal.o] Error 1
+ERROR: compilation failed for package 'rlang'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/renv/staging/1/rlang'
+install of package 'rlang' failed [error code 1]
+Execution halted
+renv restore failed for kazuyanagimoto/quarto-academic-typst.
+Dependency install failed (exit 1) for kazuyanagimoto/quarto-academic-typst.

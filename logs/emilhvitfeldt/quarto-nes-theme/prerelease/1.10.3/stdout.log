@@ -2,9 +2,22 @@ Dependency install phase for emilhvitfeldt/quarto-nes-theme: auto-detect
 Auto-detecting R dependencies for emilhvitfeldt/quarto-nes-theme (knitr engine, no renv.lock).
 ** libs
 using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c renv.c -o renv.o
-gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o renv.so renv.o -L/opt/R/4.5.3/lib/R/lib -lR
-Installing R packages: showtext 
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c renv.c -o renv.o
+gcc -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o renv.so renv.o -L/opt/R/4.6.0/lib/R/lib -lR
+Installing R packages: showtext, rmarkdown 
+Using PKG_CFLAGS=
+Using PKG_LIBS=-luv
+--------------------------- [CONFIGURE] --------------------------------
+Configuration failed because libuv was not found. Try installing:
+ * deb: libuv1-dev (Debian, Ubuntu, etc)
+ * rpm: libuv-devel (Fedora, EPEL)
+ * brew: libuv (OSX)
+Alternatively set environment variable USE_BUNDLED_LIBUV=1 to build a static
+version of libuv that is included with this package.
+-------------------------- [ERROR MESSAGE] ---------------------------
+<stdin>:1:10: fatal error: uv.h: No such file or directory
+compilation terminated.
+--------------------------------------------------------------------
 checking for gcc... gcc
 checking whether the C compiler works... yes
 checking for C compiler default output file name... a.out
@@ -21,10 +34,10 @@ checking whether pkg-config could find freetype2... yes
 checking whether freetype2 flags work... yes
 configure: creating ./config.status
 config.status: creating src/Makevars
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c font_name.c -o font_name.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c register_routines.c -o register_routines.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c sysfonts.c -o sysfonts.o
-gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o sysfonts.so font_name.o register_routines.o sysfonts.o -lfreetype -lpng16 -lz -lz -L/opt/R/4.5.3/lib/R/lib -lR
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c font_name.c -o font_name.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c register_routines.c -o register_routines.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c sysfonts.c -o sysfonts.o
+gcc -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o sysfonts.so font_name.o register_routines.o sysfonts.o -lfreetype -lpng16 -lz -lz -L/opt/R/4.6.0/lib/R/lib -lR
 checking for gcc... gcc
 checking whether the C compiler works... yes
 checking for C compiler default output file name... a.out
@@ -41,17 +54,17 @@ checking whether pkg-config could find freetype2... yes
 checking whether freetype2 flags work... yes
 configure: creating ./config.status
 config.status: creating src/Makevars
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c array.c -o array.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c cairodev.c -o cairodev.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c devfuns.c -o devfuns.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c fonts.c -o fonts.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c outline.c -o outline.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c raster.c -o raster.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c register_routines.c -o register_routines.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c showtext.c -o showtext.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c utf8.c -o utf8.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c util.c -o util.o
-gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o showtext.so array.o cairodev.o devfuns.o fonts.o outline.o raster.o register_routines.o showtext.o utf8.o util.o -lfreetype -lpng16 -lz -lz -L/opt/R/4.5.3/lib/R/lib -lR
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c array.c -o array.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c cairodev.c -o cairodev.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c devfuns.c -o devfuns.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c fonts.c -o fonts.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c outline.c -o outline.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c raster.c -o raster.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c register_routines.c -o register_routines.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c showtext.c -o showtext.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c utf8.c -o utf8.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libpng16   -I/usr/local/include    -fpic  -g -O2  -c util.c -o util.o
+gcc -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o showtext.so array.o cairodev.o devfuns.o fonts.o outline.o raster.o register_routines.o showtext.o utf8.o util.o -lfreetype -lpng16 -lz -lz -L/opt/R/4.6.0/lib/R/lib -lR
 tlmgr: package repository https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet (verified)
 tlmgr: no self-updates for tlmgr available
 Using CTAN mirror: https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet

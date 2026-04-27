@@ -1,78 +1,23 @@
+Error in loadNamespace(x) : there is no package called 'rmarkdown'
+Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
+Execution halted
+
+R installation:
+
+  Version: 4.6.0
+  Path: /opt/R/4.6.0/lib/R
+  LibPaths:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6
+    - /opt/R/4.6.0/lib/R/library
+  knitr: 1.51
+  rmarkdown: (None)
 
 
-processing file: example.qmd
 
-1/9                  
-
-2/9 [setup]          
-
-3/9                  
-
-4/9 [unnamed-chunk-1]
-
-5/9                  
-
-6/9 [unnamed-chunk-2]
-
-7/9                  
-
-8/9 [unnamed-chunk-3]
-
-9/9                  
-
-output file: example.knit.md
+The rmarkdown package is not available in this R installation.
+Install with install.packages("rmarkdown")
 
 
-pandoc 
 
-  to: revealjs
-  output-file: example.html
-  standalone: true
-  embed-resources: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  variables: {}
-  
-
-metadata
-
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  theme:
-    - default
-    - _extensions/pharmaR/rvalhub/custom.scss
-    - _extensions/pharmaR/rvalhub/custom-light.scss
-  code-annotations: hover
-  logo: _extensions/pharmaR/rvalhub/assets/logo.svg
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Quarto Theme
-  subtitle: Title Slide Subtitle
-  author:
-    - Author One
-    - Another Author
-  
-
-Output created: example.html
-
+(WARN) Error encountered when rendering files
 

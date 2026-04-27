@@ -1,48 +1,23 @@
+Error in loadNamespace(x) : there is no package called 'rmarkdown'
+Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
+Execution halted
+
+R installation:
+
+  Version: 4.6.0
+  Path: /opt/R/4.6.0/lib/R
+  LibPaths:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-13/R/x86_64-pc-linux-gnu-library/4.6
+    - /opt/R/4.6.0/lib/R/library
+  knitr: 1.51
+  rmarkdown: (None)
 
 
-processing file: numbered_example_html.qmd
 
-1/5                  
-
-2/5 [fig-random-plot]
-
-3/5                  
-
-4/5 [tbl-mtcars]     
-
-5/5                  
-
-output file: numbered_example_html.knit.md
+The rmarkdown package is not available in this R installation.
+Install with install.packages("rmarkdown")
 
 
-pandoc 
 
-  to: html
-  output-file: numbered_example_html.html
-  standalone: true
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  number-sections: true
-  variables: {}
-  
-
-metadata
-
-  document-css: false
-  link-citations: true
-  lang: en
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Using nameref
-  author: Shafayet Khan Shafee
-  date: last-modified
-  date-format: DD MMM, YYYY
-  nameref:
-    section-number: false
-  
-
-Output created: numbered_example_html.html
-
+(WARN) Error encountered when rendering files
 

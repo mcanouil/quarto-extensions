@@ -1,45 +1,23 @@
-(WARN) typst-gather analyze failed; staging all packages as fallback
+Error in loadNamespace(x) : there is no package called 'rmarkdown'
+Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
+Execution halted
 
-[typst]: Compiling hikmah-response-memo.typ to hikmah-response-memo.pdf...
-error: font fallback list must not be empty
-    ┌─ hikmah-response-memo.typ:313:17
-    │
+R installation:
 
-313 │            font: font,
-    │                  ^^^^
-
-help: error occurred in this call of function `article`
-    ┌─ hikmah-response-memo.typ:419:14
-    │  
-419 │   #show: doc => article(
-    │ ╭───────────────^
-420 │ │   title: [Responses to editor and reviewer concerns],
-421 │ │   toc_title: [Table of contents],
-422 │ │   toc_depth: 3,
-423 │ │   doc,
-424 │ │ )
-    │ ╰─^
-
-
-(ERROR) error: font fallback list must not be empty
-    ┌─ hikmah-response-memo.typ:313:17
-    │
-313 │            font: font,
-    │                  ^^^^
-
-help: error occurred in this call of function `article`
-    ┌─ hikmah-response-memo.typ:419:14
-    │  
-419 │   #show: doc => article(
-    │ ╭───────────────^
-420 │ │   title: [Responses to editor and reviewer concerns],
-421 │ │   toc_title: [Table of contents],
-422 │ │   toc_depth: 3,
-423 │ │   doc,
-424 │ │ )
-    │ ╰─^
+  Version: 4.6.0
+  Path: /opt/R/4.6.0/lib/R
+  LibPaths:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6
+    - /opt/R/4.6.0/lib/R/library
+  knitr: 1.51
+  rmarkdown: (None)
 
 
 
-(ERROR) Typst compilation failed
+The rmarkdown package is not available in this R installation.
+Install with install.packages("rmarkdown")
+
+
+
+(WARN) Error encountered when rendering files
 

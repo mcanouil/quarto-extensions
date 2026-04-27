@@ -1,5 +1,5 @@
 Cloning into 'repo'...
-Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.5'
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.6'
 (as 'lib' is unspecified)
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.2.tar.gz'
 Content type 'binary/octet-stream' length 1356485 bytes (1.3 MB)
@@ -25,96 +25,79 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/RtmpdE2iLb/downloaded_packages'
+	'/tmp/Rtmp1BN5zj/downloaded_packages'
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.6'
+(as 'lib' is unspecified)
+also installing the dependencies 'fs', 'sass', 'bslib'
 
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fs_2.1.0.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/sass_0.4.10.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/bslib_0.10.0.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/rmarkdown_2.31.tar.gz'
+* installing *source* package 'fs' ...
+** this is package 'fs' version '2.1.0'
+** package 'fs' successfully unpacked and MD5 sums checked
+** using staged installation
+Package libuv was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libuv.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'libuv' found
+ERROR: configuration failed for package 'fs'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.6/fs'
+ERROR: dependency 'fs' is not available for package 'sass'
+Perhaps try a variation of:
+install.packages('fs')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.6/sass'
+ERROR: dependency 'sass' is not available for package 'bslib'
+Perhaps try a variation of:
+install.packages('sass')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.6/bslib'
+ERROR: dependency 'bslib' is not available for package 'rmarkdown'
+Perhaps try a variation of:
+install.packages('bslib')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.6/rmarkdown'
 
-processing file: template.qmd
-1/31                   
-2/31 [unnamed-chunk-1] 
-3/31                   
-4/31 [unnamed-chunk-2] 
-5/31                   
-6/31 [unnamed-chunk-3] 
-7/31                   
-8/31 [unnamed-chunk-4] 
-9/31                   
-10/31 [unnamed-chunk-5] 
-11/31                   
-12/31 [unnamed-chunk-6] 
-13/31                   
-14/31 [unnamed-chunk-7] 
-15/31                   
-16/31 [unnamed-chunk-8] 
-17/31                   
-18/31 [unnamed-chunk-9] 
-19/31                   
-20/31 [unnamed-chunk-10]
-21/31                   
-22/31 [unnamed-chunk-11]
-23/31                   
-24/31 [unnamed-chunk-12]
-25/31                   
-26/31 [unnamed-chunk-13]
-27/31                   
-28/31 [unnamed-chunk-14]
-29/31                   
-30/31 [unnamed-chunk-15]
-31/31                   
-output file: template.knit.md
+The downloaded source packages are in
+	'/tmp/Rtmp1BN5zj/downloaded_packages'
+Warning messages:
+1: In install.packages(deps, repos = ppm) :
+  installation of package 'fs' had non-zero exit status
+2: In install.packages(deps, repos = ppm) :
+  installation of package 'sass' had non-zero exit status
+3: In install.packages(deps, repos = ppm) :
+  installation of package 'bslib' had non-zero exit status
+4: In install.packages(deps, repos = ppm) :
+  installation of package 'rmarkdown' had non-zero exit status
+Error in loadNamespace(x) : there is no package called 'rmarkdown'
+Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
+Execution halted
+R installation:
+  Version: 4.6.0
+  Path: /opt/R/4.6.0/lib/R
+  LibPaths:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.6
+    - /opt/R/4.6.0/lib/R/library
+  knitr: 1.51
+  rmarkdown: (None)
 
-pandoc 
-  to: revealjs
-  output-file: template.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  variables: {}
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  menu:
-    titleSelector: h1
-    useTextContentForMissingTitles: false
-    hideMissingTitles: true
-  slideNumber: true
-  theme:
-    - default
-    - _extensions/thinkridentity/thinkridentity.scss
-  logo: _extensions/thinkridentity/logo.png
-  footer: |
-    **<i class="las la-book"></i> {{< meta title >}}** |
-    Retrouvez nous sur <https://thinkr.fr>
-  title-slide-attributes:
-    data-background-image: _extensions/thinkridentity/background.png
-  code-annotations: hover
-  chalkboard: true
-  scrollActivationWidth: 0
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: ThinkRidentity
-  author: Arthur Bréant
-  date: last-modified
-  
-Output created: template.html
+The rmarkdown package is not available in this R installation.
+Install with install.packages("rmarkdown")
 
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+Error in loadNamespace(x) : there is no package called 'rmarkdown'
+Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
+Execution halted
+R installation:
+  Version: 4.6.0
+  Path: /opt/R/4.6.0/lib/R
+  LibPaths:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-5/R/x86_64-pc-linux-gnu-library/4.6
+    - /opt/R/4.6.0/lib/R/library
+  knitr: 1.51
+  rmarkdown: (None)
+
+The rmarkdown package is not available in this R installation.
+Install with install.packages("rmarkdown")
+
+WARN: Error encountered when rendering files

@@ -1,21 +1,23 @@
-
-
-processing file: README.qmd
-
-1/3                  
-
-2/3 [unnamed-chunk-1]
-
-Error in `library()`:
-! there is no package called 'magick'
-Backtrace:
-    x
- 1. \-base::library(magick)
-
-
-Quitting from README.qmd:7-24 [unnamed-chunk-1]
-
+Error in loadNamespace(x) : there is no package called 'rmarkdown'
+Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
 Execution halted
+
+R installation:
+
+  Version: 4.6.0
+  Path: /opt/R/4.6.0/lib/R
+  LibPaths:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-22/R/x86_64-pc-linux-gnu-library/4.6
+    - /opt/R/4.6.0/lib/R/library
+  knitr: 1.51
+  rmarkdown: (None)
+
+
+
+The rmarkdown package is not available in this R installation.
+Install with install.packages("rmarkdown")
+
+
 
 (WARN) Error encountered when rendering files
 

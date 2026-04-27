@@ -1,58 +1,23 @@
+Error in loadNamespace(x) : there is no package called 'rmarkdown'
+Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
+Execution halted
 
+R installation:
 
-processing file: template-html.qmd
-
-1/5                
-
-2/5 [load-packages]
-
-3/5                
-
-4/5 [fig-mpg]      
-
-5/5                
-
-output file: template-html.knit.md
-
-
-[WARNING] Could 
-not fetch resource ../site_libs/quarto-contrib/quarto-project/stanford/html/../../../_extensions/coatless-quarto/stanford/logos/stanford_logo_2.png
-
-
-Rendering PDF
-
-running lualatex - 1
-
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-
-updating tlmgr
+  Version: 4.6.0
+  Path: /opt/R/4.6.0/lib/R
+  LibPaths:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6
+    - /opt/R/4.6.0/lib/R/library
+  knitr: 1.51
+  rmarkdown: (None)
 
 
 
-updating existing packages
-
-finding package for _extensions/coatless-quarto/stanford/beamer/beamerthemeStanford.sty
-
-(ERROR) 
-compilation failed- no matching packages
-
-LaTeX Error: File `_extensions/coatless-quarto/stanford/beamer/beamerthemeStanford.sty' not found.
-
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: sty)
-
-Enter file name: 
-! Emergency stop.
-<read *> 
-   
-l.205 \usetheme{Stanford}
-                       
+The rmarkdown package is not available in this R installation.
+Install with install.packages("rmarkdown")
 
 
-
-see /home/runner/work/quarto-extensions/quarto-extensions/test-18/repo/docs/demos/template-beamer.log for more information.
 
 (WARN) Error encountered when rendering files
 

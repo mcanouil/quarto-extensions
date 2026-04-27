@@ -2,25 +2,38 @@ Dependency install phase for quarto-monash/report: auto-detect
 Auto-detecting R dependencies for quarto-monash/report (knitr engine, no renv.lock).
 ** libs
 using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c renv.c -o renv.o
-gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o renv.so renv.o -L/opt/R/4.5.3/lib/R/lib -lR
-Installing R packages: magick, quarto 
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c renv.c -o renv.o
+gcc -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o renv.so renv.o -L/opt/R/4.6.0/lib/R/lib -lR
+Installing R packages: fs, magick, quarto, tidyverse, rmarkdown 
 Running configure script
 -latomic linker flag not needed.
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c callback_registry.cpp -o callback_registry.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c debug.cpp -o debug.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c fd.cpp -o fd.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c later.cpp -o later.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c later_posix.cpp -o later_posix.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c later_win32.cpp -o later_win32.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c timer_posix.cpp -o timer_posix.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c timestamp_unix.cpp -o timestamp_unix.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c timestamp_win32.cpp -o timestamp_win32.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c tinycthread.c -o tinycthread.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c wref.c -o wref.o
-g++ -std=gnu++17 -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o later.so RcppExports.o callback_registry.o debug.o fd.o init.o later.o later_posix.o later_win32.o timer_posix.o timestamp_unix.o timestamp_win32.o tinycthread.o wref.o -pthread -L/opt/R/4.5.3/lib/R/lib -lR
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c callback_registry.cpp -o callback_registry.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c debug.cpp -o debug.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c fd.cpp -o fd.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c later.cpp -o later.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c later_posix.cpp -o later_posix.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c later_win32.cpp -o later_win32.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c timer_posix.cpp -o timer_posix.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c timestamp_unix.cpp -o timestamp_unix.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c timestamp_win32.cpp -o timestamp_win32.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c tinycthread.c -o tinycthread.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c wref.c -o wref.o
+g++ -std=gnu++20 -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o later.so RcppExports.o callback_registry.o debug.o fd.o init.o later.o later_posix.o later_win32.o timer_posix.o timestamp_unix.o timestamp_win32.o tinycthread.o wref.o -pthread -L/opt/R/4.6.0/lib/R/lib -lR
+Using PKG_CFLAGS=
+Using PKG_LIBS=-luv
+--------------------------- [CONFIGURE] --------------------------------
+Configuration failed because libuv was not found. Try installing:
+ * deb: libuv1-dev (Debian, Ubuntu, etc)
+ * rpm: libuv-devel (Fedora, EPEL)
+ * brew: libuv (OSX)
+Alternatively set environment variable USE_BUNDLED_LIBUV=1 to build a static
+version of libuv that is included with this package.
+-------------------------- [ERROR MESSAGE] ---------------------------
+<stdin>:1:10: fatal error: uv.h: No such file or directory
+compilation terminated.
+--------------------------------------------------------------------
 Using PKG_CFLAGS=
 Using PKG_LIBS=-lMagick++-6.Q16 -lMagickWand-6.Q16 -lMagickCore-6.Q16
 --------------------------- [ANTICONF] --------------------------------

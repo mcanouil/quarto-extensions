@@ -2,42 +2,55 @@ Dependency install phase for quarto-monash/thesis: auto-detect
 Auto-detecting R dependencies for quarto-monash/thesis (knitr engine, no renv.lock).
 ** libs
 using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c renv.c -o renv.o
-gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o renv.so renv.o -L/opt/R/4.5.3/lib/R/lib -lR
-Installing R packages: fable, feasts, tsibble, magick, quarto 
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c renv.c -o renv.o
+gcc -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o renv.so renv.o -L/opt/R/4.6.0/lib/R/lib -lR
+Installing R packages: fable, feasts, tsibble, rmarkdown, fs, magick, quarto, tidyverse, kableExtra 
 gfortran  -fvisibility=hidden -fpic -g -O2 -msse2 -mfpmath=sse   -fpic  -g -O2  -c aind.f -o aind.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
 gfortran  -fvisibility=hidden -fpic -g -O2 -msse2 -mfpmath=sse   -fpic  -g -O2  -c solve.QP.compact.f -o solve.QP.compact.o
 gfortran  -fvisibility=hidden -fpic -g -O2 -msse2 -mfpmath=sse   -fpic  -g -O2  -c solve.QP.f -o solve.QP.o
 gfortran  -fvisibility=hidden -fpic -g -O2 -msse2 -mfpmath=sse   -fpic  -g -O2  -c util.f -o util.o
-gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o quadprog.so aind.o init.o solve.QP.compact.o solve.QP.o util.o -lblas -lgfortran -lm -lquadmath -lgfortran -lm -lquadmath -L/opt/R/4.5.3/lib/R/lib -lR
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c boundary.c -o boundary.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c change.c -o change.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c coercion.c -o coercion.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c date.c -o date.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c distance.c -o distance.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c divmod.c -o divmod.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c get.c -o get.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c timezone.c -o timezone.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c utils.c -o utils.o
-gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o warp.so boundary.o change.o coercion.o date.o distance.o divmod.o get.o init.o timezone.o utils.o -L/opt/R/4.5.3/lib/R/lib -lR
+gcc -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o quadprog.so aind.o init.o solve.QP.compact.o solve.QP.o util.o -lblas -lgfortran -lm -lquadmath -lgfortran -lm -lquadmath -L/opt/R/4.6.0/lib/R/lib -lR
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c boundary.c -o boundary.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c change.c -o change.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c coercion.c -o coercion.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c date.c -o date.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c distance.c -o distance.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c divmod.c -o divmod.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c get.c -o get.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c timezone.c -o timezone.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c utils.c -o utils.o
+gcc -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o warp.so boundary.o change.o coercion.o date.o distance.o divmod.o get.o init.o timezone.o utils.o -L/opt/R/4.6.0/lib/R/lib -lR
 Running configure script
 -latomic linker flag not needed.
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c callback_registry.cpp -o callback_registry.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c debug.cpp -o debug.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c fd.cpp -o fd.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c later.cpp -o later.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c later_posix.cpp -o later_posix.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c later_win32.cpp -o later_win32.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c timer_posix.cpp -o timer_posix.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c timestamp_unix.cpp -o timestamp_unix.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c timestamp_win32.cpp -o timestamp_win32.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c tinycthread.c -o tinycthread.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c wref.c -o wref.o
-g++ -std=gnu++17 -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o later.so RcppExports.o callback_registry.o debug.o fd.o init.o later.o later_posix.o later_win32.o timer_posix.o timestamp_unix.o timestamp_win32.o tinycthread.o wref.o -pthread -L/opt/R/4.5.3/lib/R/lib -lR
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c callback_registry.cpp -o callback_registry.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c debug.cpp -o debug.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c fd.cpp -o fd.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c later.cpp -o later.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c later_posix.cpp -o later_posix.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c later_win32.cpp -o later_win32.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c timer_posix.cpp -o timer_posix.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c timestamp_unix.cpp -o timestamp_unix.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c timestamp_win32.cpp -o timestamp_win32.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c tinycthread.c -o tinycthread.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c wref.c -o wref.o
+g++ -std=gnu++20 -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o later.so RcppExports.o callback_registry.o debug.o fd.o init.o later.o later_posix.o later_win32.o timer_posix.o timestamp_unix.o timestamp_win32.o tinycthread.o wref.o -pthread -L/opt/R/4.6.0/lib/R/lib -lR
+Using PKG_CFLAGS=
+Using PKG_LIBS=-luv
+--------------------------- [CONFIGURE] --------------------------------
+Configuration failed because libuv was not found. Try installing:
+ * deb: libuv1-dev (Debian, Ubuntu, etc)
+ * rpm: libuv-devel (Fedora, EPEL)
+ * brew: libuv (OSX)
+Alternatively set environment variable USE_BUNDLED_LIBUV=1 to build a static
+version of libuv that is included with this package.
+-------------------------- [ERROR MESSAGE] ---------------------------
+<stdin>:1:10: fatal error: uv.h: No such file or directory
+compilation terminated.
+--------------------------------------------------------------------
 Using PKG_CFLAGS=
 Using PKG_LIBS=-lMagick++-6.Q16 -lMagickWand-6.Q16 -lMagickCore-6.Q16
 --------------------------- [ANTICONF] --------------------------------
@@ -53,36 +66,36 @@ R CMD INSTALL --configure-vars='INCLUDE_DIR=... LIB_DIR=...'
 <stdin>:1:10: fatal error: Magick++.h: No such file or directory
 compilation terminated.
 --------------------------------------------------------------------
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c block.c -o block.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c hop.c -o hop.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c index.c -o index.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c params.c -o params.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c segment-tree.c -o segment-tree.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c slide-period.c -o slide-period.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c slide.c -o slide.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c slider-vctrs-private.c -o slider-vctrs-private.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c slider-vctrs-public.c -o slider-vctrs-public.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2   -c summary-core-align.cpp -o summary-core-align.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c summary-index.c -o summary-index.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c summary-slide.c -o summary-slide.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c utils.c -o utils.o
-g++ -std=gnu++17 -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o slider.so block.o hop.o index.o init.o params.o segment-tree.o slide-period.o slide.o slider-vctrs-private.o slider-vctrs-public.o summary-core-align.o summary-index.o summary-slide.o utils.o -L/opt/R/4.5.3/lib/R/lib -lR
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c block.c -o block.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c hop.c -o hop.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c index.c -o index.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c params.c -o params.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c segment-tree.c -o segment-tree.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c slide-period.c -o slide-period.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c slide.c -o slide.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c slider-vctrs-private.c -o slider-vctrs-private.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c slider-vctrs-public.c -o slider-vctrs-public.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2   -c summary-core-align.cpp -o summary-core-align.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c summary-index.c -o summary-index.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c summary-slide.c -o summary-slide.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/vctrs/include' -I/usr/local/include    -fpic  -g -O2  -c utils.c -o utils.o
+g++ -std=gnu++20 -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o slider.so block.o hop.o index.o init.o params.o segment-tree.o slide-period.o slide.o slider-vctrs-private.o slider-vctrs-public.o summary-core-align.o summary-index.o summary-slide.o utils.o -L/opt/R/4.6.0/lib/R/lib -lR
 ***
 *** if compilation is 'noisy', consider adding '-Wno-parentheses -Wno-nonull' to your default compiler flags CXXFLAGS via ~/.R/Makevars
 *** we cannot add this to the package as these options are considered non-portable
 ***
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-13/R/x86_64-pc-linux-gnu-library/4.5/BH/include' -I/usr/local/include    -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-13/R/x86_64-pc-linux-gnu-library/4.5/BH/include' -I/usr/local/include    -fpic  -g -O2   -c anytime.cpp -o anytime.o
-g++ -std=gnu++17 -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o anytime.so RcppExports.o anytime.o -L/opt/R/4.5.3/lib/R/lib -lR
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c binning_methods.cpp -o binning_methods.o
-g++ -std=gnu++17 -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o ggdist.so RcppExports.o binning_methods.o -L/opt/R/4.5.3/lib/R/lib -lR
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c etsTargetFunction.cpp -o etsTargetFunction.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c etsTargetFunctionWrapper.cpp -o etsTargetFunctionWrapper.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c etscalc.c -o etscalc.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c registerDynamicSymbol.c -o registerDynamicSymbol.o
-g++ -std=gnu++17 -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o fable.so etsTargetFunction.o etsTargetFunctionWrapper.o etscalc.o registerDynamicSymbol.o -fopenmp -llapack -lblas -lgfortran -lm -lquadmath -L/opt/R/4.5.3/lib/R/lib -lR
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-13/R/x86_64-pc-linux-gnu-library/4.6/BH/include' -I/usr/local/include    -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-13/R/x86_64-pc-linux-gnu-library/4.6/BH/include' -I/usr/local/include    -fpic  -g -O2   -c anytime.cpp -o anytime.o
+g++ -std=gnu++20 -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o anytime.so RcppExports.o anytime.o -L/opt/R/4.6.0/lib/R/lib -lR
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c binning_methods.cpp -o binning_methods.o
+g++ -std=gnu++20 -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o ggdist.so RcppExports.o binning_methods.o -L/opt/R/4.6.0/lib/R/lib -lR
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c etsTargetFunction.cpp -o etsTargetFunction.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c etsTargetFunctionWrapper.cpp -o etsTargetFunctionWrapper.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c etscalc.c -o etscalc.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c registerDynamicSymbol.c -o registerDynamicSymbol.o
+g++ -std=gnu++20 -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o fable.so etsTargetFunction.o etsTargetFunctionWrapper.o etscalc.o registerDynamicSymbol.o -fopenmp -llapack -lblas -lgfortran -lm -lquadmath -L/opt/R/4.6.0/lib/R/lib -lR
 tlmgr: package repository https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet (verified)
 tlmgr: no self-updates for tlmgr available
 Using CTAN mirror: https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet

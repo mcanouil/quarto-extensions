@@ -2,17 +2,26 @@
 
 (W) Cannot find @fig-myplot
 
+Error in loadNamespace(x) : there is no package called 'rmarkdown'
+Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
+Execution halted
+
+R installation:
+
+  Version: 4.6.0
+  Path: /opt/R/4.6.0/lib/R
+  LibPaths:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-22/R/x86_64-pc-linux-gnu-library/4.6
+    - /opt/R/4.6.0/lib/R/library
+  knitr: 1.51
+  rmarkdown: (None)
 
 
-processing file: changelog.qmd
 
-1/1
-
-output file: changelog.knit.md
+The rmarkdown package is not available in this R installation.
+Install with install.packages("rmarkdown")
 
 
 
-
-Output created: docs/index.html
-
+(WARN) Error encountered when rendering files
 

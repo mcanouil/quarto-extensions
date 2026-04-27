@@ -1,5 +1,5 @@
 Cloning into 'repo'...
-Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.5'
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6'
 (as 'lib' is unspecified)
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.2.tar.gz'
 Content type 'binary/octet-stream' length 1356485 bytes (1.3 MB)
@@ -25,27 +25,49 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/RtmpjkxDxR/downloaded_packages'
-Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.5'
+	'/tmp/RtmpH8gqdk/downloaded_packages'
+Installing packages into '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6'
 (as 'lib' is unspecified)
-also installing the dependencies 'bayestestR', 'datawizard', 'checkmate', 'insight', 'parameters', 'performance', 'tables', 'tinytable'
+also installing the dependencies 'bayestestR', 'datawizard', 'gargle', 'fs', 'htmlwidgets', 'reactable', 'sass', 'checkmate', 'insight', 'parameters', 'performance', 'tables', 'tinytable', 'googledrive', 'googlesheets4', 'reprex', 'bslib'
 
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/bayestestR_0.17.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/datawizard_1.3.0.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/gargle_1.6.1.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fs_2.1.0.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/htmlwidgets_1.6.4.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/reactable_0.4.5.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/sass_0.4.10.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/checkmate_2.3.4.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/insight_1.5.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/parameters_0.28.3.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/performance_0.16.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/tables_0.9.33.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/tinytable_0.16.0.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/googledrive_2.1.2.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/googlesheets4_1.1.2.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/reprex_2.1.1.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/bslib_0.10.0.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/gt_1.3.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/modelsummary_2.6.0.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/tidyverse_2.0.0.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/rmarkdown_2.31.tar.gz'
+* installing *source* package 'fs' ...
+** this is package 'fs' version '2.1.0'
+** package 'fs' successfully unpacked and MD5 sums checked
+** using staged installation
+Package libuv was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libuv.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'libuv' found
+ERROR: configuration failed for package 'fs'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/fs'
 * installing *source* package 'checkmate' ...
 ** this is package 'checkmate' version '2.3.4'
 ** package 'checkmate' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** libs
 using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-checkmate/00new/checkmate/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-checkmate/00new/checkmate/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -122,6 +144,14 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (datawizard)
+ERROR: dependency 'fs' is not available for package 'gargle'
+Perhaps try a variation of:
+install.packages('fs')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/gargle'
+ERROR: dependency 'fs' is not available for package 'sass'
+Perhaps try a variation of:
+install.packages('fs')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/sass'
 * installing *source* package 'bayestestR' ...
 ** this is package 'bayestestR' version '0.17.0'
 ** package 'bayestestR' successfully unpacked and MD5 sums checked
@@ -139,6 +169,14 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (bayestestR)
+ERROR: dependency 'gargle' is not available for package 'googledrive'
+Perhaps try a variation of:
+install.packages('gargle')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/googledrive'
+ERROR: dependency 'sass' is not available for package 'bslib'
+Perhaps try a variation of:
+install.packages('sass')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/bslib'
 * installing *source* package 'parameters' ...
 ** this is package 'parameters' version '0.28.3'
 ** package 'parameters' successfully unpacked and MD5 sums checked
@@ -171,6 +209,22 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (performance)
+ERROR: dependencies 'gargle', 'googledrive' are not available for package 'googlesheets4'
+Perhaps try a variation of:
+install.packages(c('gargle', 'googledrive'))
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/googlesheets4'
+ERROR: dependency 'bslib' is not available for package 'rmarkdown'
+Perhaps try a variation of:
+install.packages('bslib')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/rmarkdown'
+ERROR: dependency 'rmarkdown' is not available for package 'htmlwidgets'
+Perhaps try a variation of:
+install.packages('rmarkdown')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/htmlwidgets'
+ERROR: dependencies 'fs', 'rmarkdown' are not available for package 'reprex'
+Perhaps try a variation of:
+install.packages(c('fs', 'rmarkdown'))
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/reprex'
 * installing *source* package 'modelsummary' ...
 ** this is package 'modelsummary' version '2.6.0'
 ** package 'modelsummary' successfully unpacked and MD5 sums checked
@@ -186,117 +240,52 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (modelsummary)
+ERROR: dependency 'htmlwidgets' is not available for package 'reactable'
+Perhaps try a variation of:
+install.packages('htmlwidgets')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/reactable'
+ERROR: dependencies 'googledrive', 'googlesheets4', 'reprex' are not available for package 'tidyverse'
+Perhaps try a variation of:
+install.packages(c('googledrive', 'googlesheets4', 'reprex'))
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/tidyverse'
+ERROR: dependencies 'fs', 'htmlwidgets', 'reactable', 'sass' are not available for package 'gt'
+Perhaps try a variation of:
+install.packages(c('fs', 'htmlwidgets', 'reactable', 'sass'))
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/gt'
 
 The downloaded source packages are in
-	'/tmp/RtmpjkxDxR/downloaded_packages'
+	'/tmp/RtmpH8gqdk/downloaded_packages'
+There were 12 warnings (use warnings() to see them)
+Error in loadNamespace(x) : there is no package called 'rmarkdown'
+Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
+Execution halted
+R installation:
+  Version: 4.6.0
+  Path: /opt/R/4.6.0/lib/R
+  LibPaths:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6
+    - /opt/R/4.6.0/lib/R/library
+  knitr: 1.51
+  rmarkdown: (None)
 
+The rmarkdown package is not available in this R installation.
+Install with install.packages("rmarkdown")
 
-processing file: template.qmd
-1/11                   
-2/11 [setup]           
-3/11                   
-4/11 [unnamed-chunk-1] 
-5/11                   
-6/11 [tbl-penguin-data]
-7/11                   
-8/11 [fig-template]    
-9/11                   
-10/11 [tbl-reg]         
-11/11                   
-output file: template.knit.md
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+Error in loadNamespace(x) : there is no package called 'rmarkdown'
+Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
+Execution halted
+R installation:
+  Version: 4.6.0
+  Path: /opt/R/4.6.0/lib/R
+  LibPaths:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6
+    - /opt/R/4.6.0/lib/R/library
+  knitr: 1.51
+  rmarkdown: (None)
 
-pandoc 
-  to: latex
-  output-file: template.tex
-  standalone: true
-  pdf-engine: lualatex
-  variables:
-    graphics: true
-    tables: true
-  default-image-extension: pdf
-  toc: false
-  
-metadata
-  block-headings: false
-  knitr:
-    opts_chunk:
-      echo: false
-      message: false
-      warning: false
-  documentclass: article
-  papersize: letter
-  fontsize: 12pt
-  geometry: margin=1in
-  colorlinks: true
-  urlcolor: red
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Demo of the AOG Article Template
-  shorttitle: AOG Template
-  shortauthors: Doe & Doe
-  author:
-    - name: John Doe
-      orcid: 0000-0000-0000-0000
-      email: john@somewhere.edu
-      attributes:
-        corresponding: true
-      affiliations:
-        - id: uni
-          name: University of State
-          department: Department of Awesome
-    - name: Jane Doe
-      affiliations:
-        - ref: uni
-  abstract: |
-    Ipsum nostra facilisis sapien nullam. Facilisi himenaeos pharetra ultricies scelerisque non fusce quisque aliquam netus tellus. Dictum tellus et sociis quisque ornare ad a natoque magna blandit. Tortor duis aptent cursus lacus inceptos tristique magnis dictumst. Taciti varius nascetur aliquet hac ornare vitae ultricies. Rhoncus primis purus morbi aliquet quam cubilia nullam malesuada ridiculus.
-  keywords:
-    - template
-    - demo
-  thanks: Love to everyone.
-  reference-section-title: Bibliography
-  bibliography:
-    - bibliography.bib
-  csl: https://www.zotero.org/styles/american-journal-of-sociology
-  
+The rmarkdown package is not available in this R installation.
+Install with install.packages("rmarkdown")
 
-Rendering PDF
-running lualatex - 1
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-  luaotfload | db : Font names database not found, generating new one.
-  luaotfload | db : This can take several minutes; please be patient.
-updating tlmgr
-
-updating existing packages
-finding package for abstract.sty
-> 1 package to install
-> installing abstract (1 of 1)
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-finding package for titling.sty
-> 1 package to install
-> installing titling (1 of 1)
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-finding package for orcidlink.sty
-> 1 package to install
-> installing orcidlink (1 of 1)
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-finding package for anyfontsize.sty
-> 1 package to install
-> installing anyfontsize (1 of 1)
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-running lualatex - 2
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-
-Output created: template.pdf
-
+WARN: Error encountered when rendering files

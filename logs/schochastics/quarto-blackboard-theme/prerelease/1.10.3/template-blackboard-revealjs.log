@@ -1,77 +1,23 @@
+Error in loadNamespace(x) : there is no package called 'rmarkdown'
+Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
+Execution halted
+
+R installation:
+
+  Version: 4.6.0
+  Path: /opt/R/4.6.0/lib/R
+  LibPaths:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-24/R/x86_64-pc-linux-gnu-library/4.6
+    - /opt/R/4.6.0/lib/R/library
+  knitr: 1.51
+  rmarkdown: (None)
 
 
-processing file: template.qmd
 
-1/5          
-
-2/5 [setup]  
-
-3/5          
-
-4/5 [testing]
-
-5/5          
-
-output file: template.knit.md
+The rmarkdown package is not available in this R installation.
+Install with install.packages("rmarkdown")
 
 
-Warning message:
-Duplicated chunk option(s) 'fig.width', 'fig.height', 'fig.align' in both chunk header and pipe comments of the chunk 'testing'. 
 
-pandoc 
-
-  to: revealjs
-  output-file: template.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  css:
-    - _extensions/blackboard/theme.css
-  variables: {}
-  
-
-metadata
-
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  slideNumber: true
-  menu: false
-  progress: false
-  theme:
-    - default
-    - _extensions/blackboard/blackboard.scss
-  footer: |
-    <a href="https://mr.schochastics.net">theme by schochastics</a>
-  title-slide-attributes:
-    data-background-image: _extensions/blackboard/blackboard.png
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Quarto Blackboard theme
-  subtitle: for revealjs
-  author: David Schoch
-  institute: GESIS - Leibniz Institute for the Social Sciences
-  
-
-Output created: template.html
-
+(WARN) Error encountered when rendering files
 

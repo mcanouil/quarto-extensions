@@ -1,5 +1,5 @@
 Cloning into 'repo'...
-Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5'
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6'
 (as 'lib' is unspecified)
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.2.tar.gz'
 Content type 'binary/octet-stream' length 1356485 bytes (1.3 MB)
@@ -25,10 +25,10 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/RtmpBdu49r/downloaded_packages'
-Installing packages into '/home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5'
+	'/tmp/RtmpOCHgHC/downloaded_packages'
+Installing packages into '/home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6'
 (as 'lib' is unspecified)
-also installing the dependencies 'colorspace', 'fracdiff', 'lmtest', 'timeDate', 'urca', 'zoo', 'RcppArmadillo', 'Deriv', 'forecast', 'microbenchmark', 'rbibutils', 'numDeriv', 'doBy', 'SparseM', 'MatrixModels', 'Rdpack', 'minqa', 'nloptr', 'reformulas', 'RcppEigen', 'carData', 'abind', 'Formula', 'pbkrtest', 'quantreg', 'lme4', 'patchwork', 'corrplot', 'car', 'bayestestR', 'correlation', 'datawizard', 'effectsize', 'insight', 'modelbased', 'parameters', 'performance', 'report', 'see', 'checkmate', 'tables', 'ggrepel', 'ggsci', 'cowplot', 'ggsignif', 'gridExtra', 'polynom', 'rstatix'
+also installing the dependencies 'colorspace', 'fracdiff', 'lmtest', 'timeDate', 'urca', 'zoo', 'RcppArmadillo', 'Deriv', 'forecast', 'microbenchmark', 'rbibutils', 'numDeriv', 'doBy', 'SparseM', 'MatrixModels', 'Rdpack', 'minqa', 'nloptr', 'reformulas', 'RcppEigen', 'carData', 'abind', 'Formula', 'pbkrtest', 'quantreg', 'lme4', 'patchwork', 'gargle', 'fs', 'corrplot', 'car', 'sass', 'bayestestR', 'correlation', 'datawizard', 'effectsize', 'insight', 'modelbased', 'parameters', 'performance', 'report', 'see', 'checkmate', 'tables', 'googledrive', 'googlesheets4', 'reprex', 'ggrepel', 'ggsci', 'cowplot', 'ggsignif', 'gridExtra', 'polynom', 'rstatix', 'bslib'
 
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/colorspace_2.1-2.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fracdiff_1.5-3.tar.gz'
@@ -57,8 +57,11 @@ trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/pbkrtest_0.5
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/quantreg_6.1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/lme4_2.0-1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/patchwork_1.3.2.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/gargle_1.6.1.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fs_2.1.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/corrplot_0.95.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/car_3.1-5.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/sass_0.4.10.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/bayestestR_0.17.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/correlation_0.8.8.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/datawizard_1.3.0.tar.gz'
@@ -71,6 +74,9 @@ trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/report_0.6.3
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/see_0.13.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/checkmate_2.3.4.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/tables_0.9.33.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/googledrive_2.1.2.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/googlesheets4_1.1.2.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/reprex_2.1.1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/ggrepel_0.9.8.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/ggsci_5.0.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/cowplot_1.2.0.tar.gz'
@@ -78,17 +84,20 @@ trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/ggsignif_0.6
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/gridExtra_2.3.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/polynom_1.4-1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/rstatix_0.7.3.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/bslib_0.10.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/easystats_0.7.5.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/modelsummary_2.6.0.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/tidyverse_2.0.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/tinytable_0.16.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/ggpubr_0.6.3.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/rmarkdown_2.31.tar.gz'
 * installing *source* package 'colorspace' ...
 ** this is package 'colorspace' version '2.1-2'
 ** package 'colorspace' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** libs
 using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-colorspace/00new/colorspace/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-colorspace/00new/colorspace/libs
 ** R
 ** data
 *** moving datasets to lazyload DB
@@ -110,7 +119,7 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x8
 ** using staged installation
 ** libs
 using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-fracdiff/00new/fracdiff/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-fracdiff/00new/fracdiff/libs
 ** R
 ** byte-compile and prepare package for lazy loading
 ** help
@@ -142,7 +151,7 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x8
 ** libs
 using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
 using Fortran compiler: 'GNU Fortran (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-urca/00new/urca/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-urca/00new/urca/libs
 ** R
 ** data
 ** inst
@@ -161,7 +170,7 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x8
 ** using staged installation
 ** libs
 using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-zoo/00new/zoo/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-zoo/00new/zoo/libs
 ** R
 ** demo
 ** inst
@@ -181,7 +190,7 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x8
 ** using staged installation
 ** libs
 using C++ compiler: 'g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-RcppArmadillo/00new/RcppArmadillo/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-RcppArmadillo/00new/RcppArmadillo/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -214,7 +223,7 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x8
 ** using staged installation
 ** libs
 using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-microbenchmark/00new/microbenchmark/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-microbenchmark/00new/microbenchmark/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -232,7 +241,7 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x8
 ** using staged installation
 ** libs
 using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-rbibutils/00new/rbibutils/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-rbibutils/00new/rbibutils/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -267,7 +276,7 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x8
 ** libs
 using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
 using Fortran compiler: 'GNU Fortran (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-SparseM/00new/SparseM/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-SparseM/00new/SparseM/libs
 ** R
 ** data
 ** demo
@@ -302,7 +311,7 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x8
 ** libs
 using Fortran compiler: 'GNU Fortran (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
 using C++ compiler: 'g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-minqa/00new/minqa/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-minqa/00new/minqa/libs
 ** R
 ** byte-compile and prepare package for lazy loading
 ** help
@@ -317,11 +326,17 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x8
 ** this is package 'nloptr' version '2.2.1'
 ** package 'nloptr' successfully unpacked and MD5 sums checked
 ** using staged installation
+'config' variable 'CXX11FLAGS' is defunct
+'config' variable 'CXX11' is defunct
+'config' variable 'CXX11STD' is defunct
+'config' variable 'CXX11FLAGS' is defunct
+'config' variable 'CXX11PICFLAGS' is defunct
+Could not detect C++ compiler with R CMD config.
 mv: cannot move 'nlopt/lib' to a subdirectory of itself, 'nlopt/lib/lib'
 ** libs
 using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
 using C++ compiler: 'g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-nloptr/00new/nloptr/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-nloptr/00new/nloptr/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -8285,7 +8300,7 @@ fastLm.cpp:183:55:   required from here
 ../inst/include/Eigen/src/Core/CoreEvaluators.h:1071:54: warning: ignoring attributes on template argument 'Eigen::internal::packet_traits<double>::type' {aka '__m128d'} [-Wignored-attributes]
  1071 |     PacketAlignment = unpacket_traits<PacketScalar>::alignment,
       |                                                      ^~~~~~~~~
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-RcppEigen/00new/RcppEigen/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-RcppEigen/00new/RcppEigen/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -8355,6 +8370,16 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x8
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (patchwork)
+* installing *source* package 'fs' ...
+** this is package 'fs' version '2.1.0'
+** package 'fs' successfully unpacked and MD5 sums checked
+** using staged installation
+Package libuv was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libuv.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'libuv' found
+ERROR: configuration failed for package 'fs'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/fs'
 * installing *source* package 'corrplot' ...
 ** this is package 'corrplot' version '0.95'
 ** package 'corrplot' successfully unpacked and MD5 sums checked
@@ -8393,7 +8418,7 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x8
 ** using staged installation
 ** libs
 using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-checkmate/00new/checkmate/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-checkmate/00new/checkmate/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -8427,7 +8452,7 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x8
 ** using staged installation
 ** libs
 using C++ compiler: 'g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-ggrepel/00new/ggrepel/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-ggrepel/00new/ggrepel/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -8541,7 +8566,7 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x8
 ** libs
 using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
 using Fortran compiler: 'GNU Fortran (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-lmtest/00new/lmtest/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-lmtest/00new/lmtest/libs
 ** R
 ** data
 *** moving datasets to lazyload DB
@@ -8578,7 +8603,7 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x8
 ** libs
 using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
 using Fortran compiler: 'GNU Fortran (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-quantreg/00new/quantreg/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-quantreg/00new/quantreg/libs
 ** R
 ** data
 ** demo
@@ -8593,6 +8618,14 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x8
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (quantreg)
+ERROR: dependency 'fs' is not available for package 'gargle'
+Perhaps try a variation of:
+install.packages('fs')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/gargle'
+ERROR: dependency 'fs' is not available for package 'sass'
+Perhaps try a variation of:
+install.packages('fs')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/sass'
 * installing *source* package 'datawizard' ...
 ** this is package 'datawizard' version '1.3.0'
 ** package 'datawizard' successfully unpacked and MD5 sums checked
@@ -8617,7 +8650,7 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x8
 ** libs
 using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
 using C++ compiler: 'g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-forecast/00new/forecast/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-forecast/00new/forecast/libs
 ** R
 ** data
 *** moving datasets to lazyload DB
@@ -8664,6 +8697,14 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x8
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (bayestestR)
+ERROR: dependency 'gargle' is not available for package 'googledrive'
+Perhaps try a variation of:
+install.packages('gargle')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/googledrive'
+ERROR: dependency 'sass' is not available for package 'bslib'
+Perhaps try a variation of:
+install.packages('sass')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/bslib'
 * installing *source* package 'doBy' ...
 ** this is package 'doBy' version '4.7.1'
 ** package 'doBy' successfully unpacked and MD5 sums checked
@@ -8687,7 +8728,7 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x8
 ** using staged installation
 ** libs
 using C++ compiler: 'g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-lme4/00new/lme4/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-lme4/00new/lme4/libs
 ** R
 ** data
 *** moving datasets to lazyload DB
@@ -8734,6 +8775,14 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x8
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (performance)
+ERROR: dependencies 'gargle', 'googledrive' are not available for package 'googlesheets4'
+Perhaps try a variation of:
+install.packages(c('gargle', 'googledrive'))
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/googlesheets4'
+ERROR: dependency 'bslib' is not available for package 'rmarkdown'
+Perhaps try a variation of:
+install.packages('bslib')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/rmarkdown'
 * installing *source* package 'pbkrtest' ...
 ** this is package 'pbkrtest' version '0.5.5'
 ** package 'pbkrtest' successfully unpacked and MD5 sums checked
@@ -8802,6 +8851,10 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x8
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (modelbased)
+ERROR: dependencies 'fs', 'rmarkdown' are not available for package 'reprex'
+Perhaps try a variation of:
+install.packages(c('fs', 'rmarkdown'))
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/reprex'
 * installing *source* package 'modelsummary' ...
 ** this is package 'modelsummary' version '2.6.0'
 ** package 'modelsummary' successfully unpacked and MD5 sums checked
@@ -8862,6 +8915,10 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x8
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (see)
+ERROR: dependencies 'googledrive', 'googlesheets4', 'reprex' are not available for package 'tidyverse'
+Perhaps try a variation of:
+install.packages(c('googledrive', 'googlesheets4', 'reprex'))
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6/tidyverse'
 * installing *source* package 'rstatix' ...
 ** this is package 'rstatix' version '0.7.3'
 ** package 'rstatix' successfully unpacked and MD5 sums checked
@@ -8910,246 +8967,56 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x8
 * DONE (ggpubr)
 
 The downloaded source packages are in
-	'/tmp/RtmpBdu49r/downloaded_packages'
+	'/tmp/RtmpOCHgHC/downloaded_packages'
+Warning messages:
+1: In install.packages(deps, repos = ppm) :
+  installation of package 'fs' had non-zero exit status
+2: In install.packages(deps, repos = ppm) :
+  installation of package 'gargle' had non-zero exit status
+3: In install.packages(deps, repos = ppm) :
+  installation of package 'sass' had non-zero exit status
+4: In install.packages(deps, repos = ppm) :
+  installation of package 'googledrive' had non-zero exit status
+5: In install.packages(deps, repos = ppm) :
+  installation of package 'bslib' had non-zero exit status
+6: In install.packages(deps, repos = ppm) :
+  installation of package 'googlesheets4' had non-zero exit status
+7: In install.packages(deps, repos = ppm) :
+  installation of package 'rmarkdown' had non-zero exit status
+8: In install.packages(deps, repos = ppm) :
+  installation of package 'reprex' had non-zero exit status
+9: In install.packages(deps, repos = ppm) :
+  installation of package 'tidyverse' had non-zero exit status
+Error in loadNamespace(x) : there is no package called 'rmarkdown'
+Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
+Execution halted
+R installation:
+  Version: 4.6.0
+  Path: /opt/R/4.6.0/lib/R
+  LibPaths:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6
+    - /opt/R/4.6.0/lib/R/library
+  knitr: 1.51
+  rmarkdown: (None)
 
+The rmarkdown package is not available in this R installation.
+Install with install.packages("rmarkdown")
 
-processing file: template_no_r_packages_needed.qmd
-1/5                  
-2/5 [unnamed-chunk-1]
-3/5                  
-4/5 [fig-mtcars1]    
-5/5                  
-output file: template_no_r_packages_needed.knit.md
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+Error in loadNamespace(x) : there is no package called 'rmarkdown'
+Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
+Execution halted
+R installation:
+  Version: 4.6.0
+  Path: /opt/R/4.6.0/lib/R
+  LibPaths:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-18/R/x86_64-pc-linux-gnu-library/4.6
+    - /opt/R/4.6.0/lib/R/library
+  knitr: 1.51
+  rmarkdown: (None)
 
-pandoc 
-  to: typst-citations
-  output-file: template_no_r_packages_needed.typ
-  standalone: true
-  default-image-extension: svg
-  wrap: none
-  number-sections: true
-  toc: true
-  toc-depth: 3
-  variables: {}
-  
-metadata
-  knitr:
-    opts_chunk:
-      echo: false
-  csl: apa.csl
-  section-numbering: 1.1.1
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Titel des Aufsatzes
-  author:
-    - name: Vorname Nachname
-  date: today
-  institution: Musterhochschule
-  department: Studiengang XYZ
-  course: Einführung in die Raketenwissenschaft (SoSe 2026)
-  supervisor: Prof. Dr. Musterfrau
-  student-id: '0012345'
-  lang: de
-  bibliography:
-    - referenzen.bib
-  logo: logo.png
-  abstract: |
-    Hier steht eine kurze Zusammenfassung (Abstract) des Aufsatzes.
-    Der Abstract sollte den zentralen Inhalt, die Fragestellung und
-    die wichtigsten Ergebnisse des Aufsatzes in komprimierter Form
-    darstellen (ca. 150–200 Wörter).
-  paper-size: a4
-  font: Linux Libertine
-  
-[33mWARNING (/opt/quarto/share/filters/main.lua:14920) Unable to resolve crossref @fig-hyp1
-[39mWARN: typst-gather analyze failed; staging all packages as fallback
-[typst]: Compiling template_no_r_packages_needed.typ to template_no_r_packages_needed.pdf...warning: unknown font family: linux libertine
-    ┌─ template_no_r_packages_needed.typ:350:10
-    │
-350 │     font: font,
-    │           ^^^^
+The rmarkdown package is not available in this R installation.
+Install with install.packages("rmarkdown")
 
-DONE
-
-Output created: template_no_r_packages_needed.pdf
-
-
-
-processing file: template_no_r_packages_needed.qmd
-1/5                  
-2/5 [unnamed-chunk-1]
-3/5                  
-4/5 [fig-mtcars1]    
-5/5                  
-output file: template_no_r_packages_needed.knit.md
-
-pandoc 
-  to: docx
-  output-file: template_no_r_packages_needed.docx
-  default-image-extension: png
-  toc: true
-  reference-doc: reference.docx
-  variables: {}
-  
-metadata
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Titel des Aufsatzes
-  author:
-    - name: Vorname Nachname
-  date: today
-  institution: Musterhochschule
-  department: Studiengang XYZ
-  course: Einführung in die Raketenwissenschaft (SoSe 2026)
-  supervisor: Prof. Dr. Musterfrau
-  student-id: '0012345'
-  lang: de
-  bibliography:
-    - referenzen.bib
-  csl: apa.csl
-  logo: logo.png
-  abstract: |
-    Hier steht eine kurze Zusammenfassung (Abstract) des Aufsatzes.
-    Der Abstract sollte den zentralen Inhalt, die Fragestellung und
-    die wichtigsten Ergebnisse des Aufsatzes in komprimierter Form
-    darstellen (ca. 150–200 Wörter).
-  
-[33mWARNING (/opt/quarto/share/filters/main.lua:14920) Unable to resolve crossref @fig-hyp1
-[39mOutput created: template_no_r_packages_needed.docx
-
-pandoc 
-  to: html
-  output-file: 05-diskussion.html
-  standalone: true
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  variables: {}
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  
-Output created: 05-diskussion.html
-
-
-
-processing file: template.qmd
-1/11                  
-2/11 [unnamed-chunk-1]
-3/11                  
-4/11 [tbl-deskriptiv] 
-5/11                  
-6/11 [fig-mtcars1]    
-7/11                  
-8/11 [tbl-hyp1]       
-9/11                  
-10/11 [fig-hyp1]       
-11/11                  
-output file: template.knit.md
-
-pandoc 
-  to: typst-citations
-  output-file: template.typ
-  standalone: true
-  default-image-extension: svg
-  wrap: none
-  number-sections: true
-  toc: true
-  toc-depth: 3
-  variables: {}
-  
-metadata
-  knitr:
-    opts_chunk:
-      echo: false
-  csl: apa.csl
-  section-numbering: 1.1.1
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Titel des Aufsatzes
-  author:
-    - name: Vorname Nachname
-  date: today
-  institution: Musterhochschule
-  department: Studiengang XYZ
-  course: Einführung in die Raketenwissenschaft (SoSe 2026)
-  supervisor: Prof. Dr. Musterfrau
-  student-id: '0012345'
-  lang: de
-  bibliography:
-    - referenzen.bib
-  logo: false
-  abstract: |
-    Hier steht eine kurze Zusammenfassung (Abstract) des Aufsatzes.
-    Der Abstract sollte den zentralen Inhalt, die Fragestellung und
-    die wichtigsten Ergebnisse des Aufsatzes in komprimierter Form
-    darstellen (ca. 150–200 Wörter).
-  paper-size: a4
-  font: Times New Roman
-  
-WARN: typst-gather analyze failed; staging all packages as fallback
-[typst]: Compiling template.typ to template.pdf...warning: unknown font family: times new roman
-    ┌─ template.typ:350:10
-    │
-350 │     font: font,
-    │           ^^^^
-
-DONE
-
-Output created: template.pdf
-
-
-
-processing file: template.qmd
-1/11                  
-2/11 [unnamed-chunk-1]
-3/11                  
-4/11 [tbl-deskriptiv] 
-5/11                  
-6/11 [fig-mtcars1]    
-7/11                  
-8/11 [tbl-hyp1]       
-9/11                  
-10/11 [fig-hyp1]       
-11/11                  
-output file: template.knit.md
-
-pandoc 
-  to: docx
-  output-file: template.docx
-  default-image-extension: png
-  toc: true
-  reference-doc: reference.docx
-  variables: {}
-  
-metadata
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Titel des Aufsatzes
-  author:
-    - name: Vorname Nachname
-  date: today
-  institution: Musterhochschule
-  department: Studiengang XYZ
-  course: Einführung in die Raketenwissenschaft (SoSe 2026)
-  supervisor: Prof. Dr. Musterfrau
-  student-id: '0012345'
-  lang: de
-  bibliography:
-    - referenzen.bib
-  csl: apa.csl
-  logo: false
-  abstract: |
-    Hier steht eine kurze Zusammenfassung (Abstract) des Aufsatzes.
-    Der Abstract sollte den zentralen Inhalt, die Fragestellung und
-    die wichtigsten Ergebnisse des Aufsatzes in komprimierter Form
-    darstellen (ca. 150–200 Wörter).
-  
-Output created: template.docx
-
+WARN: Error encountered when rendering files

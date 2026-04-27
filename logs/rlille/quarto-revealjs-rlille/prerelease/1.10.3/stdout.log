@@ -2,18 +2,31 @@ Dependency install phase for rlille/quarto-revealjs-rlille: auto-detect
 Auto-detecting R dependencies for rlille/quarto-revealjs-rlille (knitr engine, no renv.lock).
 ** libs
 using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c renv.c -o renv.o
-gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o renv.so renv.o -L/opt/R/4.5.3/lib/R/lib -lR
-Installing R packages: ggtext 
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c read.c -o read.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c reg.c -o reg.o
-gcc -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c write.c -o write.o
-gcc -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o jpeg.so read.o reg.o write.o -ljpeg -L/opt/R/4.5.3/lib/R/lib -lR
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c bl-r-bindings.cpp -o bl-r-bindings.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c grid-renderer.cpp -o grid-renderer.o
-g++ -std=gnu++17 -I"/opt/R/4.5.3/lib/R/include" -DNDEBUG  -I'/opt/R/4.5.3/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c grid.cpp -o grid.o
-g++ -std=gnu++17 -shared -L/opt/R/4.5.3/lib/R/lib -L/usr/local/lib -o gridtext.so RcppExports.o bl-r-bindings.o grid-renderer.o grid.o -L/opt/R/4.5.3/lib/R/lib -lR
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c renv.c -o renv.o
+gcc -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o renv.so renv.o -L/opt/R/4.6.0/lib/R/lib -lR
+Installing R packages: ggtext, rmarkdown 
+Using PKG_CFLAGS=
+Using PKG_LIBS=-luv
+--------------------------- [CONFIGURE] --------------------------------
+Configuration failed because libuv was not found. Try installing:
+ * deb: libuv1-dev (Debian, Ubuntu, etc)
+ * rpm: libuv-devel (Fedora, EPEL)
+ * brew: libuv (OSX)
+Alternatively set environment variable USE_BUNDLED_LIBUV=1 to build a static
+version of libuv that is included with this package.
+-------------------------- [ERROR MESSAGE] ---------------------------
+<stdin>:1:10: fatal error: uv.h: No such file or directory
+compilation terminated.
+--------------------------------------------------------------------
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c read.c -o read.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c reg.c -o reg.o
+gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c write.c -o write.o
+gcc -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o jpeg.so read.o reg.o write.o -ljpeg -L/opt/R/4.6.0/lib/R/lib -lR
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c bl-r-bindings.cpp -o bl-r-bindings.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c grid-renderer.cpp -o grid-renderer.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c grid.cpp -o grid.o
+g++ -std=gnu++20 -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o gridtext.so RcppExports.o bl-r-bindings.o grid-renderer.o grid.o -L/opt/R/4.6.0/lib/R/lib -lR
 tlmgr: package repository https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet (verified)
 tlmgr: no self-updates for tlmgr available
 Using CTAN mirror: https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet

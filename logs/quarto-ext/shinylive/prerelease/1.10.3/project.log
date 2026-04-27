@@ -9,79 +9,79 @@ Executing 'index.quarto_ipynb'
 
 (E) Error running 'shinylive' command. Perhaps you need to install / update the 'shinylive' Python package?
  Error:
- PandocError {}
+ 
+PandocError {}
 
-Error run
-ning filter /opt/quarto/share/filters/main.lua:
-...t-14/repo/_extensions/quarto-ext
-/shinylive/shinylive.lua:40: Error r
-unning 'shinylive' command. 
-Perhaps you need to install / update 
-the 'shinylive' Python 
-package?
+Error 
+running filter /opt/quarto/share/filters/main.lua:
+...t-14/r
+epo/_extensions/quarto-ext/shinyl
+ive/shinylive.lua:40: Error running 'sh
+inylive' command. Perhaps 
+you need to install / updat
+e the 'shinylive' Pytho
+n package?
 
-stack traceb
-ack:
-	...t-14/repo/_extensi
-ons/quarto-ext/shiny
-live/shinylive.lua
-:40: in global 'throw_
-quarto_error'
-	..
-.t-14/repo/_extens
-ions/quarto-ext/shi
-nylive/shinylive.l
-ua:57: in global '
-callPythonShinyliv
-e'
-	...t-14/repo/_
-extensions/quarto-
-ext/shinylive/shin
-ylive.lua:111: in 
-global 'callShiny
-live'
-	...t-14/rep
-o/_extensions/quarto-ext/shinylive
-/shinylive.lua:253: in global 
-'ensurePyshinyliveVersion
-'
-	...t-14/repo/_ex
-tensions/quarto-ext/shinyl
-ive/shinylive.lua:312: 
-in global 'ensureLa
-nguageSetup'
+stack tr
+aceback:
+	...t-14/r
+epo/_extensions/qua
+rto-ext/shinylive/sh
+inylive.lua:40: in 
+global 'throw_quart
+o_error'
+	...t-14/
+repo/_extensions/qu
+arto-ext/shinylive/
+shinylive.lua:57: i
+n global 'callPyth
+onShinylive'
 	...t
--14/repo/_extensi
-ons/quarto-ext/shi
-nylive/shinylive.lu
-a:424: in function
- <...t-14/repo/_ex
-tensions/quarto-ex
-t/shinylive/shiny
-live.lua:408>
-	[C]
-: in ?
-	[C]: in me
-thod 'walk'
-	/opt
-/quarto/share/pand
-oc/datadir/_utils.
-lua:607: in functi
-on '_utils.walk'
+-14/repo/_extensio
+ns/quarto-ext/shin
+ylive/shinylive.lu
+a:111: in global 'callShinylive
+'
+	...t-14/repo/_
+extensions/quarto-ext/sh
+inylive/shinylive.
+lua:253: in global 'ensurePyshinyl
+iveVersion'
+	...t-14
+/repo/_extensions/q
+uarto-ext/shinylive/shinyliv
+e.lua:312: in global 'e
+nsureLanguageSetup
+'
+	...t-14/repo/_e
+xtensions/quarto-e
+xt/shinylive/shinyl
+ive.lua:424: in fun
+ction <...t-14/rep
+o/_extensions/quar
+to-ext/shinylive/s
+hinylive.lua:408>
+
+	[C]: in ?
+	[C]: 
+in method 'walk'
 	
-/opt/quarto/share/filter
-s/main.lua:574: in 
-local 'checked_wal
-k'
-	/opt/quarto/s
-hare/filters/main.
-lua:629: in function 
-'run_emulated_filte
-r'
-	/opt/quarto/share/
-filters/main.lua:1
-317: in local 'call
-back'
+/opt/quarto/share/
+pandoc/datadir/_ut
+ils.lua:607: in function '
+_utils.walk'
+	/opt/
+quarto/share/filte
+rs/main.lua:574: 
+in local 'checked_
+walk'
+	/opt/quarto
+/share/filters/main
+.lua:629: in function '
+run_emulated_fi
+lter'
+	/opt/q
+uarto/share/filters/main.lua:1317: in local 'callback'
 	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
 	/opt/quarto/share/filters/main.lua:1333: in upvalue 'run_emulated_filter_chain'
 	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>

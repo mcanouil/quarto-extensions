@@ -21,142 +21,53 @@ metadata
   title: Unsplash Example
   
 
-Error running filte
-r /opt/quarto/share/filters/main.lua:
+Error running filter /
+opt/quarto/share/filters/main.lua:
 Could not fetch https://source.unsplash.com/random
 HttpExceptionRequest Request {
   host                 = "source.unsplash.com"
   port                 = 443
-  secure            
-   = True
+  secure               = True
   requestHeaders       = []
-  path                 = "/random"
-  queryString        
-  = ""
+  path             
+    = "/random"
+  queryString          = ""
   method               = "GET"
   proxy                = Nothing
-  rawBody    
-          = False
+  rawBo
+dy              = False
   redirectCount        = 10
-  responseTimeout 
-     = ResponseTimeoutDefault
+  responseTimeout      = ResponseTimeoutDefault
   requestVersion       = HTTP/1.1
   p
 roxySecureMode      = ProxySecureWithConnect
 }
- (Sta
-tusCodeException (Response {responseStatus = St
-atus {statusCode = 503, statusMessage = "Service U
-navailable"}, responseVersion = HTTP/1.1, responseHeaders = [("Cache-Contro
-l","no-cache, no-store"),("Content-Type",
-"text/html; charset=utf-8"),
-("Nel","{\"report_to\":\"he
-roku-nel\",\"response_heade
-rs\":[\"Via\"],\"max_age\
-":3600,\"success_fraction
-\":0.01,\"failure_fractio
-n\":0.1}"),("Report-To","{
-\"group\":\"heroku-nel\",
-\"endpoints\":[{\"url\":\
-"https://nel.heroku.com/r
-eports?s=k3eHdoM8%2BqUa7x
-lWjcfUs4jWXwn%2B0ZkB8okRlqxb59
-Q%3D\\u0026sid=af571f24-03ee-4
-6d1-9f90-ab9030c2c74c\\u002
-6ts=1777248915\"}],\"max
-_age\":3600}"),("Reporting
--Endpoints","heroku-nel=
-\"https://nel.heroku.com/r
-eports?s=k3eHdoM8%2BqUa7x
-lWjcfUs4jWXwn%2B0ZkB8okR
-lqxb59Q%3D&sid=af571f24-03ee-46
-d1-9f90-ab9030c2c74c&ts=1
-777248915\""),("Server"
-,"Heroku"),("Via","1.1 he
-roku-router"),("Date","M
-on, 27 Apr 2026 00:15:15 G
-MT"),("Content-Length","
-567")], responseBody = (), r
-esponseCookieJar = CJ {expose 
-= []}, responseClose' = Res
-ponseClose, responseOrigin
-alRequest = Request {
-  ho
-st                 = "sour
-ce.unsplash.com"
-  port  
-               = 443
-  se
-cure               = Tru
-e
-  requestHeaders       =
- []
-  path                 = "/rando
-m"
-  queryString          =
- ""
-  method               = "GET
-"
-  proxy                
-= Nothing
-  rawBody      
-        = False
-  redirectCount      
-  = 10
-  responseTimeout      = Respo
-nseTimeoutDefault
-  requestVe
-rsion       = HTTP/1.1
-  
-proxySecureMode      = Pro
-xySecureWithConnect
+ (StatusCodeException (Response {responseStatus = Status {statusCo
+de = 503, statusMessage = "Service Unavailable"}, responseVersion = HTTP/1.1, responseHeaders = [("Cache-Control","no-cache
+, no-store"),("Content-Type","text/html; charset=utf-8"),("Nel","{\"report_to\":\"heroku-nel\
+",\"response_headers\":[\"Via\"],\"max_age\":3600,\"succe
+ss_fraction\":0.01,\"failure_fraction\":0.1}"),("Report-To","{\"group\":\"heroku-nel\",\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?s=oO1q%2FtqbOVItWES6xAkstdx9y10O2o74YC2mxGGvaSM%3D\\u0026sid=af571f24-03ee-46d1-9f90-ab9030c2c74c\\u0026ts=1777319740\"}],\"max_age\":3600}"),("Reporting-Endpoints","heroku-nel=\"https://nel.heroku.com/reports?s=oO1q%2FtqbOVItWES6xAkstdx9y10O2o74YC2mxGGvaSM%3D&sid=af571f24-03ee-46d1-9f90-ab9030c2c74c&ts=1777319740\""),("Server","Heroku"),("Via","1.1 heroku-router"),("Date","Mon, 27 Apr 2026 19:55:40 GMT"),("Content-Length","567")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
+  host                 = "source.unsplash.com"
+  port                 = 443
+  secure               = True
+  requestHeaders       = []
+  path                 = "/random"
+  queryString          = ""
+  method               = "GET"
+  proxy                = Nothing
+  rawBody              = False
+  redirectCount        = 10
+  responseTimeout      = ResponseTimeoutDefault
+  requestVersion       = HTTP/1.1
+  proxySecureMode      = ProxySecureWithConnect
 }
-, r
-esponseEarlyHints = []}) 
-"<!DOCTYPE html>\n<html>
-\n  <head>\n    <meta na
-me=\"viewport\" content=\
-"width=device-width, ini
-tial-scale=1\">\n    <met
-a charset=\"utf-8\">\n  
-  <title>Application Error</title>
-\n    <style media=\"screen
-\">\n      html,body,iframe {\n        m
-argin: 0;\n        padding: 0;\
-n      }\n\n      html,body
- {\n        height: 100%;\n        overf
-low: hidden;\n      }\n\n    
-  iframe {\n        width:
- 100%;\n        height: 100%;\n       
- border: 0;\n      }\n    <
-/style>\n  </head>\n  <b
-ody>\n    <iframe src=\"h
-ttps://www.herokucdn.com/
-error-pages/application-
-error.html\"></iframe>\n
-  </body>\n</html>")
-sta
-ck traceback:
-	...xtensio
-ns/test-24/repo/_extensions/uns
-plash/unsplash.lua:179: in
- function <...xtensions/
-test-24/repo/_extensions/
-unsplash/unsplash.lua:41
->
+, responseEarlyHints = []}) "<!DOCTYPE html>\n<html>\n  <head>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <meta charset=\"utf-8\">\n    <title>Application Error</title>\n    <style media=\"screen\">\n      html,body,iframe {\n        margin: 0;\n        padding: 0;\n      }\n\n      html,body {\n        height: 100%;\n        overflow: hidden;\n      }\n\n      iframe {\n        width: 100%;\n        height: 100%;\n        border: 0;\n      }\n    </style>\n  </head>\n  <body>\n    <iframe src=\"https://www.herokucdn.com/error-pages/application-error.html\"></iframe>\n  </body>\n</html>")
+stack traceback:
+	...xtensions/test-24/repo/_extensions/unsplash/unsplash.lua:179: in function <...xtensions/test-24/repo/_extensions/unsplash/unsplash.lua:41>
 	(...tail calls...)
-	[string "i
-f pandoc.system.os == "mi
-ngw32" then..."]:778: in
- function <[string "if p
-andoc.system.os == "mingw
-32" then..."]:776>
-	(...
-tail calls...)
-	/opt/qua
-rto/share/filters/main.l
-ua:21774: in upvalue 'han
-dle_shortcode'
+	[string "if pandoc.system.os == "mingw32" then..."]:778: in function <[string "if pandoc.system.os == "mingw32" then..."]:776>
+	(...tail calls...)
+	/opt/quarto/share/filters/main.lua:21774: in upvalue 'handle_shortcode'
 	/opt/quarto/share/filters/main.lua:21839: in function </opt/quarto/share/filters/main.lua:21831>
 	[C]: in ?
 	[C]: in method 'walk'

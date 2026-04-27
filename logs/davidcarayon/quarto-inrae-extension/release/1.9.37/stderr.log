@@ -1,5 +1,5 @@
 Cloning into 'repo'...
-Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5'
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6'
 (as 'lib' is unspecified)
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.2.tar.gz'
 Content type 'binary/octet-stream' length 1356485 bytes (1.3 MB)
@@ -25,10 +25,10 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/RtmppaQsKM/downloaded_packages'
-Installing packages into '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5'
+	'/tmp/RtmpMDFt3A/downloaded_packages'
+Installing packages into '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6'
 (as 'lib' is unspecified)
-also installing the dependencies 'fontBitstreamVera', 'fontLiberation', 'fontquiver', 'zip', 'extrafontdb', 'Rttf2pt1', 'gdtools', 'officer'
+also installing the dependencies 'fontBitstreamVera', 'fontLiberation', 'fontquiver', 'zip', 'extrafontdb', 'Rttf2pt1', 'bslib', 'gdtools', 'officer', 'fs', 'htmlwidgets', 'reactable', 'sass'
 
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fontBitstreamVera_0.1.1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fontLiberation_0.1.0.tar.gz'
@@ -36,10 +36,17 @@ trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fontquiver_0
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/zip_2.3.3.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/extrafontdb_1.1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/Rttf2pt1_1.3.14.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/bslib_0.10.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/gdtools_0.5.0.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/officer_0.7.3.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/officer_0.7.4.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fs_2.1.0.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/htmlwidgets_1.6.4.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/reactable_0.4.5.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/sass_0.4.10.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/extrafont_0.20.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/rmarkdown_2.31.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/flextable_0.9.11.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/gt_1.3.0.tar.gz'
 * installing *source* package 'fontBitstreamVera' ...
 ** this is package 'fontBitstreamVera' version '0.1.1'
 ** package 'fontBitstreamVera' successfully unpacked and MD5 sums checked
@@ -77,7 +84,7 @@ In file included from rzip.c:5:
 /usr/include/x86_64-linux-gnu/sys/stat.h:113: note: this is the location of the previous definition
   113 | #  define S_IFLNK       __S_IFLNK
       | 
-installing via 'install.libs.R' to /home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-zip/00new/zip
+installing via 'install.libs.R' to /home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-zip/00new/zip
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -108,8 +115,8 @@ installing via 'install.libs.R' to /home/runner/work/quarto-extensions/quarto-ex
 ** package 'Rttf2pt1' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** libs
-installing via 'install.libs.R' to /home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-Rttf2pt1/00new/Rttf2pt1
-Installing ttf2pt1/ttf2pt1 to /home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/00LOCK-Rttf2pt1/00new/Rttf2pt1/exec
+installing via 'install.libs.R' to /home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-Rttf2pt1/00new/Rttf2pt1
+Installing ttf2pt1/ttf2pt1 to /home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-Rttf2pt1/00new/Rttf2pt1/exec
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -120,6 +127,16 @@ Installing ttf2pt1/ttf2pt1 to /home/runner/work/quarto-extensions/quarto-extensi
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (Rttf2pt1)
+* installing *source* package 'fs' ...
+** this is package 'fs' version '2.1.0'
+** package 'fs' successfully unpacked and MD5 sums checked
+** using staged installation
+Package libuv was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libuv.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'libuv' found
+ERROR: configuration failed for package 'fs'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6/fs'
 * installing *source* package 'fontquiver' ...
 ** this is package 'fontquiver' version '0.2.1'
 ** package 'fontquiver' successfully unpacked and MD5 sums checked
@@ -135,7 +152,7 @@ Installing ttf2pt1/ttf2pt1 to /home/runner/work/quarto-extensions/quarto-extensi
 ** testing if installed package keeps a record of temporary installation path
 * DONE (fontquiver)
 * installing *source* package 'officer' ...
-** this is package 'officer' version '0.7.3'
+** this is package 'officer' version '0.7.4'
 ** package 'officer' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
@@ -149,6 +166,10 @@ Installing ttf2pt1/ttf2pt1 to /home/runner/work/quarto-extensions/quarto-extensi
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (officer)
+ERROR: dependency 'fs' is not available for package 'sass'
+Perhaps try a variation of:
+install.packages('fs')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6/sass'
 * installing *source* package 'extrafont' ...
 ** this is package 'extrafont' version '0.20'
 ** package 'extrafont' successfully unpacked and MD5 sums checked
@@ -162,6 +183,10 @@ Installing ttf2pt1/ttf2pt1 to /home/runner/work/quarto-extensions/quarto-extensi
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (extrafont)
+ERROR: dependency 'sass' is not available for package 'bslib'
+Perhaps try a variation of:
+install.packages('sass')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6/bslib'
 * installing *source* package 'gdtools' ...
 ** this is package 'gdtools' version '0.5.0'
 ** package 'gdtools' successfully unpacked and MD5 sums checked
@@ -175,14 +200,30 @@ Perhaps you should add the directory containing `cairo.pc'
 to the PKG_CONFIG_PATH environment variable
 No package 'cairo' found
 ERROR: configuration failed for package 'gdtools'
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/gdtools'
-ERROR: dependency 'gdtools' is not available for package 'flextable'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6/gdtools'
+ERROR: dependency 'bslib' is not available for package 'rmarkdown'
 Perhaps try a variation of:
-install.packages('gdtools')
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.5/flextable'
+install.packages('bslib')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6/rmarkdown'
+ERROR: dependency 'rmarkdown' is not available for package 'htmlwidgets'
+Perhaps try a variation of:
+install.packages('rmarkdown')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6/htmlwidgets'
+ERROR: dependencies 'gdtools', 'rmarkdown' are not available for package 'flextable'
+Perhaps try a variation of:
+install.packages(c('gdtools', 'rmarkdown'))
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6/flextable'
+ERROR: dependency 'htmlwidgets' is not available for package 'reactable'
+Perhaps try a variation of:
+install.packages('htmlwidgets')
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6/reactable'
+ERROR: dependencies 'fs', 'htmlwidgets', 'reactable', 'sass' are not available for package 'gt'
+Perhaps try a variation of:
+install.packages(c('fs', 'htmlwidgets', 'reactable', 'sass'))
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6/gt'
 
 The downloaded source packages are in
-	'/tmp/RtmppaQsKM/downloaded_packages'
+	'/tmp/RtmpMDFt3A/downloaded_packages'
 Warning messages:
 1: package 'InraeThemes' is not available for this version of R
 
@@ -190,55 +231,55 @@ A version of this package for your version of R might be available elsewhere,
 see the ideas at
 https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages 
 2: In install.packages(deps, repos = ppm) :
-  installation of package 'gdtools' had non-zero exit status
+  installation of package 'fs' had non-zero exit status
 3: In install.packages(deps, repos = ppm) :
+  installation of package 'sass' had non-zero exit status
+4: In install.packages(deps, repos = ppm) :
+  installation of package 'bslib' had non-zero exit status
+5: In install.packages(deps, repos = ppm) :
+  installation of package 'gdtools' had non-zero exit status
+6: In install.packages(deps, repos = ppm) :
+  installation of package 'rmarkdown' had non-zero exit status
+7: In install.packages(deps, repos = ppm) :
+  installation of package 'htmlwidgets' had non-zero exit status
+8: In install.packages(deps, repos = ppm) :
   installation of package 'flextable' had non-zero exit status
+9: In install.packages(deps, repos = ppm) :
+  installation of package 'reactable' had non-zero exit status
+10: In install.packages(deps, repos = ppm) :
+  installation of package 'gt' had non-zero exit status
 [1/8] template_revealjs.qmd
-
-
-processing file: template_revealjs.qmd
-1/3                  
-2/3 [unnamed-chunk-1]
-3/3                  
-output file: template_revealjs.knit.md
-
-[2/8] template_html.qmd
-
-
-processing file: template_html.qmd
-1/10                  
-2/10 [unnamed-chunk-1]
-Error in `library()`:
-! there is no package called 'InraeThemes'
-Backtrace:
-    x
- 1. \-base::library(InraeThemes)
-
-Quitting from template_html.qmd:51-70 [unnamed-chunk-1]
+Error in loadNamespace(x) : there is no package called 'rmarkdown'
+Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
 Execution halted
+R installation:
+  Version: 4.6.0
+  Path: /opt/R/4.6.0/lib/R
+  LibPaths:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6
+    - /opt/R/4.6.0/lib/R/library
+  knitr: 1.51
+  rmarkdown: (None)
+
+The rmarkdown package is not available in this R installation.
+Install with install.packages("rmarkdown")
+
 WARN: Error encountered when rendering files
 Render failed, retrying once...
 [1/8] template_revealjs.qmd
-
-
-processing file: template_revealjs.qmd
-1/3                  
-2/3 [unnamed-chunk-1]
-3/3                  
-output file: template_revealjs.knit.md
-
-[2/8] template_html.qmd
-
-
-processing file: template_html.qmd
-1/10                  
-2/10 [unnamed-chunk-1]
-Error in `library()`:
-! there is no package called 'InraeThemes'
-Backtrace:
-    x
- 1. \-base::library(InraeThemes)
-
-Quitting from template_html.qmd:51-70 [unnamed-chunk-1]
+Error in loadNamespace(x) : there is no package called 'rmarkdown'
+Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
 Execution halted
+R installation:
+  Version: 4.6.0
+  Path: /opt/R/4.6.0/lib/R
+  LibPaths:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6
+    - /opt/R/4.6.0/lib/R/library
+  knitr: 1.51
+  rmarkdown: (None)
+
+The rmarkdown package is not available in this R installation.
+Install with install.packages("rmarkdown")
+
 WARN: Error encountered when rendering files

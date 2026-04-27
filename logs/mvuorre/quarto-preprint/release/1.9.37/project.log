@@ -1,39 +1,27 @@
 [typst]: Compiling template.typ to template.pdf...
-downloading @preview/wordometer:0.1.5
-
-  5.8 KiB /   5.8 KiB (100 %)   5.8 KiB/s in 9.62 µs ETA: 0 s
-
-
 DONE
 
 
+Error in loadNamespace(x) : there is no package called 'rmarkdown'
+Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
+Execution halted
 
+R installation:
 
-processing file: example.qmd
-
-1/7               
-
-2/7 [code-example]
-
-3/7               
-
-4/7 [tbl-example] 
-
-5/7               
-
-6/7 [tbl-appendix]
-
-7/7               
-
-output file: example.knit.md
-
-
-[typst]: Compiling example.typ to example.pdf...
-DONE
+  Version: 4.6.0
+  Path: /opt/R/4.6.0/lib/R
+  LibPaths:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-17/R/x86_64-pc-linux-gnu-library/4.6
+    - /opt/R/4.6.0/lib/R/library
+  knitr: 1.51
+  rmarkdown: (None)
 
 
 
+The rmarkdown package is not available in this R installation.
+Install with install.packages("rmarkdown")
 
-Output created: example.pdf
 
+
+(WARN) Error encountered when rendering files
 

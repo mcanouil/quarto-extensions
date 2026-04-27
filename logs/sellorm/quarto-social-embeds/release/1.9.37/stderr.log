@@ -1,21 +1,70 @@
 Cloning into 'repo'...
-[ 1/10] examples/youtube.qmd
-[ 2/10] examples/bsky.qmd
+[ 1/10] example.qmd
+https://mastodon.social/@sellorm/109376707453406631
+https://publish.twitter.com/oembed?url=https://twitter.com/juliesquid/status/1557485909486059523&align=center
+Error running filter /opt/quarto/share/filters/main.lua:
+Could not fetch https://publish.twitter.com/oembed?url=https://twitter.com/juliesquid/status/1557485909486059523&align=center
+HttpExceptionRequest Request {
+  host                 = "publish.twitter.com"
+  port                 = 443
+  secure               = True
+  requestHeaders       = []
+  path                 = "/oembed"
+  queryString          = "?url=https://twitter.com/juliesquid/status/1557485909486059523&align=center"
+  method               = "GET"
+  proxy                = Nothing
+  rawBody              = False
+  redirectCount        = 10
+  responseTimeout      = ResponseTimeoutDefault
+  requestVersion       = HTTP/1.1
+  proxySecureMode      = ProxySecureWithConnect
+}
+ ResponseTimeout
+stack traceback:
+	...nsions/test-2/repo/_extensions/social-embeds/twitter.lua:40: in function <...nsions/test-2/repo/_extensions/social-embeds/twitter.lua:19>
+	(...tail calls...)
+	[string "if pandoc.system.os == "mingw32" then..."]:778: in function <[string "if pandoc.system.os == "mingw32" then..."]:776>
+	(...tail calls...)
+	/opt/quarto/share/filters/main.lua:21774: in upvalue 'handle_shortcode'
+	/opt/quarto/share/filters/main.lua:21839: in function </opt/quarto/share/filters/main.lua:21831>
+	[C]: in ?
+	[C]: in method 'walk'
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:574: in function </opt/quarto/share/filters/main.lua:552>
+	(...tail calls...)
+	/opt/quarto/share/filters/main.lua:21879: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:588: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1335: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
+stack traceback:
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:574: in function </opt/quarto/share/filters/main.lua:552>
+	(...tail calls...)
+	/opt/quarto/share/filters/main.lua:21879: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:588: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1335: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+[ 1/10] example.qmd
+https://mastodon.social/@sellorm/109376707453406631
+https://publish.twitter.com/oembed?url=https://twitter.com/juliesquid/status/1557485909486059523&align=center
+[ 2/10] examples/gists.qmd
+[ 3/10] examples/bsky.qmd
 https://bsky.app/profile/smachlis.bsky.social/post/3m33g524hb22o
 https://bsky.app/profile/smachlis.bsky.social/post/3m2ihwojd7s2f
 https://bsky.app/profile/smachlis.bsky.social/post/3m4nkjl3xxc27
-[ 3/10] examples/loom.qmd
-[ 4/10] examples/gists.qmd
-[ 5/10] examples/vimeo.qmd
-[ 6/10] examples/mastodon.qmd
+[ 4/10] examples/youtube.qmd
+[ 5/10] examples/mastodon.qmd
 https://mastodon.social/@sellorm/109376707453406631
-[ 7/10] examples/twitter.qmd
+[ 6/10] examples/loom.qmd
+[ 7/10] examples/vimeo.qmd
+[ 8/10] examples/twitter.qmd
 https://publish.twitter.com/oembed?url=https://twitter.com/juliesquid/status/1557485909486059523&align=center
-[ 8/10] 404.qmd
-[ 9/10] index.qmd
-[10/10] example.qmd
-https://mastodon.social/@sellorm/109376707453406631
-https://publish.twitter.com/oembed?url=https://twitter.com/juliesquid/status/1557485909486059523&align=center
+[ 9/10] 404.qmd
+[10/10] index.qmd
 
 Output created: _site/index.html
 

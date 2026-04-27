@@ -20,66 +20,66 @@ The following package(s) will be updated:
 
 # CRAN -----------------------------------------------------------------------
 - base64enc   [0.1-6 -> 0.1-3]
-- bslib       [0.10.0 -> 0.9.0]
 - cli         [3.6.6 -> 3.6.5]
 - digest      [0.6.39 -> 0.6.37]
 - evaluate    [1.0.5 -> 1.0.4]
+- glue        [1.8.1 -> 1.8.0]
 - highr       [0.12 -> 0.11]
 - htmltools   [0.5.9 -> 0.5.8.1]
 - knitr       [1.51 -> 1.50]
 - lifecycle   [1.0.5 -> 1.0.4]
 - rappdirs    [0.3.4 -> 0.3.3]
 - rlang       [1.2.0 -> 1.1.6]
-- rmarkdown   [2.31 -> 2.29]
 - tinytex     [0.59 -> 0.57]
 - xfun        [0.57 -> 0.52]
 - yaml        [2.3.12 -> 2.3.10]
+- bslib       [* -> 0.9.0]
+- rmarkdown   [* -> 2.29]
 
 # RSPM -----------------------------------------------------------------------
-- fs          [repo: CRAN -> RSPM; ver: 2.0.1 -> 1.6.6]
+- fs          [* -> 1.6.6]
+- sass        [* -> 0.4.10]
 
 # https://kazuyanagimoto.r-universe.dev --------------------------------------
 - typstcv     [* -> 0.0.2.4]
 
 # Downloading packages -------------------------------------------------------
-- Downloading rmarkdown from CRAN ...           OK [2.5 Mb in 0.42s]
-- Downloading bslib from CRAN ...               OK [5.4 Mb in 0.44s]
-- Downloading base64enc from CRAN ...           OK [26 Kb in 0.35s]
-- Downloading rlang from CRAN ...               OK [1.5 Mb in 0.41s]
-- Downloading htmltools from CRAN ...           OK [347.2 Kb in 0.39s]
-- Downloading digest from CRAN ...              OK [217.7 Kb in 0.39s]
-- Downloading lifecycle from CRAN ...           OK [122.2 Kb in 0.37s]
-- Downloading cli from CRAN ...                 OK [1.3 Mb in 0.35s]
-- Downloading fs from RSPM ...                  OK [302.3 Kb in 0.38s]
-- Downloading rappdirs from CRAN ...            OK [44.2 Kb in 0.38s]
-- Downloading evaluate from CRAN ...            OK [100 Kb in 0.39s]
-- Downloading knitr from CRAN ...               OK [1 Mb in 0.39s]
-- Downloading highr from CRAN ...               OK [36.7 Kb in 0.38s]
-- Downloading xfun from CRAN ...                OK [579.3 Kb in 0.36s]
-- Downloading yaml from CRAN ...                OK [112.6 Kb in 0.36s]
-- Downloading tinytex from CRAN ...             OK [140.4 Kb in 0.38s]
 - Querying repositories for available source packages ... Done!
-- Downloading typstcv from https://kazuyanagimoto.r-universe.dev ... OK [101.8 Kb in 0.33s]
-Successfully downloaded 17 packages in 11 seconds.
+- Downloading rlang from CRAN ...               OK [747.5 Kb in 0.34s]
+- Downloading tinytex from CRAN ...             OK [35.7 Kb in 0.34s]
+- Downloading xfun from CRAN ...                OK [173.5 Kb in 0.41s]
+- Downloading highr from CRAN ...               OK [12.7 Kb in 0.4s]
+- Downloading knitr from CRAN ...               OK [521.8 Kb in 0.43s]
+- Downloading evaluate from CRAN ...            OK [38.3 Kb in 0.65s]
+- Downloading yaml from CRAN ...                OK [92.8 Kb in 0.41s]
+- Downloading base64enc from CRAN ...           OK [7.7 Kb in 0.32s]
+- Downloading glue from CRAN ...                OK [123.6 Kb in 0.42s]
+- Downloading cli from CRAN ...                 OK [623.3 Kb in 0.41s]
+- Downloading rappdirs from CRAN ...            OK [11.9 Kb in 0.4s]
+- Downloading digest from CRAN ...              OK [226.3 Kb in 0.41s]
+- Downloading htmltools from CRAN ...           OK [132.3 Kb in 0.42s]
+- Downloading lifecycle from CRAN ...           OK [105.8 Kb in 0.31s]
+- Downloading bslib from CRAN ...               OK [5.2 Mb in 0.43s]
+- Downloading sass from RSPM ...                OK [2.3 Mb in 0.36s]
+- Downloading fs from RSPM ...                  OK [1.1 Mb in 0.41s]
+- Downloading rmarkdown from CRAN ...           OK [2.1 Mb in 0.33s]
+- Querying repositories for available source packages ... Done!
+- Downloading typstcv from https://kazuyanagimoto.r-universe.dev ... OK [101.8 Kb in 0.11s]
+Successfully downloaded 19 packages in 12 seconds.
 
 # Installing packages --------------------------------------------------------
-- Installing base64enc ...                      OK [installed binary and cached in 0.25s]
-- Installing rlang ...                          OK [installed binary and cached in 0.37s]
-- Installing digest ...                         OK [installed binary and cached in 0.23s]
-- Installing htmltools ...                      OK [installed binary and cached in 0.35s]
-- Installing cli ...                            OK [installed binary and cached in 0.33s]
-- Installing lifecycle ...                      OK [installed binary and cached in 0.33s]
-- Installing fs ...                             OK [installed binary and cached in 0.26s]
-- Installing rappdirs ...                       OK [installed binary and cached in 0.23s]
-- Installing bslib ...                          OK [installed binary and cached in 0.57s]
-- Installing evaluate ...                       OK [installed binary and cached in 0.23s]
-- Installing xfun ...                           OK [installed binary and cached in 0.27s]
-- Installing highr ...                          OK [installed binary and cached in 0.22s]
-- Installing yaml ...                           OK [installed binary and cached in 0.25s]
-- Installing knitr ...                          OK [installed binary and cached in 0.32s]
-- Installing tinytex ...                        OK [installed binary and cached in 0.26s]
-- Installing rmarkdown ...                      OK [installed binary and cached in 0.46s]
-- Installing typstcv ...                        OK [built from source and cached in 1.3s]
-tlmgr: package repository https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet (verified)
-tlmgr: no self-updates for tlmgr available
-Using CTAN mirror: https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet
+- Installing rlang ...                          FAILED
+Traceback (most recent calls last):
+13: renv::restore()
+12: renv_restore_run_actions(project, diff, current, lockfile, rebuild)
+11: renv_install_impl(records)
+10: renv_install_staged(records)
+ 9: renv_install_default(records)
+ 8: handler(package, renv_install_package(record))
+ 7: renv_install_package(record)
+ 6: withCallingHandlers(renv_install_package_impl(record), error = function(e) writef("FAILED"))
+ 5: renv_install_package_impl(record)
+ 4: r_cmd_install(package, path)
+ 3: r_exec_error(package, output, "install", status)
+ 2: abort(all)
+ 1: stop(fallback)
