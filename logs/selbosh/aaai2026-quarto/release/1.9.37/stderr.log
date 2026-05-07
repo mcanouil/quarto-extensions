@@ -128,7 +128,7 @@ HttpExceptionRequest Request {
   requestVersion       = HTTP/1.1
   proxySecureMode      = ProxySecureWithConnect
 }
- (StatusCodeException (Response {responseStatus = Status {statusCode = 403, statusMessage = "Forbidden"}, responseVersion = HTTP/1.1, responseHeaders = [("content-length","126"),("content-type","text/plain"),("x-request-id","eb56c4b8-6a9a-46f6-a167-8abd64ddc181"),("server","HAProxy"),("x-cache","cp4052 int"),("x-cache-status","int-tls"),("x-analytics","")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
+ (StatusCodeException (Response {responseStatus = Status {statusCode = 403, statusMessage = "Forbidden"}, responseVersion = HTTP/1.1, responseHeaders = [("content-length","126"),("content-type","text/plain"),("x-request-id","794f40d6-e1cd-4c3a-90fc-98fdd7ab0ef1"),("server","HAProxy"),("x-cache","cp1101 int"),("x-cache-status","int-tls"),("x-analytics","")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
   host                 = "upload.wikimedia.org"
   port                 = 443
   secure               = True
@@ -251,7 +251,7 @@ HttpExceptionRequest Request {
   requestVersion       = HTTP/1.1
   proxySecureMode      = ProxySecureWithConnect
 }
- (StatusCodeException (Response {responseStatus = Status {statusCode = 403, statusMessage = "Forbidden"}, responseVersion = HTTP/1.1, responseHeaders = [("content-length","126"),("content-type","text/plain"),("x-request-id","b802db2d-a1df-4ab6-819c-142fc68179c7"),("server","HAProxy"),("x-cache","cp4052 int"),("x-cache-status","int-tls"),("x-analytics","")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
+ (StatusCodeException (Response {responseStatus = Status {statusCode = 403, statusMessage = "Forbidden"}, responseVersion = HTTP/1.1, responseHeaders = [("content-length","126"),("content-type","text/plain"),("x-request-id","a6b212b5-3029-4af3-a156-a8153c62da31"),("server","HAProxy"),("x-cache","cp1101 int"),("x-cache-status","int-tls"),("x-analytics","")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
   host                 = "upload.wikimedia.org"
   port                 = 443
   secure               = True

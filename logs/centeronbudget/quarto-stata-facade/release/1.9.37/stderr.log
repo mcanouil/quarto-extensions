@@ -2,29 +2,29 @@ Cloning into 'repo'...
 Using CPython 3.13.9 interpreter at: /usr/local/python/current/bin/python
 Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
-Resolved 22 packages in 936ms
+Resolved 22 packages in 886ms
    Building stata-setup==0.1.3
+Downloading jedi (4.7MiB)
+Downloading numpy (15.9MiB)
 Downloading pygments (1.2MiB)
 Downloading pandas (10.4MiB)
-Downloading jedi (1.5MiB)
-Downloading numpy (15.9MiB)
  Downloaded pygments
       Built stata-setup==0.1.3
  Downloaded numpy
  Downloaded pandas
  Downloaded jedi
-Prepared 22 packages in 718ms
-Installed 22 packages in 541ms
+Prepared 22 packages in 1.22s
+Installed 22 packages in 1.18s
  + asttokens==3.0.1
  + decorator==5.2.1
  + executing==2.2.1
  + ipython==9.13.0
  + ipython-pygments-lexers==1.1.1
- + jedi==0.19.2
+ + jedi==0.20.0
  + matplotlib-inline==0.2.1
  + numpy==2.4.4
  + pandas==3.0.2
- + parso==0.8.6
+ + parso==0.8.7
  + pexpect==4.9.0
  + prompt-toolkit==3.0.52
  + psutil==7.2.2
@@ -35,8 +35,8 @@ Installed 22 packages in 541ms
  + six==1.17.0
  + stack-data==0.6.3
  + stata-setup==0.1.3
- + traitlets==5.14.3
- + wcwidth==0.6.0
+ + traitlets==5.15.0
+ + wcwidth==0.7.0
 
 Starting python3 kernel...Traceback (most recent call last):
   File "/opt/quarto/share/jupyter/jupyter.py", line 20, in <module>

@@ -23,148 +23,103 @@ metadata
   date: last-modified
   
 
-Error running filte
-r /opt/quarto/share/filters/main.lua:
+Error running filter /opt/quarto
+/share/filters/main.lua:
 Could not fetch https://publish.twitter.com/oembed?url=https://twitter.com/pandoc_tips/status/1576105972103516160&align=center
 HttpExceptionRequest Request {
-  host                 = "publish.twi
-tter.com"
+  host                 = "publish.twitter.com"
   port                 = 443
   secure               = True
-  requestH
-eaders       = []
+  requestHeaders       = []
   path                 = "/oembed"
-  queryString    
-      = "?url=https://twitter.com/pandoc_tips/status/1576105972
-103516160&align=center"
+  queryString          = "?url=https://twitter.com/pandoc_tips/status/1576105972103516160&align=center"
   method               = "GET"
-  proxy 
-               = Nothing
+  proxy
+                = Nothing
   rawBody              = False
-
   redirectCount        = 10
-  responseTimeout   
-   = ResponseTimeoutDefault
-  requestVersion 
-      = HTTP/1.1
-  prox
-ySecureMode    
-  = ProxySecureWithConnect
+  responseTimeout      = ResponseTimeoutDefault
+  requestVersion       = HTTP/1.1
+  proxySecureMode      = ProxySecureWithConnect
 }
  (
-StatusCodeException (Respons
-e {responseStatus = Status
- {statusCode = 404, status
-Message = "Not Found"}, re
-sponseVersion = HTTP/1.1, 
-responseHeaders = [("Date"
-,"Mon, 27 Apr 2026 19:25:06 
-GMT"),("Content-Type","text/htm
-l;charset=utf-8"),("Transf
-er-Encoding","chunked"),("C
-onnection","keep-alive"),
-("perf","7402827104"),("Se
-rver","cloudflare envoy"
-),("Cache-Control","max-a
-ge=0, no-cache, no-store"
-),("x-frame-options","SAM
-EORIGIN"),("x-transaction
--id","fbda920ad037fc50"),
-("x-xss-protection","0"),
-("content-disposition","a
-ttachment; filename=json.jso
-n"),("x-content-type-optio
-ns","nosniff"),("content-securit
-y-policy","default-src 'none'; 
-img-src https://abs.twimg
-.com; script-src https://a
-bs.twimg.com about:; styl
-e-src https://abs.twimg.c
-om 'unsafe-inline'; font-sr
-c https://abs.twimg.com h
-ttps://twitter.com; conne
-ct-src 'none'; object-src
- 'none'; media-src 'none';
- frame-src 'none'; report-u
-ri https://twitter.com/i/csp_repo
-rt?a=ORTGK%3D%3D%3D&ro=fal
-se"),("cf-cache-status","DYNAMIC"),(
-"Set-Cookie","guest_id_marketi
-ng=v1%3A177731790660549077; Max-Age=63
-072000; Expires=Wed, 26
- Apr 2028 19:25:06 GM
-T; Path=/; Domain=.twitter.com; Sec
-ure; SameSite=None"),("Set-C
-ookie","guest_id_ads=v1%3A177731790
-660549077; Max-Age=63072000
-; Expires=Wed, 26 Apr 20
-28 19:25:06 GMT; Path=/; 
-Domain=.twitter.com; Sec
-ure; SameSite=None"),("Se
-t-Cookie","personalizatio
-n_id=\"v1_n60s7qUKrxxO5d
-hp6Ru61w==\"; Max-Age=63
-072000; Expires=Wed, 26 Apr 
-2028 19:25:06 GMT; Path=/; Do
-main=.twitter.com; Secure; SameSit
-e=None"),("Set-Cookie","gues
-t_id=v1%3A177731790660549077; M
-ax-Age=63072000; Expires=Wed
-, 26 Apr 2028 19:25:06 GM
-T; Path=/; Domain=.twitter.com; Se
-cure; SameSite=None"),("set-cooki
-e","__cf_bm=JgKHafJjL0Ny_
-StBDEI2xMRAu9AzUzbPa6MH0i5Sj6Y-177
-7317906.5611932-1.0.1.1-ot824Q7
-7FVX6Ps29qIe6UN7bePz8hIKp
-nAt3ha0RV1iUEDGLMkLDckn6
-NJuguIFv9cwgO3vTa8oD6nx
-7Uw.pEKnB5N8tJK4UMgD_SVrD0KiEY
-m_WHlhBjf8BEZE3xEt6; Http
-Only; Secure; Path=/; Dom
-ain=twitter.com; Expires
-=Mon, 27 Apr 2026 19:55:0
-6 GMT"),("x-response-tim
-e","101"),("origin-cf-ra
-y","9f3036140bd435ac-ATL
-"),("strict-transport-s
-ecurity","max-age=631138
-519; includeSubdomains")
-,("x-served-by","t4_a")
-,("vary","accept-encodin
-g"),("Content-Encoding"
-,"gzip"),("CF-RAY","9f30
-36140bd435ac-ORD")], resp
-onseBody = (), responseCookie
-Jar = CJ {expose = [Cookie {
-cookie_name = "__cf_bm",
- cookie_value = "JgKHafJ
-jL0Ny_StBDEI2xMRAu9AzUzb
-Pa6MH0i5Sj6Y-1777317906.
-5611932-1.0.1.1-ot824Q77
-FVX6Ps29qIe6UN7bePz8hIKp
-nAt3ha0RV1iUEDGLMkLDckn6
-NJuguIFv9cwgO3vTa8oD6nx7
-Uw.pEKnB5N8tJK4UMgD_SVrD
-0KiEYm_WHlhBjf8BEZE3xEt6
-", cookie_expiry_time = 
-3025-08-28 00:00:00 UTC, 
-cookie_domain = "twitter
-.com", cookie_path = "/
-", cookie_creation_time 
-= 2026-
-04-27 19:25:06.69230351
-5 UTC, cookie_last_access_time = 2026-0
-4-27 19:25:06.692303515 UTC,
- cookie_persistent = False
-, cookie_host_only = False, co
-okie_secure_only = True, c
-ookie_http_only = True},C
-ookie {cookie_name = "gue
-st_id", cookie_value = "
-v1%3A177731790660549077",
- cookie_expiry_time = 2028-04-26 19:
-25:06.692303515 UTC, cookie_domain = "twitter.com", cookie_path = "/", cookie_creation_time = 2026-04-27 19:25:06.692303515 UTC, cookie_last_access_time = 2026-04-27 19:25:06.692303515 UTC, cookie_persistent = True, cookie_host_only = False, cookie_secure_only = True, cookie_http_only = False},Cookie {cookie_name = "personalization_id", cookie_value = "v1_n60s7qUKrxxO5dhp6Ru61w==", cookie_expiry_time = 2028-04-26 19:25:06.692303515 UTC, cookie_domain = "twitter.com", cookie_path = "/", cookie_creation_time = 2026-04-27 19:25:06.692303515 UTC, cookie_last_access_time = 2026-04-27 19:25:06.692303515 UTC, cookie_persistent = True, cookie_host_only = False, cookie_secure_only = True, cookie_http_only = False},Cookie {cookie_name = "guest_id_ads", cookie_value = "v1%3A177731790660549077", cookie_expiry_time = 2028-04-26 19:25:06.692303515 UTC, cookie_domain = "twitter.com", cookie_path = "/", cookie_creation_time = 2026-04-27 19:25:06.692303515 UTC, cookie_last_access_time = 2026-04-27 19:25:06.692303515 UTC, cookie_persistent = True, cookie_host_only = False, cookie_secure_only = True, cookie_http_only = False},Cookie {cookie_name = "guest_id_marketing", cookie_value = "v1%3A177731790660549077", cookie_expiry_time = 2028-04-26 19:25:06.692303515 UTC, cookie_domain = "twitter.com", cookie_path = "/", cookie_creation_time = 2026-04-27 19:25:06.692303515 UTC, cookie_last_access_time = 2026-04-27 19:25:06.692303515 UTC, cookie_persistent = True, cookie_host_only = False, cookie_secure_only = True, cookie_http_only = False}]}, responseClose' = ResponseClose, responseOriginalRequest = Request {
+StatusCodeException (Response {responseStatus = Status {statusCode = 404, statusMessage = "Not Found"}, responseVersion = HTTP/1.1, responseHeaders = [("Date","Thu, 07 May 2026 19:27:57 GMT"),("Content-Type","text/html;charset=utf-8"),("Transfer-Encodin
+g","chunked"),("Connection","keep-alive"),("perf","7402827104"),("Server","cloudflare envoy"),("Cache-Control","max-age=0, no-cache, no-store"),("x-frame-options","SAMEORIGIN"),("x-transaction
+-id","02fca38e38bd37ac"),("x-xss-protection","0"),("content-disposition","attachment; filename=json.json"),("x-content-type-options","nosniff"),("content-security-policy","default-src 'none'; img-src https:/
+/abs.twimg.com; script-src https://abs.twimg.com about:; style-src https://abs.twimg.com 'unsafe-inline'; font-src https://abs.twimg.com https://twitte
+r.com; connect-src 'none'; object-src 'none'; media-src 'none'; frame-src 'none'; report-ur
+i https://twitter.com/i/csp_report?a=ORTGK%3D%3D%3D&ro=false"),("cf-cache-status","DYNAMIC"),("Set-Cookie","guest_id_marketing=v1%3A1778182077
+81182363; Max-Age=63072000; Expires=Sat, 06 May 2028 19:27:57 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None"),("Set-Cookie","guest_id_ads=v1%3A177818207781182363; M
+ax-Age=63072000; Expires=Sat, 06 May 2028 19:27:57 GM
+T; Path=/; Domain=.twitter.com; Secure; SameSite=No
+ne"),("Set-Cookie","personalization_id=\"v1_
+TaWuMc65dPIQuX4B8CAJOg==\"; Max-Age=63072000; Expir
+es=Sat, 06 May 2028 19:27:57 GMT; Path=/; Domain=.
+twitter.com; Secure; SameSite=None"),("Set-Cookie
+","guest_id=v1%3A177818207781182363; Max-Age
+=63072000; Expires=Sat, 06 May 2028 19:2
+7:57 GMT; Path=/; Domain=.twitter.com; Se
+cure; SameSite=None"),("set-cookie","__cf
+_bm=.d9jAjPCyW0Zts9TsdjpyQCzgtn4aYVKteZ
+xjjN1Ayg-1778182077.7956667-1.0.1.1-zZqC
+MmgrpWL_vqiFogvHtP16pmDbIW1DgUnGsoknlYtd
+bmd2_y.1efd402.9WlCQXKvyPx2bGKWsYEkbaXJA
+Q_1yvawHTejUjt1L5M4fEuZRjZ5FBxsTIlepyt6FJh
+gI; HttpOnly; Secure; Path=/; Domain=twi
+tter.com; Expires=Thu, 07 May 2026 19:57
+:57 GMT"),("x-response-time","11"),("orig
+in-cf-ray","9f82a0023a02c176-ATL"),("stri
+ct-transport-security","max-age=631138519; in
+cludeSubdomains"),("x-served-by","t4_a")
+,("vary","accept-encoding"),("Content-Encoding","gzip")
+,("CF-RAY","9f82a0023a02c176-ORD")], response
+Body = (), responseCookieJar = CJ {expose 
+= [Cookie {cookie_name = "__cf_bm", cook
+ie_value = ".d9jAjPCyW0Zts9TsdjpyQCzgtn4
+aYVKteZxjjN1Ayg-1778182077.7956667-1.0.1
+.1-zZqCMmgrpWL_vqiFogvHtP16pmDbIW1DgUnG
+soknlYtdbmd2_y.1efd402.9WlCQXKvyPx2bGKWsY
+EkbaXJAQ_1yvawHTejUjt1L5M4fEuZRjZ5FBxsTI
+lepyt6FJhgI", cookie_expiry_time = 3025-
+09-07 00:00:00 UTC, cookie_domain = "twit
+ter.com", cookie_path = "/", cookie_crea
+tion_time = 2026-05-07 19:27:57.83434599
+2 UTC, cookie_last_access_time = 2026-05-
+07 19:27:57.834345992 UTC, cookie_persis
+tent = False, cookie_host_only = False,
+ cookie_secure_only = True, cookie_http
+_only = True},Cookie {cookie_name = "guest_id", cookie_value 
+= "v1%3A177818207781182363", cookie_e
+xpiry_time = 2028-05-06 19:27
+:57.834345992 UTC, cookie_d
+omain = "twitter.com", cookie_pat
+h = "/", cookie_creation_time = 2026-05-07 19:27:57
+.834345992 UTC, cookie_last_ac
+cess_time = 2026-05-07 19:2
+7:57.834345992 UTC, cookie_persiste
+nt = True, cookie_host_only = False
+, cookie_secure_only = True, cookie_http
+_only = False},Cookie {cookie_name = "p
+ersonalization_id", cookie_value = "v1_TaWuMc65dPIQuX4B8CAJOg
+==", cookie_expiry_time = 2028-05-06 19:27:57.8343
+45992 UTC, cookie_domain = "twitter.com", 
+cookie_path = "/", cookie_creation_time
+ = 2026-05-07 19:27:57.834345992 UTC, co
+okie_last_access_time = 2026-05-07 19:2
+7:57.834345992 UTC, cookie_persistent = True, cookie_ho
+st_only = False, cookie_secur
+e_only = True, cookie_http
+_only = False},Cookie {coo
+kie_name = "guest_id_ads", cookie_
+value = "v1%3A177818207781182363", cookie_e
+xpiry_time = 2028-05-06 19:27:57
+.834345992 UTC, cookie_domain = "twit
+ter.com", cookie_path = "/", cookie_creat
+ion_time = 2026-05-07 19:27:5
+7.834345992 UTC, cookie_last_access_tim
+e = 2026-05-07 19:27:57.834345992 UTC, c
+ookie_persistent = True, cookie_host_only
+ = False, cookie_secure_only = True, cookie_http_only = False},Cookie {cookie_name = "guest_id_marketing", cookie_value = "v1%3A177818207781182363", cookie_expiry_time = 2028-05-06 19:27:57.834345992 UTC, cookie_domain = "twitter.com", cookie_path = "/", cookie_creation_time = 2026-05-07 19:27:57.834345992 UTC, cookie_last_access_time = 2026-05-07 19:27:57.834345992 UTC, cookie_persistent = True, cookie_host_only = False, cookie_secure_only = True, cookie_http_only = False}]}, responseClose' = ResponseClose, responseOriginalRequest = Request {
   host                 = "publish.twitter.com"
   port                 = 443
   secure               = True

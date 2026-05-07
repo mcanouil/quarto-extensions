@@ -25,7 +25,7 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/RtmpVUo6ed/downloaded_packages'
+	'/tmp/Rtmp12d5dj/downloaded_packages'
 Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-6/R/x86_64-pc-linux-gnu-library/4.6'
 (as 'lib' is unspecified)
 also installing the dependencies 'fs', 'sass', 'bslib'
@@ -58,7 +58,7 @@ install.packages('bslib')
 * removing '/home/runner/work/quarto-extensions/quarto-extensions/test-6/R/x86_64-pc-linux-gnu-library/4.6/rmarkdown'
 
 The downloaded source packages are in
-	'/tmp/RtmpVUo6ed/downloaded_packages'
+	'/tmp/Rtmp12d5dj/downloaded_packages'
 Warning messages:
 1: In install.packages(deps, repos = ppm) :
   installation of package 'fs' had non-zero exit status
@@ -68,6 +68,185 @@ Warning messages:
   installation of package 'bslib' had non-zero exit status
 4: In install.packages(deps, repos = ppm) :
   installation of package 'rmarkdown' had non-zero exit status
+[ 1/10] tests/fixtures/01-single-author-single-aff/document.qmd
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+updating tlmgr
+
+updating existing packages
+finding package for orcidlink.sty
+> 1 package to install
+> installing orcidlink (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for thumbpdf.sty
+> 1 package to install
+> installing thumbpdf (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+generating bibliography
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: document.aux
+  The style file: jss.bst
+  I found no \citation commands---while reading file document.aux
+  I found no \bibdata command---while reading file document.aux
+  (There were 2 error messages)
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+[ 2/10] tests/fixtures/07-postal-code/document.qmd
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+generating bibliography
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: document.aux
+  The style file: jss.bst
+  I found no \citation commands---while reading file document.aux
+  I found no \bibdata command---while reading file document.aux
+  (There were 2 error messages)
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+[ 3/10] tests/fixtures/02-single-author-multi-aff/document.qmd
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+generating bibliography
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: document.aux
+  The style file: jss.bst
+  I found no \citation commands---while reading file document.aux
+  I found no \bibdata command---while reading file document.aux
+  (There were 2 error messages)
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+[ 4/10] tests/fixtures/06-state-alias/document.qmd
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+generating bibliography
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: document.aux
+  The style file: jss.bst
+  I found no \citation commands---while reading file document.aux
+  I found no \bibdata command---while reading file document.aux
+  (There were 2 error messages)
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+[ 5/10] tests/fixtures/05-bare-string-aff/document.qmd
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+generating bibliography
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: document.aux
+  The style file: jss.bst
+  I found no \citation commands---while reading file document.aux
+  I found no \bibdata command---while reading file document.aux
+  (There were 2 error messages)
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+[ 6/10] tests/fixtures/08-author-with-orcid/document.qmd
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+generating bibliography
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: document.aux
+  The style file: jss.bst
+  I found no \citation commands---while reading file document.aux
+  I found no \bibdata command---while reading file document.aux
+  (There were 2 error messages)
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+[ 7/10] tests/fixtures/04-author-no-aff/document.qmd
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+generating bibliography
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: document.aux
+  The style file: jss.bst
+  I found no \citation commands---while reading file document.aux
+  I found no \bibdata command---while reading file document.aux
+  (There were 2 error messages)
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+[ 8/10] tests/fixtures/03-multi-author/document.qmd
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+generating bibliography
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: document.aux
+  The style file: jss.bst
+  I found no \citation commands---while reading file document.aux
+  I found no \bibdata command---while reading file document.aux
+  (There were 2 error messages)
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+[ 9/10] TODO.md
+[10/10] template.qmd
 Error in loadNamespace(x) : there is no package called 'rmarkdown'
 Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
 Execution halted
@@ -85,6 +264,168 @@ Install with install.packages("rmarkdown")
 
 WARN: Error encountered when rendering files
 Render failed, retrying once...
+[ 1/10] tests/fixtures/01-single-author-single-aff/document.qmd
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+generating bibliography
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: document.aux
+  The style file: jss.bst
+  I found no \citation commands---while reading file document.aux
+  I found no \bibdata command---while reading file document.aux
+  (There were 2 error messages)
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+[ 2/10] tests/fixtures/07-postal-code/document.qmd
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+generating bibliography
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: document.aux
+  The style file: jss.bst
+  I found no \citation commands---while reading file document.aux
+  I found no \bibdata command---while reading file document.aux
+  (There were 2 error messages)
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+[ 3/10] tests/fixtures/02-single-author-multi-aff/document.qmd
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+generating bibliography
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: document.aux
+  The style file: jss.bst
+  I found no \citation commands---while reading file document.aux
+  I found no \bibdata command---while reading file document.aux
+  (There were 2 error messages)
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+[ 4/10] tests/fixtures/06-state-alias/document.qmd
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+generating bibliography
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: document.aux
+  The style file: jss.bst
+  I found no \citation commands---while reading file document.aux
+  I found no \bibdata command---while reading file document.aux
+  (There were 2 error messages)
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+[ 5/10] tests/fixtures/05-bare-string-aff/document.qmd
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+generating bibliography
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: document.aux
+  The style file: jss.bst
+  I found no \citation commands---while reading file document.aux
+  I found no \bibdata command---while reading file document.aux
+  (There were 2 error messages)
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+[ 6/10] tests/fixtures/08-author-with-orcid/document.qmd
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+generating bibliography
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: document.aux
+  The style file: jss.bst
+  I found no \citation commands---while reading file document.aux
+  I found no \bibdata command---while reading file document.aux
+  (There were 2 error messages)
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+[ 7/10] tests/fixtures/04-author-no-aff/document.qmd
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+generating bibliography
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: document.aux
+  The style file: jss.bst
+  I found no \citation commands---while reading file document.aux
+  I found no \bibdata command---while reading file document.aux
+  (There were 2 error messages)
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+[ 8/10] tests/fixtures/03-multi-author/document.qmd
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+generating bibliography
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: document.aux
+  The style file: jss.bst
+  I found no \citation commands---while reading file document.aux
+  I found no \bibdata command---while reading file document.aux
+  (There were 2 error messages)
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+[ 9/10] TODO.md
+[10/10] template.qmd
 Error in loadNamespace(x) : there is no package called 'rmarkdown'
 Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
 Execution halted

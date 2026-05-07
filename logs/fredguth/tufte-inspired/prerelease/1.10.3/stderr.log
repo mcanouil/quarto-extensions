@@ -1,5 +1,5 @@
 Cloning into 'repo'...
-Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-19/R/x86_64-pc-linux-gnu-library/4.6'
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6'
 (as 'lib' is unspecified)
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.2.tar.gz'
 Content type 'binary/octet-stream' length 1356485 bytes (1.3 MB)
@@ -25,8 +25,8 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/Rtmp9bru1M/downloaded_packages'
-Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-19/R/x86_64-pc-linux-gnu-library/4.6'
+	'/tmp/RtmpBfAd2p/downloaded_packages'
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6'
 (as 'lib' is unspecified)
 also installing the dependencies 'fs', 'sass', 'bslib'
 
@@ -43,22 +43,22 @@ Perhaps you should add the directory containing `libuv.pc'
 to the PKG_CONFIG_PATH environment variable
 No package 'libuv' found
 ERROR: configuration failed for package 'fs'
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-19/R/x86_64-pc-linux-gnu-library/4.6/fs'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6/fs'
 ERROR: dependency 'fs' is not available for package 'sass'
 Perhaps try a variation of:
 install.packages('fs')
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-19/R/x86_64-pc-linux-gnu-library/4.6/sass'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6/sass'
 ERROR: dependency 'sass' is not available for package 'bslib'
 Perhaps try a variation of:
 install.packages('sass')
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-19/R/x86_64-pc-linux-gnu-library/4.6/bslib'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6/bslib'
 ERROR: dependency 'bslib' is not available for package 'rmarkdown'
 Perhaps try a variation of:
 install.packages('bslib')
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-19/R/x86_64-pc-linux-gnu-library/4.6/rmarkdown'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6/rmarkdown'
 
 The downloaded source packages are in
-	'/tmp/Rtmp9bru1M/downloaded_packages'
+	'/tmp/RtmpBfAd2p/downloaded_packages'
 Warning messages:
 1: In install.packages(deps, repos = ppm) :
   installation of package 'fs' had non-zero exit status
@@ -73,7 +73,7 @@ Rendering output notebook [index.qmd]
 Rendering HTML preview [index.qmd]
 pandoc 
   to: html
-  output-file: /home/runner/work/quarto-extensions/quarto-extensions/test-19/repo/index.html
+  output-file: /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/index.html
   standalone: true
   section-divs: true
   html-math-method: mathjax
@@ -178,7 +178,7 @@ metadata
   
 WARN: typst-gather analyze failed; staging all packages as fallback
 [typst]: Compiling index.typ to index.pdf...downloading @preview/drafting:0.2.2
-  9.3 KiB /   9.3 KiB (100 %)   9.3 KiB/s in 1.44 ms ETA: 0 s
+  9.3 KiB /   9.3 KiB (100 %)   9.3 KiB/s in 1.29 ms ETA: 0 s
 
 error: unknown variable: NormalTok
     ┌─ index.typ:545:60
@@ -187,7 +187,7 @@ error: unknown variable: NormalTok
     │                                                             ^^^^^^^^^
 
 ERROR: downloading @preview/drafting:0.2.2
-  9.3 KiB /   9.3 KiB (100 %)   9.3 KiB/s in 1.44 ms ETA: 0 s
+  9.3 KiB /   9.3 KiB (100 %)   9.3 KiB/s in 1.29 ms ETA: 0 s
 
 error: unknown variable: NormalTok
     ┌─ index.typ:545:60
@@ -202,7 +202,7 @@ Rendering output notebook [index.qmd]
 Rendering HTML preview [index.qmd]
 pandoc 
   to: html
-  output-file: /home/runner/work/quarto-extensions/quarto-extensions/test-19/repo/index.html
+  output-file: /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/index.html
   standalone: true
   section-divs: true
   html-math-method: mathjax
@@ -306,17 +306,29 @@ metadata
   unroll-markdown-cells: true
   
 WARN: typst-gather analyze failed; staging all packages as fallback
-[typst]: Compiling index.typ to index.pdf...error: unknown variable: NormalTok
-    ┌─ index.typ:545:60
-    │
-545 │ You can include anything in the margin by places the class #NormalTok(".column-margin"); on the element. See an example on the right about the first fundamental theorem of calculus.
-    │                                                             ^^^^^^^^^
-
-ERROR: error: unknown variable: NormalTok
-    ┌─ index.typ:545:60
-    │
-545 │ You can include anything in the margin by places the class #NormalTok(".column-margin"); on the element. See an example on the right about the first fundamental theorem of calculus.
-    │                                                             ^^^^^^^^^
-
-
-ERROR: Typst compilation failed
+[typst]: Compiling index.typ to index.pdf...error: Uncaught (in promise) TypeError: Writable stream is closed or errored.
+      process4.stdin.close();
+                     ^
+    at writableStreamClose (ext:deno_web/06_streams.js:4352:7)
+    at WritableStream.close (ext:deno_web/06_streams.js:6466:12)
+    at execProcess (file:///opt/quarto/bin/quarto.js:7857:22)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async runAnalyze (file:///opt/quarto/bin/quarto.js:135839:19)
+    at async analyzeNeededPackages (file:///opt/quarto/bin/quarto.js:135888:21)
+    at async stageTypstPackages (file:///opt/quarto/bin/quarto.js:135939:26)
+    at async Object.complete (file:///opt/quarto/bin/quarto.js:135977:27)
+    at async file:///opt/quarto/bin/quarto.js:130926:23
+    at async withTimingAsync (file:///opt/quarto/bin/quarto.js:15990:21)
+    at async Object.complete (file:///opt/quarto/bin/quarto.js:130912:7)
+    at async Object.onPostProcess (file:///opt/quarto/bin/quarto.js:156199:30)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:136878:3)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136597:9)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:137166:23)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142496:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102027:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101904:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187717:5)
+    at async file:///opt/quarto/bin/quarto.js:187746:5
+    at async file:///opt/quarto/bin/quarto.js:187600:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187602:5)
+    at async file:///opt/quarto/bin/quarto.js:187739:3

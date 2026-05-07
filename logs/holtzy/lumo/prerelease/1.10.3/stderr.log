@@ -25,7 +25,7 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/RtmpvzJgKy/downloaded_packages'
+	'/tmp/RtmpiVfkD9/downloaded_packages'
 Installing packages into '/home/runner/work/quarto-extensions/quarto-extensions/test-24/R/x86_64-pc-linux-gnu-library/4.6'
 (as 'lib' is unspecified)
 also installing the dependencies 'fontBitstreamVera', 'fontLiberation', 'proxy', 'gargle', 'fs', 'lazyeval', 'sp', 'terra', 'later', 'otel', 'sass', 'fontquiver', 'e1071', 'wk', 'googledrive', 'googlesheets4', 'reprex', 'gridExtra', 'crosstalk', 'htmlwidgets', 'leaflet.providers', 'raster', 'promises', 'bslib', 'gdtools', 'classInt', 's2', 'units'
@@ -37,7 +37,7 @@ trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/gargle_1.6.1
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fs_2.1.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/lazyeval_0.2.3.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/sp_2.2-1.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/terra_1.9-11.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/terra_1.9-25.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/later_1.4.8.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/otel_0.2.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/sass_0.4.10.tar.gz'
@@ -66,7 +66,7 @@ trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/leaflet_2.2.
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/DT_0.34.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/rmarkdown_2.31.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/ggiraph_0.9.6.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/sf_1.1-0.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/sf_1.1-1.tar.gz'
 * installing *source* package 'fontBitstreamVera' ...
 ** this is package 'fontBitstreamVera' version '0.1.1'
 ** package 'fontBitstreamVera' successfully unpacked and MD5 sums checked
@@ -161,13 +161,13 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-24/R/x8
 ** testing if installed package keeps a record of temporary installation path
 * DONE (sp)
 * installing *source* package 'terra' ...
-** this is package 'terra' version '1.9-11'
+** this is package 'terra' version '1.9-25'
 ** package 'terra' successfully unpacked and MD5 sums checked
 ** using staged installation
 configure: error: gdal-config not found or not executable. 
 *** Installing this package from source requires the prior
 *** installation of external software, see for details
-*** https://rspatial.github.io/terra/
+*** https://r-spatial.github.io/sf/#installing
 ERROR: configuration failed for package 'terra'
 * removing '/home/runner/work/quarto-extensions/quarto-extensions/test-24/R/x86_64-pc-linux-gnu-library/4.6/terra'
 * installing *source* package 'later' ...
@@ -258,7 +258,7 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-24/R/x8
 ** this is package 'units' version '1.0-1'
 ** package 'units' successfully unpacked and MD5 sums checked
 ** using staged installation
-configure: error: in '/tmp/RtmpOD88r0/R.INSTALL8466cb495d6/units':
+configure: error: in '/tmp/RtmpJPOgbn/R.INSTALL84661582ffd/units':
 configure: error: 
 --------------------------------------------------------------------------------
   Configuration failed because libudunits2.so was not found. Try installing:
@@ -522,50 +522,8 @@ install.packages(c('gdtools', 'htmlwidgets'))
 * removing '/home/runner/work/quarto-extensions/quarto-extensions/test-24/R/x86_64-pc-linux-gnu-library/4.6/ggiraph'
 
 The downloaded source packages are in
-	'/tmp/RtmpvzJgKy/downloaded_packages'
+	'/tmp/RtmpiVfkD9/downloaded_packages'
 There were 18 warnings (use warnings() to see them)
-WARN: Theme file not found: custom.scss
-pandoc 
-  to: html
-  output-file: template.html
-  standalone: true
-  self-contained: true
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  toc: true
-  css:
-    - _extensions/lumo/style.css
-  variables: {}
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  code-summary: Code
-  toc-location: left
-  toc-title: ' '
-  theme:
-    - custom.scss
-  smooth-scroll: true
-  code-annotations: hover
-  title-block-banner: true
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: 'Lumo: a clean Quarto template for stunning data reports'
-  subtitle: This document showcases how a Quarto report made using the <code>Lumo</code> format looks like. It also demoes a few tips and tricks I 💜
-  author: Holtz Yan
-  date: last-modified
-  logo: logo.png
-  github-repo: https://github.com/holtzy/lumo
-  primary-color: '#69b3a2'
-  is-particlejs-enabled: true
-  bg-image: ''
-  
-Output created: template.html
-
 Error in loadNamespace(x) : there is no package called 'rmarkdown'
 Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
 Execution halted

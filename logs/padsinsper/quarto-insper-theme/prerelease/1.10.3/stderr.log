@@ -1,5 +1,5 @@
 Cloning into 'repo'...
-Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-19/R/x86_64-pc-linux-gnu-library/4.6'
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6'
 (as 'lib' is unspecified)
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.2.tar.gz'
 Content type 'binary/octet-stream' length 1356485 bytes (1.3 MB)
@@ -25,8 +25,8 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/RtmpSN5u52/downloaded_packages'
-Installing packages into '/home/runner/work/quarto-extensions/quarto-extensions/test-19/R/x86_64-pc-linux-gnu-library/4.6'
+	'/tmp/RtmpHWS0aL/downloaded_packages'
+Installing packages into '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6'
 (as 'lib' is unspecified)
 also installing the dependencies 'fs', 'sass', 'AmesHousing', 'babynames', 'fueleconomy', 'gapminder', 'Lahman', 'nasaweather', 'nycflights13', 'pixarfilms', 'extrafontdb', 'Rttf2pt1', 'bslib'
 
@@ -55,7 +55,7 @@ Perhaps you should add the directory containing `libuv.pc'
 to the PKG_CONFIG_PATH environment variable
 No package 'libuv' found
 ERROR: configuration failed for package 'fs'
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-19/R/x86_64-pc-linux-gnu-library/4.6/fs'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6/fs'
 * installing *source* package 'AmesHousing' ...
 ** this is package 'AmesHousing' version '0.0.4'
 ** package 'AmesHousing' successfully unpacked and MD5 sums checked
@@ -205,8 +205,8 @@ ERROR: configuration failed for package 'fs'
 ** package 'Rttf2pt1' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** libs
-installing via 'install.libs.R' to /home/runner/work/quarto-extensions/quarto-extensions/test-19/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-Rttf2pt1/00new/Rttf2pt1
-Installing ttf2pt1/ttf2pt1 to /home/runner/work/quarto-extensions/quarto-extensions/test-19/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-Rttf2pt1/00new/Rttf2pt1/exec
+installing via 'install.libs.R' to /home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-Rttf2pt1/00new/Rttf2pt1
+Installing ttf2pt1/ttf2pt1 to /home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-Rttf2pt1/00new/Rttf2pt1/exec
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -220,7 +220,7 @@ Installing ttf2pt1/ttf2pt1 to /home/runner/work/quarto-extensions/quarto-extensi
 ERROR: dependency 'fs' is not available for package 'sass'
 Perhaps try a variation of:
 install.packages('fs')
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-19/R/x86_64-pc-linux-gnu-library/4.6/sass'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6/sass'
 * installing *source* package 'dados' ...
 ** this is package 'dados' version '0.1.0'
 ** package 'dados' successfully unpacked and MD5 sums checked
@@ -254,14 +254,14 @@ install.packages('fs')
 ERROR: dependency 'sass' is not available for package 'bslib'
 Perhaps try a variation of:
 install.packages('sass')
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-19/R/x86_64-pc-linux-gnu-library/4.6/bslib'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6/bslib'
 ERROR: dependency 'bslib' is not available for package 'rmarkdown'
 Perhaps try a variation of:
 install.packages('bslib')
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-19/R/x86_64-pc-linux-gnu-library/4.6/rmarkdown'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6/rmarkdown'
 
 The downloaded source packages are in
-	'/tmp/RtmpSN5u52/downloaded_packages'
+	'/tmp/RtmpHWS0aL/downloaded_packages'
 Warning messages:
 1: package 'coresInsper' is not available for this version of R
 
@@ -283,7 +283,7 @@ R installation:
   Version: 4.6.0
   Path: /opt/R/4.6.0/lib/R
   LibPaths:
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-19/R/x86_64-pc-linux-gnu-library/4.6
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6
     - /opt/R/4.6.0/lib/R/library
   knitr: 1.51
   rmarkdown: (None)
@@ -300,7 +300,7 @@ R installation:
   Version: 4.6.0
   Path: /opt/R/4.6.0/lib/R
   LibPaths:
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-19/R/x86_64-pc-linux-gnu-library/4.6
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-20/R/x86_64-pc-linux-gnu-library/4.6
     - /opt/R/4.6.0/lib/R/library
   knitr: 1.51
   rmarkdown: (None)

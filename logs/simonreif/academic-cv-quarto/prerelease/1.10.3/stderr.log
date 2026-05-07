@@ -30,61 +30,7 @@ WARN: typst-gather analyze failed; staging all packages as fallback
 Render failed, retrying once...
 [1/2] Letter.qmd
 WARN: typst-gather analyze failed; staging all packages as fallback
-[typst]: Compiling Letter.typ to Letter.pdf...downloading @preview/fontawesome:0.6.0
- 81.9 KiB /  81.9 KiB (100 %)  81.9 KiB/s in 2.03 ms ETA: 0 s
-
-warning: unknown font family: source sans 3
-    ┌─ Letter.typ:565:18
-    │
-565 │   #set text(font: body-font-str, size: body-size, weight: 400, fill: main_color)
-    │                   ^^^^^^^^^^^^^
-
-warning: unknown font family: roboto
-    ┌─ Letter.typ:682:16
-    │
-682 │           font: heading-font-str,
-    │                 ^^^^^^^^^^^^^^^^
-
-warning: unknown font family: roboto
-    ┌─ Letter.typ:691:23
-    │
-691 │            #text(font: heading-font-str, size: 9pt, weight: 700, fill: accent)[#research-area]
-    │                        ^^^^^^^^^^^^^^^^
-
-warning: unknown font family: roboto
-    ┌─ Letter.typ:695:27
-    │
-695 │                #text(font: heading-font-str, size: contact-size, weight: 700, fill: main_color)[#location]
-    │                            ^^^^^^^^^^^^^^^^
-
-warning: unknown font family: roboto
-    ┌─ Letter.typ:699:25
-    │
-699 │              #text(font: heading-font-str, size: contact-size, weight: 400, fill: light-color)[
-    │                          ^^^^^^^^^^^^^^^^
-
-warning: unknown font family: roboto
-    ┌─ Letter.typ:711:25
-    │
-711 │              #text(font: heading-font-str, size: contact-size, weight: 400, fill: light-color)[
-    │                          ^^^^^^^^^^^^^^^^
-
-warning: unknown font family: font awesome 7 free
-   ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
-   │
-80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
-   │             ^^^^^^^^^^^^^
-
-warning: unknown font family: font awesome 7 brands
-   ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
-   │
-80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
-   │             ^^^^^^^^^^^^^
-
-DONE
-
-[2/2] CV.qmd
-error: Uncaught (in promise) TypeError: Writable stream is closed or errored.
+[typst]: Compiling Letter.typ to Letter.pdf...error: Uncaught (in promise) TypeError: Writable stream is closed or errored.
       process4.stdin.close();
                      ^
     at writableStreamClose (ext:deno_web/06_streams.js:4352:7)

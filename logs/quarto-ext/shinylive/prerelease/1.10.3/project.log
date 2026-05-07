@@ -9,88 +9,86 @@ Executing 'index.quarto_ipynb'
 
 (E) Error running 'shinylive' command. Perhaps you need to install / update the 'shinylive' Python package?
  Error:
- 
-PandocError {}
+ PandocError {}
 
-Error 
-running filter /opt/quarto/share/filters/main.lua:
-...t-14/r
-epo/_extensions/quarto-ext/shinyl
-ive/shinylive.lua:40: Error running 'sh
-inylive' command. Perhaps 
-you need to install / updat
-e the 'shinylive' Pytho
-n package?
+Error runni
+ng filter /opt/quarto/share/filters/main.lua:
+...t-15/repo/_extensions/quarto-ext/shinylive/shinylive.lu
+a:40: Error running 'shinylive' command. Perh
+aps you need to install / update the 'shi
+nylive' Python package?
 
-stack tr
-aceback:
-	...t-14/r
-epo/_extensions/qua
-rto-ext/shinylive/sh
-inylive.lua:40: in 
-global 'throw_quart
-o_error'
-	...t-14/
-repo/_extensions/qu
-arto-ext/shinylive/
-shinylive.lua:57: i
-n global 'callPyth
-onShinylive'
-	...t
--14/repo/_extensio
-ns/quarto-ext/shin
-ylive/shinylive.lu
-a:111: in global 'callShinylive
-'
-	...t-14/repo/_
-extensions/quarto-ext/sh
-inylive/shinylive.
-lua:253: in global 'ensurePyshinyl
-iveVersion'
-	...t-14
-/repo/_extensions/q
-uarto-ext/shinylive/shinyliv
-e.lua:312: in global 'e
-nsureLanguageSetup
-'
-	...t-14/repo/_e
-xtensions/quarto-e
-xt/shinylive/shinyl
-ive.lua:424: in fun
-ction <...t-14/rep
-o/_extensions/quar
-to-ext/shinylive/s
-hinylive.lua:408>
-
-	[C]: in ?
-	[C]: 
-in method 'walk'
-	
-/opt/quarto/share/
-pandoc/datadir/_ut
-ils.lua:607: in function '
-_utils.walk'
-	/opt/
-quarto/share/filte
-rs/main.lua:574: 
-in local 'checked_
-walk'
-	/opt/quarto
-/share/filters/main
-.lua:629: in function '
-run_emulated_fi
-lter'
-	/opt/q
-uarto/share/filters/main.lua:1317: in local 'callback'
-	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
-	/opt/quarto/share/filters/main.lua:1333: in upvalue 'run_emulated_filter_chain'
-	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
 stack traceback:
-	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
-	/opt/quarto/share/filters/main.lua:574: in local 'checked_walk'
-	/opt/quarto/share/filters/main.lua:629: in function 'run_emulated_filter'
-	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
-	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
+	...t-15/r
+epo/_extensions/quarto-ext/shinylive/shinylive.lua:40
+: in global 'throw_quarto_error'
+	...t-15
+/repo/_extensions/quarto-ext/shinyliv
+e/shinylive.lua:57: in global 'callPython
+Shinylive'
+	...t-15/repo/_exte
+nsions/quarto-ext/shinylive/
+shinylive.lua:111: in global 
+'callShinylive'
+	...t-15/rep
+o/_extensions/quarto-ext/shin
+ylive/shinylive.lua:253: in 
+global 'ensurePyshinyliveVer
+sion'
+	...t-15/repo/_extensi
+ons/quarto-ext/shinylive/sh
+inylive.lua:312: in global 
+'ensureLanguageSetup'
+	...t
+-15/repo/_extensions/quarto
+-ext/shinylive/shinylive.lua
+:424: in function <...t-15/repo/_
+extensions/quarto-ext/shinylive/shinylive.lua:408
+>
+	[C]: in ?
+	[C]: in method '
+walk'
+	/opt/quarto/share/pan
+doc/datadir/_utils.lua:607: in function '
+_utils.walk'
+	/opt/quarto/share/fil
+ters/main.lua:574: in local 'checked_walk
+'
+	/opt/quarto/share/filters/
+main.lua:629: in function 'r
+un_emulated_filter'
+	/opt/q
+uarto/share/filters/main.lu
+a:1317: in local 'callback'
+
+	[string "if pandoc.sys
+tem.os == "mingw32" then..."]:77
+8: in field 'withScriptFile'
+	/o
+pt/quarto/share/filters/main
+.lua:1333: in upvalue 'run
+_emulated_filter_chain'
+	/o
+pt/quarto/share/filters/main
+.lua:1371: in function </op
+t/quarto/share/filters/main.
+lua:1368>
+stack traceback:
+
+	/opt/quarto/share/pandoc/d
+atadir/_utils.lua:607: in f
+unction '_utils.walk'
+	/opt/quart
+o/share/filters/main.lua:574:
+ in local 'checked_walk'
+	/opt/quart
+o/share/filters/main.lua:629: in functio
+n 'run_emulated_filter'
+	/op
+t/quarto/share/filters/main
+.lua:1317: in local 'callback'
+	[str
+ing "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
 	/opt/quarto/share/filters/main.lua:1333: in upvalue 'run_emulated_filter_chain'
 	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
 

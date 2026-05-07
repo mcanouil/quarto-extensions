@@ -1,5 +1,20 @@
 Cloning into 'repo'...
 pandoc 
+  to: >-
+    commonmark+autolink_bare_uris+emoji+footnotes+gfm_auto_identifiers+pipe_tables+strikeout+task_lists+tex_math_dollars
+  output-file: README.md
+  standalone: true
+  default-image-extension: png
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  
+Output created: README.md
+
+pandoc 
   to: docx
   output-file: example.docx
   default-image-extension: png
@@ -187,21 +202,6 @@ WARN: typst-gather analyze failed; staging all packages as fallback
 [typst]: Compiling example.typ to example.pdf...DONE
 
 Output created: example-typst.pdf
-
-pandoc 
-  to: >-
-    commonmark+autolink_bare_uris+emoji+footnotes+gfm_auto_identifiers+pipe_tables+strikeout+task_lists+tex_math_dollars
-  output-file: README.md
-  standalone: true
-  default-image-extension: png
-  wrap: preserve
-  variables: {}
-  
-metadata
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  
-Output created: README.md
 
 pandoc 
   to: typst

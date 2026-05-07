@@ -1,13 +1,14 @@
 pandoc 
 
   to: html
-  output-file: minimal_example.html
+  output-file: index.html
   standalone: true
+  embed-resources: true
   section-divs: true
   html-math-method: mathjax
   wrap: none
   default-image-extension: png
-  number-sections: true
+  toc: true
   variables: {}
   
 
@@ -19,11 +20,14 @@ metadata
   lang: en
   engines:
     - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Using nameref
-  nameref:
-    section-number: true
+  title: Prism Quarto Extension
+  subtitle: Quarto Extension
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
   
 
-Output created: minimal_example.html
+Output created: index.html
 
 

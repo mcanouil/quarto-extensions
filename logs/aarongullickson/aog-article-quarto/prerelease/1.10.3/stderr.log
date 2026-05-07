@@ -1,5 +1,5 @@
 Cloning into 'repo'...
-Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6'
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6'
 (as 'lib' is unspecified)
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.2.tar.gz'
 Content type 'binary/octet-stream' length 1356485 bytes (1.3 MB)
@@ -25,13 +25,13 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/RtmpH8gqdk/downloaded_packages'
-Installing packages into '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6'
+	'/tmp/Rtmpt9sZjS/downloaded_packages'
+Installing packages into '/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6'
 (as 'lib' is unspecified)
 also installing the dependencies 'bayestestR', 'datawizard', 'gargle', 'fs', 'htmlwidgets', 'reactable', 'sass', 'checkmate', 'insight', 'parameters', 'performance', 'tables', 'tinytable', 'googledrive', 'googlesheets4', 'reprex', 'bslib'
 
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/bayestestR_0.17.0.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/datawizard_1.3.0.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/datawizard_1.3.1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/gargle_1.6.1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fs_2.1.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/htmlwidgets_1.6.4.tar.gz'
@@ -60,14 +60,14 @@ Perhaps you should add the directory containing `libuv.pc'
 to the PKG_CONFIG_PATH environment variable
 No package 'libuv' found
 ERROR: configuration failed for package 'fs'
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/fs'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/fs'
 * installing *source* package 'checkmate' ...
 ** this is package 'checkmate' version '2.3.4'
 ** package 'checkmate' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** libs
 using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-checkmate/00new/checkmate/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-checkmate/00new/checkmate/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -128,7 +128,7 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86
 ** testing if installed package keeps a record of temporary installation path
 * DONE (tinytable)
 * installing *source* package 'datawizard' ...
-** this is package 'datawizard' version '1.3.0'
+** this is package 'datawizard' version '1.3.1'
 ** package 'datawizard' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
@@ -147,11 +147,11 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86
 ERROR: dependency 'fs' is not available for package 'gargle'
 Perhaps try a variation of:
 install.packages('fs')
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/gargle'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/gargle'
 ERROR: dependency 'fs' is not available for package 'sass'
 Perhaps try a variation of:
 install.packages('fs')
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/sass'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/sass'
 * installing *source* package 'bayestestR' ...
 ** this is package 'bayestestR' version '0.17.0'
 ** package 'bayestestR' successfully unpacked and MD5 sums checked
@@ -172,11 +172,11 @@ install.packages('fs')
 ERROR: dependency 'gargle' is not available for package 'googledrive'
 Perhaps try a variation of:
 install.packages('gargle')
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/googledrive'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/googledrive'
 ERROR: dependency 'sass' is not available for package 'bslib'
 Perhaps try a variation of:
 install.packages('sass')
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/bslib'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/bslib'
 * installing *source* package 'parameters' ...
 ** this is package 'parameters' version '0.28.3'
 ** package 'parameters' successfully unpacked and MD5 sums checked
@@ -212,19 +212,19 @@ install.packages('sass')
 ERROR: dependencies 'gargle', 'googledrive' are not available for package 'googlesheets4'
 Perhaps try a variation of:
 install.packages(c('gargle', 'googledrive'))
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/googlesheets4'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/googlesheets4'
 ERROR: dependency 'bslib' is not available for package 'rmarkdown'
 Perhaps try a variation of:
 install.packages('bslib')
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/rmarkdown'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/rmarkdown'
 ERROR: dependency 'rmarkdown' is not available for package 'htmlwidgets'
 Perhaps try a variation of:
 install.packages('rmarkdown')
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/htmlwidgets'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/htmlwidgets'
 ERROR: dependencies 'fs', 'rmarkdown' are not available for package 'reprex'
 Perhaps try a variation of:
 install.packages(c('fs', 'rmarkdown'))
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/reprex'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/reprex'
 * installing *source* package 'modelsummary' ...
 ** this is package 'modelsummary' version '2.6.0'
 ** package 'modelsummary' successfully unpacked and MD5 sums checked
@@ -243,18 +243,18 @@ install.packages(c('fs', 'rmarkdown'))
 ERROR: dependency 'htmlwidgets' is not available for package 'reactable'
 Perhaps try a variation of:
 install.packages('htmlwidgets')
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/reactable'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/reactable'
 ERROR: dependencies 'googledrive', 'googlesheets4', 'reprex' are not available for package 'tidyverse'
 Perhaps try a variation of:
 install.packages(c('googledrive', 'googlesheets4', 'reprex'))
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/tidyverse'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/tidyverse'
 ERROR: dependencies 'fs', 'htmlwidgets', 'reactable', 'sass' are not available for package 'gt'
 Perhaps try a variation of:
 install.packages(c('fs', 'htmlwidgets', 'reactable', 'sass'))
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6/gt'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/gt'
 
 The downloaded source packages are in
-	'/tmp/RtmpH8gqdk/downloaded_packages'
+	'/tmp/Rtmpt9sZjS/downloaded_packages'
 There were 12 warnings (use warnings() to see them)
 Error in loadNamespace(x) : there is no package called 'rmarkdown'
 Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
@@ -263,7 +263,7 @@ R installation:
   Version: 4.6.0
   Path: /opt/R/4.6.0/lib/R
   LibPaths:
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6
     - /opt/R/4.6.0/lib/R/library
   knitr: 1.51
   rmarkdown: (None)
@@ -280,7 +280,7 @@ R installation:
   Version: 4.6.0
   Path: /opt/R/4.6.0/lib/R
   LibPaths:
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-0/R/x86_64-pc-linux-gnu-library/4.6
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6
     - /opt/R/4.6.0/lib/R/library
   knitr: 1.51
   rmarkdown: (None)
