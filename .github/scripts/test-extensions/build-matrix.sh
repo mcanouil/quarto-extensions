@@ -200,42 +200,15 @@ for channel in release prerelease; do
     echo "::error::Resolved image reference '${image_ref}' is not a valid digest-pinned reference."
     exit 1
   fi
-  if docker run --rm --user root \
-    --cap-drop=ALL --read-only --network=none \
-    "${image_ref}" bash -lc '
-    set -euo pipefail
-    dpkg -s \
-      jq \
-      libcurl4-openssl-dev \
-      libssl-dev \
-      libxml2-dev \
-      libfontconfig1-dev \
-      libharfbuzz-dev \
-      libfribidi-dev \
-      libfreetype6-dev \
-      libpng-dev \
-      libtiff5-dev \
-      libjpeg-dev \
-      libgit2-dev \
-      zlib1g-dev \
-      cmake >/dev/null 2>&1
-  '; then
-    is_ready=true
-  else
-    is_ready=false
-  fi
   image_meta_map=$(echo "${image_meta_map}" | jq \
     --arg ch "${channel}" \
     --arg ref "${image_ref}" \
-    --argjson ready "${is_ready}" \
-    '. + {($ch): {image_ref: $ref, image_ready: $ready}}')
+    '. + {($ch): {image_ref: $ref}}')
 done
 
 if ! echo "${image_meta_map}" | jq -e '
   (.release.image_ref | type == "string")
   and (.prerelease.image_ref | type == "string")
-  and (.release.image_ready | type == "boolean")
-  and (.prerelease.image_ready | type == "boolean")
 ' >/dev/null 2>&1; then
   echo "::error::Image metadata is incomplete."
   exit 1
@@ -261,14 +234,12 @@ matrix=$(echo "${entries}" | jq -c --argjson n "${BATCH_SIZE}" --argjson meta "$
             batch_index: (0 | pad3),
             quarto_channel: "release",
             image_ref: $meta.release.image_ref,
-            image_ready: $meta.release.image_ready,
             extensions: []
           },
           {
             batch_index: (0 | pad3),
             quarto_channel: "prerelease",
             image_ref: $meta.prerelease.image_ref,
-            image_ready: $meta.prerelease.image_ready,
             extensions: []
           }
         ]
@@ -287,14 +258,12 @@ matrix=$(echo "${entries}" | jq -c --argjson n "${BATCH_SIZE}" --argjson meta "$
                       batch_index: ($bi | pad3),
                       quarto_channel: "release",
                       image_ref: $meta.release.image_ref,
-                      image_ready: $meta.release.image_ready,
                       extensions: $all[$s:($s + $n)]
                     },
                     {
                       batch_index: ($bi | pad3),
                       quarto_channel: "prerelease",
                       image_ref: $meta.prerelease.image_ref,
-                      image_ready: $meta.prerelease.image_ready,
                       extensions: $all[$s:($s + $n)]
                     }
                   ]

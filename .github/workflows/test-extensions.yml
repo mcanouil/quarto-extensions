@@ -24,6 +24,7 @@ jobs:
       packages: write
 
   build-matrix:
+    needs: [build-test-image]
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -66,7 +67,7 @@ jobs:
 
   test-extensions:
     name: test-extensions (batch ${{ matrix.batch_index }}, ${{ matrix.quarto_channel }})
-    needs: [build-test-image, build-matrix]
+    needs: [build-matrix]
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -80,7 +81,6 @@ jobs:
         shell: bash
     env:
       IMAGE: ${{ matrix.image_ref }}
-      IMAGE_READY: ${{ matrix.image_ready }}
       QUARTO_CHANNEL: ${{ matrix.quarto_channel }}
     steps:
       - name: Checkout scripts
@@ -114,40 +114,8 @@ jobs:
             echo "::error::Image reference '${IMAGE}' is not a valid digest-pinned reference."
             exit 1
           fi
-          if [[ "${IMAGE_READY}" == "true" ]]; then
-            docker pull "${IMAGE}"
-            docker tag "${IMAGE}" render-image
-          else
-            echo "::notice::IMAGE_READY=false for ${QUARTO_CHANNEL}. Rebuilding from inline Dockerfile (~15 min overhead)."
-            docker build \
-              --build-arg BASE_IMAGE="${IMAGE}" \
-              --build-arg HOST_UID="$(id -u)" \
-              --build-arg HOST_GID="$(id -g)" \
-              -t render-image - <<'DOCKERFILE'
-          ARG BASE_IMAGE
-          ARG HOST_UID=1000
-          ARG HOST_GID=1000
-          FROM ${BASE_IMAGE}
-          USER root
-          RUN apt-get update -qq && apt-get install -y -qq --no-install-recommends \
-              jq libcurl4-openssl-dev libssl-dev libxml2-dev libfontconfig1-dev \
-              libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev \
-              libtiff5-dev libjpeg-dev libwebp-dev libgit2-dev zlib1g-dev cmake \
-              ghostscript \
-              && rm -rf /var/lib/apt/lists/*
-          RUN Rscript -e 'install.packages(c("rmarkdown", "knitr", "reticulate", "ggplot2", "dplyr", "tidyverse", "kableExtra", "palmerpenguins", "gt", "tibble", "ragg"), repos = "https://cloud.r-project.org", lib = .Library)'
-          ARG HOST_UID
-          ARG HOST_GID
-          RUN if [ -d /opt/tinytex ]; then chown -R ${HOST_UID}:${HOST_GID} /opt/tinytex; fi
-          USER vscode
-          ENV UV_LINK_MODE=copy
-          RUN uv venv /home/vscode/.venv \
-              && . /home/vscode/.venv/bin/activate \
-              && uv pip install jupyter papermill matplotlib shinylive
-          ENV VIRTUAL_ENV=/home/vscode/.venv
-          ENV PATH="/home/vscode/.venv/bin:${PATH}"
-          DOCKERFILE
-          fi
+          docker pull "${IMAGE}"
+          docker tag "${IMAGE}" render-image
 
       - name: Clone extensions
         if: steps.inspect-batch.outputs.count != '0'
