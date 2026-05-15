@@ -1,0 +1,33 @@
+
+
+pandoc 
+
+  to: html
+  output-file: multi_document.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Using acronyms in a multi-document project
+  description: |
+    Learn how to use acronyms in several documents, for example a website or book; how to control where the List of Acronyms appear, which acronyms appear on which pages, etc.
+  
+
+Output created: ../_site/advanced/multi_document.html
+
+

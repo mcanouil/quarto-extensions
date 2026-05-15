@@ -1,4 +1,293 @@
 Cloning into 'repo'...
+CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
+pandoc 
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Footnote symbols
+  extensions:
+    footnote-styles:
+      style: symbols
+  
+Output created: example.html
+
+pandoc 
+  to: latex
+  output-file: example.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Footnote symbols
+  extensions:
+    footnote-styles:
+      style: symbols
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+finding package for scrartcl.cls
+> 1 package to install
+> installing koma-script (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: example.pdf
+
+pandoc 
+  to: typst
+  output-file: example.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Footnote symbols
+  extensions:
+    footnote-styles:
+      style: symbols
+  
+[typst]: Compiling example.typ to example.pdf...DONE
+
+Output created: example-typst.pdf
+
+pandoc 
+  to: >-
+    commonmark+autolink_bare_uris+emoji+footnotes+gfm_auto_identifiers+pipe_tables+strikeout+task_lists+tex_math_dollars
+  from: markdown+gfm_auto_identifiers
+  output-file: README.md
+  standalone: true
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  
+Output created: README.md
+
+pandoc 
+  to: html
+  output-file: example-symbols.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Symbols
+  extensions:
+    footnote-styles:
+      style: symbols
+  
+Output created: example-symbols.html
+
+pandoc 
+  to: latex
+  output-file: example-symbols.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Symbols
+  extensions:
+    footnote-styles:
+      style: symbols
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: example-symbols.pdf
+
+pandoc 
+  to: typst
+  output-file: example-symbols.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Symbols
+  extensions:
+    footnote-styles:
+      style: symbols
+  
+[typst]: Compiling example-symbols.typ to example-symbols.pdf...DONE
+
+Output created: example-symbols-typst.pdf
+
+pandoc 
+  to: html
+  output-file: example-continuation.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Continuing from a Previous Document
+  extensions:
+    footnote-styles:
+      style: roman-lower
+      text-suffix: .
+      start-at: 4
+  
+Output created: example-continuation.html
+
+pandoc 
+  to: latex
+  output-file: example-continuation.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Continuing from a Previous Document
+  extensions:
+    footnote-styles:
+      style: roman-lower
+      text-suffix: .
+      start-at: 4
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: example-continuation.pdf
+
+pandoc 
+  to: typst
+  output-file: example-continuation.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Continuing from a Previous Document
+  extensions:
+    footnote-styles:
+      style: roman-lower
+      text-suffix: .
+      start-at: 4
+  
+[typst]: Compiling example-continuation.typ to example-continuation.pdf...DONE
+
+Output created: example-continuation-typst.pdf
+
 pandoc 
   to: html
   output-file: example-custom-restart.html
@@ -65,17 +354,6 @@ running lualatex - 1
   This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
    restricted system commands enabled.
   
-updating tlmgr
-
-updating existing packages
-finding package for scrartcl.cls
-> 1 package to install
-> installing koma-script (1 of 1)
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-  luaotfload | db : Font names database not found, generating new one.
-  luaotfload | db : This can take several minutes; please be patient.
 running lualatex - 2
   This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
    restricted system commands enabled.
@@ -109,191 +387,6 @@ metadata
 [typst]: Compiling example-custom-restart.typ to example-custom-restart.pdf...DONE
 
 Output created: example-custom-restart-typst.pdf
-
-pandoc 
-  to: html
-  output-file: example-padded.html
-  standalone: true
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  variables: {}
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Zero-Padded Numbers with Period
-  extensions:
-    footnote-styles:
-      style: numeric-02
-      text-suffix: .
-  
-Output created: example-padded.html
-
-pandoc 
-  to: latex
-  output-file: example-padded.tex
-  standalone: true
-  pdf-engine: lualatex
-  variables:
-    graphics: true
-    tables: true
-  default-image-extension: pdf
-  
-metadata
-  documentclass: scrartcl
-  classoption:
-    - DIV=11
-    - numbers=noendperiod
-  papersize: letter
-  header-includes:
-    - \KOMAoption{captions}{tableheading}
-  block-headings: true
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Zero-Padded Numbers with Period
-  extensions:
-    footnote-styles:
-      style: numeric-02
-      text-suffix: .
-  
-
-Rendering PDF
-running lualatex - 1
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-running lualatex - 2
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-
-Output created: example-padded.pdf
-
-pandoc 
-  to: typst
-  output-file: example-padded.typ
-  standalone: true
-  shift-heading-level-by: -1
-  default-image-extension: svg
-  wrap: none
-  citeproc: false
-  variables: {}
-  
-metadata
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Zero-Padded Numbers with Period
-  extensions:
-    footnote-styles:
-      style: numeric-02
-      text-suffix: .
-  
-[typst]: Compiling example-padded.typ to example-padded.pdf...DONE
-
-Output created: example-padded-typst.pdf
-
-pandoc 
-  to: html
-  output-file: example-parens.html
-  standalone: true
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  variables: {}
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Parenthesized Roman Numerals
-  extensions:
-    footnote-styles:
-      style: roman-lower
-      marker-prefix: (
-      marker-suffix: )
-      text-prefix: (
-      text-suffix: )
-  
-Output created: example-parens.html
-
-pandoc 
-  to: latex
-  output-file: example-parens.tex
-  standalone: true
-  pdf-engine: lualatex
-  variables:
-    graphics: true
-    tables: true
-  default-image-extension: pdf
-  
-metadata
-  documentclass: scrartcl
-  classoption:
-    - DIV=11
-    - numbers=noendperiod
-  papersize: letter
-  header-includes:
-    - \KOMAoption{captions}{tableheading}
-  block-headings: true
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Parenthesized Roman Numerals
-  extensions:
-    footnote-styles:
-      style: roman-lower
-      marker-prefix: (
-      marker-suffix: )
-      text-prefix: (
-      text-suffix: )
-  
-
-Rendering PDF
-running lualatex - 1
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-running lualatex - 2
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-
-Output created: example-parens.pdf
-
-pandoc 
-  to: typst
-  output-file: example-parens.typ
-  standalone: true
-  shift-heading-level-by: -1
-  default-image-extension: svg
-  wrap: none
-  citeproc: false
-  variables: {}
-  
-metadata
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Parenthesized Roman Numerals
-  extensions:
-    footnote-styles:
-      style: roman-lower
-      marker-prefix: (
-      marker-suffix: )
-      text-prefix: (
-      text-suffix: )
-  
-[typst]: Compiling example-parens.typ to example-parens.pdf...DONE
-
-Output created: example-parens-typst.pdf
 
 pandoc 
   to: html
@@ -473,7 +566,7 @@ Output created: example-roman-period-typst.pdf
 
 pandoc 
   to: html
-  output-file: example-continuation.html
+  output-file: example-parens.html
   standalone: true
   section-divs: true
   html-math-method: mathjax
@@ -488,18 +581,20 @@ metadata
   lang: en
   engines:
     - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Continuing from a Previous Document
+  title: Parenthesized Roman Numerals
   extensions:
     footnote-styles:
       style: roman-lower
-      text-suffix: .
-      start-at: 4
+      marker-prefix: (
+      marker-suffix: )
+      text-prefix: (
+      text-suffix: )
   
-Output created: example-continuation.html
+Output created: example-parens.html
 
 pandoc 
   to: latex
-  output-file: example-continuation.tex
+  output-file: example-parens.tex
   standalone: true
   pdf-engine: lualatex
   variables:
@@ -518,12 +613,14 @@ metadata
   block-headings: true
   engines:
     - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Continuing from a Previous Document
+  title: Parenthesized Roman Numerals
   extensions:
     footnote-styles:
       style: roman-lower
-      text-suffix: .
-      start-at: 4
+      marker-prefix: (
+      marker-suffix: )
+      text-prefix: (
+      text-suffix: )
   
 
 Rendering PDF
@@ -536,11 +633,11 @@ running lualatex - 2
    restricted system commands enabled.
   
 
-Output created: example-continuation.pdf
+Output created: example-parens.pdf
 
 pandoc 
   to: typst
-  output-file: example-continuation.typ
+  output-file: example-parens.typ
   standalone: true
   shift-heading-level-by: -1
   default-image-extension: svg
@@ -551,20 +648,22 @@ pandoc
 metadata
   engines:
     - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Continuing from a Previous Document
+  title: Parenthesized Roman Numerals
   extensions:
     footnote-styles:
       style: roman-lower
-      text-suffix: .
-      start-at: 4
+      marker-prefix: (
+      marker-suffix: )
+      text-prefix: (
+      text-suffix: )
   
-[typst]: Compiling example-continuation.typ to example-continuation.pdf...DONE
+[typst]: Compiling example-parens.typ to example-parens.pdf...DONE
 
-Output created: example-continuation-typst.pdf
+Output created: example-parens-typst.pdf
 
 pandoc 
   to: html
-  output-file: example-symbols.html
+  output-file: example-padded.html
   standalone: true
   section-divs: true
   html-math-method: mathjax
@@ -579,16 +678,17 @@ metadata
   lang: en
   engines:
     - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Symbols
+  title: Zero-Padded Numbers with Period
   extensions:
     footnote-styles:
-      style: symbols
+      style: numeric-02
+      text-suffix: .
   
-Output created: example-symbols.html
+Output created: example-padded.html
 
 pandoc 
   to: latex
-  output-file: example-symbols.tex
+  output-file: example-padded.tex
   standalone: true
   pdf-engine: lualatex
   variables:
@@ -607,10 +707,11 @@ metadata
   block-headings: true
   engines:
     - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Symbols
+  title: Zero-Padded Numbers with Period
   extensions:
     footnote-styles:
-      style: symbols
+      style: numeric-02
+      text-suffix: .
   
 
 Rendering PDF
@@ -623,11 +724,11 @@ running lualatex - 2
    restricted system commands enabled.
   
 
-Output created: example-symbols.pdf
+Output created: example-padded.pdf
 
 pandoc 
   to: typst
-  output-file: example-symbols.typ
+  output-file: example-padded.typ
   standalone: true
   shift-heading-level-by: -1
   default-image-extension: svg
@@ -638,113 +739,13 @@ pandoc
 metadata
   engines:
     - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Symbols
+  title: Zero-Padded Numbers with Period
   extensions:
     footnote-styles:
-      style: symbols
+      style: numeric-02
+      text-suffix: .
   
-[typst]: Compiling example-symbols.typ to example-symbols.pdf...DONE
+[typst]: Compiling example-padded.typ to example-padded.pdf...DONE
 
-Output created: example-symbols-typst.pdf
-
-pandoc 
-  to: >-
-    commonmark+autolink_bare_uris+emoji+footnotes+gfm_auto_identifiers+pipe_tables+strikeout+task_lists+tex_math_dollars
-  from: markdown+gfm_auto_identifiers
-  output-file: README.md
-  standalone: true
-  default-image-extension: png
-  toc: true
-  variables: {}
-  
-metadata
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  
-Output created: README.md
-
-pandoc 
-  to: html
-  output-file: example.html
-  standalone: true
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  variables: {}
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Footnote symbols
-  extensions:
-    footnote-styles:
-      style: symbols
-  
-Output created: example.html
-
-pandoc 
-  to: latex
-  output-file: example.tex
-  standalone: true
-  pdf-engine: lualatex
-  variables:
-    graphics: true
-    tables: true
-  default-image-extension: pdf
-  
-metadata
-  documentclass: scrartcl
-  classoption:
-    - DIV=11
-    - numbers=noendperiod
-  papersize: letter
-  header-includes:
-    - \KOMAoption{captions}{tableheading}
-  block-headings: true
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Footnote symbols
-  extensions:
-    footnote-styles:
-      style: symbols
-  
-
-Rendering PDF
-running lualatex - 1
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-running lualatex - 2
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-
-Output created: example.pdf
-
-pandoc 
-  to: typst
-  output-file: example.typ
-  standalone: true
-  shift-heading-level-by: -1
-  default-image-extension: svg
-  wrap: none
-  citeproc: false
-  variables: {}
-  
-metadata
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Footnote symbols
-  extensions:
-    footnote-styles:
-      style: symbols
-  
-[typst]: Compiling example.typ to example.pdf...DONE
-
-Output created: example-typst.pdf
+Output created: example-padded-typst.pdf
 

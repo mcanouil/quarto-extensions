@@ -1,76 +1,67 @@
 Cloning into 'repo'...
+CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
 [1/4] index.qmd
 
 Starting python3 kernel...Done
 
 Executing 'index.quarto_ipynb'
 
-(E) Error running 'shinylive' command. Perhaps you need to install / update the 'shinylive' Python package?
- Error:
- PandocError {}
-Error running filter /opt/quarto/share/filters/main.lua:
-...t-15/repo/_extensions/quarto-ext/shinylive/shinylive.lua:40: Error running 'shinylive' command. Perhaps you need to install / update the 'shinylive' Python package?
-
-stack traceback:
-	...t-15/repo/_extensions/quarto-ext/shinylive/shinylive.lua:40: in global 'throw_quarto_error'
-	...t-15/repo/_extensions/quarto-ext/shinylive/shinylive.lua:57: in global 'callPythonShinylive'
-	...t-15/repo/_extensions/quarto-ext/shinylive/shinylive.lua:111: in global 'callShinylive'
-	...t-15/repo/_extensions/quarto-ext/shinylive/shinylive.lua:253: in global 'ensurePyshinyliveVersion'
-	...t-15/repo/_extensions/quarto-ext/shinylive/shinylive.lua:312: in global 'ensureLanguageSetup'
-	...t-15/repo/_extensions/quarto-ext/shinylive/shinylive.lua:424: in function <...t-15/repo/_extensions/quarto-ext/shinylive/shinylive.lua:408>
-	[C]: in ?
-	[C]: in method 'walk'
-	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
-	/opt/quarto/share/filters/main.lua:574: in local 'checked_walk'
-	/opt/quarto/share/filters/main.lua:629: in function 'run_emulated_filter'
-	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
-	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
-	/opt/quarto/share/filters/main.lua:1333: in upvalue 'run_emulated_filter_chain'
-	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
-stack traceback:
-	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
-	/opt/quarto/share/filters/main.lua:574: in local 'checked_walk'
-	/opt/quarto/share/filters/main.lua:629: in function 'run_emulated_filter'
-	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
-	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
-	/opt/quarto/share/filters/main.lua:1333: in upvalue 'run_emulated_filter_chain'
-	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
-WARN: Error encountered when rendering files
-Render failed, retrying once...
-[1/4] index.qmd
+Creating directory /home/runner/work/quarto-extensions/quarto-extensions/test-22/.cache/shinylive
+/home/runner/work/quarto-extensions/quarto-extensions/test-22/.cache/shinylive/shinylive-0.10.9 does not exist.
+Downloading https://github.com/posit-dev/shinylive/releases/download/v0.10.9/shinylive-0.10.9.tar.gz...
+16%, 70549 KB/s, 70.0/412.8 MB55%, 114574 KB/s, 230.0/412.8 MB94%, 130848 KB/s, 390.5/412.8 MB
+Unzipping to /home/runner/work/quarto-extensions/quarto-extensions/test-22/.cache/shinylive/
+Download https://deno.land/std/io/mod.ts
+Warning Implicitly using latest version (0.224.0) for https://deno.land/std/io/mod.ts
+Download https://deno.land/std@0.224.0/io/mod.ts
+Download https://deno.land/std@0.224.0/io/buf_reader.ts
+Download https://deno.land/std@0.224.0/io/buf_writer.ts
+Download https://deno.land/std@0.224.0/io/buffer.ts
+Download https://deno.land/std@0.224.0/io/copy.ts
+Download https://deno.land/std@0.224.0/io/copy_n.ts
+Download https://deno.land/std@0.224.0/io/iterate_reader.ts
+Download https://deno.land/std@0.224.0/io/limited_reader.ts
+Download https://deno.land/std@0.224.0/io/multi_reader.ts
+Download https://deno.land/std@0.224.0/io/read_all.ts
+Download https://deno.land/std@0.224.0/io/read_delim.ts
+Download https://deno.land/std@0.224.0/io/read_int.ts
+Download https://deno.land/std@0.224.0/io/read_lines.ts
+Download https://deno.land/std@0.224.0/io/read_long.ts
+Download https://deno.land/std@0.224.0/io/read_range.ts
+Download https://deno.land/std@0.224.0/io/read_short.ts
+Download https://deno.land/std@0.224.0/io/read_string_delim.ts
+Download https://deno.land/std@0.224.0/io/reader_from_stream_reader.ts
+Download https://deno.land/std@0.224.0/io/slice_long_to_bytes.ts
+Download https://deno.land/std@0.224.0/io/string_reader.ts
+Download https://deno.land/std@0.224.0/io/string_writer.ts
+Download https://deno.land/std@0.224.0/io/to_readable_stream.ts
+Download https://deno.land/std@0.224.0/io/to_writable_stream.ts
+Download https://deno.land/std@0.224.0/io/types.ts
+Download https://deno.land/std@0.224.0/io/write_all.ts
+Download https://deno.land/std@0.224.0/assert/assert.ts
+Download https://deno.land/std@0.224.0/bytes/copy.ts
+Download https://deno.land/std@0.224.0/io/_constants.ts
+Download https://deno.land/std@0.224.0/bytes/concat.ts
+Download https://deno.land/std@0.224.0/io/_common.ts
+Download https://deno.land/std@0.224.0/assert/assertion_error.ts
+[2/4] sine.qmd
 
 Starting python3 kernel...Done
 
-Executing 'index.quarto_ipynb'
+Executing 'sine.quarto_ipynb'
 
-(E) Error running 'shinylive' command. Perhaps you need to install / update the 'shinylive' Python package?
- Error:
- PandocError {}
-Error running filter /opt/quarto/share/filters/main.lua:
-...t-15/repo/_extensions/quarto-ext/shinylive/shinylive.lua:40: Error running 'shinylive' command. Perhaps you need to install / update the 'shinylive' Python package?
+[3/4] experimental.qmd
 
-stack traceback:
-	...t-15/repo/_extensions/quarto-ext/shinylive/shinylive.lua:40: in global 'throw_quarto_error'
-	...t-15/repo/_extensions/quarto-ext/shinylive/shinylive.lua:57: in global 'callPythonShinylive'
-	...t-15/repo/_extensions/quarto-ext/shinylive/shinylive.lua:111: in global 'callShinylive'
-	...t-15/repo/_extensions/quarto-ext/shinylive/shinylive.lua:253: in global 'ensurePyshinyliveVersion'
-	...t-15/repo/_extensions/quarto-ext/shinylive/shinylive.lua:312: in global 'ensureLanguageSetup'
-	...t-15/repo/_extensions/quarto-ext/shinylive/shinylive.lua:424: in function <...t-15/repo/_extensions/quarto-ext/shinylive/shinylive.lua:408>
-	[C]: in ?
-	[C]: in method 'walk'
-	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
-	/opt/quarto/share/filters/main.lua:574: in local 'checked_walk'
-	/opt/quarto/share/filters/main.lua:629: in function 'run_emulated_filter'
-	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
-	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
-	/opt/quarto/share/filters/main.lua:1333: in upvalue 'run_emulated_filter_chain'
-	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
-stack traceback:
-	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
-	/opt/quarto/share/filters/main.lua:574: in local 'checked_walk'
-	/opt/quarto/share/filters/main.lua:629: in function 'run_emulated_filter'
-	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
-	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
-	/opt/quarto/share/filters/main.lua:1333: in upvalue 'run_emulated_filter_chain'
-	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
-WARN: Error encountered when rendering files
+Starting python3 kernel...Done
+
+Executing 'experimental.quarto_ipynb'
+
+[4/4] load_file.qmd
+
+Starting python3 kernel...Done
+
+Executing 'load_file.quarto_ipynb'
+
+
+Output created: docs/index.html
+

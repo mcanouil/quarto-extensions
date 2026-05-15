@@ -1,60 +1,5 @@
 Cloning into 'repo'...
-pandoc 
-  to: html
-  output-file: index.html
-  standalone: true
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  variables: {}
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title-block-banner: '#222222'
-  theme:
-    - default
-    - ../../style.scss
-  linkcolor: '#ff3e00'
-  callout-appearance: simple
-  title: Default prop values
-  description: More advanced ways to instantiate your Svelte components and pass props to them.
-  
-Output created: ../../_site/articles/default-prop-values/index.html
-
-pandoc 
-  to: html
-  output-file: index.html
-  standalone: true
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  variables: {}
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title-block-banner: '#222222'
-  theme:
-    - default
-    - ../../style.scss
-  linkcolor: '#ff3e00'
-  callout-appearance: simple
-  title: Migrating from Sverto v1 and Svelte 3
-  date: '2025-06-12'
-  
-Output created: ../../_site/articles/migrating-from-sverto-v1/index.html
-
+CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
 pandoc 
   to: html
   output-file: index.html
@@ -84,7 +29,22 @@ metadata
     contents:
       - '*/index.qmd'
   
+WARN: Unable to read listing item description from articles/migrating-from-sverto-v1/index.html
+WARN: Unable to read listing preview image from articles/default-prop-values/index.html
+WARN: Unable to read listing preview image from articles/migrating-from-sverto-v1/index.html
 Output created: ../_site/articles/index.html
+
+[1/2] articles/default-prop-values/index.qmd
+[2/2] articles/index.qmd
+
+WARN: Unable to read listing item description from articles/migrating-from-sverto-v1/index.html
+WARN: Unable to read listing preview image from articles/migrating-from-sverto-v1/index.html
+Output created: ../../_site/articles/default-prop-values/index.html
+
+[1/2] articles/migrating-from-sverto-v1/index.qmd
+[2/2] articles/index.qmd
+
+Output created: ../../_site/articles/migrating-from-sverto-v1/index.html
 
 pandoc 
   to: html
@@ -94,6 +54,7 @@ pandoc
   html-math-method: mathjax
   wrap: none
   default-image-extension: png
+  toc: true
   variables: {}
   
 metadata
@@ -106,28 +67,26 @@ metadata
   title-block-banner: '#222222'
   theme:
     - default
-    - ../../style.scss
+    - style.scss
   linkcolor: '#ff3e00'
   callout-appearance: simple
-  title: 'Examples: time series'
-  author: James Goldie
-  date: last-modified
+  title: quarto-svelte
+  description: '**quarto-svelte** (formerly Sverto) is an extension for [Quarto](https://quarto.org) that lets you seamlessly write and include [Svelte](https://svelte.dev) components, like charts and other visuals, in your Quarto website.'
   quarto-svelte:
     use:
-      - TimeSeriesChart.svelte
-  resources:
-    - '*.csv'
+      - Circles.svelte
+  toc-location: left
   
 [31mFATAL (/opt/quarto/share/filters/main.lua:3760) An error occurred:
-Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/docs/examples/time-series/quarto-svelte as a JSON filter.
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/docs/quarto-svelte as a JSON filter.
 Please make sure the file exists and is executable.
 
 Did you intend 'quarto-svelte' as a Lua filter in an extension?
 If so, make sure you've spelled the name of the extension correctly.
 
 The original Pandoc error follows below.
-Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/docs/examples/time-series/quarto-svelte:
-Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/docs/examples/time-series/quarto-svelte
+Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/docs/quarto-svelte:
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/docs/quarto-svelte
 [39mError running filter /opt/quarto/share/filters/main.lua:
 /opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERROR
 stack traceback:
@@ -148,6 +107,7 @@ pandoc
   html-math-method: mathjax
   wrap: none
   default-image-extension: png
+  toc: true
   variables: {}
   
 metadata
@@ -160,28 +120,26 @@ metadata
   title-block-banner: '#222222'
   theme:
     - default
-    - ../../style.scss
+    - style.scss
   linkcolor: '#ff3e00'
   callout-appearance: simple
-  title: 'Examples: time series'
-  author: James Goldie
-  date: last-modified
+  title: quarto-svelte
+  description: '**quarto-svelte** (formerly Sverto) is an extension for [Quarto](https://quarto.org) that lets you seamlessly write and include [Svelte](https://svelte.dev) components, like charts and other visuals, in your Quarto website.'
   quarto-svelte:
     use:
-      - TimeSeriesChart.svelte
-  resources:
-    - '*.csv'
+      - Circles.svelte
+  toc-location: left
   
 [31mFATAL (/opt/quarto/share/filters/main.lua:3760) An error occurred:
-Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/docs/examples/time-series/quarto-svelte as a JSON filter.
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/docs/quarto-svelte as a JSON filter.
 Please make sure the file exists and is executable.
 
 Did you intend 'quarto-svelte' as a Lua filter in an extension?
 If so, make sure you've spelled the name of the extension correctly.
 
 The original Pandoc error follows below.
-Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/docs/examples/time-series/quarto-svelte:
-Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/docs/examples/time-series/quarto-svelte
+Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/docs/quarto-svelte:
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/docs/quarto-svelte
 [39mError running filter /opt/quarto/share/filters/main.lua:
 /opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERROR
 stack traceback:

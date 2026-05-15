@@ -1,0 +1,66 @@
+
+
+processing file: example_all.qmd
+
+1/1
+
+output file: example_all.knit.md
+
+
+pandoc 
+
+  to: revealjs
+  output-file: example_all.html
+  standalone: true
+  embed-resources: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 3
+  number-sections: true
+  variables: {}
+  
+
+metadata
+
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Quarto Presentations
+  subtitle: Create beautiful interactive slide decks with Reveal.js
+  author: Shafayet Khan Shafee
+  date: last-modified
+  date-format: DD MMM, YYYY
+  slideNumber: true
+  logo: images/quarto.png
+  footer-logo-link: https://quarto.org
+  sc-sb-title: true
+  header: Quarto Presentations with beautiful slide decks made by RevealJs
+  header-logo: images/reveal_logo.svg
+  header-logo-link: https://revealjs.com
+  subtitle-as-header: true
+  footer: <https://quarto.org>
+  
+
+Output created: example_all.html
+
+

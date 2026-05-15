@@ -1,23 +1,299 @@
 
 Starting python3 kernel...
-Traceback (most recent call last):
+Done
 
-  File "/opt/quarto/share/jupyter/jupyter.py", line 20, in <module>
-    from notebook import notebook_execute, RestartKernel
-  File "/opt/quarto/share/jupyter/notebook.py", line 15, in <module>
-    from yaml import safe_load as parse_string
-ModuleNotFoundError: No module named 'yaml'
 
-Python 3 installation:
+Executing 'asce-template.quarto_ipynb'
 
-{}
+  Cell 1/1: 'fig-fill-between'...
+Done
 
 
 
-Jupyter is not available in this Python installation.
-Install with python3 -m pip install jupyter
+pandoc 
+
+  to: latex
+  output-file: asce-template.tex
+  template: _extensions/asce/partials/ascelike-new-template.tex
+  standalone: true
+  pdf-engine: pdflatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  cite-method: natbib
+  
+
+metadata
+
+  block-headings: true
+  citproc: false
+  crossref:
+    fig-prefix: Fig.
+    fig-title: '**Fig.**'
+    tbl-prefix: Table
+    tbl-title: '**Table**'
+    eq-prefix: Eq.
+    sec-prefix: Section
+    title-delim: \.
+  knitr:
+    opts_chunk:
+      echo: false
+  documentclass: ascelike-new
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Template for Preparing Your Submission to the American Society Of Civil Engineers (ASCE)
+  author:
+    - name: Author One, S.M. ASCE
+      affiliations: Graduate Research Associate, First affiliation address
+      email: author.one@email.com
+    - name: Author Two, M. ASCE
+      affiliations: Assistant Professor, Second affiliation address
+      email: author.two@email.com
+    - name: Author three, A.M. ASCE
+      affiliations: Associate Professor, Third affiliation address
+      email: author.three@email.com
+      corresponding: true
+  code-highlighter: true
+  abstract: |
+    The abstract should be a single paragraph (150-175 words long) written
+    in plain language and include a summary of the key conclusions of the
+    manuscript. It should clearly state the purpose of the work, the scope
+    of the effort, the procedures used to execute the work, and major
+    findings. The abstract is the second most important online search
+    discovery element, after the title. Authors should review the abstract
+    to ensure that it accurately reflects the revised paper and should
+    strive to include any applicable keywords that would likely be used
+    during an online search. Mathematics and references are not permitted
+    in the abstract and will be removed by the copyeditors.
+  keywords: template, quarto, asce
+  bibliography:
+    - references.bib
+  publication-type: Journal
+  footer-lastname: Author1
+  classoption:
+    - LineNumbers
+  
+
+[WARNING] Citepro
+c: citation eq-Einstein not found
+[WARNING] Citeproc: citation fig-asce-logo not found
+[WARNING] Citeproc: citation fig-fill-between not found
+[WARNING] Citeproc: citation sec-app-no
+tation not found
+[WARNING] Citepr
+oc: citation sec-app-options no
+t found
+
+Overall totals:
+---------------------------------
+- 4385 total words
+- 3770 words in body and notes
+
+Section totals:
+---------------------------------
+- 3770 words in text body
+- 615 words in reference section
 
 
 
-(WARN) Error encountered when rendering files
+Rendering PDF
+
+running pdflatex - 1
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for authblk.sty
+
+> 1 package to install
+
+> installing preprint (1 of 1)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+finding package for silence.sty
+
+> 1 package to install
+
+> installing silence (1 of 1)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+finding package for newfloat.sty
+
+> 1 package to install
+
+> installing newfloat (1 of 1)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+finding package for newtxtext.sty
+
+> 1 package to install
+
+> installing newtx (1 of 1)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+finding package for xpatch.sty
+
+> 1 package to install
+
+> installing xpatch (1 of 1)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+finding package for xstring.sty
+
+> 1 package to install
+
+> installing xstring (1 of 1)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+finding package for scalefnt.sty
+
+> 1 package to install
+
+> installing carlisle (1 of 1)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+finding package for fontaxes.sty
+
+> 1 package to install
+
+> installing fontaxes (1 of 1)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+finding package for endfloat.sty
+
+> 1 package to install
+
+> installing endfloat (1 of 1)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+finding package for setspace.sty
+
+> 1 package to install
+
+> installing setspace (1 of 1)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+finding package for lineno.sty
+
+> 1 package to install
+
+> installing lineno (1 of 1)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+  kpathsea: Running mktextfm ts1-qtmr
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Could not map source abbreviation  for ts1-qtmr.
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Need to update ?
+  mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input ts1-qtmr
+  This is METAFONT, Version 2.71828182 (TeX Live 2026) (preloaded base=mf)
+  
+  kpathsea: Running mktexmf ts1-qtmr
+  
+  ! I can't find file `ts1-qtmr'.
+  <*> ...four; mag:=1; ; nonstopmode; input ts1-qtmr
+                                                    
+  Please type another input file name
+  ! Emergency stop.
+  <*> ...four; mag:=1; ; nonstopmode; input ts1-qtmr
+                                                    
+  Transcript written on mfput.log.
+  grep: ts1-qtmr.log: No such file or directory
+  mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input ts1-qtmr' failed to make ts1-qtmr.tfm.
+  kpathsea: Appending font creation commands to missfont.log.
+  
+
+finding package for ts1-qtmr(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+
+finding package for ts1-qtmr
+
+finding package for mktextfm
+
+> 2 packages to install
+
+> installing tex-gyre (1 of 2)
+
+> installing texlive-scripts (2 of 2)
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+generating bibliography
+
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: asce-template.aux
+  The style file: ascelike-new.bst
+  Database file #1: references.bib
+  
+
+running pdflatex - 2
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+running pdflatex - 3
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+
+
+Output created: asce-template.pdf
+
 

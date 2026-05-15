@@ -2,28 +2,28 @@ Cloning into 'repo'...
 Using CPython 3.13.9 interpreter at: /usr/local/python/current/bin/python
 Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
-Resolved 22 packages in 915ms
+Resolved 22 packages in 886ms
    Building stata-setup==0.1.3
-Downloading jedi (4.7MiB)
 Downloading pygments (1.2MiB)
-Downloading numpy (15.9MiB)
+Downloading jedi (4.7MiB)
 Downloading pandas (10.4MiB)
+Downloading numpy (15.9MiB)
  Downloaded pygments
       Built stata-setup==0.1.3
  Downloaded numpy
  Downloaded pandas
  Downloaded jedi
-Prepared 22 packages in 1.12s
-Installed 22 packages in 1.17s
+Prepared 22 packages in 1.24s
+Installed 22 packages in 1.18s
  + asttokens==3.0.1
  + decorator==5.2.1
  + executing==2.2.1
  + ipython==9.13.0
  + ipython-pygments-lexers==1.1.1
  + jedi==0.20.0
- + matplotlib-inline==0.2.1
+ + matplotlib-inline==0.2.2
  + numpy==2.4.4
- + pandas==3.0.2
+ + pandas==3.0.3
  + parso==0.8.7
  + pexpect==4.9.0
  + prompt-toolkit==3.0.52
@@ -37,32 +37,71 @@ Installed 22 packages in 1.17s
  + stata-setup==0.1.3
  + traitlets==5.15.0
  + wcwidth==0.7.0
+CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
 
-Starting python3 kernel...Traceback (most recent call last):
-  File "/opt/quarto/share/jupyter/jupyter.py", line 20, in <module>
-    from notebook import notebook_execute, RestartKernel
-  File "/opt/quarto/share/jupyter/notebook.py", line 15, in <module>
-    from yaml import safe_load as parse_string
-ModuleNotFoundError: No module named 'yaml'
-Python 3 installation:
-{}
+Starting python3 kernel...Done
 
-Jupyter is not available in this Python installation.
-Install with python3 -m pip install jupyter
+Executing 'example.quarto_ipynb'
+  Cell 1/2: ''...
+
+An error occurred while executing the following cell:
+------------------
+import stata_setup
+stata_setup.config("C:/Program Files/Stata17", "mp")
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mOSError[39m                                   Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 2[39m
+[32m      1[39m [38;5;28;01mimport[39;00m stata_setup
+[32m----> [39m[32m2[39m stata_setup.config([33m"C:/Program Files/Stata17"[39m, [33m"mp"[39m)
+
+[36mFile [39m[32m~/repo/.venv/lib/python3.13/site-packages/stata_setup.py:38[39m, in [36mconfig[39m[34m(path, edition, splash)[39m
+[32m     19[39m [38;5;250m[39m[33;03m"""[39;00m
+[32m     20[39m [33;03mConfigure Stata within Python.[39;00m
+[32m     21[39m 
+[32m   (...)[39m[32m     35[39m [33;03m    *New in version 0.1.3*.[39;00m
+[32m     36[39m [33;03m"""[39;00m	
+[32m     37[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m os.path.isdir(path):
+[32m---> [39m[32m38[39m     [38;5;28;01mraise[39;00m [38;5;167;01mOSError[39;00m(path + [33m'[39m[33m is invalid[39m[33m'[39m)
+[32m     40[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m os.path.isdir(os.path.join(path, [33m'[39m[33mutilities[39m[33m'[39m)):
+[32m     41[39m     [38;5;28;01mraise[39;00m [38;5;167;01mOSError[39;00m(path + [33m"[39m[33m is not Stata[39m[33m'[39m[33ms installation path[39m[33m"[39m)
+
+[31mOSError[39m: C:/Program Files/Stata17 is invalid
 
 WARN: Error encountered when rendering files
 Render failed, retrying once...
 
-Starting python3 kernel...Traceback (most recent call last):
-  File "/opt/quarto/share/jupyter/jupyter.py", line 20, in <module>
-    from notebook import notebook_execute, RestartKernel
-  File "/opt/quarto/share/jupyter/notebook.py", line 15, in <module>
-    from yaml import safe_load as parse_string
-ModuleNotFoundError: No module named 'yaml'
-Python 3 installation:
-{}
+Starting python3 kernel...Done
 
-Jupyter is not available in this Python installation.
-Install with python3 -m pip install jupyter
+Executing 'example.quarto_ipynb'
+  Cell 1/2: ''...
+
+An error occurred while executing the following cell:
+------------------
+import stata_setup
+stata_setup.config("C:/Program Files/Stata17", "mp")
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mOSError[39m                                   Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 2[39m
+[32m      1[39m [38;5;28;01mimport[39;00m stata_setup
+[32m----> [39m[32m2[39m stata_setup.config([33m"C:/Program Files/Stata17"[39m, [33m"mp"[39m)
+
+[36mFile [39m[32m~/repo/.venv/lib/python3.13/site-packages/stata_setup.py:38[39m, in [36mconfig[39m[34m(path, edition, splash)[39m
+[32m     19[39m [38;5;250m[39m[33;03m"""[39;00m
+[32m     20[39m [33;03mConfigure Stata within Python.[39;00m
+[32m     21[39m 
+[32m   (...)[39m[32m     35[39m [33;03m    *New in version 0.1.3*.[39;00m
+[32m     36[39m [33;03m"""[39;00m	
+[32m     37[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m os.path.isdir(path):
+[32m---> [39m[32m38[39m     [38;5;28;01mraise[39;00m [38;5;167;01mOSError[39;00m(path + [33m'[39m[33m is invalid[39m[33m'[39m)
+[32m     40[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m os.path.isdir(os.path.join(path, [33m'[39m[33mutilities[39m[33m'[39m)):
+[32m     41[39m     [38;5;28;01mraise[39;00m [38;5;167;01mOSError[39;00m(path + [33m"[39m[33m is not Stata[39m[33m'[39m[33ms installation path[39m[33m"[39m)
+
+[31mOSError[39m: C:/Program Files/Stata17 is invalid
 
 WARN: Error encountered when rendering files

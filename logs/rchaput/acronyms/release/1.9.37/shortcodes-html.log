@@ -1,0 +1,33 @@
+
+
+pandoc 
+
+  to: html
+  output-file: shortcodes.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Shortcodes
+  description: |
+    Learn how to use the new shortcode syntax.
+  
+
+Output created: ../_site/articles/shortcodes.html
+
+

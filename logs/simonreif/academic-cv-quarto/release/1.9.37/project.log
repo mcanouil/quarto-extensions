@@ -1,14 +1,14 @@
 [typst]: Compiling Letter.typ to Letter.pdf...
 downloading @preview/fontawesome:0.6.0
 
- 81.9 KiB /  81.9 KiB (100 %)  81.9 KiB/s in 2.46 ms ETA: 0 s
+ 81.9 KiB /  81.9 KiB (100 %)  81.9 KiB/s in 2.39 ms ETA: 0 s
 
 
 warning: unknown font family: source sans 3
     ┌─ Letter.typ:565:18
     │
-565 │   #set text(font: body-font-
-str, size: body-size, weight: 400, fill: main_color)
+565 │ 
+  #set text(font: body-font-str, size: body-size, weight: 400, fill: main_color)
     │                   ^^^^^^^^^^^^^
 
 warning: unknown font family: roboto
@@ -23,37 +23,48 @@ warning: unknown font family: roboto
 691 │            #text(font: heading-font-str, size: 9pt, weight: 700, fill: accent)[#research-area]
     │                        ^^^^^^^^^^^^^^^^
 
+
 warning: unknown font family: roboto
     ┌─ Letter.typ:695:27
     │
 695 │                #text(font: heading-font-str, size: contact-size, weight: 700, fill: main_color)[#location]
-    │                            ^^^^^^^^^^^^^^^^
+    │                       
+     ^^^^^^^^^^^^^^^^
 
 warning: unknown font family: roboto
     ┌─ Letter.typ:699:25
     │
-699 │              #text(font: heading-font-str, size: contact-size, weight: 400, fi
-ll: light-color)[
+699 │              #text(font: heading-font-str, size: contact-size, weight: 400, fill: light-color)
+[
     │                          ^^^^^^^^^^^^^^^^
+
 
 warning: unknown font family: roboto
     ┌─ Letter.typ:711:25
     │
-711 │              #text(font: heading-font-str, size: contact-size, weight: 400, fill: light-color)[
-    │         
-                 ^^^^^^^^^^^^^^^^
+711 │              #text(font: heading-font-str, size
+: contact-size, weight: 400, fill: light-color)[
+    │                       
+   ^^^^^^^^^^^^^^^^
 
 warning: unknown font family: font awesome 7 free
    ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
    │
-80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
-   │             ^^^^^^^^^^^^^
+80 │    
+   font: default_fonts, // If you see warning here, 
+please check whether the FA font is installed
+   │           
+  ^^^^^^^^^^^^^
 
 warning: unknown font family: font awesome 7 brands
    ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
    │
-80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
-   │             ^^^^^^^^^^^^^
+80 │       fo
+nt: default_fonts, // If you see warnin
+g here, please check whether the FA fo
+nt is installed
+   │             ^^^
+^^^^^^^^^^
 
 
 DONE
@@ -63,8 +74,8 @@ DONE
 warning: unknown font family: source sans 3
     ┌─ CV.typ:545:18
     │
-545 
-│   #set text(font: body-font-str, size: body-size, weight: 400, fill: main_color)
+545 │   #set 
+text(font: body-font-str, size: body-size, weight: 400, fill: main_color)
     │                   ^^^^^^^^^^^^^
 
 warning: unknown font family: roboto
@@ -76,93 +87,111 @@ warning: unknown font family: roboto
 warning: unknown font family: roboto
     ┌─ CV.typ:673:23
     │
-673 │            #text(font: heading-font-str, size: 11pt, weight: 700, fill: accent)[#research-area]
-    │                        ^^^^^^^^^^^^^^^^
-
-warning: unknown font family: roboto
-    ┌─ CV.typ:677:26
-    │
-677 │               #text(font: 
-heading-font-str, size: contact-size, weight: 400, fill: light-color)[#location]
-    │                           ^
+673 │            #text(fon
+t: heading-font-str, size: 11pt, weight: 700, fill: accent)[#re
+search-area]
+    │                        ^
 ^^^^^^^^^^^^^^^
 
 warning: unknown font family: roboto
+    ┌─ CV.typ:677:26
+
+    │
+677 │               #text(font: h
+eading-font-str, size: contact-size, 
+weight: 400, fill: light-color)[#lo
+cation]
+    │                     
+      ^^^^^^^^^^^^^^^^
+
+warning: unknown font family: roboto
+
     ┌─ CV.typ:681:25
     │
-681 │              #text(font: he
-ading-font-str, size: contact-size, weight: 400, fill: light-color)[
-    │                
-          ^^^^^^^^^^^^^^^^
+681 │             
+ #text(font: heading-font-str, size
+: contact-size, weight: 400, fill:
+ light-color)[
+    │              
+            ^^^^^^^^^^^^^^^^
+
 
 warning: unknown font family: roboto
     ┌─ CV.typ:693:25
     │
-693 │    
-          #text(font: heading-font-str, size: contact-size, weight: 40
-0, fill: light-color)[
+693 │              #text(font: heading-font-str, size: contact-size, weigh
+t: 400, fill: light-color)[
     │                          ^^^^^^^^^^^^^^^^
 
 
 warning: unknown font family: roboto
     ┌─ CV.typ:558:16
     │
-558 │     #text(font: heading-font-str,
- size: heading-1-size, weight: 600, fill: accent)[#it.body]
-    │ 
-                ^^^^^^^^^^^^^^^^
+558 │     #text(font: heading-fo
+nt-str, size: heading-1-size, weight: 600, fill: accent
+)[#it.body]
+    │                 ^^^^^^^^^^^^^^^^
 
 warning: unknown font family: font awesome 7 free
    ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
-  
- │
-80 │       font: default_fonts, // If you see warning here, please
- check whether the FA font is installed
-   │             ^^^^^^^
-^^^^^^
+   │
+80
+ │       font: default_fonts, // If you see warning here, please c
+heck whether the FA font is installed
+ 
+  │             ^^^^^^^^^^^^^
+
 
 warning: unknown font family: font awesome 7 brands
    ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
    │
-80 │       font: default_fonts, 
-// If you see warning here, please check whether the FA font is ins
-talled
-   │             ^^^^^^^^^^^^^
+80 │       
+font: default_fonts, // If you see
+ warning here, please check wheth
+er the FA font is installed
+   │
+             ^^^^^^^^^^^^^
 
 warning: unknown font family: source sans 3
-    ┌─ CV.typ:555
-:31
+    ┌─ CV.typ
+:555:31
     │
-555 │   #show emph: it => text(font: body-font-str, style: "italic")[#it.b
-ody]
-    │                                ^^^^^^^^^^^^^
-
+555 │   #show emph: it => text(
+font: body-font-str, style: "itali
+c")[#it.body]
+    │           
+                     ^^^^^^^^^^^^^
 
 warning: unknown font family: roboto
     ┌─ CV.typ:567:36
     │
-567 │       let text-content = text(font: heading-fo
-nt-str, size: heading-2-size, weight: 500, fill: accent)[#heading-text]
-    
-│                                     ^^^^^^^^^^^^^^^^
-
+567 │       let text
+-content = text(font: heading-font-str, size: heading-2-size, w
+eight: 500, fill: accent)[#heading-text]
+    │                                     ^^^^^^^^
+^^^^^^^^
 
 warning: unknown font family: roboto
     ┌─ CV.typ:572:29
     │
-572 │         let dot = text(font:
- heading-font-str, size: heading-2-size, weight: 200, fill: acc
-ent)[·]
-    │                              ^^^^^^^^^^
-^^^^^^
+572 │      
+   let dot = text(font: heading-font
+-str, size: heading-2-size, weig
+ht: 200, fill: accent
+)[·]
+    │                 
+             ^^^^^^^^^^^^^^^^
+
 
 warning: unknown font family: source sans 3
     ┌─ CV.typ:458:14
     │
-458 │   #text(font: body-
-font-str, size: footer-size, fill: light-color)[
-    │         
-      ^^^^^^^^^^^^^
+
+458 │   #text(font: body-font-str
+, size: footer-size, fill: lig
+ht-color)[
+    │              
+ ^^^^^^^^^^^^^
 
 
 DONE

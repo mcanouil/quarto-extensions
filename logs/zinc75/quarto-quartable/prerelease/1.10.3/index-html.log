@@ -1,0 +1,29 @@
+pandoc 
+
+  to: html
+  output-file: index.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: false
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: '`quartable` — Quarto extension'
+  subtitle: Column spans · row spans · midrules · clines · vertical lines · per-cell alignment
+  theme: cosmo
+  
+
+Output created: index.html
+
+

@@ -1,6 +1,10 @@
 Dependency source policy check passed for computorg/computo-quarto-extension.
 Dependency install phase for computorg/computo-quarto-extension: renv.lock
 Installing R dependencies from renv.lock for computorg/computo-quarto-extension.
+** libs
+using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c renv.c -o renv.o
+gcc -std=gnu2x -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o renv.so renv.o -L/opt/R/4.6.0/lib/R/lib -lR
 The following required system packages are not installed:
 - chromium  [required by chromote]
 - pandoc    [required by knitr, rmarkdown]
@@ -15,13 +19,15 @@ The following package(s) will be updated:
 - Matrix        [1.7-5 -> 1.7-3]
 - Rcpp          [1.1.1-1.1 -> 1.0.14]
 - base64enc     [0.1-6 -> 0.1-3]
+- bslib         [0.10.0 -> 0.9.0]
 - cli           [3.6.6 -> 3.6.5]
-- cpp11         [0.5.4 -> 0.5.2]
+- cpp11         [0.5.5 -> 0.5.2]
 - curl          [7.1.0 -> 6.2.3]
-- data.table    [1.18.2.1 -> 1.17.4]
+- data.table    [1.18.4 -> 1.17.4]
 - digest        [0.6.39 -> 0.6.37]
 - dplyr         [1.2.1 -> 1.1.4]
 - evaluate      [1.0.5 -> 1.0.3]
+- fs            [2.1.0 -> 1.6.6]
 - ggplot2       [4.0.3 -> 3.5.2]
 - glue          [1.8.1 -> 1.8.0]
 - highr         [0.12 -> 0.11]
@@ -34,7 +40,7 @@ The following package(s) will be updated:
 - magrittr      [2.0.5 -> 2.0.3]
 - mgcv          [1.9-4 -> 1.9-1]
 - nlme          [3.1-169 -> 3.1-168]
-- openssl       [2.4.0 -> 2.3.3]
+- openssl       [2.4.1 -> 2.3.3]
 - pillar        [1.11.1 -> 1.10.2]
 - png           [0.1-9 -> 0.1-8]
 - processx      [3.9.0 -> 3.8.6]
@@ -44,6 +50,7 @@ The following package(s) will be updated:
 - renv          [1.2.2 -> 1.1.4]
 - reticulate    [1.46.0 -> 1.43.0]
 - rlang         [1.2.0 -> 1.1.6]
+- rmarkdown     [2.31 -> 2.29]
 - stringr       [1.6.0 -> 1.5.1]
 - tibble        [3.3.1 -> 3.2.1]
 - tidyr         [1.3.2 -> 1.3.1]
@@ -54,19 +61,14 @@ The following package(s) will be updated:
 - xfun          [0.57 -> 0.52]
 - yaml          [2.3.12 -> 2.3.10]
 - AsioHeaders   [* -> 1.30.2-1]
-- bslib         [* -> 0.9.0]
 - chromote      [* -> 0.5.1]
 - crosstalk     [* -> 1.2.1]
 - ellipsis      [* -> 0.3.2]
 - fansi         [* -> 1.0.6]
-- fs            [* -> 1.6.6]
-- htmlwidgets   [* -> 1.6.4]
 - later         [* -> 1.4.2]
 - lazyeval      [* -> 0.2.2]
 - plotly        [* -> 4.10.4]
 - promises      [* -> 1.3.3]
-- rmarkdown     [* -> 2.29]
-- sass          [* -> 0.4.10]
 - webshot2      [* -> 0.1.2]
 - websocket     [* -> 1.4.4]
 - zip           [* -> 2.3.3]
@@ -74,110 +76,108 @@ The following package(s) will be updated:
 - Querying repositories for available source packages ... Done!
 # Downloading packages -------------------------------------------------------
 - Querying repositories for available source packages ... Done!
-[?25l  (0/59) Downloading: xfun, bslib, ggplot2, htmlwidgets, ...                                                                                                    y processx 3.8.6                           [165 kB in 0.75s]
-  (1/59) Downloading: xfun, bslib, ggplot2, htmlwidgets, ...                                                                                                    y websocket 1.4.4                          [448 kB in 0.78s]
-  (2/59) Downloading: xfun, bslib, ggplot2, htmlwidgets, ...                                                                                                    y ps 1.9.3                                 [517 kB in 0.78s]
-  (3/59) Downloading: xfun, bslib, ggplot2, htmlwidgets, ...                                                                                                    y crosstalk 1.2.1                          [298 kB in 0.79s]
-  (4/59) Downloading: xfun, bslib, ggplot2, htmlwidgets, ...                                                                                                    y lattice 0.22-6                           [601 kB in 0.8s]
-  (5/59) Downloading: xfun, bslib, ggplot2, htmlwidgets, ...                                                                                                    y htmlwidgets 1.6.4                        [818 kB in 0.8s]
-  (6/59) Downloading: xfun, bslib, ggplot2, vctrs, ...                                                                                                          y vctrs 0.7.3                              [1.9 MB in 0.81s]
-  (7/59) Downloading: xfun, bslib, ggplot2, curl, ...                                                                                                           y lifecycle 1.0.5                          [135 kB in 60s]
-  (8/59) Downloading: xfun, bslib, ggplot2, curl, ...                                                                                                           y highr 0.11                               [13 kB in 0.82s]
-  (9/59) Downloading: xfun, bslib, ggplot2, curl, ...                                                                                                           y xfun 0.52                                [178 kB in 0.82s]
-  (10/59) Downloading: bslib, ggplot2, curl, tibble, ...                                                                                                        y tibble 3.2.1                             [566 kB in 0.83s]
-  (11/59) Downloading: bslib, ggplot2, curl, fansi, ...                                                                                                         y fansi 1.0.6                              [483 kB in 0.84s]
-  (12/59) Downloading: bslib, ggplot2, curl, Matrix, ...                                                                                                        y ggplot2 3.5.2                            [3.6 MB in 0.88s]
-  (13/59) Downloading: bslib, curl, Matrix, data.table, ...                                                                                                     y Matrix 1.7-3                             [2.5 MB in 0.89s]
-  (14/59) Downloading: bslib, curl, data.table, stringr, ...                                                                                                    y data.table 1.17.4                        [5.8 MB in 0.9s]
-  (15/59) Downloading: bslib, curl, stringr, tinytex, ...                                                                                                       y bslib 0.9.0                              [5.4 MB in 0.91s]
-  (16/59) Downloading: curl, stringr, tinytex, chromote, ...                                                                                                    y sass 0.4.10                              [2.4 MB in 0.13s]
-  (17/59) Downloading: curl, stringr, tinytex, chromote, ...                                                                                                    y chromote 0.5.1                           [651 kB in 0.15s]
-  (18/59) Downloading: curl, stringr, tinytex, htmltools, ...                                                                                                   y stringr 1.5.1                            [177 kB in 0.17s]
-  (19/59) Downloading: curl, tinytex, htmltools, yaml, ...                                                                                                      y tinytex 0.57                             [37 kB in 0.16s]
-  (20/59) Downloading: curl, htmltools, yaml, lazyeval, ...                                                                                                     y htmltools 0.5.8.1                        [135 kB in 0.14s]
-  (21/59) Downloading: curl, yaml, lazyeval, plotly, ...                                                                                                        y later 1.4.2                              [70 kB in 0.13s]
-  (22/59) Downloading: curl, yaml, lazyeval, plotly, ...                                                                                                        y yaml 2.3.10                              [95 kB in 0.14s]
-  (23/59) Downloading: curl, lazyeval, plotly, pillar, ...                                                                                                      y curl 6.2.3                               [932 kB in 0.95s]
-  (24/59) Downloading: lazyeval, plotly, pillar, tidyr, ...                                                                                                     y pillar 1.10.2                            [408 kB in 0.13s]
-  (25/59) Downloading: lazyeval, plotly, tidyr, ellipsis, ...                                                                                                   y lazyeval 0.2.2                           [83 kB in 0.14s]
-  (26/59) Downloading: plotly, tidyr, ellipsis, openssl, ...                                                                                                    y tidyr 1.3.1                              [805 kB in 0.13s]
-  (27/59) Downloading: plotly, ellipsis, openssl, nlme, ...                                                                                                     y zip 2.3.3                                [666 kB in 67s]
-  (28/59) Downloading: plotly, ellipsis, openssl, nlme, ...                                                                                                     y ellipsis 0.3.2                           [8 kB in 0.14s]
-  (29/59) Downloading: plotly, openssl, nlme, webshot2, ...                                                                                                     y openssl 2.3.3                            [1.2 MB in 0.13s]
-  (30/59) Downloading: plotly, nlme, webshot2, digest, ...                                                                                                      y digest 0.6.37                            [232 kB in 97s]
-  (31/59) Downloading: plotly, nlme, webshot2, dplyr, ...                                                                                                       y plotly 4.10.4                            [3.9 MB in 0.23s]
-  (32/59) Downloading: nlme, webshot2, dplyr, purrr, ...                                                                                                        y cli 3.6.5                                [638 kB in 0.1s]
-  (33/59) Downloading: nlme, webshot2, dplyr, purrr, ...                                                                                                        y nlme 3.1-168                             [862 kB in 0.14s]
-  (34/59) Downloading: webshot2, dplyr, purrr, magrittr, ...                                                                                                    y rappdirs 0.3.3                           [12 kB in 91s]
-  (35/59) Downloading: webshot2, dplyr, purrr, magrittr, ...                                                                                                    y magrittr 2.0.3                           [267 kB in 0.12s]
-  (36/59) Downloading: webshot2, dplyr, purrr, base64enc, ...                                                                                                   y webshot2 0.1.2                           [572 kB in 0.17s]
-  (37/59) Downloading: dplyr, purrr, base64enc, utf8, ...                                                                                                       y utf8 1.2.5                               [243 kB in 0.13s]
-  (38/59) Downloading: dplyr, purrr, base64enc, promises, ...                                                                                                   y purrr 1.0.4                              [255 kB in 0.14s]
-  (39/59) Downloading: dplyr, base64enc, promises, cpp11, ...                                                                                                   y otel 0.2.0                               [284 kB in 57s]
-  (40/59) Downloading: dplyr, base64enc, promises, cpp11, ...                                                                                                   y base64enc 0.1-3                          [8 kB in 0.14s]
-  (41/59) Downloading: dplyr, promises, cpp11, rmarkdown, ...                                                                                                   y dplyr 1.1.4                              [1.2 MB in 0.15s]
-  (42/59) Downloading: promises, cpp11, rmarkdown, httr, ...                                                                                                    y cpp11 0.5.2                              [291 kB in 0.14s]
-  (43/59) Downloading: promises, rmarkdown, httr, reticulate, ...                                                                                               y rlang 1.2.0                              [1.6 MB in 53s]
-  (44/59) Downloading: promises, rmarkdown, httr, reticulate, ...                                                                                               y knitr 1.50                               [534 kB in 0.11s]
-  (45/59) Downloading: promises, rmarkdown, httr, reticulate, ...                                                                                               y promises 1.3.3                           [3.2 MB in 0.2s]
-  (46/59) Downloading: rmarkdown, httr, reticulate, png, ...                                                                                                    y rmarkdown 2.29                           [2.2 MB in 0.16s]
-  (47/59) Downloading: httr, reticulate, png, evaluate, ...                                                                                                     y httr 1.4.7                               [119 kB in 0.16s]
-  (48/59) Downloading: reticulate, png, evaluate, viridisLite, ...                                                                                              y AsioHeaders 1.30.2-1                     [666 kB in 99s]
-  (49/59) Downloading: reticulate, png, evaluate, viridisLite, ...                                                                                              y png 0.1-8                                [26 kB in 0.14s]
-  (50/59) Downloading: reticulate, evaluate, viridisLite, mgcv, ...                                                                                             y viridisLite 0.4.2                        [1.3 MB in 0.14s]
-  (51/59) Downloading: reticulate, evaluate, mgcv, Rcpp, ...                                                                                                    y reticulate 1.43.0                        [1.7 MB in 0.16s]
-  (52/59) Downloading: evaluate, mgcv, Rcpp, isoband, ...                                                                                                       y mgcv 1.9-1                               [1.1 MB in 0.14s]
-  (53/59) Downloading: evaluate, Rcpp, isoband, glue, ...                                                                                                       y isoband 0.2.7                            [1.6 MB in 0.13s]
-  (54/59) Downloading: evaluate, Rcpp, glue, renv, ...                                                                                                          y evaluate 1.0.3                           [38 kB in 0.18s]
-  (55/59) Downloading: Rcpp, glue, renv, fs                                                                                                                     y fs 1.6.6                                 [1.2 MB in 0.14s]
-  (56/59) Downloading: Rcpp, glue, renv                                                                                                                         y renv 1.1.4                               [1.3 MB in 0.16s]
-  (57/59) Downloading: Rcpp, glue                                                                                                                               y Rcpp 1.0.14                              [3.0 MB in 0.17s]
-  (58/59) Downloading: glue                                                                                                                                     y glue 1.8.0                               [127 kB in 0.2s]
-                                                                                Successfully downloaded 59 packages in 1.6 seconds.
+[?25l  (0/57) Downloading: xfun, bslib, ggplot2, websocket, ...                                                                                                      y highr 0.11                               [13 kB in 0.81s]
+  (1/57) Downloading: xfun, bslib, ggplot2, websocket, ...                                                                                                      y lifecycle 1.0.5                          [135 kB in 0.82s]
+  (2/57) Downloading: xfun, bslib, ggplot2, websocket, ...                                                                                                      y crosstalk 1.2.1                          [298 kB in 0.83s]
+  (3/57) Downloading: xfun, bslib, ggplot2, websocket, ...                                                                                                      y websocket 1.4.4                          [451 kB in 0.83s]
+  (4/57) Downloading: xfun, bslib, ggplot2, processx, ...                                                                                                       y ps 1.9.3                                 [515 kB in 0.84s]
+  (5/57) Downloading: xfun, bslib, ggplot2, processx, ...                                                                                                       y xfun 0.52                                [178 kB in 0.84s]
+  (6/57) Downloading: bslib, ggplot2, processx, lattice, ...                                                                                                    y processx 3.8.6                           [165 kB in 0.84s]
+  (7/57) Downloading: bslib, ggplot2, lattice, vctrs, ...                                                                                                       y fansi 1.0.6                              [483 kB in 0.84s]
+  (8/57) Downloading: bslib, ggplot2, lattice, vctrs, ...                                                                                                       y lattice 0.22-6                           [601 kB in 0.85s]
+  (9/57) Downloading: bslib, ggplot2, vctrs, curl, ...                                                                                                          y tibble 3.2.1                             [566 kB in 0.85s]
+  (10/57) Downloading: bslib, ggplot2, vctrs, curl, ...                                                                                                         y vctrs 0.7.3                              [1.9 MB in 0.86s]
+  (11/57) Downloading: bslib, ggplot2, curl, Matrix, ...                                                                                                        y ggplot2 3.5.2                            [3.6 MB in 0.87s]
+  (12/57) Downloading: bslib, curl, Matrix, data.table, ...                                                                                                     y chromote 0.5.1                           [651 kB in 48s]
+  (13/57) Downloading: bslib, curl, Matrix, data.table, ...                                                                                                     y Matrix 1.7-3                             [2.5 MB in 0.88s]
+  (14/57) Downloading: bslib, curl, data.table, stringr, ...                                                                                                    y tinytex 0.57                             [37 kB in 65s]
+  (15/57) Downloading: bslib, curl, data.table, stringr, ...                                                                                                    y zip 2.3.3                                [665 kB in 44s]
+  (16/57) Downloading: bslib, curl, data.table, stringr, ...                                                                                                    y yaml 2.3.10                              [95 kB in 0.1s]
+  (17/57) Downloading: bslib, curl, data.table, stringr, ...                                                                                                    y ellipsis 0.3.2                           [8 kB in 0.11s]
+  (18/57) Downloading: bslib, curl, data.table, stringr, ...                                                                                                    y tidyr 1.3.1                              [805 kB in 0.14s]
+  (19/57) Downloading: bslib, curl, data.table, stringr, ...                                                                                                    y pillar 1.10.2                            [408 kB in 0.15s]
+  (20/57) Downloading: bslib, curl, data.table, stringr, ...                                                                                                    y digest 0.6.37                            [232 kB in 68s]
+  (21/57) Downloading: bslib, curl, data.table, stringr, ...                                                                                                    y htmltools 0.5.8.1                        [135 kB in 0.17s]
+  (22/57) Downloading: bslib, curl, data.table, stringr, ...                                                                                                    y later 1.4.2                              [70 kB in 0.16s]
+  (23/57) Downloading: bslib, curl, data.table, stringr, ...                                                                                                    y plotly 4.10.4                            [3.9 MB in 0.19s]
+  (24/57) Downloading: bslib, curl, data.table, stringr, ...                                                                                                    y webshot2 0.1.2                           [572 kB in 0.17s]
+  (25/57) Downloading: bslib, curl, data.table, stringr, ...                                                                                                    y openssl 2.3.3                            [1.2 MB in 0.19s]
+  (26/57) Downloading: bslib, curl, data.table, stringr, ...                                                                                                    y curl 6.2.3                               [932 kB in 1.1s]
+  (27/57) Downloading: bslib, data.table, stringr, lazyeval, ...                                                                                                y nlme 3.1-168                             [862 kB in 0.19s]
+  (28/57) Downloading: bslib, data.table, stringr, lazyeval, ...                                                                                                y lazyeval 0.2.2                           [83 kB in 0.24s]
+  (29/57) Downloading: bslib, data.table, stringr, dplyr, ...                                                                                                   y purrr 1.0.4                              [255 kB in 0.13s]
+  (30/57) Downloading: bslib, data.table, stringr, dplyr, ...                                                                                                   y magrittr 2.0.3                           [267 kB in 0.12s]
+  (31/57) Downloading: bslib, data.table, stringr, dplyr, ...                                                                                                   y data.table 1.17.4                        [5.8 MB in 1.1s]
+  (32/57) Downloading: bslib, stringr, dplyr, cli, ...                                                                                                          y cli 3.6.5                                [638 kB in 0.13s]
+  (33/57) Downloading: bslib, stringr, dplyr, base64enc, ...                                                                                                    y otel 0.2.0                               [283 kB in 52s]
+  (34/57) Downloading: bslib, stringr, dplyr, base64enc, ...                                                                                                    y promises 1.3.3                           [3.2 MB in 0.13s]
+  (35/57) Downloading: bslib, stringr, dplyr, base64enc, ...                                                                                                    y bslib 0.9.0                              [5.4 MB in 1.2s]
+  (36/57) Downloading: stringr, dplyr, base64enc, utf8, ...                                                                                                     y cpp11 0.5.2                              [291 kB in 0.11s]
+  (37/57) Downloading: stringr, dplyr, base64enc, utf8, ...                                                                                                     y rappdirs 0.3.3                           [12 kB in 0.13s]
+  (38/57) Downloading: stringr, dplyr, base64enc, utf8, ...                                                                                                     y rlang 1.2.0                              [1.6 MB in 41s]
+  (39/57) Downloading: stringr, dplyr, base64enc, utf8, ...                                                                                                     y stringr 1.5.1                            [177 kB in 0.37s]
+  (40/57) Downloading: dplyr, base64enc, utf8, rmarkdown, ...                                                                                                   y utf8 1.2.5                               [243 kB in 0.18s]
+  (41/57) Downloading: dplyr, base64enc, rmarkdown, httr, ...                                                                                                   y viridisLite 0.4.2                        [1.3 MB in 78s]
+  (42/57) Downloading: dplyr, base64enc, rmarkdown, httr, ...                                                                                                   y rmarkdown 2.29                           [2.2 MB in 0.15s]
+  (43/57) Downloading: dplyr, base64enc, httr, reticulate, ...                                                                                                  y AsioHeaders 1.30.2-1                     [666 kB in 48s]
+  (44/57) Downloading: dplyr, base64enc, httr, reticulate, ...                                                                                                  y httr 1.4.7                               [119 kB in 0.17s]
+  (45/57) Downloading: dplyr, base64enc, reticulate, png, ...                                                                                                   y glue 1.8.0                               [127 kB in 76s]
+  (46/57) Downloading: dplyr, base64enc, reticulate, png, ...                                                                                                   y base64enc 0.1-3                          [8 kB in 0.26s]
+  (47/57) Downloading: dplyr, reticulate, png, evaluate, ...                                                                                                    y dplyr 1.1.4                              [1.2 MB in 0.32s]
+  (48/57) Downloading: reticulate, png, evaluate, knitr, ...                                                                                                    y mgcv 1.9-1                               [1.1 MB in 0.14s]
+  (49/57) Downloading: reticulate, png, evaluate, knitr, ...                                                                                                    y isoband 0.2.7                            [1.6 MB in 0.11s]
+  (50/57) Downloading: reticulate, png, evaluate, knitr, ...                                                                                                    y evaluate 1.0.3                           [38 kB in 0.17s]
+  (51/57) Downloading: reticulate, png, knitr, Rcpp, ...                                                                                                        y knitr 1.50                               [534 kB in 0.17s]
+  (52/57) Downloading: reticulate, png, Rcpp, renv, ...                                                                                                         y Rcpp 1.0.14                              [3.0 MB in 0.14s]
+  (53/57) Downloading: reticulate, png, renv, fs                                                                                                                y png 0.1-8                                [26 kB in 0.22s]
+  (54/57) Downloading: reticulate, renv, fs                                                                                                                     y fs 1.6.6                                 [1.2 MB in 0.17s]
+  (55/57) Downloading: reticulate, renv                                                                                                                         y renv 1.1.4                               [1.3 MB in 0.18s]
+  (56/57) Downloading: reticulate                                                                                                                               y reticulate 1.43.0                        [1.7 MB in 0.46s]
+                                                                                Successfully downloaded 57 packages in 1.8 seconds.
 
 # Installing packages --------------------------------------------------------
-  (0/59) Installing: AsioHeaders, Rcpp, base64enc, cli                            (0/59) Installing: AsioHeaders, Rcpp, base64enc, cli                            (0/59) Installing: AsioHeaders, Rcpp, base64enc, cli                            (0/59) Installing: AsioHeaders, Rcpp, base64enc, cli                            (0/59) Installing: AsioHeaders, Rcpp, base64enc, cli                                                                                                          y AsioHeaders 1.30.2-1                     [built from source in 1.3s]
-  (1/59) Installing: Rcpp, base64enc, cli                                         (1/59) Installing: Rcpp, base64enc, cli, cpp11                                                                                                                x Rcpp 1.0.14                             
-  (2/59) Installing: base64enc, cli, cpp11                                        (2/59) Installing: base64enc, cli, cpp11, curl                                  (2/59) Installing: base64enc, cli, cpp11, curl                                  (2/59) Installing: base64enc, cli, cpp11, curl                                                                                                                x base64enc 0.1-3                         
-  (3/59) Installing: cli, cpp11, curl                                             (3/59) Installing: cli, cpp11, curl, data.table                                 (3/59) Installing: cli, cpp11, curl, data.table                                                                                                               y cpp11 0.5.2                              [built from source in 4.2s]
-  (4/59) Installing: cli, curl, data.table                                        (4/59) Installing: cli, curl, data.table, digest                                (4/59) Installing: cli, curl, data.table, digest                                (4/59) Installing: cli, curl, data.table, digest                                                                                                              y curl 6.2.3                               [built from source in 12s]
-  (5/59) Installing: cli, data.table, digest                                      (5/59) Installing: cli, data.table, digest, evaluate                            (5/59) Installing: cli, data.table, digest, evaluate                                                                                                          y evaluate 1.0.3                           [built from source in 5.0s]
-  (6/59) Installing: cli, data.table, digest                                      (6/59) Installing: cli, data.table, digest, fansi                               (6/59) Installing: cli, data.table, digest, fansi                                                                                                             x fansi 1.0.6                             
-  (7/59) Installing: cli, data.table, digest                                      (7/59) Installing: cli, data.table, digest, fs                                  (7/59) Installing: cli, data.table, digest, fs                                                                                                                y digest 0.6.37                            [built from source in 18s]
-  (8/59) Installing: cli, data.table, fs                                          (8/59) Installing: cli, data.table, fs, glue                                    (8/59) Installing: cli, data.table, fs, glue                                    (8/59) Installing: cli, data.table, fs, glue                                                                                                                  y glue 1.8.0                               [built from source in 5.7s]
-  (9/59) Installing: cli, data.table, fs                                          (9/59) Installing: cli, data.table, fs, lattice                                 (9/59) Installing: cli, data.table, fs, lattice                                                                                                               y cli 3.6.5                                [built from source in 31s]
-  (10/59) Installing: data.table, fs, lattice                                     (10/59) Installing: data.table, fs, lattice, magrittr                           (10/59) Installing: data.table, fs, lattice, magrittr                                                                                                         y magrittr 2.0.3                           [built from source in 4.7s]
-  (11/59) Installing: data.table, fs, lattice                                     (11/59) Installing: data.table, fs, lattice, openssl                            (11/59) Installing: data.table, fs, lattice, openssl                            (11/59) Installing: data.table, fs, lattice, openssl                            (11/59) Installing: data.table, fs, lattice, openssl                            (11/59) Installing: data.table, fs, lattice, openssl                                                                                                          y openssl 2.3.3                            [built from source in 16s]
-  (12/59) Installing: data.table, fs, lattice                                     (12/59) Installing: data.table, fs, lattice, otel                               (12/59) Installing: data.table, fs, lattice, otel                                                                                                             y otel 0.2.0                               [built from source in 1.0s]
-  (13/59) Installing: data.table, fs, lattice                                     (13/59) Installing: data.table, fs, lattice, png                                (13/59) Installing: data.table, fs, lattice, png                                                                                                              y png 0.1-8                                [built from source in 4.6s]
-  (14/59) Installing: data.table, fs, lattice                                     (14/59) Installing: data.table, fs, lattice, ps                                 (14/59) Installing: data.table, fs, lattice, ps                                                                                                               y ps 1.9.3                                 [built from source in 1.1s]
-  (15/59) Installing: data.table, fs, lattice                                     (15/59) Installing: data.table, fs, lattice, rappdirs                           (15/59) Installing: data.table, fs, lattice, rappdirs                                                                                                         y lattice 0.22-6                           [built from source in 30s]
-  (16/59) Installing: data.table, fs, rappdirs                                    (16/59) Installing: data.table, fs, rappdirs, renv                              (16/59) Installing: data.table, fs, rappdirs, renv                                                                                                            y rappdirs 0.3.3                           [built from source in 4.1s]
-  (17/59) Installing: data.table, fs, renv                                        (17/59) Installing: data.table, fs, renv, rlang                                 (17/59) Installing: data.table, fs, renv, rlang                                                                                                               y rlang 1.2.0                              [built from source in 1.2s]
-  (18/59) Installing: data.table, fs, renv                                        (18/59) Installing: data.table, fs, renv, utf8                                  (18/59) Installing: data.table, fs, renv, utf8                                                                                                                x data.table 1.17.4                       
-  (19/59) Installing: fs, renv, utf8                                              (19/59) Installing: fs, renv, utf8, viridisLite                                 (19/59) Installing: fs, renv, utf8, viridisLite                                                                                                               y viridisLite 0.4.2                        [built from source in 3.6s]
-  (20/59) Installing: fs, renv, utf8                                              (20/59) Installing: fs, renv, utf8, xfun                                        (20/59) Installing: fs, renv, utf8, xfun                                                                                                                      y utf8 1.2.5                               [built from source in 10s]
-  (21/59) Installing: fs, renv, xfun                                              (21/59) Installing: fs, renv, xfun, yaml                                        (21/59) Installing: fs, renv, xfun, yaml                                        (21/59) Installing: fs, renv, xfun, yaml                                                                                                                      x yaml 2.3.10                             
-  (22/59) Installing: fs, renv, xfun                                              (22/59) Installing: fs, renv, xfun, zip                                         (22/59) Installing: fs, renv, xfun, zip                                                                                                                       y zip 2.3.3                                [built from source in 1.2s]
-  (23/59) Installing: fs, renv, xfun                                              (23/59) Installing: fs, renv, xfun, httr                                        (23/59) Installing: fs, renv, xfun, httr                                                                                                                      y xfun 0.52                                [built from source in 14s]
-  (24/59) Installing: fs, renv, httr                                              (24/59) Installing: fs, renv, httr, processx                                    (24/59) Installing: fs, renv, httr, processx                                                                                                                  y fs 1.6.6                                 [built from source in 1.1m]
-  (25/59) Installing: renv, httr, processx                                        (25/59) Installing: renv, httr, processx, Matrix                                (25/59) Installing: renv, httr, processx, Matrix                                (25/59) Installing: renv, httr, processx, Matrix                                                                                                              y httr 1.4.7                               [built from source in 12s]
-  (26/59) Installing: renv, processx, Matrix                                      (26/59) Installing: renv, processx, Matrix, nlme                                (26/59) Installing: renv, processx, Matrix, nlme                                                                                                              y renv 1.1.4                               [built from source in 38s]
-  (27/59) Installing: processx, Matrix, nlme                                      (27/59) Installing: processx, Matrix, nlme, ellipsis                            (27/59) Installing: processx, Matrix, nlme, ellipsis                                                                                                          y processx 3.8.6                           [built from source in 14s]
-  (28/59) Installing: Matrix, nlme, ellipsis                                      (28/59) Installing: Matrix, nlme, ellipsis, isoband                             (28/59) Installing: Matrix, nlme, ellipsis, isoband                                                                                                           x isoband 0.2.7                           
-  (29/59) Installing: Matrix, nlme, ellipsis                                      (29/59) Installing: Matrix, nlme, ellipsis, lazyeval                            (29/59) Installing: Matrix, nlme, ellipsis, lazyeval                                                                                                          y ellipsis 0.3.2                           [built from source in 5.1s]
-  (30/59) Installing: Matrix, nlme, lazyeval                                      (30/59) Installing: Matrix, nlme, lazyeval, lifecycle                           (30/59) Installing: Matrix, nlme, lazyeval, lifecycle                                                                                                         y lifecycle 1.0.5                          [built from source in 1.1s]
-  (31/59) Installing: Matrix, nlme, lazyeval                                      (31/59) Installing: Matrix, nlme, lazyeval, highr                               (31/59) Installing: Matrix, nlme, lazyeval, highr                                                                                                             x lazyeval 0.2.2                          
-  (32/59) Installing: Matrix, nlme, highr                                         (32/59) Installing: Matrix, nlme, highr, tinytex                                (32/59) Installing: Matrix, nlme, highr, tinytex                                                                                                              y highr 0.11                               [built from source in 3.7s]
-  (33/59) Installing: Matrix, nlme, tinytex                                       (33/59) Installing: Matrix, nlme, tinytex, vctrs                                (33/59) Installing: Matrix, nlme, tinytex, vctrs                                                                                                              y vctrs 0.7.3                              [built from source in 1.0s]
-  (34/59) Installing: Matrix, nlme, tinytex                                       (34/59) Installing: Matrix, nlme, tinytex, pillar                               (34/59) Installing: Matrix, nlme, tinytex, pillar                                                                                                             y tinytex 0.57                             [built from source in 5.8s]
-  (35/59) Installing: Matrix, nlme, pillar                                        (35/59) Installing: Matrix, nlme, pillar, purrr                                 (35/59) Installing: Matrix, nlme, pillar, purrr                                 (35/59) Installing: Matrix, nlme, pillar, purrr                                                                                                               y pillar 1.10.2                            [built from source in 13s]
-  (36/59) Installing: Matrix, nlme, purrr                                         (36/59) Installing: Matrix, nlme, purrr, stringr                                (36/59) Installing: Matrix, nlme, purrr, stringr                                                                                                              y purrr 1.0.4                              [built from source in 13s]
-  (37/59) Installing: Matrix, nlme, stringr                                       (37/59) Installing: Matrix, nlme, stringr, tibble                               (37/59) Installing: Matrix, nlme, stringr, tibble                                                                                                             x tibble 3.2.1                            
-  (38/59) Installing: Matrix, nlme, stringr                                       (38/59) Installing: Matrix, nlme, stringr                                                                                                                     y stringr 1.5.1                            [built from source in 7.1s]
-  (39/59) Installing: Matrix, nlme                                                (39/59) Installing: Matrix, nlme                                                                                                                              y nlme 3.1-168                             [built from source in 38s]
-  (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                      (40/59) Installing: Matrix                                                                                                                                    y Matrix 1.7-3                             [built from source in 2.7m]
-  (41/59) Installing: mgcv                                                        (41/59) Installing: mgcv                                                        (41/59) Installing: mgcv                                                        (41/59) Installing: mgcv                                                        (41/59) Installing: mgcv                                                        (41/59) Installing: mgcv                                                        (41/59) Installing: mgcv                                                        (41/59) Installing: mgcv                                                        (41/59) Installing: mgcv                                                        (41/59) Installing: mgcv                                                                                                                                      y mgcv 1.9-1                               [built from source in 45s]
+  (0/57) Installing: AsioHeaders, Rcpp, base64enc, cli                            (0/57) Installing: AsioHeaders, Rcpp, base64enc, cli                            (0/57) Installing: AsioHeaders, Rcpp, base64enc, cli                            (0/57) Installing: AsioHeaders, Rcpp, base64enc, cli                            (0/57) Installing: AsioHeaders, Rcpp, base64enc, cli                                                                                                          y AsioHeaders 1.30.2-1                     [built from source in 1.4s]
+  (1/57) Installing: Rcpp, base64enc, cli                                         (1/57) Installing: Rcpp, base64enc, cli, cpp11                                                                                                                x Rcpp 1.0.14                             
+  (2/57) Installing: base64enc, cli, cpp11                                        (2/57) Installing: base64enc, cli, cpp11, curl                                  (2/57) Installing: base64enc, cli, cpp11, curl                                  (2/57) Installing: base64enc, cli, cpp11, curl                                                                                                                x base64enc 0.1-3                         
+  (3/57) Installing: cli, cpp11, curl                                             (3/57) Installing: cli, cpp11, curl, data.table                                 (3/57) Installing: cli, cpp11, curl, data.table                                                                                                               y cpp11 0.5.2                              [built from source in 3.7s]
+  (4/57) Installing: cli, curl, data.table                                        (4/57) Installing: cli, curl, data.table, digest                                (4/57) Installing: cli, curl, data.table, digest                                (4/57) Installing: cli, curl, data.table, digest                                                                                                              y curl 6.2.3                               [built from source in 11s]
+  (5/57) Installing: cli, data.table, digest                                      (5/57) Installing: cli, data.table, digest, evaluate                            (5/57) Installing: cli, data.table, digest, evaluate                                                                                                          y evaluate 1.0.3                           [built from source in 4.5s]
+  (6/57) Installing: cli, data.table, digest                                      (6/57) Installing: cli, data.table, digest, fansi                               (6/57) Installing: cli, data.table, digest, fansi                                                                                                             x fansi 1.0.6                             
+  (7/57) Installing: cli, data.table, digest                                      (7/57) Installing: cli, data.table, digest, fs                                  (7/57) Installing: cli, data.table, digest, fs                                                                                                                y digest 0.6.37                            [built from source in 19s]
+  (8/57) Installing: cli, data.table, fs                                          (8/57) Installing: cli, data.table, fs, glue                                    (8/57) Installing: cli, data.table, fs, glue                                                                                                                  y cli 3.6.5                                [built from source in 29s]
+  (9/57) Installing: data.table, fs, glue                                         (9/57) Installing: data.table, fs, glue, lattice                                                                                                              y glue 1.8.0                               [built from source in 4.9s]
+  (10/57) Installing: data.table, fs, lattice                                     (10/57) Installing: data.table, fs, lattice, magrittr                           (10/57) Installing: data.table, fs, lattice, magrittr                           (10/57) Installing: data.table, fs, lattice, magrittr                                                                                                         y magrittr 2.0.3                           [built from source in 4.2s]
+  (11/57) Installing: data.table, fs, lattice                                     (11/57) Installing: data.table, fs, lattice, openssl                            (11/57) Installing: data.table, fs, lattice, openssl                            (11/57) Installing: data.table, fs, lattice, openssl                            (11/57) Installing: data.table, fs, lattice, openssl                                                                                                          y openssl 2.3.3                            [built from source in 14s]
+  (12/57) Installing: data.table, fs, lattice                                     (12/57) Installing: data.table, fs, lattice, otel                               (12/57) Installing: data.table, fs, lattice, otel                                                                                                             y otel 0.2.0                               [built from source in 1.0s]
+  (13/57) Installing: data.table, fs, lattice                                     (13/57) Installing: data.table, fs, lattice, png                                (13/57) Installing: data.table, fs, lattice, png                                                                                                              y png 0.1-8                                [built from source in 4.1s]
+  (14/57) Installing: data.table, fs, lattice                                     (14/57) Installing: data.table, fs, lattice, ps                                 (14/57) Installing: data.table, fs, lattice, ps                                                                                                               y ps 1.9.3                                 [built from source in 0.99s]
+  (15/57) Installing: data.table, fs, lattice                                     (15/57) Installing: data.table, fs, lattice, rappdirs                           (15/57) Installing: data.table, fs, lattice, rappdirs                                                                                                         y lattice 0.22-6                           [built from source in 26s]
+  (16/57) Installing: data.table, fs, rappdirs                                    (16/57) Installing: data.table, fs, rappdirs, renv                              (16/57) Installing: data.table, fs, rappdirs, renv                                                                                                            y rappdirs 0.3.3                           [built from source in 3.6s]
+  (17/57) Installing: data.table, fs, renv                                        (17/57) Installing: data.table, fs, renv, rlang                                 (17/57) Installing: data.table, fs, renv, rlang                                                                                                               y rlang 1.2.0                              [built from source in 1.0s]
+  (18/57) Installing: data.table, fs, renv                                        (18/57) Installing: data.table, fs, renv, utf8                                  (18/57) Installing: data.table, fs, renv, utf8                                                                                                                x data.table 1.17.4                       
+  (19/57) Installing: fs, renv, utf8                                              (19/57) Installing: fs, renv, utf8, viridisLite                                 (19/57) Installing: fs, renv, utf8, viridisLite                                                                                                               y viridisLite 0.4.2                        [built from source in 3.2s]
+  (20/57) Installing: fs, renv, utf8                                              (20/57) Installing: fs, renv, utf8, xfun                                        (20/57) Installing: fs, renv, utf8, xfun                                                                                                                      y utf8 1.2.5                               [built from source in 9.8s]
+  (21/57) Installing: fs, renv, xfun                                              (21/57) Installing: fs, renv, xfun, yaml                                        (21/57) Installing: fs, renv, xfun, yaml                                        (21/57) Installing: fs, renv, xfun, yaml                                                                                                                      x yaml 2.3.10                             
+  (22/57) Installing: fs, renv, xfun                                              (22/57) Installing: fs, renv, xfun, zip                                         (22/57) Installing: fs, renv, xfun, zip                                                                                                                       y zip 2.3.3                                [built from source in 1.1s]
+  (23/57) Installing: fs, renv, xfun                                              (23/57) Installing: fs, renv, xfun, httr                                        (23/57) Installing: fs, renv, xfun, httr                                                                                                                      y xfun 0.52                                [built from source in 12s]
+  (24/57) Installing: fs, renv, httr                                              (24/57) Installing: fs, renv, httr, processx                                    (24/57) Installing: fs, renv, httr, processx                                    (24/57) Installing: fs, renv, httr, processx                                                                                                                  y fs 1.6.6                                 [built from source in 1.1m]
+  (25/57) Installing: renv, httr, processx                                        (25/57) Installing: renv, httr, processx, Matrix                                (25/57) Installing: renv, httr, processx, Matrix                                                                                                              y httr 1.4.7                               [built from source in 11s]
+  (26/57) Installing: renv, processx, Matrix                                      (26/57) Installing: renv, processx, Matrix, nlme                                (26/57) Installing: renv, processx, Matrix, nlme                                                                                                              y renv 1.1.4                               [built from source in 33s]
+  (27/57) Installing: processx, Matrix, nlme                                      (27/57) Installing: processx, Matrix, nlme, ellipsis                            (27/57) Installing: processx, Matrix, nlme, ellipsis                                                                                                          y processx 3.8.6                           [built from source in 14s]
+  (28/57) Installing: Matrix, nlme, ellipsis                                      (28/57) Installing: Matrix, nlme, ellipsis, isoband                                                                                                           y ellipsis 0.3.2                           [built from source in 4.7s]
+  (29/57) Installing: Matrix, nlme, isoband                                       (29/57) Installing: Matrix, nlme, isoband, lazyeval                             (29/57) Installing: Matrix, nlme, isoband, lazyeval                             (29/57) Installing: Matrix, nlme, isoband, lazyeval                                                                                                           x isoband 0.2.7                           
+  (30/57) Installing: Matrix, nlme, lazyeval                                      (30/57) Installing: Matrix, nlme, lazyeval, lifecycle                           (30/57) Installing: Matrix, nlme, lazyeval, lifecycle                                                                                                         y lifecycle 1.0.5                          [built from source in 1.1s]
+  (31/57) Installing: Matrix, nlme, lazyeval                                      (31/57) Installing: Matrix, nlme, lazyeval, highr                               (31/57) Installing: Matrix, nlme, lazyeval, highr                                                                                                             x lazyeval 0.2.2                          
+  (32/57) Installing: Matrix, nlme, highr                                         (32/57) Installing: Matrix, nlme, highr, tinytex                                (32/57) Installing: Matrix, nlme, highr, tinytex                                                                                                              y highr 0.11                               [built from source in 3.4s]
+  (33/57) Installing: Matrix, nlme, tinytex                                       (33/57) Installing: Matrix, nlme, tinytex, vctrs                                (33/57) Installing: Matrix, nlme, tinytex, vctrs                                                                                                              y vctrs 0.7.3                              [built from source in 1.0s]
+  (34/57) Installing: Matrix, nlme, tinytex                                       (34/57) Installing: Matrix, nlme, tinytex, pillar                               (34/57) Installing: Matrix, nlme, tinytex, pillar                                                                                                             y tinytex 0.57                             [built from source in 5.2s]
+  (35/57) Installing: Matrix, nlme, pillar                                        (35/57) Installing: Matrix, nlme, pillar, purrr                                 (35/57) Installing: Matrix, nlme, pillar, purrr                                 (35/57) Installing: Matrix, nlme, pillar, purrr                                                                                                               y pillar 1.10.2                            [built from source in 11s]
+  (36/57) Installing: Matrix, nlme, purrr                                         (36/57) Installing: Matrix, nlme, purrr, stringr                                (36/57) Installing: Matrix, nlme, purrr, stringr                                                                                                              y purrr 1.0.4                              [built from source in 12s]
+  (37/57) Installing: Matrix, nlme, stringr                                       (37/57) Installing: Matrix, nlme, stringr, tibble                               (37/57) Installing: Matrix, nlme, stringr, tibble                                                                                                             x tibble 3.2.1                            
+  (38/57) Installing: Matrix, nlme, stringr                                       (38/57) Installing: Matrix, nlme, stringr                                                                                                                     y stringr 1.5.1                            [built from source in 6.3s]
+  (39/57) Installing: Matrix, nlme                                                (39/57) Installing: Matrix, nlme                                                                                                                              y nlme 3.1-168                             [built from source in 34s]
+  (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                      (40/57) Installing: Matrix                                                                                                                                    y Matrix 1.7-3                             [built from source in 2.7m]
+  (41/57) Installing: mgcv                                                        (41/57) Installing: mgcv                                                        (41/57) Installing: mgcv                                                        (41/57) Installing: mgcv                                                        (41/57) Installing: mgcv                                                        (41/57) Installing: mgcv                                                        (41/57) Installing: mgcv                                                        (41/57) Installing: mgcv                                                        (41/57) Installing: mgcv                                                        (41/57) Installing: mgcv                                                                                                                                      y mgcv 1.9-1                               [built from source in 44s]
 Successfully installed 34 packages in 290 seconds.
 
 The following package(s) were not installed successfully:
@@ -189,20 +189,18 @@ The following package(s) were not installed successfully:
 - [isoband]: install failed
 - [lazyeval]: install failed
 - [tibble]: install failed
-- [bslib]: dependency failed (base64enc, htmltools, sass)
+- [bslib]: dependency failed (base64enc, htmltools)
 - [chromote]: dependency failed (later, promises, websocket)
 - [crosstalk]: dependency failed (htmltools, lazyeval)
 - [dplyr]: dependency failed (tibble)
 - [ggplot2]: dependency failed (isoband)
 - [htmltools]: dependency failed (base64enc)
-- [htmlwidgets]: dependency failed (htmltools, knitr, rmarkdown, yaml)
 - [knitr]: dependency failed (yaml)
 - [later]: dependency failed (Rcpp)
-- [plotly]: dependency failed (ggplot2, base64enc, htmltools, htmlwidgets, tidyr, dplyr, tibble, lazyeval, crosstalk, data.table, promises)
+- [plotly]: dependency failed (ggplot2, base64enc, htmltools, tidyr, dplyr, tibble, lazyeval, crosstalk, data.table, promises)
 - [promises]: dependency failed (later)
 - [reticulate]: dependency failed (Rcpp)
 - [rmarkdown]: dependency failed (bslib, htmltools, knitr, yaml)
-- [sass]: dependency failed (htmltools)
 - [tidyr]: dependency failed (dplyr, tibble)
 - [webshot2]: dependency failed (chromote, later, promises)
 - [websocket]: dependency failed (later)
@@ -215,7 +213,7 @@ You may need to manually download and install these packages.
 ** using staged installation
 Warning: running 'cleanup' failed
 ** libs
-using C++ compiler: 'g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+using C++ compiler: 'g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
 g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include    -fpic  -g -O2   -c api.cpp -o api.o
 api.cpp:31:10: fatal error: R_ext/PrtUtil.h: No such file or directory
    31 | #include <R_ext/PrtUtil.h>
@@ -223,7 +221,7 @@ api.cpp:31:10: fatal error: R_ext/PrtUtil.h: No such file or directory
 compilation terminated.
 make: *** [/opt/R/4.6.0/lib/R/etc/Makeconf:199: api.o] Error 1
 ERROR: compilation failed for package 'Rcpp'
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/Rcpp'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/Rcpp'
 
 # base64enc ------------------------------------------------------------------
 * installing *source* package 'base64enc' ...
@@ -231,17 +229,17 @@ ERROR: compilation failed for package 'Rcpp'
 ** package 'base64enc' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** libs
-using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c base64.c -o base64.o
+using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c base64.c -o base64.o
 base64.c: In function 'B64_encode':
 base64.c:147:30: warning: implicit declaration of function 'SETLENGTH'; did you mean 'XLENGTH'? [-Wimplicit-function-declaration]
   147 |         if (i < LENGTH(res)) SETLENGTH(res, i);
       |                              ^~~~~~~~~
       |                              XLENGTH
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c uriencode.c -o uriencode.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c utf8.c -o utf8.o
-gcc -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o base64enc.so base64.o uriencode.o utf8.o -L/opt/R/4.6.0/lib/R/lib -lR
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/00LOCK-base64enc/00new/base64enc/libs
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c uriencode.c -o uriencode.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c utf8.c -o utf8.o
+gcc -std=gnu2x -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o base64enc.so base64.o uriencode.o utf8.o -L/opt/R/4.6.0/lib/R/lib -lR
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/00LOCK-base64enc/00new/base64enc/libs
 ** R
 ** byte-compile and prepare package for lazy loading
 ** help
@@ -249,12 +247,12 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x8
 ** building package indices
 ** testing if installed package can be loaded from temporary location
 Error: package or namespace load failed for 'base64enc' in dyn.load(file, DLLpath = DLLpath, ...):
- unable to load shared object '/home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/00LOCK-base64enc/00new/base64enc/libs/base64enc.so':
-  /home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/00LOCK-base64enc/00new/base64enc/libs/base64enc.so: undefined symbol: SETLENGTH
+ unable to load shared object '/home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/00LOCK-base64enc/00new/base64enc/libs/base64enc.so':
+  /home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/00LOCK-base64enc/00new/base64enc/libs/base64enc.so: undefined symbol: SETLENGTH
 Error: loading failed
 Execution halted
 ERROR: loading failed
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/base64enc'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/base64enc'
 
 # fansi ----------------------------------------------------------------------
 * installing *source* package 'fansi' ...
@@ -262,14 +260,14 @@ ERROR: loading failed
 ** package 'fansi' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** libs
-using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c assumptions.c -o assumptions.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c carry.c -o carry.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c has.c -o has.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c init.c -o init.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c nchar.c -o nchar.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c normalize.c -o normalize.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c read.c -o read.o
+using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c assumptions.c -o assumptions.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c carry.c -o carry.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c has.c -o has.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c init.c -o init.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c nchar.c -o nchar.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c normalize.c -o normalize.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c read.c -o read.o
 read.c: In function 'read_utf8_until':
 read.c:1056:23: warning: implicit declaration of function 'R_nchar' [-Wimplicit-function-declaration]
  1056 |           disp_size = R_nchar(
@@ -280,19 +278,19 @@ read.c:1057:22: error: 'Width' undeclared (first use in this function)
 read.c:1057:22: note: each undeclared identifier is reported only once for each function it appears in
 make: *** [/opt/R/4.6.0/lib/R/etc/Makeconf:190: read.o] Error 1
 ERROR: compilation failed for package 'fansi'
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/fansi'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/fansi'
 
 # data.table -----------------------------------------------------------------
 * installing *source* package 'data.table' ...
 ** this is package 'data.table' version '1.17.4'
 ** package 'data.table' successfully unpacked and MD5 sums checked
 ** using staged installation
-gcc 11.4.0
-zlib 1.2.11 is available ok
+gcc -std=gnu2x 13.3.0
+zlib 1.3 is available ok
 * checking if R installation supports OpenMP without any extra hints... yes
 ** libs
-using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c assign.c -o assign.o
+using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c assign.c -o assign.o
 assign.c: In function 'finalizer':
 assign.c:11:8: warning: implicit declaration of function 'TRUELENGTH'; did you mean 'XLENGTH'? [-Wimplicit-function-declaration]
    11 |   tl = TRUELENGTH(p);
@@ -320,9 +318,9 @@ assign.c: In function 'memrecycle':
 assign.c:1160:13: warning: implicit declaration of function 'OBJECT' [-Wimplicit-function-declaration]
  1160 |         if (OBJECT(source) && getAttrib(source, R_ClassSymbol)!=R_NilValue) {
       |             ^~~~~~
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c between.c -o between.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c bmerge.c -o bmerge.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c chmatch.c -o chmatch.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c between.c -o between.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c bmerge.c -o bmerge.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c chmatch.c -o chmatch.o
 chmatch.c: In function 'chmatchMain':
 chmatch.c:62:20: warning: implicit declaration of function 'TRUELENGTH'; did you mean 'XLENGTH'? [-Wimplicit-function-declaration]
    62 |     const int tl = TRUELENGTH(s);
@@ -331,9 +329,9 @@ chmatch.c:62:20: warning: implicit declaration of function 'TRUELENGTH'; did you
 chmatch.c:65:7: warning: implicit declaration of function 'SET_TRUELENGTH' [-Wimplicit-function-declaration]
    65 |       SET_TRUELENGTH(s,0);
       |       ^~~~~~~~~~~~~~
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c cj.c -o cj.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c coalesce.c -o coalesce.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c dogroups.c -o dogroups.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c cj.c -o cj.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c coalesce.c -o coalesce.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c dogroups.c -o dogroups.o
 dogroups.c: In function 'anySpecialStatic':
 dogroups.c:49:25: warning: implicit declaration of function 'TRUELENGTH'; did you mean 'XLENGTH'? [-Wimplicit-function-declaration]
    49 |     return ALTREP(x) || TRUELENGTH(x)<0;
@@ -365,13 +363,9 @@ dogroups.c:87:24: note: in expansion of macro 'findVar'
 dogroups.c:87:24: note: in expansion of macro 'findVar'
    87 |   SEXP SDall = PROTECT(findVar(install(".SDall"), env)); nprotect++;  // PROTECT for rchk
       |                        ^~~~~~~
-In file included from data.table.h:24,
-                 from dogroups.c:1:
 /opt/R/4.6.0/lib/R/include/Rinternals.h:1117:17: note: expected 'SEXP' {aka 'struct SEXPREC *'} but argument is of type 'int'
  1117 | SEXP Rf_protect(SEXP);
       |                 ^~~~
-In file included from data.table.h:24,
-                 from dogroups.c:1:
 /opt/R/4.6.0/lib/R/include/Rinternals.h:918:33: warning: passing argument 1 of 'Rf_protect' makes pointer from integer without a cast [-Wint-conversion]
   918 | #define findVar                 Rf_findVar
 /opt/R/4.6.0/lib/R/include/Rinternals.h:357:36: note: in definition of macro 'PROTECT'
@@ -380,8 +374,6 @@ In file included from data.table.h:24,
 dogroups.c:88:21: note: in expansion of macro 'findVar'
    88 |   SEXP SD = PROTECT(findVar(install(".SD"), env)); nprotect++;
       |                     ^~~~~~~
-In file included from data.table.h:24,
-                 from dogroups.c:1:
 /opt/R/4.6.0/lib/R/include/Rinternals.h:1117:17: note: expected 'SEXP' {aka 'struct SEXPREC *'} but argument is of type 'int'
  1117 | SEXP Rf_protect(SEXP);
       |                 ^~~~
@@ -389,8 +381,6 @@ dogroups.c:106:5: warning: implicit declaration of function 'SET_TRUELENGTH'; di
   106 |     SET_TRUELENGTH(VECTOR_ELT(BY,i), -1); // marker for anySpecialStatic(); see its comments
       |     ^~~~~~~~~~~~~~
       |     SET_LENGTH
-In file included from data.table.h:24,
-                 from dogroups.c:1:
 /opt/R/4.6.0/lib/R/include/Rinternals.h:918:33: warning: passing argument 1 of 'Rf_protect' makes pointer from integer without a cast [-Wint-conversion]
   918 | #define findVar                 Rf_findVar
 /opt/R/4.6.0/lib/R/include/Rinternals.h:357:36: note: in definition of macro 'PROTECT'
@@ -399,13 +389,9 @@ In file included from data.table.h:24,
 dogroups.c:114:17: note: in expansion of macro 'findVar'
   114 |   N =   PROTECT(findVar(install(".N"), env));   nprotect++; // PROTECT for rchk
       |                 ^~~~~~~
-In file included from data.table.h:24,
-                 from dogroups.c:1:
 /opt/R/4.6.0/lib/R/include/Rinternals.h:1117:17: note: expected 'SEXP' {aka 'struct SEXPREC *'} but argument is of type 'int'
  1117 | SEXP Rf_protect(SEXP);
       |                 ^~~~
-In file included from data.table.h:24,
-                 from dogroups.c:1:
 /opt/R/4.6.0/lib/R/include/Rinternals.h:918:33: warning: passing argument 1 of 'Rf_protect' makes pointer from integer without a cast [-Wint-conversion]
   918 | #define findVar                 Rf_findVar
 /opt/R/4.6.0/lib/R/include/Rinternals.h:357:36: note: in definition of macro 'PROTECT'
@@ -414,13 +400,9 @@ In file included from data.table.h:24,
 dogroups.c:116:17: note: in expansion of macro 'findVar'
   116 |   GRP = PROTECT(findVar(install(".GRP"), env)); nprotect++;
       |                 ^~~~~~~
-In file included from data.table.h:24,
-                 from dogroups.c:1:
 /opt/R/4.6.0/lib/R/include/Rinternals.h:1117:17: note: expected 'SEXP' {aka 'struct SEXPREC *'} but argument is of type 'int'
  1117 | SEXP Rf_protect(SEXP);
       |                 ^~~~
-In file included from data.table.h:24,
-                 from dogroups.c:1:
 /opt/R/4.6.0/lib/R/include/Rinternals.h:918:33: warning: passing argument 1 of 'Rf_protect' makes pointer from integer without a cast [-Wint-conversion]
   918 | #define findVar                 Rf_findVar
 /opt/R/4.6.0/lib/R/include/Rinternals.h:357:36: note: in definition of macro 'PROTECT'
@@ -429,13 +411,9 @@ In file included from data.table.h:24,
 dogroups.c:118:17: note: in expansion of macro 'findVar'
   118 |   iSD = PROTECT(findVar(install(".iSD"), env)); nprotect++; // 1-row and possibly no cols (if no i variables are used via JIS)
       |                 ^~~~~~~
-In file included from data.table.h:24,
-                 from dogroups.c:1:
 /opt/R/4.6.0/lib/R/include/Rinternals.h:1117:17: note: expected 'SEXP' {aka 'struct SEXPREC *'} but argument is of type 'int'
  1117 | SEXP Rf_protect(SEXP);
       |                 ^~~~
-In file included from data.table.h:24,
-                 from dogroups.c:1:
 /opt/R/4.6.0/lib/R/include/Rinternals.h:918:33: warning: passing argument 1 of 'Rf_protect' makes pointer from integer without a cast [-Wint-conversion]
   918 | #define findVar                 Rf_findVar
 /opt/R/4.6.0/lib/R/include/Rinternals.h:357:36: note: in definition of macro 'PROTECT'
@@ -444,8 +422,6 @@ In file included from data.table.h:24,
 dogroups.c:119:17: note: in expansion of macro 'findVar'
   119 |   xSD = PROTECT(findVar(install(".xSD"), env)); nprotect++;
       |                 ^~~~~~~
-In file included from data.table.h:24,
-                 from dogroups.c:1:
 /opt/R/4.6.0/lib/R/include/Rinternals.h:1117:17: note: expected 'SEXP' {aka 'struct SEXPREC *'} but argument is of type 'int'
  1117 | SEXP Rf_protect(SEXP);
       |                 ^~~~
@@ -468,10 +444,10 @@ dogroups.c:519:5: warning: implicit declaration of function 'SET_OBJECT'; did yo
 dogroups.c:519:20: warning: implicit declaration of function 'OBJECT' [-Wimplicit-function-declaration]
   519 |     SET_OBJECT(to, OBJECT(from));
       |                    ^~~~~~
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c fastmean.c -o fastmean.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c fcast.c -o fcast.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c fifelse.c -o fifelse.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c fmelt.c -o fmelt.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c fastmean.c -o fastmean.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c fcast.c -o fcast.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c fifelse.c -o fifelse.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c fmelt.c -o fmelt.o
 fmelt.c: In function 'combineFactorLevels':
 fmelt.c:417:16: warning: implicit declaration of function 'TRUELENGTH'; did you mean 'XLENGTH'? [-Wimplicit-function-declaration]
   417 |       int tl = TRUELENGTH(s);
@@ -481,7 +457,7 @@ fmelt.c:420:7: warning: implicit declaration of function 'SET_TRUELENGTH'; did y
   420 |       SET_TRUELENGTH(s,-(++nlevel));
       |       ^~~~~~~~~~~~~~
       |       SET_LENGTH
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c forder.c -o forder.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c forder.c -o forder.o
 forder.c: In function 'free_ustr':
 forder.c:75:5: warning: implicit declaration of function 'SET_TRUELENGTH' [-Wimplicit-function-declaration]
    75 |     SET_TRUELENGTH(ustr[i],0);
@@ -491,9 +467,9 @@ forder.c:310:9: warning: implicit declaration of function 'TRUELENGTH'; did you 
   310 |     if (TRUELENGTH(s)<0) continue;  // seen this group before
       |         ^~~~~~~~~~
       |         XLENGTH
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c frank.c -o frank.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c fread.c -o fread.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c freadR.c -o freadR.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c frank.c -o frank.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c fread.c -o fread.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c freadR.c -o freadR.o
 freadR.c: In function 'allocateDT':
 freadR.c:522:7: warning: implicit declaration of function 'SET_TRUELENGTH' [-Wimplicit-function-declaration]
   522 |       SET_TRUELENGTH(thiscol, allocNrow);
@@ -506,23 +482,23 @@ freadR.c:539:7: warning: implicit declaration of function 'SETLENGTH'; did you m
 freadR.c:541:7: warning: implicit declaration of function 'SET_GROWABLE_BIT' [-Wimplicit-function-declaration]
   541 |       SET_GROWABLE_BIT(VECTOR_ELT(DT,i));  // #3292
       |       ^~~~~~~~~~~~~~~~
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c froll.c -o froll.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c frollR.c -o frollR.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c frolladaptive.c -o frolladaptive.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c fsort.c -o fsort.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c fwrite.c -o fwrite.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c fwriteR.c -o fwriteR.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c gsumm.c -o gsumm.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c idatetime.c -o idatetime.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c ijoin.c -o ijoin.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c init.c -o init.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c froll.c -o froll.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c frollR.c -o frollR.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c frolladaptive.c -o frolladaptive.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c fsort.c -o fsort.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c fwrite.c -o fwrite.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c fwriteR.c -o fwriteR.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c gsumm.c -o gsumm.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c idatetime.c -o idatetime.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c ijoin.c -o ijoin.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c init.c -o init.o
 init.c: In function 'R_init_data_table':
 init.c:231:7: warning: implicit declaration of function 'TRUELENGTH'; did you mean 'XLENGTH'? [-Wimplicit-function-declaration]
   231 |   if (TRUELENGTH(tmp) != 0)
       |       ^~~~~~~~~~
       |       XLENGTH
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c inrange.c -o inrange.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c nafill.c -o nafill.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c inrange.c -o inrange.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c nafill.c -o nafill.o
 nafill.c: In function 'nafillR':
 nafill.c:216:19: warning: implicit declaration of function 'ATTRIB' [-Wimplicit-function-declaration]
   216 |       if (!isNull(ATTRIB(VECTOR_ELT(x, i))))
@@ -537,12 +513,12 @@ In file included from data.table.h:24,
 /opt/R/4.6.0/lib/R/include/Rinternals.h:207:27: note: expected 'SEXP' {aka 'struct SEXPREC *'} but argument is of type 'int'
   207 | Rboolean (Rf_isNull)(SEXP s);
       |                      ~~~~~^
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c negate.c -o negate.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c nqrecreateindices.c -o nqrecreateindices.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c openmp-utils.c -o openmp-utils.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c programming.c -o programming.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c quickselect.c -o quickselect.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c rbindlist.c -o rbindlist.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c negate.c -o negate.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c nqrecreateindices.c -o nqrecreateindices.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c openmp-utils.c -o openmp-utils.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c programming.c -o programming.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c quickselect.c -o quickselect.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c rbindlist.c -o rbindlist.o
 rbindlist.c: In function 'rbindlist':
 rbindlist.c:89:13: warning: implicit declaration of function 'TRUELENGTH'; did you mean 'XLENGTH'? [-Wimplicit-function-declaration]
    89 |         if (TRUELENGTH(s)<0) continue;  // seen this name before
@@ -552,10 +528,10 @@ rbindlist.c:92:9: warning: implicit declaration of function 'SET_TRUELENGTH'; di
    92 |         SET_TRUELENGTH(s,-nuniq);
       |         ^~~~~~~~~~~~~~
       |         SET_LENGTH
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c reorder.c -o reorder.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c shift.c -o shift.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c snprintf.c -o snprintf.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c subset.c -o subset.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c reorder.c -o reorder.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c shift.c -o shift.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c snprintf.c -o snprintf.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c subset.c -o subset.o
 subset.c: In function 'subsetDT':
 subset.c:308:3: warning: implicit declaration of function 'SET_TRUELENGTH' [-Wimplicit-function-declaration]
   308 |   SET_TRUELENGTH(ans, LENGTH(ans));
@@ -564,10 +540,10 @@ subset.c:309:3: warning: implicit declaration of function 'SETLENGTH'; did you m
   309 |   SETLENGTH(ans, LENGTH(cols));
       |   ^~~~~~~~~
       |   XLENGTH
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c transpose.c -o transpose.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c types.c -o types.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c uniqlist.c -o uniqlist.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c utils.c -o utils.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c transpose.c -o transpose.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c types.c -o types.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c uniqlist.c -o uniqlist.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c utils.c -o utils.o
 utils.c: In function 'copySharedColumns':
 utils.c:275:39: warning: implicit declaration of function 'TRUELENGTH'; did you mean 'XLENGTH'? [-Wimplicit-function-declaration]
   275 |     savetl[i] = ALTREP(thiscol) ? 0 : TRUELENGTH(thiscol);
@@ -576,14 +552,14 @@ utils.c:275:39: warning: implicit declaration of function 'TRUELENGTH'; did you 
 utils.c:276:5: warning: implicit declaration of function 'SET_TRUELENGTH' [-Wimplicit-function-declaration]
   276 |     SET_TRUELENGTH(thiscol, 0);
       |     ^~~~~~~~~~~~~~
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c vecseq.c -o vecseq.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c wrappers.c -o wrappers.o
-gcc -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o data.table.so assign.o between.o bmerge.o chmatch.o cj.o coalesce.o dogroups.o fastmean.o fcast.o fifelse.o fmelt.o forder.o frank.o fread.o freadR.o froll.o frollR.o frolladaptive.o fsort.o fwrite.o fwriteR.o gsumm.o idatetime.o ijoin.o init.o inrange.o nafill.o negate.o nqrecreateindices.o openmp-utils.o programming.o quickselect.o rbindlist.o reorder.o shift.o snprintf.o subset.o transpose.o types.o uniqlist.o utils.o vecseq.o wrappers.o -fopenmp -lz -L/opt/R/4.6.0/lib/R/lib -lR
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c vecseq.c -o vecseq.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fopenmp  -fpic  -g -O2  -c wrappers.c -o wrappers.o
+gcc -std=gnu2x -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o data.table.so assign.o between.o bmerge.o chmatch.o cj.o coalesce.o dogroups.o fastmean.o fcast.o fifelse.o fmelt.o forder.o frank.o fread.o freadR.o froll.o frollR.o frolladaptive.o fsort.o fwrite.o fwriteR.o gsumm.o idatetime.o ijoin.o init.o inrange.o nafill.o negate.o nqrecreateindices.o openmp-utils.o programming.o quickselect.o rbindlist.o reorder.o shift.o snprintf.o subset.o transpose.o types.o uniqlist.o utils.o vecseq.o wrappers.o -fopenmp -lz -L/opt/R/4.6.0/lib/R/lib -lR
 PKG_CFLAGS = -fopenmp
 PKG_LIBS = -fopenmp -lz
 if [ "data.table.so" != "data_table.so" ]; then mv data.table.so data_table.so; fi
 if [ "" != "Windows_NT" ] && [ `uname -s` = 'Darwin' ]; then install_name_tool -id data_table.so data_table.so; fi
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/00LOCK-data.table/00new/data.table/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/00LOCK-data.table/00new/data.table/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -593,12 +569,12 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x8
 ** installing vignettes
 ** testing if installed package can be loaded from temporary location
 Error: package or namespace load failed for 'data.table' in dyn.load(file, DLLpath = DLLpath, ...):
- unable to load shared object '/home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/00LOCK-data.table/00new/data.table/libs/data_table.so':
-  /home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/00LOCK-data.table/00new/data.table/libs/data_table.so: undefined symbol: SETLENGTH
+ unable to load shared object '/home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/00LOCK-data.table/00new/data.table/libs/data_table.so':
+  /home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/00LOCK-data.table/00new/data.table/libs/data_table.so: undefined symbol: SETLENGTH
 Error: loading failed
 Execution halted
 ERROR: loading failed
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/data.table'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/data.table'
 
 # yaml -----------------------------------------------------------------------
 * installing *source* package 'yaml' ...
@@ -606,14 +582,14 @@ ERROR: loading failed
 ** package 'yaml' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** libs
-using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I. -DNDEBUG  -I/usr/local/include    -fpic  -g -O2  -c api.c -o api.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I. -DNDEBUG  -I/usr/local/include    -fpic  -g -O2  -c dumper.c -o dumper.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I. -DNDEBUG  -I/usr/local/include    -fpic  -g -O2  -c emitter.c -o emitter.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I. -DNDEBUG  -I/usr/local/include    -fpic  -g -O2  -c implicit.c -o implicit.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I. -DNDEBUG  -I/usr/local/include    -fpic  -g -O2  -c loader.c -o loader.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I. -DNDEBUG  -I/usr/local/include    -fpic  -g -O2  -c parser.c -o parser.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I. -DNDEBUG  -I/usr/local/include    -fpic  -g -O2  -c r_emit.c -o r_emit.o
+using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I. -DNDEBUG  -I/usr/local/include    -fpic  -g -O2  -c api.c -o api.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I. -DNDEBUG  -I/usr/local/include    -fpic  -g -O2  -c dumper.c -o dumper.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I. -DNDEBUG  -I/usr/local/include    -fpic  -g -O2  -c emitter.c -o emitter.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I. -DNDEBUG  -I/usr/local/include    -fpic  -g -O2  -c implicit.c -o implicit.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I. -DNDEBUG  -I/usr/local/include    -fpic  -g -O2  -c loader.c -o loader.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I. -DNDEBUG  -I/usr/local/include    -fpic  -g -O2  -c parser.c -o parser.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I. -DNDEBUG  -I/usr/local/include    -fpic  -g -O2  -c r_emit.c -o r_emit.o
 In file included from r_emit.c:1:
 r_ext.h:19:10: fatal error: R_ext/PrtUtil.h: No such file or directory
    19 | #include "R_ext/PrtUtil.h"
@@ -621,7 +597,7 @@ r_ext.h:19:10: fatal error: R_ext/PrtUtil.h: No such file or directory
 compilation terminated.
 make: *** [/opt/R/4.6.0/lib/R/etc/Makeconf:190: r_emit.o] Error 1
 ERROR: compilation failed for package 'yaml'
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/yaml'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/yaml'
 
 # isoband --------------------------------------------------------------------
 Warning: SystemRequirements specified C++11: support has been removed
@@ -631,7 +607,7 @@ Warning: SystemRequirements specified C++11: support has been removed
 ** using staged installation
 ** libs
 specified C++11
-using C++ compiler: 'g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
+using C++ compiler: 'g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
 g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2   -c clip-lines.cpp -o clip-lines.o
 In file included from clip-lines.cpp:4:
 utils.h: In function 'void longjump_interrupt()':
@@ -655,7 +631,7 @@ utils.h:59:7: error: 'SETLENGTH' was not declared in this scope; did you mean 'X
       |       XLENGTH
 make: *** [/opt/R/4.6.0/lib/R/etc/Makeconf:199: clip-lines.o] Error 1
 ERROR: compilation failed for package 'isoband'
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/isoband'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/isoband'
 
 # lazyeval -------------------------------------------------------------------
 * installing *source* package 'lazyeval' ...
@@ -663,8 +639,8 @@ ERROR: compilation failed for package 'isoband'
 ** package 'lazyeval' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** libs
-using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c expr.c -o expr.o
+using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c expr.c -o expr.o
 expr.c: In function 'base_promise':
 expr.c:9:11: warning: implicit declaration of function 'PRENV' [-Wimplicit-function-declaration]
     9 |     env = PRENV(promise);
@@ -703,11 +679,9 @@ expr.c:69:26: warning: passing argument 1 of 'Rf_protect' makes pointer from int
 /opt/R/4.6.0/lib/R/include/Rinternals.h:357:36: note: in definition of macro 'PROTECT'
   357 | #define PROTECT(s)      Rf_protect(s)
       |                                    ^
-In file included from expr.c:3:
 /opt/R/4.6.0/lib/R/include/Rinternals.h:1117:17: note: expected 'SEXP' {aka 'struct SEXPREC *'} but argument is of type 'int'
  1117 | SEXP Rf_protect(SEXP);
       |                 ^~~~
-In file included from expr.c:3:
 expr.c: In function 'expr_env_':
 expr.c:76:26: warning: passing argument 1 of 'Rf_protect' makes pointer from integer without a cast [-Wint-conversion]
    76 |   SEXP promise = PROTECT(Rf_findVar(name, env));
@@ -717,13 +691,12 @@ expr.c:76:26: warning: passing argument 1 of 'Rf_protect' makes pointer from int
 /opt/R/4.6.0/lib/R/include/Rinternals.h:357:36: note: in definition of macro 'PROTECT'
   357 | #define PROTECT(s)      Rf_protect(s)
       |                                    ^
-In file included from expr.c:3:
 /opt/R/4.6.0/lib/R/include/Rinternals.h:1117:17: note: expected 'SEXP' {aka 'struct SEXPREC *'} but argument is of type 'int'
  1117 | SEXP Rf_protect(SEXP);
       |                 ^~~~
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c interp.c -o interp.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c lazy.c -o lazy.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c interp.c -o interp.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c lazy.c -o lazy.o
 lazy.c: In function 'promise_as_lazy':
 lazy.c:8:9: warning: implicit declaration of function 'PRENV' [-Wimplicit-function-declaration]
     8 |     if (PRENV(promise) == R_NilValue) {
@@ -763,13 +736,9 @@ lazy.c: In function 'make_lazy':
 lazy.c:50:26: note: in expansion of macro 'findVar'
    50 |   SEXP promise = PROTECT(findVar(name, env));
       |                          ^~~~~~~
-In file included from /opt/R/4.6.0/lib/R/include/Rdefines.h:41,
-                 from lazy.c:2:
 /opt/R/4.6.0/lib/R/include/Rinternals.h:1117:17: note: expected 'SEXP' {aka 'struct SEXPREC *'} but argument is of type 'int'
  1117 | SEXP Rf_protect(SEXP);
       |                 ^~~~
-In file included from /opt/R/4.6.0/lib/R/include/Rdefines.h:41,
-                 from lazy.c:2:
 lazy.c: In function 'make_lazy_dots':
 /opt/R/4.6.0/lib/R/include/Rinternals.h:918:33: warning: passing argument 1 of 'Rf_protect' makes pointer from integer without a cast [-Wint-conversion]
   918 | #define findVar                 Rf_findVar
@@ -779,13 +748,11 @@ lazy.c: In function 'make_lazy_dots':
 lazy.c:64:23: note: in expansion of macro 'findVar'
    64 |   SEXP dots = PROTECT(findVar(R_DotsSymbol, env));
       |                       ^~~~~~~
-In file included from /opt/R/4.6.0/lib/R/include/Rdefines.h:41,
-                 from lazy.c:2:
 /opt/R/4.6.0/lib/R/include/Rinternals.h:1117:17: note: expected 'SEXP' {aka 'struct SEXPREC *'} but argument is of type 'int'
  1117 | SEXP Rf_protect(SEXP);
       |                 ^~~~
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c name.c -o name.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c utils.c -o utils.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c name.c -o name.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c utils.c -o utils.o
 utils.c: In function 'is_lazy_load':
 utils.c:25:21: warning: implicit declaration of function 'PREXPR' [-Wimplicit-function-declaration]
    25 |   return is_call_to(PREXPR(x), "lazyLoadDBfetch");
@@ -798,8 +765,8 @@ utils.c:25:21: warning: passing argument 1 of 'is_call_to' makes pointer from in
 utils.c:10:22: note: expected 'SEXP' {aka 'struct SEXPREC *'} but argument is of type 'int'
    10 | bool is_call_to(SEXP x, const char* f) {
       |                 ~~~~~^
-gcc -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o lazyeval.so expr.o init.o interp.o lazy.o name.o utils.o -L/opt/R/4.6.0/lib/R/lib -lR
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/00LOCK-lazyeval/00new/lazyeval/libs
+gcc -std=gnu2x -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o lazyeval.so expr.o init.o interp.o lazy.o name.o utils.o -L/opt/R/4.6.0/lib/R/lib -lR
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/00LOCK-lazyeval/00new/lazyeval/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -809,18 +776,18 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x8
 ** installing vignettes
 ** testing if installed package can be loaded from temporary location
 Error: package or namespace load failed for 'lazyeval' in dyn.load(file, DLLpath = DLLpath, ...):
- unable to load shared object '/home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/00LOCK-lazyeval/00new/lazyeval/libs/lazyeval.so':
-  /home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/00LOCK-lazyeval/00new/lazyeval/libs/lazyeval.so: undefined symbol: PREXPR
+ unable to load shared object '/home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/00LOCK-lazyeval/00new/lazyeval/libs/lazyeval.so':
+  /home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/00LOCK-lazyeval/00new/lazyeval/libs/lazyeval.so: undefined symbol: PREXPR
 Error: loading failed
 Execution halted
 ERROR: loading failed
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/lazyeval'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/lazyeval'
 
 # tibble ---------------------------------------------------------------------
 ERROR: dependency 'fansi' is not available for package 'tibble'
 Perhaps try a variation of:
 install.packages('fansi')
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/tibble'
+* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.6/.renv/1/tibble'
 
 [?25hTraceback (most recent calls last):
 4: renv::restore()

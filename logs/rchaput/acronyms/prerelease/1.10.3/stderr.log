@@ -1,4 +1,348 @@
 Cloning into 'repo'...
+CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
+
+pandoc 
+  to: html
+  output-file: plural.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Plural form
+  description: |
+    Learn how to render acronyms in plural form, and customize the plural form of your acronyms.
+  
+Output created: ../_site/articles/plural.html
+
+
+pandoc 
+  to: html
+  output-file: shortcodes.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Shortcodes
+  description: |
+    Learn how to use the new shortcode syntax.
+  
+Output created: ../_site/articles/shortcodes.html
+
+
+pandoc 
+  to: html
+  output-file: options.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Available options
+  description: |
+    Learn how to customize the behaviour of **acronyms**.
+  
+Output created: ../_site/articles/options.html
+
+
+pandoc 
+  to: html
+  output-file: styles.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Styles
+  description: |
+    List and preview of the available styles for replacing acronyms.
+  acronyms:
+    keys:
+      - shortname: qmd
+        longname: Quarto document
+    insert_loa: false
+    insert_links: false
+  
+Output created: ../_site/articles/styles.html
+
+
+
+Starting python3 kernel...Done
+
+Executing 'index.quarto_ipynb'
+
+pandoc 
+  to: html
+  from: markdown+emoji
+  output-file: index.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  pagetitle: acronyms
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  
+Output created: _site/index.html
+
+
+pandoc 
+  to: html
+  output-file: getting_started.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Introduction to acronyms
+  description: |
+    Learn how to get started with the basics of the **acronyms** extension.
+  
+Output created: _site/getting_started.html
+
+
+pandoc 
+  to: html
+  output-file: multi_document.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Using acronyms in a multi-document project
+  description: |
+    Learn how to use acronyms in several documents, for example a website or book; how to control where the List of Acronyms appear, which acronyms appear on which pages, etc.
+  
+Output created: ../_site/advanced/multi_document.html
+
+
+pandoc 
+  to: html
+  output-file: extending.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Extending the acronyms features
+  description: |
+    Learn how to extend existing features, such as styles and translations.
+  
+Output created: ../_site/advanced/extending.html
+
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Advanced usage tutorials
+  listing:
+    type: default
+    sort: date
+    fields:
+      - title
+      - description
+    exclude:
+      title: Advanced usage tutorials
+    sort-ui: false
+  
+Output created: ../_site/advanced/index.html
+
+
+pandoc 
+  to: html
+  output-file: customized_loa_header.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Customizing the List of Acronyms title
+  description: |
+    Read how to customize the List of Acronyms title (header), including putting it in an unnumbered section.
+  
+Output created: ../_site/advanced/customized_loa_header.html
+
+
+pandoc 
+  to: html
+  output-file: external_file.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Defining acronyms in external file(s)
+  description: |
+    Learn how to define acronyms in one or several external files, which can be reused throughout documents or projects (rather than directly in the YAML metadata).
+  
+Output created: ../_site/advanced/external_file.html
+
+pandoc 
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Acronyms Example
+  acronyms:
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+    loa_title: Glossary
+    insert_loa: end
+    sorting: alphabetical
+    style: short-long
+  
+Output created: example.html
+
 pandoc 
   to: markdown
   output-file: input.md
@@ -13,23 +357,21 @@ metadata
     - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
   keep-yaml: false
   acronyms:
-    on_duplicate: keep
+    insert_loa: false
     keys:
       - shortname: RL
         longname: Reinforcement Learning
-      - shortname: RL
-        longname: Rocket League
   
 [31mFATAL (/opt/quarto/share/filters/main.lua:3760) An error occurred:
-Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/tests/05-keep-duplicates/acronyms as a JSON filter.
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/tests/15-insert-loa-false-printacronyms/acronyms as a JSON filter.
 Please make sure the file exists and is executable.
 
 Did you intend 'acronyms' as a Lua filter in an extension?
 If so, make sure you've spelled the name of the extension correctly.
 
 The original Pandoc error follows below.
-Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/tests/05-keep-duplicates/acronyms:
-Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/tests/05-keep-duplicates/acronyms
+Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/tests/15-insert-loa-false-printacronyms/acronyms:
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/tests/15-insert-loa-false-printacronyms/acronyms
 [39mError running filter /opt/quarto/share/filters/main.lua:
 /opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERROR
 stack traceback:
@@ -56,23 +398,21 @@ metadata
     - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
   keep-yaml: false
   acronyms:
-    on_duplicate: keep
+    insert_loa: false
     keys:
       - shortname: RL
         longname: Reinforcement Learning
-      - shortname: RL
-        longname: Rocket League
   
 [31mFATAL (/opt/quarto/share/filters/main.lua:3760) An error occurred:
-Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/tests/05-keep-duplicates/acronyms as a JSON filter.
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/tests/15-insert-loa-false-printacronyms/acronyms as a JSON filter.
 Please make sure the file exists and is executable.
 
 Did you intend 'acronyms' as a Lua filter in an extension?
 If so, make sure you've spelled the name of the extension correctly.
 
 The original Pandoc error follows below.
-Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/tests/05-keep-duplicates/acronyms:
-Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/tests/05-keep-duplicates/acronyms
+Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/tests/15-insert-loa-false-printacronyms/acronyms:
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/tests/15-insert-loa-false-printacronyms/acronyms
 [39mError running filter /opt/quarto/share/filters/main.lua:
 /opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERROR
 stack traceback:

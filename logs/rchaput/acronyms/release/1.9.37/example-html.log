@@ -1,0 +1,34 @@
+pandoc 
+
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Acronyms Example
+  acronyms:
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+    loa_title: Glossary
+    insert_loa: end
+    sorting: alphabetical
+    style: short-long
+  
+
+Output created: example.html
+
+

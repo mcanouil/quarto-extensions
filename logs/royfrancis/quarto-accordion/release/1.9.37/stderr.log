@@ -1,7 +1,6 @@
 Cloning into 'repo'...
-[1/5] changelog.md
-[2/5] revealjs.qmd
-[3/5] test.qmd
+CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
+[1/5] test.qmd
 [typst]: Compiling test.typ to test.pdf...DONE
 
 
@@ -30,12 +29,21 @@ running lualatex - 3
    restricted system commands enabled.
   
 
-[4/5] usage.qmd
+[2/5] usage.qmd
 [typst]: Compiling usage.typ to usage.pdf...DONE
 
 
 Rendering PDF
 running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+finding package for luatexbase.sty
+> 1 package to install
+> installing luatexbase (1 of 1)
   This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
    restricted system commands enabled.
   
@@ -48,7 +56,9 @@ running lualatex - 3
    restricted system commands enabled.
   
 
-[5/5] index.qmd
+[3/5] index.qmd
+[4/5] changelog.md
+[5/5] revealjs.qmd
 
 Output created: docs/index.html
 

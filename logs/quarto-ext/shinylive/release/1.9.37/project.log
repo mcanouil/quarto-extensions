@@ -7,87 +7,89 @@ Executing 'index.quarto_ipynb'
 
 
 
-(E)
- Error running 'shinylive' command. Perhaps you need to install / update the 'shinylive' Python package?
- Error:
- PandocError {}
+Creating directory /home/runner/work/quarto-extensions/quarto-extensions/test-22/.cache/shinylive
 
-Error ru
-nning filter /opt/quarto/share/filters/main.lua:
-...t-15/repo/_extensions
-/quarto-ext/shinylive/shinylive.lua:40: Error running '
-shinylive' command. Perhaps you need to install / update the 'shinylive' Python pa
-ckage?
+/home/runner/work/quarto-extensions/quarto-extensions/test-22/.cache/shinylive/shinylive-0.10.9 does not exist.
+Downloading https://github.com/posit-dev/shinylive/releases/download/v0.10.9/shinylive-0.10.9.tar.gz...
 
-stack traceback:
-	...t-15/repo/_extensions/quarto-ext/shinylive/shinylive.lu
-a:40: in global 'throw_quarto_error'
-	...t-15/repo
-/_extensions/quarto-ext/shinylive/shinylive
-.lua:57: in global 'callPythonShinylive'
-	.
-..t-15/repo/_extensions/quarto-ext/s
-hinylive/shinylive.lua:111: in glob
-al 'callShinylive'
-	...t-15/repo/_
-extensions/quarto-ext/shinylive/s
-hinylive.lua:253: in global 'ensu
-rePyshinyliveVersion'
-	...t-15/rep
-o/_extensions/quarto-ext/shinylive
-/shinylive.lua:312: in global 'en
-sureLanguageSetup'
-	...t-15/repo/
-_extensions/quarto-ext/shinylive
-/shinylive.lua:424: in function <.
-..t-15/repo/_extensions/quarto-ex
-t/shinylive/shinylive.lua:408>
-	[C
-]: in ?
-	[C]: in method 'walk'
-	/
-opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.w
-alk'
-	/opt/quarto/share/filters/main.lua:574: in local 'ch
-ecked_walk'
-	/opt/quarto/share/filters/main.lua:629: in function 'r
-un_emulated_filter'
-	/opt/quarto/share/filters/main.lua:1
-317: in local 'callback'
-	[string "if pandoc.s
-ystem.os == "mingw32" then..."]:778: in field 'withScriptFile'
-	/opt/qua
-rto/share/filters/main.lua:1333: in up
-value 'run_emulated_filter_chain'
 
-	/opt/quarto/share/filters/main.l
-ua:1371: in function </opt/quarto/
-share/filters/main.lua:1368>
-stac
-k traceback:
-	/opt/quarto/share/p
-andoc/datadir/_utils.lua:607: in 
-function '_utils.walk'
-	/opt/qua
-rto/share/filters/main.lua:574: i
-n local 'checked_walk'
-	/opt/quarto/share/
-filters/main.lua:629: in functi
-on 'run_emulated_filter'
-	/opt
-/quarto/share/filters/main.lua
-:1317: in local 'callback'
-	[st
-ring "if pandoc.system.os == "m
-ingw32" then..."]:778: in
- field 'withScriptFile'
-	/opt/quarto/s
-hare/filters/main.lua:1333: in u
-pvalue 'run_emulated_filter_ch
-ain'
-	/opt/quarto/share/filter
-s/main.lua:1371: in function </opt/quarto/shar
-e/filters/main.lua:1368>
+Unzipping to /home/runner/work/quarto-extensions/quarto-extensions/test-22/.cache/shinylive/
 
-(WARN) Error encountered when rendering files
+Download https://deno.land/std/io/mod.ts
+
+Warning Implicitly using latest version (0.224.0) for https://deno.land/std/io/mod.ts
+
+Download https://deno.land/std@0.224.0/io/mod.ts
+
+Download https://deno.land/std@0.224.0/io/buf_reader.ts
+
+Download https://deno.land/std@0.224.0/io/buf_writer.ts
+Download https://deno.land/std@0.224.0/io/buffer.ts
+Download https://deno.land/std@0.224.0/io/copy.ts
+Download https://deno.land/std@0.224.0/io/copy_n.ts
+Download https://deno.land/std@0.224.0/io/iterate_reader.ts
+Download https://deno.land/std@0.224.0/io/limited_reader.ts
+Download https://deno.land/std@0.224.0/io/multi_reader.ts
+Download https://deno.land/std@0.224.0/io/read_all.ts
+Download https://deno.land/std@0.224.0/io/read_delim.ts
+Download https://deno.land/std@0.224.0/io/read_int.ts
+Download https://deno.land/std@0.224.0/io/read_lines.ts
+Download https://deno.land/std@0.224.0/io/read_long.ts
+Download https://deno.land/std@0.224.0/io/read_range.ts
+
+Download https://deno.land/std@0.224.0/io/read_short.ts
+Download https://deno.land/std@0.224.0/io/read_string_delim.ts
+Download https://deno.land/std@0.224.0/io/reader_from_stream_reader.ts
+
+Download https://deno.land/std@0.224.0/io/slice_long_to_bytes.ts
+Download https://deno.land/std@0.224.0/io/string_reader.ts
+Download https://deno.land/std@0.224.0/io/string_writer.ts
+
+Download https://deno.land/std@0.224.0/io/to_readable_stream.ts
+Download https://deno.land/std@0.224.0/io/to_writable_stream.ts
+Download https://deno.land/std@0.224.0/io/types.ts
+Download https://deno.land/std@0.224.0/io/write_all.ts
+
+Download https://deno.land/std@0.224.0/assert/assert.ts
+
+Download https://deno.land/std@0.224.0/bytes/copy.ts
+Download https://deno.land/std@0.224.0/io/_constants.ts
+
+Download https://deno.land/std@0.224.0/bytes/concat.ts
+
+Download https://deno.land/std@0.224.0/io/_common.ts
+
+Download https://deno.land/std@0.224.0/assert/assertion_error.ts
+
+
+Starting python3 kernel...
+Done
+
+
+Executing 'sine.quarto_ipynb'
+
+
+
+
+Starting python3 kernel...
+Done
+
+
+Executing 'experimental.quarto_ipynb'
+
+
+
+
+Starting python3 kernel...
+Done
+
+
+Executing 'load_file.quarto_ipynb'
+
+
+
+
+
+Output created: docs/index.html
+
 

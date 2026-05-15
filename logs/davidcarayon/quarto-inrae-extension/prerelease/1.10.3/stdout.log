@@ -1,47 +1,34 @@
 Dependency install phase for davidcarayon/quarto-inrae-extension: auto-detect
 Auto-detecting R dependencies for davidcarayon/quarto-inrae-extension (knitr engine, no renv.lock).
 ** libs
-using C compiler: 'gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0'
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c renv.c -o renv.o
-gcc -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o renv.so renv.o -L/opt/R/4.6.0/lib/R/lib -lR
-Installing R packages: InraeThemes, extrafont, rmarkdown, flextable, gt 
+using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c renv.c -o renv.o
+gcc -std=gnu2x -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o renv.so renv.o -L/opt/R/4.6.0/lib/R/lib -lR
+Installing R packages: InraeThemes, extrafont, flextable 
 No man pages found in package  'fontBitstreamVera' 
 No man pages found in package  'fontLiberation' 
-gcc -g -O2  miniz.c zip.c unixutils.c tools/cmdzip.c -o tools/cmdzip
-gcc -g -O2  miniz.c zip.c unixutils.c tools/cmdunzip.c -o tools/cmdunzip
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c init.c -o init.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c miniz.c -o miniz.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c rzip.c -o rzip.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c zip.c -o zip.o
-gcc -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c unixutils.c -o unixutils.o
-gcc -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o zip.so init.o miniz.o rzip.o zip.o unixutils.o -L/opt/R/4.6.0/lib/R/lib -lR
+gcc -std=gnu2x -g -O2  miniz.c zip.c unixutils.c tools/cmdzip.c -o tools/cmdzip
+gcc -std=gnu2x -g -O2  miniz.c zip.c unixutils.c tools/cmdunzip.c -o tools/cmdunzip
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c init.c -o init.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c miniz.c -o miniz.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c rzip.c -o rzip.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c zip.c -o zip.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c unixutils.c -o unixutils.o
+gcc -std=gnu2x -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o zip.so init.o miniz.o rzip.o zip.o unixutils.o -L/opt/R/4.6.0/lib/R/lib -lR
 echo "make ttf2pt1 in ttf2pt1/ ..."
 make ttf2pt1 in ttf2pt1/ ...
 (cd ttf2pt1; make CC="`"/opt/R/4.6.0/lib/R/bin/R" CMD config CC`" CFLAGS="`"/opt/R/4.6.0/lib/R/bin/R" CMD config CFLAGS`" ttf2pt1)
-make[1]: Entering directory '/tmp/Rtmp0Tzlku/R.INSTALL1e42be99074/Rttf2pt1/src/ttf2pt1'
-gcc -g -O2 -c ttf2pt1.c
-gcc -g -O2 -c pt1.c
-gcc -g -O2  -c runt1asm.c
-gcc -g -O2 -c ttf.c
-gcc -g -O2 -c ft.c
-gcc -g -O2 -c bdf.c
-gcc -g -O2 -c bitmap.c
-gcc -g -O2 -o ttf2pt1 ttf2pt1.o pt1.o runt1asm.o ttf.o ft.o bdf.o bitmap.o -lm  
-make[1]: Leaving directory '/tmp/Rtmp0Tzlku/R.INSTALL1e42be99074/Rttf2pt1/src/ttf2pt1'
+make[1]: Entering directory '/tmp/RtmpfVsKgb/R.INSTALL1e438a45544/Rttf2pt1/src/ttf2pt1'
+gcc -std=gnu2x -g -O2 -c ttf2pt1.c
+gcc -std=gnu2x -g -O2 -c pt1.c
+gcc -std=gnu2x -g -O2  -c runt1asm.c
+gcc -std=gnu2x -g -O2 -c ttf.c
+gcc -std=gnu2x -g -O2 -c ft.c
+gcc -std=gnu2x -g -O2 -c bdf.c
+gcc -std=gnu2x -g -O2 -c bitmap.c
+gcc -std=gnu2x -g -O2 -o ttf2pt1 ttf2pt1.o pt1.o runt1asm.o ttf.o ft.o bdf.o bitmap.o -lm  
+make[1]: Leaving directory '/tmp/RtmpfVsKgb/R.INSTALL1e438a45544/Rttf2pt1/src/ttf2pt1'
 [1] ""
-Using PKG_CFLAGS=
-Using PKG_LIBS=-luv
---------------------------- [CONFIGURE] --------------------------------
-Configuration failed because libuv was not found. Try installing:
- * deb: libuv1-dev (Debian, Ubuntu, etc)
- * rpm: libuv-devel (Fedora, EPEL)
- * brew: libuv (OSX)
-Alternatively set environment variable USE_BUNDLED_LIBUV=1 to build a static
-version of libuv that is included with this package.
--------------------------- [ERROR MESSAGE] ---------------------------
-<stdin>:1:10: fatal error: uv.h: No such file or directory
-compilation terminated.
---------------------------------------------------------------------
 Using PKG_CFLAGS=
 Using PKG_LIBS=-lcairo -lfreetype
 -----------------------------[ ANTICONF ]-------------------------------
@@ -60,6 +47,6 @@ src/tests/sysdeps.c:1:10: fatal error: cairo-ft.h: No such file or directory
       |          ^~~~~~~~~~~~
 compilation terminated.
 ------------------------------------------------------------------------
-tlmgr: package repository https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet (verified)
+tlmgr: package repository https://ctan.math.illinois.edu/systems/texlive/tlnet (verified)
 tlmgr: no self-updates for tlmgr available
-Using CTAN mirror: https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet
+Using CTAN mirror: https://ctan.math.illinois.edu/systems/texlive/tlnet

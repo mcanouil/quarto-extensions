@@ -2,32 +2,38 @@ Cloning into 'repo'...
 Using CPython 3.13.9 interpreter at: /usr/local/python/current/bin/python
 Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
+CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
 
-Starting python3 kernel...Traceback (most recent call last):
-  File "/opt/quarto/share/jupyter/jupyter.py", line 20, in <module>
-    from notebook import notebook_execute, RestartKernel
-  File "/opt/quarto/share/jupyter/notebook.py", line 15, in <module>
-    from yaml import safe_load as parse_string
-ModuleNotFoundError: No module named 'yaml'
-Python 3 installation:
-{}
+Starting python3 kernel...Done
 
-Jupyter is not available in this Python installation.
-Install with python3 -m pip install jupyter
+Executing 'example.quarto_ipynb'
+  Cell 1/2: 'hello_world'...Done
+  Cell 2/2: 'is_unique'.....Done
 
-WARN: Error encountered when rendering files
-Render failed, retrying once...
+pandoc 
+  to: html
+  output-file: example.html
+  standalone: true
+  embed-resources: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Black-formatter Example
+  jupyter: python3
+  
+/home/runner/work/quarto-extensions/quarto-extensions/test-7/repo/.venv/bin/python: No module named black
+/home/runner/work/quarto-extensions/quarto-extensions/test-7/repo/.venv/bin/python: No module named black
+/home/runner/work/quarto-extensions/quarto-extensions/test-7/repo/.venv/bin/python: No module named black
+/home/runner/work/quarto-extensions/quarto-extensions/test-7/repo/.venv/bin/python: No module named black
+Output created: example.html
 
-Starting python3 kernel...Traceback (most recent call last):
-  File "/opt/quarto/share/jupyter/jupyter.py", line 20, in <module>
-    from notebook import notebook_execute, RestartKernel
-  File "/opt/quarto/share/jupyter/notebook.py", line 15, in <module>
-    from yaml import safe_load as parse_string
-ModuleNotFoundError: No module named 'yaml'
-Python 3 installation:
-{}
-
-Jupyter is not available in this Python installation.
-Install with python3 -m pip install jupyter
-
-WARN: Error encountered when rendering files

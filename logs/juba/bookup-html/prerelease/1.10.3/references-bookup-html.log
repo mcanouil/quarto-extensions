@@ -1,0 +1,41 @@
+pandoc 
+
+  to: html
+  output-file: references.html
+  standalone: true
+  toc: true
+  number-sections: false
+  title-prefix: Sample bookup-html book project
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+
+metadata
+
+  crossref:
+    chapters: true
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  embed-fonts: true
+  theme:
+    light:
+      - _extensions/bookup/bookup.scss
+    dark:
+      - _extensions/bookup/bookup.scss
+      - _extensions/bookup/bookup_dark.scss
+  bibliography:
+    - references.bib
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  hide-description: true
+  title: References
+  
+
+Output created: _book/references.html
+
+

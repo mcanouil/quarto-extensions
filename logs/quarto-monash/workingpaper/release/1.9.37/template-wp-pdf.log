@@ -1,0 +1,145 @@
+
+
+processing file: template.qmd
+
+1/3              
+
+2/3 [fig-density]
+
+3/3              
+
+output file: template.knit.md
+
+
+pandoc 
+
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: pdflatex
+  variables:
+    graphics: true
+    tables: true
+    secnumdepth: 2
+  default-image-extension: pdf
+  toc: false
+  cite-method: biblatex
+  number-sections: true
+  
+
+metadata
+
+  block-headings: false
+  documentclass: article
+  papersize: a4
+  fontsize: 11pt
+  date: today
+  date-format: D MMMM YYYY
+  linestretch: 1.5
+  geometry:
+    - top=2.5cm
+    - bottom=2.5cm
+    - left=2.5cm
+    - right=2.5cm
+  biblio-style: authoryear-comp
+  colorlinks: true
+  number-depth: 2
+  knitr:
+    opts_chunk:
+      echo: false
+      warning: false
+      message: false
+  header-includes:
+    - |
+      \usepackage{orcidlink}
+      \definecolor{mypink}{RGB}{219, 48, 122}
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Our great idea
+  author:
+    - name: Marie Curie
+      affiliations:
+        - name: University of Paris
+          department: Department of Radiation
+          address: Somewhere
+          city: Paris
+          country: France
+          postal-code: PX2039
+      email: mcurie.notreal@gmail.com
+      corresponding: true
+    - name: Genghis Khan
+      affiliations:
+        - name: Monash University
+          department: Department of Econometrics & Business Statistics
+          city: Clayton VIC
+          country: Australia
+          postal-code: 3800
+    - name: Monique Ash
+      email: Monique.Ash@monash.edu
+  abstract: |
+    A brief summary of our ideas
+  keywords:
+    - blah
+  bibliography:
+    - references.bib
+  wpnumber: no/yr
+  jelcodes: C10,C14,C22
+  blind: false
+  cover: true
+  
+
+
+Rendering PDF
+
+running pdflatex - 1
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+generating bibliography
+
+command biber not found, attempting install
+
+finding package for biber
+
+> 1 package to install
+
+> installing biber (1 of 1)
+
+  INFO - This is Biber 2.21
+  INFO - Logfile is 'template.blg'
+  INFO - Reading 'template.bcf'
+  INFO - Found 2 citekeys in bib section 0
+  INFO - Processing section 0
+  INFO - Looking for bibtex file 'references.bib' for section 0
+  INFO - LaTeX decoding ...
+  INFO - Found BibTeX data source 'references.bib'
+  INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+  INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+  INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+  INFO - No sort tailoring available for locale 'en-US'
+  INFO - Writing 'template.bbl' with encoding 'UTF-8'
+  INFO - Output to template.bbl
+  
+
+running pdflatex - 2
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+running pdflatex - 3
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+
+
+Output created: template.pdf
+
+

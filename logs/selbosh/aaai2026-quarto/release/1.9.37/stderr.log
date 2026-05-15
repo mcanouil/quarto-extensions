@@ -1,4 +1,5 @@
 Cloning into 'repo'...
+CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
 pandoc 
   to: html
   output-file: template.html
@@ -128,7 +129,7 @@ HttpExceptionRequest Request {
   requestVersion       = HTTP/1.1
   proxySecureMode      = ProxySecureWithConnect
 }
- (StatusCodeException (Response {responseStatus = Status {statusCode = 403, statusMessage = "Forbidden"}, responseVersion = HTTP/1.1, responseHeaders = [("content-length","126"),("content-type","text/plain"),("x-request-id","794f40d6-e1cd-4c3a-90fc-98fdd7ab0ef1"),("server","HAProxy"),("x-cache","cp1101 int"),("x-cache-status","int-tls"),("x-analytics","")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
+ (StatusCodeException (Response {responseStatus = Status {statusCode = 403, statusMessage = "Forbidden"}, responseVersion = HTTP/1.1, responseHeaders = [("content-length","126"),("content-type","text/plain"),("x-request-id","f8e515e1-2bae-46cf-aab3-0827b7ac445e"),("server","HAProxy"),("x-cache","cp4049 int"),("x-cache-status","int-tls"),("x-analytics","")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
   host                 = "upload.wikimedia.org"
   port                 = 443
   secure               = True
@@ -251,7 +252,7 @@ HttpExceptionRequest Request {
   requestVersion       = HTTP/1.1
   proxySecureMode      = ProxySecureWithConnect
 }
- (StatusCodeException (Response {responseStatus = Status {statusCode = 403, statusMessage = "Forbidden"}, responseVersion = HTTP/1.1, responseHeaders = [("content-length","126"),("content-type","text/plain"),("x-request-id","a6b212b5-3029-4af3-a156-a8153c62da31"),("server","HAProxy"),("x-cache","cp1101 int"),("x-cache-status","int-tls"),("x-analytics","")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
+ (StatusCodeException (Response {responseStatus = Status {statusCode = 403, statusMessage = "Forbidden"}, responseVersion = HTTP/1.1, responseHeaders = [("content-length","126"),("content-type","text/plain"),("x-request-id","fa299ff9-b71b-44f8-915b-4c8f053311b9"),("server","HAProxy"),("x-cache","cp4049 int"),("x-cache-status","int-tls"),("x-analytics","")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
   host                 = "upload.wikimedia.org"
   port                 = 443
   secure               = True

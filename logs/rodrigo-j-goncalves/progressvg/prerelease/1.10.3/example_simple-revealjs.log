@@ -41,41 +41,33 @@ metadata
   
 
 FATAL (/opt/quarto/share/filters/main.lua:3760) An error occurred:
-Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/assets/progressvg as a JSON filter.
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-19/repo/assets/progressvg as a JSON filter.
 Please make sure the file exists and is executable.
 
 Did you intend 'progressvg' as a Lua filter in an extension?
 If so, make sure you've spelled the name of the extension correctly.
 
 The original Pandoc error follows below.
-Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/assets/progressvg:
-Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/assets/progressvg
+Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-19/repo/assets/progressvg:
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-19/repo/assets/progressvg
 
-Error running
- filter /opt/quarto/share/filters/main.lua:
+Error runn
+ing filter /opt/quarto/share/filters/main.lua:
 /opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERROR
 stack traceback:
-	/opt/quarto/share/filters/main.lua:2622:
- in function 'fatal'
-	/opt/quarto/share/filters/main.lua:2202: in fun
-ction 'fail'
-	/opt/quarto/share/filters/main.lua:3760:
- in field 'Pandoc'
-	/opt/quarto/share/filters/mai
-n.lua:588: in function 'run_emulated_filter'
-	/
-opt/quarto/share/filters/ma
-in.lua:1317: in local 'callback'
+	/opt/quar
+to/share/filters/main.lua:2622: in function 'fatal'
+	/opt/quarto/share/filters/main.lua:2202: in function 'fail'
 
-	/opt/quarto/share/filters/main.lua:1335: in upvalue '
-run_emulated_filter_c
-hain'
-	/opt/quarto/share/
-filters/main.lua:1
-371: in functio
-n </opt/quarto/s
-hare/filters/mai
-n.lua:1368>
+	/opt/quarto/share/filters/main.lua:3760: in field 'Pandoc'
+	/opt/quarto/share/filters/
+main.lua:588: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lu
+a:1317: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1335: in upvalue 'run_emulated_filter_chai
+n'
+	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/
+filters/main.lua:1368>
 
 (WARN) Error encountered when rendering files
 

@@ -1,4 +1,29 @@
 Cloning into 'repo'...
+CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
+pandoc 
+  to: html
+  output-file: example.html
+  standalone: true
+  embed-resources: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Downloadthis Example
+  author: Shafayet Khan Shafee
+  date: last-modified
+  
+Output created: example.html
+
 pandoc 
   to: html
   output-file: example_styling.html
@@ -24,28 +49,4 @@ metadata
   date: last-modified
   
 Output created: example_styling.html
-
-pandoc 
-  to: html
-  output-file: example.html
-  standalone: true
-  embed-resources: true
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  variables: {}
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: Downloadthis Example
-  author: Shafayet Khan Shafee
-  date: last-modified
-  
-Output created: example.html
 

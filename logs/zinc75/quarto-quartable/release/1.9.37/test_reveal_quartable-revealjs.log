@@ -1,0 +1,52 @@
+pandoc 
+
+  to: revealjs
+  output-file: test_reveal_quartable.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  variables: {}
+  
+
+metadata
+
+  link-citations: true
+  width: 1280
+  height: 720
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: '`quartable` — Reveal.js demo'
+  subtitle: colspan · rowspan · midrule · cline · align
+  author: Eric Bavu
+  date: today
+  theme: simple
+  slideNumber: true
+  smaller: true
+  
+
+[quartable] WARNING: rs=3 on row 2 crosses a === separator on row 4 — LaTeX rendering will be incorrect.
+
+[quartable] WARNING: ^ marker without a matching origin cell (row 5, logical column 1).
+
+Output created: test_reveal_quartable.html
+
+

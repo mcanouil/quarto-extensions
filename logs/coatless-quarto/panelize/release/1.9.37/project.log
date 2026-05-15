@@ -1,23 +1,47 @@
-Error in loadNamespace(x) : there is no package called 'rmarkdown'
-Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
-Execution halted
+FATAL (/opt/quarto/share/filters/main.lua:3760) An error occurred:
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-7/repo/docs/panelize as a JSON filter.
+Please make sure the file exists and is executable.
 
-R installation:
+Did you intend 'panelize' as a Lua filter in an extension?
+If so, make sure you've spelled the name of the extension correctly.
 
-  Version: 4.6.0
-  Path: /opt/R/4.6.0/lib/R
-  LibPaths:
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-24/R/x86_64-pc-linux-gnu-library/4.6
-    - /opt/R/4.6.0/lib/R/library
-  knitr: 1.51
-  rmarkdown: (None)
+The original Pandoc error follows below.
+Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-7/repo/docs/panelize:
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-7/repo/docs/panelize
 
-
-
-The rmarkdown package is not available in this R installation.
-Install with install.packages("rmarkdown")
-
-
+Error run
+ning filter /opt/quarto/share/filters/main.lua:
+/opt/quarto/share/filters/main.lu
+a:588: FATAL QUARTO ERROR
+stack traceback:
+	/opt/q
+uarto/share/filters/main.lua:2622: in functio
+n 'fatal'
+	/opt/quarto/share/filter
+s/main.lua:2202: in function 'f
+ail'
+	/opt/quarto/share/filters/main.lua:3760: 
+in field 'Pandoc'
+	/opt/quarto/share/filt
+ers/main.lua:588: in function 'run_e
+mulated_filter'
+	/opt/quar
+to/share/filters/main.l
+ua:1317: in local
+ 'callback'
+	/opt
+/quarto/share/fil
+ters/main.lua:13
+35: in upvalue '
+run_emulated_filt
+er_chain'
+	/opt/
+quarto/share/filters/mai
+n.lua:1371: in f
+unction </opt/qu
+arto/share/filte
+rs/main.lua:136
+8>
 
 (WARN) Error encountered when rendering files
 

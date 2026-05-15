@@ -1,4 +1,5 @@
 Cloning into 'repo'...
+CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
 pandoc 
   to: html
   output-file: example.html
@@ -22,8 +23,8 @@ metadata
     save-tex: true
     tex-dir: tikz-tex
   
-[31mERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:261) inkscape not found. Please install it (the configured svg converter) to convert TeX output to SVG.
-[39m[31mERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:328) Error compiling TikZ figure 'stick-figure':
+[31mERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-24/repo/_extensions/tikz/tikz.lua:261) inkscape not found. Please install it (the configured svg converter) to convert TeX output to SVG.
+[39m[31mERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-24/repo/_extensions/tikz/tikz.lua:328) Error compiling TikZ figure 'stick-figure':
 Error running pdflatex (error code 1): This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
@@ -46,7 +47,7 @@ l.3 ^^M
 Transcript written on stick-figure.log.
 
 LaTeX Log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.27)  7 MAY 2026 19:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.15)  15 MAY 2026 18:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -93,8 +94,8 @@ TikZ Code:
   % Legs
   \draw (-1,-4) -- (0,-3) -- (1,-4);
 \end{tikzpicture}
-[39m[31mERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:398) Error converting to SVG (command: inkscape) for TikZ figure 'stick-figure':
-inkscape: createProcess: posix_spawnp: permission denied (Permission denied)
+[39m[31mERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-24/repo/_extensions/tikz/tikz.lua:398) Error converting to SVG (command: inkscape) for TikZ figure 'stick-figure':
+inkscape: createProcess: posix_spawnp: does not exist (No such file or directory)
 TikZ Code:
 %%| filename: stick-figure
 %%| caption: A Stick Figure
@@ -109,7 +110,7 @@ TikZ Code:
   % Legs
   \draw (-1,-4) -- (0,-3) -- (1,-4);
 \end{tikzpicture}
-[39m[31mERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:405) Failed to read generated SVG file for TikZ figure 'stick-figure'.
+[39m[31mERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-24/repo/_extensions/tikz/tikz.lua:405) Failed to read generated SVG file for TikZ figure 'stick-figure'.
 TikZ Code:
 %%| filename: stick-figure
 %%| caption: A Stick Figure
@@ -129,10 +130,10 @@ string expected, got nil
 	while retrieving function argument contents
 	while retrieving arguments for function insert
 stack traceback:
-	...quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:525: in function <...quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:427>
+	...quarto-extensions/test-24/repo/_extensions/tikz/tikz.lua:525: in function <...quarto-extensions/test-24/repo/_extensions/tikz/tikz.lua:427>
 	[C]: in ?
 	[C]: in method 'walk'
-	...quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:733: in function <...quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:731>
+	...quarto-extensions/test-24/repo/_extensions/tikz/tikz.lua:733: in function <...quarto-extensions/test-24/repo/_extensions/tikz/tikz.lua:731>
 	[C]: in ?
 	[C]: in method 'walk'
 	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
@@ -143,7 +144,7 @@ stack traceback:
 	/opt/quarto/share/filters/main.lua:1333: in upvalue 'run_emulated_filter_chain'
 	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
 stack traceback:
-	...quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:733: in function <...quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:731>
+	...quarto-extensions/test-24/repo/_extensions/tikz/tikz.lua:733: in function <...quarto-extensions/test-24/repo/_extensions/tikz/tikz.lua:731>
 	[C]: in ?
 	[C]: in method 'walk'
 	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
@@ -186,8 +187,8 @@ metadata
     save-tex: true
     tex-dir: tikz-tex
   
-[31mERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:261) inkscape not found. Please install it (the configured svg converter) to convert TeX output to SVG.
-[39m[31mERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:328) Error compiling TikZ figure 'stick-figure':
+[31mERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-24/repo/_extensions/tikz/tikz.lua:261) inkscape not found. Please install it (the configured svg converter) to convert TeX output to SVG.
+[39m[31mERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-24/repo/_extensions/tikz/tikz.lua:328) Error compiling TikZ figure 'stick-figure':
 Error running pdflatex (error code 1): This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
@@ -210,7 +211,7 @@ l.3 ^^M
 Transcript written on stick-figure.log.
 
 LaTeX Log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.27)  7 MAY 2026 19:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.15)  15 MAY 2026 18:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -257,8 +258,8 @@ TikZ Code:
   % Legs
   \draw (-1,-4) -- (0,-3) -- (1,-4);
 \end{tikzpicture}
-[39m[31mERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:398) Error converting to SVG (command: inkscape) for TikZ figure 'stick-figure':
-inkscape: createProcess: posix_spawnp: permission denied (Permission denied)
+[39m[31mERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-24/repo/_extensions/tikz/tikz.lua:398) Error converting to SVG (command: inkscape) for TikZ figure 'stick-figure':
+inkscape: createProcess: posix_spawnp: does not exist (No such file or directory)
 TikZ Code:
 %%| filename: stick-figure
 %%| caption: A Stick Figure
@@ -273,7 +274,7 @@ TikZ Code:
   % Legs
   \draw (-1,-4) -- (0,-3) -- (1,-4);
 \end{tikzpicture}
-[39m[31mERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:405) Failed to read generated SVG file for TikZ figure 'stick-figure'.
+[39m[31mERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-24/repo/_extensions/tikz/tikz.lua:405) Failed to read generated SVG file for TikZ figure 'stick-figure'.
 TikZ Code:
 %%| filename: stick-figure
 %%| caption: A Stick Figure
@@ -293,10 +294,10 @@ string expected, got nil
 	while retrieving function argument contents
 	while retrieving arguments for function insert
 stack traceback:
-	...quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:525: in function <...quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:427>
+	...quarto-extensions/test-24/repo/_extensions/tikz/tikz.lua:525: in function <...quarto-extensions/test-24/repo/_extensions/tikz/tikz.lua:427>
 	[C]: in ?
 	[C]: in method 'walk'
-	...quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:733: in function <...quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:731>
+	...quarto-extensions/test-24/repo/_extensions/tikz/tikz.lua:733: in function <...quarto-extensions/test-24/repo/_extensions/tikz/tikz.lua:731>
 	[C]: in ?
 	[C]: in method 'walk'
 	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
@@ -307,7 +308,7 @@ stack traceback:
 	/opt/quarto/share/filters/main.lua:1333: in upvalue 'run_emulated_filter_chain'
 	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
 stack traceback:
-	...quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:733: in function <...quarto-extensions/test-15/repo/_extensions/tikz/tikz.lua:731>
+	...quarto-extensions/test-24/repo/_extensions/tikz/tikz.lua:733: in function <...quarto-extensions/test-24/repo/_extensions/tikz/tikz.lua:731>
 	[C]: in ?
 	[C]: in method 'walk'
 	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'

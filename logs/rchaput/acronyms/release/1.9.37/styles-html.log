@@ -1,0 +1,39 @@
+
+
+pandoc 
+
+  to: html
+  output-file: styles.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Styles
+  description: |
+    List and preview of the available styles for replacing acronyms.
+  acronyms:
+    keys:
+      - shortname: qmd
+        longname: Quarto document
+    insert_loa: false
+    insert_links: false
+  
+
+Output created: ../_site/articles/styles.html
+
+

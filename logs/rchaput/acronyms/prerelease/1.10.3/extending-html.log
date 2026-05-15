@@ -1,0 +1,33 @@
+
+
+pandoc 
+
+  to: html
+  output-file: extending.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Extending the acronyms features
+  description: |
+    Learn how to extend existing features, such as styles and translations.
+  
+
+Output created: ../_site/advanced/extending.html
+
+
