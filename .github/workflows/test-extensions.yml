@@ -24,9 +24,11 @@ jobs:
       packages: write
 
   build-matrix:
+    needs: [build-test-image]
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      packages: read
     outputs:
       matrix: ${{ steps.matrix.outputs.matrix }}
       skipped: ${{ steps.matrix.outputs.skipped }}
@@ -141,7 +143,7 @@ jobs:
           RUN if [ -d /opt/tinytex ]; then chown -R ${HOST_UID}:${HOST_GID} /opt/tinytex; fi
           USER vscode
           ENV UV_LINK_MODE=copy
-          RUN uv venv /home/vscode/.venv \
+          RUN uv venv --allow-existing /home/vscode/.venv \
               && . /home/vscode/.venv/bin/activate \
               && uv pip install jupyter papermill matplotlib shinylive
           ENV VIRTUAL_ENV=/home/vscode/.venv
