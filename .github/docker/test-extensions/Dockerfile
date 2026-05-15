@@ -47,7 +47,7 @@ USER vscode
 
 # Python virtual environment with Jupyter and common packages
 ENV UV_LINK_MODE=copy
-RUN uv venv --allow-existing /home/vscode/.venv \
+RUN uv venv /home/vscode/.venv \
     && . /home/vscode/.venv/bin/activate \
     && uv pip install jupyter papermill matplotlib shinylive
 ENV VIRTUAL_ENV=/home/vscode/.venv
