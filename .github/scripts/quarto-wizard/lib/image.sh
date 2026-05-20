@@ -45,10 +45,14 @@ author_image_file() {
 extension_image_file() {
   local image_url="$1"
   local output_file="$2"
+  local max_attempts=5
   local attempt=0
+  local http_code=""
   local mime_type=""
+  local downloaded=false
   local placeholder_file="${PLACEHOLDER_IMAGE:-assets/media/github-placeholder.png}"
   local temp_file="${output_file}.tmp"
+  local header_file="${output_file}.hdr"
 
   # Step 1: Delete existing extension.png if it is the same as placeholder
   if [[ -f "${output_file}" ]]; then
@@ -59,23 +63,43 @@ extension_image_file() {
     fi
   fi
 
-  # Step 2: Try to download and update extension.png using a temporary file
-  while [[ ${attempt} -lt 3 ]]; do
-    curl -s -o "${temp_file}" "${image_url}"
-    mime_type=$(file --mime-type -b "${temp_file}")
-    if [[ "${mime_type}" == "image/png" ]]; then
+  # Step 2: Download with redirect following, HTTP-status checking, and backoff.
+  # opengraph.githubassets.com rate-limits per IP (HTTP 429 + Retry-After), so a
+  # transient failure must not be mistaken for "no image".
+  while [[ ${attempt} -lt ${max_attempts} ]]; do
+    attempt=$((attempt + 1))
+    http_code=$(curl -L -s -o "${temp_file}" -D "${header_file}" \
+      -w '%{http_code}' "${image_url}" || echo "000")
+    mime_type=$(file --mime-type -b "${temp_file}" 2>/dev/null || echo "")
+
+    if [[ "${http_code}" == "200" && "${mime_type}" == "image/png" ]]; then
+      downloaded=true
       break
     fi
-    if [[ "${mime_type}" != "image/png" ]]; then
-      echo "Note: image is not a PNG file. $((attempt + 1)) attempt(s) to download."
-      rm -f "${temp_file}"
+
+    rm -f "${temp_file}"
+
+    if [[ "${http_code}" == "429" || "${http_code}" == "503" ]]; then
+      local retry_after
+      retry_after=$(grep -i '^retry-after:' "${header_file}" 2>/dev/null | tail -n 1 | tr -d '\r' | awk '{print $2}')
+      if [[ ! "${retry_after}" =~ ^[0-9]+$ ]]; then
+        retry_after=$((attempt * 5))
+      fi
+      if [[ "${retry_after}" -gt 30 ]]; then
+        retry_after=30
+      fi
+      echo "::warning title=Image Rate Limited::${image_url} returned HTTP ${http_code}, retrying in ${retry_after}s (attempt ${attempt}/${max_attempts})"
+      sleep "${retry_after}"
+      continue
     fi
-    attempt=$((attempt + 1))
-    sleep 1
+
+    echo "Note: image fetch returned HTTP ${http_code}, mime ${mime_type:-unknown} (attempt ${attempt}/${max_attempts})."
+    sleep $((attempt * 2))
   done
 
-  # Step 2 continued: Only keep downloaded image if it is not the same as placeholder
-  if [[ -f "${temp_file}" && "${mime_type}" == "image/png" ]]; then
+  # Step 3: Only keep a confirmed download, and never downgrade a real image to
+  # the placeholder on transient failure.
+  if [[ "${downloaded}" == true ]]; then
     if cmp -s "${temp_file}" "${placeholder_file}"; then
       echo "Downloaded image is identical to placeholder, removing"
       rm -f "${temp_file}"
@@ -84,11 +108,12 @@ extension_image_file() {
     fi
   fi
 
-  # Step 3: Clean up temporary file and return result
-  rm -f "${temp_file}"
+  # Step 4: Clean up temporary files and return result
+  rm -f "${temp_file}" "${header_file}"
   if [[ -f "${output_file}" ]]; then
     echo "${output_file}"
   else
+    echo "::warning title=Image Unavailable::Using placeholder for ${image_url}"
     echo "${placeholder_file}"
   fi
 }
