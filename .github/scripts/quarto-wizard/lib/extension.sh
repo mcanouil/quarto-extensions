@@ -160,11 +160,17 @@ process_extensions() {
       for file in "${files[@]}"; do
         [[ -f "${file}" ]] || all_exist=false
       done
+      local placeholder_file="${PLACEHOLDER_IMAGE:-assets/media/github-placeholder.png}"
       local has_placeholder=false
       if [[ -f "${extension_yaml_file}" ]]; then
         if grep -q 'image: "/assets/media/github-placeholder.png"' "${extension_yaml_file}"; then
           has_placeholder=true
         fi
+      fi
+      # Treat a missing or placeholder-identical extension.png as a missing
+      # social card so the entry is reprocessed and the image retried.
+      if [[ ! -f "${extension_png_file}" ]] || cmp -s "${extension_png_file}" "${placeholder_file}"; then
+        has_placeholder=true
       fi
       if [[ "${FORCE_UPDATE}" != "true" ]]; then
         if [[ -n "${existing_updated_at}" && "${existing_updated_at}" == "${current_updated_at}" && "${all_exist}" == true && "${has_placeholder}" == false ]]; then
@@ -173,7 +179,7 @@ process_extensions() {
           echo "::endgroup::"
           continue
         elif [[ "${has_placeholder}" == true ]]; then
-          echo "Processing ${entry}: extension YAML contains placeholder image"
+          echo "Processing ${entry}: missing or placeholder social card image"
         fi
       else
         echo "Force update enabled: processing ${entry} regardless of timestamps or placeholder."
