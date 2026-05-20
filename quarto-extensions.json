@@ -4846,9 +4846,9 @@
       "typst",
       "template"
     ],
-    "stargazerCount": 142,
+    "stargazerCount": 143,
     "title": "DIATYPST",
-    "updatedAt": "2026-05-16T10:00:51Z",
+    "updatedAt": "2026-05-20T16:11:12Z",
     "url": "https://github.com/skriptum/diatypst",
     "author": "marten",
     "template": true,
@@ -5669,6 +5669,63 @@
     ],
     "quartoRequired": ">=1.4.0"
   },
+  "emilhvitfeldt/quarto-redacted": {
+    "createdAt": "2026-05-16T15:17:05Z",
+    "defaultBranchRef": "main",
+    "description": "Render text as redacted solid bars or handwritten scribbles in Quarto documents (HTML, RevealJS, PDF, Typst).",
+    "latestRelease": "v0.1.0",
+    "latestReleaseUrl": "https://github.com/EmilHvitfeldt/quarto-redacted/releases/tag/v0.1.0",
+    "licenseInfo": "none",
+    "name": "quarto-redacted",
+    "nameWithOwner": "emilhvitfeldt/quarto-redacted",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/1e8ca8859427485e015f35826e63a4782e13c813958f9dd1310e8561cf022cf9/EmilHvitfeldt/quarto-redacted",
+    "owner": "emilhvitfeldt",
+    "pushedAt": "2026-05-18T16:43:21Z",
+    "repositoryTopics": [
+      "shortcode"
+    ],
+    "stargazerCount": 1,
+    "title": "REDACTED",
+    "updatedAt": "2026-05-18T16:43:21Z",
+    "url": "https://github.com/EmilHvitfeldt/quarto-redacted",
+    "author": "Emil Hvitfeldt",
+    "template": false,
+    "example": false,
+    "latestCommit": "7dff47ecf8a68fb70a9f4dad742ef98e3ac9c86c",
+    "contributes": [
+      "filter"
+    ],
+    "quartoRequired": ">=1.4.0"
+  },
+  "emilhvitfeldt/quarto-timeline": {
+    "createdAt": "2026-04-08T01:49:25Z",
+    "defaultBranchRef": "main",
+    "description": "Styled timeline layouts for Quarto HTML and RevealJS documents, with horizontal, vertical, and alternating modes.",
+    "latestRelease": "v0.1.0",
+    "latestReleaseUrl": "https://github.com/EmilHvitfeldt/quarto-timeline/releases/tag/v0.1.0",
+    "licenseInfo": "none",
+    "name": "quarto-timeline",
+    "nameWithOwner": "emilhvitfeldt/quarto-timeline",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/0584f8c665b18970798656f4e2fb96fab0eb9353260faed7cef38bd5e50f6ac8/EmilHvitfeldt/quarto-timeline",
+    "owner": "emilhvitfeldt",
+    "pushedAt": "2026-05-18T16:48:52Z",
+    "repositoryTopics": [
+      "reveal.js",
+      "example"
+    ],
+    "stargazerCount": 17,
+    "title": "TIMELINE",
+    "updatedAt": "2026-05-18T17:20:00Z",
+    "url": "https://github.com/EmilHvitfeldt/quarto-timeline",
+    "author": "Emil Hvitfeldt",
+    "template": false,
+    "example": true,
+    "latestCommit": "6a092ac54b2a3d4ab993a970be0906120292fcef",
+    "contributes": [
+      "filter"
+    ],
+    "quartoRequired": ">=1.4.0"
+  },
   "emilhvitfeldt/quarto-revealjs-codewindow": {
     "createdAt": "2023-09-05T23:55:21Z",
     "defaultBranchRef": "main",
@@ -5755,6 +5812,64 @@
     ],
     "quartoRequired": null
   },
+  "emilhvitfeldt/quarto-arrows": {
+    "createdAt": "2026-03-11T22:04:50Z",
+    "defaultBranchRef": "main",
+    "description": "Draw arrows with Bézier curves in Quarto documents (HTML, PDF, Typst, RevealJS).",
+    "latestRelease": "v0.1.0",
+    "latestReleaseUrl": "https://github.com/EmilHvitfeldt/quarto-arrows/releases/tag/v0.1.0",
+    "licenseInfo": "none",
+    "name": "quarto-arrows",
+    "nameWithOwner": "emilhvitfeldt/quarto-arrows",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/7891defc7cd2f2a09c06930b2df4fc8e26fcd1c2936d9eb9a10d48cfcc22b28a/EmilHvitfeldt/quarto-arrows",
+    "owner": "emilhvitfeldt",
+    "pushedAt": "2026-05-18T16:27:15Z",
+    "repositoryTopics": [
+      "shortcode"
+    ],
+    "stargazerCount": 5,
+    "title": "ARROWS",
+    "updatedAt": "2026-05-18T16:27:19Z",
+    "url": "https://github.com/EmilHvitfeldt/quarto-arrows",
+    "author": "Emil Hvitfeldt",
+    "template": false,
+    "example": false,
+    "latestCommit": "95f7052aab09756c9e0762f63d9aeb1217f2b385",
+    "contributes": [
+      "format",
+      "shortcode"
+    ],
+    "quartoRequired": ">=1.3.0"
+  },
+  "emilhvitfeldt/quarto-revealjs-chat-bubbles": {
+    "createdAt": "2026-04-04T18:36:17Z",
+    "defaultBranchRef": "main",
+    "description": "Add iOS-style chat bubbles to Quarto RevealJS presentations, with fragment support and auto-scroll.",
+    "latestRelease": "v1.2.0",
+    "latestReleaseUrl": "https://github.com/EmilHvitfeldt/quarto-revealjs-chat-bubbles/releases/tag/v1.2.0",
+    "licenseInfo": "none",
+    "name": "quarto-revealjs-chat-bubbles",
+    "nameWithOwner": "emilhvitfeldt/quarto-revealjs-chat-bubbles",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/d970c5f235189f54389a2ade523de60a397398d70da2aef62e190c68f0b7c122/EmilHvitfeldt/quarto-revealjs-chat-bubbles",
+    "owner": "emilhvitfeldt",
+    "pushedAt": "2026-04-08T19:56:10Z",
+    "repositoryTopics": [
+      "reveal.js",
+      "example"
+    ],
+    "stargazerCount": 14,
+    "title": "REVEALJS CHAT BUBBLES",
+    "updatedAt": "2026-05-18T16:32:05Z",
+    "url": "https://github.com/EmilHvitfeldt/quarto-revealjs-chat-bubbles",
+    "author": "Emil Hvitfeldt",
+    "template": false,
+    "example": true,
+    "latestCommit": "d5ffbb85684c70540d552edcb3d5874f7ffa9fd9",
+    "contributes": [
+      "revealjs-plugin"
+    ],
+    "quartoRequired": ">=1.2.0"
+  },
   "emilhvitfeldt/quarto-designmode": {
     "createdAt": "2022-11-04T00:38:15Z",
     "defaultBranchRef": "main",
@@ -5785,25 +5900,25 @@
     "createdAt": "2026-02-17T01:57:17Z",
     "defaultBranchRef": "main",
     "description": "An extension that uses Animate.css and Magic.css libraries to add additional fragment animations to RevealJS presentations.",
-    "latestRelease": "v0.1.0",
-    "latestReleaseUrl": "https://github.com/EmilHvitfeldt/quarto-revealjs-more-fragments/releases/tag/v0.1.0",
+    "latestRelease": "v0.2.0",
+    "latestReleaseUrl": "https://github.com/EmilHvitfeldt/quarto-revealjs-more-fragments/releases/tag/v0.2.0",
     "licenseInfo": "none",
     "name": "quarto-revealjs-more-fragments",
     "nameWithOwner": "emilhvitfeldt/quarto-revealjs-more-fragments",
-    "openGraphImageUrl": "https://opengraph.githubassets.com/404a4432ecc1bf82c7ba17811166d281e4328a448d93ba4e7f922088ac91d471/EmilHvitfeldt/quarto-revealjs-more-fragments",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/e810622b0a0d3aa9c083ba37893f61ed521923b4ddae5d2d69314a3e18be1534/EmilHvitfeldt/quarto-revealjs-more-fragments",
     "owner": "emilhvitfeldt",
-    "pushedAt": "2026-05-18T17:01:55Z",
+    "pushedAt": "2026-05-20T17:39:07Z",
     "repositoryTopics": [
       "reveal.js"
     ],
     "stargazerCount": 8,
     "title": "REVEALJS MORE FRAGMENTS",
-    "updatedAt": "2026-05-18T17:01:39Z",
+    "updatedAt": "2026-05-20T17:38:39Z",
     "url": "https://github.com/EmilHvitfeldt/quarto-revealjs-more-fragments",
     "author": "Emil Hvitfeldt",
     "template": false,
     "example": false,
-    "latestCommit": "c695e776b0c724f1e24d1e943d59262985ca01ef",
+    "latestCommit": "5c678977143725ff0038115e1977d9773ad3e577",
     "contributes": [
       "filter"
     ],
@@ -5839,6 +5954,34 @@
     ],
     "quartoRequired": null
   },
+  "emilhvitfeldt/quarto-tegaki": {
+    "createdAt": "2026-04-16T16:42:40Z",
+    "defaultBranchRef": "main",
+    "description": "Animated handwriting effects for Quarto HTML and RevealJS documents using the tegaki library.",
+    "latestRelease": "v0.1.0",
+    "latestReleaseUrl": "https://github.com/EmilHvitfeldt/quarto-tegaki/releases/tag/v0.1.0",
+    "licenseInfo": "none",
+    "name": "quarto-tegaki",
+    "nameWithOwner": "emilhvitfeldt/quarto-tegaki",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/ec34616883a1899dcd345fea701c8679c275383d9495a0ee8ecb0ab8863ebe88/EmilHvitfeldt/quarto-tegaki",
+    "owner": "emilhvitfeldt",
+    "pushedAt": "2026-05-18T16:47:28Z",
+    "repositoryTopics": [
+      "reveal.js"
+    ],
+    "stargazerCount": 9,
+    "title": "TEGAKI",
+    "updatedAt": "2026-05-18T16:47:28Z",
+    "url": "https://github.com/EmilHvitfeldt/quarto-tegaki",
+    "author": "Emil Hvitfeldt",
+    "template": false,
+    "example": false,
+    "latestCommit": "02eb964ed2cd79d8cac30242ff73af451653fc8d",
+    "contributes": [
+      "filter"
+    ],
+    "quartoRequired": ">=1.4.0"
+  },
   "emilhvitfeldt/quarto-revealjs-editable": {
     "createdAt": "2025-08-20T00:55:21Z",
     "defaultBranchRef": "main",
@@ -5871,6 +6014,35 @@
     ],
     "quartoRequired": ">=1.3.0"
   },
+  "emilhvitfeldt/quarto-revealjs-tldraw": {
+    "createdAt": "2026-04-06T02:26:51Z",
+    "defaultBranchRef": "main",
+    "description": "Draw on Quarto RevealJS slides using tldraw v4, with per-slide drawing layers saved to localStorage.",
+    "latestRelease": "v0.1.0",
+    "latestReleaseUrl": "https://github.com/EmilHvitfeldt/quarto-revealjs-tldraw/releases/tag/v0.1.0",
+    "licenseInfo": "none",
+    "name": "quarto-revealjs-tldraw",
+    "nameWithOwner": "emilhvitfeldt/quarto-revealjs-tldraw",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/b987eabe2ae80f3a0c6afc124a4eaa2d6ef7ad191e3152ff0bd9ea0d761cdc14/EmilHvitfeldt/quarto-revealjs-tldraw",
+    "owner": "emilhvitfeldt",
+    "pushedAt": "2026-05-18T16:39:08Z",
+    "repositoryTopics": [
+      "reveal.js",
+      "example"
+    ],
+    "stargazerCount": 4,
+    "title": "REVEALJS TLDRAW",
+    "updatedAt": "2026-05-18T16:39:08Z",
+    "url": "https://github.com/EmilHvitfeldt/quarto-revealjs-tldraw",
+    "author": "Emil Hvitfeldt",
+    "template": false,
+    "example": true,
+    "latestCommit": "151293c99ccff3276864fd052460c1f2fad08ad3",
+    "contributes": [
+      "revealjs-plugin"
+    ],
+    "quartoRequired": ">=1.4.0"
+  },
   "emilhvitfeldt/quarto-revealjs-imagemover": {
     "createdAt": "2025-08-12T21:35:39Z",
     "defaultBranchRef": "main",
@@ -5900,6 +6072,62 @@
     ],
     "quartoRequired": ">=1.6.0"
   },
+  "emilhvitfeldt/quarto-revealjs-rows": {
+    "createdAt": "2026-05-06T03:39:15Z",
+    "defaultBranchRef": "main",
+    "description": "Row-based layout containers for Quarto RevealJS slides, the vertical counterpart to built-in columns.",
+    "latestRelease": "v0.1.0",
+    "latestReleaseUrl": "https://github.com/EmilHvitfeldt/quarto-revealjs-rows/releases/tag/v0.1.0",
+    "licenseInfo": "none",
+    "name": "quarto-revealjs-rows",
+    "nameWithOwner": "emilhvitfeldt/quarto-revealjs-rows",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/f8c515f0d12529009ad41097ae8a774d93de1ebdc65fb93a2588336edeb45a37/EmilHvitfeldt/quarto-revealjs-rows",
+    "owner": "emilhvitfeldt",
+    "pushedAt": "2026-05-18T16:36:33Z",
+    "repositoryTopics": [
+      "reveal.js"
+    ],
+    "stargazerCount": 2,
+    "title": "REVEALJS ROWS",
+    "updatedAt": "2026-05-19T17:13:29Z",
+    "url": "https://github.com/EmilHvitfeldt/quarto-revealjs-rows",
+    "author": "Emil Hvitfeldt",
+    "template": false,
+    "example": false,
+    "latestCommit": "48913f702486e26dee8315d7665a343e6efc3d44",
+    "contributes": [
+      "revealjs-plugin"
+    ],
+    "quartoRequired": ">=1.2.0"
+  },
+  "emilhvitfeldt/quarto-revealjs-transitions": {
+    "createdAt": "2026-04-11T20:43:34Z",
+    "defaultBranchRef": "main",
+    "description": "GPU-accelerated GL Transitions for Quarto RevealJS slides, with 100+ GLSL shader effects.",
+    "latestRelease": "v0.1.0",
+    "latestReleaseUrl": "https://github.com/EmilHvitfeldt/quarto-revealjs-transitions/releases/tag/v0.1.0",
+    "licenseInfo": "none",
+    "name": "quarto-revealjs-transitions",
+    "nameWithOwner": "emilhvitfeldt/quarto-revealjs-transitions",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/de572306cc32406663cc0d71268e452e498309cd2edff837a300488c0a1dc7b2/EmilHvitfeldt/quarto-revealjs-transitions",
+    "owner": "emilhvitfeldt",
+    "pushedAt": "2026-05-18T16:40:19Z",
+    "repositoryTopics": [
+      "reveal.js"
+    ],
+    "stargazerCount": 6,
+    "title": "REVEALJS TRANSITIONS",
+    "updatedAt": "2026-05-18T16:40:15Z",
+    "url": "https://github.com/EmilHvitfeldt/quarto-revealjs-transitions",
+    "author": "Emil Hvitfeldt",
+    "template": false,
+    "example": false,
+    "latestCommit": "a182200cd38b81e0dd1854c1414a866dcf58d97a",
+    "contributes": [
+      "revealjs-plugin"
+    ],
+    "quartoRequired": ">=1.2.0"
+  },
   "emilhvitfeldt/quarto-nes-theme": {
     "createdAt": "2022-08-31T04:39:49Z",
     "defaultBranchRef": "main",
@@ -5928,6 +6156,36 @@
       "format"
     ],
     "quartoRequired": null
+  },
+  "emilhvitfeldt/quarto-revealjs-highlighter-theme": {
+    "createdAt": "2026-04-05T00:37:21Z",
+    "defaultBranchRef": "main",
+    "description": "Add hand-drawn highlighter effects and decorative slide themes to Quarto RevealJS presentations.",
+    "latestRelease": "v0.1.0",
+    "latestReleaseUrl": "https://github.com/EmilHvitfeldt/quarto-revealjs-highlighter-theme/releases/tag/v0.1.0",
+    "licenseInfo": "none",
+    "name": "quarto-revealjs-highlighter-theme",
+    "nameWithOwner": "emilhvitfeldt/quarto-revealjs-highlighter-theme",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/005a3c819626c9e7fdc30e33c4d8fb064ad02db14622e26b84f2bcc7813dbe60/EmilHvitfeldt/quarto-revealjs-highlighter-theme",
+    "owner": "emilhvitfeldt",
+    "pushedAt": "2026-05-18T16:34:34Z",
+    "repositoryTopics": [
+      "reveal.js",
+      "reveal.js-theme",
+      "template"
+    ],
+    "stargazerCount": 1,
+    "title": "REVEALJS HIGHLIGHTER THEME",
+    "updatedAt": "2026-05-18T16:34:34Z",
+    "url": "https://github.com/EmilHvitfeldt/quarto-revealjs-highlighter-theme",
+    "author": "Emil Hvitfeldt",
+    "template": true,
+    "example": false,
+    "latestCommit": "41bbbc1c95c158e5e7537cac775df4f289e1026e",
+    "contributes": [
+      "format"
+    ],
+    "quartoRequired": ">=1.2.0"
   },
   "emilhvitfeldt/quarto-revealjs-cinco-de-mayo": {
     "createdAt": "2023-07-18T02:39:09Z",
@@ -5984,6 +6242,34 @@
     ],
     "quartoRequired": null
   },
+  "emilhvitfeldt/quarto-revealjs-video-fragments": {
+    "createdAt": "2026-05-12T18:09:53Z",
+    "defaultBranchRef": "main",
+    "description": "Control video playback clip-by-clip with RevealJS fragments in Quarto presentations.",
+    "latestRelease": "v0.1.0",
+    "latestReleaseUrl": "https://github.com/EmilHvitfeldt/quarto-revealjs-video-fragments/releases/tag/v0.1.0",
+    "licenseInfo": "none",
+    "name": "quarto-revealjs-video-fragments",
+    "nameWithOwner": "emilhvitfeldt/quarto-revealjs-video-fragments",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/ed821f2750bc64e1670a5083df5ac5943ed5dcdc6aded077675b7d92f36ca995/EmilHvitfeldt/quarto-revealjs-video-fragments",
+    "owner": "emilhvitfeldt",
+    "pushedAt": "2026-05-18T16:41:39Z",
+    "repositoryTopics": [
+      "reveal.js"
+    ],
+    "stargazerCount": 1,
+    "title": "REVEALJS VIDEO FRAGMENTS",
+    "updatedAt": "2026-05-19T17:41:08Z",
+    "url": "https://github.com/EmilHvitfeldt/quarto-revealjs-video-fragments",
+    "author": "Emil Hvitfeldt",
+    "template": false,
+    "example": false,
+    "latestCommit": "c0272e88381f7174232c00a0fbbcce3cd6dd0873",
+    "contributes": [
+      "revealjs-plugin"
+    ],
+    "quartoRequired": ">=1.2.222"
+  },
   "hchulkim/econ-paper-template": {
     "createdAt": "2025-03-09T00:30:28Z",
     "defaultBranchRef": "main",
@@ -5993,15 +6279,15 @@
     "licenseInfo": "MIT License",
     "name": "econ-paper-template",
     "nameWithOwner": "hchulkim/econ-paper-template",
-    "openGraphImageUrl": "https://opengraph.githubassets.com/9d8dc43a6432c383611f2159dd1e0dbb7525613d353e84fcb86e5d3fd4d4d493/hchulkim/econ-paper-template",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/52c63c2377c6cf12452eb509f5dda650a55ec9d9e5884293aaaaa562f5d59434/hchulkim/econ-paper-template",
     "owner": "hchulkim",
     "pushedAt": "2026-04-11T19:00:17Z",
     "repositoryTopics": [
       "template"
     ],
-    "stargazerCount": 20,
+    "stargazerCount": 21,
     "title": "ECON PAPER",
-    "updatedAt": "2026-04-29T03:51:42Z",
+    "updatedAt": "2026-05-20T17:47:35Z",
     "url": "https://github.com/hchulkim/econ-paper-template",
     "author": "Hyoungchul Kim",
     "template": true,
@@ -8166,15 +8452,15 @@
     "licenseInfo": "MIT License",
     "name": "quarto-revealjs-clean",
     "nameWithOwner": "grantmcdermott/quarto-revealjs-clean",
-    "openGraphImageUrl": "https://opengraph.githubassets.com/88406f38c841c4fbd93e81b122aa013f29de2eced6c93f118afcaec7f3087f34/grantmcdermott/quarto-revealjs-clean",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/7e0da796bc5e826773e37ff9f610cd5cb97d57b89b041f5277ae06a53d10d8b2/grantmcdermott/quarto-revealjs-clean",
     "owner": "grantmcdermott",
     "pushedAt": "2025-10-09T17:07:14Z",
     "repositoryTopics": [
       "template"
     ],
-    "stargazerCount": 402,
+    "stargazerCount": 403,
     "title": "REVEALJS CLEAN",
-    "updatedAt": "2026-05-12T01:36:52Z",
+    "updatedAt": "2026-05-20T08:08:14Z",
     "url": "https://github.com/grantmcdermott/quarto-revealjs-clean",
     "author": "Grant McDermott",
     "template": true,
