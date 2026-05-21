@@ -3,20 +3,28 @@ FROM ${BASE_IMAGE}
 
 USER root
 
-# System packages required for building R packages and rendering
+# System packages required for building R packages and rendering.
+# libnode72 is the runtime lib the PPM V8 binary links against; the -dev
+# package conflicts with the image's nodesource Node.js, so use runtime only.
 RUN apt-get update -qq && apt-get install -y -qq --no-install-recommends \
     jq libcurl4-openssl-dev libssl-dev libxml2-dev libfontconfig1-dev \
     libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev \
     libtiff5-dev libjpeg-dev libwebp-dev libgit2-dev zlib1g-dev cmake \
-    ghostscript \
+    libmagick++-dev libnode72 ghostscript \
     && rm -rf /var/lib/apt/lists/*
 
-# R packages commonly needed by extensions
-RUN Rscript -e 'install.packages(c( \
+# R packages commonly needed by extensions.
+# pak pulls PPM binaries (no compilation) and auto-installs system
+# requirements via apt (it runs here as root). pak ships in the image's
+# user library, which root cannot see, so bootstrap it into the site
+# library first.
+RUN Rscript -e 'install.packages("pak", lib = .Library, repos = sprintf("https://r-lib.github.io/p/pak/stable/%s/%s/%s", .Platform$pkgType, R.Version()$os, R.Version()$arch)); \
+    pak::pkg_install(c( \
     "rmarkdown", "knitr", "reticulate", \
     "ggplot2", "dplyr", "tidyverse", \
-    "kableExtra", "palmerpenguins", "gt", "tibble", "ragg" \
-    ), repos = "https://cloud.r-project.org", lib = .Library)'
+    "kableExtra", "palmerpenguins", "gt", "tibble", "ragg", \
+    "magick" \
+    ), lib = .Library, ask = FALSE)'
 
 # Common LaTeX packages to avoid runtime CTAN mirror dependency
 RUN if command -v tlmgr >/dev/null 2>&1; then \
@@ -36,6 +44,7 @@ RUN if command -v tlmgr >/dev/null 2>&1; then \
       fira sourcesanspro sourcecodepro \
       mdframed needspace zref \
       awesomebox fontawesome5 \
+      tex-gyre raleway babel-german \
     || true; \
     fi
 
@@ -49,6 +58,6 @@ USER vscode
 ENV UV_LINK_MODE=copy
 RUN uv venv /home/vscode/.venv \
     && . /home/vscode/.venv/bin/activate \
-    && uv pip install jupyter papermill matplotlib shinylive
+    && uv pip install jupyter papermill matplotlib shinylive black
 ENV VIRTUAL_ENV=/home/vscode/.venv
 ENV PATH="/home/vscode/.venv/bin:${PATH}"
