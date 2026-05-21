@@ -1,13 +1,13 @@
 Cloning into 'repo'...
-Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.6'
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-10/R/x86_64-pc-linux-gnu-library/4.6'
 (as 'lib' is unspecified)
-trying URL 'https://cloud.r-project.org/src/contrib/renv_1.2.2.tar.gz'
-Content type 'application/x-gzip' length 1360368 bytes (1.3 MB)
+trying URL 'https://cloud.r-project.org/src/contrib/renv_1.2.3.tar.gz'
+Content type 'application/x-gzip' length 1381583 bytes (1.3 MB)
 ==================================================
 downloaded 1.3 MB
 
 * installing *source* package 'renv' ...
-** this is package 'renv' version '1.2.2'
+** this is package 'renv' version '1.2.3'
 ** package 'renv' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
@@ -25,8 +25,8 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/Rtmplra9ml/downloaded_packages'
-Error: failed to install "rmarkdown", "base64enc", "htmltools", "bslib", "isoband", "tidyr", "data.table", "dplyr", "knitr", "yaml", "tibble", "reticulate", "Rcpp", "ggplot2", "chromote", "crosstalk", "fansi", "later", "lazyeval", "plotly", "promises", "webshot2", "websocket"
+	'/tmp/RtmpsEwOi7/downloaded_packages'
+Error: failed to install "rmarkdown", "vctrs", "base64enc", "htmltools", "bslib", "lifecycle", "isoband", "tidyr", "data.table", "pillar", "stringr", "dplyr", "knitr", "yaml", "tibble", "reticulate", "Rcpp", "ggplot2", "purrr", "rlang", "chromote", "crosstalk", "ellipsis", "fansi", "later", "lazyeval", "plotly", "promises", "webshot2", "websocket"
 Execution halted
 renv restore failed for computorg/computo-quarto-extension.
 Dependency install failed (exit 1) for computorg/computo-quarto-extension.

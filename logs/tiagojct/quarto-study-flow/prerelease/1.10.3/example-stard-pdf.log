@@ -1,0 +1,74 @@
+pandoc 
+
+  to: latex
+  output-file: example-stard.tex
+  standalone: true
+  pdf-engine: xelatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  toc: false
+  
+
+metadata
+
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: STARD 2015 flow diagram example
+  study-flow:
+    type: stard
+    assessed: 612
+    excluded: 137
+    exclusion_reasons:
+      - 'Did not meet inclusion criteria: 92'
+      - 'Declined consent: 34'
+      - 'Withdrew before testing: 11'
+    enrolled: 475
+    index_test: 461
+    not_index: 14
+    not_index_reasons:
+      - 'Equipment malfunction: 8'
+      - 'Sample not collected: 6'
+    reference_standard: 442
+    not_reference: 19
+    not_reference_reasons:
+      - 'Refused reference test: 12'
+      - 'Reference test contraindicated: 7'
+    outcomes:
+      true_positive: 148
+      false_positive: 41
+      false_negative: 27
+      true_negative: 226
+  
+
+
+Rendering PDF
+
+running xelatex - 1
+
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+running xelatex - 2
+
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+
+
+Output created: example-stard.pdf
+
+

@@ -21,83 +21,82 @@ metadata
   title: Quarto-svgbob Example
   
 
-Error running fil
-ter /opt/quarto/share/filters/main.lua:
+Error running filte
+r /opt/quarto/share/filters/main.lua:
 svgbob: createProcess: posix_spawnp: does not exist (No such file or directory)
 stack traceback:
 	...test-12/repo/_extensions/quarto-svgbob/quarto-svgbob.lua:27: in local 'render_cmd'
-	...test-12/r
-epo/_extensions/quarto-svgbob/quarto-svgbob.lua:43: in global 'Render'
-	...test
--12/repo/_extensions/quarto-svgbob/quarto-svgb
-ob.lua:64: in function <...test-12/
-repo/_extensions/quarto-svgbob/quarto-s
-vgbob.lua:63>
+	...test-12/re
+po/_extensions/quarto-svgbob/quarto-svgbob.lua:43: in global 'Render'
+	
+...test-12/repo/_extensions/quarto-svgbob/quarto-svgbob.lua:64: in functi
+on <...test-12/repo/_extensions/quarto-svgbob/qua
+rto-svgbob.lua:63>
 	[C]: in ?
-	[C]: in meth
-od 'walk'
-	/opt/quarto/share/pando
-c/datadir/_utils.lua:607: i
-n function '_utils.walk'
-	/opt/quarto/share/filters/main.lua:574
-: in local 'checked_walk'
-	/opt/quarto/share/filte
-rs/main.lua:629: in function 'run_emulated_filter
-'
-	/opt/quarto/share/fi
-lters/main.lua:1317
-: in local 'callbac
-k'
-	[string "if pa
-ndoc.system.os ==
- "mingw32" then...
-"]:778: in field 
-'withScriptFile'
-	/
-opt/quarto/share/
-filters/main.lua:
-1333: in upvalue 
-'run_emulated_fil
-ter_chain'
-	/opt/
-quarto/share/filte
-rs/main.lua:1371:
- in function </op
-t/quarto/share/fi
-lters/main.lua:1368>
-
-stack traceback:
+	[C]: in metho
+d 'walk'
+	/opt/quarto/share/pandoc/
+datadir/_utils.lua:607: in functi
+on '_utils.walk'
+	/opt/quart
+o/share/filters/main.lua:574: in local 'checked_walk'
+	/opt/qu
+arto/share/filters/main.lua:629: in funct
+ion 'run_emulated_filter'
+	/opt/quarto/share/filters/
+main.lua:1317: in local 'ca
+llback'
+	[string "if 
+pandoc.system.os =
+= "mingw32" then..."]
+:778: in field 'withScrip
+tFile'
+	/opt/quarto
+/share/filters/ma
+in.lua:1333: in u
+pvalue 'run_emulat
+ed_filter_chain'
 
 	/opt/quarto/shar
-e/pandoc/datadir/
-_utils.lua:607: i
-n function '_util
-s.walk'
-	/opt/qu
-arto/share/filters/main.lua
-:574: in local 'checke
-d_walk'
-	/opt/quar
-to/share/filters/
+e/filters/main.lu
+a:1371: in functio
+n </opt/quarto/sh
+are/filters/main.
+lua:1368>
+stack tr
+aceback:
+	/opt/qua
+rto/share/pandoc/
+datadir/_utils.lua
+:607: in function
+ '_utils.walk'
+	/o
+pt/quarto/share/f
+ilters/main.lua:574:
+ in local 'checked
+_walk'
+	/opt/qua
+rto/share/filters/
 main.lua:629: in 
 function 'run_emu
 lated_filter'
-	/
-opt/quarto/share/
-filters/main.lua:1
-317: in local 'ca
-llback'
-	[string 
-"if pandoc.system
-.os == "mingw32" then..."]:778: in field 'wit
-hScriptFile'
-	/opt/quarto/share/filter
-s/main.lua:1333: in upvalue 'run_emulated_filter_chain'
-	/
-opt/quarto/share/filters/main.lua:13
-71: in function </o
-pt/quarto/share/filters/main.lua:1
-368>
+	/o
+pt/quarto/share/f
+ilters/main.lua:1
+317: in local 'c
+allback'
+	[string
+ "if pandoc.syste
+m.os == "mingw32" then..."
+]:778: in field 'withS
+criptFile'
+	/opt/quarto/share/filters/
+main.lua:1333: in upvalue 'run_emulate
+d_filter_chain'
+	/opt/quarto/share/filters/main
+.lua:1371: in function </o
+pt/quarto/share/fi
+lters/main.lua:1368>
 
 (WARN) Error encountered when rendering files
 

@@ -65,7 +65,7 @@ entering extended mode
 (./source.tex
 
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-03-20>
+L3 programming layer <2026-04-28>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -73,6 +73,7 @@ Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: cls)
 
 Enter file name: 
+
 ! Emergency stop.
 <read *> 
          
@@ -101,6 +102,7 @@ Collected error summary (may duplicate other messages):
       Refer to 'source.log' and/or above output for details
 
 
+
 Latexmk: Sometimes, the -f option can be used to get latexmk
   to try to force complete processing.
   But normally, you will need to correct the file(s) that caused the
@@ -109,7 +111,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/example-quarto//:/tmp/quarto-session127353462635503a/85d8cf454cfd9511//:/home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:/tmp/quarto-session34ddc4c93627eb57/dc8f65edd8e654eb//:/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -168,14 +170,14 @@ $E = mc^2$
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.5.15)  15 MAY 2026 17:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.5.21)  21 MAY 2026 20:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **source.tex
 (./source.tex
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-03-20>
+L3 programming layer <2026-04-28>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -192,10 +194,10 @@ l.6 \usepackage
 
  
 Here is how much of TeX's memory you used:
- 27 strings out of 469297
- 580 string characters out of 5466199
- 434948 words of memory out of 5000000
- 28963 multiletter control sequences out of 15000+600000
+ 27 strings out of 469289
+ 580 string characters out of 5465933
+ 435238 words of memory out of 5000000
+ 28971 multiletter control sequences out of 15000+600000
  627721 words of font info for 40 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  19i,0n,29p,86b,17s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -210,9 +212,11 @@ No existing .aux file, so I'll make a simple one, and require run of *latex.
 
 Latexmk: applying rule 'latex'...
 Rule 'latex':  Reasons for rerun
+
 Category 'other':
   Rerun of 'latex' forced or previously required:
     Reason or flag: 'Initial setup'
+
 
 ------------
 Run number 1 of rule 'latex'
@@ -229,7 +233,7 @@ entering extended mode
 (./source.tex
 
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-03-20>
+L3 programming layer <2026-04-28>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -237,6 +241,7 @@ Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: cls)
 
 Enter file name: 
+
 ! Emergency stop.
 <read *> 
          
@@ -265,6 +270,7 @@ Collected error summary (may duplicate other messages):
       Refer to 'source.log' and/or above output for details
 
 
+
 Latexmk: Sometimes, the -f option can be used to get latexmk
   to try to force complete processing.
   But normally, you will need to correct the file(s) that caused the
@@ -273,7 +279,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/example-quarto//:/tmp/quarto-session127353462635503a/85d8cf454cfd9511//:/home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:/tmp/quarto-session34ddc4c93627eb57/dc8f65edd8e654eb//:/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -332,14 +338,14 @@ $x=\frac{-b\pm\sqrt[]{b^2-4ac}}{2a}$
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.5.15)  15 MAY 2026 17:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.5.21)  21 MAY 2026 20:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **source.tex
 (./source.tex
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-03-20>
+L3 programming layer <2026-04-28>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -356,10 +362,10 @@ l.6 \usepackage
 
  
 Here is how much of TeX's memory you used:
- 27 strings out of 469297
- 580 string characters out of 5466199
- 434948 words of memory out of 5000000
- 28963 multiletter control sequences out of 15000+600000
+ 27 strings out of 469289
+ 580 string characters out of 5465933
+ 435238 words of memory out of 5000000
+ 28971 multiletter control sequences out of 15000+600000
  627721 words of font info for 40 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  19i,0n,29p,86b,17s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -374,6 +380,7 @@ No existing .aux file, so I'll make a simple one, and require run of *latex.
 
 Latexmk: applying rule 'latex'...
 Rule 'latex':  Reasons for rerun
+
 Category 'other':
   Rerun of 'latex' forced or previously required:
     Reason or flag: 'Initial setup'
@@ -385,7 +392,6 @@ Run number 1 of rule 'latex'
 ------------
 Running 'latex  --interaction=nonstopmode -recorder  "source.tex"'
 ------------
-
 This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex)
  restricted \write18 enabled.
 
@@ -393,7 +399,7 @@ entering extended mode
 (./source.tex
 
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-03-20>
+L3 programming layer <2026-04-28>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -401,6 +407,7 @@ Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: cls)
 
 Enter file name: 
+
 ! Emergency stop.
 <read *> 
          
@@ -437,7 +444,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/example-quarto//:/tmp/quarto-session127353462635503a/85d8cf454cfd9511//:/home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:/tmp/quarto-session34ddc4c93627eb57/dc8f65edd8e654eb//:/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -496,14 +503,14 @@ $x=\frac{-b\pm\sqrt[]{b^2-4ac}}{2a}$
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.5.15)  15 MAY 2026 17:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.5.21)  21 MAY 2026 20:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **source.tex
 (./source.tex
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-03-20>
+L3 programming layer <2026-04-28>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -520,10 +527,10 @@ l.6 \usepackage
 
  
 Here is how much of TeX's memory you used:
- 27 strings out of 469297
- 580 string characters out of 5466199
- 434948 words of memory out of 5000000
- 28963 multiletter control sequences out of 15000+600000
+ 27 strings out of 469289
+ 580 string characters out of 5465933
+ 435238 words of memory out of 5000000
+ 28971 multiletter control sequences out of 15000+600000
  627721 words of font info for 40 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  19i,0n,29p,86b,17s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -535,8 +542,10 @@ Rc files read (in order):
 Latexmk: This is Latexmk, John Collins, 9 March 2026. Version 4.88.
 
 No existing .aux file, so I'll make a simple one, and require run of *latex.
+
 Latexmk: applying rule 'latex'...
 Rule 'latex':  Reasons for rerun
+
 Category 'other':
   Rerun of 'latex' forced or previously required:
     Reason or flag: 'Initial setup'
@@ -544,9 +553,11 @@ Category 'other':
 ------------
 Run number 1 of rule 'latex'
 ------------
+
 ------------
 Running 'latex  --interaction=nonstopmode -recorder  "source.tex"'
 ------------
+
 This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex)
  restricted \write18 enabled.
 
@@ -554,7 +565,7 @@ entering extended mode
 (./source.tex
 
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-03-20>
+L3 programming layer <2026-04-28>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -591,6 +602,7 @@ Collected error summary (may duplicate other messages):
       Refer to 'source.log' and/or above output for details
 
 
+
 Latexmk: Sometimes, the -f option can be used to get latexmk
   to try to force complete processing.
   But normally, you will need to correct the file(s) that caused the
@@ -599,7 +611,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/example-quarto//:/tmp/quarto-session127353462635503a/85d8cf454cfd9511//:/home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:/tmp/quarto-session34ddc4c93627eb57/dc8f65edd8e654eb//:/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -659,14 +671,14 @@ P = \frac{T}{V}$
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.5.15)  15 MAY 2026 17:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.5.21)  21 MAY 2026 20:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **source.tex
 (./source.tex
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-03-20>
+L3 programming layer <2026-04-28>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -683,10 +695,10 @@ l.6 \usepackage
 
  
 Here is how much of TeX's memory you used:
- 27 strings out of 469297
- 580 string characters out of 5466199
- 434948 words of memory out of 5000000
- 28963 multiletter control sequences out of 15000+600000
+ 27 strings out of 469289
+ 580 string characters out of 5465933
+ 435238 words of memory out of 5000000
+ 28971 multiletter control sequences out of 15000+600000
  627721 words of font info for 40 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  19i,0n,29p,86b,17s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -721,7 +733,7 @@ entering extended mode
 (./source.tex
 
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-03-20>
+L3 programming layer <2026-04-28>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -758,6 +770,7 @@ Collected error summary (may duplicate other messages):
       Refer to 'source.log' and/or above output for details
 
 
+
 Latexmk: Sometimes, the -f option can be used to get latexmk
   to try to force complete processing.
   But normally, you will need to correct the file(s) that caused the
@@ -766,7 +779,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/example-quarto//:/tmp/quarto-session127353462635503a/85d8cf454cfd9511//:/home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:/tmp/quarto-session34ddc4c93627eb57/dc8f65edd8e654eb//:/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -838,14 +851,14 @@ $\displaystyle
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.5.15)  15 MAY 2026 17:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.5.21)  21 MAY 2026 20:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **source.tex
 (./source.tex
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-03-20>
+L3 programming layer <2026-04-28>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -862,10 +875,10 @@ l.6 \usepackage
 
  
 Here is how much of TeX's memory you used:
- 27 strings out of 469297
- 580 string characters out of 5466199
- 434948 words of memory out of 5000000
- 28963 multiletter control sequences out of 15000+600000
+ 27 strings out of 469289
+ 580 string characters out of 5465933
+ 435238 words of memory out of 5000000
+ 28971 multiletter control sequences out of 15000+600000
  627721 words of font info for 40 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  19i,0n,29p,86b,17s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -880,10 +893,10 @@ No existing .aux file, so I'll make a simple one, and require run of *latex.
 
 Latexmk: applying rule 'latex'...
 Rule 'latex':  Reasons for rerun
+
 Category 'other':
   Rerun of 'latex' forced or previously required:
     Reason or flag: 'Initial setup'
-
 
 ------------
 Run number 1 of rule 'latex'
@@ -900,7 +913,7 @@ entering extended mode
 (./source.tex
 
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-03-20>
+L3 programming layer <2026-04-28>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -937,6 +950,7 @@ Collected error summary (may duplicate other messages):
       Refer to 'source.log' and/or above output for details
 
 
+
 Latexmk: Sometimes, the -f option can be used to get latexmk
   to try to force complete processing.
   But normally, you will need to correct the file(s) that caused the
@@ -945,7 +959,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/example-quarto//:/tmp/quarto-session127353462635503a/85d8cf454cfd9511//:/home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:/tmp/quarto-session34ddc4c93627eb57/dc8f65edd8e654eb//:/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -1005,14 +1019,14 @@ P = \frac{T}{V}$
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.5.15)  15 MAY 2026 17:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.5.21)  21 MAY 2026 20:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **source.tex
 (./source.tex
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-03-20>
+L3 programming layer <2026-04-28>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -1029,10 +1043,10 @@ l.6 \usepackage
 
  
 Here is how much of TeX's memory you used:
- 27 strings out of 469297
- 580 string characters out of 5466199
- 434948 words of memory out of 5000000
- 28963 multiletter control sequences out of 15000+600000
+ 27 strings out of 469289
+ 580 string characters out of 5465933
+ 435238 words of memory out of 5000000
+ 28971 multiletter control sequences out of 15000+600000
  627721 words of font info for 40 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  19i,0n,29p,86b,17s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1047,10 +1061,10 @@ No existing .aux file, so I'll make a simple one, and require run of *latex.
 
 Latexmk: applying rule 'latex'...
 Rule 'latex':  Reasons for rerun
+
 Category 'other':
   Rerun of 'latex' forced or previously required:
     Reason or flag: 'Initial setup'
-
 
 ------------
 Run number 1 of rule 'latex'
@@ -1067,7 +1081,7 @@ entering extended mode
 (./source.tex
 
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-03-20>
+L3 programming layer <2026-04-28>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -1104,6 +1118,7 @@ Collected error summary (may duplicate other messages):
       Refer to 'source.log' and/or above output for details
 
 
+
 Latexmk: Sometimes, the -f option can be used to get latexmk
   to try to force complete processing.
   But normally, you will need to correct the file(s) that caused the
@@ -1112,7 +1127,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/example-quarto//:/tmp/quarto-session127353462635503a/85d8cf454cfd9511//:/home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:/tmp/quarto-session34ddc4c93627eb57/dc8f65edd8e654eb//:/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -1199,14 +1214,14 @@ q1 -- q2 -- q3; % make these edges plain
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.5.15)  15 MAY 2026 17:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.5.21)  21 MAY 2026 20:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **source.tex
 (./source.tex
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-03-20>
+L3 programming layer <2026-04-28>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -1223,10 +1238,10 @@ l.7 \usepackage
 
  
 Here is how much of TeX's memory you used:
- 27 strings out of 469297
- 580 string characters out of 5466199
- 434948 words of memory out of 5000000
- 28963 multiletter control sequences out of 15000+600000
+ 27 strings out of 469289
+ 580 string characters out of 5465933
+ 435238 words of memory out of 5000000
+ 28971 multiletter control sequences out of 15000+600000
  627721 words of font info for 40 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  19i,0n,29p,86b,17s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1241,6 +1256,7 @@ No existing .aux file, so I'll make a simple one, and require run of *latex.
 
 Latexmk: applying rule 'latex'...
 Rule 'latex':  Reasons for rerun
+
 Category 'other':
   Rerun of 'latex' forced or previously required:
     Reason or flag: 'Initial setup'
@@ -1260,7 +1276,7 @@ entering extended mode
 (./source.tex
 
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-03-20>
+L3 programming layer <2026-04-28>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -1297,6 +1313,7 @@ Collected error summary (may duplicate other messages):
       Refer to 'source.log' and/or above output for details
 
 
+
 Latexmk: Sometimes, the -f option can be used to get latexmk
   to try to force complete processing.
   But normally, you will need to correct the file(s) that caused the
@@ -1305,7 +1322,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/example-quarto//:/tmp/quarto-session127353462635503a/85d8cf454cfd9511//:/home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:/tmp/quarto-session34ddc4c93627eb57/dc8f65edd8e654eb//:/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -1367,14 +1384,14 @@ $
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.5.15)  15 MAY 2026 17:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.5.21)  21 MAY 2026 20:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **source.tex
 (./source.tex
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-03-20>
+L3 programming layer <2026-04-28>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -1391,10 +1408,10 @@ l.6 \usepackage
 
  
 Here is how much of TeX's memory you used:
- 27 strings out of 469297
- 580 string characters out of 5466199
- 434948 words of memory out of 5000000
- 28963 multiletter control sequences out of 15000+600000
+ 27 strings out of 469289
+ 580 string characters out of 5465933
+ 435238 words of memory out of 5000000
+ 28971 multiletter control sequences out of 15000+600000
  627721 words of font info for 40 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  19i,0n,29p,86b,17s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1409,6 +1426,7 @@ No existing .aux file, so I'll make a simple one, and require run of *latex.
 
 Latexmk: applying rule 'latex'...
 Rule 'latex':  Reasons for rerun
+
 Category 'other':
   Rerun of 'latex' forced or previously required:
     Reason or flag: 'Initial setup'
@@ -1428,7 +1446,7 @@ entering extended mode
 (./source.tex
 
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-03-20>
+L3 programming layer <2026-04-28>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -1474,7 +1492,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/example-quarto//:/tmp/quarto-session127353462635503a/85d8cf454cfd9511//:/home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:/tmp/quarto-session34ddc4c93627eb57/dc8f65edd8e654eb//:/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -1568,14 +1586,14 @@ important line/.style={very thick}]
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.5.15)  15 MAY 2026 17:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.5.21)  21 MAY 2026 20:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **source.tex
 (./source.tex
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-03-20>
+L3 programming layer <2026-04-28>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -1592,10 +1610,10 @@ l.7 \usepackage
 
  
 Here is how much of TeX's memory you used:
- 27 strings out of 469297
- 580 string characters out of 5466199
- 434948 words of memory out of 5000000
- 28963 multiletter control sequences out of 15000+600000
+ 27 strings out of 469289
+ 580 string characters out of 5465933
+ 435238 words of memory out of 5000000
+ 28971 multiletter control sequences out of 15000+600000
  627721 words of font info for 40 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  19i,0n,29p,86b,17s stack positions out of 10000i,1000n,20000p,200000b,200000s

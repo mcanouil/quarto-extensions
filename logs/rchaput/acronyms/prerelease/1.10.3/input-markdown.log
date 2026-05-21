@@ -15,47 +15,14 @@ metadata
     - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
   keep-yaml: false
   acronyms:
-    insert_loa: false
+    sorting: alphabetical
     keys:
       - shortname: RL
         longname: Reinforcement Learning
+      - shortname: MORL
+        longname: Multi-Objective Reinforcement Learning
   
 
-FATAL (/opt/quarto/share/filters/main.lua:3760) An error occurred:
-Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/tests/15-insert-loa-false-printacronyms/acronyms as a JSON filter.
-Please make sure the file exists and is executable.
+Output created: input.md
 
-Did you intend 'acronyms' as a Lua filter in an extension?
-If so, make sure you've spelled the name of the extension correctly.
-
-The original Pandoc error follows below.
-Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/tests/15-insert-loa-false-printacronyms/acronyms:
-Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/tests/15-insert-loa-false-printacronyms/acronyms
-
-Error running filter /op
-t/quarto/share/filters/main.lua:
-/opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERROR
-stack traceback:
-	/opt/quarto/share/filters/main.lua:2622:
- in function 'fatal'
-	/opt/quarto/share/filters/main
-.lua:2202: in function 'fail'
-	/opt/quarto/share/
-filters/main.lua:3760: in field 'Pandoc'
-	/opt/qua
-rto/share/filters/main.lua:588: in function 
-'run_emulated_filter'
-	/opt/quarto/s
-hare/filters/main.lua:1317: in l
-ocal 'callback'
-	/opt/qu
-arto/share/filters/mai
-n.lua:1335: in upvalue 'run_emul
-ated_filter_chain'
-	/opt/qua
-rto/share/filters/main.lua:1371:
- in function </opt/quarto/share/filters/main
-.lua:1368>
-
-(WARN) Error encountered when rendering files
 

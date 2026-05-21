@@ -40,6 +40,6 @@ g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I../inst/include -DCOM
 g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I../inst/include -DCOMPILING_TESTTHAT  -I/usr/local/include    -fpic  -g -O2   -c test-example.cpp -o test-example.o
 g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I../inst/include -DCOMPILING_TESTTHAT  -I/usr/local/include    -fpic  -g -O2   -c test-runner.cpp -o test-runner.o
 g++ -std=gnu++20 -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o testthat.so init.o test-catch.o test-example.o test-runner.o -L/opt/R/4.6.0/lib/R/lib -lR
-tlmgr: package repository https://ctan.math.illinois.edu/systems/texlive/tlnet (verified)
+tlmgr: package repository https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet (verified)
 tlmgr: no self-updates for tlmgr available
-Using CTAN mirror: https://ctan.math.illinois.edu/systems/texlive/tlnet
+Using CTAN mirror: https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet

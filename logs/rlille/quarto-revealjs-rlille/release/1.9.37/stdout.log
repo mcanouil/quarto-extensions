@@ -14,6 +14,6 @@ g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/
 g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c grid-renderer.cpp -o grid-renderer.o
 g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c grid.cpp -o grid.o
 g++ -std=gnu++20 -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o gridtext.so RcppExports.o bl-r-bindings.o grid-renderer.o grid.o -L/opt/R/4.6.0/lib/R/lib -lR
-tlmgr: package repository https://ctan.math.illinois.edu/systems/texlive/tlnet (verified)
+tlmgr: package repository https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet (verified)
 tlmgr: no self-updates for tlmgr available
-Using CTAN mirror: https://ctan.math.illinois.edu/systems/texlive/tlnet
+Using CTAN mirror: https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet

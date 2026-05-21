@@ -1,0 +1,43 @@
+pandoc 
+
+  to: html
+  output-file: chapter3.html
+  standalone: true
+  toc: true
+  number-sections: true
+  title-prefix: Test Book for Custom AmSThm Environments
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  number-offset:
+    - 3
+  variables: {}
+  
+
+metadata
+
+  crossref:
+    chapters: true
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  custom-amsthm:
+    - key: prm
+      name: Problem
+    - key: tsk
+      name: Task
+      numbering-style: global
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: "[3]{.chapter-number}\_ [Chapter 3: Cross-References Across Chapters]{.chapter-title}"
+  hide-description: true
+  
+
+(WARN) chapter3.html: Unable to resolve crossref @thm-in-chapter2
+
+Output created: _output/chapter3.html
+
+

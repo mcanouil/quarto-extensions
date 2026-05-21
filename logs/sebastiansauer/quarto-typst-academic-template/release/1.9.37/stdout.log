@@ -284,13 +284,13 @@ set LDFLAGS=-L/usr/local/lib
 -- Looking for __cplusplus - found
 -- Could NOT find JNI (missing: JAVA_INCLUDE_PATH JAVA_INCLUDE_PATH2 JVM) 
 -- Could NOT find Java (missing: Java_JAVA_EXECUTABLE Java_JAR_EXECUTABLE Java_JAVAC_EXECUTABLE Java_JAVAH_EXECUTABLE Java_JAVADOC_EXECUTABLE) (Required is at least version "1.5")
--- Configuring done (2.3s)
+-- Configuring done (2.2s)
 -- Generating done (0.0s)
--- Build files have been written to: /tmp/RtmpVvHWgi/R.INSTALLc4d37c8e4f0/nloptr/src/nlopt-build
+-- Build files have been written to: /tmp/Rtmp1fKIgv/R.INSTALLc4d7ccb421e/nloptr/src/nlopt-build
 [  2%] Generating nlopt.hpp
 [  2%] Built target generate-cpp
-[  4%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRect.c.o
 [  6%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/direct_wrap.c.o
+[  6%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRect.c.o
 [  8%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRserial.c.o
 [ 10%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRsubrout.c.o
 [ 12%] Building C object CMakeFiles/nlopt.dir/src/algs/cdirect/cdirect.c.o
@@ -341,17 +341,17 @@ set LDFLAGS=-L/usr/local/lib
 [100%] Built target nlopt
 Install the project...
 -- Install configuration: "Release"
--- Installing: /tmp/RtmpVvHWgi/R.INSTALLc4d37c8e4f0/nloptr/src/nlopt/lib/pkgconfig/nlopt.pc
--- Installing: /tmp/RtmpVvHWgi/R.INSTALLc4d37c8e4f0/nloptr/src/nlopt/include/nlopt.h
--- Installing: /tmp/RtmpVvHWgi/R.INSTALLc4d37c8e4f0/nloptr/src/nlopt/include/nlopt.hpp
--- Installing: /tmp/RtmpVvHWgi/R.INSTALLc4d37c8e4f0/nloptr/src/nlopt/lib/libnlopt.a
--- Installing: /tmp/RtmpVvHWgi/R.INSTALLc4d37c8e4f0/nloptr/src/nlopt/share/man/man3/nlopt.3
--- Installing: /tmp/RtmpVvHWgi/R.INSTALLc4d37c8e4f0/nloptr/src/nlopt/share/man/man3/nlopt_minimize.3
--- Installing: /tmp/RtmpVvHWgi/R.INSTALLc4d37c8e4f0/nloptr/src/nlopt/share/man/man3/nlopt_minimize_constrained.3
--- Installing: /tmp/RtmpVvHWgi/R.INSTALLc4d37c8e4f0/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends.cmake
--- Installing: /tmp/RtmpVvHWgi/R.INSTALLc4d37c8e4f0/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends-release.cmake
--- Installing: /tmp/RtmpVvHWgi/R.INSTALLc4d37c8e4f0/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfig.cmake
--- Installing: /tmp/RtmpVvHWgi/R.INSTALLc4d37c8e4f0/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfigVersion.cmake
+-- Installing: /tmp/Rtmp1fKIgv/R.INSTALLc4d7ccb421e/nloptr/src/nlopt/lib/pkgconfig/nlopt.pc
+-- Installing: /tmp/Rtmp1fKIgv/R.INSTALLc4d7ccb421e/nloptr/src/nlopt/include/nlopt.h
+-- Installing: /tmp/Rtmp1fKIgv/R.INSTALLc4d7ccb421e/nloptr/src/nlopt/include/nlopt.hpp
+-- Installing: /tmp/Rtmp1fKIgv/R.INSTALLc4d7ccb421e/nloptr/src/nlopt/lib/libnlopt.a
+-- Installing: /tmp/Rtmp1fKIgv/R.INSTALLc4d7ccb421e/nloptr/src/nlopt/share/man/man3/nlopt.3
+-- Installing: /tmp/Rtmp1fKIgv/R.INSTALLc4d7ccb421e/nloptr/src/nlopt/share/man/man3/nlopt_minimize.3
+-- Installing: /tmp/Rtmp1fKIgv/R.INSTALLc4d7ccb421e/nloptr/src/nlopt/share/man/man3/nlopt_minimize_constrained.3
+-- Installing: /tmp/Rtmp1fKIgv/R.INSTALLc4d7ccb421e/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends.cmake
+-- Installing: /tmp/Rtmp1fKIgv/R.INSTALLc4d7ccb421e/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends-release.cmake
+-- Installing: /tmp/Rtmp1fKIgv/R.INSTALLc4d7ccb421e/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfig.cmake
+-- Installing: /tmp/Rtmp1fKIgv/R.INSTALLc4d7ccb421e/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfigVersion.cmake
 Moving nlopt/lib to nlopt/lib
 Copying headers found in src/nlopt/include into inst/include
 configure: creating ./config.status
@@ -430,26 +430,26 @@ gfortran  -fpic  -g -O2  -c srqfn.f -o srqfn.o
 gfortran  -fpic  -g -O2  -c srqfnc.f -o srqfnc.o
 gfortran  -fpic  -g -O2  -c srtpai.f -o srtpai.o
 gcc -std=gnu2x -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o quantreg.so akj.o boot.o bound.o boundc.o brute.o chlfct.o cholesky.o combos.o crqf.o crqfnb.o dsel05.o extract.o frand.o grexp.o idmin.o iswap.o kuantile.o kuantiles.o linpack.o mcmb.o penalty.o pfnb.o powell.o profnb.o pwxy.o qfnb.o qselect.o quantreg_init.o rls.o rq0.o rq1.o rqbr.o rqfn.o rqfnb.o rqfnc.o rqs.o sakj.o sparskit2.o srqfn.o srqfnc.o srtpai.o -llapack -lblas -lgfortran -lm -lquadmath -lgfortran -lm -lquadmath -L/opt/R/4.6.0/lib/R/lib -lR
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.6/RcppArmadillo/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.6/RcppArmadillo/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c calcBATS.cpp -o calcBATS.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.6/RcppArmadillo/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c calcTBATS.cpp -o calcTBATS.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.6/RcppArmadillo/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c etsTargetFunction.cpp -o etsTargetFunction.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.6/RcppArmadillo/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c etsTargetFunctionWrapper.cpp -o etsTargetFunctionWrapper.o
-gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.6/RcppArmadillo/include' -I/usr/local/include    -fpic  -g -O2  -c etscalc.c -o etscalc.o
-gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.6/RcppArmadillo/include' -I/usr/local/include    -fpic  -g -O2  -c etspolyroot.c -o etspolyroot.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.6/RcppArmadillo/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c makeBATSMatrices.cpp -o makeBATSMatrices.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.6/RcppArmadillo/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c makeTBATSMatrices.cpp -o makeTBATSMatrices.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.6/RcppArmadillo/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c updateMatrices.cpp -o updateMatrices.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.6/RcppArmadillo/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c updateTBATSMatrices.cpp -o updateTBATSMatrices.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-3/R/x86_64-pc-linux-gnu-library/4.6/RcppArmadillo/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-3/R/x86_64-pc-linux-gnu-library/4.6/RcppArmadillo/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c calcBATS.cpp -o calcBATS.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-3/R/x86_64-pc-linux-gnu-library/4.6/RcppArmadillo/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c calcTBATS.cpp -o calcTBATS.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-3/R/x86_64-pc-linux-gnu-library/4.6/RcppArmadillo/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c etsTargetFunction.cpp -o etsTargetFunction.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-3/R/x86_64-pc-linux-gnu-library/4.6/RcppArmadillo/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c etsTargetFunctionWrapper.cpp -o etsTargetFunctionWrapper.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-3/R/x86_64-pc-linux-gnu-library/4.6/RcppArmadillo/include' -I/usr/local/include    -fpic  -g -O2  -c etscalc.c -o etscalc.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-3/R/x86_64-pc-linux-gnu-library/4.6/RcppArmadillo/include' -I/usr/local/include    -fpic  -g -O2  -c etspolyroot.c -o etspolyroot.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-3/R/x86_64-pc-linux-gnu-library/4.6/RcppArmadillo/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c makeBATSMatrices.cpp -o makeBATSMatrices.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-3/R/x86_64-pc-linux-gnu-library/4.6/RcppArmadillo/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c makeTBATSMatrices.cpp -o makeTBATSMatrices.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-3/R/x86_64-pc-linux-gnu-library/4.6/RcppArmadillo/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c updateMatrices.cpp -o updateMatrices.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-3/R/x86_64-pc-linux-gnu-library/4.6/RcppArmadillo/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c updateTBATSMatrices.cpp -o updateTBATSMatrices.o
 g++ -std=gnu++20 -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o forecast.so RcppExports.o calcBATS.o calcTBATS.o etsTargetFunction.o etsTargetFunctionWrapper.o etscalc.o etspolyroot.o makeBATSMatrices.o makeTBATSMatrices.o updateMatrices.o updateTBATSMatrices.o -fopenmp -llapack -lblas -lgfortran -lm -lquadmath -L/opt/R/4.6.0/lib/R/lib -lR
 Note: ... may be used in an incorrect context 
 Note: ... may be used in an incorrect context 
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Matrix/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.6/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c external.cpp -o external.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Matrix/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.6/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c glmFamily.cpp -o glmFamily.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Matrix/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.6/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c optimizer.cpp -o optimizer.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Matrix/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.6/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c predModule.cpp -o predModule.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Matrix/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-21/R/x86_64-pc-linux-gnu-library/4.6/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c respModule.cpp -o respModule.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Matrix/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-3/R/x86_64-pc-linux-gnu-library/4.6/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c external.cpp -o external.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Matrix/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-3/R/x86_64-pc-linux-gnu-library/4.6/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c glmFamily.cpp -o glmFamily.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Matrix/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-3/R/x86_64-pc-linux-gnu-library/4.6/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c optimizer.cpp -o optimizer.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Matrix/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-3/R/x86_64-pc-linux-gnu-library/4.6/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c predModule.cpp -o predModule.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Matrix/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-3/R/x86_64-pc-linux-gnu-library/4.6/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c respModule.cpp -o respModule.o
 g++ -std=gnu++20 -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o lme4.so external.o glmFamily.o optimizer.o predModule.o respModule.o -L/opt/R/4.6.0/lib/R/lib -lR
-tlmgr: package repository https://ctan.math.illinois.edu/systems/texlive/tlnet (verified)
+tlmgr: package repository https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet (verified)
 tlmgr: no self-updates for tlmgr available
-Using CTAN mirror: https://ctan.math.illinois.edu/systems/texlive/tlnet
+Using CTAN mirror: https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet

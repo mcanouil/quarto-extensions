@@ -1,0 +1,172 @@
+Cloning into 'repo'...
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-11/R/x86_64-pc-linux-gnu-library/4.6'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.3.tar.gz'
+Content type 'binary/octet-stream' length 1375285 bytes (1.3 MB)
+==================================================
+downloaded 1.3 MB
+
+* installing *source* package 'renv' ...
+** this is package 'renv' version '1.2.3'
+** package 'renv' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/RtmptfrQUt/downloaded_packages'
+
+
+processing file: template.qmd
+1/5           
+2/5 [fig-penG]
+3/5           
+4/5 [tbl-par] 
+5/5           
+output file: template.knit.md
+
+pandoc 
+  to: latex
+  output-file: template.tex
+  template: _extensions/ims/imsarttemplate.tex
+  standalone: true
+  pdf-engine: pdflatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  cite-method: natbib
+  number-sections: true
+  
+metadata
+  block-headings: true
+  biblio-style: imsart-number
+  colorlinks: true
+  urlcolor: blue
+  citecolor: blue
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: A Sample Article Title
+  short-title: A Sample Running Head Title
+  author:
+    - name: Name1 Surname1
+      email: first@somewhere.com
+      orcid: 0000-0000-0000-0000
+      note: Some comment
+      affiliations:
+        - name: University or Company Name
+          department: Department
+          city: City
+          country: Country
+    - name: Name2 Surname2
+      email: second@somewhere.com
+      affiliations:
+        - name: Another University
+          department: Department
+          city: City
+          country: Country
+    - name: Name3 Surname3
+      email: third@somewhere.com
+      affiliations:
+        - name: Third University
+          department: Department
+          city: City
+          country: Country
+  abstract: |
+    The abstract should summarize the contents of the paper. It should be clear, descriptive, self-explanatory and not longer than 200 words. It should also be suitable for publication in abstracting services. Formulas should be used as sparingly as possible within the abstract. The abstract should not make reference to results, bibliography or formulas in the body of the paper---it should be self-contained.
+  keywords:
+    - first keyword
+    - second keyword
+  bibliography:
+    - references.bib
+  ims-journal: sts
+  header-includes:
+    - |
+      \usepackage{longtable}
+      \theoremstyle{plain}
+      \newtheorem{axiom}{Axiom}
+      \newtheorem{claim}[axiom]{Claim}
+      \newtheorem{theorem}{Theorem}[section]
+      \newtheorem{lemma}[theorem]{Lemma}
+      \theoremstyle{definition}
+      \newtheorem{definition}[theorem]{Definition}
+      \newtheorem*{example}{Example}
+      \newtheorem*{fact}{Fact}
+  
+
+Rendering PDF
+running pdflatex - 1
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+updating tlmgr
+
+updating existing packages
+finding package for textcase.sty
+> 1 package to install
+> installing textcase (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+  kpathsea: Running mktextfm pcrr8t
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Could not map source abbreviation  for pcrr8t.
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Need to update ?
+  mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input pcrr8t
+  This is METAFONT, Version 2.71828182 (TeX Live 2026) (preloaded base=mf)
+  
+  kpathsea: Running mktexmf pcrr8t
+  
+  ! I can't find file `pcrr8t'.
+  <*> ...ljfour; mag:=1; ; nonstopmode; input pcrr8t
+                                                    
+  Please type another input file name
+  ! Emergency stop.
+  <*> ...ljfour; mag:=1; ; nonstopmode; input pcrr8t
+                                                    
+  Transcript written on mfput.log.
+  grep: pcrr8t.log: No such file or directory
+  mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input pcrr8t' failed to make pcrr8t.tfm.
+  kpathsea: Appending font creation commands to missfont.log.
+  
+finding package for pcrr8t(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+finding package for pcrr8t
+finding package for mktextfm
+> 2 packages to install
+> installing courier (1 of 2)
+> installing texlive-scripts (2 of 2)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+generating bibliography
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: template.aux
+  The style file: imsart-number.bst
+  Database file #1: references.bib
+  
+running pdflatex - 2
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+running pdflatex - 3
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+Output created: template.pdf
+

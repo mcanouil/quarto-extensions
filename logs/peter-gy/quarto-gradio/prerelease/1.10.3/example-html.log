@@ -2,34 +2,31 @@
 Starting python3 kernel...
 Traceback (most recent call last):
   File "/opt/quarto/share/jupyter/jupyter.py", line 20, in <module>
-
     from notebook import notebook_execute, RestartKernel
   File "/opt/quarto/share/jupyter/notebook.py", line 19, in <module>
     import nbformat
   File "/home/vscode/.venv/lib/python3.13/site-packages/nbformat/__init__.py", line 14, in <module>
     from . import v1, v2, v3, v4
+
   File "/home/vscode/.venv/lib/python3.13/site-packages/nbformat/v4/__init__.py", line 24, in <module>
     from .convert import downgrade, upgrade
   File "/home/vscode/.venv/lib/python3.13/site-packages/nbformat/v4/convert.py", line 12, in <module>
     from nbformat import v3, validator
   File "/home/vscode/.venv/lib/python3.13/site-packages/nbformat/validator.py", line 17, in <module>
-
     from .json_compat import ValidationError, _validator_for_name, get_current_validator
   File "/home/vscode/.venv/lib/python3.13/site-packages/nbformat/json_compat.py", line 13, in <module>
     import jsonschema
   File "/home/vscode/.venv/lib/python3.13/site-packages/jsonschema/__init__.py", line 13, in <module>
     from jsonschema._format import FormatChecker
   File "/home/vscode/.venv/lib/python3.13/site-packages/jsonschema/_format.py", line 11, in <module>
-
     from jsonschema.exceptions import FormatError
   File "/home/vscode/.venv/lib/python3.13/site-packages/jsonschema/exceptions.py", line 15, in <module>
     from referencing.exceptions import Unresolvable as _Unresolvable
   File "/home/vscode/.venv/lib/python3.13/site-packages/referencing/__init__.py", line 5, in <module>
-
     from referencing._core import Anchor, Registry, Resource, Specification
+
   File "/home/vscode/.venv/lib/python3.13/site-packages/referencing/_core.py", line 9, in <module>
     from rpds import HashTrieMap, HashTrieSet, List
-
   File "/home/vscode/.venv/lib/python3.13/site-packages/rpds/__init__.py", line 1, in <module>
     from .rpds import *
 ModuleNotFoundError: No module named 'rpds.rpds'

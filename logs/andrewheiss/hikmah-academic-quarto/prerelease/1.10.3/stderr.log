@@ -1,13 +1,13 @@
 Cloning into 'repo'...
-Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.6'
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-4/R/x86_64-pc-linux-gnu-library/4.6'
 (as 'lib' is unspecified)
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.2.tar.gz'
-Content type 'binary/octet-stream' length 1356485 bytes (1.3 MB)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.3.tar.gz'
+Content type 'binary/octet-stream' length 1375285 bytes (1.3 MB)
 ==================================================
 downloaded 1.3 MB
 
 * installing *source* package 'renv' ...
-** this is package 'renv' version '1.2.2'
+** this is package 'renv' version '1.2.3'
 ** package 'renv' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
@@ -25,13 +25,12 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/RtmpWuvFgn/downloaded_packages'
-Installing packages into '/home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.6'
+	'/tmp/Rtmpg7EeCQ/downloaded_packages'
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-4/R/x86_64-pc-linux-gnu-library/4.6'
 (as 'lib' is unspecified)
 also installing the dependency 'later'
 
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/later_1.4.8.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/magick_2.9.1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/quarto_1.5.1.tar.gz'
 * installing *source* package 'later' ...
 ** this is package 'later' version '1.4.8'
@@ -40,7 +39,7 @@ trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/quarto_1.5.1
 ** libs
 using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
 using C++ compiler: 'g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
-installing to /home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-later/00new/later/libs
+installing to /home/runner/work/quarto-extensions/quarto-extensions/test-4/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-later/00new/later/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -53,16 +52,6 @@ installing to /home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (later)
-* installing *source* package 'magick' ...
-** this is package 'magick' version '2.9.1'
-** package 'magick' successfully unpacked and MD5 sums checked
-** using staged installation
-Package Magick++ was not found in the pkg-config search path.
-Perhaps you should add the directory containing `Magick++.pc'
-to the PKG_CONFIG_PATH environment variable
-Package 'Magick++', required by 'virtual:world', not found
-ERROR: configuration failed for package 'magick'
-* removing '/home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.6/magick'
 * installing *source* package 'quarto' ...
 ** this is package 'quarto' version '1.5.1'
 ** package 'quarto' successfully unpacked and MD5 sums checked
@@ -81,11 +70,7 @@ ERROR: configuration failed for package 'magick'
 * DONE (quarto)
 
 The downloaded source packages are in
-	'/tmp/RtmpWuvFgn/downloaded_packages'
-Warning message:
-In install.packages(deps, repos = ppm) :
-  installation of package 'magick' had non-zero exit status
-CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
+	'/tmp/Rtmpg7EeCQ/downloaded_packages'
 [1/5] hikmah-response-memo.qmd
 [typst]: Compiling hikmah-response-memo.typ to hikmah-response-memo.pdf...DONE
 
@@ -208,7 +193,7 @@ running lualatex - 2
    restricted system commands enabled.
   
 
-ERROR: NotFound: No such file or directory (os error 2): rename '/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/hikmah-testing-default.pdf' -> '/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/examples/hikmah-testing-default.pdf'
+ERROR: NotFound: No such file or directory (os error 2): rename '/home/runner/work/quarto-extensions/quarto-extensions/test-4/repo/hikmah-testing-default.pdf' -> '/home/runner/work/quarto-extensions/quarto-extensions/test-4/repo/examples/hikmah-testing-default.pdf'
 
 Stack trace:
     at Object.renameSync (ext:deno_fs/30_fs.js:264:3)
@@ -281,7 +266,7 @@ running lualatex - 2
    restricted system commands enabled.
   
 
-ERROR: NotFound: No such file or directory (os error 2): rename '/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/hikmah-testing-default.pdf' -> '/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/examples/hikmah-testing-default.pdf'
+ERROR: NotFound: No such file or directory (os error 2): rename '/home/runner/work/quarto-extensions/quarto-extensions/test-4/repo/hikmah-testing-default.pdf' -> '/home/runner/work/quarto-extensions/quarto-extensions/test-4/repo/examples/hikmah-testing-default.pdf'
 
 Stack trace:
     at Object.renameSync (ext:deno_fs/30_fs.js:264:3)

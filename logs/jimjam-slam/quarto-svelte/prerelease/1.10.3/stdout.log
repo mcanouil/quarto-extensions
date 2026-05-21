@@ -1,4 +1,53 @@
 Dependency install phase for jimjam-slam/quarto-svelte: auto-detect
-tlmgr: package repository https://ctan.math.illinois.edu/systems/texlive/tlnet (verified)
+tlmgr: package repository https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet (verified)
 tlmgr: no self-updates for tlmgr available
-Using CTAN mirror: https://ctan.math.illinois.edu/systems/texlive/tlnet
+Using CTAN mirror: https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet
+>>> quarto-svelte: project pre-render
+
+> svelte-app@2.0.0 build
+> rollup -c ./_extensions/quarto-svelte/rollup.config.js --configQuartoOutPath=/home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/docs/_site --configSvelteInPaths= --bundleConfigAsCjs
+
+>>> quarto-svelte: Svelte compiler finished!
+
+>>> quarto-svelte: project pre-render
+
+> svelte-app@2.0.0 build
+> rollup -c ./_extensions/quarto-svelte/rollup.config.js --configQuartoOutPath=/home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/docs/_site --configSvelteInPaths= --bundleConfigAsCjs
+
+>>> quarto-svelte: Svelte compiler finished!
+
+>>> quarto-svelte: project pre-render
+
+> svelte-app@2.0.0 build
+> rollup -c ./_extensions/quarto-svelte/rollup.config.js --configQuartoOutPath=/home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/docs/_site --configSvelteInPaths= --bundleConfigAsCjs
+
+>>> quarto-svelte: Svelte compiler finished!
+
+>>> quarto-svelte: project pre-render
+
+> svelte-app@2.0.0 build
+> rollup -c ./_extensions/quarto-svelte/rollup.config.js --configQuartoOutPath=/home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/docs/_site --configSvelteInPaths=:Circles.svelte --bundleConfigAsCjs
+
+>>> quarto-svelte: Svelte compiler finished!
+
+>>> quarto-svelte: project pre-render
+
+> svelte-app@2.0.0 build
+> rollup -c ./_extensions/quarto-svelte/rollup.config.js --configQuartoOutPath=/home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/docs/_site --configSvelteInPaths= --bundleConfigAsCjs
+
+>>> quarto-svelte: Svelte compiler finished!
+
+>>> quarto-svelte: project pre-render
+
+> svelte-app@2.0.0 build
+> rollup -c ./_extensions/quarto-svelte/rollup.config.js --configQuartoOutPath=/home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/docs/_site --configSvelteInPaths=:examples/time-series/TimeSeriesChart.svelte --bundleConfigAsCjs
+
+>>> quarto-svelte: Svelte compiler finished!
+
+>>> quarto-svelte: project pre-render
+
+> svelte-app@2.0.0 build
+> rollup -c ./_extensions/quarto-svelte/rollup.config.js --configQuartoOutPath=/home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/docs/_site --configSvelteInPaths=:examples/barchart/BarChart.svelte --bundleConfigAsCjs
+
+>>> quarto-svelte: Svelte compiler finished!
+

@@ -1,0 +1,59 @@
+pandoc 
+
+  to: html
+  output-file: example-consort.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: false
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: CONSORT flow diagram example
+  study-flow:
+    type: consort
+    enrollment:
+      assessed: 350
+      excluded: 120
+      exclusion_reasons:
+        - 'Did not meet inclusion criteria: 80'
+        - 'Declined to participate: 40'
+    randomised: 230
+    groups:
+      - label: Intervention
+        allocated: 115
+        received: 110
+        lost_followup: 8
+        lost_reasons:
+          - 'Withdrew consent: 5'
+          - 'Lost to follow-up: 3'
+        analysed: 107
+        excluded_analysis: 3
+        excluded_analysis_reasons:
+          - 'Protocol deviation: 3'
+      - label: Control
+        allocated: 115
+        received: 113
+        lost_followup: 10
+        lost_reasons:
+          - 'Withdrew consent: 6'
+          - 'Lost to follow-up: 4'
+        analysed: 105
+        excluded_analysis: 8
+        excluded_analysis_reasons:
+          - 'Did not receive intervention: 8'
+  
+
+Output created: example-consort.html
+
+

@@ -1,13 +1,13 @@
 Cloning into 'repo'...
-Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-2/R/x86_64-pc-linux-gnu-library/4.6'
+Installing package into '/home/runner/work/quarto-extensions/quarto-extensions/test-9/R/x86_64-pc-linux-gnu-library/4.6'
 (as 'lib' is unspecified)
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.2.tar.gz'
-Content type 'binary/octet-stream' length 1356485 bytes (1.3 MB)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.3.tar.gz'
+Content type 'binary/octet-stream' length 1375285 bytes (1.3 MB)
 ==================================================
 downloaded 1.3 MB
 
 * installing *source* package 'renv' ...
-** this is package 'renv' version '1.2.2'
+** this is package 'renv' version '1.2.3'
 ** package 'renv' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
@@ -25,8 +25,7 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/RtmpYx9Z4G/downloaded_packages'
-CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
+	'/tmp/RtmpigHnhP/downloaded_packages'
 
 
 processing file: template.qmd
@@ -224,37 +223,6 @@ finding package for newfloat.sty
 finding package for pdflscape.sty
 > 1 package to install
 > installing pdflscape (1 of 1)
-  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
-   restricted \write18 enabled.
-  entering extended mode
-  
-  kpathsea: Running mktextfm ts1-qtmr
-  /opt/tinytex/texmf-dist/web2c/mktexnam: Could not map source abbreviation  for ts1-qtmr.
-  /opt/tinytex/texmf-dist/web2c/mktexnam: Need to update ?
-  mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input ts1-qtmr
-  This is METAFONT, Version 2.71828182 (TeX Live 2026) (preloaded base=mf)
-  
-  kpathsea: Running mktexmf ts1-qtmr
-  
-  ! I can't find file `ts1-qtmr'.
-  <*> ...four; mag:=1; ; nonstopmode; input ts1-qtmr
-                                                    
-  Please type another input file name
-  ! Emergency stop.
-  <*> ...four; mag:=1; ; nonstopmode; input ts1-qtmr
-                                                    
-  Transcript written on mfput.log.
-  grep: ts1-qtmr.log: No such file or directory
-  mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input ts1-qtmr' failed to make ts1-qtmr.tfm.
-  kpathsea: Appending font creation commands to missfont.log.
-  
-finding package for ts1-qtmr(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
-finding package for t1qhvc.fd
-finding package for ts1-qtmr
-finding package for mktextfm
-> 2 packages to install
-> installing tex-gyre (1 of 2)
-> installing texlive-scripts (2 of 2)
   This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
    restricted \write18 enabled.
   entering extended mode

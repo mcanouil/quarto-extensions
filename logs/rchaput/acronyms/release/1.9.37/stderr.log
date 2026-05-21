@@ -1,5 +1,4 @@
 Cloning into 'repo'...
-CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
 
 pandoc 
   to: html
@@ -362,28 +361,258 @@ metadata
       - shortname: RL
         longname: Reinforcement Learning
   
-[31mFATAL (/opt/quarto/share/filters/main.lua:3760) An error occurred:
-Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/tests/15-insert-loa-false-printacronyms/acronyms as a JSON filter.
-Please make sure the file exists and is executable.
+Output created: input.md
 
-Did you intend 'acronyms' as a Lua filter in an extension?
-If so, make sure you've spelled the name of the extension correctly.
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+  
+Output created: input.md
 
-The original Pandoc error follows below.
-Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/tests/15-insert-loa-false-printacronyms/acronyms:
-Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/tests/15-insert-loa-false-printacronyms/acronyms
-[39mError running filter /opt/quarto/share/filters/main.lua:
-/opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERROR
-stack traceback:
-	/opt/quarto/share/filters/main.lua:2622: in function 'fatal'
-	/opt/quarto/share/filters/main.lua:2202: in function 'fail'
-	/opt/quarto/share/filters/main.lua:3760: in field 'Pandoc'
-	/opt/quarto/share/filters/main.lua:588: in function 'run_emulated_filter'
-	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
-	/opt/quarto/share/filters/main.lua:1335: in upvalue 'run_emulated_filter_chain'
-	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
-WARN: Error encountered when rendering files
-Render failed, retrying once...
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    fromfile: ./acronyms.yml
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+    style: long-short
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    sorting: usage
+    include_unused: false
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+      - shortname: MORL
+        longname: Multi-Objective Reinforcement Learning
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    non_existing: '??'
+  
+(W) [acronyms] Acronym key RL not recognized
+(W) [acronyms] Acronym key RL not recognized
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    insert_loa: end
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    keys:
+      - shortname: qmd
+        longname: Quarto documents
+    loa_header_level: 2
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    loa_header_classes:
+      - unnumbered
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    insert_loa: false
+    insert_links: false
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    insert_links: false
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+  
+Output created: input.md
+
 pandoc 
   to: markdown
   output-file: input.md
@@ -403,24 +632,627 @@ metadata
       - shortname: RL
         longname: Reinforcement Learning
   
-[31mFATAL (/opt/quarto/share/filters/main.lua:3760) An error occurred:
-Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/tests/15-insert-loa-false-printacronyms/acronyms as a JSON filter.
-Please make sure the file exists and is executable.
+Output created: input.md
 
-Did you intend 'acronyms' as a Lua filter in an extension?
-If so, make sure you've spelled the name of the extension correctly.
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+      - shortname: Qmd
+        longname: Quarto document
+    loa_format: '`- **{shortname}**: {longname}`{=raw}'
+  
+Output created: input.md
 
-The original Pandoc error follows below.
-Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/tests/15-insert-loa-false-printacronyms/acronyms:
-Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/tests/15-insert-loa-false-printacronyms/acronyms
-[39mError running filter /opt/quarto/share/filters/main.lua:
-/opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERROR
-stack traceback:
-	/opt/quarto/share/filters/main.lua:2622: in function 'fatal'
-	/opt/quarto/share/filters/main.lua:2202: in function 'fail'
-	/opt/quarto/share/filters/main.lua:3760: in field 'Pandoc'
-	/opt/quarto/share/filters/main.lua:588: in function 'run_emulated_filter'
-	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
-	/opt/quarto/share/filters/main.lua:1335: in upvalue 'run_emulated_filter_chain'
-	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
-WARN: Error encountered when rendering files
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+  lang: fr
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms: {}
+  
+(W) [acronyms] Acronym key RL not recognized
+(W) [acronyms] Acronym key RL not recognized
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    on_duplicate: replace
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+      - shortname: RL
+        longname: Rocket League
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    fromfile:
+      - ./acronyms1.yml
+      - ./acronyms2.yml
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    style: short-footnote
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms: {}
+  
+(W) [acronyms] Acronym key RL not recognized
+(W) [acronyms] Acronym key RL not recognized
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+    style: long-short
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+      - shortname: Qmd
+        longname: Quarto document
+    loa_format: '`**{shortname}**: {longname}`{=raw}'
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    on_duplicate: keep
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+      - shortname: RL
+        longname: Rocket League
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    sorting: alphabetical-case-insensitive
+    include_unused: false
+    keys:
+      - shortname: Qt
+        longname: Quarto
+      - shortname: iQt
+        longname: inside-Quarto
+      - shortname: aA
+        longname: alphabetically
+      - shortname: H
+        longname: handle
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    loa_title: Glossary
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    insert_loa: false
+    insert_links: false
+    keys:
+      - shortname: CGI
+        longname: CpG island
+      - shortname: ST
+        longname: stimulus
+        plural:
+          shortname: ST
+          longname: stimuli
+      - shortname: F
+        longname: fish
+        plural:
+          longname: fish
+      - shortname: Fo
+        longname: food
+        plural:
+          shortname: Fo
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    sorting: initial
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+      - shortname: MORL
+        longname: Multi-Objective Reinforcement Learning
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    keys:
+      - shortname: rl
+        longname: Reinforcement Learning
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    keys:
+      - shortname: ai
+        longname: Artificial Intelligence
+      - shortname: RL
+        longname: Reinforcement Learning
+      - shortname: mRNA
+        longname: messenger ribonucleic acid
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    non_existing: key
+  
+(W) [acronyms] Acronym key RL not recognized
+(W) [acronyms] Acronym key RL not recognized
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    keys:
+      - shortname: CL/F
+        longname: Test with a /
+      - shortname: Cav,ss
+        longname: Test with a ,
+      - shortname: Thé
+        longname: Test with accents
+      - shortname: 漢字
+        longname: Test with kanjis
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    fromfile:
+      - ./acronyms_original.yml
+      - ./acronyms_simplified.yml
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    include_unused: false
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+      - shortname: MORL
+        longname: Multi-Objective Reinforcement Learning
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    loa_title: ''
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    style: short-long
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    keys:
+      - shortname: AI
+        longname: artificial intelligence
+      - shortname: RL
+        longname: reinforcement learning
+      - shortname: mRNA
+        longname: messenger ribonucleic acid
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+  
+Output created: input.md
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  keep-yaml: false
+  acronyms:
+    sorting: alphabetical
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+      - shortname: MORL
+        longname: Multi-Objective Reinforcement Learning
+  
+Output created: input.md
+

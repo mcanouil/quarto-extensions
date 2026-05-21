@@ -1,0 +1,55 @@
+pandoc 
+
+  to: latex
+  output-file: article.tex
+  standalone: true
+  shift-heading-level-by: -1
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  number-sections: true
+  
+
+metadata
+
+  block-headings: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Test Article for Custom AmSThm Environments
+  author: Test Author
+  date: today
+  custom-amsthm:
+    - key: prm
+      name: Problem
+      numbering-style: section
+    - key: tsk
+      name: Task
+      numbering-style: global
+    - key: usecase
+      name: Use Case
+      numbered: false
+  documentclass: article
+  
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+running lualatex - 2
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+
+
+Output created: _output/article.pdf
+
+

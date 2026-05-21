@@ -8,7 +8,7 @@ Installing R packages: coresInsper, dados, extrafont
 echo "make ttf2pt1 in ttf2pt1/ ..."
 make ttf2pt1 in ttf2pt1/ ...
 (cd ttf2pt1; make CC="`"/opt/R/4.6.0/lib/R/bin/R" CMD config CC`" CFLAGS="`"/opt/R/4.6.0/lib/R/bin/R" CMD config CFLAGS`" ttf2pt1)
-make[1]: Entering directory '/tmp/RtmpmGfIJF/R.INSTALL31d3c8eee3d/Rttf2pt1/src/ttf2pt1'
+make[1]: Entering directory '/tmp/RtmpXVJZR2/R.INSTALL31d79b131b9/Rttf2pt1/src/ttf2pt1'
 gcc -std=gnu2x -g -O2 -c ttf2pt1.c
 gcc -std=gnu2x -g -O2 -c pt1.c
 gcc -std=gnu2x -g -O2  -c runt1asm.c
@@ -17,8 +17,8 @@ gcc -std=gnu2x -g -O2 -c ft.c
 gcc -std=gnu2x -g -O2 -c bdf.c
 gcc -std=gnu2x -g -O2 -c bitmap.c
 gcc -std=gnu2x -g -O2 -o ttf2pt1 ttf2pt1.o pt1.o runt1asm.o ttf.o ft.o bdf.o bitmap.o -lm  
-make[1]: Leaving directory '/tmp/RtmpmGfIJF/R.INSTALL31d3c8eee3d/Rttf2pt1/src/ttf2pt1'
+make[1]: Leaving directory '/tmp/RtmpXVJZR2/R.INSTALL31d79b131b9/Rttf2pt1/src/ttf2pt1'
 [1] ""
-tlmgr: package repository https://ctan.math.illinois.edu/systems/texlive/tlnet (verified)
+tlmgr: package repository https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet (verified)
 tlmgr: no self-updates for tlmgr available
-Using CTAN mirror: https://ctan.math.illinois.edu/systems/texlive/tlnet
+Using CTAN mirror: https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet

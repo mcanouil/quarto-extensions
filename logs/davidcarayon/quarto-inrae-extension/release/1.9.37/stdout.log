@@ -18,7 +18,7 @@ gcc -std=gnu2x -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o zip.so init.
 echo "make ttf2pt1 in ttf2pt1/ ..."
 make ttf2pt1 in ttf2pt1/ ...
 (cd ttf2pt1; make CC="`"/opt/R/4.6.0/lib/R/bin/R" CMD config CC`" CFLAGS="`"/opt/R/4.6.0/lib/R/bin/R" CMD config CFLAGS`" ttf2pt1)
-make[1]: Entering directory '/tmp/Rtmp5gzUxh/R.INSTALL1e4b94d537/Rttf2pt1/src/ttf2pt1'
+make[1]: Entering directory '/tmp/Rtmpbt4LaV/R.INSTALL1e45a9b13d7/Rttf2pt1/src/ttf2pt1'
 gcc -std=gnu2x -g -O2 -c ttf2pt1.c
 gcc -std=gnu2x -g -O2 -c pt1.c
 gcc -std=gnu2x -g -O2  -c runt1asm.c
@@ -27,26 +27,16 @@ gcc -std=gnu2x -g -O2 -c ft.c
 gcc -std=gnu2x -g -O2 -c bdf.c
 gcc -std=gnu2x -g -O2 -c bitmap.c
 gcc -std=gnu2x -g -O2 -o ttf2pt1 ttf2pt1.o pt1.o runt1asm.o ttf.o ft.o bdf.o bitmap.o -lm  
-make[1]: Leaving directory '/tmp/Rtmp5gzUxh/R.INSTALL1e4b94d537/Rttf2pt1/src/ttf2pt1'
+make[1]: Leaving directory '/tmp/Rtmpbt4LaV/R.INSTALL1e45a9b13d7/Rttf2pt1/src/ttf2pt1'
 [1] ""
-Using PKG_CFLAGS=
-Using PKG_LIBS=-lcairo -lfreetype
------------------------------[ ANTICONF ]-------------------------------
-Configuration failed to find libraries. Try installing:
- * deb: libcairo2-dev (Debian, Ubuntu)
- * rpm: cairo-devel (Fedora, CentOS, RHEL)
- * csw: libcairo_dev (Solaris)
- * brew: cairo (OSX)
-If cairo freetype2 are already installed, check that 'pkg-config' is in your
-PATH and PKG_CONFIG_PATH contains a cairo freetype2.pc file. If pkg-config
-is unavailable you can set INCLUDE_DIR and LIB_DIR manually via:
-R CMD INSTALL --configure-vars='INCLUDE_DIR=... LIB_DIR=...'
----------------------------[ ERROR MESSAGE ]----------------------------
-src/tests/sysdeps.c:1:10: fatal error: cairo-ft.h: No such file or directory
-    1 | #include <cairo-ft.h>
-      |          ^~~~~~~~~~~~
-compilation terminated.
-------------------------------------------------------------------------
-tlmgr: package repository https://ctan.math.illinois.edu/systems/texlive/tlnet (verified)
+Found pkg-config cflags and libs!
+Using PKG_CFLAGS=-I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1 
+Using PKG_LIBS=-lcairo -lfreetype 
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c CairoContext.cpp -o CairoContext.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c font_metrics.cpp -o font_metrics.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c versions.cpp -o versions.o
+g++ -std=gnu++20 -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o gdtools.so CairoContext.o RcppExports.o font_metrics.o versions.o -lcairo -lfreetype -L/opt/R/4.6.0/lib/R/lib -lR
+tlmgr: package repository https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet (verified)
 tlmgr: no self-updates for tlmgr available
-Using CTAN mirror: https://ctan.math.illinois.edu/systems/texlive/tlnet
+Using CTAN mirror: https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet
