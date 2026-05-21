@@ -3,14 +3,12 @@ FROM ${BASE_IMAGE}
 
 USER root
 
-# System packages required for building R packages and rendering.
-# libnode72 is the runtime lib the PPM V8 binary links against; the -dev
-# package conflicts with the image's nodesource Node.js, so use runtime only.
+# System packages required for building R packages and rendering
 RUN apt-get update -qq && apt-get install -y -qq --no-install-recommends \
     jq libcurl4-openssl-dev libssl-dev libxml2-dev libfontconfig1-dev \
     libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev \
     libtiff5-dev libjpeg-dev libwebp-dev libgit2-dev zlib1g-dev cmake \
-    libmagick++-dev libnode72 ghostscript \
+    libmagick++-dev ghostscript \
     && rm -rf /var/lib/apt/lists/*
 
 # R packages commonly needed by extensions.
@@ -18,12 +16,15 @@ RUN apt-get update -qq && apt-get install -y -qq --no-install-recommends \
 # requirements via apt (it runs here as root). pak ships in the image's
 # user library, which root cannot see, so bootstrap it into the site
 # library first.
-RUN Rscript -e 'install.packages("pak", lib = .Library, repos = sprintf("https://r-lib.github.io/p/pak/stable/%s/%s/%s", .Platform$pkgType, R.Version()$os, R.Version()$arch)); \
+# V8 is forced from source: the PPM binary links the system libnode, which
+# the base image does not provide, so build it with its own static libv8.
+RUN Rscript -e 'Sys.setenv(DOWNLOAD_STATIC_LIBV8 = "1"); \
+    install.packages("pak", lib = .Library, repos = sprintf("https://r-lib.github.io/p/pak/stable/%s/%s/%s", .Platform$pkgType, R.Version()$os, R.Version()$arch)); \
     pak::pkg_install(c( \
     "rmarkdown", "knitr", "reticulate", \
     "ggplot2", "dplyr", "tidyverse", \
     "kableExtra", "palmerpenguins", "gt", "tibble", "ragg", \
-    "magick" \
+    "magick", "V8?source" \
     ), lib = .Library, ask = FALSE)'
 
 # Common LaTeX packages to avoid runtime CTAN mirror dependency
