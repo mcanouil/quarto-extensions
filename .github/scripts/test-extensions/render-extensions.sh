@@ -387,6 +387,20 @@ render_single_qmd() {
   fi
 }
 
+# Extension dev repos keep _extensions at the repo root and symlink it into
+# example/test subprojects, where the link is typically gitignored. Recreate
+# those links so nested _quarto.yml projects resolve the extension when their
+# documents are rendered individually.
+root_ext="$(pwd)/_extensions"
+if [[ -d "${root_ext}" ]]; then
+  while IFS= read -r -d '' qy; do
+    proj_dir="$(dirname "${qy}")"
+    [[ "${proj_dir}" == "." ]] && continue
+    [[ -e "${proj_dir}/_extensions" ]] && continue
+    ln -s "${root_ext}" "${proj_dir}/_extensions"
+  done < <(find . \( -name _quarto.yml -o -name _quarto.yaml \) -not -path './_extensions/*' -print0)
+fi
+
 if [[ -f _quarto.yml ]] || [[ -f _quarto.yaml ]]; then
   quarto_render "project" || exit 1
 elif [[ "${EXT_TYPE}" == "document" ]]; then
