@@ -1,0 +1,33 @@
+
+
+pandoc 
+
+  to: html
+  output-file: keyboard-shortcuts.html
+  standalone: true
+  title-prefix: Editable Extension
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Keyboard Shortcuts
+  
+
+
+
+Output created: _site/keyboard-shortcuts.html
+
+

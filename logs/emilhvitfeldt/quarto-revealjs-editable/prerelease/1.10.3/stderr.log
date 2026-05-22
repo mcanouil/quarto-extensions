@@ -25,7 +25,7 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/RtmpTLsRtw/downloaded_packages'
+	'/tmp/Rtmpi4k5An/downloaded_packages'
 
 
 processing file: modify-mode-all.qmd
@@ -1398,6 +1398,216 @@ metadata
   
 Output created: modify-mode-code.html
 
-/usr/bin/cp: '../_extensions' and './_extensions' are the same file
-Render failed, retrying once...
-/usr/bin/cp: '../_extensions' and './_extensions' are the same file
+
+pandoc 
+  to: revealjs
+  output-file: example.html
+  standalone: true
+  title-prefix: Editable Extension
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  variables: {}
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Interactive Demo
+  revealjs-plugins:
+    - editable
+  
+
+Output created: _site/example.html
+
+
+pandoc 
+  to: html
+  output-file: keyboard-shortcuts.html
+  standalone: true
+  title-prefix: Editable Extension
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Keyboard Shortcuts
+  
+
+Output created: _site/keyboard-shortcuts.html
+
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Editable Extension
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Editable Extension for Quarto Revealjs
+  
+
+Output created: _site/index.html
+
+
+pandoc 
+  to: html
+  output-file: getting-started.html
+  standalone: true
+  title-prefix: Editable Extension
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Getting Started
+  
+
+Output created: _site/getting-started.html
+
+
+pandoc 
+  to: html
+  output-file: customization.html
+  standalone: true
+  title-prefix: Editable Extension
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Customization
+  
+
+Output created: _site/customization.html
+
+
+pandoc 
+  to: html
+  output-file: features.html
+  standalone: true
+  title-prefix: Editable Extension
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  theme: cosmo
+  title: Features
+  
+(E) Arrow shortcode requires 'from' and 'to' coordinates
+(E) Arrow shortcode requires 'from' and 'to' coordinates
+
+Output created: _site/features.html
+
+pandoc 
+  to: revealjs
+  output-file: example.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  variables: {}
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: editable Example
+  revealjs-plugins:
+    - editable
+  
+Output created: example.html
+

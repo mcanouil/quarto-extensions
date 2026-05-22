@@ -279,7 +279,7 @@ set LDFLAGS=-L/usr/local/lib
 -- Could NOT find Java (missing: Java_JAVA_EXECUTABLE Java_JAR_EXECUTABLE Java_JAVAC_EXECUTABLE Java_JAVAH_EXECUTABLE Java_JAVADOC_EXECUTABLE) (Required is at least version "1.5")
 -- Configuring done (2.3s)
 -- Generating done (0.0s)
--- Build files have been written to: /tmp/RtmpMhPwRh/R.INSTALLd8f7dd522b3/nloptr/src/nlopt-build
+-- Build files have been written to: /tmp/RtmpaMqJMq/R.INSTALLd8f130115e5/nloptr/src/nlopt-build
 [  2%] Generating nlopt.hpp
 [  2%] Built target generate-cpp
 [  4%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRect.c.o
@@ -334,17 +334,17 @@ set LDFLAGS=-L/usr/local/lib
 [100%] Built target nlopt
 Install the project...
 -- Install configuration: "Release"
--- Installing: /tmp/RtmpMhPwRh/R.INSTALLd8f7dd522b3/nloptr/src/nlopt/lib/pkgconfig/nlopt.pc
--- Installing: /tmp/RtmpMhPwRh/R.INSTALLd8f7dd522b3/nloptr/src/nlopt/include/nlopt.h
--- Installing: /tmp/RtmpMhPwRh/R.INSTALLd8f7dd522b3/nloptr/src/nlopt/include/nlopt.hpp
--- Installing: /tmp/RtmpMhPwRh/R.INSTALLd8f7dd522b3/nloptr/src/nlopt/lib/libnlopt.a
--- Installing: /tmp/RtmpMhPwRh/R.INSTALLd8f7dd522b3/nloptr/src/nlopt/share/man/man3/nlopt.3
--- Installing: /tmp/RtmpMhPwRh/R.INSTALLd8f7dd522b3/nloptr/src/nlopt/share/man/man3/nlopt_minimize.3
--- Installing: /tmp/RtmpMhPwRh/R.INSTALLd8f7dd522b3/nloptr/src/nlopt/share/man/man3/nlopt_minimize_constrained.3
--- Installing: /tmp/RtmpMhPwRh/R.INSTALLd8f7dd522b3/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends.cmake
--- Installing: /tmp/RtmpMhPwRh/R.INSTALLd8f7dd522b3/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends-release.cmake
--- Installing: /tmp/RtmpMhPwRh/R.INSTALLd8f7dd522b3/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfig.cmake
--- Installing: /tmp/RtmpMhPwRh/R.INSTALLd8f7dd522b3/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfigVersion.cmake
+-- Installing: /tmp/RtmpaMqJMq/R.INSTALLd8f130115e5/nloptr/src/nlopt/lib/pkgconfig/nlopt.pc
+-- Installing: /tmp/RtmpaMqJMq/R.INSTALLd8f130115e5/nloptr/src/nlopt/include/nlopt.h
+-- Installing: /tmp/RtmpaMqJMq/R.INSTALLd8f130115e5/nloptr/src/nlopt/include/nlopt.hpp
+-- Installing: /tmp/RtmpaMqJMq/R.INSTALLd8f130115e5/nloptr/src/nlopt/lib/libnlopt.a
+-- Installing: /tmp/RtmpaMqJMq/R.INSTALLd8f130115e5/nloptr/src/nlopt/share/man/man3/nlopt.3
+-- Installing: /tmp/RtmpaMqJMq/R.INSTALLd8f130115e5/nloptr/src/nlopt/share/man/man3/nlopt_minimize.3
+-- Installing: /tmp/RtmpaMqJMq/R.INSTALLd8f130115e5/nloptr/src/nlopt/share/man/man3/nlopt_minimize_constrained.3
+-- Installing: /tmp/RtmpaMqJMq/R.INSTALLd8f130115e5/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends.cmake
+-- Installing: /tmp/RtmpaMqJMq/R.INSTALLd8f130115e5/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends-release.cmake
+-- Installing: /tmp/RtmpaMqJMq/R.INSTALLd8f130115e5/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfig.cmake
+-- Installing: /tmp/RtmpaMqJMq/R.INSTALLd8f130115e5/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfigVersion.cmake
 Moving nlopt/lib to nlopt/lib
 Copying headers found in src/nlopt/include into inst/include
 configure: creating ./config.status
@@ -633,19 +633,7 @@ g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/
 g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Matrix/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x86_64-pc-linux-gnu-library/4.6/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c predModule.cpp -o predModule.o
 g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Matrix/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x86_64-pc-linux-gnu-library/4.6/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c respModule.cpp -o respModule.o
 g++ -std=gnu++20 -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o lme4.so external.o glmFamily.o optimizer.o predModule.o respModule.o -L/opt/R/4.6.0/lib/R/lib -lR
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/opt/R/4.6.0/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/opt/R/4.6.0/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c a_color.cpp -o a_color.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/opt/R/4.6.0/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c a_prstgeom.cpp -o a_prstgeom.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/opt/R/4.6.0/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c clipper.cpp -o clipper.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/opt/R/4.6.0/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c line_style.cpp -o line_style.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/opt/R/4.6.0/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c main_tree.cpp -o main_tree.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/opt/R/4.6.0/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c ppr.cpp -o ppr.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/opt/R/4.6.0/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c pptx.cpp -o pptx.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/opt/R/4.6.0/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c raster.cpp -o raster.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/opt/R/4.6.0/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c rpr.cpp -o rpr.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/opt/R/4.6.0/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c shapes.cpp -o shapes.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/opt/R/4.6.0/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c text.cpp -o text.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/opt/R/4.6.0/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c write_nv_pr.cpp -o write_nv_pr.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/opt/R/4.6.0/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c xfrm.cpp -o xfrm.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/opt/R/4.6.0/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c xlsx.cpp -o xlsx.o
-g++ -std=gnu++20 -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o rvg.so RcppExports.o a_color.o a_prstgeom.o clipper.o line_style.o main_tree.o ppr.o pptx.o raster.o rpr.o shapes.o text.o write_nv_pr.o xfrm.o xlsx.o -lpng -lz -L/opt/R/4.6.0/lib/R/lib -lR
+Error in lazyLoadDBinsertVariable(vars[i], from, datafile, ascii, compress,  : 
+  cannot open file '/home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x86_64-pc-linux-gnu-library/4.6/00LOCK-lme4/00new/lme4/R/lme4.rdb': No such file or directory
+Calls: <Anonymous> ... code2LazyLoadDB -> makeLazyLoadDB -> lazyLoadDBinsertVariable
+Execution halted

@@ -80,6 +80,7 @@ Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: cls)
 
 Enter file name: 
+
 ! Emergency stop.
 <read *> 
          
@@ -112,7 +113,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:/tmp/quarto-sessionf7f329b3f394efb/95111e6af8f0f159//:/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=pdf source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:/tmp/quarto-sessionb49bdd04a84ef1e8/31c0358b0fb611f3//:/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=pdf source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -204,7 +205,7 @@ q1 -- q2 -- q3; % make these edges plain
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.21)  21 MAY 2026 20:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.22)  22 MAY 2026 10:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -246,10 +247,10 @@ No existing .aux file, so I'll make a simple one, and require run of *latex.
 
 Latexmk: applying rule 'pdflatex'...
 Rule 'pdflatex':  Reasons for rerun
+
 Category 'other':
   Rerun of 'pdflatex' forced or previously required:
     Reason or flag: 'Initial setup'
-
 
 ------------
 Run number 1 of rule 'pdflatex'
@@ -307,7 +308,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:/tmp/quarto-sessionf7f329b3f394efb/95111e6af8f0f159//:/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=pdf source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:/tmp/quarto-sessionb49bdd04a84ef1e8/31c0358b0fb611f3//:/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=pdf source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -375,7 +376,7 @@ $
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.21)  21 MAY 2026 20:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.22)  22 MAY 2026 10:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.

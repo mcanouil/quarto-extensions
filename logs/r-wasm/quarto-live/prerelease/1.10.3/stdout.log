@@ -279,7 +279,7 @@ set LDFLAGS=-L/usr/local/lib
 -- Could NOT find Java (missing: Java_JAVA_EXECUTABLE Java_JAR_EXECUTABLE Java_JAVAC_EXECUTABLE Java_JAVAH_EXECUTABLE Java_JAVADOC_EXECUTABLE) (Required is at least version "1.5")
 -- Configuring done (2.1s)
 -- Generating done (0.0s)
--- Build files have been written to: /tmp/RtmpHH85q9/R.INSTALLd8f51f0237d/nloptr/src/nlopt-build
+-- Build files have been written to: /tmp/RtmpX5KObg/R.INSTALLd8f1b19c4cf/nloptr/src/nlopt-build
 [  2%] Generating nlopt.hpp
 [  2%] Built target generate-cpp
 [  4%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRect.c.o
@@ -334,17 +334,17 @@ set LDFLAGS=-L/usr/local/lib
 [100%] Built target nlopt
 Install the project...
 -- Install configuration: "Release"
--- Installing: /tmp/RtmpHH85q9/R.INSTALLd8f51f0237d/nloptr/src/nlopt/lib/pkgconfig/nlopt.pc
--- Installing: /tmp/RtmpHH85q9/R.INSTALLd8f51f0237d/nloptr/src/nlopt/include/nlopt.h
--- Installing: /tmp/RtmpHH85q9/R.INSTALLd8f51f0237d/nloptr/src/nlopt/include/nlopt.hpp
--- Installing: /tmp/RtmpHH85q9/R.INSTALLd8f51f0237d/nloptr/src/nlopt/lib/libnlopt.a
--- Installing: /tmp/RtmpHH85q9/R.INSTALLd8f51f0237d/nloptr/src/nlopt/share/man/man3/nlopt.3
--- Installing: /tmp/RtmpHH85q9/R.INSTALLd8f51f0237d/nloptr/src/nlopt/share/man/man3/nlopt_minimize.3
--- Installing: /tmp/RtmpHH85q9/R.INSTALLd8f51f0237d/nloptr/src/nlopt/share/man/man3/nlopt_minimize_constrained.3
--- Installing: /tmp/RtmpHH85q9/R.INSTALLd8f51f0237d/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends.cmake
--- Installing: /tmp/RtmpHH85q9/R.INSTALLd8f51f0237d/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends-release.cmake
--- Installing: /tmp/RtmpHH85q9/R.INSTALLd8f51f0237d/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfig.cmake
--- Installing: /tmp/RtmpHH85q9/R.INSTALLd8f51f0237d/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfigVersion.cmake
+-- Installing: /tmp/RtmpX5KObg/R.INSTALLd8f1b19c4cf/nloptr/src/nlopt/lib/pkgconfig/nlopt.pc
+-- Installing: /tmp/RtmpX5KObg/R.INSTALLd8f1b19c4cf/nloptr/src/nlopt/include/nlopt.h
+-- Installing: /tmp/RtmpX5KObg/R.INSTALLd8f1b19c4cf/nloptr/src/nlopt/include/nlopt.hpp
+-- Installing: /tmp/RtmpX5KObg/R.INSTALLd8f1b19c4cf/nloptr/src/nlopt/lib/libnlopt.a
+-- Installing: /tmp/RtmpX5KObg/R.INSTALLd8f1b19c4cf/nloptr/src/nlopt/share/man/man3/nlopt.3
+-- Installing: /tmp/RtmpX5KObg/R.INSTALLd8f1b19c4cf/nloptr/src/nlopt/share/man/man3/nlopt_minimize.3
+-- Installing: /tmp/RtmpX5KObg/R.INSTALLd8f1b19c4cf/nloptr/src/nlopt/share/man/man3/nlopt_minimize_constrained.3
+-- Installing: /tmp/RtmpX5KObg/R.INSTALLd8f1b19c4cf/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends.cmake
+-- Installing: /tmp/RtmpX5KObg/R.INSTALLd8f1b19c4cf/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends-release.cmake
+-- Installing: /tmp/RtmpX5KObg/R.INSTALLd8f1b19c4cf/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfig.cmake
+-- Installing: /tmp/RtmpX5KObg/R.INSTALLd8f1b19c4cf/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfigVersion.cmake
 Moving nlopt/lib to nlopt/lib
 Copying headers found in src/nlopt/include into inst/include
 configure: creating ./config.status
@@ -633,3 +633,7 @@ g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/
 g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Matrix/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x86_64-pc-linux-gnu-library/4.6/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c predModule.cpp -o predModule.o
 g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.0/lib/R/library/Matrix/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I'/home/runner/work/quarto-extensions/quarto-extensions/test-15/R/x86_64-pc-linux-gnu-library/4.6/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c respModule.cpp -o respModule.o
 g++ -std=gnu++20 -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o lme4.so external.o glmFamily.o optimizer.o predModule.o respModule.o -L/opt/R/4.6.0/lib/R/lib -lR
+Error: package or namespace load failed for 'lme4' in loadNamespace(package, lib.loc):
+ there is no package called 'lme4'
+Error: loading failed
+Execution halted

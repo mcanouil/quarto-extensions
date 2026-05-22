@@ -20,17 +20,18 @@ Traceback (most recent call last):
   File "/home/vscode/.venv/lib/python3.13/site-packages/jsonschema/__init__.py", line 13, in <module>
     from jsonschema._format import FormatChecker
   File "/home/vscode/.venv/lib/python3.13/site-packages/jsonschema/_format.py", line 11, in <module>
-
     from jsonschema.exceptions import FormatError
+
   File "/home/vscode/.venv/lib/python3.13/site-packages/jsonschema/exceptions.py", line 15, in <module>
     from referencing.exceptions import Unresolvable as _Unresolvable
   File "/home/vscode/.venv/lib/python3.13/site-packages/referencing/__init__.py", line 5, in <module>
-    from referencing._core import Anchor, Registry, Resource, Specification
 
+    from referencing._core import Anchor, Registry, Resource, Specification
   File "/home/vscode/.venv/lib/python3.13/site-packages/referencing/_core.py", line 9, in <module>
     from rpds import HashTrieMap, HashTrieSet, List
   File "/home/vscode/.venv/lib/python3.13/site-packages/rpds/__init__.py", line 1, in <module>
     from .rpds import *
+
 ModuleNotFoundError: No module named 'rpds.rpds'
 
 (WARN) Error encountered when rendering files
