@@ -1,0 +1,295 @@
+pandoc 
+
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+    quarto:
+      language:
+        toc-title-document: Table of contents
+        toc-title-website: On this page
+        related-formats-title: Other Formats
+        related-notebooks-title: Notebooks
+        source-notebooks-prefix: Source
+        other-links-title: Other Links
+        code-links-title: Code Links
+        launch-dev-container-title: Launch Dev Container
+        launch-binder-title: Launch Binder
+        article-notebook-label: Article Notebook
+        notebook-preview-download: Download Notebook
+        notebook-preview-download-src: Download Source
+        notebook-preview-back: Back to Article
+        manuscript-meca-bundle: MECA Bundle
+        section-title-abstract: Abstract
+        section-title-appendices: Appendices
+        section-title-footnotes: Footnotes
+        section-title-references: References
+        section-title-reuse: Reuse
+        section-title-copyright: Copyright
+        section-title-citation: Citation
+        appendix-attribution-cite-as: 'For attribution, please cite this work as:'
+        appendix-attribution-bibtex: 'BibTeX citation:'
+        appendix-view-license: View License
+        title-block-author-single: Author
+        title-block-author-plural: Authors
+        title-block-affiliation-single: Affiliation
+        title-block-affiliation-plural: Affiliations
+        title-block-published: Published
+        title-block-modified: Modified
+        title-block-keywords: Keywords
+        callout-tip-title: Tip
+        callout-note-title: Note
+        callout-warning-title: Warning
+        callout-important-title: Important
+        callout-caution-title: Caution
+        code-summary: Code
+        code-tools-menu-caption: Code
+        code-tools-show-all-code: Show All Code
+        code-tools-hide-all-code: Hide All Code
+        code-tools-view-source: View Source
+        code-tools-source-code: Source Code
+        tools-share: Share
+        tools-download: Download
+        code-line: Line
+        code-lines: Lines
+        copy-button-tooltip: Copy to Clipboard
+        copy-button-tooltip-success: Copied!
+        repo-action-links-edit: Edit this page
+        repo-action-links-source: View source
+        repo-action-links-issue: Report an issue
+        back-to-top: Back to top
+        search-no-results-text: No results
+        search-matching-documents-text: matching documents
+        search-copy-link-title: Copy link to search
+        search-hide-matches-text: Hide additional matches
+        search-more-match-text: more match in this document
+        search-more-matches-text: more matches in this document
+        search-clear-button-title: Clear
+        search-text-placeholder: ''
+        search-detached-cancel-button-title: Cancel
+        search-submit-button-title: Submit
+        search-label: Search
+        toggle-section: Toggle section
+        toggle-sidebar: Toggle sidebar navigation
+        toggle-dark-mode: Toggle dark mode
+        toggle-reader-mode: Toggle reader mode
+        toggle-navigation: Toggle navigation
+        crossref-fig-title: Figure
+        crossref-tbl-title: Table
+        crossref-lst-title: Listing
+        crossref-thm-title: Theorem
+        crossref-lem-title: Lemma
+        crossref-cor-title: Corollary
+        crossref-prp-title: Proposition
+        crossref-cnj-title: Conjecture
+        crossref-def-title: Definition
+        crossref-exm-title: Example
+        crossref-exr-title: Exercise
+        crossref-ch-prefix: Chapter
+        crossref-apx-prefix: Appendix
+        crossref-sec-prefix: Section
+        crossref-eq-prefix: Equation
+        crossref-lof-title: List of Figures
+        crossref-lot-title: List of Tables
+        crossref-lol-title: List of Listings
+        environment-proof-title: Proof
+        environment-remark-title: Remark
+        environment-solution-title: Solution
+        listing-page-order-by: Order By
+        listing-page-order-by-default: Default
+        listing-page-order-by-date-asc: Oldest
+        listing-page-order-by-date-desc: Newest
+        listing-page-order-by-number-desc: High to Low
+        listing-page-order-by-number-asc: Low to High
+        listing-page-field-date: Date
+        listing-page-field-title: Title
+        listing-page-field-description: Description
+        listing-page-field-author: Author
+        listing-page-field-filename: File Name
+        listing-page-field-filemodified: Modified
+        listing-page-field-subtitle: Subtitle
+        listing-page-field-readingtime: Reading Time
+        listing-page-field-wordcount: Word Count
+        listing-page-field-categories: Categories
+        listing-page-minutes-compact: '{0} min'
+        listing-page-category-all: All
+        listing-page-no-matches: No matching items
+        listing-page-words: '{0} words'
+        listing-page-filter: Filter
+        draft: Draft
+  default-image-extension: pdf
+  number-sections: false
+  
+
+metadata
+
+  block-headings: true
+  csl: _extensions/bj/biophysical-journal.csl
+  papertype: Article
+  indent: true
+  title: What a title!
+  date: today
+  date-format: long
+  author:
+    - name: Jane Doe
+      url: https://example.com
+      orcid: 0000-0000-0000-0000
+      affiliations:
+        - id: some-inst
+          name: Institute for Cool Things
+          url: https://example.com
+        - id: some-uni
+          name: University of Awesome Research
+          url: https://example.com
+      email: corresponding email
+    - name: John Doe
+      affiliations:
+        - ref: some-inst
+  github: https://github.com/quarto-journals/
+  repo: biophysical-journal
+  colorlinks: true
+  link-citations: true
+  abstract: |
+    TODO
+    Look at all the cool stuff we found out!
+  sigstatement: |
+    TODO
+    This is very important, because...
+    Each manuscript must also have a statement of significance or no more than 120 words.
+  license: CC BY
+  keywords:
+    - Research
+    - Cool Stuff
+  citation:
+    type: article
+    citation-key: citationKeyNumber
+    status: draft
+  bibliography:
+    - references.bib
+  classoption:
+    - twocolumn
+  
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for mathtools.sty
+
+> 1 package to install
+
+> installing mathtools (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for sansmath.sty
+
+> 1 package to install
+
+> installing sansmath (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for xpatch.sty
+
+> 1 package to install
+
+> installing xpatch (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for microtype.sty
+
+> 1 package to install
+
+> installing microtype (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for textcase.sty
+
+> 1 package to install
+
+> installing textcase (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for lineno.sty
+
+> 1 package to install
+
+> installing lineno (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for authblk.sty
+
+> 1 package to install
+
+> installing preprint (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for abstract.sty
+
+> 1 package to install
+
+> installing abstract (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Reload initiated (formats: otf,ttf,ttc); reason: Font "rsfs10" not found.
+  luaotfload | resolve : sequence of 3 lookups yielded nothing appropriate.
+
+finding package for rsfs10(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+
+> 1 package to install
+
+> installing rsfs (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+running lualatex - 2
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+
+
+Output created: template.pdf
+
+

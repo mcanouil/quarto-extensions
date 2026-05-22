@@ -1,0 +1,217 @@
+pandoc 
+
+  to: typst
+  output-file: template.typ
+  template: _extensions/quarto-lapreprint/template.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  cite-method: natbib
+  variables:
+    quarto:
+      language:
+        toc-title-document: Table of contents
+        toc-title-website: On this page
+        related-formats-title: Other Formats
+        related-notebooks-title: Notebooks
+        source-notebooks-prefix: Source
+        other-links-title: Other Links
+        code-links-title: Code Links
+        launch-dev-container-title: Launch Dev Container
+        launch-binder-title: Launch Binder
+        article-notebook-label: Article Notebook
+        notebook-preview-download: Download Notebook
+        notebook-preview-download-src: Download Source
+        notebook-preview-back: Back to Article
+        manuscript-meca-bundle: MECA Bundle
+        section-title-abstract: Abstract
+        section-title-appendices: Appendices
+        section-title-footnotes: Footnotes
+        section-title-references: References
+        section-title-reuse: Reuse
+        section-title-copyright: Copyright
+        section-title-citation: Citation
+        appendix-attribution-cite-as: 'For attribution, please cite this work as:'
+        appendix-attribution-bibtex: 'BibTeX citation:'
+        appendix-view-license: View License
+        title-block-author-single: Author
+        title-block-author-plural: Authors
+        title-block-affiliation-single: Affiliation
+        title-block-affiliation-plural: Affiliations
+        title-block-published: Published
+        title-block-modified: Modified
+        title-block-keywords: Keywords
+        callout-tip-title: Tip
+        callout-note-title: Note
+        callout-warning-title: Warning
+        callout-important-title: Important
+        callout-caution-title: Caution
+        code-summary: Code
+        code-tools-menu-caption: Code
+        code-tools-show-all-code: Show All Code
+        code-tools-hide-all-code: Hide All Code
+        code-tools-view-source: View Source
+        code-tools-source-code: Source Code
+        tools-share: Share
+        tools-download: Download
+        code-line: Line
+        code-lines: Lines
+        copy-button-tooltip: Copy to Clipboard
+        copy-button-tooltip-success: Copied!
+        repo-action-links-edit: Edit this page
+        repo-action-links-source: View source
+        repo-action-links-issue: Report an issue
+        back-to-top: Back to top
+        search-no-results-text: No results
+        search-matching-documents-text: matching documents
+        search-copy-link-title: Copy link to search
+        search-hide-matches-text: Hide additional matches
+        search-more-match-text: more match in this document
+        search-more-matches-text: more matches in this document
+        search-clear-button-title: Clear
+        search-text-placeholder: ''
+        search-detached-cancel-button-title: Cancel
+        search-submit-button-title: Submit
+        search-label: Search
+        toggle-section: Toggle section
+        toggle-sidebar: Toggle sidebar navigation
+        toggle-dark-mode: Toggle dark mode
+        toggle-reader-mode: Toggle reader mode
+        toggle-navigation: Toggle navigation
+        crossref-fig-title: Figure
+        crossref-tbl-title: Table
+        crossref-lst-title: Listing
+        crossref-thm-title: Theorem
+        crossref-lem-title: Lemma
+        crossref-cor-title: Corollary
+        crossref-prp-title: Proposition
+        crossref-cnj-title: Conjecture
+        crossref-def-title: Definition
+        crossref-exm-title: Example
+        crossref-exr-title: Exercise
+        crossref-ch-prefix: Chapter
+        crossref-apx-prefix: Appendix
+        crossref-sec-prefix: Section
+        crossref-eq-prefix: Equation
+        crossref-lof-title: List of Figures
+        crossref-lot-title: List of Tables
+        crossref-lol-title: List of Listings
+        environment-proof-title: Proof
+        environment-remark-title: Remark
+        environment-solution-title: Solution
+        listing-page-order-by: Order By
+        listing-page-order-by-default: Default
+        listing-page-order-by-date-asc: Oldest
+        listing-page-order-by-date-desc: Newest
+        listing-page-order-by-number-desc: High to Low
+        listing-page-order-by-number-asc: Low to High
+        listing-page-field-date: Date
+        listing-page-field-title: Title
+        listing-page-field-description: Description
+        listing-page-field-author: Author
+        listing-page-field-filename: File Name
+        listing-page-field-filemodified: Modified
+        listing-page-field-subtitle: Subtitle
+        listing-page-field-readingtime: Reading Time
+        listing-page-field-wordcount: Word Count
+        listing-page-field-categories: Categories
+        listing-page-minutes-compact: '{0} min'
+        listing-page-category-all: All
+        listing-page-no-matches: No matching items
+        listing-page-words: '{0} words'
+        listing-page-filter: Filter
+        draft: Draft
+  
+
+metadata
+
+  title: Pixels and their Neighbours
+  abstract: '`#lorem(100)`{=typst}'
+  keyword:
+    - Finite Volume
+    - Tutorial
+    - Reproducible Research
+  theme: '`red.darken(50%)`{=typst}'
+  subtitle: A Tutorial on Finite Volume
+  short-title: Finite Volume Tutorial
+  pub-date:
+    - title: Published
+      date: '`datetime(year: 2023, month: 08, day: 21)`{=typst}'
+    - title: Accepted
+      date: '`datetime(year: 2022, month: 12, day: 10)`{=typst}'
+    - title: Submitted
+      date: '`datetime(year: 2022, month: 12, day: 10)`{=typst}'
+  venue: '`[ar#text(fill: red.darken(20%))[X]iv]`{=typst}'
+  logo: files/logo.png
+  doi: 10.1190/tle35080703.1
+  authors:
+    - name: Rowan Cockett
+      orcid: 0000-0002-7859-8394
+      email: rowan@curvenote.com
+      affiliations: 1,2,🖂
+    - name: Lindsey Heagy
+      orcid: 0000-0002-1551-5926
+      affiliations: 1
+    - name: Douglas Oldenburg
+      orcid: 0000-0002-4327-2124
+      affiliations: 1
+  affiliations:
+    - id: 1
+      name: University of British Columbia
+    - id: 2
+      name: Curvenote Inc.
+  kind: Notebook Tutorial
+  margin-content:
+    - title: Key Points
+      content: |
+        * key point 1 is *important*.
+        * key point 2 is also important.
+        * this is the third idea.
+    - title: Corresponding Author
+      content: 🖂 [rowan@curvenote.com](mailto:rowan@curvenote.com)
+    - title: Data Statement
+      content: Associated notebooks are available on [GitHub]("https://github.com/simpeg/tle-finitevolume") and can be run online with [MyBinder]("http://mybinder.org/repo/simpeg/tle-finitevolume").
+    - title: Funding
+      content: Funding was provided by the Vanier Award to each of Cockett and Heagy.
+    - title: Competing Interests
+      content: The authors declare no competing interests.
+  mainfont: Fira Sans
+  bibliography:
+    - main.bib
+  biblio-style: ieee
+  
+
+[typst]: Compiling template.typ to template.pdf...
+error: only element functions can be used as selectors
+    ┌─ template.typ:323:19
+ 
+   │  
+323 │       header: locate(loc => {
+    │ ╭────────────────────^
+324 │ │       if(loc.page() == 1) {
+325 │ │         let headers = (
+326 │ │           if (open-access) {smallcaps[Open Access]},
+    · │
+334 │ │       }
+335 │ │     }),
+    │ ╰─────^
+
+
+(ERROR) error: only element functions can be used as selectors
+    ┌─ template.typ:323:19
+    │  
+323 │       header: locate(loc => {
+    │ ╭────────────────────^
+324 │ │       if(loc.page() == 1) {
+325 │ │         let headers = (
+326 │ │           if (open-access) {smallcaps[Open Access]},
+    · │
+334 │ │       }
+335 │ │     }),
+    │ ╰─────^
+
+
+
+(ERROR) Typst compilation failed
+

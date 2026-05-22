@@ -1,0 +1,39 @@
+
+Starting python3 kernel...
+Done
+
+
+Executing 'example.quarto_ipynb'
+
+  Cell 1/2: ''...
+
+
+An error occurred while executing the following cell:
+------------------
+import stata_setup
+stata_setup.config("C:/Program Files/Stata17", "mp")
+------------------
+
+
+---------------------------------------------------------------------------
+OSError                                   Traceback (most recent call last)
+Cell In[1], line 2
+      1 import stata_setup
+----> 2 stata_setup.config("C:/Program Files/Stata17", "mp")
+
+File ~/repo/.venv/lib/python3.13/site-packages/stata_setup.py:38, in config(path, edition, splash)
+     19 """
+     20 Configure Stata within Python.
+     21 
+   (...)     35     *New in version 0.1.3*.
+     36 """	
+     37 if not os.path.isdir(path):
+---> 38     raise OSError(path + ' is invalid')
+     40 if not os.path.isdir(os.path.join(path, 'utilities')):
+     41     raise OSError(path + " is not Stata's installation path")
+
+OSError: C:/Program Files/Stata17 is invalid
+
+
+(WARN) Error encountered when rendering files
+

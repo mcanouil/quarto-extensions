@@ -1,0 +1,280 @@
+pandoc 
+
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables:
+    quarto:
+      language:
+        toc-title-document: Table of contents
+        toc-title-website: On this page
+        related-formats-title: Other Formats
+        related-notebooks-title: Notebooks
+        source-notebooks-prefix: Source
+        other-links-title: Other Links
+        code-links-title: Code Links
+        launch-dev-container-title: Launch Dev Container
+        launch-binder-title: Launch Binder
+        article-notebook-label: Article Notebook
+        notebook-preview-download: Download Notebook
+        notebook-preview-download-src: Download Source
+        notebook-preview-back: Back to Article
+        manuscript-meca-bundle: MECA Bundle
+        section-title-abstract: Abstract
+        section-title-appendices: Appendices
+        section-title-footnotes: Footnotes
+        section-title-references: References
+        section-title-reuse: Reuse
+        section-title-copyright: Copyright
+        section-title-citation: Citation
+        appendix-attribution-cite-as: 'For attribution, please cite this work as:'
+        appendix-attribution-bibtex: 'BibTeX citation:'
+        appendix-view-license: View License
+        title-block-author-single: Author
+        title-block-author-plural: Authors
+        title-block-affiliation-single: Affiliation
+        title-block-affiliation-plural: Affiliations
+        title-block-published: Published
+        title-block-modified: Modified
+        title-block-keywords: Keywords
+        callout-tip-title: Tip
+        callout-note-title: Note
+        callout-warning-title: Warning
+        callout-important-title: Important
+        callout-caution-title: Caution
+        code-summary: Code
+        code-tools-menu-caption: Code
+        code-tools-show-all-code: Show All Code
+        code-tools-hide-all-code: Hide All Code
+        code-tools-view-source: View Source
+        code-tools-source-code: Source Code
+        tools-share: Share
+        tools-download: Download
+        code-line: Line
+        code-lines: Lines
+        copy-button-tooltip: Copy to Clipboard
+        copy-button-tooltip-success: Copied!
+        repo-action-links-edit: Edit this page
+        repo-action-links-source: View source
+        repo-action-links-issue: Report an issue
+        back-to-top: Back to top
+        search-no-results-text: No results
+        search-matching-documents-text: matching documents
+        search-copy-link-title: Copy link to search
+        search-hide-matches-text: Hide additional matches
+        search-more-match-text: more match in this document
+        search-more-matches-text: more matches in this document
+        search-clear-button-title: Clear
+        search-text-placeholder: ''
+        search-detached-cancel-button-title: Cancel
+        search-submit-button-title: Submit
+        search-label: Search
+        toggle-section: Toggle section
+        toggle-sidebar: Toggle sidebar navigation
+        toggle-dark-mode: Toggle dark mode
+        toggle-reader-mode: Toggle reader mode
+        toggle-navigation: Toggle navigation
+        crossref-fig-title: Figure
+        crossref-tbl-title: Table
+        crossref-lst-title: Listing
+        crossref-thm-title: Theorem
+        crossref-lem-title: Lemma
+        crossref-cor-title: Corollary
+        crossref-prp-title: Proposition
+        crossref-cnj-title: Conjecture
+        crossref-def-title: Definition
+        crossref-exm-title: Example
+        crossref-exr-title: Exercise
+        crossref-ch-prefix: Chapter
+        crossref-apx-prefix: Appendix
+        crossref-sec-prefix: Section
+        crossref-eq-prefix: Equation
+        crossref-lof-title: List of Figures
+        crossref-lot-title: List of Tables
+        crossref-lol-title: List of Listings
+        environment-proof-title: Proof
+        environment-remark-title: Remark
+        environment-solution-title: Solution
+        listing-page-order-by: Order By
+        listing-page-order-by-default: Default
+        listing-page-order-by-date-asc: Oldest
+        listing-page-order-by-date-desc: Newest
+        listing-page-order-by-number-desc: High to Low
+        listing-page-order-by-number-asc: Low to High
+        listing-page-field-date: Date
+        listing-page-field-title: Title
+        listing-page-field-description: Description
+        listing-page-field-author: Author
+        listing-page-field-filename: File Name
+        listing-page-field-filemodified: Modified
+        listing-page-field-subtitle: Subtitle
+        listing-page-field-readingtime: Reading Time
+        listing-page-field-wordcount: Word Count
+        listing-page-field-categories: Categories
+        listing-page-minutes-compact: '{0} min'
+        listing-page-category-all: All
+        listing-page-no-matches: No matching items
+        listing-page-words: '{0} words'
+        listing-page-filter: Filter
+        draft: Draft
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Unsplash Example
+  
+
+Error running filter /
+opt/quarto/share/filters/main.lua:
+Could not fetch https://source.unsplash.com/random
+HttpExceptionRequest Request {
+  host                 = "source.unsplash.com"
+  port                 = 443
+  secure               = True
+  requestHeaders       = []
+  path             
+    = "/random"
+  queryString          = ""
+  method               = "GET"
+  proxy                = Nothing
+  rawBody    
+          = False
+  redirectCount        = 10
+  responseTimeout      = ResponseTimeoutDefault
+  requestVersion       = HTTP/1.1
+  proxySecur
+eMode      = ProxySecureWithConnect
+}
+ (StatusCodeException (Response {responseStatus = Status {statusCode = 503, statusMessage = "S
+ervice Unavailable"}, responseVersion = HTTP/1.1, responseHeaders = [("Cache-Control","no-cache, no-store"),("Content-Type","te
+xt/html; charset=utf-8"),("Nel","{\"report_to\":\"heroku-nel\",\"response_headers\":[\"Via\"],
+\"max_age\":3600,\"success_fraction\":0.01,\"failure_frac
+tion\":0.1}"),("Report-To","{\"group\":\"heroku-nel\",\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?s=SSLS
+ZqVwEvQL8c2KN4TbizFSwDyF2xzeuOyl7EKkbbQ%3D\\u0026sid=af571f24-03ee-46d1-9f90-ab9030c2c74c\\u0026ts=1779474614\"}],\"max_age\
+":3600}"),("Reporting-Endpoints","heroku-nel=\"https://nel.heroku.
+com/reports?s=SSLSZqVwEvQL8c2KN4TbizFSwDyF2xzeuOyl7EKkbbQ%3D&sid=af57
+1f24-03ee-46d1-9f90-ab9030c2c74c&ts=1779474614\""),("Server",
+"Heroku"),("Via","1.1 heroku-router")
+,("Date","Fri, 22 May 2026 18:30
+:14 GMT"),("Content-Length","56
+7")], responseBody = (), respons
+eCookieJar = CJ {expose = []}, 
+responseClose' = ResponseClose, responseOriginalRequest = Request {
+  host                 = "source.unsplash.com"
+  port                 = 443
+  secure               = True
+  requestHeaders       = []
+  path                 = "/random"
+  queryStrin
+g          = ""
+  method               = "GET"
+  proxy                = Nothing
+ 
+ rawBody              = False
+  redir
+ectCount        = 10
+  responseT
+imeout      = ResponseTimeoutD
+efault
+  requestVersion       =
+ HTTP/1.1
+  proxySecureMode  
+    = ProxySecureWithConnect
+}
+
+, responseEarlyHints = []}) 
+"<!DOCTYPE html>\n<html>\n  
+<head>\n    <meta name=\"vie
+wport\" content=\"width=devic
+e-width, initial-scale=1\">\
+n    <meta charset=\"utf-8\"
+>\n    <title>Application Er
+ror</title>\n    <style medi
+a=\"screen\">\n      html,bo
+dy,iframe {\n        margin: 0;\n        padding: 0;\
+n      }\n\n      html,body {\n   
+     height: 100%;\n        overf
+low: hidden;\n      }\n\n      ifra
+me {\n        width: 100%;\n   
+     height: 100%;\n        b
+order: 0;\n      }\n    </styl
+e>\n  </head>
+\n  <body>\n  
+  <iframe src=\"https://www.herokucdn.com/error-pages/applicati
+on-error.html\"></iframe>\n  </body>\n</html>")
+stack traceb
+ack:
+	...extensions/test-7/repo/_extensions/unsplash/unsplash.lua:17
+9: in function <...extensions/test-7/re
+po/_extensions/unsplash/unsplash
+.lua:41>
+	(...tail calls...)
+	[string "if pandoc.system
+.os == "mingw32" then..."]:778: in function <[string "if pandoc.system.os == 
+"mingw32" then..."]:776>
+	(...tail calls.
+..)
+	/opt/quarto/share/filters/main.lu
+a:21774: in upvalue 'handle_shortcode'
+	/opt/quarto/s
+hare/filters/main.lua:21839: in function </opt/quarto/share
+/filters/main.lua:21831>
+	[C]: in ?
+	[C]: in method 'walk'
+	/opt/quarto/sha
+re/pandoc/datadir/_utils.lua:607: in func
+tion '_utils.walk'
+	/opt/quarto/s
+hare/filters/main.lua:574: in func
+tion </opt/quarto/share/filters/main.l
+ua:552>
+	(...tail calls...)
+	/op
+t/quarto/share/filters/main.lu
+a:21879: in field 'Pandoc'
+	/o
+pt/quarto/share/filters/main.l
+ua:588: in function 'run_emu
+lated_filter'
+	/opt/quarto/share/filters/m
+ain.lua:1317: in local 'callback'
+	/opt/quarto/share
+/filters/main.lua:1335: in upvalue 'run_emulated_filter_chain'
+	/opt/quart
+o/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
+
+stack traceback:
+	/opt/quarto/share/pandoc/datadir
+/_utils.lua:607: in function '_u
+tils.walk'
+	/opt/quarto/share/
+filters/main.lua:574: in funct
+ion </opt/quarto/share/filter
+s/main.lua:552>
+	(...tail cal
+ls...)
+	/opt/quarto/share/filt
+ers/main.lua:21879: in field 
+'Pandoc'
+	/opt/quarto/share/fil
+ters/main.lua:588: in functio
+n 'run_emulated_filter'
+	/opt
+/quarto/share/filters/main.lu
+a:1317: in local 'callback'
+
+	/opt/quarto/share/filters/ma
+in.lua:1335: in upvalue 'run_emulated_filter_chain'
+	/o
+pt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
+
+(WARN) Error encountered when rendering files
+

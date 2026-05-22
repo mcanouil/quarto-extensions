@@ -1,0 +1,1736 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: example-consort.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: false
+  variables:
+    quarto:
+      language:
+        toc-title-document: Table of contents
+        toc-title-website: On this page
+        related-formats-title: Other Formats
+        related-notebooks-title: Notebooks
+        source-notebooks-prefix: Source
+        other-links-title: Other Links
+        code-links-title: Code Links
+        launch-dev-container-title: Launch Dev Container
+        launch-binder-title: Launch Binder
+        article-notebook-label: Article Notebook
+        notebook-preview-download: Download Notebook
+        notebook-preview-download-src: Download Source
+        notebook-preview-back: Back to Article
+        manuscript-meca-bundle: MECA Bundle
+        section-title-abstract: Abstract
+        section-title-appendices: Appendices
+        section-title-footnotes: Footnotes
+        section-title-references: References
+        section-title-reuse: Reuse
+        section-title-copyright: Copyright
+        section-title-citation: Citation
+        appendix-attribution-cite-as: 'For attribution, please cite this work as:'
+        appendix-attribution-bibtex: 'BibTeX citation:'
+        appendix-view-license: View License
+        title-block-author-single: Author
+        title-block-author-plural: Authors
+        title-block-affiliation-single: Affiliation
+        title-block-affiliation-plural: Affiliations
+        title-block-published: Published
+        title-block-modified: Modified
+        title-block-keywords: Keywords
+        callout-tip-title: Tip
+        callout-note-title: Note
+        callout-warning-title: Warning
+        callout-important-title: Important
+        callout-caution-title: Caution
+        code-summary: Code
+        code-tools-menu-caption: Code
+        code-tools-show-all-code: Show All Code
+        code-tools-hide-all-code: Hide All Code
+        code-tools-view-source: View Source
+        code-tools-source-code: Source Code
+        tools-share: Share
+        tools-download: Download
+        code-line: Line
+        code-lines: Lines
+        copy-button-tooltip: Copy to Clipboard
+        copy-button-tooltip-success: Copied!
+        repo-action-links-edit: Edit this page
+        repo-action-links-source: View source
+        repo-action-links-issue: Report an issue
+        back-to-top: Back to top
+        search-no-results-text: No results
+        search-matching-documents-text: matching documents
+        search-copy-link-title: Copy link to search
+        search-hide-matches-text: Hide additional matches
+        search-more-match-text: more match in this document
+        search-more-matches-text: more matches in this document
+        search-clear-button-title: Clear
+        search-text-placeholder: ''
+        search-detached-cancel-button-title: Cancel
+        search-submit-button-title: Submit
+        search-label: Search
+        toggle-section: Toggle section
+        toggle-sidebar: Toggle sidebar navigation
+        toggle-dark-mode: Toggle dark mode
+        toggle-reader-mode: Toggle reader mode
+        toggle-navigation: Toggle navigation
+        crossref-fig-title: Figure
+        crossref-tbl-title: Table
+        crossref-lst-title: Listing
+        crossref-thm-title: Theorem
+        crossref-lem-title: Lemma
+        crossref-cor-title: Corollary
+        crossref-prp-title: Proposition
+        crossref-cnj-title: Conjecture
+        crossref-def-title: Definition
+        crossref-exm-title: Example
+        crossref-exr-title: Exercise
+        crossref-ch-prefix: Chapter
+        crossref-apx-prefix: Appendix
+        crossref-sec-prefix: Section
+        crossref-eq-prefix: Equation
+        crossref-lof-title: List of Figures
+        crossref-lot-title: List of Tables
+        crossref-lol-title: List of Listings
+        environment-proof-title: Proof
+        environment-remark-title: Remark
+        environment-solution-title: Solution
+        listing-page-order-by: Order By
+        listing-page-order-by-default: Default
+        listing-page-order-by-date-asc: Oldest
+        listing-page-order-by-date-desc: Newest
+        listing-page-order-by-number-desc: High to Low
+        listing-page-order-by-number-asc: Low to High
+        listing-page-field-date: Date
+        listing-page-field-title: Title
+        listing-page-field-description: Description
+        listing-page-field-author: Author
+        listing-page-field-filename: File Name
+        listing-page-field-filemodified: Modified
+        listing-page-field-subtitle: Subtitle
+        listing-page-field-readingtime: Reading Time
+        listing-page-field-wordcount: Word Count
+        listing-page-field-categories: Categories
+        listing-page-minutes-compact: '{0} min'
+        listing-page-category-all: All
+        listing-page-no-matches: No matching items
+        listing-page-words: '{0} words'
+        listing-page-filter: Filter
+        draft: Draft
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: CONSORT flow diagram example
+  study-flow:
+    type: consort
+    enrollment:
+      assessed: 350
+      excluded: 120
+      exclusion_reasons:
+        - 'Did not meet inclusion criteria: 80'
+        - 'Declined to participate: 40'
+    randomised: 230
+    groups:
+      - label: Intervention
+        allocated: 115
+        received: 110
+        lost_followup: 8
+        lost_reasons:
+          - 'Withdrew consent: 5'
+          - 'Lost to follow-up: 3'
+        analysed: 107
+        excluded_analysis: 3
+        excluded_analysis_reasons:
+          - 'Protocol deviation: 3'
+      - label: Control
+        allocated: 115
+        received: 113
+        lost_followup: 10
+        lost_reasons:
+          - 'Withdrew consent: 6'
+          - 'Lost to follow-up: 4'
+        analysed: 105
+        excluded_analysis: 8
+        excluded_analysis_reasons:
+          - 'Did not receive intervention: 8'
+  
+Output created: example-consort.html
+
+pandoc 
+  to: latex
+  output-file: example-consort.tex
+  standalone: true
+  pdf-engine: xelatex
+  variables:
+    graphics: true
+    tables: true
+    quarto:
+      language:
+        toc-title-document: Table of contents
+        toc-title-website: On this page
+        related-formats-title: Other Formats
+        related-notebooks-title: Notebooks
+        source-notebooks-prefix: Source
+        other-links-title: Other Links
+        code-links-title: Code Links
+        launch-dev-container-title: Launch Dev Container
+        launch-binder-title: Launch Binder
+        article-notebook-label: Article Notebook
+        notebook-preview-download: Download Notebook
+        notebook-preview-download-src: Download Source
+        notebook-preview-back: Back to Article
+        manuscript-meca-bundle: MECA Bundle
+        section-title-abstract: Abstract
+        section-title-appendices: Appendices
+        section-title-footnotes: Footnotes
+        section-title-references: References
+        section-title-reuse: Reuse
+        section-title-copyright: Copyright
+        section-title-citation: Citation
+        appendix-attribution-cite-as: 'For attribution, please cite this work as:'
+        appendix-attribution-bibtex: 'BibTeX citation:'
+        appendix-view-license: View License
+        title-block-author-single: Author
+        title-block-author-plural: Authors
+        title-block-affiliation-single: Affiliation
+        title-block-affiliation-plural: Affiliations
+        title-block-published: Published
+        title-block-modified: Modified
+        title-block-keywords: Keywords
+        callout-tip-title: Tip
+        callout-note-title: Note
+        callout-warning-title: Warning
+        callout-important-title: Important
+        callout-caution-title: Caution
+        code-summary: Code
+        code-tools-menu-caption: Code
+        code-tools-show-all-code: Show All Code
+        code-tools-hide-all-code: Hide All Code
+        code-tools-view-source: View Source
+        code-tools-source-code: Source Code
+        tools-share: Share
+        tools-download: Download
+        code-line: Line
+        code-lines: Lines
+        copy-button-tooltip: Copy to Clipboard
+        copy-button-tooltip-success: Copied!
+        repo-action-links-edit: Edit this page
+        repo-action-links-source: View source
+        repo-action-links-issue: Report an issue
+        back-to-top: Back to top
+        search-no-results-text: No results
+        search-matching-documents-text: matching documents
+        search-copy-link-title: Copy link to search
+        search-hide-matches-text: Hide additional matches
+        search-more-match-text: more match in this document
+        search-more-matches-text: more matches in this document
+        search-clear-button-title: Clear
+        search-text-placeholder: ''
+        search-detached-cancel-button-title: Cancel
+        search-submit-button-title: Submit
+        search-label: Search
+        toggle-section: Toggle section
+        toggle-sidebar: Toggle sidebar navigation
+        toggle-dark-mode: Toggle dark mode
+        toggle-reader-mode: Toggle reader mode
+        toggle-navigation: Toggle navigation
+        crossref-fig-title: Figure
+        crossref-tbl-title: Table
+        crossref-lst-title: Listing
+        crossref-thm-title: Theorem
+        crossref-lem-title: Lemma
+        crossref-cor-title: Corollary
+        crossref-prp-title: Proposition
+        crossref-cnj-title: Conjecture
+        crossref-def-title: Definition
+        crossref-exm-title: Example
+        crossref-exr-title: Exercise
+        crossref-ch-prefix: Chapter
+        crossref-apx-prefix: Appendix
+        crossref-sec-prefix: Section
+        crossref-eq-prefix: Equation
+        crossref-lof-title: List of Figures
+        crossref-lot-title: List of Tables
+        crossref-lol-title: List of Listings
+        environment-proof-title: Proof
+        environment-remark-title: Remark
+        environment-solution-title: Solution
+        listing-page-order-by: Order By
+        listing-page-order-by-default: Default
+        listing-page-order-by-date-asc: Oldest
+        listing-page-order-by-date-desc: Newest
+        listing-page-order-by-number-desc: High to Low
+        listing-page-order-by-number-asc: Low to High
+        listing-page-field-date: Date
+        listing-page-field-title: Title
+        listing-page-field-description: Description
+        listing-page-field-author: Author
+        listing-page-field-filename: File Name
+        listing-page-field-filemodified: Modified
+        listing-page-field-subtitle: Subtitle
+        listing-page-field-readingtime: Reading Time
+        listing-page-field-wordcount: Word Count
+        listing-page-field-categories: Categories
+        listing-page-minutes-compact: '{0} min'
+        listing-page-category-all: All
+        listing-page-no-matches: No matching items
+        listing-page-words: '{0} words'
+        listing-page-filter: Filter
+        draft: Draft
+  default-image-extension: pdf
+  toc: false
+  
+metadata
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  title: CONSORT flow diagram example
+  study-flow:
+    type: consort
+    enrollment:
+      assessed: 350
+      excluded: 120
+      exclusion_reasons:
+        - 'Did not meet inclusion criteria: 80'
+        - 'Declined to participate: 40'
+    randomised: 230
+    groups:
+      - label: Intervention
+        allocated: 115
+        received: 110
+        lost_followup: 8
+        lost_reasons:
+          - 'Withdrew consent: 5'
+          - 'Lost to follow-up: 3'
+        analysed: 107
+        excluded_analysis: 3
+        excluded_analysis_reasons:
+          - 'Protocol deviation: 3'
+      - label: Control
+        allocated: 115
+        received: 113
+        lost_followup: 10
+        lost_reasons:
+          - 'Withdrew consent: 6'
+          - 'Lost to follow-up: 4'
+        analysed: 105
+        excluded_analysis: 8
+        excluded_analysis_reasons:
+          - 'Did not receive intervention: 8'
+  
+
+Rendering PDF
+running xelatex - 1
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+updating tlmgr
+
+updating existing packages
+finding package for scrartcl.cls
+> 1 package to install
+> installing koma-script (1 of 1)
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+running xelatex - 2
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+Output created: example-consort.pdf
+
+pandoc 
+  to: html
+  output-file: example-prisma.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: false
+  variables:
+    quarto:
+      language:
+        toc-title-document: Table of contents
+        toc-title-website: On this page
+        related-formats-title: Other Formats
+        related-notebooks-title: Notebooks
+        source-notebooks-prefix: Source
+        other-links-title: Other Links
+        code-links-title: Code Links
+        launch-dev-container-title: Launch Dev Container
+        launch-binder-title: Launch Binder
+        article-notebook-label: Article Notebook
+        notebook-preview-download: Download Notebook
+        notebook-preview-download-src: Download Source
+        notebook-preview-back: Back to Article
+        manuscript-meca-bundle: MECA Bundle
+        section-title-abstract: Abstract
+        section-title-appendices: Appendices
+        section-title-footnotes: Footnotes
+        section-title-references: References
+        section-title-reuse: Reuse
+        section-title-copyright: Copyright
+        section-title-citation: Citation
+        appendix-attribution-cite-as: 'For attribution, please cite this work as:'
+        appendix-attribution-bibtex: 'BibTeX citation:'
+        appendix-view-license: View License
+        title-block-author-single: Author
+        title-block-author-plural: Authors
+        title-block-affiliation-single: Affiliation
+        title-block-affiliation-plural: Affiliations
+        title-block-published: Published
+        title-block-modified: Modified
+        title-block-keywords: Keywords
+        callout-tip-title: Tip
+        callout-note-title: Note
+        callout-warning-title: Warning
+        callout-important-title: Important
+        callout-caution-title: Caution
+        code-summary: Code
+        code-tools-menu-caption: Code
+        code-tools-show-all-code: Show All Code
+        code-tools-hide-all-code: Hide All Code
+        code-tools-view-source: View Source
+        code-tools-source-code: Source Code
+        tools-share: Share
+        tools-download: Download
+        code-line: Line
+        code-lines: Lines
+        copy-button-tooltip: Copy to Clipboard
+        copy-button-tooltip-success: Copied!
+        repo-action-links-edit: Edit this page
+        repo-action-links-source: View source
+        repo-action-links-issue: Report an issue
+        back-to-top: Back to top
+        search-no-results-text: No results
+        search-matching-documents-text: matching documents
+        search-copy-link-title: Copy link to search
+        search-hide-matches-text: Hide additional matches
+        search-more-match-text: more match in this document
+        search-more-matches-text: more matches in this document
+        search-clear-button-title: Clear
+        search-text-placeholder: ''
+        search-detached-cancel-button-title: Cancel
+        search-submit-button-title: Submit
+        search-label: Search
+        toggle-section: Toggle section
+        toggle-sidebar: Toggle sidebar navigation
+        toggle-dark-mode: Toggle dark mode
+        toggle-reader-mode: Toggle reader mode
+        toggle-navigation: Toggle navigation
+        crossref-fig-title: Figure
+        crossref-tbl-title: Table
+        crossref-lst-title: Listing
+        crossref-thm-title: Theorem
+        crossref-lem-title: Lemma
+        crossref-cor-title: Corollary
+        crossref-prp-title: Proposition
+        crossref-cnj-title: Conjecture
+        crossref-def-title: Definition
+        crossref-exm-title: Example
+        crossref-exr-title: Exercise
+        crossref-ch-prefix: Chapter
+        crossref-apx-prefix: Appendix
+        crossref-sec-prefix: Section
+        crossref-eq-prefix: Equation
+        crossref-lof-title: List of Figures
+        crossref-lot-title: List of Tables
+        crossref-lol-title: List of Listings
+        environment-proof-title: Proof
+        environment-remark-title: Remark
+        environment-solution-title: Solution
+        listing-page-order-by: Order By
+        listing-page-order-by-default: Default
+        listing-page-order-by-date-asc: Oldest
+        listing-page-order-by-date-desc: Newest
+        listing-page-order-by-number-desc: High to Low
+        listing-page-order-by-number-asc: Low to High
+        listing-page-field-date: Date
+        listing-page-field-title: Title
+        listing-page-field-description: Description
+        listing-page-field-author: Author
+        listing-page-field-filename: File Name
+        listing-page-field-filemodified: Modified
+        listing-page-field-subtitle: Subtitle
+        listing-page-field-readingtime: Reading Time
+        listing-page-field-wordcount: Word Count
+        listing-page-field-categories: Categories
+        listing-page-minutes-compact: '{0} min'
+        listing-page-category-all: All
+        listing-page-no-matches: No matching items
+        listing-page-words: '{0} words'
+        listing-page-filter: Filter
+        draft: Draft
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: PRISMA 2020 flow diagram example
+  study-flow:
+    type: prisma
+    identification:
+      databases: 1842
+      registers: 167
+      duplicates_removed: 612
+      ineligible_automation: 88
+      other_removed: 14
+    screening:
+      screened: 1295
+      excluded: 1024
+      sought_retrieval: 271
+      not_retrieved: 23
+      assessed: 248
+      excluded_with_reasons:
+        - Wrong population (n=46)
+        - Wrong intervention (n=31)
+        - Wrong outcome (n=22)
+        - Wrong study design (n=18)
+        - Conference abstract only (n=11)
+    other_methods:
+      websites: 12
+      organisations: 8
+      citation_searching: 25
+      sought_retrieval: 41
+      not_retrieved: 3
+      assessed: 38
+      excluded_with_reasons:
+        - Wrong population (n=5)
+        - Wrong outcome (n=4)
+    included:
+      studies: 134
+      reports: 142
+  
+Output created: example-prisma.html
+
+pandoc 
+  to: latex
+  output-file: example-prisma.tex
+  standalone: true
+  pdf-engine: xelatex
+  variables:
+    graphics: true
+    tables: true
+    quarto:
+      language:
+        toc-title-document: Table of contents
+        toc-title-website: On this page
+        related-formats-title: Other Formats
+        related-notebooks-title: Notebooks
+        source-notebooks-prefix: Source
+        other-links-title: Other Links
+        code-links-title: Code Links
+        launch-dev-container-title: Launch Dev Container
+        launch-binder-title: Launch Binder
+        article-notebook-label: Article Notebook
+        notebook-preview-download: Download Notebook
+        notebook-preview-download-src: Download Source
+        notebook-preview-back: Back to Article
+        manuscript-meca-bundle: MECA Bundle
+        section-title-abstract: Abstract
+        section-title-appendices: Appendices
+        section-title-footnotes: Footnotes
+        section-title-references: References
+        section-title-reuse: Reuse
+        section-title-copyright: Copyright
+        section-title-citation: Citation
+        appendix-attribution-cite-as: 'For attribution, please cite this work as:'
+        appendix-attribution-bibtex: 'BibTeX citation:'
+        appendix-view-license: View License
+        title-block-author-single: Author
+        title-block-author-plural: Authors
+        title-block-affiliation-single: Affiliation
+        title-block-affiliation-plural: Affiliations
+        title-block-published: Published
+        title-block-modified: Modified
+        title-block-keywords: Keywords
+        callout-tip-title: Tip
+        callout-note-title: Note
+        callout-warning-title: Warning
+        callout-important-title: Important
+        callout-caution-title: Caution
+        code-summary: Code
+        code-tools-menu-caption: Code
+        code-tools-show-all-code: Show All Code
+        code-tools-hide-all-code: Hide All Code
+        code-tools-view-source: View Source
+        code-tools-source-code: Source Code
+        tools-share: Share
+        tools-download: Download
+        code-line: Line
+        code-lines: Lines
+        copy-button-tooltip: Copy to Clipboard
+        copy-button-tooltip-success: Copied!
+        repo-action-links-edit: Edit this page
+        repo-action-links-source: View source
+        repo-action-links-issue: Report an issue
+        back-to-top: Back to top
+        search-no-results-text: No results
+        search-matching-documents-text: matching documents
+        search-copy-link-title: Copy link to search
+        search-hide-matches-text: Hide additional matches
+        search-more-match-text: more match in this document
+        search-more-matches-text: more matches in this document
+        search-clear-button-title: Clear
+        search-text-placeholder: ''
+        search-detached-cancel-button-title: Cancel
+        search-submit-button-title: Submit
+        search-label: Search
+        toggle-section: Toggle section
+        toggle-sidebar: Toggle sidebar navigation
+        toggle-dark-mode: Toggle dark mode
+        toggle-reader-mode: Toggle reader mode
+        toggle-navigation: Toggle navigation
+        crossref-fig-title: Figure
+        crossref-tbl-title: Table
+        crossref-lst-title: Listing
+        crossref-thm-title: Theorem
+        crossref-lem-title: Lemma
+        crossref-cor-title: Corollary
+        crossref-prp-title: Proposition
+        crossref-cnj-title: Conjecture
+        crossref-def-title: Definition
+        crossref-exm-title: Example
+        crossref-exr-title: Exercise
+        crossref-ch-prefix: Chapter
+        crossref-apx-prefix: Appendix
+        crossref-sec-prefix: Section
+        crossref-eq-prefix: Equation
+        crossref-lof-title: List of Figures
+        crossref-lot-title: List of Tables
+        crossref-lol-title: List of Listings
+        environment-proof-title: Proof
+        environment-remark-title: Remark
+        environment-solution-title: Solution
+        listing-page-order-by: Order By
+        listing-page-order-by-default: Default
+        listing-page-order-by-date-asc: Oldest
+        listing-page-order-by-date-desc: Newest
+        listing-page-order-by-number-desc: High to Low
+        listing-page-order-by-number-asc: Low to High
+        listing-page-field-date: Date
+        listing-page-field-title: Title
+        listing-page-field-description: Description
+        listing-page-field-author: Author
+        listing-page-field-filename: File Name
+        listing-page-field-filemodified: Modified
+        listing-page-field-subtitle: Subtitle
+        listing-page-field-readingtime: Reading Time
+        listing-page-field-wordcount: Word Count
+        listing-page-field-categories: Categories
+        listing-page-minutes-compact: '{0} min'
+        listing-page-category-all: All
+        listing-page-no-matches: No matching items
+        listing-page-words: '{0} words'
+        listing-page-filter: Filter
+        draft: Draft
+  default-image-extension: pdf
+  toc: false
+  
+metadata
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  title: PRISMA 2020 flow diagram example
+  study-flow:
+    type: prisma
+    identification:
+      databases: 1842
+      registers: 167
+      duplicates_removed: 612
+      ineligible_automation: 88
+      other_removed: 14
+    screening:
+      screened: 1295
+      excluded: 1024
+      sought_retrieval: 271
+      not_retrieved: 23
+      assessed: 248
+      excluded_with_reasons:
+        - Wrong population (n=46)
+        - Wrong intervention (n=31)
+        - Wrong outcome (n=22)
+        - Wrong study design (n=18)
+        - Conference abstract only (n=11)
+    other_methods:
+      websites: 12
+      organisations: 8
+      citation_searching: 25
+      sought_retrieval: 41
+      not_retrieved: 3
+      assessed: 38
+      excluded_with_reasons:
+        - Wrong population (n=5)
+        - Wrong outcome (n=4)
+    included:
+      studies: 134
+      reports: 142
+  
+
+Rendering PDF
+running xelatex - 1
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+running xelatex - 2
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+Output created: example-prisma.pdf
+
+pandoc 
+  to: html
+  output-file: example-stard.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: false
+  variables:
+    quarto:
+      language:
+        toc-title-document: Table of contents
+        toc-title-website: On this page
+        related-formats-title: Other Formats
+        related-notebooks-title: Notebooks
+        source-notebooks-prefix: Source
+        other-links-title: Other Links
+        code-links-title: Code Links
+        launch-dev-container-title: Launch Dev Container
+        launch-binder-title: Launch Binder
+        article-notebook-label: Article Notebook
+        notebook-preview-download: Download Notebook
+        notebook-preview-download-src: Download Source
+        notebook-preview-back: Back to Article
+        manuscript-meca-bundle: MECA Bundle
+        section-title-abstract: Abstract
+        section-title-appendices: Appendices
+        section-title-footnotes: Footnotes
+        section-title-references: References
+        section-title-reuse: Reuse
+        section-title-copyright: Copyright
+        section-title-citation: Citation
+        appendix-attribution-cite-as: 'For attribution, please cite this work as:'
+        appendix-attribution-bibtex: 'BibTeX citation:'
+        appendix-view-license: View License
+        title-block-author-single: Author
+        title-block-author-plural: Authors
+        title-block-affiliation-single: Affiliation
+        title-block-affiliation-plural: Affiliations
+        title-block-published: Published
+        title-block-modified: Modified
+        title-block-keywords: Keywords
+        callout-tip-title: Tip
+        callout-note-title: Note
+        callout-warning-title: Warning
+        callout-important-title: Important
+        callout-caution-title: Caution
+        code-summary: Code
+        code-tools-menu-caption: Code
+        code-tools-show-all-code: Show All Code
+        code-tools-hide-all-code: Hide All Code
+        code-tools-view-source: View Source
+        code-tools-source-code: Source Code
+        tools-share: Share
+        tools-download: Download
+        code-line: Line
+        code-lines: Lines
+        copy-button-tooltip: Copy to Clipboard
+        copy-button-tooltip-success: Copied!
+        repo-action-links-edit: Edit this page
+        repo-action-links-source: View source
+        repo-action-links-issue: Report an issue
+        back-to-top: Back to top
+        search-no-results-text: No results
+        search-matching-documents-text: matching documents
+        search-copy-link-title: Copy link to search
+        search-hide-matches-text: Hide additional matches
+        search-more-match-text: more match in this document
+        search-more-matches-text: more matches in this document
+        search-clear-button-title: Clear
+        search-text-placeholder: ''
+        search-detached-cancel-button-title: Cancel
+        search-submit-button-title: Submit
+        search-label: Search
+        toggle-section: Toggle section
+        toggle-sidebar: Toggle sidebar navigation
+        toggle-dark-mode: Toggle dark mode
+        toggle-reader-mode: Toggle reader mode
+        toggle-navigation: Toggle navigation
+        crossref-fig-title: Figure
+        crossref-tbl-title: Table
+        crossref-lst-title: Listing
+        crossref-thm-title: Theorem
+        crossref-lem-title: Lemma
+        crossref-cor-title: Corollary
+        crossref-prp-title: Proposition
+        crossref-cnj-title: Conjecture
+        crossref-def-title: Definition
+        crossref-exm-title: Example
+        crossref-exr-title: Exercise
+        crossref-ch-prefix: Chapter
+        crossref-apx-prefix: Appendix
+        crossref-sec-prefix: Section
+        crossref-eq-prefix: Equation
+        crossref-lof-title: List of Figures
+        crossref-lot-title: List of Tables
+        crossref-lol-title: List of Listings
+        environment-proof-title: Proof
+        environment-remark-title: Remark
+        environment-solution-title: Solution
+        listing-page-order-by: Order By
+        listing-page-order-by-default: Default
+        listing-page-order-by-date-asc: Oldest
+        listing-page-order-by-date-desc: Newest
+        listing-page-order-by-number-desc: High to Low
+        listing-page-order-by-number-asc: Low to High
+        listing-page-field-date: Date
+        listing-page-field-title: Title
+        listing-page-field-description: Description
+        listing-page-field-author: Author
+        listing-page-field-filename: File Name
+        listing-page-field-filemodified: Modified
+        listing-page-field-subtitle: Subtitle
+        listing-page-field-readingtime: Reading Time
+        listing-page-field-wordcount: Word Count
+        listing-page-field-categories: Categories
+        listing-page-minutes-compact: '{0} min'
+        listing-page-category-all: All
+        listing-page-no-matches: No matching items
+        listing-page-words: '{0} words'
+        listing-page-filter: Filter
+        draft: Draft
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: STARD 2015 flow diagram example
+  study-flow:
+    type: stard
+    assessed: 612
+    excluded: 137
+    exclusion_reasons:
+      - 'Did not meet inclusion criteria: 92'
+      - 'Declined consent: 34'
+      - 'Withdrew before testing: 11'
+    enrolled: 475
+    index_test: 461
+    not_index: 14
+    not_index_reasons:
+      - 'Equipment malfunction: 8'
+      - 'Sample not collected: 6'
+    reference_standard: 442
+    not_reference: 19
+    not_reference_reasons:
+      - 'Refused reference test: 12'
+      - 'Reference test contraindicated: 7'
+    outcomes:
+      true_positive: 148
+      false_positive: 41
+      false_negative: 27
+      true_negative: 226
+  
+Output created: example-stard.html
+
+pandoc 
+  to: latex
+  output-file: example-stard.tex
+  standalone: true
+  pdf-engine: xelatex
+  variables:
+    graphics: true
+    tables: true
+    quarto:
+      language:
+        toc-title-document: Table of contents
+        toc-title-website: On this page
+        related-formats-title: Other Formats
+        related-notebooks-title: Notebooks
+        source-notebooks-prefix: Source
+        other-links-title: Other Links
+        code-links-title: Code Links
+        launch-dev-container-title: Launch Dev Container
+        launch-binder-title: Launch Binder
+        article-notebook-label: Article Notebook
+        notebook-preview-download: Download Notebook
+        notebook-preview-download-src: Download Source
+        notebook-preview-back: Back to Article
+        manuscript-meca-bundle: MECA Bundle
+        section-title-abstract: Abstract
+        section-title-appendices: Appendices
+        section-title-footnotes: Footnotes
+        section-title-references: References
+        section-title-reuse: Reuse
+        section-title-copyright: Copyright
+        section-title-citation: Citation
+        appendix-attribution-cite-as: 'For attribution, please cite this work as:'
+        appendix-attribution-bibtex: 'BibTeX citation:'
+        appendix-view-license: View License
+        title-block-author-single: Author
+        title-block-author-plural: Authors
+        title-block-affiliation-single: Affiliation
+        title-block-affiliation-plural: Affiliations
+        title-block-published: Published
+        title-block-modified: Modified
+        title-block-keywords: Keywords
+        callout-tip-title: Tip
+        callout-note-title: Note
+        callout-warning-title: Warning
+        callout-important-title: Important
+        callout-caution-title: Caution
+        code-summary: Code
+        code-tools-menu-caption: Code
+        code-tools-show-all-code: Show All Code
+        code-tools-hide-all-code: Hide All Code
+        code-tools-view-source: View Source
+        code-tools-source-code: Source Code
+        tools-share: Share
+        tools-download: Download
+        code-line: Line
+        code-lines: Lines
+        copy-button-tooltip: Copy to Clipboard
+        copy-button-tooltip-success: Copied!
+        repo-action-links-edit: Edit this page
+        repo-action-links-source: View source
+        repo-action-links-issue: Report an issue
+        back-to-top: Back to top
+        search-no-results-text: No results
+        search-matching-documents-text: matching documents
+        search-copy-link-title: Copy link to search
+        search-hide-matches-text: Hide additional matches
+        search-more-match-text: more match in this document
+        search-more-matches-text: more matches in this document
+        search-clear-button-title: Clear
+        search-text-placeholder: ''
+        search-detached-cancel-button-title: Cancel
+        search-submit-button-title: Submit
+        search-label: Search
+        toggle-section: Toggle section
+        toggle-sidebar: Toggle sidebar navigation
+        toggle-dark-mode: Toggle dark mode
+        toggle-reader-mode: Toggle reader mode
+        toggle-navigation: Toggle navigation
+        crossref-fig-title: Figure
+        crossref-tbl-title: Table
+        crossref-lst-title: Listing
+        crossref-thm-title: Theorem
+        crossref-lem-title: Lemma
+        crossref-cor-title: Corollary
+        crossref-prp-title: Proposition
+        crossref-cnj-title: Conjecture
+        crossref-def-title: Definition
+        crossref-exm-title: Example
+        crossref-exr-title: Exercise
+        crossref-ch-prefix: Chapter
+        crossref-apx-prefix: Appendix
+        crossref-sec-prefix: Section
+        crossref-eq-prefix: Equation
+        crossref-lof-title: List of Figures
+        crossref-lot-title: List of Tables
+        crossref-lol-title: List of Listings
+        environment-proof-title: Proof
+        environment-remark-title: Remark
+        environment-solution-title: Solution
+        listing-page-order-by: Order By
+        listing-page-order-by-default: Default
+        listing-page-order-by-date-asc: Oldest
+        listing-page-order-by-date-desc: Newest
+        listing-page-order-by-number-desc: High to Low
+        listing-page-order-by-number-asc: Low to High
+        listing-page-field-date: Date
+        listing-page-field-title: Title
+        listing-page-field-description: Description
+        listing-page-field-author: Author
+        listing-page-field-filename: File Name
+        listing-page-field-filemodified: Modified
+        listing-page-field-subtitle: Subtitle
+        listing-page-field-readingtime: Reading Time
+        listing-page-field-wordcount: Word Count
+        listing-page-field-categories: Categories
+        listing-page-minutes-compact: '{0} min'
+        listing-page-category-all: All
+        listing-page-no-matches: No matching items
+        listing-page-words: '{0} words'
+        listing-page-filter: Filter
+        draft: Draft
+  default-image-extension: pdf
+  toc: false
+  
+metadata
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  title: STARD 2015 flow diagram example
+  study-flow:
+    type: stard
+    assessed: 612
+    excluded: 137
+    exclusion_reasons:
+      - 'Did not meet inclusion criteria: 92'
+      - 'Declined consent: 34'
+      - 'Withdrew before testing: 11'
+    enrolled: 475
+    index_test: 461
+    not_index: 14
+    not_index_reasons:
+      - 'Equipment malfunction: 8'
+      - 'Sample not collected: 6'
+    reference_standard: 442
+    not_reference: 19
+    not_reference_reasons:
+      - 'Refused reference test: 12'
+      - 'Reference test contraindicated: 7'
+    outcomes:
+      true_positive: 148
+      false_positive: 41
+      false_negative: 27
+      true_negative: 226
+  
+
+Rendering PDF
+running xelatex - 1
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+running xelatex - 2
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+Output created: example-stard.pdf
+
+pandoc 
+  to: html
+  output-file: example-strobe.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: false
+  variables:
+    quarto:
+      language:
+        toc-title-document: Table of contents
+        toc-title-website: On this page
+        related-formats-title: Other Formats
+        related-notebooks-title: Notebooks
+        source-notebooks-prefix: Source
+        other-links-title: Other Links
+        code-links-title: Code Links
+        launch-dev-container-title: Launch Dev Container
+        launch-binder-title: Launch Binder
+        article-notebook-label: Article Notebook
+        notebook-preview-download: Download Notebook
+        notebook-preview-download-src: Download Source
+        notebook-preview-back: Back to Article
+        manuscript-meca-bundle: MECA Bundle
+        section-title-abstract: Abstract
+        section-title-appendices: Appendices
+        section-title-footnotes: Footnotes
+        section-title-references: References
+        section-title-reuse: Reuse
+        section-title-copyright: Copyright
+        section-title-citation: Citation
+        appendix-attribution-cite-as: 'For attribution, please cite this work as:'
+        appendix-attribution-bibtex: 'BibTeX citation:'
+        appendix-view-license: View License
+        title-block-author-single: Author
+        title-block-author-plural: Authors
+        title-block-affiliation-single: Affiliation
+        title-block-affiliation-plural: Affiliations
+        title-block-published: Published
+        title-block-modified: Modified
+        title-block-keywords: Keywords
+        callout-tip-title: Tip
+        callout-note-title: Note
+        callout-warning-title: Warning
+        callout-important-title: Important
+        callout-caution-title: Caution
+        code-summary: Code
+        code-tools-menu-caption: Code
+        code-tools-show-all-code: Show All Code
+        code-tools-hide-all-code: Hide All Code
+        code-tools-view-source: View Source
+        code-tools-source-code: Source Code
+        tools-share: Share
+        tools-download: Download
+        code-line: Line
+        code-lines: Lines
+        copy-button-tooltip: Copy to Clipboard
+        copy-button-tooltip-success: Copied!
+        repo-action-links-edit: Edit this page
+        repo-action-links-source: View source
+        repo-action-links-issue: Report an issue
+        back-to-top: Back to top
+        search-no-results-text: No results
+        search-matching-documents-text: matching documents
+        search-copy-link-title: Copy link to search
+        search-hide-matches-text: Hide additional matches
+        search-more-match-text: more match in this document
+        search-more-matches-text: more matches in this document
+        search-clear-button-title: Clear
+        search-text-placeholder: ''
+        search-detached-cancel-button-title: Cancel
+        search-submit-button-title: Submit
+        search-label: Search
+        toggle-section: Toggle section
+        toggle-sidebar: Toggle sidebar navigation
+        toggle-dark-mode: Toggle dark mode
+        toggle-reader-mode: Toggle reader mode
+        toggle-navigation: Toggle navigation
+        crossref-fig-title: Figure
+        crossref-tbl-title: Table
+        crossref-lst-title: Listing
+        crossref-thm-title: Theorem
+        crossref-lem-title: Lemma
+        crossref-cor-title: Corollary
+        crossref-prp-title: Proposition
+        crossref-cnj-title: Conjecture
+        crossref-def-title: Definition
+        crossref-exm-title: Example
+        crossref-exr-title: Exercise
+        crossref-ch-prefix: Chapter
+        crossref-apx-prefix: Appendix
+        crossref-sec-prefix: Section
+        crossref-eq-prefix: Equation
+        crossref-lof-title: List of Figures
+        crossref-lot-title: List of Tables
+        crossref-lol-title: List of Listings
+        environment-proof-title: Proof
+        environment-remark-title: Remark
+        environment-solution-title: Solution
+        listing-page-order-by: Order By
+        listing-page-order-by-default: Default
+        listing-page-order-by-date-asc: Oldest
+        listing-page-order-by-date-desc: Newest
+        listing-page-order-by-number-desc: High to Low
+        listing-page-order-by-number-asc: Low to High
+        listing-page-field-date: Date
+        listing-page-field-title: Title
+        listing-page-field-description: Description
+        listing-page-field-author: Author
+        listing-page-field-filename: File Name
+        listing-page-field-filemodified: Modified
+        listing-page-field-subtitle: Subtitle
+        listing-page-field-readingtime: Reading Time
+        listing-page-field-wordcount: Word Count
+        listing-page-field-categories: Categories
+        listing-page-minutes-compact: '{0} min'
+        listing-page-category-all: All
+        listing-page-no-matches: No matching items
+        listing-page-words: '{0} words'
+        listing-page-filter: Filter
+        draft: Draft
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: STROBE flow diagram example
+  study-flow:
+    type: strobe
+    source:
+      label: Source population
+      'n': 12500
+    eligible:
+      label: Eligible cohort
+      'n': 8400
+      excluded: 4100
+      exclusion_reasons:
+        - 'Outside age range (18-75): 2600'
+        - 'Insufficient follow-up data: 1100'
+        - 'Prior diagnosis: 400'
+    enrolled:
+      label: Enrolled in study
+      'n': 7200
+      excluded: 1200
+      exclusion_reasons:
+        - 'Declined consent: 900'
+        - 'Could not be contacted: 300'
+    groups:
+      - label: Exposed
+        'n': 3100
+        lost_followup: 220
+        lost_reasons:
+          - 'Moved out of catchment: 140'
+          - 'Withdrew consent: 80'
+        analysed: 2880
+      - label: Unexposed
+        'n': 4100
+        lost_followup: 310
+        lost_reasons:
+          - 'Moved out of catchment: 200'
+          - 'Withdrew consent: 110'
+        analysed: 3790
+  
+Output created: example-strobe.html
+
+pandoc 
+  to: latex
+  output-file: example-strobe.tex
+  standalone: true
+  pdf-engine: xelatex
+  variables:
+    graphics: true
+    tables: true
+    quarto:
+      language:
+        toc-title-document: Table of contents
+        toc-title-website: On this page
+        related-formats-title: Other Formats
+        related-notebooks-title: Notebooks
+        source-notebooks-prefix: Source
+        other-links-title: Other Links
+        code-links-title: Code Links
+        launch-dev-container-title: Launch Dev Container
+        launch-binder-title: Launch Binder
+        article-notebook-label: Article Notebook
+        notebook-preview-download: Download Notebook
+        notebook-preview-download-src: Download Source
+        notebook-preview-back: Back to Article
+        manuscript-meca-bundle: MECA Bundle
+        section-title-abstract: Abstract
+        section-title-appendices: Appendices
+        section-title-footnotes: Footnotes
+        section-title-references: References
+        section-title-reuse: Reuse
+        section-title-copyright: Copyright
+        section-title-citation: Citation
+        appendix-attribution-cite-as: 'For attribution, please cite this work as:'
+        appendix-attribution-bibtex: 'BibTeX citation:'
+        appendix-view-license: View License
+        title-block-author-single: Author
+        title-block-author-plural: Authors
+        title-block-affiliation-single: Affiliation
+        title-block-affiliation-plural: Affiliations
+        title-block-published: Published
+        title-block-modified: Modified
+        title-block-keywords: Keywords
+        callout-tip-title: Tip
+        callout-note-title: Note
+        callout-warning-title: Warning
+        callout-important-title: Important
+        callout-caution-title: Caution
+        code-summary: Code
+        code-tools-menu-caption: Code
+        code-tools-show-all-code: Show All Code
+        code-tools-hide-all-code: Hide All Code
+        code-tools-view-source: View Source
+        code-tools-source-code: Source Code
+        tools-share: Share
+        tools-download: Download
+        code-line: Line
+        code-lines: Lines
+        copy-button-tooltip: Copy to Clipboard
+        copy-button-tooltip-success: Copied!
+        repo-action-links-edit: Edit this page
+        repo-action-links-source: View source
+        repo-action-links-issue: Report an issue
+        back-to-top: Back to top
+        search-no-results-text: No results
+        search-matching-documents-text: matching documents
+        search-copy-link-title: Copy link to search
+        search-hide-matches-text: Hide additional matches
+        search-more-match-text: more match in this document
+        search-more-matches-text: more matches in this document
+        search-clear-button-title: Clear
+        search-text-placeholder: ''
+        search-detached-cancel-button-title: Cancel
+        search-submit-button-title: Submit
+        search-label: Search
+        toggle-section: Toggle section
+        toggle-sidebar: Toggle sidebar navigation
+        toggle-dark-mode: Toggle dark mode
+        toggle-reader-mode: Toggle reader mode
+        toggle-navigation: Toggle navigation
+        crossref-fig-title: Figure
+        crossref-tbl-title: Table
+        crossref-lst-title: Listing
+        crossref-thm-title: Theorem
+        crossref-lem-title: Lemma
+        crossref-cor-title: Corollary
+        crossref-prp-title: Proposition
+        crossref-cnj-title: Conjecture
+        crossref-def-title: Definition
+        crossref-exm-title: Example
+        crossref-exr-title: Exercise
+        crossref-ch-prefix: Chapter
+        crossref-apx-prefix: Appendix
+        crossref-sec-prefix: Section
+        crossref-eq-prefix: Equation
+        crossref-lof-title: List of Figures
+        crossref-lot-title: List of Tables
+        crossref-lol-title: List of Listings
+        environment-proof-title: Proof
+        environment-remark-title: Remark
+        environment-solution-title: Solution
+        listing-page-order-by: Order By
+        listing-page-order-by-default: Default
+        listing-page-order-by-date-asc: Oldest
+        listing-page-order-by-date-desc: Newest
+        listing-page-order-by-number-desc: High to Low
+        listing-page-order-by-number-asc: Low to High
+        listing-page-field-date: Date
+        listing-page-field-title: Title
+        listing-page-field-description: Description
+        listing-page-field-author: Author
+        listing-page-field-filename: File Name
+        listing-page-field-filemodified: Modified
+        listing-page-field-subtitle: Subtitle
+        listing-page-field-readingtime: Reading Time
+        listing-page-field-wordcount: Word Count
+        listing-page-field-categories: Categories
+        listing-page-minutes-compact: '{0} min'
+        listing-page-category-all: All
+        listing-page-no-matches: No matching items
+        listing-page-words: '{0} words'
+        listing-page-filter: Filter
+        draft: Draft
+  default-image-extension: pdf
+  toc: false
+  
+metadata
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  title: STROBE flow diagram example
+  study-flow:
+    type: strobe
+    source:
+      label: Source population
+      'n': 12500
+    eligible:
+      label: Eligible cohort
+      'n': 8400
+      excluded: 4100
+      exclusion_reasons:
+        - 'Outside age range (18-75): 2600'
+        - 'Insufficient follow-up data: 1100'
+        - 'Prior diagnosis: 400'
+    enrolled:
+      label: Enrolled in study
+      'n': 7200
+      excluded: 1200
+      exclusion_reasons:
+        - 'Declined consent: 900'
+        - 'Could not be contacted: 300'
+    groups:
+      - label: Exposed
+        'n': 3100
+        lost_followup: 220
+        lost_reasons:
+          - 'Moved out of catchment: 140'
+          - 'Withdrew consent: 80'
+        analysed: 2880
+      - label: Unexposed
+        'n': 4100
+        lost_followup: 310
+        lost_reasons:
+          - 'Moved out of catchment: 200'
+          - 'Withdrew consent: 110'
+        analysed: 3790
+  
+
+Rendering PDF
+running xelatex - 1
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+running xelatex - 2
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+Output created: example-strobe.pdf
+
+pandoc 
+  to: html
+  output-file: example-tripod.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: false
+  variables:
+    quarto:
+      language:
+        toc-title-document: Table of contents
+        toc-title-website: On this page
+        related-formats-title: Other Formats
+        related-notebooks-title: Notebooks
+        source-notebooks-prefix: Source
+        other-links-title: Other Links
+        code-links-title: Code Links
+        launch-dev-container-title: Launch Dev Container
+        launch-binder-title: Launch Binder
+        article-notebook-label: Article Notebook
+        notebook-preview-download: Download Notebook
+        notebook-preview-download-src: Download Source
+        notebook-preview-back: Back to Article
+        manuscript-meca-bundle: MECA Bundle
+        section-title-abstract: Abstract
+        section-title-appendices: Appendices
+        section-title-footnotes: Footnotes
+        section-title-references: References
+        section-title-reuse: Reuse
+        section-title-copyright: Copyright
+        section-title-citation: Citation
+        appendix-attribution-cite-as: 'For attribution, please cite this work as:'
+        appendix-attribution-bibtex: 'BibTeX citation:'
+        appendix-view-license: View License
+        title-block-author-single: Author
+        title-block-author-plural: Authors
+        title-block-affiliation-single: Affiliation
+        title-block-affiliation-plural: Affiliations
+        title-block-published: Published
+        title-block-modified: Modified
+        title-block-keywords: Keywords
+        callout-tip-title: Tip
+        callout-note-title: Note
+        callout-warning-title: Warning
+        callout-important-title: Important
+        callout-caution-title: Caution
+        code-summary: Code
+        code-tools-menu-caption: Code
+        code-tools-show-all-code: Show All Code
+        code-tools-hide-all-code: Hide All Code
+        code-tools-view-source: View Source
+        code-tools-source-code: Source Code
+        tools-share: Share
+        tools-download: Download
+        code-line: Line
+        code-lines: Lines
+        copy-button-tooltip: Copy to Clipboard
+        copy-button-tooltip-success: Copied!
+        repo-action-links-edit: Edit this page
+        repo-action-links-source: View source
+        repo-action-links-issue: Report an issue
+        back-to-top: Back to top
+        search-no-results-text: No results
+        search-matching-documents-text: matching documents
+        search-copy-link-title: Copy link to search
+        search-hide-matches-text: Hide additional matches
+        search-more-match-text: more match in this document
+        search-more-matches-text: more matches in this document
+        search-clear-button-title: Clear
+        search-text-placeholder: ''
+        search-detached-cancel-button-title: Cancel
+        search-submit-button-title: Submit
+        search-label: Search
+        toggle-section: Toggle section
+        toggle-sidebar: Toggle sidebar navigation
+        toggle-dark-mode: Toggle dark mode
+        toggle-reader-mode: Toggle reader mode
+        toggle-navigation: Toggle navigation
+        crossref-fig-title: Figure
+        crossref-tbl-title: Table
+        crossref-lst-title: Listing
+        crossref-thm-title: Theorem
+        crossref-lem-title: Lemma
+        crossref-cor-title: Corollary
+        crossref-prp-title: Proposition
+        crossref-cnj-title: Conjecture
+        crossref-def-title: Definition
+        crossref-exm-title: Example
+        crossref-exr-title: Exercise
+        crossref-ch-prefix: Chapter
+        crossref-apx-prefix: Appendix
+        crossref-sec-prefix: Section
+        crossref-eq-prefix: Equation
+        crossref-lof-title: List of Figures
+        crossref-lot-title: List of Tables
+        crossref-lol-title: List of Listings
+        environment-proof-title: Proof
+        environment-remark-title: Remark
+        environment-solution-title: Solution
+        listing-page-order-by: Order By
+        listing-page-order-by-default: Default
+        listing-page-order-by-date-asc: Oldest
+        listing-page-order-by-date-desc: Newest
+        listing-page-order-by-number-desc: High to Low
+        listing-page-order-by-number-asc: Low to High
+        listing-page-field-date: Date
+        listing-page-field-title: Title
+        listing-page-field-description: Description
+        listing-page-field-author: Author
+        listing-page-field-filename: File Name
+        listing-page-field-filemodified: Modified
+        listing-page-field-subtitle: Subtitle
+        listing-page-field-readingtime: Reading Time
+        listing-page-field-wordcount: Word Count
+        listing-page-field-categories: Categories
+        listing-page-minutes-compact: '{0} min'
+        listing-page-category-all: All
+        listing-page-no-matches: No matching items
+        listing-page-words: '{0} words'
+        listing-page-filter: Filter
+        draft: Draft
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: TRIPOD+AI flow diagram example
+  study-flow:
+    type: tripod
+    source:
+      label: Source population
+      'n': 18450
+    eligibility:
+      label: Eligible
+      'n': 14210
+      excluded: 4240
+      exclusion_reasons:
+        - 'Outside age range (18-85): 1850'
+        - 'No baseline measurement: 1620'
+        - 'Prior outcome event: 770'
+    cohorts:
+      - label: Development cohort
+        'n': 9420
+        excluded_missing: 380
+        excluded_missing_reasons:
+          - 'Missing predictor data: 280'
+          - 'Lost before index date: 100'
+        analysed: 9040
+        events: 412
+        no_events: 8628
+      - label: External validation cohort
+        'n': 4790
+        excluded_missing: 95
+        excluded_missing_reasons:
+          - 'Missing predictor data: 95'
+        analysed: 4695
+        events: 233
+        no_events: 4462
+  
+Output created: example-tripod.html
+
+pandoc 
+  to: latex
+  output-file: example-tripod.tex
+  standalone: true
+  pdf-engine: xelatex
+  variables:
+    graphics: true
+    tables: true
+    quarto:
+      language:
+        toc-title-document: Table of contents
+        toc-title-website: On this page
+        related-formats-title: Other Formats
+        related-notebooks-title: Notebooks
+        source-notebooks-prefix: Source
+        other-links-title: Other Links
+        code-links-title: Code Links
+        launch-dev-container-title: Launch Dev Container
+        launch-binder-title: Launch Binder
+        article-notebook-label: Article Notebook
+        notebook-preview-download: Download Notebook
+        notebook-preview-download-src: Download Source
+        notebook-preview-back: Back to Article
+        manuscript-meca-bundle: MECA Bundle
+        section-title-abstract: Abstract
+        section-title-appendices: Appendices
+        section-title-footnotes: Footnotes
+        section-title-references: References
+        section-title-reuse: Reuse
+        section-title-copyright: Copyright
+        section-title-citation: Citation
+        appendix-attribution-cite-as: 'For attribution, please cite this work as:'
+        appendix-attribution-bibtex: 'BibTeX citation:'
+        appendix-view-license: View License
+        title-block-author-single: Author
+        title-block-author-plural: Authors
+        title-block-affiliation-single: Affiliation
+        title-block-affiliation-plural: Affiliations
+        title-block-published: Published
+        title-block-modified: Modified
+        title-block-keywords: Keywords
+        callout-tip-title: Tip
+        callout-note-title: Note
+        callout-warning-title: Warning
+        callout-important-title: Important
+        callout-caution-title: Caution
+        code-summary: Code
+        code-tools-menu-caption: Code
+        code-tools-show-all-code: Show All Code
+        code-tools-hide-all-code: Hide All Code
+        code-tools-view-source: View Source
+        code-tools-source-code: Source Code
+        tools-share: Share
+        tools-download: Download
+        code-line: Line
+        code-lines: Lines
+        copy-button-tooltip: Copy to Clipboard
+        copy-button-tooltip-success: Copied!
+        repo-action-links-edit: Edit this page
+        repo-action-links-source: View source
+        repo-action-links-issue: Report an issue
+        back-to-top: Back to top
+        search-no-results-text: No results
+        search-matching-documents-text: matching documents
+        search-copy-link-title: Copy link to search
+        search-hide-matches-text: Hide additional matches
+        search-more-match-text: more match in this document
+        search-more-matches-text: more matches in this document
+        search-clear-button-title: Clear
+        search-text-placeholder: ''
+        search-detached-cancel-button-title: Cancel
+        search-submit-button-title: Submit
+        search-label: Search
+        toggle-section: Toggle section
+        toggle-sidebar: Toggle sidebar navigation
+        toggle-dark-mode: Toggle dark mode
+        toggle-reader-mode: Toggle reader mode
+        toggle-navigation: Toggle navigation
+        crossref-fig-title: Figure
+        crossref-tbl-title: Table
+        crossref-lst-title: Listing
+        crossref-thm-title: Theorem
+        crossref-lem-title: Lemma
+        crossref-cor-title: Corollary
+        crossref-prp-title: Proposition
+        crossref-cnj-title: Conjecture
+        crossref-def-title: Definition
+        crossref-exm-title: Example
+        crossref-exr-title: Exercise
+        crossref-ch-prefix: Chapter
+        crossref-apx-prefix: Appendix
+        crossref-sec-prefix: Section
+        crossref-eq-prefix: Equation
+        crossref-lof-title: List of Figures
+        crossref-lot-title: List of Tables
+        crossref-lol-title: List of Listings
+        environment-proof-title: Proof
+        environment-remark-title: Remark
+        environment-solution-title: Solution
+        listing-page-order-by: Order By
+        listing-page-order-by-default: Default
+        listing-page-order-by-date-asc: Oldest
+        listing-page-order-by-date-desc: Newest
+        listing-page-order-by-number-desc: High to Low
+        listing-page-order-by-number-asc: Low to High
+        listing-page-field-date: Date
+        listing-page-field-title: Title
+        listing-page-field-description: Description
+        listing-page-field-author: Author
+        listing-page-field-filename: File Name
+        listing-page-field-filemodified: Modified
+        listing-page-field-subtitle: Subtitle
+        listing-page-field-readingtime: Reading Time
+        listing-page-field-wordcount: Word Count
+        listing-page-field-categories: Categories
+        listing-page-minutes-compact: '{0} min'
+        listing-page-category-all: All
+        listing-page-no-matches: No matching items
+        listing-page-words: '{0} words'
+        listing-page-filter: Filter
+        draft: Draft
+  default-image-extension: pdf
+  toc: false
+  
+metadata
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  title: TRIPOD+AI flow diagram example
+  study-flow:
+    type: tripod
+    source:
+      label: Source population
+      'n': 18450
+    eligibility:
+      label: Eligible
+      'n': 14210
+      excluded: 4240
+      exclusion_reasons:
+        - 'Outside age range (18-85): 1850'
+        - 'No baseline measurement: 1620'
+        - 'Prior outcome event: 770'
+    cohorts:
+      - label: Development cohort
+        'n': 9420
+        excluded_missing: 380
+        excluded_missing_reasons:
+          - 'Missing predictor data: 280'
+          - 'Lost before index date: 100'
+        analysed: 9040
+        events: 412
+        no_events: 8628
+      - label: External validation cohort
+        'n': 4790
+        excluded_missing: 95
+        excluded_missing_reasons:
+          - 'Missing predictor data: 95'
+        analysed: 4695
+        events: 233
+        no_events: 4462
+  
+
+Rendering PDF
+running xelatex - 1
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+running xelatex - 2
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+Output created: example-tripod.pdf
+

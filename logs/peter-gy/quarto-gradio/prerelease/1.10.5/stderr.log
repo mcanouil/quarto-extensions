@@ -1,0 +1,229 @@
+Cloning into 'repo'...
+Using CPython 3.12.3 interpreter at: /usr/bin/python3.12
+Creating virtual environment at: .venv
+Activate with: source .venv/bin/activate
+Resolved 137 packages in 0.87ms
+Downloading pandas (12.1MiB)
+Downloading babel (9.7MiB)
+Downloading debugpy (4.0MiB)
+Downloading pygments (1.2MiB)
+Downloading plotly (14.1MiB)
+Downloading jedi (1.5MiB)
+Downloading pydantic-core (1.9MiB)
+Downloading pillow (4.3MiB)
+Downloading numpy (15.4MiB)
+Downloading notebook (12.6MiB)
+Downloading gradio (59.4MiB)
+Downloading ruff (12.0MiB)
+Downloading widgetsnbextension (2.2MiB)
+Downloading setuptools (1.2MiB)
+Downloading jupyterlab (11.1MiB)
+ Downloaded pydantic-core
+ Downloaded pygments
+ Downloaded widgetsnbextension
+ Downloaded setuptools
+ Downloaded pillow
+ Downloaded debugpy
+ Downloaded jedi
+ Downloaded babel
+ Downloaded ruff
+ Downloaded jupyterlab
+ Downloaded pandas
+ Downloaded notebook
+ Downloaded numpy
+ Downloaded gradio
+ Downloaded plotly
+Prepared 131 packages in 6.33s
+Installed 131 packages in 5.73s
+ + aiofiles==23.2.1
+ + annotated-types==0.7.0
+ + anyio==4.8.0
+ + argon2-cffi==23.1.0
+ + argon2-cffi-bindings==21.2.0
+ + arrow==1.3.0
+ + asttokens==3.0.0
+ + async-lru==2.0.4
+ + attrs==25.1.0
+ + babel==2.17.0
+ + beautifulsoup4==4.13.3
+ + bleach==6.2.0
+ + certifi==2025.1.31
+ + cffi==1.17.1
+ + charset-normalizer==3.4.1
+ + click==8.1.8
+ + comm==0.2.2
+ + debugpy==1.8.12
+ + decorator==5.2.1
+ + defusedxml==0.7.1
+ + executing==2.2.0
+ + fastapi==0.115.8
+ + fastjsonschema==2.21.1
+ + ffmpy==0.5.0
+ + filelock==3.17.0
+ + fqdn==1.5.1
+ + fsspec==2025.2.0
+ + gradio==5.18.0
+ + gradio-client==1.7.2
+ + h11==0.14.0
+ + httpcore==1.0.7
+ + httpx==0.28.1
+ + huggingface-hub==0.29.1
+ + idna==3.10
+ + ipykernel==6.29.5
+ + ipython==8.32.0
+ + ipywidgets==8.1.5
+ + isoduration==20.11.0
+ + jedi==0.19.2
+ + jinja2==3.1.5
+ + json5==0.10.0
+ + jsonpointer==3.0.0
+ + jsonschema==4.23.0
+ + jsonschema-specifications==2024.10.1
+ + jupyter==1.1.1
+ + jupyter-client==8.6.3
+ + jupyter-console==6.6.3
+ + jupyter-core==5.7.2
+ + jupyter-events==0.12.0
+ + jupyter-lsp==2.2.5
+ + jupyter-server==2.15.0
+ + jupyter-server-terminals==0.5.3
+ + jupyterlab==4.3.5
+ + jupyterlab-pygments==0.3.0
+ + jupyterlab-server==2.27.3
+ + jupyterlab-widgets==3.0.13
+ + markdown-it-py==3.0.0
+ + markupsafe==2.1.5
+ + matplotlib-inline==0.1.7
+ + mdurl==0.1.2
+ + mistune==3.1.2
+ + narwhals==1.28.0
+ + nbclient==0.10.2
+ + nbconvert==7.16.6
+ + nbformat==5.10.4
+ + nest-asyncio==1.6.0
+ + notebook==7.3.2
+ + notebook-shim==0.2.4
+ + numpy==2.2.3
+ + orjson==3.10.15
+ + overrides==7.7.0
+ + packaging==24.2
+ + pandas==2.2.3
+ + pandocfilters==1.5.1
+ + parso==0.8.4
+ + pexpect==4.9.0
+ + pillow==11.1.0
+ + platformdirs==4.3.6
+ + plotly==6.0.0
+ + prometheus-client==0.21.1
+ + prompt-toolkit==3.0.50
+ + psutil==7.0.0
+ + ptyprocess==0.7.0
+ + pure-eval==0.2.3
+ + pycparser==2.22
+ + pydantic==2.10.6
+ + pydantic-core==2.27.2
+ + pydub==0.25.1
+ + pygments==2.19.1
+ + python-dateutil==2.9.0.post0
+ + python-json-logger==3.2.1
+ + python-multipart==0.0.20
+ + pytz==2025.1
+ + pyyaml==6.0.2
+ + pyzmq==26.2.1
+ + referencing==0.36.2
+ + requests==2.32.3
+ + rfc3339-validator==0.1.4
+ + rfc3986-validator==0.1.1
+ + rich==13.9.4
+ + rpds-py==0.23.1
+ + ruff==0.9.7
+ + safehttpx==0.1.6
+ + semantic-version==2.10.0
+ + send2trash==1.8.3
+ + setuptools==75.8.1
+ + shellingham==1.5.4
+ + six==1.17.0
+ + sniffio==1.3.1
+ + soupsieve==2.6
+ + stack-data==0.6.3
+ + starlette==0.45.3
+ + terminado==0.18.1
+ + tinycss2==1.4.0
+ + tomlkit==0.13.2
+ + tornado==6.4.2
+ + tqdm==4.67.1
+ + traitlets==5.14.3
+ + typer==0.15.1
+ + types-python-dateutil==2.9.0.20241206
+ + typing-extensions==4.12.2
+ + tzdata==2025.1
+ + uri-template==1.3.0
+ + urllib3==2.3.0
+ + uvicorn==0.34.0
+ + wcwidth==0.2.13
+ + webcolors==24.11.1
+ + webencodings==0.5.1
+ + websocket-client==1.8.0
+ + websockets==15.0
+ + widgetsnbextension==4.0.13
+
+Starting python3 kernel...Traceback (most recent call last):
+  File "/opt/quarto/share/jupyter/jupyter.py", line 20, in <module>
+    from notebook import notebook_execute, RestartKernel
+  File "/opt/quarto/share/jupyter/notebook.py", line 19, in <module>
+    import nbformat
+  File "/home/vscode/.venv/lib/python3.13/site-packages/nbformat/__init__.py", line 14, in <module>
+    from . import v1, v2, v3, v4
+  File "/home/vscode/.venv/lib/python3.13/site-packages/nbformat/v4/__init__.py", line 24, in <module>
+    from .convert import downgrade, upgrade
+  File "/home/vscode/.venv/lib/python3.13/site-packages/nbformat/v4/convert.py", line 12, in <module>
+    from nbformat import v3, validator
+  File "/home/vscode/.venv/lib/python3.13/site-packages/nbformat/validator.py", line 17, in <module>
+    from .json_compat import ValidationError, _validator_for_name, get_current_validator
+  File "/home/vscode/.venv/lib/python3.13/site-packages/nbformat/json_compat.py", line 13, in <module>
+    import jsonschema
+  File "/home/vscode/.venv/lib/python3.13/site-packages/jsonschema/__init__.py", line 13, in <module>
+    from jsonschema._format import FormatChecker
+  File "/home/vscode/.venv/lib/python3.13/site-packages/jsonschema/_format.py", line 11, in <module>
+    from jsonschema.exceptions import FormatError
+  File "/home/vscode/.venv/lib/python3.13/site-packages/jsonschema/exceptions.py", line 15, in <module>
+    from referencing.exceptions import Unresolvable as _Unresolvable
+  File "/home/vscode/.venv/lib/python3.13/site-packages/referencing/__init__.py", line 5, in <module>
+    from referencing._core import Anchor, Registry, Resource, Specification
+  File "/home/vscode/.venv/lib/python3.13/site-packages/referencing/_core.py", line 9, in <module>
+    from rpds import HashTrieMap, HashTrieSet, List
+  File "/home/vscode/.venv/lib/python3.13/site-packages/rpds/__init__.py", line 1, in <module>
+    from .rpds import *
+ModuleNotFoundError: No module named 'rpds.rpds'
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+
+Starting python3 kernel...Traceback (most recent call last):
+  File "/opt/quarto/share/jupyter/jupyter.py", line 20, in <module>
+    from notebook import notebook_execute, RestartKernel
+  File "/opt/quarto/share/jupyter/notebook.py", line 19, in <module>
+    import nbformat
+  File "/home/vscode/.venv/lib/python3.13/site-packages/nbformat/__init__.py", line 14, in <module>
+    from . import v1, v2, v3, v4
+  File "/home/vscode/.venv/lib/python3.13/site-packages/nbformat/v4/__init__.py", line 24, in <module>
+    from .convert import downgrade, upgrade
+  File "/home/vscode/.venv/lib/python3.13/site-packages/nbformat/v4/convert.py", line 12, in <module>
+    from nbformat import v3, validator
+  File "/home/vscode/.venv/lib/python3.13/site-packages/nbformat/validator.py", line 17, in <module>
+    from .json_compat import ValidationError, _validator_for_name, get_current_validator
+  File "/home/vscode/.venv/lib/python3.13/site-packages/nbformat/json_compat.py", line 13, in <module>
+    import jsonschema
+  File "/home/vscode/.venv/lib/python3.13/site-packages/jsonschema/__init__.py", line 13, in <module>
+    from jsonschema._format import FormatChecker
+  File "/home/vscode/.venv/lib/python3.13/site-packages/jsonschema/_format.py", line 11, in <module>
+    from jsonschema.exceptions import FormatError
+  File "/home/vscode/.venv/lib/python3.13/site-packages/jsonschema/exceptions.py", line 15, in <module>
+    from referencing.exceptions import Unresolvable as _Unresolvable
+  File "/home/vscode/.venv/lib/python3.13/site-packages/referencing/__init__.py", line 5, in <module>
+    from referencing._core import Anchor, Registry, Resource, Specification
+  File "/home/vscode/.venv/lib/python3.13/site-packages/referencing/_core.py", line 9, in <module>
+    from rpds import HashTrieMap, HashTrieSet, List
+  File "/home/vscode/.venv/lib/python3.13/site-packages/rpds/__init__.py", line 1, in <module>
+    from .rpds import *
+ModuleNotFoundError: No module named 'rpds.rpds'
+WARN: Error encountered when rendering files

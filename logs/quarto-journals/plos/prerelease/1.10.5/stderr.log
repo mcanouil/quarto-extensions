@@ -1,0 +1,42 @@
+Cloning into 'repo'...
+ERROR: Unable to read the extension 'plos'.
+Please ensure that you provided the correct id and that the extension is installed.
+
+Stack trace:
+    at loadExtension (file:///opt/quarto/bin/quarto.js:78602:15)
+    at Object.extension (file:///opt/quarto/bin/quarto.js:77808:30)
+    at readExtensionFormat (file:///opt/quarto/bin/quarto.js:91364:50)
+    at resolveFormats (file:///opt/quarto/bin/quarto.js:91223:37)
+    at async renderContexts (file:///opt/quarto/bin/quarto.js:91013:20)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:136739:16)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136656:9)
+    at async render (file:///opt/quarto/bin/quarto.js:142310:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142555:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102057:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101934:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187809:5)
+    at async file:///opt/quarto/bin/quarto.js:187838:5
+    at async file:///opt/quarto/bin/quarto.js:187692:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187694:5)
+    at async file:///opt/quarto/bin/quarto.js:187831:3
+Render failed, retrying once...
+ERROR: Unable to read the extension 'plos'.
+Please ensure that you provided the correct id and that the extension is installed.
+
+Stack trace:
+    at loadExtension (file:///opt/quarto/bin/quarto.js:78602:15)
+    at Object.extension (file:///opt/quarto/bin/quarto.js:77808:30)
+    at readExtensionFormat (file:///opt/quarto/bin/quarto.js:91364:50)
+    at resolveFormats (file:///opt/quarto/bin/quarto.js:91223:37)
+    at async renderContexts (file:///opt/quarto/bin/quarto.js:91013:20)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:136739:16)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136656:9)
+    at async render (file:///opt/quarto/bin/quarto.js:142310:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142555:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102057:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101934:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187809:5)
+    at async file:///opt/quarto/bin/quarto.js:187838:5
+    at async file:///opt/quarto/bin/quarto.js:187692:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187694:5)
+    at async file:///opt/quarto/bin/quarto.js:187831:3

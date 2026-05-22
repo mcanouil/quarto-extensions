@@ -23,146 +23,92 @@ metadata
   date: last-modified
   
 
-Error running filt
-er /opt/quarto/share/filters/main.lua:
+Error running filte
+r /opt/quarto/share/filters/main.lua:
 Could not fetch https://publish.twitter.com/oembed?url=https://twitter.com/pandoc_tips/status/1576105972103516160&align=center
 HttpExceptionRequest Request {
-  host                 = "publish.twitter.com"
+  host                 = "publish.t
+witter.com"
   port                 = 443
-  secure    
-           = True
-  requestHeaders       = []
+  secure               = True
+  requestH
+eaders       = []
   path                 = "/oembed"
-  queryString
-          = "?url=https://twitter.com/pandoc_tips/status/157
-6105972103516160&align=center"
-  method         
-      = "GET"
-  proxy                = Nothing
-  rawBody        
-      = False
-  redirectCount        = 10
-  responseTimeout  
-    = ResponseTimeoutDefault
-  requestVersion       = 
-HTTP/1.1
-  proxySecureMode      = ProxySecur
-eWithConnect
+  queryString          = "
+?url=https://twitter.com/pandoc_tips/status/1576105972103516160&ali
+gn=center"
+  method               = "GET"
+  proxy                = Noth
+ing
+  rawBody              = False
+  redirectCount        = 1
+0
+  responseTimeout      = ResponseTimeout
+Default
+  requestVersion       = HTTP/1.1
+  prox
+ySecureMode      = ProxySecureWithConnect
 }
- (StatusCodeException (Response {responseStatus = Status {statusC
-ode = 404, statusMessage = "Not Found"}, responseVersion = HTTP
-/1.1, responseHeaders = [("Date","Fri, 22 May 2026 10:34:56 GMT"),("Content-
-Type","text/html;charset=utf-8"),("Trans
-fer-Encoding","chunked"),("Connection","
-keep-alive"),("perf","7402827104
-"),("Server","cloudflare envoy"
-),("Set-Cookie","guest_id_mark
-eting=v1%3A177944609609499749; Max
--Age=63072000; Expires=Sun, 21 May 2028 
-10:34:56 GMT; Path=/; Domain=.twi
-tter.com; Secure; SameSite=Non
-e"),("Set-Cookie","guest_id_ad
-s=v1%3A177944609609499749; Max
--Age=63072000; Expires=Sun, 2
-1 May 2028 10:34:56 GMT; Path
-=/; Domain=.twitter.com; Secure
-; SameSite=None"),("Set-Cookie
-","personalization_id=\"v1_Benv
-tBZ9TdB17HZuV0zIRw==\"; Max-Age
-=63072000; Expires=Sun, 21 May 
-2028 10:34:56 GMT; Path=/; Dom
-ain=.twitter.com; Secure; SameSi
-te=None"),("Set-Cookie","guest_
-id=v1%3A177944609609499749; Max-Age=63072000
-; Expires=Sun, 21 May 2028 10:3
-4:56 GMT; Path=/; Domain=.twit
-ter.com; Secure; SameSite=No
-ne"),("set-cookie","__cf_bm=Z
-N9u9ZohnrbHaHOvlY_GL8PzqdrNPXb
-iev8K__U7pis-1779446096.083180
-2-1.0.1.1-qSU40QFLBcEWeoZZV1unToj8nba4peSNHpY7ctpL8Xm2IUdgtYVjQ
-GXX8gCPHIRPNuIuNiXR7qrebJG17wIXmXnzHR
-ghn7BL_5aXtGkSVAWbvu21Wvzpt9e9Sa
-_KAFm8; HttpOnly; Secure; Pat
-h=/; Domain=twitter.com; Expi
-res=Fri, 22 May 2026 11:04:56 
-GMT"),("Cache-Control","max-ag
-e=0, no-cache, no-store"),("x
--frame-options","SAMEORIGIN"),("x-transaction-id","247cbee289
-2660b6"),("x-xss-protection","0"),("content-disposition","atta
-chment; filename=json.json"),("x-content-type-options","nosniff
-"),("content-security-policy","defaul
-t-src 'none'; img-src https://abs.
-twimg.com; script-src https://abs.twimg.com about:; st
-yle-src https://abs.twimg.com 'unsafe-inline'; font-src http
-s://abs.twimg.com https://twitter.com; connect-src 'none'; object-sr
-c 'none'; media-src 'none'; frame-src 'none'; r
-eport-uri https://twitter.com/i/cs
-p_report?a=ORTGK%3D%3D%3D&ro=fal
-se"),("vary","accept-encoding"),
-("x-response-time","9"),("ori
-gin-cf-ray","9ffb2bd489b1a3a2-I
-AD"),("strict-transport-securi
-ty","max-age=631138519; includ
-eSubdomains"),("x-served-by",
-"t4_a"),("cf-cache-status
-","DYNAMIC"),("Content-Encoding","gzip"),("CF-RAY
-","9ffb2bd489b1a3a2-IAD")], responseBody = (), responseCookieJ
-ar = CJ {expose = [Cookie {cookie_name = "__cf_bm", cookie_value = "ZN9u9Zohn
-rbHaHOvlY_GL8PzqdrNPXbiev8K__U7pis-1779446096.0
-831802-1.0.1.1-qSU40QFLBcEWeoZZV1u
-nToj8nba4peSNHpY7ctpL8Xm2IUdgtYVjQGXX8gCPHIRPNuIuNiXR7qrebJG17wIXmXn
-zHRghn7BL_5aXtGkSVAWbvu21Wvzpt9e9Sa_KAFm8", cookie_expiry_time = 3025-09-
-22 00:00:00 UTC, cookie_domain = "twitte
-r.com", cookie_path = "/", cookie_creation_time = 2026-05-22 10:34:5
-6.117314626 UTC, cookie_last_access_time = 2026-05-22 10:34:5
-6.117314626 UTC, cookie_persistent 
-= False, cookie_host_only = Fals
-e, cookie_secure_only = True, cookie_h
-ttp_only = True},Cookie {cookie_name =
- "guest_id", cookie_value = "v1%
-3A177944609609499749", cookie_
-expiry_time = 2028-05-21 10:34
-:56.117314626 UTC, cookie_dom
-ain = "twitter.com", cookie_pat
-h = "/", cookie_creation_time
- = 2026-05-22 10:34:56.117314
-626 UTC, cookie_last_access_ti
-me = 2026-05-22 10:34:56.11731
-4626 UTC, cookie_persistent = 
-True, cookie_host_only = False
-, cookie_secure_only = True, c
-ookie_http_only = False},Cookie {cookie_name
- = "personalization_id", cookie_
-value = "v1_BenvtBZ9TdB17HZuV0
-zIRw==", cookie_expiry_time = 
-2028-05-21 10:34:56.117314626 
-UTC, cookie_domain = "twitter.
-com", cookie_path = "/", cooki
-e_creation_time = 2026-05-22 1
-0:34:56.117314626 UTC, cookie_
-last_access_time = 2026-05-22 
-10:34:56.117314626 UTC, cooki
-e_persistent = True, cookie_ho
-st_only = False, cookie_secure
-_only = True, cookie_http_onl
-y = False},Cookie {cookie_nam
-e = "guest_id_ads", cookie_va
-lue = "v1%3A177944609609499749
-", cookie_expiry_time = 2028-
-05-21 10:34:56.117314626 UTC, 
-cookie_domain = "twitter.com"
-, cookie_path = "/", cookie_c
-reation_time = 2026-05-22 10:3
-4:56.117314626 UTC, cookie_last
-_access_time = 2026-05-22 10:34:56.11
-7314626 UTC, cookie_persistent = True,
- cookie_host_only = False, cook
-ie_secure_only = True, cookie_h
-ttp_only = False},Cookie {cook
-ie_name = "guest_id_marketing
-", cookie_value = "v1%3A177944
-609609499749", cookie_expiry_time = 2028-05-21 10:34:56.117314626 UTC, cookie_domain = "twitter.com", cookie_path = "/", cookie_creation_time = 2026-05-22 10:34:56.117314626 UTC, cookie_last_access_time = 2026-05-22 10:34:56.117314626 UTC, cookie_persistent = True, cookie_host_only = False, cookie_secure_only = True, cookie_http_only = False}]}, responseClose' = ResponseClose, responseOriginalRequest = Request {
+ (StatusCodeException (Respon
+se {responseStatus = Status {statusCode = 4
+04, statusMessage = "Not Foun
+d"}, responseVersion = HTTP
+/1.1, responseHeaders = [("
+Date","Fri, 22 May 2026 18:
+28:12 GMT"),("Content-Type"
+,"text/html;charset=utf-8
+"),("Transfer-Encoding","chunked"
+),("Connection","keep-ali
+ve"),("perf","7402827104")
+,("Server","cloudflare e
+nvoy"),("Set-Cookie","gues
+t_id_marketing=v1%3A17794
+7449289638265; Max-Age=63072000; 
+Expires=Sun, 21 May 2028 18
+:28:12 GMT; Path=/; Domain
+=.twitter.com; Secure; Same
+Site=None"),("Set-Cookie"
+,"guest_id_ads=v1%3A177947
+449289638265; Max-Age=6307
+2000; Expires=Sun, 21 May
+ 2028 18:28:12 GMT; Path=/
+; Domain=.twitter.com; Se
+cure; SameSite=None"),("S
+et-Cookie","personalizatio
+n_id=\"v1_zx8e1Lfc9UR00a/
+OyESMJQ==\"; Max-Age=6307
+2000; Expires=Sun, 21 May 
+2028 18:28:12 GMT; Path=/
+; Domain=.twitter.com; Secure; 
+SameSite=None"),("Set-Cook
+ie","guest_id=v1%3A17794744928963
+8265; Max-Age=63072000; E
+xpires=Sun, 21 May 2028 18
+:28:12 GMT; Path=/; Doma
+in=.twitter.com; Secure; 
+SameSite=None"),("set-co
+okie","__cf_bm=6OagBwPcTq
+NG09n2FU8y2vJqSGQmoD3WYi1khkc9NVE-17
+79474492.8900697-1.0.1.1-xSixp_
+Aj1y8mtXqDrx6G1jJIqtWZV95Syp
+1fa6yztbplcEkecexYoRT3NQiE
+_pucwXVWj9174e.xodl6U8L97
+lo5wlT4z5zymcjfDz3q1MGeJXdqAkuNqJWI
+nmcUDrgg; HttpOnly; Secure; Path=/; Do
+main=twitter.com; Expires=Fri,
+ 22 May 2026 18:58:12 GMT"
+),("Cache-Control","max-ag
+e=0, no-cache, no-store")
+,("x-frame-options","SAME
+ORIGIN"),("x-transaction-
+id","a68d5d0ebd2baa07"),(
+"x-xss-protection","0"),(
+"content-disposition","at
+tachment; filename=json.j
+son"),("x-content-type-op
+tions","nosniff"),("content-secur
+ity-policy","default-src 'non
+e'; img-src https://abs.twimg.com; script-src https://abs.twimg.com about:; style-src https://abs.twimg.com 'unsafe-inline'; font-src https://abs.twimg.com https://twitter.com; connect-src 'none'; object-src 'none'; media-src 'none'; frame-src 'none'; report-uri https://twitter.com/i/csp_report?a=ORTGK%3D%3D%3D&ro=false"),("vary","accept-encoding"),("x-response-time","10"),("origin-cf-ray","9ffde11c8ad70d2e-SEA"),("strict-transport-security","max-age=631138519; includeSubdomains"),("x-served-by","t4_p"),("cf-cache-status","DYNAMIC"),("Content-Encoding","gzip"),("CF-RAY","9ffde11c8ad70d2e-SEA")], responseBody = (), responseCookieJar = CJ {expose = [Cookie {cookie_name = "__cf_bm", cookie_value = "6OagBwPcTqNG09n2FU8y2vJqSGQmoD3WYi1khkc9NVE-1779474492.8900697-1.0.1.1-xSixp_Aj1y8mtXqDrx6G1jJIqtWZV95Syp1fa6yztbplcEkecexYoRT3NQiE_pucwXVWj9174e.xodl6U8L97lo5wlT4z5zymcjfDz3q1MGeJXdqAkuNqJWInmcUDrgg", cookie_expiry_time = 3025-09-22 00:00:00 UTC, cookie_domain = "twitter.com", cookie_path = "/", cookie_creation_time = 2026-05-22 18:28:12.912696287 UTC, cookie_last_access_time = 2026-05-22 18:28:12.912696287 UTC, cookie_persistent = False, cookie_host_only = False, cookie_secure_only = True, cookie_http_only = True},Cookie {cookie_name = "guest_id", cookie_value = "v1%3A177947449289638265", cookie_expiry_time = 2028-05-21 18:28:12.912696287 UTC, cookie_domain = "twitter.com", cookie_path = "/", cookie_creation_time = 2026-05-22 18:28:12.912696287 UTC, cookie_last_access_time = 2026-05-22 18:28:12.912696287 UTC, cookie_persistent = True, cookie_host_only = False, cookie_secure_only = True, cookie_http_only = False},Cookie {cookie_name = "personalization_id", cookie_value = "v1_zx8e1Lfc9UR00a/OyESMJQ==", cookie_expiry_time = 2028-05-21 18:28:12.912696287 UTC, cookie_domain = "twitter.com", cookie_path = "/", cookie_creation_time = 2026-05-22 18:28:12.912696287 UTC, cookie_last_access_time = 2026-05-22 18:28:12.912696287 UTC, cookie_persistent = True, cookie_host_only = False, cookie_secure_only = True, cookie_http_only = False},Cookie {cookie_name = "guest_id_ads", cookie_value = "v1%3A177947449289638265", cookie_expiry_time = 2028-05-21 18:28:12.912696287 UTC, cookie_domain = "twitter.com", cookie_path = "/", cookie_creation_time = 2026-05-22 18:28:12.912696287 UTC, cookie_last_access_time = 2026-05-22 18:28:12.912696287 UTC, cookie_persistent = True, cookie_host_only = False, cookie_secure_only = True, cookie_http_only = False},Cookie {cookie_name = "guest_id_marketing", cookie_value = "v1%3A177947449289638265", cookie_expiry_time = 2028-05-21 18:28:12.912696287 UTC, cookie_domain = "twitter.com", cookie_path = "/", cookie_creation_time = 2026-05-22 18:28:12.912696287 UTC, cookie_last_access_time = 2026-05-22 18:28:12.912696287 UTC, cookie_persistent = True, cookie_host_only = False, cookie_secure_only = True, cookie_http_only = False}]}, responseClose' = ResponseClose, responseOriginalRequest = Request {
   host                 = "publish.twitter.com"
   port                 = 443
   secure               = True
@@ -177,7 +123,7 @@ ie_name = "guest_id_marketing
   requestVersion       = HTTP/1.1
   proxySecureMode      = ProxySecureWithConnect
 }
-, responseEarlyHints = []}) "<!DOCTYPE html>\n<html lang=\"en\" class=\"dog\">\n  <head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>X / ?</title>\n    <meta name=\"version\" content=\"1\">\n    <link href=\"https://abs.twimg.com/favicons/twitter.3.ico\" rel=\"shortcut icon\" type=\"image/x-icon\">\n    <link rel=\"stylesheet\" href=\"https://abs.twimg.com/errors/fullscreen_errors-047ca1475a6efac7c9c89a9ff92b7a20.css\">\n  </head>\n  <body dir=\"auto\">\n    <div class=\"top\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1519 200\">\n        <defs/>\n        <path d=\"M708 103l9-5 13 1 2-2 5 1h8l1-1 42-5h7l7 3v1l12-2a9368 9368 0 0129-6l2-5 12 1 6-2 3 1 2 1v-2l13-2v1l4 2 7-1h1l17-3 1 2 4-1 18-7 3-1 4-1h9l13-1 1-4 3-2 13 1v2l22-2 10-3h6l10 5 16-5 15-3 2-1 8-4 6-2 12-1 7-2 8 5 7 1 22-9h7l5-1v-1l25-3 1 2 5 2v1h11l2 1 8-4h3l-1 1h11l10-6 6 3 9-1 4-1 1 1 1-2 6-1 1-1 10-2h2l7-5v1h4l3-1c11 0 23 2 34-3 2-2 7 0 10 0l12 1 4 1 9 2 12-1 11-3 11 1h4l10-6 17 1 2 1c9 2 19-3 22-11l1-1 9 1 15-5c3-1 9 4 9-5 5 0 5 3 5 7l2 3 4-1 4-2 9-4 3-3h3l8-4 6-3 26 2 7-4h18l7 1c10 3 13-6 17-12l8 4 3-1 14-3 15-2a38 38 0 01-5-1l-8-4 7-8 8-4-10-136-922 71 16 205z\"/>\n        <path d=\"M-36 193l9-5 13 1 2-2 5 1h8l1-1 42-5h7l7 3v1l12-2a9328 9328 0 0129-6l2-5 12 1 6-2 3 1 2 1v-2l13-2v1l4 2 7-1h1l17-3 1 2 4-1 18-7 3-1 4-1h9l13-1 1-4 3-2 13 1v2l22-2 10-3h6l10 5 16-5 15-3 2-1 8-4 6-2 12-1 7-2 8 5 7 1 22-9h7l5-1v-1l25-3 1 2 5 2v1h11l2 1 8-4h3l-1 1h9a6 6 0 002 0l10-6 6 3 9-1 4-1")
+, responseEarlyHints = []}) "<!DOCTYPE html>\n<html lang=\"en\" class=\"dog\">\n  <head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>X / ?</title>\n    <meta name=\"version\" content=\"1\">\n    <link href=\"https://abs.twimg.com/favicons/twitter.3.ico\" rel=\"shortcut icon\" type=\"image/x-icon\">\n    <link rel=\"stylesheet\" href=\"https://abs.twimg.com/errors/fullscreen_errors-047ca1475a6efac7c9c89a9ff92b7a20.css\">\n  </head>\n  <body dir=\"auto\">\n    <div class=\"top\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1519 200\">\n        <defs/>\n        <path d=\"M708 103l9-5 13 1 2-2 5 1h8l1-1 42-5h7l7 3v1l12-2a9368 9368 0 0129-6l2-5 12 1 6-2 3 1 2 1v-2l13-2v1l4 2 7-1h1l17-3 1 2 4-1 18-7 3-1 4-1h9l13-1 1-4 3-2 13 1v2l22-2 10-3h6l10 5 16-5 15-3 2-1 8-4 6-2 12-1 7-2 8 5 7 1 22-9h7l5-1v-1l25-3 1 2 5 2v1h11l2 1 8-4h3l-1 1h11l10-6 6 3 9-1 4-1 1 1 1-2 6-1 1-1 10-2h2l7-5v1h4l3-1c11 0 23 2 34-3 2-2 7 0 10 0l12 1 4 1 9 2 12-1 11-3 11 1h4l10-6 17 1 2 1c9 2 19-3 22-11l1-1 9 1 15-5c3-1 9 4 9-5 5 0 5 3 5 7l2 3 4-1 4-2 9-4 3-3h3l8-4 6-3 26 2 7-4h18l7 1c10 3 13-6 17-12l8 4 3-1 14-3 15-2a38 38 0 01-5-1l-8-4 7-8 8-4-10-136-922 71 16 205z\"/>\n        <path d=\"M-36 193l9-5 13 1 2-2 5 1h8l1-1 42-5h7l7 3v1l12-2a9328 9328 0 0129-6l2-5 12 1 6-2 3 1 2 1v-2l13-2v1l4 2 7-1h1l17-3 1 2 4-1 18-7 3-1 4-1h9l13-1 1-4 3-2 13 1v2l22-2 10-3h6l10 5 16-5 15-3 2-1 8-4 6-2 12-1 7-2 8 5 7 1 22-9h7l5-1v-1l25-3 1 2 5 2v1h11l2 1 8-4h3l-1 1h9a6 6 0 002 0l1")
 stack traceback:
 	...nsions/collapse-social-embeds/collapse-social-embeds.lua:143: in function <...nsions/collapse-social-embeds/collapse-social-embeds.lua:131>
 	[C]: in ?

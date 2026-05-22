@@ -1,0 +1,510 @@
+Cloning into 'repo'...
+pandoc 
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: xelatex
+  variables:
+    graphics: true
+    tables: true
+    quarto:
+      language:
+        toc-title-document: Table of contents
+        toc-title-website: On this page
+        related-formats-title: Other Formats
+        related-notebooks-title: Notebooks
+        source-notebooks-prefix: Source
+        other-links-title: Other Links
+        code-links-title: Code Links
+        launch-dev-container-title: Launch Dev Container
+        launch-binder-title: Launch Binder
+        article-notebook-label: Article Notebook
+        notebook-preview-download: Download Notebook
+        notebook-preview-download-src: Download Source
+        notebook-preview-back: Back to Article
+        manuscript-meca-bundle: MECA Bundle
+        section-title-abstract: Abstract
+        section-title-appendices: Appendices
+        section-title-footnotes: Footnotes
+        section-title-references: References
+        section-title-reuse: Reuse
+        section-title-copyright: Copyright
+        section-title-citation: Citation
+        appendix-attribution-cite-as: 'For attribution, please cite this work as:'
+        appendix-attribution-bibtex: 'BibTeX citation:'
+        appendix-view-license: View License
+        title-block-author-single: Author
+        title-block-author-plural: Authors
+        title-block-affiliation-single: Affiliation
+        title-block-affiliation-plural: Affiliations
+        title-block-published: Published
+        title-block-modified: Modified
+        title-block-keywords: Keywords
+        callout-tip-title: Tip
+        callout-note-title: Note
+        callout-warning-title: Warning
+        callout-important-title: Important
+        callout-caution-title: Caution
+        code-summary: Code
+        code-tools-menu-caption: Code
+        code-tools-show-all-code: Show All Code
+        code-tools-hide-all-code: Hide All Code
+        code-tools-view-source: View Source
+        code-tools-source-code: Source Code
+        tools-share: Share
+        tools-download: Download
+        code-line: Line
+        code-lines: Lines
+        copy-button-tooltip: Copy to Clipboard
+        copy-button-tooltip-success: Copied!
+        repo-action-links-edit: Edit this page
+        repo-action-links-source: View source
+        repo-action-links-issue: Report an issue
+        back-to-top: Back to top
+        search-no-results-text: No results
+        search-matching-documents-text: matching documents
+        search-copy-link-title: Copy link to search
+        search-hide-matches-text: Hide additional matches
+        search-more-match-text: more match in this document
+        search-more-matches-text: more matches in this document
+        search-clear-button-title: Clear
+        search-text-placeholder: ''
+        search-detached-cancel-button-title: Cancel
+        search-submit-button-title: Submit
+        search-label: Search
+        toggle-section: Toggle section
+        toggle-sidebar: Toggle sidebar navigation
+        toggle-dark-mode: Toggle dark mode
+        toggle-reader-mode: Toggle reader mode
+        toggle-navigation: Toggle navigation
+        crossref-fig-title: Figure
+        crossref-tbl-title: Table
+        crossref-lst-title: Listing
+        crossref-thm-title: Theorem
+        crossref-lem-title: Lemma
+        crossref-cor-title: Corollary
+        crossref-prp-title: Proposition
+        crossref-cnj-title: Conjecture
+        crossref-def-title: Definition
+        crossref-exm-title: Example
+        crossref-exr-title: Exercise
+        crossref-ch-prefix: Chapter
+        crossref-apx-prefix: Appendix
+        crossref-sec-prefix: Section
+        crossref-eq-prefix: Equation
+        crossref-lof-title: List of Figures
+        crossref-lot-title: List of Tables
+        crossref-lol-title: List of Listings
+        environment-proof-title: Proof
+        environment-remark-title: Remark
+        environment-solution-title: Solution
+        listing-page-order-by: Order By
+        listing-page-order-by-default: Default
+        listing-page-order-by-date-asc: Oldest
+        listing-page-order-by-date-desc: Newest
+        listing-page-order-by-number-desc: High to Low
+        listing-page-order-by-number-asc: Low to High
+        listing-page-field-date: Date
+        listing-page-field-title: Title
+        listing-page-field-description: Description
+        listing-page-field-author: Author
+        listing-page-field-filename: File Name
+        listing-page-field-filemodified: Modified
+        listing-page-field-subtitle: Subtitle
+        listing-page-field-readingtime: Reading Time
+        listing-page-field-wordcount: Word Count
+        listing-page-field-categories: Categories
+        listing-page-minutes-compact: '{0} min'
+        listing-page-category-all: All
+        listing-page-no-matches: No matching items
+        listing-page-words: '{0} words'
+        listing-page-filter: Filter
+        draft: Draft
+  default-image-extension: pdf
+  
+metadata
+  block-headings: true
+  knitr:
+    opts_chunk:
+      echo: false
+  csl: _extensions/sportrxiv/apa.csl
+  link-citations: 'yes'
+  colorlinks: true
+  urlcolor: blue
+  mainfont: Verdana
+  articletitle: |
+    Demo format to use as template for an article submitted to the SportRxiv preprint server
+  author:
+    - name: John Doe
+      affiliations:
+        - ref: 1
+        - ref: 2
+      orcid: 0000-0000-0000-0000
+      corresponding: true
+      email: JD@example.org
+    - name: Second Person
+      affiliations:
+        - ref: 1
+    - name: Third Person
+      affiliations:
+        - ref: 2
+  affiliations:
+    - id: 1
+      name: One Affiliation
+    - id: 2
+      name: Another Affiliation
+  abstract: |
+    Place your abstract here. Use Markdown to style the abstract, e.g. write `*word*` to print a *word* in italics. You can use the Latex command `\newline\` to create a linebreak in the abstract. \newline\ *Explanation*: The second backslash ensures that styling can be applied directly after the linebreak. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template.
+  license-type: ccby
+  keywords:
+    - template
+    - demo
+    - exercise science
+  suppl-link: https://osf.io/
+  reference-section-title: References
+  printnote: PREPRINT - NOT PEER REVIEWED
+  bibliography:
+    - bibliography.bib
+  
+
+Rendering PDF
+running xelatex - 1
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+  kpathsea: Running mktextfm Verdana
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Could not map source abbreviation  for Verdana.
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Need to update ?
+  mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input Verdana
+  This is METAFONT, Version 2.71828182 (TeX Live 2026) (preloaded base=mf)
+  
+  kpathsea: Running mktexmf Verdana
+  
+  ! I can't find file `Verdana'.
+  <*> ...jfour; mag:=1; ; nonstopmode; input Verdana
+                                                    
+  Please type another input file name
+  ! Emergency stop.
+  <*> ...jfour; mag:=1; ; nonstopmode; input Verdana
+                                                    
+  Transcript written on mfput.log.
+  grep: Verdana.log: No such file or directory
+  mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input Verdana' failed to make Verdana.tfm.
+  kpathsea: Appending font creation commands to missfont.log.
+  
+updating tlmgr
+
+updating existing packages
+finding package for Verdana(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+finding package for Verdana
+finding package for mktextfm
+> 1 package to install
+> installing texlive-scripts (1 of 1)
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+  kpathsea: Running mktextfm Verdana
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Could not map source abbreviation  for Verdana.
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Need to update ?
+  mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input Verdana
+  This is METAFONT, Version 2.71828182 (TeX Live 2026) (preloaded base=mf)
+  
+  kpathsea: Running mktexmf Verdana
+  
+  ! I can't find file `Verdana'.
+  <*> ...jfour; mag:=1; ; nonstopmode; input Verdana
+                                                    
+  Please type another input file name
+  ! Emergency stop.
+  <*> ...jfour; mag:=1; ; nonstopmode; input Verdana
+                                                    
+  Transcript written on mfput.log.
+  grep: Verdana.log: No such file or directory
+  mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input Verdana' failed to make Verdana.tfm.
+  kpathsea: Appending font creation commands to missfont.log.
+  
+finding package for Verdana(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+finding package for Verdana
+finding package for mktextfm
+ERROR: 
+compilation failed- package installation error
+Package fontspec Error: 
+(fontspec)                The font "Verdana" cannot be found; this may be
+(fontspec)                but usually is not a fontspec bug. Either there is
+(fontspec)                a typo in the font name/file, the font is not
+(fontspec)                installed (correctly), or there is a bug in the
+(fontspec)                underlying font loading engine (XeTeX/luaotfload).
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.26 \fi
+        
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+ 
+
+see template.log for more information.
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+pandoc 
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: xelatex
+  variables:
+    graphics: true
+    tables: true
+    quarto:
+      language:
+        toc-title-document: Table of contents
+        toc-title-website: On this page
+        related-formats-title: Other Formats
+        related-notebooks-title: Notebooks
+        source-notebooks-prefix: Source
+        other-links-title: Other Links
+        code-links-title: Code Links
+        launch-dev-container-title: Launch Dev Container
+        launch-binder-title: Launch Binder
+        article-notebook-label: Article Notebook
+        notebook-preview-download: Download Notebook
+        notebook-preview-download-src: Download Source
+        notebook-preview-back: Back to Article
+        manuscript-meca-bundle: MECA Bundle
+        section-title-abstract: Abstract
+        section-title-appendices: Appendices
+        section-title-footnotes: Footnotes
+        section-title-references: References
+        section-title-reuse: Reuse
+        section-title-copyright: Copyright
+        section-title-citation: Citation
+        appendix-attribution-cite-as: 'For attribution, please cite this work as:'
+        appendix-attribution-bibtex: 'BibTeX citation:'
+        appendix-view-license: View License
+        title-block-author-single: Author
+        title-block-author-plural: Authors
+        title-block-affiliation-single: Affiliation
+        title-block-affiliation-plural: Affiliations
+        title-block-published: Published
+        title-block-modified: Modified
+        title-block-keywords: Keywords
+        callout-tip-title: Tip
+        callout-note-title: Note
+        callout-warning-title: Warning
+        callout-important-title: Important
+        callout-caution-title: Caution
+        code-summary: Code
+        code-tools-menu-caption: Code
+        code-tools-show-all-code: Show All Code
+        code-tools-hide-all-code: Hide All Code
+        code-tools-view-source: View Source
+        code-tools-source-code: Source Code
+        tools-share: Share
+        tools-download: Download
+        code-line: Line
+        code-lines: Lines
+        copy-button-tooltip: Copy to Clipboard
+        copy-button-tooltip-success: Copied!
+        repo-action-links-edit: Edit this page
+        repo-action-links-source: View source
+        repo-action-links-issue: Report an issue
+        back-to-top: Back to top
+        search-no-results-text: No results
+        search-matching-documents-text: matching documents
+        search-copy-link-title: Copy link to search
+        search-hide-matches-text: Hide additional matches
+        search-more-match-text: more match in this document
+        search-more-matches-text: more matches in this document
+        search-clear-button-title: Clear
+        search-text-placeholder: ''
+        search-detached-cancel-button-title: Cancel
+        search-submit-button-title: Submit
+        search-label: Search
+        toggle-section: Toggle section
+        toggle-sidebar: Toggle sidebar navigation
+        toggle-dark-mode: Toggle dark mode
+        toggle-reader-mode: Toggle reader mode
+        toggle-navigation: Toggle navigation
+        crossref-fig-title: Figure
+        crossref-tbl-title: Table
+        crossref-lst-title: Listing
+        crossref-thm-title: Theorem
+        crossref-lem-title: Lemma
+        crossref-cor-title: Corollary
+        crossref-prp-title: Proposition
+        crossref-cnj-title: Conjecture
+        crossref-def-title: Definition
+        crossref-exm-title: Example
+        crossref-exr-title: Exercise
+        crossref-ch-prefix: Chapter
+        crossref-apx-prefix: Appendix
+        crossref-sec-prefix: Section
+        crossref-eq-prefix: Equation
+        crossref-lof-title: List of Figures
+        crossref-lot-title: List of Tables
+        crossref-lol-title: List of Listings
+        environment-proof-title: Proof
+        environment-remark-title: Remark
+        environment-solution-title: Solution
+        listing-page-order-by: Order By
+        listing-page-order-by-default: Default
+        listing-page-order-by-date-asc: Oldest
+        listing-page-order-by-date-desc: Newest
+        listing-page-order-by-number-desc: High to Low
+        listing-page-order-by-number-asc: Low to High
+        listing-page-field-date: Date
+        listing-page-field-title: Title
+        listing-page-field-description: Description
+        listing-page-field-author: Author
+        listing-page-field-filename: File Name
+        listing-page-field-filemodified: Modified
+        listing-page-field-subtitle: Subtitle
+        listing-page-field-readingtime: Reading Time
+        listing-page-field-wordcount: Word Count
+        listing-page-field-categories: Categories
+        listing-page-minutes-compact: '{0} min'
+        listing-page-category-all: All
+        listing-page-no-matches: No matching items
+        listing-page-words: '{0} words'
+        listing-page-filter: Filter
+        draft: Draft
+  default-image-extension: pdf
+  
+metadata
+  block-headings: true
+  knitr:
+    opts_chunk:
+      echo: false
+  csl: _extensions/sportrxiv/apa.csl
+  link-citations: 'yes'
+  colorlinks: true
+  urlcolor: blue
+  mainfont: Verdana
+  articletitle: |
+    Demo format to use as template for an article submitted to the SportRxiv preprint server
+  author:
+    - name: John Doe
+      affiliations:
+        - ref: 1
+        - ref: 2
+      orcid: 0000-0000-0000-0000
+      corresponding: true
+      email: JD@example.org
+    - name: Second Person
+      affiliations:
+        - ref: 1
+    - name: Third Person
+      affiliations:
+        - ref: 2
+  affiliations:
+    - id: 1
+      name: One Affiliation
+    - id: 2
+      name: Another Affiliation
+  abstract: |
+    Place your abstract here. Use Markdown to style the abstract, e.g. write `*word*` to print a *word* in italics. You can use the Latex command `\newline\` to create a linebreak in the abstract. \newline\ *Explanation*: The second backslash ensures that styling can be applied directly after the linebreak. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template. This document is only a demo explaining how to use the template.
+  license-type: ccby
+  keywords:
+    - template
+    - demo
+    - exercise science
+  suppl-link: https://osf.io/
+  reference-section-title: References
+  printnote: PREPRINT - NOT PEER REVIEWED
+  bibliography:
+    - bibliography.bib
+  
+
+Rendering PDF
+running xelatex - 1
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+  kpathsea: Running mktextfm Verdana
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Could not map source abbreviation  for Verdana.
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Need to update ?
+  mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input Verdana
+  This is METAFONT, Version 2.71828182 (TeX Live 2026) (preloaded base=mf)
+  
+  kpathsea: Running mktexmf Verdana
+  
+  ! I can't find file `Verdana'.
+  <*> ...jfour; mag:=1; ; nonstopmode; input Verdana
+                                                    
+  Please type another input file name
+  ! Emergency stop.
+  <*> ...jfour; mag:=1; ; nonstopmode; input Verdana
+                                                    
+  Transcript written on mfput.log.
+  grep: Verdana.log: No such file or directory
+  mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input Verdana' failed to make Verdana.tfm.
+  kpathsea: Appending font creation commands to missfont.log.
+  
+updating tlmgr
+
+updating existing packages
+finding package for Verdana(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+finding package for Verdana
+finding package for mktextfm
+> 1 package to install
+> installing texlive-scripts (1 of 1)
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+  kpathsea: Running mktextfm Verdana
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Could not map source abbreviation  for Verdana.
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Need to update ?
+  mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input Verdana
+  This is METAFONT, Version 2.71828182 (TeX Live 2026) (preloaded base=mf)
+  
+  kpathsea: Running mktexmf Verdana
+  
+  ! I can't find file `Verdana'.
+  <*> ...jfour; mag:=1; ; nonstopmode; input Verdana
+                                                    
+  Please type another input file name
+  ! Emergency stop.
+  <*> ...jfour; mag:=1; ; nonstopmode; input Verdana
+                                                    
+  Transcript written on mfput.log.
+  grep: Verdana.log: No such file or directory
+  mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input Verdana' failed to make Verdana.tfm.
+  kpathsea: Appending font creation commands to missfont.log.
+  
+finding package for Verdana(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+finding package for Verdana
+finding package for mktextfm
+ERROR: 
+compilation failed- package installation error
+Package fontspec Error: 
+(fontspec)                The font "Verdana" cannot be found; this may be
+(fontspec)                but usually is not a fontspec bug. Either there is
+(fontspec)                a typo in the font name/file, the font is not
+(fontspec)                installed (correctly), or there is a bug in the
+(fontspec)                underlying font loading engine (XeTeX/luaotfload).
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.26 \fi
+        
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+ 
+
+see template.log for more information.
+WARN: Error encountered when rendering files

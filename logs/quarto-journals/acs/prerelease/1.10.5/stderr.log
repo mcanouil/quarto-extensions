@@ -1,0 +1,416 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: template.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables:
+    quarto:
+      language:
+        toc-title-document: Table of contents
+        toc-title-website: On this page
+        related-formats-title: Other Formats
+        related-notebooks-title: Notebooks
+        source-notebooks-prefix: Source
+        other-links-title: Other Links
+        code-links-title: Code Links
+        launch-dev-container-title: Launch Dev Container
+        launch-binder-title: Launch Binder
+        article-notebook-label: Article Notebook
+        notebook-preview-download: Download Notebook
+        notebook-preview-download-src: Download Source
+        notebook-preview-back: Back to Article
+        manuscript-meca-bundle: MECA Bundle
+        section-title-abstract: Abstract
+        section-title-appendices: Appendices
+        section-title-footnotes: Footnotes
+        section-title-references: References
+        section-title-reuse: Reuse
+        section-title-copyright: Copyright
+        section-title-citation: Citation
+        appendix-attribution-cite-as: 'For attribution, please cite this work as:'
+        appendix-attribution-bibtex: 'BibTeX citation:'
+        appendix-view-license: View License
+        title-block-author-single: Author
+        title-block-author-plural: Authors
+        title-block-affiliation-single: Affiliation
+        title-block-affiliation-plural: Affiliations
+        title-block-published: Published
+        title-block-modified: Modified
+        title-block-keywords: Keywords
+        callout-tip-title: Tip
+        callout-note-title: Note
+        callout-warning-title: Warning
+        callout-important-title: Important
+        callout-caution-title: Caution
+        code-summary: Code
+        code-tools-menu-caption: Code
+        code-tools-show-all-code: Show All Code
+        code-tools-hide-all-code: Hide All Code
+        code-tools-view-source: View Source
+        code-tools-source-code: Source Code
+        tools-share: Share
+        tools-download: Download
+        code-line: Line
+        code-lines: Lines
+        copy-button-tooltip: Copy to Clipboard
+        copy-button-tooltip-success: Copied!
+        repo-action-links-edit: Edit this page
+        repo-action-links-source: View source
+        repo-action-links-issue: Report an issue
+        back-to-top: Back to top
+        search-no-results-text: No results
+        search-matching-documents-text: matching documents
+        search-copy-link-title: Copy link to search
+        search-hide-matches-text: Hide additional matches
+        search-more-match-text: more match in this document
+        search-more-matches-text: more matches in this document
+        search-clear-button-title: Clear
+        search-text-placeholder: ''
+        search-detached-cancel-button-title: Cancel
+        search-submit-button-title: Submit
+        search-label: Search
+        toggle-section: Toggle section
+        toggle-sidebar: Toggle sidebar navigation
+        toggle-dark-mode: Toggle dark mode
+        toggle-reader-mode: Toggle reader mode
+        toggle-navigation: Toggle navigation
+        crossref-fig-title: Figure
+        crossref-tbl-title: Table
+        crossref-lst-title: Listing
+        crossref-thm-title: Theorem
+        crossref-lem-title: Lemma
+        crossref-cor-title: Corollary
+        crossref-prp-title: Proposition
+        crossref-cnj-title: Conjecture
+        crossref-def-title: Definition
+        crossref-exm-title: Example
+        crossref-exr-title: Exercise
+        crossref-ch-prefix: Chapter
+        crossref-apx-prefix: Appendix
+        crossref-sec-prefix: Section
+        crossref-eq-prefix: Equation
+        crossref-lof-title: List of Figures
+        crossref-lot-title: List of Tables
+        crossref-lol-title: List of Listings
+        environment-proof-title: Proof
+        environment-remark-title: Remark
+        environment-solution-title: Solution
+        listing-page-order-by: Order By
+        listing-page-order-by-default: Default
+        listing-page-order-by-date-asc: Oldest
+        listing-page-order-by-date-desc: Newest
+        listing-page-order-by-number-desc: High to Low
+        listing-page-order-by-number-asc: Low to High
+        listing-page-field-date: Date
+        listing-page-field-title: Title
+        listing-page-field-description: Description
+        listing-page-field-author: Author
+        listing-page-field-filename: File Name
+        listing-page-field-filemodified: Modified
+        listing-page-field-subtitle: Subtitle
+        listing-page-field-readingtime: Reading Time
+        listing-page-field-wordcount: Word Count
+        listing-page-field-categories: Categories
+        listing-page-minutes-compact: '{0} min'
+        listing-page-category-all: All
+        listing-page-no-matches: No matching items
+        listing-page-words: '{0} words'
+        listing-page-filter: Filter
+        draft: Draft
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  csl: _extensions/acs/american-chemical-society.csl
+  environments:
+    - scheme
+    - chart
+    - graph
+    - tocentry
+    - acknowledgement
+    - suppinfo
+  commands:
+    - ce
+  author:
+    - name: Andrew N. Other
+      note: A shared note
+    - name: Fred T. Secondauthor
+      affiliations:
+        - name: Current address
+          city: Some other place
+          country: Germany
+    - name: I. Ken Groupleader
+      email: i.k.groupleader@unknown.uu
+      phone: +123 (0)123 4445556
+      fax: +123 (0)123 4445557
+      affiliations:
+        - id: unknown1
+          name: Unknown University
+          department: Department of Chemistry
+          town: Unknown Town
+        - id: second-uni
+          name: Second University
+          department: Department of Chemistry
+          town: Nearby Town
+      note: A shared note
+    - name: Susanne K. Laborator
+      email: s.k.laborator@bigpharma.co
+      affiliations:
+        - name: BigPharma
+          town: Big Town
+          country: USA
+    - name: Kay T. Finally
+      affiliations:
+        - ref: second-uni
+        - ref: unknown1
+  title: A demonstration of the _achemso_ {{< latex >}} class^[A footnote for the title]
+  title-short: An _achemso_ demo
+  keywords: American Chemical Society, LaTeX
+  abstract: |
+    This is an example document for the _achemso_ documentclass, intended for submissions to the American Chemical Society for publication. The class is based on the standard LaTeXe _report_ file, and does not seek to reproduce the appearanceof a published paper.
+    This is an abstract for the _achemso_ document class demonstration document.  An abstract is only allowed for certain manuscript types.  The selection of `journal` and `manuscript` will determine if an abstract is valid.  If not, the class will issue an appropriate error.This is the abstract.
+  bibliography:
+    - bibliography.bib
+  
+[33mWARNING (/opt/quarto/share/filters/main.lua:21977) Shortcode 'smallcaps' not found
+[39mOutput created: template.html
+
+pandoc 
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+    quarto:
+      language:
+        toc-title-document: Table of contents
+        toc-title-website: On this page
+        related-formats-title: Other Formats
+        related-notebooks-title: Notebooks
+        source-notebooks-prefix: Source
+        other-links-title: Other Links
+        code-links-title: Code Links
+        launch-dev-container-title: Launch Dev Container
+        launch-binder-title: Launch Binder
+        article-notebook-label: Article Notebook
+        notebook-preview-download: Download Notebook
+        notebook-preview-download-src: Download Source
+        notebook-preview-back: Back to Article
+        manuscript-meca-bundle: MECA Bundle
+        section-title-abstract: Abstract
+        section-title-appendices: Appendices
+        section-title-footnotes: Footnotes
+        section-title-references: References
+        section-title-reuse: Reuse
+        section-title-copyright: Copyright
+        section-title-citation: Citation
+        appendix-attribution-cite-as: 'For attribution, please cite this work as:'
+        appendix-attribution-bibtex: 'BibTeX citation:'
+        appendix-view-license: View License
+        title-block-author-single: Author
+        title-block-author-plural: Authors
+        title-block-affiliation-single: Affiliation
+        title-block-affiliation-plural: Affiliations
+        title-block-published: Published
+        title-block-modified: Modified
+        title-block-keywords: Keywords
+        callout-tip-title: Tip
+        callout-note-title: Note
+        callout-warning-title: Warning
+        callout-important-title: Important
+        callout-caution-title: Caution
+        code-summary: Code
+        code-tools-menu-caption: Code
+        code-tools-show-all-code: Show All Code
+        code-tools-hide-all-code: Hide All Code
+        code-tools-view-source: View Source
+        code-tools-source-code: Source Code
+        tools-share: Share
+        tools-download: Download
+        code-line: Line
+        code-lines: Lines
+        copy-button-tooltip: Copy to Clipboard
+        copy-button-tooltip-success: Copied!
+        repo-action-links-edit: Edit this page
+        repo-action-links-source: View source
+        repo-action-links-issue: Report an issue
+        back-to-top: Back to top
+        search-no-results-text: No results
+        search-matching-documents-text: matching documents
+        search-copy-link-title: Copy link to search
+        search-hide-matches-text: Hide additional matches
+        search-more-match-text: more match in this document
+        search-more-matches-text: more matches in this document
+        search-clear-button-title: Clear
+        search-text-placeholder: ''
+        search-detached-cancel-button-title: Cancel
+        search-submit-button-title: Submit
+        search-label: Search
+        toggle-section: Toggle section
+        toggle-sidebar: Toggle sidebar navigation
+        toggle-dark-mode: Toggle dark mode
+        toggle-reader-mode: Toggle reader mode
+        toggle-navigation: Toggle navigation
+        crossref-fig-title: Figure
+        crossref-tbl-title: Table
+        crossref-lst-title: Listing
+        crossref-thm-title: Theorem
+        crossref-lem-title: Lemma
+        crossref-cor-title: Corollary
+        crossref-prp-title: Proposition
+        crossref-cnj-title: Conjecture
+        crossref-def-title: Definition
+        crossref-exm-title: Example
+        crossref-exr-title: Exercise
+        crossref-ch-prefix: Chapter
+        crossref-apx-prefix: Appendix
+        crossref-sec-prefix: Section
+        crossref-eq-prefix: Equation
+        crossref-lof-title: List of Figures
+        crossref-lot-title: List of Tables
+        crossref-lol-title: List of Listings
+        environment-proof-title: Proof
+        environment-remark-title: Remark
+        environment-solution-title: Solution
+        listing-page-order-by: Order By
+        listing-page-order-by-default: Default
+        listing-page-order-by-date-asc: Oldest
+        listing-page-order-by-date-desc: Newest
+        listing-page-order-by-number-desc: High to Low
+        listing-page-order-by-number-asc: Low to High
+        listing-page-field-date: Date
+        listing-page-field-title: Title
+        listing-page-field-description: Description
+        listing-page-field-author: Author
+        listing-page-field-filename: File Name
+        listing-page-field-filemodified: Modified
+        listing-page-field-subtitle: Subtitle
+        listing-page-field-readingtime: Reading Time
+        listing-page-field-wordcount: Word Count
+        listing-page-field-categories: Categories
+        listing-page-minutes-compact: '{0} min'
+        listing-page-category-all: All
+        listing-page-no-matches: No matching items
+        listing-page-words: '{0} words'
+        listing-page-filter: Filter
+        draft: Draft
+  default-image-extension: pdf
+  cite-method: natbib
+  
+metadata
+  block-headings: true
+  csl: _extensions/acs/american-chemical-society.csl
+  environments:
+    - scheme
+    - chart
+    - graph
+    - tocentry
+    - acknowledgement
+    - suppinfo
+  commands:
+    - ce
+  biblio-config: false
+  author:
+    - name: Andrew N. Other
+      note: A shared note
+    - name: Fred T. Secondauthor
+      affiliations:
+        - name: Current address
+          city: Some other place
+          country: Germany
+    - name: I. Ken Groupleader
+      email: i.k.groupleader@unknown.uu
+      phone: +123 (0)123 4445556
+      fax: +123 (0)123 4445557
+      affiliations:
+        - id: unknown1
+          name: Unknown University
+          department: Department of Chemistry
+          town: Unknown Town
+        - id: second-uni
+          name: Second University
+          department: Department of Chemistry
+          town: Nearby Town
+      note: A shared note
+    - name: Susanne K. Laborator
+      email: s.k.laborator@bigpharma.co
+      affiliations:
+        - name: BigPharma
+          town: Big Town
+          country: USA
+    - name: Kay T. Finally
+      affiliations:
+        - ref: second-uni
+        - ref: unknown1
+  title: A demonstration of the _achemso_ {{< latex >}} class^[A footnote for the title]
+  title-short: An _achemso_ demo
+  keywords: American Chemical Society, LaTeX
+  abstract: |
+    This is an example document for the _achemso_ documentclass, intended for submissions to the American Chemical Society for publication. The class is based on the standard LaTeXe _report_ file, and does not seek to reproduce the appearanceof a published paper.
+    This is an abstract for the _achemso_ document class demonstration document.  An abstract is only allowed for certain manuscript types.  The selection of `journal` and `manuscript` will determine if an abstract is valid.  If not, the class will issue an appropriate error.This is the abstract.
+  bibliography:
+    - bibliography.bib
+  journal:
+    id: jacsat
+    type: article
+    layout: traditional
+    hide-email: false
+    abbreviations: IR,NMR,UV
+  
+[33mWARNING (/opt/quarto/share/filters/main.lua:21977) Shortcode 'smallcaps' not found
+[39m
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+finding package for achemso.cls
+> 1 package to install
+> installing achemso (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+finding package for setspace.sty
+> 1 package to install
+> installing setspace (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for mhchem.sty
+> 1 package to install
+> installing mhchem (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+generating bibliography
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: template.aux
+  The style file: achemso.bst
+  Database file #1: acs-template.bib
+  Database file #2: bibliography.bib
+  achemso 2022-11-25 v3.13f
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 3
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: template.pdf
+

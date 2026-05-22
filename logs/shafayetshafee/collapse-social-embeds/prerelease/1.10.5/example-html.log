@@ -1,0 +1,513 @@
+pandoc 
+
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables:
+    quarto:
+      language:
+        toc-title-document: Table of contents
+        toc-title-website: On this page
+        related-formats-title: Other Formats
+        related-notebooks-title: Notebooks
+        source-notebooks-prefix: Source
+        other-links-title: Other Links
+        code-links-title: Code Links
+        launch-dev-container-title: Launch Dev Container
+        launch-binder-title: Launch Binder
+        article-notebook-label: Article Notebook
+        notebook-preview-download: Download Notebook
+        notebook-preview-download-src: Download Source
+        notebook-preview-back: Back to Article
+        manuscript-meca-bundle: MECA Bundle
+        section-title-abstract: Abstract
+        section-title-appendices: Appendices
+        section-title-footnotes: Footnotes
+        section-title-references: References
+        section-title-reuse: Reuse
+        section-title-copyright: Copyright
+        section-title-citation: Citation
+        appendix-attribution-cite-as: 'For attribution, please cite this work as:'
+        appendix-attribution-bibtex: 'BibTeX citation:'
+        appendix-view-license: View License
+        title-block-author-single: Author
+        title-block-author-plural: Authors
+        title-block-affiliation-single: Affiliation
+        title-block-affiliation-plural: Affiliations
+        title-block-published: Published
+        title-block-modified: Modified
+        title-block-keywords: Keywords
+        callout-tip-title: Tip
+        callout-note-title: Note
+        callout-warning-title: Warning
+        callout-important-title: Important
+        callout-caution-title: Caution
+        code-summary: Code
+        code-tools-menu-caption: Code
+        code-tools-show-all-code: Show All Code
+        code-tools-hide-all-code: Hide All Code
+        code-tools-view-source: View Source
+        code-tools-source-code: Source Code
+        tools-share: Share
+        tools-download: Download
+        code-line: Line
+        code-lines: Lines
+        copy-button-tooltip: Copy to Clipboard
+        copy-button-tooltip-success: Copied!
+        repo-action-links-edit: Edit this page
+        repo-action-links-source: View source
+        repo-action-links-issue: Report an issue
+        back-to-top: Back to top
+        search-no-results-text: No results
+        search-matching-documents-text: matching documents
+        search-copy-link-title: Copy link to search
+        search-hide-matches-text: Hide additional matches
+        search-more-match-text: more match in this document
+        search-more-matches-text: more matches in this document
+        search-clear-button-title: Clear
+        search-text-placeholder: ''
+        search-detached-cancel-button-title: Cancel
+        search-submit-button-title: Submit
+        search-label: Search
+        toggle-section: Toggle section
+        toggle-sidebar: Toggle sidebar navigation
+        toggle-dark-mode: Toggle dark mode
+        toggle-reader-mode: Toggle reader mode
+        toggle-navigation: Toggle navigation
+        crossref-fig-title: Figure
+        crossref-tbl-title: Table
+        crossref-lst-title: Listing
+        crossref-thm-title: Theorem
+        crossref-lem-title: Lemma
+        crossref-cor-title: Corollary
+        crossref-prp-title: Proposition
+        crossref-cnj-title: Conjecture
+        crossref-def-title: Definition
+        crossref-exm-title: Example
+        crossref-exr-title: Exercise
+        crossref-ch-prefix: Chapter
+        crossref-apx-prefix: Appendix
+        crossref-sec-prefix: Section
+        crossref-eq-prefix: Equation
+        crossref-lof-title: List of Figures
+        crossref-lot-title: List of Tables
+        crossref-lol-title: List of Listings
+        environment-proof-title: Proof
+        environment-remark-title: Remark
+        environment-solution-title: Solution
+        listing-page-order-by: Order By
+        listing-page-order-by-default: Default
+        listing-page-order-by-date-asc: Oldest
+        listing-page-order-by-date-desc: Newest
+        listing-page-order-by-number-desc: High to Low
+        listing-page-order-by-number-asc: Low to High
+        listing-page-field-date: Date
+        listing-page-field-title: Title
+        listing-page-field-description: Description
+        listing-page-field-author: Author
+        listing-page-field-filename: File Name
+        listing-page-field-filemodified: Modified
+        listing-page-field-subtitle: Subtitle
+        listing-page-field-readingtime: Reading Time
+        listing-page-field-wordcount: Word Count
+        listing-page-field-categories: Categories
+        listing-page-minutes-compact: '{0} min'
+        listing-page-category-all: All
+        listing-page-no-matches: No matching items
+        listing-page-words: '{0} words'
+        listing-page-filter: Filter
+        draft: Draft
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Collapse-social-embeds Example
+  author: Shafayet Khan Shafee
+  date: last-modified
+  
+
+Error running filte
+r /opt/quarto/share/filters/main.lua:
+Could not fetch https://publish.twitter.com/oembed?url=https://twitter.com/pandoc_tips/status/1576105972103516160&align=center
+HttpExceptionRequest Request {
+  host                 = "publ
+ish.twitter.com"
+  port                 = 443
+  secure               = True
+  reques
+tHeaders       = []
+  path                 = "/oembed"
+  queryString     
+     = "?url=https://twitter.com/pandoc_tips/status/1576105972103516
+160&align=center"
+  method               = "GET"
+  proxy     
+           = Nothing
+  rawBody              = False
+
+  redirectCount        = 10
+  responseTi
+meout      = ResponseTimeoutDefault
+  requestVersion
+       = HTTP/1.1
+  proxySecureMode      = ProxySecureWithConnect
+}
+
+ (StatusCodeException (Response {responseS
+tatus = Status {statusCode = 404, st
+atusMessage = "Not Found"}, re
+sponseVersion = HTTP/1.1, 
+responseHeaders = [("Date
+","Fri, 22 May 2026 18:28:
+20 GMT"),("Content-Type","
+text/html;charset=utf-8"),
+("Transfer-Encoding","chu
+nked"),("Connection","kee
+p-alive"),("perf","7402827
+104"),("Server","cloudfla
+re envoy"),("Set-Cookie","guest_id_marketing=v1%3A177947450003719134; Max-Age=63072000; Expires=Sun, 21 May 2028 18:28:20 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None"),("Set-Cookie","guest_id_a
+ds=v1%3A177947450003719134; Max-Age=6307200
+0; Expires=Sun, 21 May 2028 1
+8:28:20 GMT; Path=/; Domain
+=.twitter.com; Secure; Same
+Site=None"),("Set-Cookie","
+personalization_id=\"v1_DQ
+g/2jiAxOALAMe6TyPljw==\"; 
+Max-Age=63072000; Expire
+s=Sun, 21 May 2028 18:28:20
+ GMT; Path=/; Domain=.twitter.com
+; Secure; SameSite=None")
+,("Set-Cookie","guest_id=
+v1%3A177947450003719134;
+ Max-Age=63072000; Expire
+s=Sun, 21 May 2028 18:28:
+20 GMT; Path=/; Domain=.
+twitter.com; Secure; Sam
+eSite=None"),("set-cookie
+","__cf_bm=2cP.OwVaJry86
+nkXJL_og4qWonXK7EXUrp0m6
+fqxNQw-1779474500.024132
+3-1.0.1.1-tBWCFv_Hm2mRRJ4cH02HJ3qw
+Pl6QFDwNsEFDJjjQh5ViUZ.bWlK0
+pQFBi_HehER.CB7QGLpgzDBiuTVHhBPzcTE0
+uH2x0HI51k0Bsht3I8utxk5GDIPfcBI
+3qsBhWHM9; HttpOnly; Secure
+; Path=/; Domain=twitter.com; Expi
+res=Fri, 22 May 2026 18:58:20 GMT"
+),("Cache-Control","max-a
+ge=0, no-cache, no-store"
+),("x-frame-options","SAMEORIGIN"),(
+"x-transaction-id","4946bae8
+b480d988"),("x-xss-protection","0"
+),("content-disposition","
+attachment; filename=json
+.json"),("x-content-type
+-options","nosniff"),("c
+ontent-security-policy","
+default-src 'none'; img-src https:
+//abs.twimg.com; script-src 
+https://abs.twimg.com abo
+ut:; style-src https://a
+bs.twimg.com 'unsafe-inli
+ne'; font-src https://abs.twimg.com
+ https://twitter.com; conne
+ct-src 'none'; object-src 'none'
+; media-src 'none'; frame-
+src 'none'; report-uri ht
+tps://twitter.com/i/csp_
+report?a=ORTGK%3D%3D%3D&
+ro=false"),("vary","accep
+t-encoding"),("x-response
+-time","85"),("origin-cf-
+ray","9ffde1492b6f89cc-SJC"),(
+"strict-transport-security","
+max-age=631138519; include
+Subdomains"),("x-served-
+by","t4_p"),("cf-cache-st
+atus","DYNAMIC"),("Conte
+nt-Encoding","gzip"),("C
+F-RAY","9ffde1492b6f89cc-SJC
+")], responseBody = (), r
+esponseCookieJar = CJ {ex
+pose = [Cookie {cookie_n
+ame = "__cf_bm", cookie_
+value = "2cP.OwVaJry86nkX
+JL_og4qWonXK7EXUrp0m6fqx
+NQw-1779474500.0241323-1.0.1.1-tBWCFv_Hm2mRRJ4cH02HJ3qwPl6QFDwNsEFDJjjQh5ViUZ.bWlK0pQFBi_HehER.CB7QGLpgzDBiuTVHhB
+PzcTE0uH2x0HI51k0Bsht3I8utxk5GDIPfcBI3qsBh
+WHM9", cookie_expiry_time = 3
+025-09-22 00:00:00 UTC, co
+okie_domain = "twitter.c
+om", cookie_path = "/", c
+ookie_creation_time = 20
+26-05-22 18:28:20.13413
+5534 UTC, cookie_last_ac
+cess_time = 2026-05-22 1
+8:28:20.134135534 UTC, co
+okie_persistent = False,
+ cookie_host_only = Fals
+e, cookie_secure_only = 
+True, cookie_http_only =
+ True},Cookie {cookie_name = 
+"guest_id", cookie_value = "v
+1%3A177947450003719134",
+ cookie_expiry_time = 20
+28-05-21 18:28:20.134135
+534 UTC, cookie_domain 
+= "twitter.com", cookie_
+path = "/", cookie_creat
+ion_time = 2026-05-22 1
+8:28:20.134135534 UTC, c
+ookie_last_access_time 
+= 2026-05-22 18:28:20.13
+4135534 UTC, cookie_pers
+istent = True, cookie_h
+ost_only = False, cookie
+_secure_only = True, coo
+kie_http_only = False},C
+ookie {cookie_name = "personali
+zation_id", cookie_value = "v1_DQg/2j
+iAxOALAMe6TyPljw==", cookie_expir
+y_time = 2028-05-21 18:28
+:20.134135534 UTC, cookie
+_domain = "twitter.com", cookie_pat
+h = "/", cookie_creation_time = 20
+26-05-22 18:28:20.1341355
+34 UTC, cookie_last_acces
+s_time = 2026-05-22 18:2
+8:20.134135534 UTC, cook
+ie_persistent = True, coo
+kie_host_only = False, c
+ookie_secure_only = True,
+ cookie_http_only = F
+alse},Cookie {cookie_name = "gue
+st_id_ads", cookie_value 
+= "v1%3A177947450003719
+134", cookie_expiry_time
+ = 2028-05-21 18:28:20.134135534 UTC, coo
+kie_domain = "twitter.com", cook
+ie_path = "/", cookie_creation_t
+ime = 2026-05-22 18:28:20
+.134135534 UTC, cookie_l
+ast_access_time = 2026-0
+5-22 18:28:20.134135534 
+UTC, cookie_persistent =
+ True, cookie_host_only
+ = False, cookie_secure_
+only = True, cookie_http
+_only = False},Cookie {cooki
+e_name = "guest_id_market
+ing", cookie_value = "v1
+%3A177947450003719134", 
+cookie_expiry_time = 20
+28-05-21 18:28:20.13413
+5534 UTC, cookie_domain 
+= "twitter.com", cookie_
+path = "/", cookie_crea
+tion_time = 2026-05-22 1
+8:28:20.134135534 UTC, c
+ookie_last_access_time = 2026-05-22 18:28:20.134135534 UTC, cookie_persistent = True, coo
+kie_host_only = False, cookie_secure
+_only = True, cookie_http
+_only = False}]}, responseClos
+e' = ResponseClose, respo
+nseOriginalRequest = Request {
+  
+host                 = "p
+ublish.twitter.com"
+  p
+ort                 = 443
+  secur
+e               = True
+  
+requestHeaders       = 
+[]
+  path              
+   = "/oembed"
+  query
+String          = "?url=
+https://twitter.com/pand
+oc_tips/status/1576105
+972103516160&align=cente
+r"
+  method            
+   = "GET"
+  proxy      
+          = Nothing
+
+  rawBody              = False
+  redi
+rectCount        = 10
+  responseTimeout   
+   = ResponseTimeoutDefault
+ 
+ requestVersion       = H
+TTP/1.1
+  proxySecureMode  
+    = ProxySecureWithConne
+ct
+}
+, responseEarlyHints 
+= []}) "<!DOCTYPE html>\n<
+html lang=\"en\" class=\"d
+og\">\n  <head>\n    <meta
+ http-equiv=\"Content-Type
+\" content=\"text/html; cha
+rset=utf-8\">\n    <meta n
+ame=\"viewport\" content=\
+"width=device-width, initi
+al-scale=1.0\">\n    <title>
+X / ?</title>\n    <meta na
+me=\"version\" co
+ntent=\"1\">\n    <link href=\"ht
+tps://abs.twimg.com/favicons/twitter.3.
+ico\" rel=\"shortcut icon\" type
+=\"image/x-icon\">\n    <lin
+k rel=\"stylesheet\" href=\
+"https://abs.twimg.com/errors
+/fullscreen_errors-047ca147
+5a6efac7c9c89a9ff92b7a20.cs
+s\">\n  </head>\n  <body di
+r=\"auto\">\n    <div clas
+s=\"top\">\n      <svg xml
+ns=\"http://www.w3.org/2000/svg
+\" viewBox=\"0 0 1519 200\">
+\n        <defs/>\n    
+    <path d=\"M708
+ 103l9-5 13 1 2-2 5 1h8l1-
+1 42-5h7l7 3v1l12-2a9368 9
+368 0 0129-6l2-5 12 1 6-2 
+3 1 2 1v-2l13-2v1l4 2 7-1h
+1l17-3 1 2 4-1 18-7 3-1 4-
+1h9l13-1 1-4 3-2 13 1v2l22
+-2 10-3h6l10 5 16-5 15-3 2
+-1 8-4 6-2 12-1 7-2 8 5 7 
+1 22-9h7l5-1v-1l25-3 1 2 
+5 2v1h11l2 1 8-4h3l-1 1h11
+l10-6 6 3 9-1 4-1 1 1 1-2 6-1 1-1 10-
+2h2l7-5v1h4l3-1c11 0 23 2 3
+4-3 2-2 7 0 10 0l12 1 4 1 9 2 1
+2-1 11-3 11 1h4l10-6 17 1 2
+ 1c9 2 19-3 22-11l1-1 9 1 15-
+5c3-1 9 4 9-5 5 0 5 3 5 7l2
+ 3 4-1 4-2 9-4 3-3h3l8-4 6-
+3 26 2 7-4h18l7 1c10 3 13-
+6 17-12l8 4 3-1 14-3 15-2a38 38 0
+ 01-5-1l-8-4 7-8 8-4
+-10-136-922 71 16 205z\"/>\n        <path d=\"M-36 193l9-5 13 1 2-2 5 1h8l1-1 42-5h7l7 3v1l12-2a9328 9328 0 0129-6l2-5 12 1 6-2 3 1
+ 2 1v-2l13-2v1l4 2 7-1h1l17-3 1 2 4-1 18-7 3-1 4-1h9l13-1 1-4 3-2 13 1v2l22
+-2 10-3h6l10 5 16-5 15-3 2-1 8-4 6-2 12-1 7-2 8 5 7 1 22-9h7l5-1v-1l25
+-3 1 2 5 2v1h11l2 1 8-4h3l-1 1h9a6 6 0 002 0l1")
+stack traceback:
+	...nsi
+ons/collapse-social-embeds/collapse-social-embeds.lua:143: 
+in function <...nsions/collapse-social-embeds/collaps
+e-social-embeds.lua:131>
+	[C]: in ?
+	[C]: in method 'walk'
+	...nsions/col
+lapse-social-embeds/collapse-social-embeds.lua:242: in functi
+on <...nsions/collapse-social-embeds/collapse-social-embed
+s.lua:236>
+	[C]: in ?
+	[C]: in method 'walk'
+	/opt/quarto
+/share/pandoc/datadir/_utils.lua:607: in function '
+_utils.walk'
+	/opt/quarto/share/filters/main.lua:574: in loc
+al 'checked_walk'
+	/opt/quar
+to/share/filters/mai
+n.lua:629: in function 'run_emulated_filter'
+	/opt/quart
+o/share/filters/main.lua:1317: in local 'callback'
+	[
+string "if pandoc.system.os == "mingw32" the
+n..."]:778: in field 'withScriptFile'
+
+	/opt/quarto/share/fi
+lters/main.lua:1333: in 
+upvalue 'run_emulate
+d_filter_chain'
+	/opt/quarto/share/filters/mai
+n.lua:1371: in function </opt/quarto/share/
+filters/main.lua:1368>
+stack trace
+back:
+	...nsions/collapse-so
+cial-embeds/collapse-socia
+l-embeds.lua:242: in functi
+on <...nsions/collapse-soc
+ial-embeds/collapse-social
+-embeds.lua:236>
+	[C]: i
+n ?
+	[C]: in method 'w
+alk'
+	/opt/quarto/share/pandoc/d
+atadir/_utils.lua:607: in fu
+nction '_utils.walk'
+	/opt/qua
+rto/share/filters/main.lua
+:574: in local 'checked_w
+alk'
+	/opt/quarto/share/f
+ilters/main.lua:629: in f
+unction 'run_emulated_fi
+lter'
+	/opt/quarto/share/
+filters/main.lua:1317: in
+ local 'callback'
+	[strin
+g "if pandoc.system.os ==
+ "mingw32" then..."]:778:
+ in field 'withScriptFile
+'
+	/opt/quarto/share/filters
+/main.lua:1333: in upvalue '
+run_emulated_filter_chain
+'
+	/opt/quarto/share/filte
+rs/main.lua:1371: in func
+tion </opt/quarto/share/
+filters/main.lua:1368>
+s
+tack traceback:
+	/opt/qua
+rto/share/pandoc/datadir/
+_utils.lua:607: in funct
+ion '_utils.walk'
+	/opt/
+quarto/share/filters/main
+.lua:574: in local 'checked_walk'
+	/opt
+/quarto/share/
+filters/mai
+n.lua:629: in 
+function 'run_emulated_filter'
+	/opt/quarto
+/share/filters/main.lua:1317: i
+n local 'callback'
+	[string 
+"if pandoc.system.os == "m
+ingw32" then..."]:778: in 
+field 'withScriptFile'
+	/
+opt/quarto/share/filters/
+main.lua:1333: in upvalue
+ 'run_emulated_filter_cha
+in'
+	/opt/quarto/share/fi
+lters/main.lua:1371: in 
+function </opt/quarto/share/filters/main.lua:1368>
+
+(WARN) Error encountered when rendering files
+

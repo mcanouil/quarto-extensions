@@ -1,0 +1,318 @@
+pandoc 
+
+  to: latex
+  output-file: template.tex
+  template: _extensions/aaai2026/aaai2026-template.latex
+  standalone: true
+  pdf-engine: pdflatex
+  variables:
+    graphics: true
+    tables: true
+    quarto:
+      language:
+        toc-title-document: Table of contents
+        toc-title-website: On this page
+        related-formats-title: Other Formats
+        related-notebooks-title: Notebooks
+        source-notebooks-prefix: Source
+        other-links-title: Other Links
+        code-links-title: Code Links
+        launch-dev-container-title: Launch Dev Container
+        launch-binder-title: Launch Binder
+        article-notebook-label: Article Notebook
+        notebook-preview-download: Download Notebook
+        notebook-preview-download-src: Download Source
+        notebook-preview-back: Back to Article
+        manuscript-meca-bundle: MECA Bundle
+        section-title-abstract: Abstract
+        section-title-appendices: Appendices
+        section-title-footnotes: Footnotes
+        section-title-references: References
+        section-title-reuse: Reuse
+        section-title-copyright: Copyright
+        section-title-citation: Citation
+        appendix-attribution-cite-as: 'For attribution, please cite this work as:'
+        appendix-attribution-bibtex: 'BibTeX citation:'
+        appendix-view-license: View License
+        title-block-author-single: Author
+        title-block-author-plural: Authors
+        title-block-affiliation-single: Affiliation
+        title-block-affiliation-plural: Affiliations
+        title-block-published: Published
+        title-block-modified: Modified
+        title-block-keywords: Keywords
+        callout-tip-title: Tip
+        callout-note-title: Note
+        callout-warning-title: Warning
+        callout-important-title: Important
+        callout-caution-title: Caution
+        code-summary: Code
+        code-tools-menu-caption: Code
+        code-tools-show-all-code: Show All Code
+        code-tools-hide-all-code: Hide All Code
+        code-tools-view-source: View Source
+        code-tools-source-code: Source Code
+        tools-share: Share
+        tools-download: Download
+        code-line: Line
+        code-lines: Lines
+        copy-button-tooltip: Copy to Clipboard
+        copy-button-tooltip-success: Copied!
+        repo-action-links-edit: Edit this page
+        repo-action-links-source: View source
+        repo-action-links-issue: Report an issue
+        back-to-top: Back to top
+        search-no-results-text: No results
+        search-matching-documents-text: matching documents
+        search-copy-link-title: Copy link to search
+        search-hide-matches-text: Hide additional matches
+        search-more-match-text: more match in this document
+        search-more-matches-text: more matches in this document
+        search-clear-button-title: Clear
+        search-text-placeholder: ''
+        search-detached-cancel-button-title: Cancel
+        search-submit-button-title: Submit
+        search-label: Search
+        toggle-section: Toggle section
+        toggle-sidebar: Toggle sidebar navigation
+        toggle-dark-mode: Toggle dark mode
+        toggle-reader-mode: Toggle reader mode
+        toggle-navigation: Toggle navigation
+        crossref-fig-title: Figure
+        crossref-tbl-title: Table
+        crossref-lst-title: Listing
+        crossref-thm-title: Theorem
+        crossref-lem-title: Lemma
+        crossref-cor-title: Corollary
+        crossref-prp-title: Proposition
+        crossref-cnj-title: Conjecture
+        crossref-def-title: Definition
+        crossref-exm-title: Example
+        crossref-exr-title: Exercise
+        crossref-ch-prefix: Chapter
+        crossref-apx-prefix: Appendix
+        crossref-sec-prefix: Section
+        crossref-eq-prefix: Equation
+        crossref-lof-title: List of Figures
+        crossref-lot-title: List of Tables
+        crossref-lol-title: List of Listings
+        environment-proof-title: Proof
+        environment-remark-title: Remark
+        environment-solution-title: Solution
+        listing-page-order-by: Order By
+        listing-page-order-by-default: Default
+        listing-page-order-by-date-asc: Oldest
+        listing-page-order-by-date-desc: Newest
+        listing-page-order-by-number-desc: High to Low
+        listing-page-order-by-number-asc: Low to High
+        listing-page-field-date: Date
+        listing-page-field-title: Title
+        listing-page-field-description: Description
+        listing-page-field-author: Author
+        listing-page-field-filename: File Name
+        listing-page-field-filemodified: Modified
+        listing-page-field-subtitle: Subtitle
+        listing-page-field-readingtime: Reading Time
+        listing-page-field-wordcount: Word Count
+        listing-page-field-categories: Categories
+        listing-page-minutes-compact: '{0} min'
+        listing-page-category-all: All
+        listing-page-no-matches: No matching items
+        listing-page-words: '{0} words'
+        listing-page-filter: Filter
+        draft: Draft
+    secnumdepth: 2
+  default-image-extension: pdf
+  number-sections: true
+  cite-method: natbib
+  
+
+metadata
+
+  block-headings: true
+  number-depth: 2
+  biblio-style: aaai2026.bst
+  fig-cap-location: bottom
+  tbl-cap-location: bottom
+  title: Example article for AAAI 2026 using Quarto
+  author:
+    - name: Max Mustermann
+      orcid: 0000-0000-0000-0000
+      email: name@example.com
+      affiliation:
+        - ref: 1
+    - name: Author Two
+      orcid: 0000-0000-0000-0001
+      email: name2@example.com
+      affiliation:
+        - ref: 1
+  affiliations:
+    - id: 1
+      name: Association for the Advancement of Artificial Intelligence
+      department: Data Science and its Applications
+      address: 1101 Pennsylvania Ave, NW Suite 300
+      city: Washington
+      country: USA
+      state: DC
+      url: https://aaai.org
+  abstract: |
+    AAAI creates proceedings, working notes, and technical reports directly from electronic source furnished by the authors. To ensure that all papers in the publication have a uniform appearance, authors must adhere to the following instructions.
+  links:
+    - name: Code
+      url: https://aaai.org/example/code
+    - name: Datasets
+      url: https://aaai.org/example/datasets
+  keywords:
+    - template
+    - demo
+  bibliography:
+    - bibliography.bib
+  header-includes:
+    - \usepackage{amsmath,amssymb}
+    - \usepackage{booktabs}
+  
+
+Error running filter /op
+t/quarto/share/filters/main.lua:
+Could not fetch https://upload.wikimedia.org/wikipedia/commons/f/ff/AAAI_Conference.png
+HttpExceptionRequest Request {
+  host                 = "upload.wikimedia.org"
+  port                 = 443
+  secure               = True
+  requestHeaders       = []
+  path     
+            = "/wikipedia/commons/f/ff/AAAI_Conference.png"
+  queryString          = ""
+  method               = "GET"
+  proxy                = Nothi
+ng
+  rawBody              = False
+  redirectCount        = 10
+  responseTimeout      = ResponseTimeoutDefa
+ult
+  requestVersion       = HTTP/1.1
+  proxySecureMode      = ProxySecureWithConnect
+}
+ (StatusCo
+deException (Response {responseStatus = Status {statusCode = 403, statusMessage = "Forbidden
+"}, responseVersion = HTTP/1.1, responseHeaders = [("content-length","126"),("content-type","text/plain"),("x-requ
+est-id","10c99347-abe6-45eb-8b3a-206d7bf0db37"),("server
+","HAProxy"),("x-cache","cp4051 int"),("x-cache-status","int-tls"),("x-analytics","
+")], responseBody = (), responseCookieJar = CJ
+ {expose = []}, responseClose' = Respo
+nseClose, responseOriginalRequest 
+= Request {
+  host                
+ = "upload.wikimedia.org"
+  port    
+             = 443
+  secure      
+         = True
+  requestHeaders       = []
+
+  path                 = "/wikipedia/
+commons/f/ff/AAAI_Conference.png
+"
+  queryString          = ""
+ 
+ method               = "GET"
+ 
+ proxy                = Nothing
+
+  rawBody              = Fals
+e
+  redirectCount        = 10
+
+  responseTimeout      = Resp
+onseTimeoutDefault
+  requestVe
+rsion       = HTTP/1.1
+  proxySecureMod
+e      = ProxySecureWithConnect
+
+}
+, responseEarlyHints = []}) 
+"Please set a user-agent and r
+espect our robot policy https
+://w.wiki/4wJS. See also https
+://phabricator.wikimedia.org/T400119.\
+n")
+stack traceback:
+	.../share
+/pandoc/datadir/../../filters/m
+odules/mediabag.lua:29: in function 
+'modules/mediabag.fetch_and_sto
+re_image'
+	.../share/pandoc/datadir
+/../../filters/modules/mediabag.lua:72: in function 'mod
+ules/mediabag.resolve_image_from_u
+rl'
+	(...tail calls...)
+	/opt/qu
+arto/share/filters/main.lua:293
+0: in local 'fn'
+	...uarto/shar
+e/pandoc/datadir/../../filters
+/modules/jog.lua:34: in upvalu
+e 'run_filter_function'
+	...uar
+to/share/pandoc/datadir/../../filters/modules/jog.lu
+a:223: in function <...uarto/share/pandoc/datadir/../../filter
+s/modules/jog.lua:202>
+	(...tail calls...)
+	[C]: in function 'tmap'
+	...
+uarto/share/pandoc/datadir/../../filters/modules
+/jog.lua:125: in upvalue 'recurse'
+	...uarto/share/pandoc/datadir/../../
+filters/modules/jog.lua:222: in local 'jogger'
+	...uarto/share/pa
+ndoc/datadir/../../filters/modules/j
+og.lua:98: in upvalue 'recurse'
+	...uart
+o/share/pandoc/datadir/../../filters/modules/jog.lua:222
+: in function <...uarto/share/pandoc/datadir/../../filters
+/modules/jog.lua:202>
+	(...tail calls...)
+	...	(skipping 2 levels)
+	...
+uarto/share/pandoc/datadir/../../filters/
+modules/jog.lua:111: in upvalue '
+recurse'
+	...uarto/share/pandoc
+/datadir/../../filters/modules
+/jog.lua:222: in function <...u
+arto/share/pandoc/datadir/../../
+filters/modules/jog.lua:202>
+	
+(...tail calls...)
+	[C]: in fu
+nction 'tmap'
+	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:125: in upvalue 'recurse'
+	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:222: in local 'jogger'
+	...uarto/share/pandoc/datadir/.
+./../filters/modules/jog.lua:171: in upvalue 'recurse'
+	...uarto/share/pandoc/dat
+adir/../../filters/modules/jog.lua:222: in function <...uarto/shar
+e/pandoc/datadir/../../filters/modules/jog.lua:202>
+	(...tail calls...)
+
+	/opt/quarto/share/filters/main.lua:574: in fu
+nction </opt/quarto/share/filters
+/main.lua:552>
+	(...tail calls...
+)
+	/opt/quarto/share/filters/ma
+in.lua:1317: in local 'callbac
+k'
+	/opt/quarto/share/filters/m
+ain.lua:1335: in upvalue 'run_
+emulated_filter_chain'
+	/opt
+/quarto/share/filters/main.lu
+a:1371: in function </opt/qua
+rto/share/filters/main.lua:1368
+>
+
+(WARN) Error encountered when rendering files
+
