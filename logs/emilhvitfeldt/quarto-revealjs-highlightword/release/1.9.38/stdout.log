@@ -1,0 +1,10 @@
+Dependency install phase for emilhvitfeldt/quarto-revealjs-highlightword: auto-detect
+Auto-detecting R dependencies for emilhvitfeldt/quarto-revealjs-highlightword (knitr engine, no renv.lock).
+** libs
+using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c renv.c -o renv.o
+gcc -std=gnu2x -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o renv.so renv.o -L/opt/R/4.6.0/lib/R/lib -lR
+No additional R packages to install.
+tlmgr: package repository https://ctan.math.illinois.edu/systems/texlive/tlnet (verified)
+tlmgr: no self-updates for tlmgr available
+Using CTAN mirror: https://ctan.math.illinois.edu/systems/texlive/tlnet

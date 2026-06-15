@@ -1,0 +1,38 @@
+
+
+processing file: example_filename.qmd
+
+1/1
+
+output file: example_filename.knit.md
+
+
+pandoc 
+
+  to: html
+  output-file: example_filename.html
+  standalone: true
+  embed-resources: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Add Code Files
+  author: Shafayet Khan Shafee
+  date: last-modified
+  
+
+Output created: example_filename.html
+
+

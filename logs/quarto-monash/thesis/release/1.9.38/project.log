@@ -1,0 +1,213 @@
+
+
+processing file: index.qmd
+
+1/9                  
+
+2/9 [unnamed-chunk-1]
+
+3/9                  
+
+4/9 [unnamed-chunk-2]
+
+5/9                  
+
+6/9 [unnamed-chunk-3]
+
+7/9                  
+
+8/9 [unnamed-chunk-4]
+
+9/9                  
+
+output file: index.knit.md
+
+
+
+
+processing file: index.qmd
+
+1/9                  
+
+2/9 [unnamed-chunk-1]
+
+3/9                  
+
+4/9 [unnamed-chunk-2]
+
+5/9                  
+
+6/9 [unnamed-chunk-3]
+
+7/9                  
+
+8/9 [unnamed-chunk-4]
+
+9/9                  
+
+output file: index.knit.md
+
+
+Warning message:
+The downlit and xml2 packages are required for code linking 
+
+
+
+processing file: 01-chap1.qmd
+
+1/11                  
+
+2/11 [load_packages]  
+
+3/11                  
+
+4/11 [load_data]      
+
+5/11                  
+
+6/11 [fig-deaths]     
+
+7/11                  
+
+8/11 [unnamed-chunk-1]
+
+9/11                  
+
+10/11 [tbl-coef]       
+
+11/11                  
+
+output file: 01-chap1.knit.md
+
+
+
+
+processing file: 01-chap1.qmd
+
+1/11                  
+
+2/11 [load_packages]  
+
+3/11                  
+
+4/11 [load_data]      
+
+5/11                  
+
+6/11 [fig-deaths]     
+
+7/11                  
+
+8/11 [unnamed-chunk-1]
+
+9/11                  
+
+10/11 [tbl-coef]       
+
+11/11                  
+
+output file: 01-chap1.knit.md
+
+
+Warning message:
+The downlit and xml2 packages are required for code linking 
+
+
+
+pandoc 
+
+  to: latex
+  output-file: index.tex
+  standalone: true
+  toc: true
+  number-sections: true
+  top-level-division: chapter
+  pdf-engine: pdflatex
+  variables:
+    graphics: true
+    tables: true
+    secnumdepth: 2
+  default-image-extension: pdf
+  toc-depth: 2
+  cite-method: biblatex
+  
+
+metadata
+
+  crossref:
+    chapters: true
+  documentclass: report
+  papersize: a4
+  block-headings: false
+  date-format: D MMMM YYYY
+  number-depth: 2
+  knitr:
+    opts_chunk:
+      echo: false
+      warning: false
+      message: false
+  fontsize: 11pt
+  geometry:
+    - top=2.5cm
+    - bottom=2.5cm
+    - left=2.5cm
+    - right=2.5cm
+  biblio-style: authoryear-comp
+  colorlinks: true
+  linestretch: 1.5
+  bibliography:
+    - thesisrefs.bib
+  csl: american-statistical-association.csl
+  degreetype: Doctor of Philosophy
+  submitted: 2024
+  affiliation: Department of Econometrics & Business Statistics
+  degrees: B.Sc. (Hons), University of Tangambalanga
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: This is my thesis
+  author: Susan Su
+  
+
+
+Rendering PDF
+
+running pdflatex - 1
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for authoryear-comp.dbx
+
+finding package for biblatex-dm.cfg
+
+finding package for index.bbl
+
+(ERROR) 
+compilation failed- no matching packages
+
+Undefined control sequence.
+\tabu@cleanup ...bu@naturalX =\tabu@naturalX@save 
+                                                  \let \tabu@naturalXmax \ta...
+l.447 \end{tabu}}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ 
+
+
+see /home/runner/work/quarto-extensions/quarto-extensions/test-7/repo/index.log for more information.
+
+(WARN) Error encountered when rendering files
+

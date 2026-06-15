@@ -1,0 +1,58 @@
+
+
+pandoc 
+
+  to: latex
+  output-file: index.tex
+  standalone: true
+  toc: true
+  number-sections: true
+  top-level-division: chapter
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+
+metadata
+
+  crossref:
+    chapters: true
+  documentclass: book
+  papersize: letter
+  block-headings: true
+  custom-amsthm:
+    - key: prm
+      name: Problem
+    - key: tsk
+      name: Task
+      numbering-style: global
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Test Book for Custom AmSThm Environments
+  author: Test Author
+  
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+
+running lualatex - 2
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+
+
+Output created: _output/Test-Book-for-Custom-AmSThm-Environments.pdf
+
+

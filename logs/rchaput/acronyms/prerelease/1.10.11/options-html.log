@@ -1,0 +1,30 @@
+
+
+pandoc 
+
+  to: html
+  output-file: options.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  title: Available options
+  description: |
+    Learn how to customize the behaviour of **acronyms**.
+  
+
+Output created: ../_site/articles/options.html
+
+

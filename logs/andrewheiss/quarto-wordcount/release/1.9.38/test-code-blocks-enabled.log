@@ -1,0 +1,21 @@
+(ERROR) Unable to read the extension 'wordcount'.
+Please ensure that you provided the correct id and that the extension is installed.
+
+Stack trace:
+    at loadExtension (file:///opt/quarto/bin/quarto.js:79090:15)
+    at Object.extension (file:///opt/quarto/bin/quarto.js:78333:30)
+    at readExtensionFormat (file:///opt/quarto/bin/quarto.js:91399:50)
+    at resolveFormats (file:///opt/quarto/bin/quarto.js:91263:37)
+    at async renderContexts (file:///opt/quarto/bin/quarto.js:91053:20)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:136654:16)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136571:9)
+    at async render (file:///opt/quarto/bin/quarto.js:142225:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142470:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102091:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101968:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187649:5)
+    at async file:///opt/quarto/bin/quarto.js:187677:5
+    at async file:///opt/quarto/bin/quarto.js:187532:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187534:5)
+    at async file:///opt/quarto/bin/quarto.js:187670:3
+

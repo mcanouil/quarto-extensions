@@ -1,0 +1,99 @@
+pandoc 
+
+  to: latex
+  output-file: example-consort.tex
+  standalone: true
+  pdf-engine: xelatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  toc: false
+  
+
+metadata
+
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: CONSORT flow diagram example
+  study-flow:
+    type: consort
+    enrollment:
+      assessed: 350
+      excluded: 120
+      exclusion_reasons:
+        - 'Did not meet inclusion criteria: 80'
+        - 'Declined to participate: 40'
+    randomised: 230
+    groups:
+      - label: Intervention
+        allocated: 115
+        received: 110
+        lost_followup: 8
+        lost_reasons:
+          - 'Withdrew consent: 5'
+          - 'Lost to follow-up: 3'
+        analysed: 107
+        excluded_analysis: 3
+        excluded_analysis_reasons:
+          - 'Protocol deviation: 3'
+      - label: Control
+        allocated: 115
+        received: 113
+        lost_followup: 10
+        lost_reasons:
+          - 'Withdrew consent: 6'
+          - 'Lost to follow-up: 4'
+        analysed: 105
+        excluded_analysis: 8
+        excluded_analysis_reasons:
+          - 'Did not receive intervention: 8'
+  
+
+
+Rendering PDF
+
+running xelatex - 1
+
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for scrartcl.cls
+
+> 1 package to install
+
+> installing koma-script (1 of 1)
+
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+running xelatex - 2
+
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+
+
+Output created: example-consort.pdf
+
+

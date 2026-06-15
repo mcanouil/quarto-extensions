@@ -1,0 +1,34 @@
+pandoc 
+
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: LaTeX Environment
+  environments:
+    - center
+    - enumerate
+  commands:
+    - ce
+    - item
+    - colorbox
+    - fcolorbox
+  
+
+Output created: example.html
+
+

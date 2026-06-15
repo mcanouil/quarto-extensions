@@ -1,0 +1,39 @@
+Cloning into 'repo'...
+[1/5] revealjs.qmd
+[2/5] usage.qmd
+[typst]: Compiling usage.typ to usage.pdf...DONE
+
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+ERROR: 
+compilation failed- missing packages (automatic installation failed)
+WARN: Error encountered when rendering files
+ERROR: NotFound: No such file or directory (os error 2): mkdir '/home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/docs'
+
+Stack trace:
+    at Object.mkdirSync (ext:deno_fs/30_fs.js:192:3)
+    at ensureDirSync (file:///opt/quarto/bin/quarto.js:2506:10)
+    at renderProject (file:///opt/quarto/bin/quarto.js:137198:9)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142470:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102091:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101968:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:187649:5)
+    at async file:///opt/quarto/bin/quarto.js:187677:5
+    at async file:///opt/quarto/bin/quarto.js:187532:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187534:5)
+    at async file:///opt/quarto/bin/quarto.js:187670:3
+Render failed, retrying once...
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+chdir: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+error: Failed getting cwd.
+
+Caused by:
+    No such file or directory (os error 2)

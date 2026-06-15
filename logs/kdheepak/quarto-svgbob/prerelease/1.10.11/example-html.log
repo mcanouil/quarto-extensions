@@ -1,0 +1,87 @@
+pandoc 
+
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Quarto-svgbob Example
+  
+
+Error running filter
+ /opt/quarto/share/filters/main.lua:
+svgbob: createProcess: posix_spawnp: does not exist (No such file or directory)
+stack traceback:
+	...test-10/repo/_extensions/quarto-svgbob/quarto-svgbob.lua:27: in local 'render_cmd'
+	...test-10/rep
+o/_extensions/quarto-svgbob/quarto-svgbob.lua:43: in global 'Render'
+	...test-1
+0/repo/_extensions/quarto-svgbob/quarto-svgbob.lua:64: in function <..
+.test-10/repo/_extensions/quarto-svgbob/quarto-svgbob.lua:63
+>
+	[C]: in ?
+	[C]: in method 'walk'
+	/opt/quarto/share/pandoc/datad
+ir/_utils.lua:607: in function '_utils.walk'
+	/opt/quar
+to/share/filters/main.lua:574: in local 'ch
+ecked_walk'
+	/opt/quarto/share/filters/main.lua:
+629: in function 'run_emulated_filter'
+	/opt/quarto/share/filte
+rs/main.lua:1317: in local 'callback'
+	[s
+tring "if pandoc.system.os == "mingw3
+2" then..."]:778: in field 'wi
+thScriptFile'
+	/opt/quarto/s
+hare/filters/main.lua:1333:
+ in upvalue 'run_emulated_f
+ilter_chain'
+	/opt/quarto/share
+/filters/main.lua:1371: in
+ function </opt/quarto/sha
+re/filters/main.lua:1368>
+
+stack traceback:
+	/opt/quar
+to/share/pandoc/datadir/_ut
+ils.lua:607: in function '_
+utils.walk'
+	/opt/quarto/s
+hare/filters/main.lua:574
+: in local 'checked_walk'
+
+	/opt/quarto/share/filters
+/main.lua:629: in function
+ 'run_emulated_filter'
+	/o
+pt/quarto/share/filters/m
+ain.lua:1317: in local 'cal
+lback'
+	[string "if pandoc.sys
+tem.os == "mingw32" then...
+"]:778: in field 'withScr
+iptFile'
+	/opt/quarto/shar
+e/filters/main.lua:1333: i
+n upvalue 'run_emulated_f
+ilter_chain'
+	/opt/quarto/
+share/filters/main.lua:137
+1: in function </opt/quar
+to/share/filters/main.lua
+:1368>
+
+(WARN) Error encountered when rendering files
+

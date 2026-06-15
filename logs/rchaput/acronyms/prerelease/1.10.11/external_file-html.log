@@ -1,0 +1,30 @@
+
+
+pandoc 
+
+  to: html
+  output-file: external_file.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  title: Defining acronyms in external file(s)
+  description: |
+    Learn how to define acronyms in one or several external files, which can be reused throughout documents or projects (rather than directly in the YAML metadata).
+  
+
+Output created: ../_site/advanced/external_file.html
+
+

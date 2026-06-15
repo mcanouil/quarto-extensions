@@ -1,0 +1,80 @@
+
+
+pandoc 
+
+  to: latex
+  output-file: index.tex
+  standalone: true
+  toc: true
+  number-sections: false
+  top-level-division: chapter
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  reference-location: margin
+  toc-depth: 2
+  cite-method: natbib
+  
+
+metadata
+
+  crossref:
+    chapters: true
+  documentclass: tufte-book
+  papersize: letter
+  block-headings: true
+  bibliography:
+    - references.bib
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  citation-location: margin
+  fig-cap-location: bottom
+  classoption:
+    - sfsidenotes
+  toc-title: Contents
+  indent: 0px
+  mainfont: ETbb
+  sansfont: TeX Gyre Heros
+  sansfontoptions: Scale=MatchUppercase
+  title: |
+    Tufte-Quarto Project Type\
+    Documentation
+  author: Fred Guth
+  date-format: MMMM, YYYY
+  
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+updating tlmgr
+
+
+
+updating existing packages
+
+(ERROR) 
+compilation failed- error
+
+LaTeX Error: Command \textls undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.155 \renewcommand{\textls}
+                          [2][5]{%
+
+
+
+see /home/runner/work/quarto-extensions/quarto-extensions/test-4/repo/index.log for more information.
+
+(WARN) Error encountered when rendering files
+

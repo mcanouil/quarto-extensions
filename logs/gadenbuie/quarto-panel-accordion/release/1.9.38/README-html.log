@@ -1,0 +1,38 @@
+pandoc 
+
+  to: html
+  output-file: README.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Accordion Panels for Quarto Websites
+  description: Easily add Bootstrap accordion panels to your Quarto websites.
+  toc-level: 2
+  toc-location: right
+  toc-title: panel-accordion
+  code-links:
+    - text: gadenbuie/quarto-panel-accordion
+      href: https://github.com/gadenbuie/quarto-panel-accordion
+      icon: github
+    - text: Question or Issue?
+      href: https://github.com/gadenbuie/quarto-panel-accordion/issues/new
+      icon: question-circle-fill
+  
+
+Output created: README.html
+
+

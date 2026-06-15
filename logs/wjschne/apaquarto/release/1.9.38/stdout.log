@@ -1,0 +1,147 @@
+Dependency install phase for wjschne/apaquarto: auto-detect
+Auto-detecting R dependencies for wjschne/apaquarto (knitr engine, no renv.lock).
+** libs
+using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c renv.c -o renv.o
+gcc -std=gnu2x -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o renv.so renv.o -L/opt/R/4.6.0/lib/R/lib -lR
+Installing R packages: apa7, flextable, ftExtra, tinytable, snakecase 
+No man pages found in package  'fontBitstreamVera' 
+No man pages found in package  'fontLiberation' 
+gfortran  -fpic  -g -O2  -c biv-nt.f -o biv-nt.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c mnormt_init.c -o mnormt_init.o
+gfortran  -fpic  -g -O2  -c rtmng.f -o rtmng.o
+gfortran  -fpic  -g -O2  -c sadmvnt.f -o sadmvnt.o
+gfortran  -fpic  -g -O2  -c tvpack.f -o tvpack.o
+gcc -std=gnu2x -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o mnormt.so biv-nt.o mnormt_init.o rtmng.o sadmvnt.o tvpack.o -lgfortran -lm -lquadmath -L/opt/R/4.6.0/lib/R/lib -lR
+Running configure script
+-latomic linker flag not needed.
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c callback_registry.cpp -o callback_registry.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c debug.cpp -o debug.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c fd.cpp -o fd.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c later.cpp -o later.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c later_posix.cpp -o later_posix.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c later_win32.cpp -o later_win32.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c timer_posix.cpp -o timer_posix.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c timestamp_unix.cpp -o timestamp_unix.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c timestamp_win32.cpp -o timestamp_win32.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c tinycthread.c -o tinycthread.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -DSTRICT_R_HEADERS -DRCPP_NO_MODULES  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2  -c wref.c -o wref.o
+g++ -std=gnu++20 -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o later.so RcppExports.o callback_registry.o debug.o fd.o init.o later.o later_posix.o later_win32.o timer_posix.o timestamp_unix.o timestamp_win32.o tinycthread.o wref.o -pthread -L/opt/R/4.6.0/lib/R/lib -lR
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include    -fpic  -g -O2   -c Reader.cpp -o Reader.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include    -fpic  -g -O2   -c Tokenizer.cpp -o Tokenizer.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include    -fpic  -g -O2  -c sourcetools-init.c -o sourcetools-init.o
+g++ -std=gnu++20 -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o sourcetools.so Reader.o Tokenizer.o sourcetools-init.o -L/opt/R/4.6.0/lib/R/lib -lR
+gcc -std=gnu2x -g -O2  -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' miniz.c zip.c crypto.c unixutils.c mbedtls/library/aes.c mbedtls/library/sha1.c mbedtls/library/md.c mbedtls/library/pkcs5.c mbedtls/library/platform.c mbedtls/library/platform_util.c tools/cmdzip.c -o tools/cmdzip
+gcc -std=gnu2x -g -O2  -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' miniz.c zip.c crypto.c unixutils.c mbedtls/library/aes.c mbedtls/library/sha1.c mbedtls/library/md.c mbedtls/library/pkcs5.c mbedtls/library/platform.c mbedtls/library/platform_util.c tools/cmdunzip.c -o tools/cmdunzip
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c init.c -o init.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c miniz.c -o miniz.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c rzip.c -o rzip.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c zip.c -o zip.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c crypto.c -o crypto.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c unixutils.c -o unixutils.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c errors.c -o errors.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c cleancall.c -o cleancall.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c cmdunzip_lib.c -o cmdunzip_lib.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c mbedtls/library/aes.c -o mbedtls/library/aes.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c mbedtls/library/sha1.c -o mbedtls/library/sha1.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c mbedtls/library/md.c -o mbedtls/library/md.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c mbedtls/library/pkcs5.c -o mbedtls/library/pkcs5.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c mbedtls/library/platform.c -o mbedtls/library/platform.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c mbedtls/library/platform_util.c -o mbedtls/library/platform_util.o
+gcc -std=gnu2x -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o zip.so init.o miniz.o rzip.o zip.o crypto.o unixutils.o errors.o cleancall.o cmdunzip_lib.o mbedtls/library/aes.o mbedtls/library/sha1.o mbedtls/library/md.o mbedtls/library/pkcs5.o mbedtls/library/platform.o mbedtls/library/platform_util.o -lpthread -L/opt/R/4.6.0/lib/R/lib -lR
+Creating a generic function for 'nrow' from package 'base' in package 'tinytable'
+Creating a generic function for 'ncol' from package 'base' in package 'tinytable'
+Creating a generic function for 'colnames' from package 'base' in package 'tinytable'
+Creating a generic function for 'colnames<-' from package 'base' in package 'tinytable'
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00C4>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00D6>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00DC>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00E4>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00F6>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00FC>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00DF>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00C6>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00E6>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00D8>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00F8>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00C5>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00E5>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00C6>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00E6>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00D8>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00F8>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00C6>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00E6>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00D8>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00F8>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00C5>' to native encoding
+Warning in parse(n = -1, file = file, srcfile = NULL, keep.source = FALSE) :
+  unable to translate '<U+00E5>' to native encoding
+** Using libuv found by pkg-config in /usr
+** PKG_CFLAGS=
+** PKG_LIBS=-luv -lpthread -ldl -lrt 
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c callback.cpp -o callback.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c callbackqueue.cpp -o callbackqueue.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c filedatasource-unix.cpp -o filedatasource-unix.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c filedatasource-win.cpp -o filedatasource-win.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c fs.cpp -o fs.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c gzipdatasource.cpp -o gzipdatasource.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c http.cpp -o http.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c httprequest.cpp -o httprequest.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c httpresponse.cpp -o httpresponse.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c httpuv.cpp -o httpuv.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2  -c md5.c -o md5.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c mime.cpp -o mime.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c socket.cpp -o socket.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c staticpath.cpp -o staticpath.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c thread.cpp -o thread.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c timegm.cpp -o timegm.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c utils.cpp -o utils.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c uvutil.cpp -o uvutil.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c webapplication.cpp -o webapplication.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c websockets-base.cpp -o websockets-base.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c websockets-hixie76.cpp -o websockets-hixie76.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c websockets-hybi03.cpp -o websockets-hybi03.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c websockets-ietf.cpp -o websockets-ietf.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c websockets.cpp -o websockets.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c winutils.cpp -o winutils.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2  -c http-parser/http_parser.c -o http-parser/http_parser.o
+gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2  -c sha1/sha1.c -o sha1/sha1.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -pthread -I'/home/runner/work/quarto-extensions/quarto-extensions/test-1/R/x86_64-pc-linux-gnu-library/4.6/later/include' -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -DSTRICT_R_HEADERS -fpic  -g -O2   -c base64/base64.cpp -o base64/base64.o
+g++ -std=gnu++20 -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o httpuv.so RcppExports.o callback.o callbackqueue.o filedatasource-unix.o filedatasource-win.o fs.o gzipdatasource.o http.o httprequest.o httpresponse.o httpuv.o md5.o mime.o socket.o staticpath.o thread.o timegm.o utils.o uvutil.o webapplication.o websockets-base.o websockets-hixie76.o websockets-hybi03.o websockets-ietf.o websockets.o winutils.o -luv -lpthread -ldl -lrt ./http-parser/http_parser.o ./sha1/sha1.o ./base64/base64.o -pthread -L/opt/R/4.6.0/lib/R/lib -lR
+Found pkg-config cflags and libs!
+Using PKG_CFLAGS=-I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1 
+Using PKG_LIBS=-lcairo -lfreetype 
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c CairoContext.cpp -o CairoContext.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c font_metrics.cpp -o font_metrics.o
+g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c versions.cpp -o versions.o
+g++ -std=gnu++20 -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o gdtools.so CairoContext.o RcppExports.o font_metrics.o versions.o -lcairo -lfreetype -L/opt/R/4.6.0/lib/R/lib -lR
+tlmgr: package repository https://ctan.math.illinois.edu/systems/texlive/tlnet (verified)
+tlmgr: no self-updates for tlmgr available
+Using CTAN mirror: https://ctan.math.illinois.edu/systems/texlive/tlnet

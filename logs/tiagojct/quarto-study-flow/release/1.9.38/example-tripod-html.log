@@ -1,0 +1,58 @@
+pandoc 
+
+  to: html
+  output-file: example-tripod.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: false
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: TRIPOD+AI flow diagram example
+  study-flow:
+    type: tripod
+    source:
+      label: Source population
+      'n': 18450
+    eligibility:
+      label: Eligible
+      'n': 14210
+      excluded: 4240
+      exclusion_reasons:
+        - 'Outside age range (18-85): 1850'
+        - 'No baseline measurement: 1620'
+        - 'Prior outcome event: 770'
+    cohorts:
+      - label: Development cohort
+        'n': 9420
+        excluded_missing: 380
+        excluded_missing_reasons:
+          - 'Missing predictor data: 280'
+          - 'Lost before index date: 100'
+        analysed: 9040
+        events: 412
+        no_events: 8628
+      - label: External validation cohort
+        'n': 4790
+        excluded_missing: 95
+        excluded_missing_reasons:
+          - 'Missing predictor data: 95'
+        analysed: 4695
+        events: 233
+        no_events: 4462
+  
+
+Output created: example-tripod.html
+
+

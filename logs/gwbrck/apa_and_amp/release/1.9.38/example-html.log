@@ -1,0 +1,32 @@
+pandoc 
+
+  to: html
+  output-file: example.html
+  standalone: true
+  embed-resources: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  citeproc: false
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Example document with Quarto filter extension for correct APA narrative citation
+  bibliography:
+    - examplereferences.bib
+  csl: https://www.zotero.org/styles/apa
+  citations-hover: true
+  
+
+Output created: example.html
+
+

@@ -1,0 +1,111 @@
+Dependency source policy check passed for kazuyanagimoto/quarto-academic-typst.
+Dependency install phase for kazuyanagimoto/quarto-academic-typst: renv.lock
+Installing R dependencies from renv.lock for kazuyanagimoto/quarto-academic-typst.
+# Bootstrapping renv 1.1.6 ---------------------------------------------------
+- Downloading renv ... OK
+- Installing renv  ... OK
+
+- One or more packages recorded in the lockfile are not installed.
+- Use `renv::status()` for more details.
+renv 1.1.6 was loaded from project library, but this project is configured to use renv 1.1.6.
+- Use `renv::record("renv@1.1.6")` to record renv 1.1.6 in the lockfile.
+- Use `renv::restore(packages = "renv")` to install renv 1.1.6 into the project library.
+- One or more packages recorded in the lockfile are not installed.
+- Use `renv::status()` for more details.
+The following required system packages are not installed:
+- pandoc  [required by knitr, rmarkdown, tables]
+The R packages depending on these system packages may fail to install.
+
+An administrator can install these packages with:
+- sudo apt install pandoc
+
+The following package(s) will be updated:
+
+# Repository -----------------------------------------------------------------
+- S7             [0.2.2 -> 0.2.1]
+- backports      [1.5.1 -> 1.5.0]
+- base64enc      [0.1-6 -> 0.1-3]
+- bslib          [0.11.0 -> 0.9.0]
+- cli            [3.6.6 -> 3.6.5]
+- cpp11          [0.5.5 -> 0.5.3]
+- data.table     [1.18.4 -> 1.18.0]
+- dplyr          [1.2.1 -> 1.1.4]
+- fs             [2.1.0 -> 1.6.6]
+- ggplot2        [4.0.3 -> 4.0.1]
+- glue           [1.8.1 -> 1.8.0]
+- highr          [0.12 -> 0.11]
+- magrittr       [2.0.5 -> 2.0.4]
+- purrr          [1.2.2 -> 1.2.1]
+- rlang          [1.2.0 -> 1.1.7]
+- rmarkdown      [2.31 -> 2.30]
+- tinytex        [0.59 -> 0.58]
+- vctrs          [0.7.3 -> 0.7.1]
+- viridisLite    [0.4.3 -> 0.4.2]
+- xfun           [0.58 -> 0.56]
+- bayestestR     [* -> 0.17.0]
+- checkmate      [* -> 2.3.3]
+- datawizard     [* -> 1.3.0]
+- insight        [* -> 1.4.4]
+- modelsummary   [* -> 2.5.0]
+- parameters     [* -> 0.28.3]
+- patchwork      [* -> 1.3.2]
+- performance    [* -> 0.15.3]
+- showtext       [* -> 0.9-7]
+- showtextdb     [* -> 3.0]
+- sysfonts       [* -> 0.8.9]
+- tables         [* -> 0.9.33]
+- tinytable      [* -> 0.15.2]
+
+# Downloading packages -------------------------------------------------------
+- Downloading magrittr 2.0.4 ...                OK [276 Kb in 0.47s]
+- Downloading rmarkdown 2.30 ...                OK [2.1 Mb in 0.53s]
+- Downloading bslib 0.9.0 ...                   OK [5.2 Mb in 0.58s]
+- Downloading base64enc 0.1-3 ...               OK [7.7 Kb in 0.47s]
+- Downloading rlang 1.1.7 ...                   OK [750.4 Kb in 0.5s]
+- Downloading cli 3.6.5 ...                     OK [623.3 Kb in 0.44s]
+- Downloading fs 1.6.6 ...                      OK [1.1 Mb in 0.49s]
+- Downloading highr 0.11 ...                    OK [12.7 Kb in 0.44s]
+- Downloading xfun 0.56 ...                     OK [168.4 Kb in 0.46s]
+- Downloading tinytex 0.58 ...                  OK [35.8 Kb in 0.46s]
+- Downloading vctrs 0.7.1 ...                   OK [1 Mb in 0.5s]
+- Downloading glue 1.8.0 ...                    OK [123.6 Kb in 0.46s]
+- Downloading cpp11 0.5.3 ...                   OK [295.3 Kb in 0.47s]
+- Downloading S7 0.2.1 ...                      OK [178.6 Kb in 0.43s]
+- Downloading backports 1.5.0 ...               OK [29.9 Kb in 0.36s]
+- Downloading data.table 1.18.0 ...             OK [5.7 Mb in 1.3s]
+- Downloading dplyr 1.1.4 ...                   OK [1.2 Mb in 0.52s]
+- Downloading ggplot2 4.0.1 ...                 OK [6 Mb in 0.62s]
+- Downloading viridisLite 0.4.2 ...             OK [1.2 Mb in 0.55s]
+- Downloading purrr 1.2.1 ...                   OK [270.2 Kb in 0.38s]
+- Downloading bayestestR 0.17.0 ...             OK [1.1 Mb in 0.73s]
+- Downloading insight 1.4.4 ...                 OK [1 Mb in 0.82s]
+- Downloading datawizard 1.3.0 ...              OK [1.1 Mb in 0.74s]
+- Downloading checkmate 2.3.3 ...               OK [254.5 Kb in 0.46s]
+- Downloading modelsummary 2.5.0 ...            OK [3 Mb in 0.85s]
+- Downloading parameters 0.28.3 ...             OK [2.1 Mb in 0.69s]
+- Downloading performance 0.15.3 ...            OK [2.1 Mb in 0.73s]
+- Downloading tables 0.9.33 ...                 OK [859.4 Kb in 0.74s]
+- Downloading tinytable 0.15.2 ...              OK [386.9 Kb in 0.55s]
+- Downloading patchwork 1.3.2 ...               OK [3.2 Mb in 0.45s]
+- Downloading showtext 0.9-7 ...                OK [445 Kb in 0.47s]
+- Downloading sysfonts 0.8.9 ...                OK [1.2 Mb in 0.43s]
+- Downloading showtextdb 3.0 ...                OK [1.9 Mb in 0.46s]
+Successfully downloaded 33 packages in 22 seconds.
+
+# Installing packages --------------------------------------------------------
+- Installing magrittr 2.0.4 ...                 OK [built from source and cached in 1.5s]
+- Installing base64enc 0.1-3 ...                FAILED
+Traceback (most recent calls last):
+13: renv::restore()
+12: renv_restore_run_actions(project, diff, current, lockfile, rebuild)
+11: renv_install_impl(records)
+10: renv_install_staged(records)
+ 9: renv_install_default(records)
+ 8: handler(package, renv_install_package(record))
+ 7: renv_install_package(record)
+ 6: withCallingHandlers(renv_install_package_impl(record), error = function(e) writef("FAILED"))
+ 5: renv_install_package_impl(record)
+ 4: r_cmd_install(package, path)
+ 3: r_exec_error(package, output, "install", status)
+ 2: abort(all)
+ 1: stop(fallback)

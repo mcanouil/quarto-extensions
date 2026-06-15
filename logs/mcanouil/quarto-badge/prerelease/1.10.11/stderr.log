@@ -1,0 +1,57 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Quarto Badge Extension Example
+  subtitle: Quarto Extension
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  extensions:
+    badge:
+      - key: current
+        colour: springgreen
+      - key: future
+        class: bg-danger
+        href: https://github.com/mcanouil/quarto-badge
+      - key: deprecated
+        class: bg-warning
+        href: https://github.com/mcanouil/quarto-badge/releases/tag/{{value}}
+      - key: stable
+        colour: '#28a745'
+      - key: beta
+        colour: '#ffc107'
+      - key: experimental
+        class: bg-info
+      - key: download
+        colour: dodgerblue
+        icon: download
+        href: https://github.com/mcanouil/quarto-badge/releases/tag/{{value}}
+        target: _blank
+        title: Download release {{value}} in a new tab
+      - key: release-note
+        colour: gold
+        title: Notes for release {{value}}
+  badge-overrides:
+    - key: experimental
+      colour: hotpink
+      class: ''
+    - key: doc-only
+      colour: teal
+      icon: stars
+  
+Output created: index.html
+

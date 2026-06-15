@@ -1,0 +1,34 @@
+Cloning into 'repo'...
+CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
+pandoc 
+  to: typst
+  output-file: template.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  toc: true
+  
+metadata
+  date-format: long
+  title: A presentation with Polylux via Quarto
+  subtitle: using `projector`
+  author:
+    - name: Author One
+      affiliations:
+        - name: Harvard University
+    - name: Author Two
+      affiliations:
+        - name: Yale University
+  date: today
+  bullet-incremental: true
+  handout: false
+  theme: greyer.typ
+  
+[typst]: Compiling template.typ to template.pdf...downloading @preview/polylux:0.4.0
+  6.4 KiB /   6.4 KiB (100 %)   6.4 KiB/s in 11.51 µs ETA: 0 s
+
+DONE
+
+Output created: template.pdf
+

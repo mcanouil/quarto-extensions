@@ -1,0 +1,400 @@
+Cloning into 'repo'...
+Using CPython 3.13.9 interpreter at: /usr/local/python/current/bin/python
+Creating virtual environment at: .venv
+Activate with: source .venv/bin/activate
+Resolved 13 packages in 187ms
+Downloading numpy (15.9MiB)
+Downloading pandas (10.4MiB)
+Downloading fonttools (4.7MiB)
+Downloading pillow (6.8MiB)
+Downloading matplotlib (9.6MiB)
+Downloading kiwisolver (1.4MiB)
+ Downloaded kiwisolver
+ Downloaded fonttools
+ Downloaded pillow
+ Downloaded matplotlib
+ Downloaded numpy
+ Downloaded pandas
+Prepared 13 packages in 1.87s
+Installed 13 packages in 421ms
+ + contourpy==1.3.3
+ + cycler==0.12.1
+ + fonttools==4.63.0
+ + kiwisolver==1.5.0
+ + matplotlib==3.11.0
+ + numpy==2.4.6
+ + packaging==26.2
+ + pandas==3.0.3
+ + pillow==12.2.0
+ + pyparsing==3.3.2
+ + python-dateutil==2.9.0.post0
+ + six==1.17.0
+ + tabulate==0.10.0
+CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
+[ 1/17] index.qmd
+[ 2/17] content_fr/liminaire/remerciements.qmd
+[ 3/17] content_fr/liminaire/resume.qmd
+[ 4/17] content_fr/liminaire/abstract.qmd
+[ 5/17] content_fr/liminaire/tables.qmd
+[ 6/17] content_fr/liminaire/glossaire-entries.qmd
+[ 7/17] content_fr/liminaire/acronymes.qmd
+[ 8/17] content_fr/liminaire/glossaire.qmd
+[ 9/17] content_fr/liminaire/listoftodos.qmd
+[10/17] content_fr/chapitres/00-introduction.qmd
+[11/17] content_fr/chapitres/01-chapitre1.qmd
+[12/17] content_fr/chapitres/02-chapitre2.qmd
+[13/17] content_fr/postliminaire/conclusion.qmd
+[14/17] content_fr/postliminaire/bibliographie.qmd
+[15/17] content_fr/postliminaire/aide-memoire.qmd
+[16/17] content_fr/postliminaire/annexes.qmd
+[17/17] content_fr/postliminaire/annexes-pdfa.qmd
+
+pandoc 
+  to: latex
+  output-file: index.tex
+  template: _extensions/cnam-thesis/template.tex
+  standalone: true
+  toc: true
+  number-sections: true
+  top-level-division: chapter
+  pdf-engine: pdflatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  cite-method: natbib
+  toc-depth: 4
+  
+metadata
+  crossref:
+    chapters: true
+  documentclass: book
+  papersize: letter
+  block-headings: true
+  classoption:
+    - a4paper
+    - 11pt
+    - twoside
+    - openright
+    - notitlepage
+  biblio-style: IEEEtran-francais
+  lang: fr
+  date-soutenance: 10 Octobre 1794
+  discipline: 60e section CNU — Mécanique, génie mécanique, génie civil
+  specialite: Acoustique
+  ecole-doctorale: Sciences des Métiers de l'Ingénieur
+  laboratoire: Laboratoire MACS, Cnam Paris
+  directeur: M. Henri Grégoire, Abbé constitutionnel, fondateur du Cnam, Paris
+  cotutelle: false
+  dedicace: À Donald Knuth, qui a transformé la typographie en art computationnel, et à tous les doctorants qui ont perdu une journée à cause d'une accolade \LaTeX{} manquante.
+  jury:
+    - nom: M. Jean-Antoine Chaptal
+      titre: Professeur des Universités, Chaire de Chimie Appliquée, Conservatoire national des arts et métiers, Paris
+      role: Président du jury
+    - nom: M. Donald Ervin Knuth
+      titre: Professeur émérite, Department of Computer Science, Stanford University, Palo Alto, États-Unis
+      role: Rapporteur
+    - nom: Mme Ada Lovelace
+      titre: Maîtresse de Conférences HDR, Department of Mathematics, University of London, Royaume-Uni
+      role: Rapportrice
+    - nom: M. Jacques de Vaucanson
+      titre: Inspecteur général des manufactures, Académie royale des sciences, Paris
+      role: Évaluateur
+    - nom: M. Leslie Lamport
+      titre: Senior Principal Researcher, Microsoft Research, Redmond, États-Unis
+      role: Évaluateur
+    - nom: M. Henri Grégoire
+      titre: Abbé constitutionnel, fondateur du Cnam, Conservatoire national des arts et métiers, Paris
+      role: Directeur de thèse
+  bibliography:
+    - references.bib
+  minitoc-newpage: false
+  chapter-openright: true
+  index: false
+  glossaire: true
+  pagestyle-sections: true
+  bibliography-manual: true
+  extensions:
+    quarto-proofread-comments:
+      enabled: false
+      show_list: false
+      wide_margins: true
+      extra_margin: 4.5cm
+      reviewers:
+        eb:
+          name: Eric Bavu
+        ag:
+          name: Abbé Grégoire
+  jupyter: python3
+  thesis-lang: fr
+  is-french: true
+  validate: false
+  btn-resume: content_fr/liminaire/resume.html
+  title: Titre de la thèse
+  subtitle: Sous-titre optionnel
+  author: Prénom Nom
+  
+
+Rendering PDF
+running pdflatex - 1
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+updating tlmgr
+
+updating existing packages
+finding package for pdfx.sty
+> 1 package to install
+> installing pdfx (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for everyshi.sty
+> 1 package to install
+> installing everyshi (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for colorprofiles.sty
+> 1 package to install
+> installing colorprofiles (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for xmpincl.sty
+> 1 package to install
+> installing xmpincl (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for french.ldf
+> 1 package to install
+> installing babel-french (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for newpxtext.sty
+> 1 package to install
+> installing newpx (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for xpatch.sty
+> 1 package to install
+> installing xpatch (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for xstring.sty
+> 1 package to install
+> installing xstring (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for fontaxes.sty
+> 1 package to install
+> installing fontaxes (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for binhex.tex
+> 1 package to install
+> installing kastrup (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for units.sty
+> 1 package to install
+> installing units (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for setspace.sty
+> 1 package to install
+> installing setspace (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for changepage.sty
+> 1 package to install
+> installing changepage (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for pdflscape.sty
+> 1 package to install
+> installing pdflscape (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for diagbox.sty
+> 1 package to install
+> installing diagbox (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for pict2e.sty
+> 1 package to install
+> installing pict2e (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for pdfpages.sty
+> 1 package to install
+> installing pdfpages (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for fvextra.sty
+> 1 package to install
+> installing fvextra (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for algorithm.sty
+> 1 package to install
+> installing algorithms (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for lastpage.sty
+> 1 package to install
+> installing lastpage (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for tocloft.sty
+> 1 package to install
+> installing tocloft (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for minitoc.sty
+> 1 package to install
+> installing minitoc (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for glossaries.sty
+> 1 package to install
+> installing glossaries (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for ntx-ec-tlf.enc
+> 1 package to install
+> installing newtx (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+  kpathsea: Running mktextfm t1xtt
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Could not map source abbreviation  for t1xtt.
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Need to update ?
+  mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input t1xtt
+  This is METAFONT, Version 2.71828182 (TeX Live 2026) (preloaded base=mf)
+  
+  kpathsea: Running mktexmf t1xtt
+  
+  ! I can't find file `t1xtt'.
+  <*> ...=ljfour; mag:=1; ; nonstopmode; input t1xtt
+                                                    
+  Please type another input file name
+  ! Emergency stop.
+  <*> ...=ljfour; mag:=1; ; nonstopmode; input t1xtt
+                                                    
+  Transcript written on mfput.log.
+  grep: t1xtt.log: No such file or directory
+  mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input t1xtt' failed to make t1xtt.tfm.
+  kpathsea: Appending font creation commands to missfont.log.
+  
+finding package for t1xtt(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+finding package for t1xtt
+finding package for mktextfm
+> 2 packages to install
+> installing txfonts (1 of 2)
+> installing texlive-scripts (2 of 2)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+  kpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 1+0/600 --dpi 600 tctt1095
+  mktexpk: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1+0/600; nonstopmode; input tctt1095
+  This is METAFONT, Version 2.71828182 (TeX Live 2026) (preloaded base=mf)
+  
+  (/opt/tinytex/texmf-dist/fonts/source/jknappen/ec/tctt1095.mf (/opt/tinytex/texmf-dist/fonts/source/jknappen/ec/exbase.mf) (/opt/tinytex/texmf-dist/fonts/source/jknappen/ec/tctt.mf (/opt/tinytex/texmf-dist/fonts/source/jknappen/ec/txsymb.mf
+   Ok (/opt/tinytex/texmf-dist/fonts/source/jknappen/ec/exaccess.mf
+   Ok) (/opt/tinytex/texmf-dist/fonts/source/jknappen/ec/txpseudo.mf
+   Ok) (/opt/tinytex/texmf-dist/fonts/source/jknappen/ec/txaccent.mf
+   Ok [0] [1] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [27] [29]) (/opt/tinytex/texmf-dist/fonts/source/jknappen/ec/txgen.mf
+   Ok [100] [109] [98] [99] [108]) (/opt/tinytex/texmf-dist/fonts/source/jknappen/ec/txsymbol.mf
+   Ok [13] [18] [21] [22] [23] [24] [25] [26] [28] [31] [32] [36] [39] [44] [45] [46] [42] [47] [60] [61] [62] [77] [79] [87] [110] [91] [93] [94] [95] [96] [126] [127] [128] [129] [130] [131] [132] [133] [134] [135] [136] [137] [138] [139] [140] [141] [142] [143] [144] [145] [146] [147] [148] [149] [150] [151] [152] [153] [154] [155] [156] [157] [158] [159] [160] [161] [162] [163] [164] [165] [166] [167] [168] [169] [171] [172] [173] [174] [175] [177] [176] [180] [181] [182] [183] [184] [187] [191] [214] [246]) (/opt/tinytex/texmf-dist/fonts/source/jknappen/ec/txromod.mf
+   Ok [48] [49] [50] [51] [52] [53] [54] [55] [56] [57]) (/opt/tinytex/texmf-dist/fonts/source/jknappen/ec/txrsuper.mf
+   Ok [185] [178] [179] [170] [186]) (/opt/tinytex/texmf-dist/fonts/source/jknappen/ec/txrfract.mf
+   Ok [188] [189] [190]) ) ) )
+  Font metrics written on tctt1095.tfm.
+  Output written on tctt1095.600gf (128 characters, 21204 bytes).
+  Transcript written on tctt1095.log.
+  mktexpk: /tmp/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt1095.600pk: successfully generated.
+  
+Installing missing hyphenation file...
+> 1 package to install
+> installing hyphen-french (1 of 1)
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+generating bibliography
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: index.aux
+  The style file: IEEEtran-francais.bst
+  Database file #1: references.bib
+  Warning--entry type for "Allaire2022" isn't style-file defined
+  --line 25 of file references.bib
+  -- IEEEtran.bst version 1.12 (2007/01/11) by Michael Shell.
+  -- http://www.michaelshell.org/tex/ieeetran/bibtex/
+  -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+  
+  Done.
+  (There was 1 warning)
+  
+running pdflatex - 2
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+running pdflatex - 3
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+Running script './_scripts/postrender.ts'
+postrender.ts: install 'poppler' (pdftoppm) or 'ImageMagick' (magick) to auto-generate images/cover.png.
+
+Output created: _these_fr/index.html
+

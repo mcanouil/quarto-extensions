@@ -1,0 +1,29 @@
+pandoc 
+
+  to: typst
+  output-file: example-symbols.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  variables: {}
+  
+
+metadata
+
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Symbols
+  extensions:
+    footnote-styles:
+      style: symbols
+  
+
+[typst]: Compiling example-symbols.typ to example-symbols.pdf...
+DONE
+
+
+Output created: example-symbols-typst.pdf
+
+

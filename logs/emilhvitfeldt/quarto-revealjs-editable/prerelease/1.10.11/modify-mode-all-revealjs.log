@@ -1,0 +1,60 @@
+
+
+processing file: modify-mode-all.qmd
+
+1/5            
+
+2/5 [chunk-out]
+
+3/5            
+
+4/5 [chunk-fig]
+
+5/5            
+
+output file: modify-mode-all.knit.md
+
+
+pandoc 
+
+  to: revealjs
+  output-file: >-
+    /home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/testing/modify-mode-all.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+
+metadata
+
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  revealjs-plugins:
+    - editable
+  theme: default
+  title: Modify Mode — All Classifiers
+  
+
+Output created: modify-mode-all.html
+
+

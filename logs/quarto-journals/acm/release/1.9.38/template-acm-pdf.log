@@ -1,0 +1,186 @@
+pandoc 
+
+  to: latex
+  output-file: template.tex
+  template: _extensions/quarto-journals/acm/acmarttemplate.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  cite-method: natbib
+  
+
+metadata
+
+  block-headings: true
+  knitr:
+    opts_chunk:
+      echo: false
+  colorlinks: true
+  urlcolor: red
+  biblio-style: te.bst
+  documentclass: acmart
+  header-includes:
+    - |
+      \definecolor{mypink}{RGB}{219, 48, 122}
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  bibliography:
+    - bibliography.bib
+  title: The Name of the Title Is Hope
+  short-title: Hope
+  author:
+    - name: Ben Trovato
+      email: trovato@corporation.com
+      orcid: 1234-5678-9012
+    - name: G.K.M. Tobin
+      email: webmaster@marysville-ohio.com
+      affiliation:
+        name: Institute for Clarity in Documentation
+        address: P.O. Box 1212
+        city: Dublin
+        state: Ohio
+        country: USA
+        postal-code: 43017-6221
+    - name: Lars Thørväld
+      email: larst@affiliation.org
+      affiliation:
+        name: The Thørväld Group
+        address: 1 Thørväld Circle
+        city: Hekla
+        country: Iceland
+    - name: Valerie Béranger
+      affiliation:
+        name: Inria Paris-Rocquencourt
+        city: Rocquencourt
+        country: France
+    - name: Aparna Patel
+      affiliation:
+        name: Rajiv Gandhi University
+        address: Rono-Hills
+        city: Doimukh
+        state: Arunachal Pradesh
+        country: India
+    - name: Huifen Chan
+      affiliation:
+        name: Tsinghua University
+        address: 30 Shuangqing Rd
+        city: Haidian Qu
+        state: Beijing Shi
+        country: China
+    - name: Charles Palmer
+      affiliation:
+        name: Palmer Research Laboratories
+        address: 8600 Datapoint Drive
+        city: San Antonio
+        state: Texas
+        country: USA
+        postal-code: 78829
+      email: cpalmer@prl.com
+    - name: John Smith
+      affiliation:
+        name: The Thørväld Group
+        address: 1 Thørväld Circle
+        city: Hekla
+        country: Iceland
+      email: jsmith@affiliation.org
+    - name: Julius P. Kumquat
+      affiliation:
+        name: The Kumquat Consortium
+        city: New York
+        country: USA
+      email: jpkumquat@consortium.net
+  acm-metadata:
+    final: true
+    copyright-year: 2018
+    acm-year: 2018
+    copyright: acmcopyright
+    doi: XXXXXXX.XXXXXXX
+    conference-acronym: Conference acronym 'XX
+    conference-name: |
+      Make sure to enter the correct
+      conference title from your rights confirmation emai
+    conference-date: June 03--05, 2018
+    conference-location: Woodstock, NY
+    price: '15.00'
+    isbn: 978-1-4503-XXXX-X/18/06
+    shortauthors: Trovato et al.
+    ccs: |
+      \begin{CCSXML}
+      <ccs2012>
+       <concept>
+        <concept_id>10010520.10010553.10010562</concept_id>
+        <concept_desc>Computer systems organization~Embedded systems</concept_desc>
+        <concept_significance>500</concept_significance>
+       </concept>
+       <concept>
+        <concept_id>10010520.10010575.10010755</concept_id>
+        <concept_desc>Computer systems organization~Redundancy</concept_desc>
+        <concept_significance>300</concept_significance>
+       </concept>
+       <concept>
+        <concept_id>10010520.10010553.10010554</concept_id>
+        <concept_desc>Computer systems organization~Robotics</concept_desc>
+        <concept_significance>100</concept_significance>
+       </concept>
+       <concept>
+        <concept_id>10003033.10003083.10003095</concept_id>
+        <concept_desc>Networks~Network reliability</concept_desc>
+        <concept_significance>100</concept_significance>
+       </concept>
+      </ccs2012>
+      \end{CCSXML}
+  
+      \ccsdesc[500]{Computer systems organization~Embedded systems}
+      \ccsdesc[300]{Computer systems organization~Redundancy}
+      \ccsdesc{Computer systems organization~Robotics}
+      \ccsdesc[100]{Networks~Network reliability}
+    keywords:
+      - datasets
+      - neural networks
+      - gaze detection
+      - text tagging
+  abstract: |
+    A clear and well-documented \LaTeX\ document is presented as an
+    article formatted for publication by ACM in a conference proceedings
+    or journal publication. Based on the "acmart" document class, this
+    article presents and explains many of the common variations, as well
+    as many of the formatting elements an author may use in the
+    preparation of the documentation of their work.
+  
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+updating tlmgr
+
+
+
+updating existing packages
+
+(ERROR) 
+compilation failed- error
+
+LaTeX Error: Not in outer par mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.745 {
+     \centering \includegraphics{sample-franklin.png}}
+
+
+
+see template.log for more information.
+
+(WARN) Error encountered when rendering files
+

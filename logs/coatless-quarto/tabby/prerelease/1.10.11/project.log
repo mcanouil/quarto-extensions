@@ -1,0 +1,104 @@
+
+
+processing file: qtabby-faq.qmd
+
+1/5                  
+
+2/5 [unnamed-chunk-1]
+
+3/5                  
+
+4/5 [unnamed-chunk-2]
+
+5/5                  
+
+output file: qtabby-faq.knit.md
+
+
+Error running filter /opt
+/quarto/share/filters/main.lua:
+/opt/quarto/share/filters/main.lua:23059: attempt to call a nil value (method 'map')
+stack traceback:
+	/opt/quarto/share/filters/main.lua:937: in field 'Tabset'
+	...ex
+tensions/test-17/repo/docs/_extensions/tabby/tabby.lua:212: in fun
+ction <...extensions/test-17/r
+epo/docs/_extensions/
+tabby/tabby.lua:14
+7>
+	(...tail cal
+ls...)
+	[C]: in
+ ?
+	[C]: in meth
+od 'walk'
+	/opt/
+quarto/share/pa
+ndoc/datadir/_ut
+ils.lua:607: in 
+function '_util
+s.walk'
+	/opt/quar
+to/share/filter
+s/main.lua:574: 
+in function </o
+pt/quarto/share/f
+ilters/main.lua:
+552>
+	(...tail calls...)
+	/opt/qua
+rto/share/filters/main
+.lua:1317: in lo
+cal 'callback'
+	
+[string "if pandoc.sys
+tem.os == "mingw
+32" then..."]:778
+: in field 'with
+ScriptFile'
+	/o
+pt/quarto/share
+/filters/main.l
+ua:1333: in up
+value 'run_emul
+ated_filter_cha
+in'
+	/opt/quarto
+/share/filters/main.lu
+a:1371: in function
+ </opt/quarto/sha
+re/filters/main
+.lua:1368>
+stac
+k traceback:
+	/
+opt/quarto/share/pa
+ndoc/datadir/_uti
+ls.lua:607: in 
+function '_util
+s.walk'
+	/opt/
+quarto/share/filters/main.lua:574: in function </opt/quarto/share/filters/main.lua:552>
+	(...tail calls...)
+	/opt/quarto/share/filters/main.lua:1317: in local 'c
+allback'
+	[string "if pandoc.system.os =
+= "mingw32" then..."]
+:778: in field '
+withScriptFile'
+
+	/opt/quarto/s
+hare/filters/ma
+in.lua:1333: in
+ upvalue 'run_emul
+ated_filter_chain'
+	
+/opt/quarto/shar
+e/filters/main
+.lua:1371: in f
+unction </opt/q
+uarto/share/filters/ma
+in.lua:1368>
+
+(WARN) Error encountered when rendering files
+

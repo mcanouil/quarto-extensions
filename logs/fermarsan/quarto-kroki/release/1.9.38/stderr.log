@@ -1,0 +1,99 @@
+Cloning into 'repo'...
+CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
+[1/5] index.qmd
+[2/5] intro.qmd
+[3/5] Chapter_1.qmd
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    32    0     0  100    32      0    115 --:--:-- --:--:-- --:--:--   115100  1448  100  1416  100    32   1830     41 --:--:-- --:--:-- --:--:--  1870
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  3034  100  2954  100    80   4272    115 --:--:-- --:--:-- --:--:--  4384100  3034  100  2954  100    80   4271    115 --:--:-- --:--:-- --:--:--  4384
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1701  100  1621  100    80   2288    112 --:--:-- --:--:-- --:--:--  2399100  1701  100  1621  100    80   2288    112 --:--:-- --:--:-- --:--:--  2399
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    93    0     0  100    93      0     92  0:00:01  0:00:01 --:--:--    92100    93    0     0  100    93      0     92  0:00:01  0:00:01 --:--:--    92
+[4/5] summary.qmd
+[5/5] references.qmd
+
+pandoc 
+  to: latex
+  output-file: index.tex
+  standalone: true
+  toc: true
+  number-sections: true
+  top-level-division: chapter
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  crossref:
+    chapters: true
+  documentclass: scrreprt
+  papersize: letter
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  bibliography:
+    - references.bib
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Kroki diagrams Test
+  date: 23/03/2026
+  
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1448  100  1416  100    32   1960     44 --:--:-- --:--:-- --:--:--  2005
+
+Error: Inkscape has to be installed and added to PATH.
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  3034  100  2954  100    80   4606    124 --:--:-- --:--:-- --:--:--  4725
+
+Error: Inkscape has to be installed and added to PATH.
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1701  100  1621  100    80   4722    233 --:--:-- --:--:-- --:--:--  4959
+
+Error: Inkscape has to be installed and added to PATH.
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    93    0     0  100    93      0     89  0:00:01  0:00:01 --:--:--    88100    93    0     0  100    93      0     89  0:00:01  0:00:01 --:--:--    88
+
+Error: Inkscape has to be installed and added to PATH.
+
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+finding package for scrreprt.cls
+> 1 package to install
+> installing koma-script (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: _book/index.html
+

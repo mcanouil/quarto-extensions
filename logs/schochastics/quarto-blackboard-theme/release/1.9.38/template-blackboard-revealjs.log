@@ -1,0 +1,77 @@
+
+
+processing file: template.qmd
+
+1/5          
+
+2/5 [setup]  
+
+3/5          
+
+4/5 [testing]
+
+5/5          
+
+output file: template.knit.md
+
+
+Warning message:
+Duplicated chunk option(s) 'fig.width', 'fig.height', 'fig.align' in both chunk header and pipe comments of the chunk 'testing'. 
+
+pandoc 
+
+  to: revealjs
+  output-file: template.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  css:
+    - _extensions/blackboard/theme.css
+  variables: {}
+  
+
+metadata
+
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  slideNumber: true
+  menu: false
+  progress: false
+  theme:
+    - default
+    - _extensions/blackboard/blackboard.scss
+  footer: |
+    <a href="https://mr.schochastics.net">theme by schochastics</a>
+  title-slide-attributes:
+    data-background-image: _extensions/blackboard/blackboard.png
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Quarto Blackboard theme
+  subtitle: for revealjs
+  author: David Schoch
+  institute: GESIS - Leibniz Institute for the Social Sciences
+  
+
+Output created: template.html
+
+

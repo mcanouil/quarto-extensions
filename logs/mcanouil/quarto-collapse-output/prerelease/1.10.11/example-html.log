@@ -1,0 +1,77 @@
+
+Starting python3 kernel...
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+
+Done
+
+
+Executing 'example.quarto_ipynb'
+
+  Cell 1/8: 'code'...............
+Done
+
+  Cell 2/8: 'explicit-summary'...
+Done
+
+  Cell 3/8: 'open-cell'..........
+Done
+
+  Cell 4/8: 'short-output'.......
+Done
+
+  Cell 5/8: 'long-output'........
+Done
+
+  Cell 6/8: 'table'..............
+Done
+
+  Cell 7/8: 'figure-1'...........
+Done
+
+  Cell 8/8: 'figure-2'...........
+Done
+
+
+
+pandoc 
+
+  to: html
+  output-file: index.html
+  standalone: true
+  embed-resources: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Collapse Output
+  subtitle: Quarto Extension
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  jupyter: python3
+  extensions:
+    collapse-output:
+      method: lua
+      collapse-all-outputs: false
+      default-open: false
+      auto-collapse-size: 6
+      output-types: stdout, stderr, display
+      summary-template: '{type} ({lines} lines)'
+      summaries:
+        stdout: Console output
+        stderr: Warnings and errors
+  
+
+Output created: index.html
+
+

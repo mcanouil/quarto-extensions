@@ -1,0 +1,145 @@
+Cloning into 'repo'...
+CTAN mirror https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet failed, trying next...
+pandoc 
+  to: typst
+  output-file: template.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  toc: true
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Bookly Typst - Complete Template
+  subtitle: Quarto extension usage example
+  author: Your Name
+  date: today
+  lang: en
+  lof: true
+  lot: true
+  theme: modern
+  tufte: false
+  fonts:
+    body: Lato
+    math: Lete Sans Math
+  part-numbering: A
+  config-options:
+    open-right: true
+    alt-margins: false
+  colors:
+    primary: rgb("#1d90d0")
+    secondary: rgb("#dddddd").darken(15%)
+  
+[typst]: Compiling template.typ to template.pdf...downloading @preview/bookly:3.1.1
+311.7 KiB / 311.7 KiB (100 %) 311.7 KiB/s in 7.05 ms ETA: 0 s
+
+downloading @preview/equate:0.3.2
+  8.9 KiB /   8.9 KiB (100 %)   8.9 KiB/s in 1.25 ms ETA: 0 s
+
+downloading @preview/subpar:0.2.2
+482.2 KiB / 482.2 KiB (100 %) 482.2 KiB/s in 9.89 ms ETA: 0 s
+
+downloading @preview/suboutline:0.3.0
+ 13.6 KiB /  13.6 KiB (100 %)  13.6 KiB/s in 1.45 ms ETA: 0 s
+
+downloading @preview/hydra:0.6.2
+  8.5 KiB /   8.5 KiB (100 %)   8.5 KiB/s in 1.46 ms ETA: 0 s
+
+downloading @preview/oxifmt:1.0.0
+ 19.7 KiB /  19.7 KiB (100 %)  19.7 KiB/s in 2.06 ms ETA: 0 s
+
+downloading @preview/itemize:0.2.0
+ 55.1 KiB /  55.1 KiB (100 %)  55.1 KiB/s in 2.16 ms ETA: 0 s
+
+downloading @preview/elembic:1.1.1
+ 69.7 KiB /  69.7 KiB (100 %)  69.7 KiB/s in 3.42 ms ETA: 0 s
+
+error: color string contains non-hexadecimal letters
+    ┌─ template.typ:457:17
+    │
+457 │     primary: rgb("\#1d90d0"),
+    │                  ^^^^^^^^^^
+
+ERROR: downloading @preview/bookly:3.1.1
+311.7 KiB / 311.7 KiB (100 %) 311.7 KiB/s in 7.05 ms ETA: 0 s
+
+downloading @preview/equate:0.3.2
+  8.9 KiB /   8.9 KiB (100 %)   8.9 KiB/s in 1.25 ms ETA: 0 s
+
+downloading @preview/subpar:0.2.2
+482.2 KiB / 482.2 KiB (100 %) 482.2 KiB/s in 9.89 ms ETA: 0 s
+
+downloading @preview/suboutline:0.3.0
+ 13.6 KiB /  13.6 KiB (100 %)  13.6 KiB/s in 1.45 ms ETA: 0 s
+
+downloading @preview/hydra:0.6.2
+  8.5 KiB /   8.5 KiB (100 %)   8.5 KiB/s in 1.46 ms ETA: 0 s
+
+downloading @preview/oxifmt:1.0.0
+ 19.7 KiB /  19.7 KiB (100 %)  19.7 KiB/s in 2.06 ms ETA: 0 s
+
+downloading @preview/itemize:0.2.0
+ 55.1 KiB /  55.1 KiB (100 %)  55.1 KiB/s in 2.16 ms ETA: 0 s
+
+downloading @preview/elembic:1.1.1
+ 69.7 KiB /  69.7 KiB (100 %)  69.7 KiB/s in 3.42 ms ETA: 0 s
+
+error: color string contains non-hexadecimal letters
+    ┌─ template.typ:457:17
+    │
+457 │     primary: rgb("\#1d90d0"),
+    │                  ^^^^^^^^^^
+
+
+ERROR: Typst compilation failed
+Render failed, retrying once...
+pandoc 
+  to: typst
+  output-file: template.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  toc: true
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Bookly Typst - Complete Template
+  subtitle: Quarto extension usage example
+  author: Your Name
+  date: today
+  lang: en
+  lof: true
+  lot: true
+  theme: modern
+  tufte: false
+  fonts:
+    body: Lato
+    math: Lete Sans Math
+  part-numbering: A
+  config-options:
+    open-right: true
+    alt-margins: false
+  colors:
+    primary: rgb("#1d90d0")
+    secondary: rgb("#dddddd").darken(15%)
+  
+[typst]: Compiling template.typ to template.pdf...error: color string contains non-hexadecimal letters
+    ┌─ template.typ:457:17
+    │
+457 │     primary: rgb("\#1d90d0"),
+    │                  ^^^^^^^^^^
+
+ERROR: error: color string contains non-hexadecimal letters
+    ┌─ template.typ:457:17
+    │
+457 │     primary: rgb("\#1d90d0"),
+    │                  ^^^^^^^^^^
+
+
+ERROR: Typst compilation failed

@@ -1,0 +1,86 @@
+pandoc 
+
+  to: typst
+  output-file: template.typ
+  template: _extensions/invoice/template.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  variables: {}
+  
+
+metadata
+
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Consulting 2026
+  description: 2026/01/01 -- 2026/12/31
+  sender:
+    name: Firstname LASTNAME
+    email: Firstname.LASTNAME@company.dev
+    address:
+      street: 123 Rue de la Paix
+      zip: 75000
+      city: Paris
+      country: France
+    registration: 123 456 789
+    vat: FR1234567890
+    exempted: Exempted from VAT (article 259-1 du CGI, France).
+  invoice:
+    number: 2026-001
+    issued: '2026-01-01'
+    due: '2026-01-31'
+    reference: abcd1234
+    fee: 2.28
+    penalty: 40
+    currency: EUR
+    items:
+      - description: A very important deliverable
+        details: A description of the tasks.
+        quantity: 1
+        unit-price: 12345.67
+        vat: 0
+  bank:
+    bic: AZERTYUI
+    iban: FR12 1234 4567 7890 1234 5678 901
+  recipient:
+    name: Company, Inc.
+    address:
+      street: 123 Main Street
+      zip: 12345
+      city: New York
+      state: NY
+      country: United States
+  brand:
+    typography:
+      fonts:
+        - family: Alegreya Sans
+          source: google
+          weight:
+            - 400
+            - 700
+          style:
+            - normal
+            - italic
+      base:
+        family: Alegreya Sans
+        size: 12pt
+      headings:
+        color: dodgerblue
+  lang: en
+  region: UK
+  papersize: a4
+  margin:
+    x: 2.5cm
+    'y': 2.5cm
+  
+
+[typst]: Compiling template.typ to template.pdf...
+DONE
+
+
+Output created: index.pdf
+
+

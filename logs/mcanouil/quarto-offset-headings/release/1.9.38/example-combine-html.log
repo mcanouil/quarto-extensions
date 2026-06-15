@@ -1,0 +1,36 @@
+pandoc 
+
+  to: html
+  output-file: example-combine.html
+  standalone: true
+  embed-resources: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  number-sections: true
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Offset Headings — Combined Rules
+  subtitle: Document-level offset combined with per-heading offsets, max-level cap, and cascade depth
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  extensions:
+    offset-headings:
+      by: 1
+  
+
+Output created: example-combine.html
+
+

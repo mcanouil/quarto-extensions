@@ -1,0 +1,37 @@
+pandoc 
+
+  to: html
+  output-file: article.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  number-sections: true
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Test Article for Custom AmSThm Environments
+  author: Test Author
+  date: today
+  custom-amsthm:
+    - key: prm
+      name: Problem
+      numbering-style: section
+    - key: tsk
+      name: Task
+      numbering-style: global
+    - key: usecase
+      name: Use Case
+      numbered: false
+  
+
+Output created: _output/article.html
+
+

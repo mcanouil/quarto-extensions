@@ -1,0 +1,28 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Social Comments Example
+  mastodon_comments:
+    user: AndreasThinks
+    host: fosstodon.org
+    toot_id: '113816106546915207'
+  bluesky_comments:
+    post_uri: https://bsky.app/profile/andreasthinks.me/post/3lfkk62sk4k2g
+  
+Output created: example.html
+

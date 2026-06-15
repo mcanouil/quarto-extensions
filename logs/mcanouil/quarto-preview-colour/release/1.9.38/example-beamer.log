@@ -1,0 +1,83 @@
+pandoc 
+
+  to: beamer
+  output-file: example.tex
+  standalone: true
+  embed-resources: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+
+metadata
+
+  block-headings: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Preview Colour Example
+  subtitle: Quarto Extension
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  extensions:
+    preview-colour:
+      code: true
+      text: true
+      json: example-colours.json
+      glyph:
+        default: ●
+        html: '&#9673;'
+        latex: \\textbullet
+        typst: ◉
+        docx: ●
+        pptx: ●
+  aspectratio: 169
+  
+
+(W) [preview-colour] Alpha channel is not preserved in latex; rendering the opaque colour for "rgba(255, 0, 0, 0.5)".
+
+(W) [preview-colour] Keyword colour "currentColor" has no preview in latex; only HTML renders these faithfully.
+
+[preview-colour] Exported 53 colour(s) to: example-colours.json
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for luatexbase.sty
+
+> 1 package to install
+
+> installing luatexbase (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+running lualatex - 2
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+
+
+Output created: preview-colour-beamer.pdf
+
+

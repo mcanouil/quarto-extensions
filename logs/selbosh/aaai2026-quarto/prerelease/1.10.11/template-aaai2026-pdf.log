@@ -1,0 +1,291 @@
+pandoc 
+
+  to: latex
+  output-file: template.tex
+  template: _extensions/aaai2026/aaai2026-template.latex
+  standalone: true
+  pdf-engine: pdflatex
+  variables:
+    graphics: true
+    tables: true
+    secnumdepth: 2
+  default-image-extension: pdf
+  number-sections: true
+  cite-method: natbib
+  
+
+metadata
+
+  block-headings: true
+  number-depth: 2
+  biblio-style: aaai2026.bst
+  fig-cap-location: bottom
+  tbl-cap-location: bottom
+  title: Example article for AAAI 2026 using Quarto
+  author:
+    - name: Max Mustermann
+      orcid: 0000-0000-0000-0000
+      email: name@example.com
+      affiliation:
+        - ref: 1
+    - name: Author Two
+      orcid: 0000-0000-0000-0001
+      email: name2@example.com
+      affiliation:
+        - ref: 1
+  affiliations:
+    - id: 1
+      name: Association for the Advancement of Artificial Intelligence
+      department: Data Science and its Applications
+      address: 1101 Pennsylvania Ave, NW Suite 300
+      city: Washington
+      country: USA
+      state: DC
+      url: https://aaai.org
+  abstract: |
+    AAAI creates proceedings, working notes, and technical reports directly from electronic source furnished by the authors. To ensure that all papers in the publication have a uniform appearance, authors must adhere to the following instructions.
+  links:
+    - name: Code
+      url: https://aaai.org/example/code
+    - name: Datasets
+      url: https://aaai.org/example/datasets
+  keywords:
+    - template
+    - demo
+  bibliography:
+    - bibliography.bib
+  header-includes:
+    - \usepackage{amsmath,amssymb}
+    - \usepackage{booktabs}
+  
+
+Error running filter /opt/quarto/
+share/filters/main.lua:
+Could not fetch https://upload.wikimedia.org/wikipedia/commons/f/ff/AAAI_Conference.png
+HttpExceptionRequest Request {
+  host                 = "upload.wikimedia.org"
+  port                 = 443
+  secure               = True
+  reques
+tHeaders       = []
+  path                 = "/wikipedi
+a/commons/f/ff/AAAI_Conference.png"
+  qu
+eryString          = ""
+  method     
+          = "GET"
+  proxy    
+            = Nothing
+  rawBody      
+        = False
+  redirectCount        = 10
+  responseT
+imeout      = ResponseTimeoutDefault
+  requestVersion       = HTT
+P/1.1
+  proxySecureMode      =
+ ProxySecureWithConne
+ct
+}
+ (StatusCodeE
+xception (Respons
+e {responseStatu
+s = Status {sta
+tusCode = 403, s
+tatusMessage = "
+Forbidden"}, re
+sponseVersion = 
+HTTP/1.1, respo
+nseHeaders = [("
+content-length"
+,"126"),("conten
+t-type","text/p
+lain"),("x-reque
+st-id","a6a7c56
+b-0427-4647-b060-dee926
+8a688f"),("server","
+HAProxy"),("x-c
+ache","cp1115
+ int"),("x-cach
+e-status","int-
+tls"),("x-analy
+tics","")], res
+ponseBody = (),
+ responseCookieJ
+ar = CJ {expose 
+= []}, responseClose' 
+= ResponseClose, res
+ponseOriginalReq
+uest = Request 
+{
+  host       
+          = "up
+load.wikimedia.
+org"
+  port    
+             = 443
+  secure  
+             = True
+  requestHeade
+rs       = []
+  path          
+       = "/wikipedia/commons/f/ff/AAAI_Conferenc
+e.png"
+  queryString          = ""
+  method        
+       = "GET"
+  proxy                = Nothin
+g
+  rawBody         
+     = False
+  r
+edirectCount        = 10
+  resp
+onseTimeout      = ResponseTimeout
+Default
+  requestVersion       =
+ HTTP/1.1
+  proxySecureMode      = ProxyS
+ecureWithConnect
+}
+, resp
+onseEarlyHints =
+ []}) "Please se
+t a user-agent 
+and respect our 
+robot policy ht
+tps://w.wiki/4w
+JS. See also https://phabricator.wikimedia.org/T400119.\n")
+stack traceback:
+	.../share/pandoc/datadir/../../filters/modules/mediabag.lua:29: in function 'modules/mediabag.fetch_and_store_i
+mage'
+	.../share/pandoc/datadir/../../filters/modules/mediab
+ag.lua:72: in function 'modules/mediabag.r
+esolve_image_from_url'
+	(...tail call
+s...)
+	/opt/quarto/share/filters/main.lua:2
+930: in local 'fn'
+	
+...uarto/share/
+pandoc/datadir/../../
+filters/modules/jog.lua:34
+: in upvalue 'run
+_filter_functio
+n'
+	...uarto/sh
+are/pandoc/data
+dir/../../filte
+rs/modules/jog.
+lua:223: in fun
+ction <...uarto
+/share/pandoc/d
+atadir/../../f
+ilters/modules/
+jog.lua:202>
+	(
+...tail calls.
+..)
+	[C]: in fu
+nction 'pandoc
+.List.map'
+	..
+.uarto/share/pandoc/da
+tadir/../../filt
+ers/modules/jo
+g.lua:125: in upva
+lue 'recurse'
+	..
+.uarto/share/pan
+doc/datadir/../
+../filters/modu
+les/jog.lua:222
+: in local 'jog
+ger'
+	...uarto
+/share/pandoc/da
+tadir/../../fil
+ters/modules/j
+og.lua:98: in u
+pvalue 'recurs
+e'
+	...uarto/sh
+are/pandoc/datadir/../../fi
+lters/modules/jog.lua:
+222: in function
+ <...uarto/share
+/pandoc/datadir
+/../../filters
+/modules/jog.lu
+a:202>
+	(...tai
+l calls...)
+	..
+.	(skipping 2 l
+evels)
+	...uar
+to/share/pandoc
+/datadir/../../
+filters/modules/j
+og.lua:111: in upvalue 'recurse'
+	...uar
+to/share/pandoc/datadir/../../filters/modules/jog.lua
+:222: in function <...uar
+to/share/pandoc/d
+atadir/../../fi
+lters/modules/j
+og.lua:202>
+	(...tail calls...)
+	[C]: in
+ function 'pandoc.List.map'
+	...uarto/share/p
+andoc/datadir/../../fil
+ters/modules/jo
+g.lua:125: in u
+pvalue 'recur
+se'
+
+	...uarto/share
+/pandoc/datadir
+/../../filters
+/modules/jog.lu
+a:222: in local 'jogger'
+	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:171: in upval
+ue 'recurse'
+	...uarto/share/pandoc/datadir/../
+../filters/modules/jo
+g.lua:222: in f
+unction <...uar
+to/share/pandoc
+/datadir/../..
+/filters/module
+s/jog.lua:202>
+
+	(...tail call
+s...)
+	/opt/qua
+rto/share/filt
+ers/main.lua:57
+4: in function
+ </opt/quart
+o/share/fi
+lters/main.lua
+:552>
+	(...tail
+ calls...)
+	/opt/quarto/share/filte
+rs/main.lua:1317: in local '
+callback'
+	/opt/quarto/share/filters/main.lua:1335:
+ in upvalue 'run_emulated_filter_chain'
+
+	/opt/quarto/shar
+e/filters/main.l
+ua:1371: in fun
+ction </opt/qua
+rto/share/filte
+rs/main.lua:136
+8>
+
+(WARN) Error encountered when rendering files
+

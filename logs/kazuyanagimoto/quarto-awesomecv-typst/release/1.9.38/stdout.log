@@ -1,0 +1,82 @@
+Dependency source policy check passed for kazuyanagimoto/quarto-awesomecv-typst.
+Dependency install phase for kazuyanagimoto/quarto-awesomecv-typst: renv.lock
+Installing R dependencies from renv.lock for kazuyanagimoto/quarto-awesomecv-typst.
+# Bootstrapping renv 1.1.5 ---------------------------------------------------
+- Downloading renv ... OK
+- Installing renv  ... OK
+
+- One or more packages recorded in the lockfile are not installed.
+- Use `renv::status()` for more details.
+- One or more packages recorded in the lockfile are not installed.
+- Use `renv::status()` for more details.
+The following required system packages are not installed:
+- pandoc  [required by knitr, rmarkdown]
+The R packages depending on these system packages may fail to install.
+
+An administrator can install these packages with:
+- sudo apt install pandoc
+
+The following package(s) will be updated:
+
+# CRAN -----------------------------------------------------------------------
+- base64enc   [0.1-6 -> 0.1-3]
+- bslib       [0.11.0 -> 0.9.0]
+- cli         [3.6.6 -> 3.6.5]
+- digest      [0.6.39 -> 0.6.37]
+- evaluate    [1.0.5 -> 1.0.4]
+- glue        [1.8.1 -> 1.8.0]
+- highr       [0.12 -> 0.11]
+- htmltools   [0.5.9 -> 0.5.8.1]
+- knitr       [1.51 -> 1.50]
+- lifecycle   [1.0.5 -> 1.0.4]
+- rappdirs    [0.3.4 -> 0.3.3]
+- rlang       [1.2.0 -> 1.1.6]
+- rmarkdown   [2.31 -> 2.29]
+- tinytex     [0.59 -> 0.57]
+- xfun        [0.58 -> 0.52]
+- yaml        [2.3.12 -> 2.3.10]
+
+# RSPM -----------------------------------------------------------------------
+- fs          [repo: CRAN -> RSPM; ver: 2.1.0 -> 1.6.6]
+
+# https://kazuyanagimoto.r-universe.dev --------------------------------------
+- typstcv     [* -> 0.0.2.4]
+
+# Downloading packages -------------------------------------------------------
+- Downloading rmarkdown from CRAN ...           OK [2.1 Mb in 0.27s]
+- Downloading bslib from CRAN ...               OK [5.2 Mb in 0.16s]
+- Downloading base64enc from CRAN ...           OK [7.7 Kb in 0.24s]
+- Downloading rlang from CRAN ...               OK [747.5 Kb in 0.25s]
+- Downloading htmltools from CRAN ...           OK [132.3 Kb in 0.3s]
+- Downloading digest from CRAN ...              OK [226.3 Kb in 0.31s]
+- Downloading lifecycle from CRAN ...           OK [105.8 Kb in 0.23s]
+- Downloading cli from CRAN ...                 OK [623.3 Kb in 0.13s]
+- Downloading glue from CRAN ...                OK [123.6 Kb in 0.14s]
+- Downloading fs from RSPM ...                  OK [1.1 Mb in 0.23s]
+- Downloading rappdirs from CRAN ...            OK [11.9 Kb in 0.21s]
+- Downloading evaluate from CRAN ...            OK [38.3 Kb in 0.43s]
+- Downloading knitr from CRAN ...               OK [521.8 Kb in 0.27s]
+- Downloading highr from CRAN ...               OK [12.7 Kb in 0.13s]
+- Downloading xfun from CRAN ...                OK [173.5 Kb in 0.19s]
+- Downloading yaml from CRAN ...                OK [92.8 Kb in 0.21s]
+- Downloading tinytex from CRAN ...             OK [35.7 Kb in 0.21s]
+- Querying repositories for available source packages ... Done!
+- Downloading typstcv from https://kazuyanagimoto.r-universe.dev ... OK [102.6 Kb in 0.25s]
+Successfully downloaded 18 packages in 7.7 seconds.
+
+# Installing packages --------------------------------------------------------
+- Installing base64enc ...                      FAILED
+Traceback (most recent calls last):
+13: renv::restore()
+12: renv_restore_run_actions(project, diff, current, lockfile, rebuild)
+11: renv_install_impl(records)
+10: renv_install_staged(records)
+ 9: renv_install_default(records)
+ 8: handler(package, renv_install_package(record))
+ 7: renv_install_package(record)
+ 6: withCallingHandlers(renv_install_package_impl(record), error = function(e) writef("FAILED"))
+ 5: renv_install_package_impl(record)
+ 4: r_cmd_install(package, path)
+ 3: r_exec_error(package, output, "install", status)
+ 2: abort(all)
+ 1: stop(fallback)

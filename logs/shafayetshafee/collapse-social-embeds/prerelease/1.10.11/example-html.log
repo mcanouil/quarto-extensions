@@ -1,0 +1,432 @@
+pandoc 
+
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Collapse-social-embeds Example
+  author: Shafayet Khan Shafee
+  date: last-modified
+  
+
+Error running filte
+r /opt/quarto/share/filters/main.lua:
+Could not fetch https://publish.twitter.com/oembed?url=https://twitter.com/pandoc_tips/status/1576105972103516160&align=center
+HttpExceptionRequest Request {
+  host               
+  = "publish.x.com"
+  port                 = 443
+  secure               = True
+
+  requestHeaders       = []
+  path                 = "/oembed"
+  que
+ryString          = "?url=https://twitter.com/pandoc_tips/sta
+tus/1576105972103516160&align=center"
+  method               = "GET"
+
+  proxy                = Nothing
+  rawBody         
+     = False
+  redirectCount        = 1
+0
+  responseTimeout      = ResponseTimeoutDefault
+
+  requestVersion       = HTTP/1.1
+  proxySecureMode      = Pro
+xySecureWithConnect
+}
+ (StatusCodeExc
+eption (Response {responseStatus = 
+Status {statusCode = 404, sta
+tusMessage = "Not Found"},
+ responseVersion = HTTP/1.1, resp
+onseHeaders = [("Date","Mon,
+ 15 Jun 2026 16:32:39 GMT
+"),("Content-Type","text/html;ch
+arset=utf-8"),("Transfer-E
+ncoding","chunked"),("Co
+nnection","keep-alive"),(
+"perf","7402827104"),("Serve
+r","cloudflare envoy"),("
+Set-Cookie","guest_id_mark
+eting=v1%3A1781541159327
+37912; Max-Age=63072000; 
+Expires=Wed, 14 Jun 2028 
+16:32:39 GMT; Path=/; Do
+main=.x.com; Secure; Sam
+eSite=None"),("Set-Cookie
+","guest_id_ads=v1%3A1781541159
+32737912; Max-Age=6307200
+0; Expires=Wed, 14 Jun 20
+28 16:32:39 GMT; Path=/;
+ Domain=.x.com; Secure; S
+ameSite=None"),("Set-Co
+okie","personalization_id
+=\"v1_cbsmHsEzHGstlf+F8V
+DgpQ==\"; Max-Age=6307200
+0; Expires=Wed, 14 Jun 20
+28 16:32:39 GMT; Path=/;
+ Domain=.x.com; Secure; 
+SameSite=None"),("Set-Co
+okie","guest_id=v1%3A178
+154115932737912; Max-Age=63072000; E
+xpires=Wed, 14 Jun 2028 16:
+32:39 GMT; Path=/; Domain=.x.com; Secur
+e; SameSite=None"),("set-co
+okie","__cf_bm=68AlUw7Ptul
+.hzDw3VQ3eUZXVjK3V_mGMmBE_2xBmfk-1
+781541159.3136263-1.0.1.1-b9_yElbIfDNUR.Mb_nn2PTTYRFrvFCneGZkNmDXJc2njj9N4zP_7kNtydEKeBMuD.DFZSwB7J8ttqj3DVUhGecaS_S33x7b1AkMzummtZsdkQZlzcXYmuALbydwHiO2P; HttpOnly; Secure; Path=/; Domain=x.com; Expires=Mon, 15 Jun 2026 17:
+02:39 GMT"),("Cache-Control","max-age=0, 
+no-cache, no-store"),("x-fra
+me-options","SAMEORIGIN"),("x-trans
+action-id","6a4ef9a605c602ce"),("x-xss-
+protection","0"),("content-d
+isposition","attachment; 
+filename=json.json"),("x
+-content-type-options","n
+osniff"),("content-secur
+ity-policy","default-s
+rc 'none'; img-src https:
+//abs.twimg.com; script
+-src https://abs.twimg.co
+m about:; style-src http
+s://abs.twimg.com 'unsa
+fe-inline'; font-src https://abs
+.twimg.com https://twitter
+.com; connect-src 'none'; objec
+t-src 'none'; media-src 'none
+'; frame-src 'none'; report
+-uri https://twitter.com/
+i/csp_report?a=ORTGK%3D
+%3D%3D&ro=false"),("vary
+","accept-encoding"),("x
+-response-time","9"),("
+origin-cf-ray","a0c2f8d5
+bbf74833-SJC"),("strict
+-transport-security","m
+ax-age=631138519; includ
+eSubdomains"),("x-serve
+d-by","t4_p"),("cf-cach
+e-status","DYNAMIC"),("
+Content-Encoding","gzip"
+),("CF-RAY","a0c2f8d5bbf7
+4833-SJC")], responseBo
+dy = (), responseCookieJar
+ = CJ {expose = [Cookie {coo
+kie_name = "__cf_bm", coo
+kie_value = "68AlUw7Ptul
+.hzDw3VQ3eUZXVjK3V_mGMmB
+E_2xBmfk-1781541159.3136
+263-1.0.1.1-b9_yElbIfD
+NUR.Mb_nn2PTTYRFrvFCneGZ
+kNmDXJc2njj9N4zP_7kNtyd
+EKeBMuD.DFZSwB7J8ttqj3D
+VUhGecaS_S33x7b1AkMzumm
+tZsdkQZlzcXYmuALbydwHiO
+2P", cookie_expiry_time
+ = 3025-10-16 00:00:00 U
+TC, cookie_domain = "x.
+com", cookie_path = "/",
+ cookie_creation_time = 
+2026-06-15 16:32:39.3480
+42277 UTC, cookie_last_access_t
+ime = 2026-06-15 16:32:3
+9.348042277 UTC, cookie_
+persistent = False, coo
+kie_host_only = False, c
+ookie_secure_only = True
+, cookie_http_only = Tru
+e},Cookie {cookie_name =
+ "guest_id", cookie_val
+ue = "v1%3A178154115932
+737912", cookie_expiry_
+time = 2028-06-14 16:32:3
+9.348042277 UTC, cookie_domai
+n = "x.com", cookie_path =
+ "/", cookie_creation_time = 2026-06-15 16:32:39.348042277 UTC, cookie_last_access_time = 2026-06-
+15 16:32:39.348042277 UTC, cookie_persistent
+ = True, cookie_host_only 
+= False, cookie_secure_
+only = True, cookie_http_
+only = False},Cookie {cookie_name
+ = "personalization_id", cookie_
+value = "v1_cbsmHsEzHGst
+lf+F8VDgpQ==", cookie_exp
+iry_time = 2028-06-14 16:32:39.34
+8042277 UTC, cookie_domai
+n = "x.com", cookie_path = "/
+", cookie_creation_time =
+ 2026-06-15 16:32:39.34
+8042277 UTC, cook
+ie_
+last
+_ac
+cess_ti
+me = 2026-06-15 16:32:39.3480422
+77 UTC, cookie_persistent
+ = True, cookie_host_only
+ = False, cookie_secure
+_only = True, cookie_http_only = Fals
+e},Cookie {cookie_name =
+ "guest_id_ads", cookie_value = "v1%3A1
+78154115932737912", cookie_exp
+iry_time = 2028-06-14 16:32:
+39.348042277 UTC, cookie_
+domain = "x.com", cooki
+e_path = "/", cookie_cre
+ation_time = 2026-06-15
+ 16:32:39.348042277 UTC
+, cookie_last_access_ti
+me = 2026-06-15 16:32:39
+.348042277 UTC, cookie_p
+ersistent = True, cookie_h
+ost_only = False, cooki
+e_secure_only = True, c
+ookie_http_only = Fals
+e},Cookie {cookie_name 
+= "guest_id_marketing",
+ cookie_value = "v1%3A
+178154115932737912", cook
+ie_expiry_time = 2028-06-14 1
+6:32:39.348042277 UTC, c
+ookie_domain = "x.com",
+ cookie_path = "/", coo
+kie_creation_time = 202
+6-06-15 16:32:39.348042
+277 UTC, cookie_last_access_time 
+= 2026-06-15 16:32:39.3480422
+77 UTC, cookie_persistent
+ = True, cookie_host_only = False, 
+cookie_secure_only = Tru
+e, cookie_http_only = F
+alse},Cookie {cookie_nam
+e = "__cf_bm", cookie_va
+lue = "2ZEw8E31E8NsS2p
+2rns6DoTJLFRYfqJoiYcKz
+bCtGvk-1781541159.2200637-1.0.1.1-Ane
+PCMTQ_eRO7Ftzcx6kBKgi68hghemO
+lIMXyFd7sTptPaM3d7gRRCzTvjj
+gX1YCmHhs6UsLowWCkGS8FwD0xKU
+0i7eyNBkbzNsetGMv0M0twfcZpYR
+DO9HglVhPVrC1", cookie_expi
+ry_time = 3025-10-16 00:00:00 UTC, 
+cookie_domain = "twit
+ter.com", cookie_path = "/", c
+ookie_creation_time = 2026-06
+-15 16:32:39.247519892 UTC, 
+cookie_last_access_time = 
+2026-06-15 16:32:39.24751989
+2 UTC, cookie_persistent = False, cookie_host_only = False, cookie_secure_only = True, cookie_http_o
+nly = True}]}, responseClose' = ResponseCl
+ose, responseOriginalRequest = 
+Request {
+  host                 = "publis
+h.x.com"
+  port                 = 4
+43
+  secure               = T
+rue
+  requestHeaders       
+= []
+  path                 = "
+/oembed"
+  queryString          
+= "?url=https://twit
+ter.com/pandoc_tips/status/157610597210
+3516160&align=center"
+  method
+               = "GET"
+  proxy
+                = Nothing
+
+  rawBody              = Fa
+lse
+  redirectCount        = 
+10
+  responseTimeout      = 
+ResponseTimeoutDefault
+  req
+uestVersion       = HTTP/1.1
+
+  proxySecureMode      = Prox
+ySecureWithConnect
+}
+, respo
+nseEarlyHints = []}) "<!DOCT
+YPE html>\n<html lang=\"en\"
+ class=\"dog\">\n  <head>\n    <meta htt
+p-equiv=\"Content-Type\" content=\"text/html
+; charset=utf-8\">\n    <meta 
+name=\"viewport\" content=\"w
+idth=device-width, initial-s
+cale=1.0\">\n    <title>X / 
+?</title>\n    <meta name=
+\"version\" content=\"1\">\
+n    <link href=\"https://a
+bs.twimg.com/favicons/twit
+ter.3.ico\" rel=\"shortcut 
+icon\" type=\"image/x-icon\
+">\n    <link rel=\"stylesh
+eet\" href=\"https://abs.tw
+img.com/errors/fullscreen_
+errors-047ca1475a6efac7c9c8
+9a9ff92b7a20.css\">\n  </h
+ead>\n  <body dir=\"auto\"
+>\n    <div class=\"
+top\">\n      <sv
+g xmlns=\"http://www.w3.org/2000
+/svg\" viewBox=\"0
+ 0 1519 200\">\n        <defs/>\n      
+  <path d=\"M708 103l9-5 13 1 2-2 5 1h8l1-1 42-5h
+7l7 3v1l12-2a9368 9368 0 0129-6l2-5 12 1 6-2 3 1 2 1v-2l13-2v1l4 
+2 7-1h1l17-3 1 2 4-1 18-7 3-1 4-1h9l
+13-1 1-4 3-2 13 1v2l22-2 10-3h6l10 5 16-5 15-3 2-1 8-4 6-2 12-1 7-2 8
+ 5 7 1 22-9h7l5-1v-1l25-3 1 2 5 2v1h11l2
+ 1 8-4h3l-1 1h11l10-6 6 3 9-1 4-1 1 1 1-2 6-1 1-1 10-2
+h2l7-5v1h4l3-1c11 0 23 2 34-3 2-2 7 0 10 0l12 1 4 1 9 
+2 12-1 11-3 11 1h4l10-6 17 1 2 1c9 2 19-3 22-11l1-1 9 1 1
+5-5c3-1 9 4 9-5 5 0 5 3 5 7l2 3 4-1 4-2 9-4 3-3h3l8-4 6-
+3 26 2 7-4h18l7 1c10 3 13-6 17-12l8 4 3-1 14-3 15-2a3
+8 38 0 01-5-1l-8-4 7-8 8-4-10-136-922 71 16 205z\"/
+>\n        <path d=\"M-36 193l9-5 13 1 2-2 5 1
+h8l1-1 42-5h7l7 3v1l12-2a9328 
+9328 0 0129-6l2-5 12 1 6-2 3 1 2 
+1v-2l13-2v1l4 2 7-1h1l17-3 1 2 4-1 18-7 
+3-1 4-1h9l13-1 1-4 3-2 13 1v2l22-2 10-3h6l10 5
+ 16-5 15-3 2-1 8-4 6-2 12-1 7-2 8 5 7 1 22-9h
+7l5-1v-1l25-3 1 2 5 2v1h11l2 1
+ 8-4h3l-1 1h9a6 6 0 002 
+0l10-6 6 3 9-1 4-1a6 6 0 001
+ 1l1-2 6-1 1-1 10-2h2l7-5v1
+h4l3-1c11 0 23 2 34-3 2-2 
+7 0 10 0l12 1 4 1 9 2 12-1 11-3
+ 11 1h4l10-6 17 1 2 1c9 2 
+19-3 22-11l1-1 9 1 15-5c3
+-1 9 4 9-5 5 0 5 3 5 7l2 
+3 4-1 4-2 9-4 3-3h3l8-4 6-3 26 2 7-4h18l7 1c10 3 13-6 17-12l8 4 3-1 14-3 15-2a37 37 0 01-5-1
+l-8-4 7-8 8-4-10-136-922 71 16 205z\"/>\n  
+    </svg>\n    </div>\n    <div
+ class=\"container")
+stack 
+traceback:
+	...nsions/coll
+apse-social-embeds/collap
+se-social-embeds.lua:143:
+ in function <...nsions/col
+lapse-social-embeds/collapse
+-social-embeds.lua:131>
+	[C
+]: in ?
+	[C]: in method 'wa
+lk'
+	...nsions/collapse-so
+cial-embeds/collapse-soci
+al-embeds.lua:242: in fun
+ction <...nsions/collapse
+-social-embeds/collapse-s
+ocial-embeds.lua:236>
+	[C]
+: in ?
+	[C]: in method 'walk'
+
+	/opt/quarto/share/pando
+c/datadir/_utils.lua:607
+: in function '_utils.walk'
+
+	/opt/quarto/share/filt
+ers/main.lua:574: in local 'checked_walk'
+	/o
+pt/quarto/share/filters/main.lua
+:629: in function 'run_emu
+lated_filter'
+	/opt/quarto/s
+hare/filters/main.lua:1
+317: in local 'callback'
+
+	[string "if pandoc.syste
+m.os == "mingw32" then..
+."]:778: in field 'withScr
+iptFile'
+	/opt/quarto/share/f
+ilters/main.lua:1
+333: in upvalue 'run_emulated_filter_ch
+ain'
+	/opt/quarto/share/filters/ma
+in.lua:1371: in function </opt/quarto/s
+hare/filters/main.lua:1368>
+stack tracebac
+k:
+	...nsions/collapse-soci
+al-embeds/collapse-social-e
+mbeds.lua:242: in function
+ <...nsions/collapse-social-embeds/collap
+se-social-embeds.lua:236>
+	
+[C]: in ?
+	[C]: in method 
+'walk'
+	/opt/quarto/shar
+e/pandoc/datadir/_utils.l
+ua:607: in function '_util
+s.walk'
+	/opt/quarto/sha
+re/filters/main.lua:574: 
+in local 'checked_walk'
+	/opt
+/quarto/share/fi
+lters/main.lua:
+629: in functio
+n 'run_emulated
+_filter'
+	/opt
+/quarto/share/
+filters/main.lua:1317: in l
+ocal 'callback'
+	[string "if pando
+c.system.os == "mingw32" then..."]:778: in field 'with
+ScriptFile'
+	/opt/quarto/share/filters/main.lua:1333: in upvalue 'run_
+emulated_filter_chain'
+	/opt/quart
+o/share/filters/main.lua:1371: in function </opt
+/quarto/share/filters/main.lua
+:1368>
+stack traceback:
+	/o
+pt/quarto/share/pandoc/data
+dir/_utils.lua:607: in fun
+ction '_utils.walk'
+	/opt/
+quarto/share/filters/main.lua:5
+74: in local 'checked_walk'
+	/
+opt/quarto/share/filters/
+main.lua:629: in function 
+'run_emulated_filter'
+	/
+opt/quarto/share/filters
+/main.lua:1317: in local 'callback'
+	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
+	/opt/
+quarto/share/filters/main.lua:1333: in upvalue 'run_emul
+ated_filter_chain'
+	/opt/quart
+o/share/filters/main.lua
+:1371: in function </opt
+/quarto/share/filters/ma
+in.lua:1368>
+
+(WARN) Error encountered when rendering files
+
