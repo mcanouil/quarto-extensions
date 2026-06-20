@@ -50,12 +50,12 @@ jobs:
       FORCE_UPDATE: ${{ github.event.inputs.force_update }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: ${{ env.BRANCH }}
 
       - name: Checkout repository with sparse checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           sparse-checkout: ${{ env.CSV_FILE }}
           sparse-checkout-cone-mode: false
@@ -102,7 +102,7 @@ jobs:
           git checkout "${BRANCH}"
 
       - name: Checkout scripts from main branch
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: main
           sparse-checkout: .github/scripts
@@ -147,7 +147,7 @@ jobs:
       RENAMED_EXTENSIONS: ${{ needs.get-extensions.outputs.renamed-extensions }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: ${{ env.BRANCH }}
 

@@ -17,7 +17,7 @@ jobs:
       COMMIT: "ci: get quarto-web extensions"
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Create GitHub App token
         uses: actions/create-github-app-token@v3
