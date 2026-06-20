@@ -33,14 +33,14 @@ jobs:
       skipped: ${{ steps.matrix.outputs.skipped }}
     steps:
       - name: Checkout scripts
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           sparse-checkout: .github/scripts/test-extensions
           sparse-checkout-cone-mode: false
           path: _scripts
 
       - name: Checkout quarto-wizard branch
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: quarto-wizard
           path: _data
@@ -84,7 +84,7 @@ jobs:
       QUARTO_CHANNEL: ${{ matrix.quarto_channel }}
     steps:
       - name: Checkout scripts
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           sparse-checkout: .github/scripts/test-extensions
           sparse-checkout-cone-mode: false
@@ -190,7 +190,7 @@ jobs:
 
       - name: Checkout quarto-tests branch
         if: steps.setup.outputs.branch-exists == 'true'
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: quarto-tests
           token: ${{ steps.app-token.outputs.token }}
@@ -228,7 +228,7 @@ jobs:
           merge-multiple: true
 
       - name: Checkout scripts
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           sparse-checkout: .github/scripts/test-extensions
           sparse-checkout-cone-mode: false
