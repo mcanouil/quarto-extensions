@@ -359,7 +359,8 @@ jobs:
               line_number=$(grep -n "${entry}" ${CSV_FILE} | cut -d: -f1 | tail -n 1)
 
               if [[ -z "${tree}" ]]; then
-                errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "Could not retrieve repository file tree to verify the extension structure."}]')
+                error_message="Could not retrieve repository file tree to verify the extension structure."
+                errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" --arg message "${error_message}" '. += [{"line": $line, "message": $message}]')
                 error=true
                 continue
               fi
@@ -368,7 +369,8 @@ jobs:
 
               has_extension=$(echo "${tree}" | grep -E "^${ext_prefix}_extensions/[^/]+/_extension\.ya?ml$" | head -n 1 || true)
               if [[ -z "${has_extension}" ]]; then
-                errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "Repository is missing a valid Quarto extension structure (\`_extensions/<name>/_extension.yml\`)."}]')
+                error_message="Repository is missing a valid Quarto extension structure (\`_extensions/<name>/_extension.yml\`)."
+                errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" --arg message "${error_message}" '. += [{"line": $line, "message": $message}]')
                 error=true
               fi
             done < diff.patch
