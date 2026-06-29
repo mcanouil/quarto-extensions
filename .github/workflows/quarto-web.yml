@@ -12,9 +12,6 @@ permissions:
 jobs:
   quarto-web:
     runs-on: ubuntu-latest
-    env:
-      BRANCH: ci/get-quarto-web-extensions
-      COMMIT: "ci: get quarto-web extensions"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -66,20 +63,25 @@ jobs:
             echo "No new extensions to add."
             exit 0
           fi
-          if git show-ref --quiet refs/heads/${BRANCH}; then
-            echo "Branch ${BRANCH} already exists."
-            git branch -D "${BRANCH}"
-            git push origin --delete "${BRANCH}"
-          fi
-          git checkout -b "${BRANCH}"
-          echo "${extensions_to_add}" >> "${CSV_FILE}"
-          git add "${CSV_FILE}"
-          git commit -m "${COMMIT}"
-          git push --force origin ${BRANCH}
 
-          gh pr create \
-            --fill-first \
-            --base "main" \
-            --head "${BRANCH}" \
-            --label "Type: CI/CD :robot:" \
-            --reviewer "${GITHUB_REPOSITORY_OWNER}"
+          while IFS= read -r extension; do
+            [[ -z "${extension}" ]] && continue
+            slug=$(echo "${extension}" | tr '/' '-')
+            branch="ci/get-quarto-web-extension-${slug}"
+
+            git checkout -B "${branch}" main --quiet
+            echo "${extension}" >> "${CSV_FILE}"
+            git add "${CSV_FILE}"
+            git commit -m "ci: add ${extension} from quarto-web"
+            git push --force origin "${branch}"
+
+            if [[ -z "$(gh pr list --head "${branch}" --state open --json number --jq '.[].number')" ]]; then
+              gh pr create \
+                --title "ci: add ${extension} from quarto-web" \
+                --body "Add \`${extension}\` discovered on the Quarto website." \
+                --base "main" \
+                --head "${branch}" \
+                --label "Type: CI/CD :robot:" \
+                --reviewer "${GITHUB_REPOSITORY_OWNER}"
+            fi
+          done <<< "${extensions_to_add}"
