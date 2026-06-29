@@ -329,6 +329,72 @@ jobs:
           echo "No changes to ${CSV_FILE} found"
           exit 0
 
+  check-structure:
+    runs-on: ubuntu-latest
+    needs: check-submission
+    outputs:
+      errors: ${{ steps.store-errors.outputs.errors }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 2
+      - name: Check for extension structure
+        if: needs.check-submission.outputs.submission == 'true'
+        id: check
+        env:
+          DIFF: ${{ needs.check-submission.outputs.diff }}
+        shell: bash
+        run: |
+          echo ${DIFF} | base64 --decode > diff.patch
+          error=false
+          errors_json="[]"
+          if [[ -s diff.patch ]]; then
+            while IFS=, read -r entry; do
+              repo=$(echo "${entry}" | cut -d'/' -f1-2)
+              subdir=$(echo "${entry}" | cut -d'/' -f3-)
+
+              tree=$(gh api "repos/${repo}/git/trees/HEAD?recursive=1" --jq '.tree[].path' 2>/dev/null || true)
+
+              line_number=$(grep -n "${entry}" ${CSV_FILE} | cut -d: -f1 | tail -n 1)
+
+              if [[ -z "${tree}" ]]; then
+                errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "Could not retrieve repository file tree to verify the extension structure."}]')
+                error=true
+                continue
+              fi
+
+              ext_prefix="${subdir:+${subdir}/}"
+
+              has_extension=$(echo "${tree}" | grep -E "^${ext_prefix}_extensions/[^/]+/_extension\.ya?ml$" | head -n 1 || true)
+              if [[ -z "${has_extension}" ]]; then
+                errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "Repository is missing a valid Quarto extension structure (\`_extensions/<name>/_extension.yml\`)."}]')
+                error=true
+              fi
+            done < diff.patch
+          fi
+          echo "errors=${errors_json}" >> ${GITHUB_OUTPUT}
+          if [[ "${error}" == "true" ]]; then
+            exit 1
+          fi
+      - name: Store errors
+        if: always() && needs.check-submission.outputs.submission == 'true'
+        id: store-errors
+        env:
+          errors: ${{ steps.check.outputs.errors }}
+        shell: bash
+        run: |
+          if [[ -z "${errors}" ]]; then
+            errors="[]"
+          fi
+          echo "errors=${errors}" >> ${GITHUB_OUTPUT}
+      - name: End of check
+        if: needs.check-submission.outputs.submission == 'false'
+        shell: bash
+        run: |
+          echo "No changes to ${CSV_FILE} found"
+          exit 0
+
   check-wizard:
     runs-on: ubuntu-latest
     needs: check-submission
@@ -417,6 +483,7 @@ jobs:
       - check-description
       - check-release
       - check-redirection
+      - check-structure
       - check-wizard
     if: always()
     steps:
@@ -434,11 +501,13 @@ jobs:
           DESCRIPTION_RESULT: ${{ needs.check-description.result }}
           RELEASE_RESULT: ${{ needs.check-release.result }}
           REDIRECTION_RESULT: ${{ needs.check-redirection.result }}
+          STRUCTURE_RESULT: ${{ needs.check-structure.result }}
           DUPLICATE_ERRORS: ${{ needs.check-duplicate.outputs.errors }}
           TOPICS_ERRORS: ${{ needs.check-topics.outputs.errors }}
           DESCRIPTION_ERRORS: ${{ needs.check-description.outputs.errors }}
           RELEASE_ERRORS: ${{ needs.check-release.outputs.errors }}
           REDIRECTION_ERRORS: ${{ needs.check-redirection.outputs.errors }}
+          STRUCTURE_ERRORS: ${{ needs.check-structure.outputs.errors }}
           WIZARD_NOTES: ${{ needs.check-wizard.outputs.notes }}
         shell: bash
         run: |
@@ -454,7 +523,8 @@ jobs:
                 "${TOPICS_RESULT}" == "failure" || \
                 "${DESCRIPTION_RESULT}" == "failure" || \
                 "${RELEASE_RESULT}" == "failure" || \
-                "${REDIRECTION_RESULT}" == "failure" ]]; then
+                "${REDIRECTION_RESULT}" == "failure" || \
+                "${STRUCTURE_RESULT}" == "failure" ]]; then
             errors_found=true
           fi
 
@@ -466,7 +536,8 @@ jobs:
             "${TOPICS_ERRORS}" \
             "${DESCRIPTION_ERRORS}" \
             "${RELEASE_ERRORS}" \
-            "${REDIRECTION_ERRORS}"; do
+            "${REDIRECTION_ERRORS}" \
+            "${STRUCTURE_ERRORS}"; do
               if [[ "${errors_json}" != "[]" && "${errors_json}" != "" ]]; then
                 while read -r error_obj; do
                   line=$(echo "${error_obj}" | jq -r ".line")
