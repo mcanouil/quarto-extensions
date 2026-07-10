@@ -4,38 +4,24 @@ set -euo pipefail
 # Prepare the local 'render-image' used by clone-extensions.sh and
 # render-extensions.sh: pull the test image and apply a job-level overlay
 # (TinyTeX ownership fix so tlmgr works when the container runs as host UID:GID).
-# Inputs (env): IMAGE (digest-pinned ref, or tag when REQUIRE_DIGEST=false),
-#               REQUIRE_DIGEST (default true)
+# Inputs (env): IMAGE (digest-pinned ref, or a tag that gets resolved to one)
 # Outputs: docker image tagged 'render-image'
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=retry.sh
 source "${SCRIPT_DIR}/retry.sh"
 
-REQUIRE_DIGEST="${REQUIRE_DIGEST:-true}"
+if ! retry 3 5 docker pull "${IMAGE}"; then
+	echo "::error::Failed to pull image '${IMAGE}'."
+	exit 1
+fi
 
-if [[ "${REQUIRE_DIGEST}" == "true" ]]; then
-	if [[ ! "${IMAGE}" =~ @sha256:[0-9a-f]{64}$ ]]; then
-		echo "::error::Image reference '${IMAGE}' is not a valid digest-pinned reference."
-		exit 1
-	fi
-	if ! retry 3 5 docker pull "${IMAGE}"; then
-		echo "::error::Failed to pull image '${IMAGE}'."
-		exit 1
-	fi
+if [[ "${IMAGE}" =~ @sha256:[0-9a-f]{64}$ ]]; then
 	image_ref="${IMAGE}"
 else
-	if ! retry 3 5 docker pull "${IMAGE}"; then
-		echo "::error::Failed to pull image '${IMAGE}'."
-		exit 1
-	fi
 	image_ref=$(docker image inspect --format='{{index .RepoDigests 0}}' "${IMAGE}" 2>/dev/null || true)
-	if [[ -z "${image_ref}" ]]; then
-		echo "::error::Failed to resolve digest for image '${IMAGE}'."
-		exit 1
-	fi
 	if [[ ! "${image_ref}" =~ @sha256:[0-9a-f]{64}$ ]]; then
-		echo "::error::Resolved image reference '${image_ref}' is not a valid digest-pinned reference."
+		echo "::error::Failed to resolve a digest-pinned reference for image '${IMAGE}' (got '${image_ref}')."
 		exit 1
 	fi
 fi

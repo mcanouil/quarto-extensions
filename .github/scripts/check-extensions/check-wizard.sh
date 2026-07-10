@@ -10,19 +10,15 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${SCRIPT_DIR}/lib.sh"
 
 while IFS=, read -r entry; do
-	repo=$(echo "${entry}" | cut -d'/' -f1-2)
-	subdir=$(echo "${entry}" | cut -d'/' -f3-)
+	repo=$(entry_repo "${entry}")
+	subdir=$(entry_subdir "${entry}")
 
-	tree=$(gh api "repos/${repo}/git/trees/HEAD?recursive=1" --jq '.tree[].path' 2>/dev/null || true)
+	tree=$(fetch_repo_tree "${repo}")
 	if [[ -z "${tree}" ]]; then
 		continue
 	fi
 
-	if [[ -n "${subdir}" ]]; then
-		ext_prefix="${subdir}/"
-	else
-		ext_prefix=""
-	fi
+	ext_prefix="${subdir:+${subdir}/}"
 
 	has_extension=$(echo "${tree}" | grep -E "^${ext_prefix}_extensions/[^/]+/_extension\.yml$" | head -n 1 || true)
 	if [[ -z "${has_extension}" ]]; then

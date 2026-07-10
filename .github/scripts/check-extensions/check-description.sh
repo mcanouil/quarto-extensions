@@ -9,7 +9,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${SCRIPT_DIR}/lib.sh"
 
 while IFS=, read -r entry; do
-	repo=$(echo "${entry}" | cut -d'/' -f1-2)
+	repo=$(entry_repo "${entry}")
 	repo_description=$(gh repo view --json description "${repo}" --jq ".description")
 	if [[ -z "${repo_description}" ]]; then
 		add_error "${entry}" "Repository is missing description."

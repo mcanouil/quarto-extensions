@@ -143,7 +143,6 @@ render_extension() {
 
 		# Phase B: Render
 		if [[ "${status}" == "pass" ]]; then
-			touch "${results_dir}/${i}.rendered"
 			render_rc=0
 			docker_run_render 300 "${workdir}" "${log_dir}" "${render_dir}" "${shard}" \
 				-e EXT_TYPE="${ext_type}" \
@@ -190,8 +189,8 @@ render_extension() {
 }
 
 # Static interleaved sharding: shard w renders indices i where
-# i % RENDER_CONCURRENCY == w. Results and render markers are per-index
-# files because subshell variable updates do not propagate to the parent.
+# i % RENDER_CONCURRENCY == w. Results are per-index files because subshell
+# variable updates do not propagate to the parent.
 render_shard() {
 	local shard="$1"
 	local i
@@ -213,14 +212,15 @@ done
 
 shopt -s nullglob
 result_files=("${results_dir}"/*.json)
+shopt -u nullglob
 if ((${#result_files[@]} > 0)); then
 	jq -sc '.' "${result_files[@]}" >results.json
 else
 	echo '[]' >results.json
 fi
-render_markers=("${results_dir}"/*.rendered)
-render_count=${#render_markers[@]}
-shopt -u nullglob
+# A render was executed exactly when the extension passed or failed at the
+# render stage (earlier stages never reach quarto render).
+render_count=$(jq '[.[] | select(.status == "pass" or .stage == "render")] | length' results.json)
 
 if [[ "${ext_count}" -gt 0 ]] && [[ "${render_count}" -eq 0 ]]; then
 	echo "::error::No quarto render was executed for ${ext_count} extensions."

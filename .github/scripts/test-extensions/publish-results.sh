@@ -94,7 +94,7 @@ read -r run_total run_pass run_fail run_skip run_fail_deps run_fail_render run_f
         | if any(. == "deps") then "deps" elif any(. == "render") then "render" else "other" end]) as $fail_stages
     | ($fail_stages | map(select(. == "deps")) | length) as $run_fail_deps
     | ($fail_stages | map(select(. == "render")) | length) as $run_fail_render
-    | ($run_fail - $run_fail_deps - $run_fail_render) as $run_fail_other
+    | ($fail_stages | map(select(. == "other")) | length) as $run_fail_other
     | [$run_total, $run_pass, $run_fail, $run_skip, $run_fail_deps, $run_fail_render, $run_fail_other] | @tsv
   ' "${current_run_file}"
 )

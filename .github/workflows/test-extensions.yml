@@ -85,7 +85,7 @@ jobs:
     env:
       IMAGE: ${{ matrix.image_ref }}
       QUARTO_CHANNEL: ${{ matrix.quarto_channel }}
-      RENDER_CONCURRENCY: ${{ inputs.render_concurrency || '2' }}
+      RENDER_CONCURRENCY: ${{ inputs.render_concurrency }}
     steps:
       - name: Checkout scripts
         uses: actions/checkout@v7

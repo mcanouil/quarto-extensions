@@ -306,24 +306,23 @@ jobs:
   check-render:
     runs-on: ubuntu-latest
     needs: check-submission
+    if: needs.check-submission.outputs.submission == 'true'
     timeout-minutes: 30
     permissions:
       contents: read
       packages: read
     outputs:
-      errors: ${{ steps.store-results.outputs.errors }}
-      notes: ${{ steps.store-results.outputs.notes }}
+      errors: ${{ steps.check.outputs.errors || '[]' }}
+      notes: ${{ steps.check.outputs.notes || '[]' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
         with:
           fetch-depth: 2
       - name: Log in to ghcr.io
-        if: needs.check-submission.outputs.submission == 'true'
         shell: bash
         run: echo "${GITHUB_TOKEN}" | docker login ghcr.io -u "${GITHUB_ACTOR}" --password-stdin
       - name: Pre-flight render
-        if: needs.check-submission.outputs.submission == 'true'
         id: check
         env:
           DIFF: ${{ needs.check-submission.outputs.diff }}
@@ -332,36 +331,14 @@ jobs:
           QUARTO_CHANNEL: release
         shell: bash
         run: bash .github/scripts/check-extensions/preflight-render.sh
-      - name: Store results
-        if: always() && needs.check-submission.outputs.submission == 'true'
-        id: store-results
-        env:
-          errors: ${{ steps.check.outputs.errors }}
-          notes: ${{ steps.check.outputs.notes }}
-        shell: bash
-        run: |
-          if [[ -z "${errors}" ]]; then
-            errors="[]"
-          fi
-          if [[ -z "${notes}" ]]; then
-            notes="[]"
-          fi
-          echo "errors=${errors}" >> ${GITHUB_OUTPUT}
-          echo "notes=${notes}" >> ${GITHUB_OUTPUT}
       - name: Upload render logs
-        if: always() && needs.check-submission.outputs.submission == 'true'
+        if: always()
         uses: actions/upload-artifact@v7
         with:
           name: preflight-render-logs
           path: logs/
           retention-days: 7
           if-no-files-found: ignore
-      - name: End of check
-        if: needs.check-submission.outputs.submission == 'false'
-        shell: bash
-        run: |
-          echo "No changes to ${CSV_FILE} found"
-          exit 0
 
   summary:
     runs-on: ubuntu-latest
@@ -402,7 +379,6 @@ jobs:
           RENDER_RESULT: ${{ needs.check-render.result }}
           RENDER_ERRORS: ${{ needs.check-render.outputs.errors }}
           RENDER_NOTES: ${{ needs.check-render.outputs.notes }}
-          RENDER_BLOCKING: ${{ vars.CHECK_RENDER_BLOCKING || 'false' }}
         shell: bash
         run: |
           echo "## Extension Check Summary" >> "${GITHUB_STEP_SUMMARY}"
@@ -412,28 +388,16 @@ jobs:
 
           declare -A mention_owners
 
-          # Pre-flight render failures block only when CHECK_RENDER_BLOCKING is
-          # true; otherwise they are advisory (own section, PR stays mergeable).
-          RENDER_BLOCKING_ERRORS="[]"
-          RENDER_ADVISORY_ERRORS="[]"
-          if [[ "${RENDER_BLOCKING}" == "true" ]]; then
-            RENDER_BLOCKING_ERRORS="${RENDER_ERRORS:-[]}"
-          else
-            RENDER_ADVISORY_ERRORS="${RENDER_ERRORS:-[]}"
-          fi
-
+          # The pre-flight render script emits blocking failures as errors and
+          # advisory ones as notes, and only exits non-zero when blocking.
           errors_found=false
           if [[ "${DUPLICATE_RESULT}" == "failure" || \
                 "${TOPICS_RESULT}" == "failure" || \
                 "${DESCRIPTION_RESULT}" == "failure" || \
                 "${RELEASE_RESULT}" == "failure" || \
-                "${REDIRECTION_RESULT}" == "failure" ]]; then
-            errors_found=true
-          fi
-          if [[ "${STRUCTURE_RESULT}" == "failure" ]]; then
-            errors_found=true
-          fi
-          if [[ "${RENDER_BLOCKING}" == "true" && "${RENDER_RESULT}" == "failure" ]]; then
+                "${REDIRECTION_RESULT}" == "failure" || \
+                "${STRUCTURE_RESULT}" == "failure" || \
+                "${RENDER_RESULT}" == "failure" ]]; then
             errors_found=true
           fi
 
@@ -447,7 +411,7 @@ jobs:
             "${RELEASE_ERRORS}" \
             "${REDIRECTION_ERRORS}" \
             "${STRUCTURE_ERRORS}" \
-            "${RENDER_BLOCKING_ERRORS}"; do
+            "${RENDER_ERRORS}"; do
               if [[ "${errors_json}" != "[]" && "${errors_json}" != "" ]]; then
                 while read -r error_obj; do
                   line=$(echo "${error_obj}" | jq -r ".line")
@@ -478,36 +442,6 @@ jobs:
             echo "✅ All checks passed successfully!" >> "${GITHUB_STEP_SUMMARY}"
             echo "" >> "${GITHUB_STEP_SUMMARY}"
             echo "🔍 [View workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})" >> "${GITHUB_STEP_SUMMARY}"
-          fi
-
-          if [[ "${RENDER_ADVISORY_ERRORS}" != "[]" && "${RENDER_ADVISORY_ERRORS}" != "" ]]; then
-            declare -A file_line_render
-
-            while read -r error_obj; do
-              line=$(echo "${error_obj}" | jq -r ".line")
-              message=$(echo "${error_obj}" | jq -r ".message")
-              if [[ -z "${file_line_render[${line}]}" ]]; then
-                file_line_render["${line}"]="- ⚠️ ${message}"
-              else
-                file_line_render["${line}"]+=$'\n- ⚠️ '"${message}"
-              fi
-            done < <(echo "${RENDER_ADVISORY_ERRORS}" | jq -c ".[]")
-
-            echo "---" >> "${GITHUB_STEP_SUMMARY}"
-            echo "" >> "${GITHUB_STEP_SUMMARY}"
-            echo "### Pre-flight render (advisory)" >> "${GITHUB_STEP_SUMMARY}"
-            echo "" >> "${GITHUB_STEP_SUMMARY}"
-            echo "These renders failed but do not block this submission." >> "${GITHUB_STEP_SUMMARY}"
-            echo "" >> "${GITHUB_STEP_SUMMARY}"
-
-            for line_number in $(echo "${!file_line_render[@]}" | tr ' ' '\n' | sort -n); do
-              entry=$(sed -n "${line_number}p" ${CSV_FILE})
-              mention_owners["${entry%%/*}"]=1
-              echo "#### Line [${line_number}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/pull/${NUMBER}/files#diff-${CSV_FILE_ENCODED}L${line_number}): [\`${entry}\`](${GITHUB_SERVER_URL}/${entry})" >> "${GITHUB_STEP_SUMMARY}"
-              echo "" >> "${GITHUB_STEP_SUMMARY}"
-              echo -e "${file_line_render[${line_number}]}" >> "${GITHUB_STEP_SUMMARY}"
-              echo "" >> "${GITHUB_STEP_SUMMARY}"
-            done
           fi
 
           ALL_NOTES=$(jq -cn \

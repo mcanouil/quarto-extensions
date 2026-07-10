@@ -5,23 +5,21 @@ set -euo pipefail
 # Reuses the test-extensions harness; results are reported via step outputs
 # (picked up by the summary job and sticky PR comment) and are never
 # committed anywhere. Logs are uploaded as workflow artefacts only.
-# Inputs (env): DIFF (base64-encoded added CSV lines), CSV_FILE,
+# Inputs (env): DIFF (base64-encoded added CSV lines), CSV_FILE, IMAGE,
 #               GITHUB_WORKSPACE, GITHUB_OUTPUT, GITHUB_TOKEN
-# Inputs (env, optional): IMAGE (default ghcr.io/mcanouil/quarto-extensions:release),
-#               QUARTO_CHANNEL (default release), MAX_PREFLIGHT_ENTRIES (default 5),
-#               BLOCKING (default false)
-# Outputs (GITHUB_OUTPUT): errors, notes (JSON arrays of {line, message})
+# Inputs (env, optional): QUARTO_CHANNEL (default release),
+#               MAX_PREFLIGHT_ENTRIES (default 5), BLOCKING (default false)
+# Outputs (GITHUB_OUTPUT): errors (blocking failures), notes (passes, skips,
+#               and advisory failures) — JSON arrays of {line, message}
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TEST_SCRIPTS_DIR="${SCRIPT_DIR}/../test-extensions"
 # shellcheck source=lib.sh
 source "${SCRIPT_DIR}/lib.sh"
-# shellcheck source=../test-extensions/retry.sh
-source "${TEST_SCRIPTS_DIR}/retry.sh"
 # shellcheck source=../test-extensions/classify-extension.sh
 source "${TEST_SCRIPTS_DIR}/classify-extension.sh"
 
-IMAGE="${IMAGE:-ghcr.io/mcanouil/quarto-extensions:release}"
+IMAGE="${IMAGE:?IMAGE is required (e.g. ghcr.io/<owner>/<repo>:release)}"
 QUARTO_CHANNEL="${QUARTO_CHANNEL:-release}"
 MAX_PREFLIGHT_ENTRIES="${MAX_PREFLIGHT_ENTRIES:-5}"
 BLOCKING="${BLOCKING:-false}"
@@ -50,9 +48,8 @@ for entry in "${entries[@]}"; do
 		add_note "${entry}" "Pre-flight render skipped: entry format not recognised."
 		continue
 	fi
-	repo=$(echo "${entry}" | cut -d'/' -f1-2)
-	subdir=$(echo "${entry}" | cut -d'/' -f3- -s)
-	subdir="${subdir%/}"
+	repo=$(entry_repo "${entry}")
+	subdir=$(entry_subdir "${entry}")
 
 	# One render per repository: a second entry for the same repo (different
 	# subdir) would clash with the first in the id-keyed results.
@@ -61,8 +58,8 @@ for entry in "${entries[@]}"; do
 		continue
 	fi
 
-	if ! tree=$(retry 3 2 gh api "repos/${repo}/git/trees/HEAD?recursive=1" --jq '.tree[]? | .path' 2>/dev/null) ||
-		[[ -z "${tree}" ]]; then
+	tree=$(fetch_repo_tree "${repo}")
+	if [[ -z "${tree}" ]]; then
 		add_note "${entry}" "Pre-flight render skipped: could not retrieve the repository file tree."
 		continue
 	fi
@@ -87,21 +84,15 @@ jq '.' extensions-batch.json
 # The render harness exits non-zero when no render was executed at all
 # (e.g. every entry failed at clone or dependency install); results.json is
 # still written, so keep going and report per-entry outcomes.
-REQUIRE_DIGEST=false IMAGE="${IMAGE}" bash "${TEST_SCRIPTS_DIR}/prepare-image.sh"
+IMAGE="${IMAGE}" bash "${TEST_SCRIPTS_DIR}/prepare-image.sh"
 QUARTO_CHANNEL="${QUARTO_CHANNEL}" bash "${TEST_SCRIPTS_DIR}/clone-extensions.sh"
-QUARTO_CHANNEL="${QUARTO_CHANNEL}" RENDER_CONCURRENCY=1 bash "${TEST_SCRIPTS_DIR}/render-extensions.sh" ||
+QUARTO_CHANNEL="${QUARTO_CHANNEL}" RENDER_CONCURRENCY=2 bash "${TEST_SCRIPTS_DIR}/render-extensions.sh" ||
 	echo "::warning::Render harness exited non-zero; reporting per-entry results."
 
 run_url="${GITHUB_SERVER_URL:-https://github.com}/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}"
 failed=0
 
-while IFS= read -r result; do
-	id=$(echo "${result}" | jq -r '.id')
-	status=$(echo "${result}" | jq -r '.status')
-	stage=$(echo "${result}" | jq -r '.stage // ""')
-	failure_reason=$(echo "${result}" | jq -r '.failure_reason // ""')
-	quarto_version=$(echo "${result}" | jq -r '.quarto_version')
-	log_path=$(echo "${result}" | jq -r '.log')
+while IFS=$'\t' read -r id status stage failure_reason quarto_version log_path; do
 	entry="${batch_entry_for_repo[${id}]:-${id}}"
 
 	case "${status}" in
@@ -124,10 +115,14 @@ while IFS= read -r result; do
 			message+=$'\n\n<details><summary>Log excerpt (stderr)</summary>\n\n```\n'"${log_tail}"$'\n```\n\n</details>'
 		fi
 		message+=$'\n'"Full logs: \`preflight-render-logs\` artefact on the [workflow run](${run_url})."
-		add_error "${entry}" "${message}"
+		if [[ "${BLOCKING}" == "true" ]]; then
+			add_error "${entry}" "${message}"
+		else
+			add_note "${entry}" "${message} (Advisory: this does not block the submission.)"
+		fi
 		;;
 	esac
-done < <(jq -c '.[]' results.json)
+done < <(jq -r '.[] | [.id, .status, .stage // "", .failure_reason // "", .quarto_version, .log] | @tsv' results.json)
 
 write_check_outputs
 
