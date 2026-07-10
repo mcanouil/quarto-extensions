@@ -29,7 +29,7 @@ RUN Rscript -e 'Sys.setenv(DOWNLOAD_STATIC_LIBV8 = "1"); \
 
 # Common LaTeX packages to avoid runtime CTAN mirror dependency
 RUN if command -v tlmgr >/dev/null 2>&1; then \
-    tlmgr update --self || true; \
+    tlmgr update --self; \
     tlmgr install \
       beamer pgf xcolor geometry hyperref booktabs \
       caption float fancyhdr enumitem titlesec \

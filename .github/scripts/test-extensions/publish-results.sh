@@ -70,7 +70,9 @@ jq -c --arg d "${today}" --slurpfile cur "${current_run_file}" '
               quarto_channel: $e.quarto_channel,
               status: $e.status,
               log: $e.log,
-              date: $d
+              date: $d,
+              stage: (($e.stage // "") | tostring),
+              failure_reason: (($e.failure_reason // "") | tostring)
             }]
         )
     )
@@ -79,7 +81,7 @@ jq -c --arg d "${today}" --slurpfile cur "${current_run_file}" '
 
 skipped_count=$(echo "${skipped_json}" | jq 'length')
 
-read -r run_total run_pass run_fail run_skip < <(
+read -r run_total run_pass run_fail run_skip run_fail_deps run_fail_render run_fail_other < <(
   jq -r '
     . as $all
     | ($all | [.[].id] | unique | length) as $run_total
@@ -87,7 +89,12 @@ read -r run_total run_pass run_fail run_skip < <(
     | ([$groups[] | select(all(.status == "pass"))] | length) as $run_pass
     | ([$groups[] | select(any(.status == "fail"))] | length) as $run_fail
     | ([$groups[] | select(all(.status == "skip"))] | length) as $run_skip
-    | [$run_total, $run_pass, $run_fail, $run_skip] | @tsv
+    | ([$groups[] | select(any(.status == "fail"))
+        | ([.[] | select(.status == "fail") | .stage // ""] | first)]) as $fail_stages
+    | ($fail_stages | map(select(. == "deps")) | length) as $run_fail_deps
+    | ($fail_stages | map(select(. == "render")) | length) as $run_fail_render
+    | ($run_fail - $run_fail_deps - $run_fail_render) as $run_fail_other
+    | [$run_total, $run_pass, $run_fail, $run_skip, $run_fail_deps, $run_fail_render, $run_fail_other] | @tsv
   ' "${current_run_file}"
 )
 
@@ -101,15 +108,18 @@ release_version=$(jq -r '[.[] | select(.quarto_channel == "release") | .quarto_v
 prerelease_version=$(jq -r '[.[] | select(.quarto_channel == "prerelease") | .quarto_version] | first // "n/a"' "${current_run_file}")
 repo_url="https://github.com/${GITHUB_REPOSITORY}/tree/quarto-tests"
 results_table=$(jq -r --arg repo_url "${repo_url}" '
+  def stage_note: if . != null and . != "" then " (\(.))" else "" end;
   sort_by(.id) | group_by(.id) | .[] |
   {
     id: .[0].id,
     release_status: ([.[] | select(.quarto_channel == "release") | .status] | first // "n/a"),
     release_version: ([.[] | select(.quarto_channel == "release") | .quarto_version] | first // ""),
+    release_stage: ([.[] | select(.quarto_channel == "release") | .stage] | first // ""),
     prerelease_status: ([.[] | select(.quarto_channel == "prerelease") | .status] | first // "n/a"),
-    prerelease_version: ([.[] | select(.quarto_channel == "prerelease") | .quarto_version] | first // "")
+    prerelease_version: ([.[] | select(.quarto_channel == "prerelease") | .quarto_version] | first // ""),
+    prerelease_stage: ([.[] | select(.quarto_channel == "prerelease") | .stage] | first // "")
   } |
-  "| \(.id) | \(if .release_status == "pass" then "[✅](\($repo_url)/logs/\(.id)/release/\(.release_version))" elif .release_status == "fail" then "[❌](\($repo_url)/logs/\(.id)/release/\(.release_version))" elif .release_status == "skip" then "⏭️" else "—" end) | \(if .prerelease_status == "pass" then "[✅](\($repo_url)/logs/\(.id)/prerelease/\(.prerelease_version))" elif .prerelease_status == "fail" then "[❌](\($repo_url)/logs/\(.id)/prerelease/\(.prerelease_version))" elif .prerelease_status == "skip" then "⏭️" else "—" end) |"
+  "| \(.id) | \(if .release_status == "pass" then "[✅](\($repo_url)/logs/\(.id)/release/\(.release_version))" elif .release_status == "fail" then "[❌](\($repo_url)/logs/\(.id)/release/\(.release_version))\(.release_stage | stage_note)" elif .release_status == "skip" then "⏭️" else "—" end) | \(if .prerelease_status == "pass" then "[✅](\($repo_url)/logs/\(.id)/prerelease/\(.prerelease_version))" elif .prerelease_status == "fail" then "[❌](\($repo_url)/logs/\(.id)/prerelease/\(.prerelease_version))\(.prerelease_stage | stage_note)" elif .prerelease_status == "skip" then "⏭️" else "—" end) |"
 ' "${current_run_file}")
 skipped_list=$(echo "${skipped_json}" | jq -r '.[] | "- \(.)"')
 
@@ -118,7 +128,7 @@ skipped_list=$(echo "${skipped_json}" | jq -r '.[] | "- \(.)"')
   echo ""
   echo "- **Extensions tested:** ${run_total}"
   echo "- **Pass:** ${run_pass}"
-  echo "- **Fail:** ${run_fail}"
+  echo "- **Fail:** ${run_fail} (dependencies: ${run_fail_deps}, render: ${run_fail_render}, other: ${run_fail_other})"
   echo "- **Skipped (repository not publicly accessible):** ${run_skip}"
   echo "- **Skipped (no renderable content found):** ${skipped_count}"
   echo ""

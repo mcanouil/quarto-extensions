@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Render extensions for the test-extensions workflow.
-# Inputs (env): QUARTO_CHANNEL
+# Inputs (env): QUARTO_CHANNEL, RENDER_CONCURRENCY (default 2)
 # Inputs (files): clone-manifest.json, quarto-version.txt
 # Outputs (files): results.json
 
@@ -10,29 +10,32 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=docker-config.sh
 source "${SCRIPT_DIR}/docker-config.sh"
 
-results_file=$(mktemp)
-trap 'rm -f "${results_file}"' EXIT
+RENDER_CONCURRENCY="${RENDER_CONCURRENCY:-2}"
+if [[ ! "${RENDER_CONCURRENCY}" =~ ^[1-9][0-9]*$ ]]; then
+	echo "::error::Invalid RENDER_CONCURRENCY value '${RENDER_CONCURRENCY}'. Expected a positive integer."
+	exit 1
+fi
+
+results_dir=$(mktemp -d)
+trap 'rm -rf "${results_dir}"' EXIT
 quarto_version=$(cat quarto-version.txt)
 echo "Quarto version: ${quarto_version} (${QUARTO_CHANNEL})"
 
-render_count=0
 ext_count=$(jq 'length' clone-manifest.json)
 
-# Fix TinyTeX ownership so tlmgr works when container runs as host UID:GID
-docker build -t render-image \
-	--build-arg HOST_UID="$(id -u)" \
-	--build-arg HOST_GID="$(id -g)" \
-	- <<'TINYTEX_FIX'
-FROM render-image
-ARG HOST_UID
-ARG HOST_GID
-USER root
-RUN if [ -d /opt/tinytex ]; then chown -R "${HOST_UID}:${HOST_GID}" /opt/tinytex; fi
-TINYTEX_FIX
+# Package caches shared across extensions within this job only (never
+# persisted across jobs or runs, so cache poisoning is bounded to one batch).
+# The R library is per shard: concurrent install.packages into one library
+# is racy; renv, uv, and Julia caches are concurrency-safe.
+cache_root="${GITHUB_WORKSPACE}/cache"
+install -d -m 700 "${cache_root}/renv" "${cache_root}/uv" "${cache_root}/julia"
+for ((w = 0; w < RENDER_CONCURRENCY; w++)); do
+	install -d -m 700 "${cache_root}/r-lib-${w}"
+done
 
 docker_run_render() {
-	local run_timeout="$1" workdir="$2" log_dir="$3" render_dir="$4"
-	shift 4
+	local run_timeout="$1" workdir="$2" log_dir="$3" render_dir="$4" shard="$5"
+	shift 5
 	timeout --kill-after=30 "${run_timeout}" docker run --rm -i \
 		--user "${DOCKER_USER}" \
 		"${DOCKER_SECURITY_OPTS[@]}" \
@@ -46,6 +49,11 @@ docker_run_render() {
 		-e XDG_CACHE_HOME="${workdir}/.cache" \
 		-e TEXMFVAR="/tmp/texmf-var" \
 		-e TEXMFCONFIG="/tmp/texmf-config" \
+		-e RENV_PATHS_CACHE="/cache/renv" \
+		-e UV_CACHE_DIR="/cache/uv" \
+		-e JULIA_DEPOT_PATH="/cache/julia:" \
+		-e R_LIBS_USER="/cache/r-lib-${shard}" \
+		-v "${cache_root}:/cache" \
 		-v "${workdir}:${workdir}" \
 		-v "${log_dir}:${log_dir}" \
 		-w "${render_dir}" \
@@ -55,6 +63,7 @@ docker_run_render() {
 
 render_extension() {
 	local i="$1"
+	local shard="${2:-0}"
 
 	local id ext_type status workdir render_dir log_dir log_path ext
 	IFS=$'\t' read -r id ext_type status workdir render_dir log_dir log_path < <(
@@ -67,6 +76,16 @@ render_extension() {
 		return
 	fi
 
+	# Failure-stage taxonomy: clone|policy|deps|render (empty on pass)
+	local stage="" failure_reason=""
+	if [[ "${status}" == "fail" ]]; then
+		stage="clone"
+		failure_reason="clone failed"
+	elif [[ "${status}" == "skip" ]]; then
+		stage="clone"
+		failure_reason="repository-inaccessible"
+	fi
+
 	if [[ "${status}" == "pass" ]]; then
 		printf '%s\n' "${ext}" >"${workdir}/ext-meta.json"
 
@@ -76,6 +95,8 @@ render_extension() {
 				>>"${log_dir}/stdout.log" 2>>"${log_dir}/stderr.log"; then
 				echo "::warning::Dependency policy check failed for ${id}."
 				status="fail"
+				stage="policy"
+				failure_reason="dependency source policy violation"
 			fi
 		fi
 
@@ -91,335 +112,54 @@ render_extension() {
 				dep_sources+=("auto-detect")
 			fi
 			echo "Dependency install phase for ${id}: ${dep_sources[*]}" >>"${log_dir}/stdout.log"
+			run_dep_install() {
+				docker_run_render 600 "${workdir}" "${log_dir}" "${render_dir}" "${shard}" \
+					-e EXT_ID="${id}" \
+					-e LOG_DIR="${log_dir}" \
+					<"${SCRIPT_DIR}/deps-install.sh"
+			}
 			dep_rc=0
-			docker_run_render 600 "${workdir}" "${log_dir}" "${render_dir}" \
-				-e EXT_ID="${id}" \
-				-e LOG_DIR="${log_dir}" \
-				<<'DEPS_SCRIPT' || dep_rc=$?
-set -euo pipefail
-
-detect_engines() {
-  local engines=""
-  if [[ -f _quarto.yml ]] || [[ -f _quarto.yaml ]]; then
-    engines=$(quarto inspect . 2>/dev/null | jq -r '.engines[]?' 2>/dev/null) || engines=""
-  fi
-  if [[ -z "${engines}" ]]; then
-    while IFS= read -r -d '' qmd; do
-      local file_engines
-      file_engines=$(quarto inspect "${qmd}" 2>/dev/null | jq -r '.engines[]?' 2>/dev/null) || true
-      if [[ -n "${file_engines}" ]]; then
-        engines=$(printf '%s\n%s' "${engines}" "${file_engines}")
-      fi
-    done < <(find . -name '*.qmd' -not -path './_extensions/*' -print0 2>/dev/null)
-    engines=$(echo "${engines}" | sort -u | sed '/^$/d')
-  fi
-  echo "${engines}"
-}
-
-engines=$(detect_engines)
-
-# Auto-detect R dependencies when no renv.lock is present
-if [[ ! -f renv.lock ]]; then
-  if echo "${engines}" | grep -qx "knitr"; then
-    echo "Auto-detecting R dependencies for ${EXT_ID} (knitr engine, no renv.lock)." >>"${LOG_DIR}/stdout.log"
-    Rscript -e '
-      ppm <- Sys.getenv("RENV_CONFIG_REPOS_OVERRIDE", "https://cloud.r-project.org")
-      if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv", repos = ppm)
-      deps <- unique(renv::dependencies(quiet = TRUE)[["Package"]])
-      deps <- setdiff(deps, rownames(installed.packages()))
-      if (length(deps) > 0L) {
-        cat("Installing R packages:", paste(deps, collapse = ", "), "\n")
-        install.packages(deps, repos = ppm)
-      } else {
-        cat("No additional R packages to install.\n")
-      }
-    ' >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
-      echo "Auto-detect R dependency install failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
-      exit 1
-    }
-  fi
-fi
-
-# Auto-detect Python dependencies when no uv.lock/requirements.txt is present
-if [[ ! -f uv.lock ]] && [[ ! -f requirements.txt ]]; then
-  if echo "${engines}" | grep -qx "jupyter"; then
-    has_python=false
-    while IFS= read -r -d '' qmd; do
-      if grep -qP '^\s*```\{python' "${qmd}" 2>/dev/null; then
-        has_python=true
-        break
-      fi
-    done < <(find . -name '*.qmd' -not -path './_extensions/*' -print0)
-
-    if [[ "${has_python}" == "true" ]]; then
-      echo "Auto-detecting Python dependencies for ${EXT_ID} (jupyter engine, no lock file)." >>"${LOG_DIR}/stdout.log"
-      uv venv >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
-        echo "uv venv failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
-        exit 1
-      }
-      source .venv/bin/activate
-
-      deps=$(find . -name '*.qmd' -not -path './_extensions/*' -print0 \
-        | xargs -0 python3 -c '
-import sys, ast, re
-
-stdlib = set(sys.stdlib_module_names) if hasattr(sys, "stdlib_module_names") else set()
-imports = set()
-chunk_re = re.compile(r"^\s*```\{python[^}]*\}\s*$")
-end_re = re.compile(r"^\s*```\s*$")
-
-for path in sys.argv[1:]:
-    in_chunk = False
-    lines = []
-    with open(path) as f:
-        for line in f:
-            if not in_chunk and chunk_re.match(line):
-                in_chunk = True
-                lines = []
-            elif in_chunk and end_re.match(line):
-                in_chunk = False
-                source = "\n".join(lines)
-                try:
-                    tree = ast.parse(source)
-                    for node in ast.walk(tree):
-                        if isinstance(node, ast.Import):
-                            for alias in node.names:
-                                imports.add(alias.name.split(".")[0])
-                        elif isinstance(node, ast.ImportFrom):
-                            if node.module:
-                                imports.add(node.module.split(".")[0])
-                except SyntaxError:
-                    pass
-                lines = []
-            elif in_chunk:
-                lines.append(line.rstrip())
-
-third_party = sorted(imports - stdlib - {"__future__"})
-for pkg in third_party:
-    print(pkg)
-' 2>/dev/null) || deps=""
-
-      if [[ -n "${deps}" ]]; then
-        echo "Installing Python packages: ${deps//$'\n'/, }" >>"${LOG_DIR}/stdout.log"
-        echo "${deps}" | xargs uv pip install -- \
-          >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
-          echo "Auto-detect Python dependency install failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
-          exit 1
-        }
-      else
-        echo "No additional Python packages to install." >>"${LOG_DIR}/stdout.log"
-      fi
-    fi
-  fi
-fi
-
-# Auto-detect Julia dependencies when no Project.toml is present
-if [[ ! -f Project.toml ]] && [[ ! -f JuliaProject.toml ]]; then
-  if echo "${engines}" | grep -qx "jupyter"; then
-    has_julia=false
-    while IFS= read -r -d '' qmd; do
-      if grep -qP '^\s*```\{julia' "${qmd}" 2>/dev/null; then
-        has_julia=true
-        break
-      fi
-    done < <(find . -name '*.qmd' -not -path './_extensions/*' -print0)
-
-    if [[ "${has_julia}" == "true" ]]; then
-      echo "Auto-detecting Julia dependencies for ${EXT_ID} (jupyter engine, no Project.toml)." >>"${LOG_DIR}/stdout.log"
-
-      deps=$(find . -name '*.qmd' -not -path './_extensions/*' -print0 \
-        | xargs -0 grep -hP '^\s*(using|import)\s+' 2>/dev/null \
-        | sed -E 's/^\s*(using|import)\s+//' \
-        | sed -E 's/:.*//' \
-        | tr ',' '\n' \
-        | sed -E 's/^\s+//; s/\s+$//; s/[.].*//' \
-        | grep -E '^[A-Za-z][A-Za-z0-9_]*$' \
-        | sort -u \
-        | grep -vxF -e Base -e Core -e Main -e Pkg \
-            -e InteractiveUtils -e LinearAlgebra -e Random \
-            -e Statistics -e Dates -e Printf -e Markdown \
-            -e Test -e Logging -e REPL -e Sockets -e UUIDs \
-            -e Distributed -e SharedArrays -e SparseArrays \
-            -e DelimitedFiles -e Serialization -e Libdl \
-            -e Mmap -e Profile -e FileWatching -e Unicode \
-            -e TOML -e Downloads -e LazyArtifacts -e Artifacts \
-            -e SHA -e NetworkOptions -e StyledStrings \
-      ) || deps=""
-
-      if [[ -n "${deps}" ]]; then
-        echo "Installing Julia packages: ${deps//$'\n'/, }" >>"${LOG_DIR}/stdout.log"
-        pkg_list=$(echo "${deps}" | sed "s/.*/\"&\"/" | paste -sd ',' -)
-        julia --project=. -e 'using Pkg; Pkg.add(['"${pkg_list}"'])' \
-          >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
-          echo "Auto-detect Julia dependency install failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
-          exit 1
-        }
-      else
-        echo "No additional Julia packages to install." >>"${LOG_DIR}/stdout.log"
-      fi
-    fi
-  fi
-fi
-
-if [[ -f renv.lock ]]; then
-  echo "Installing R dependencies from renv.lock for ${EXT_ID}." >>"${LOG_DIR}/stdout.log"
-  Rscript -e 'if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")' \
-    >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
-    echo "renv install failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
-    exit 1
-  }
-  Rscript -e 'renv::restore()' \
-    >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
-    echo "renv restore failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
-    exit 1
-  }
-fi
-if [[ -f uv.lock ]] || [[ -f requirements.txt ]]; then
-  echo "Installing Python dependencies for ${EXT_ID}." >>"${LOG_DIR}/stdout.log"
-  uv venv >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
-    echo "uv venv failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
-    exit 1
-  }
-  source .venv/bin/activate
-  if [[ -f uv.lock ]]; then
-    uv sync >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
-      echo "uv sync failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
-      exit 1
-    }
-  elif [[ -f requirements.txt ]]; then
-    uv pip install -r requirements.txt >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
-      echo "uv pip install failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
-      exit 1
-    }
-  fi
-fi
-if [[ -f Project.toml ]] || [[ -f JuliaProject.toml ]]; then
-  echo "Installing Julia dependencies from Project.toml for ${EXT_ID}." >>"${LOG_DIR}/stdout.log"
-  julia --project=. -e 'using Pkg; Pkg.instantiate()' \
-    >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
-    echo "Julia Pkg.instantiate failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
-    exit 1
-  }
-fi
-DEPS_SCRIPT
+			run_dep_install || dep_rc=$?
+			# Retry once to absorb network flakes; a timeout already ate 600s, do not re-run it.
+			if [[ "${dep_rc}" -ne 0 ]] && [[ "${dep_rc}" -ne 124 ]]; then
+				echo "Dependency install failed (exit ${dep_rc}) for ${id}; retrying once." >>"${log_dir}/stderr.log"
+				dep_rc=0
+				run_dep_install || dep_rc=$?
+			fi
 			if [[ "${dep_rc}" -eq 124 ]]; then
 				echo "Dependency install timed out (exit 124) for ${id}." >>"${log_dir}/stderr.log"
 				echo "::warning::Dependency install timed out for ${id}."
 				status="fail"
+				stage="deps"
+				failure_reason="timeout"
 			elif [[ "${dep_rc}" -ne 0 ]]; then
 				echo "Dependency install failed (exit ${dep_rc}) for ${id}." >>"${log_dir}/stderr.log"
 				echo "::warning::Dependency install failed (exit ${dep_rc}) for ${id}."
 				status="fail"
+				stage="deps"
+				failure_reason="exit ${dep_rc}"
 			fi
 		fi
 
 		# Phase B: Render
 		if [[ "${status}" == "pass" ]]; then
-			render_count=$((render_count + 1))
-			docker_run_render 300 "${workdir}" "${log_dir}" "${render_dir}" \
+			touch "${results_dir}/${i}.rendered"
+			render_rc=0
+			docker_run_render 300 "${workdir}" "${log_dir}" "${render_dir}" "${shard}" \
 				-e EXT_TYPE="${ext_type}" \
 				-e EXT_ID="${id}" \
 				-e WORKDIR="${workdir}" \
 				-e LOG_DIR="${log_dir}" \
-				<<'RENDER_SCRIPT' || status="fail"
-set -euo pipefail
-
-# Activate local venv if created during dependency install.
-# Preserve access to the image-level venv site-packages so pre-installed
-# packages (jupyter, shinylive, pyyaml, etc.) remain importable.
-IMAGE_VENV="/home/vscode/.venv"
-if [[ -f .venv/bin/activate ]]; then
-  image_sp=""
-  for sp in "${IMAGE_VENV}"/lib/python*/site-packages; do
-    if [[ -d "${sp}" ]]; then image_sp="${sp}"; break; fi
-  done
-  source .venv/bin/activate
-  if [[ -n "${image_sp}" ]]; then
-    export PYTHONPATH="${PYTHONPATH:+${PYTHONPATH}:}${image_sp}"
-  fi
-fi
-
-if command -v tlmgr >/dev/null 2>&1; then
-  CTAN_MIRRORS=(
-    "https://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet"
-    "https://ctan.math.illinois.edu/systems/texlive/tlnet"
-    "https://mirrors.rit.edu/CTAN/systems/texlive/tlnet"
-    "https://mirror.ctan.org/systems/texlive/tlnet"
-  )
-  tlmgr_ok=false
-  for mirror in "${CTAN_MIRRORS[@]}"; do
-    if timeout 30 tlmgr repository set "${mirror}" >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" \
-      && timeout 60 tlmgr update --self >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log"; then
-      echo "Using CTAN mirror: ${mirror}" >>"${LOG_DIR}/stdout.log"
-      tlmgr_ok=true
-      break
-    fi
-    echo "CTAN mirror ${mirror} failed, trying next..." >>"${LOG_DIR}/stderr.log"
-  done
-  if [[ "${tlmgr_ok}" == "false" ]]; then
-    echo "All CTAN mirrors failed. LaTeX packages may not install." >>"${LOG_DIR}/stderr.log"
-  fi
-fi
-
-quarto_render() {
-  local log_name="$1"
-  shift
-  if ! quarto render "$@" --log "${WORKDIR}/${log_name}.log" --log-level info \
-    >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log"; then
-    echo "Render failed, retrying once..." >>"${LOG_DIR}/stderr.log"
-    quarto render "$@" --log "${WORKDIR}/${log_name}.log" --log-level info \
-      >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || return 1
-  fi
-}
-
-render_single_qmd() {
-  local qmd="$1"
-  local base
-  base="$(basename "${qmd}" .qmd)"
-  local formats
-  formats=$(quarto inspect "${qmd}" 2>/dev/null | jq -r '.formats | keys[]' 2>/dev/null) || formats=""
-  if [[ -z "${formats}" ]]; then
-    quarto_render "${base}" "${qmd}" || exit 1
-  else
-    while IFS= read -r fmt; do
-      quarto_render "${base}-${fmt}" "${qmd}" --to "${fmt}" || exit 1
-    done <<< "${formats}"
-  fi
-}
-
-# Extension dev repos keep _extensions at the repo root and symlink it into
-# example/test subprojects, where the link is typically gitignored. Recreate
-# those links so nested _quarto.yml projects resolve the extension when their
-# documents are rendered individually. Skip projects whose _quarto.yml already
-# references _extensions: they manage it themselves (e.g. a pre-render copy),
-# and a pre-created symlink would collide with that copy.
-root_ext="$(pwd)/_extensions"
-if [[ -d "${root_ext}" ]]; then
-  while IFS= read -r -d '' qy; do
-    proj_dir="$(dirname "${qy}")"
-    [[ "${proj_dir}" == "." ]] && continue
-    [[ -e "${proj_dir}/_extensions" ]] && continue
-    grep -q '_extensions' "${qy}" && continue
-    ln -s "${root_ext}" "${proj_dir}/_extensions"
-  done < <(find . \( -name _quarto.yml -o -name _quarto.yaml \) -not -path './_extensions/*' -print0)
-fi
-
-if [[ -f _quarto.yml ]] || [[ -f _quarto.yaml ]]; then
-  quarto_render "project" || exit 1
-elif [[ "${EXT_TYPE}" == "document" ]]; then
-  qmd_files=$(jq -r '.qmd_files[]?' "${WORKDIR}/ext-meta.json")
-  while IFS= read -r qmd; do
-    if [[ "${qmd}" == /* ]] || [[ "${qmd}" == *".."* ]]; then continue; fi
-    if [[ -f "${qmd}" ]]; then
-      render_single_qmd "${qmd}"
-    fi
-  done <<< "${qmd_files}"
-else
-  while IFS= read -r -d '' qmd; do
-    render_single_qmd "${qmd}"
-  done < <(find . -name '*.qmd' -not -path './_extensions/*' -print0)
-fi
-RENDER_SCRIPT
+				<"${SCRIPT_DIR}/render-inner.sh" || render_rc=$?
+			if [[ "${render_rc}" -ne 0 ]]; then
+				status="fail"
+				stage="render"
+				if [[ "${render_rc}" -eq 124 ]]; then
+					failure_reason="timeout"
+				else
+					failure_reason="exit ${render_rc}"
+				fi
+			fi
 		fi
 	fi
 
@@ -443,19 +183,38 @@ RENDER_SCRIPT
 		--arg l "${log_path}" \
 		--arg qv "${quarto_version}" \
 		--arg qc "${QUARTO_CHANNEL}" \
-		'{id: $id, type: $t, status: $s, log: $l, quarto_version: $qv, quarto_channel: $qc}' \
-		>>"${results_file}"
+		--arg st "${stage}" \
+		--arg fr "${failure_reason}" \
+		'{id: $id, type: $t, status: $s, log: $l, quarto_version: $qv, quarto_channel: $qc, stage: $st, failure_reason: $fr}' \
+		>"${results_dir}/${i}.json"
 }
 
-for ((i = 0; i < ext_count; i++)); do
-	render_extension "${i}"
-done
+# Static interleaved sharding: shard w renders indices i where
+# i % RENDER_CONCURRENCY == w. Results and render markers are per-index
+# files because subshell variable updates do not propagate to the parent.
+render_shard() {
+	local shard="$1"
+	local i
+	for ((i = shard; i < ext_count; i += RENDER_CONCURRENCY)); do
+		render_extension "${i}" "${shard}"
+	done
+}
 
-if [[ -s "${results_file}" ]]; then
-	jq -sc '.' "${results_file}" >results.json
+for ((w = 0; w < RENDER_CONCURRENCY; w++)); do
+	render_shard "${w}" &
+done
+wait
+
+shopt -s nullglob
+result_files=("${results_dir}"/*.json)
+if ((${#result_files[@]} > 0)); then
+	jq -sc '.' "${result_files[@]}" >results.json
 else
 	echo '[]' >results.json
 fi
+render_markers=("${results_dir}"/*.rendered)
+render_count=${#render_markers[@]}
+shopt -u nullglob
 
 if [[ "${ext_count}" -gt 0 ]] && [[ "${render_count}" -eq 0 ]]; then
 	echo "::error::No quarto render was executed for ${ext_count} extensions."
@@ -463,5 +222,7 @@ if [[ "${ext_count}" -gt 0 ]] && [[ "${render_count}" -eq 0 ]]; then
 fi
 
 echo "Rendered ${render_count}/${ext_count} extensions."
+echo "Shared cache size: $(du -sh "${cache_root}" 2>/dev/null | cut -f1)"
+df -h /
 echo "Results:"
 jq '.' results.json
