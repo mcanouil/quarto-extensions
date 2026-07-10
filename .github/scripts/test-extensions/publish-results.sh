@@ -90,7 +90,8 @@ read -r run_total run_pass run_fail run_skip run_fail_deps run_fail_render run_f
     | ([$groups[] | select(any(.status == "fail"))] | length) as $run_fail
     | ([$groups[] | select(all(.status == "skip"))] | length) as $run_skip
     | ([$groups[] | select(any(.status == "fail"))
-        | ([.[] | select(.status == "fail") | .stage // ""] | first)]) as $fail_stages
+        | [.[] | select(.status == "fail") | .stage // ""]
+        | if any(. == "deps") then "deps" elif any(. == "render") then "render" else "other" end]) as $fail_stages
     | ($fail_stages | map(select(. == "deps")) | length) as $run_fail_deps
     | ($fail_stages | map(select(. == "render")) | length) as $run_fail_render
     | ($run_fail - $run_fail_deps - $run_fail_render) as $run_fail_other
