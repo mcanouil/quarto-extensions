@@ -54,6 +54,13 @@ for entry in "${entries[@]}"; do
 	subdir=$(echo "${entry}" | cut -d'/' -f3- -s)
 	subdir="${subdir%/}"
 
+	# One render per repository: a second entry for the same repo (different
+	# subdir) would clash with the first in the id-keyed results.
+	if [[ -n "${batch_entry_for_repo[${repo}]:-}" ]]; then
+		add_note "${entry}" "Pre-flight render skipped: repository already rendered for entry \`${batch_entry_for_repo[${repo}]}\` in this pull request."
+		continue
+	fi
+
 	if ! tree=$(retry 3 2 gh api "repos/${repo}/git/trees/HEAD?recursive=1" --jq '.tree[]? | .path' 2>/dev/null) ||
 		[[ -z "${tree}" ]]; then
 		add_note "${entry}" "Pre-flight render skipped: could not retrieve the repository file tree."
