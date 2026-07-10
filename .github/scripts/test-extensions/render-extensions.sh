@@ -200,10 +200,16 @@ render_shard() {
 	done
 }
 
+shard_pids=()
 for ((w = 0; w < RENDER_CONCURRENCY; w++)); do
 	render_shard "${w}" &
+	shard_pids+=("$!")
 done
-wait
+for ((w = 0; w < RENDER_CONCURRENCY; w++)); do
+	if ! wait "${shard_pids[w]}"; then
+		echo "::warning::Render shard ${w} exited non-zero; its remaining extensions were not rendered."
+	fi
+done
 
 shopt -s nullglob
 result_files=("${results_dir}"/*.json)
