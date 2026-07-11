@@ -9,6 +9,8 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=retry.sh
 source "${SCRIPT_DIR}/retry.sh"
+# shellcheck source=classify-extension.sh
+source "${SCRIPT_DIR}/classify-extension.sh"
 
 if [[ ! "${DEBUG}" =~ ^(true|false)$ ]]; then
   echo "::error::Invalid debug value: '${DEBUG}'. Expected 'true' or 'false'."
@@ -93,36 +95,6 @@ while IFS=$'\t' read -r idx id branch; do
 done < <(echo "${phase_b_candidates}" | jq -r 'to_entries[] | "\(.key)\t\(.value.id)\t\(.value.default_branch)"')
 wait
 
-find_best_project_path() {
-  local best_path="" best_depth=999
-  while IFS= read -r qpath; do
-    local dir
-    dir=$(dirname "${qpath}")
-    if [[ "${dir}" =~ (^|/)tests(/|$) ]] || [[ "${dir}" =~ (^|/)examples(/|$) ]]; then
-      continue
-    fi
-    if [[ "${dir}" == "." ]]; then
-      echo "."
-      return
-    fi
-    if [[ "${dir}" == "docs" ]] && [[ "${best_depth}" -gt 1 ]]; then
-      best_path="docs"
-      best_depth=1
-      continue
-    fi
-    local depth slashes
-    slashes="${dir//[!\/]/}"
-    depth=$(( ${#slashes} + 1 ))
-    if [[ "${depth}" -lt "${best_depth}" ]]; then
-      best_path="${dir}"
-      best_depth="${depth}"
-    fi
-  done
-  if [[ -n "${best_path}" ]]; then
-    echo "${best_path}"
-  fi
-}
-
 mapfile -t candidate_ids < <(echo "${phase_b_candidates}" | jq -r '.[].id')
 
 for ((idx = 0; idx < candidate_count; idx++)); do
@@ -141,33 +113,9 @@ for ((idx = 0; idx < candidate_count; idx++)); do
     continue
   fi
 
-  full_tree=$(cat "${trees_dir}/${idx}.tree")
-
-  # Check for _quarto.yml/_quarto.yaml (project), excluding _extensions/
-  project_files=$(echo "${full_tree}" | grep -E '(^|/)_quarto\.ya?ml$' | grep -vE '(^|/)_extensions/' || true)
-
-  if [[ -n "${project_files}" ]]; then
-    best_path=$(echo "${project_files}" | find_best_project_path)
-    if [[ -n "${best_path}" ]]; then
-      jq -cn --arg id "${id}" --arg pp "${best_path}" \
-        '{id: $id, type: "project", project_path: $pp}' >>"${phase_b_entries_file}"
-      continue
-    fi
-  fi
-
-  # Fallback: check for standalone .qmd files (document)
-  qmd_files=$(echo "${full_tree}" | grep -E '\.qmd$' || true)
-
-  if [[ -n "${qmd_files}" ]]; then
-    doc_files=$(echo "${qmd_files}" | jq -Rsc '
-      split("\n")[:-1]
-      | map(select(test("(^|/)(_extensions|tests|examples)/") | not))
-    ')
-    if [[ "$(echo "${doc_files}" | jq 'length')" -gt 0 ]]; then
-      jq -cn --arg id "${id}" --argjson files "${doc_files}" \
-        '{id: $id, type: "document", qmd_files: $files}' >>"${phase_b_entries_file}"
-      continue
-    fi
+  if entry_json=$(classify_extension_tree "" <"${trees_dir}/${idx}.tree"); then
+    jq -cn --arg id "${id}" --argjson e "${entry_json}" '{id: $id} + $e' >>"${phase_b_entries_file}"
+    continue
   fi
 
   jq -cn --arg id "${id}" '$id' >>"${skipped_file}"

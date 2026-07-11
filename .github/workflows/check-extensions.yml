@@ -15,7 +15,7 @@ env:
   CSV_FILE: "extensions/quarto-extensions.csv"
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event_name }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
   cancel-in-progress: true
 
 jobs:
@@ -74,27 +74,7 @@ jobs:
         if: needs.check-submission.outputs.submission == 'true'
         id: check
         shell: bash
-        run: |
-          error=false
-          errors_json="[]"
-          sort -f "${CSV_FILE}" | uniq -di > duplicates.txt
-          if [[ -s duplicates.txt ]]; then
-            while IFS= read -r duplicate; do
-              grep -n "${duplicate}" "${CSV_FILE}" | tail -n +2 > duplicate_lines.txt
-              while IFS= read -r line; do
-                line_number=${line%%:*}
-                error_message="Duplicate value \"${duplicate}\" found"
-                # echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number},title=Duplicate Entry::${error_message}"
-                errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "Repository is duplicated."}]')
-                error=true
-              done < duplicate_lines.txt
-            done < duplicates.txt
-          fi
-          rm -f duplicates.txt duplicate_lines.txt
-          echo "errors=${errors_json}" >> ${GITHUB_OUTPUT}
-          if [[ "${error}" == "true" ]]; then
-            exit 1
-          fi
+        run: bash .github/scripts/check-extensions/check-duplicate.sh
       - name: Store errors
         if: always() && needs.check-submission.outputs.submission == 'true'
         id: store-errors
@@ -129,27 +109,7 @@ jobs:
         env:
           DIFF: ${{ needs.check-submission.outputs.diff }}
         shell: bash
-        run: |
-          echo ${DIFF} | base64 --decode > diff.patch
-          error=false
-          errors_json="[]"
-          if [[ -s diff.patch ]]; then
-            while IFS=, read -r repo; do
-              repo=$(echo "${repo}" | cut -d'/' -f1-2)
-              repo_topics=$(gh repo view --json repositoryTopics "${repo}" --jq ".repositoryTopics")
-              if [[ -z "${repo_topics}" ]]; then
-                line_number=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1 | tail -n 1)
-                error_message="Repository \"${repo}\" is missing topics!"
-                # echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
-                errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "Repository is missing topics."}]')
-                error=true
-              fi
-            done < diff.patch
-          fi
-          echo "errors=${errors_json}" >> ${GITHUB_OUTPUT}
-          if [[ "${error}" == "true" ]]; then
-            exit 1
-          fi
+        run: bash .github/scripts/check-extensions/check-topics.sh
       - name: Store errors
         if: always() && needs.check-submission.outputs.submission == 'true'
         id: store-errors
@@ -184,27 +144,7 @@ jobs:
         env:
           DIFF: ${{ needs.check-submission.outputs.diff }}
         shell: bash
-        run: |
-          echo ${DIFF} | base64 --decode > diff.patch
-          error=false
-          errors_json="[]"
-          if [[ -s diff.patch ]]; then
-            while IFS=, read -r repo; do
-              repo=$(echo "${repo}" | cut -d'/' -f1-2)
-              repo_description=$(gh repo view --json description "${repo}" --jq ".description")
-              if [[ -z "${repo_description}" ]]; then
-                line_number=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1 | tail -n 1)
-                error_message="Repository \"${repo}\" is missing description!"
-                # echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
-                errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "Repository is missing description."}]')
-                error=true
-              fi
-            done < diff.patch
-          fi
-          echo "errors=${errors_json}" >> ${GITHUB_OUTPUT}
-          if [[ "${error}" == "true" ]]; then
-            exit 1
-          fi
+        run: bash .github/scripts/check-extensions/check-description.sh
       - name: Store errors
         if: always() && needs.check-submission.outputs.submission == 'true'
         id: store-errors
@@ -239,27 +179,7 @@ jobs:
         env:
           DIFF: ${{ needs.check-submission.outputs.diff }}
         shell: bash
-        run: |
-          echo ${DIFF} | base64 --decode > diff.patch
-          error=false
-          errors_json="[]"
-          if [[ -s diff.patch ]]; then
-            while IFS=, read -r repo; do
-              repo=$(echo "${repo}" | cut -d'/' -f1-2)
-              repo_release=$(gh repo view --json latestRelease "${repo}" --jq ".latestRelease")
-              if [[ -z "${repo_release}" ]]; then
-                line_number=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1 | tail -n 1)
-                error_message="Repository \"${repo}\" is missing release/tag!"
-                # echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
-                errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "Repository is missing release/tag."}]')
-                error=true
-              fi
-            done < diff.patch
-          fi
-          echo "errors=${errors_json}" >> ${GITHUB_OUTPUT}
-          if [[ "${error}" == "true" ]]; then
-            exit 1
-          fi
+        run: bash .github/scripts/check-extensions/check-release.sh
       - name: Store errors
         if: always() && needs.check-submission.outputs.submission == 'true'
         id: store-errors
@@ -291,26 +211,10 @@ jobs:
       - name: Check for redirection
         if: needs.check-submission.outputs.submission == 'true'
         id: check
+        env:
+          DIFF: ${{ needs.check-submission.outputs.diff }}
         shell: bash
-        run: |
-          error=false
-          errors_json="[]"
-          while IFS=, read -r entry; do
-            repo=$(echo "${repo}" | cut -d'/' -f1-2)
-            if curl -I -s "https://github.com/${repo}" | grep -q "HTTP/.* 30[127]"; then
-              redirection_target=$(curl -Ls -o /dev/null -w "%{url_effective}" "https://github.com/${repo}")
-              redirection_target=${redirection_target#"https://github.com/"}
-              error_message="Repository \"${repo}\" is redirected to \"${redirection_target}\"!"
-              line_number=$(grep -n "${repo}" ${CSV_FILE} | cut -d: -f1 | tail -n 1)
-              # echo "::error file=${CSV_FILE},line=${line_number},endLine=${line_number}::${error_message}"
-              errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" '. += [{"line": $line, "message": "Repository is redirected."}]')
-              error=true
-            fi
-          done < <(sort -f "${CSV_FILE}")
-          echo "errors=${errors_json}" >> ${GITHUB_OUTPUT}
-          if [[ "${error}" == "true" ]]; then
-            exit 1
-          fi
+        run: bash .github/scripts/check-extensions/check-redirection.sh
       - name: Store errors
         if: always() && needs.check-submission.outputs.submission == 'true'
         id: store-errors
@@ -345,40 +249,7 @@ jobs:
         env:
           DIFF: ${{ needs.check-submission.outputs.diff }}
         shell: bash
-        run: |
-          echo ${DIFF} | base64 --decode > diff.patch
-          error=false
-          errors_json="[]"
-          if [[ -s diff.patch ]]; then
-            while IFS=, read -r entry; do
-              repo=$(echo "${entry}" | cut -d'/' -f1-2)
-              subdir=$(echo "${entry}" | cut -d'/' -f3-)
-
-              tree=$(gh api "repos/${repo}/git/trees/HEAD?recursive=1" --jq '.tree[].path' 2>/dev/null || true)
-
-              line_number=$(grep -n "${entry}" ${CSV_FILE} | cut -d: -f1 | tail -n 1)
-
-              if [[ -z "${tree}" ]]; then
-                error_message="Could not retrieve repository file tree to verify the extension structure."
-                errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" --arg message "${error_message}" '. += [{"line": $line, "message": $message}]')
-                error=true
-                continue
-              fi
-
-              ext_prefix="${subdir:+${subdir}/}"
-
-              has_extension=$(echo "${tree}" | grep -E "^${ext_prefix}_extensions/[^/]+/_extension\.ya?ml$" | head -n 1 || true)
-              if [[ -z "${has_extension}" ]]; then
-                error_message="Repository is missing a valid Quarto extension structure (\`_extensions/<name>/_extension.yml\`)."
-                errors_json=$(echo ${errors_json} | jq --compact-output --arg line "${line_number}" --arg message "${error_message}" '. += [{"line": $line, "message": $message}]')
-                error=true
-              fi
-            done < diff.patch
-          fi
-          echo "errors=${errors_json}" >> ${GITHUB_OUTPUT}
-          if [[ "${error}" == "true" ]]; then
-            exit 1
-          fi
+        run: bash .github/scripts/check-extensions/check-structure.sh
       - name: Store errors
         if: always() && needs.check-submission.outputs.submission == 'true'
         id: store-errors
@@ -413,51 +284,7 @@ jobs:
         env:
           DIFF: ${{ needs.check-submission.outputs.diff }}
         shell: bash
-        run: |
-          echo ${DIFF} | base64 --decode > diff.patch
-          notes_json="[]"
-          if [[ -s diff.patch ]]; then
-            while IFS=, read -r entry; do
-              repo=$(echo "${entry}" | cut -d'/' -f1-2)
-              subdir=$(echo "${entry}" | cut -d'/' -f3-)
-
-              tree=$(gh api "repos/${repo}/git/trees/HEAD?recursive=1" --jq '.tree[].path' 2>/dev/null || true)
-              if [[ -z "${tree}" ]]; then
-                continue
-              fi
-
-              if [[ -n "${subdir}" ]]; then
-                ext_prefix="${subdir}/"
-              else
-                ext_prefix=""
-              fi
-
-              has_extension=$(echo "${tree}" | grep -E "^${ext_prefix}_extensions/[^/]+/_extension\.yml$" | head -n 1 || true)
-              if [[ -z "${has_extension}" ]]; then
-                continue
-              fi
-
-              ext_dir=$(dirname "${has_extension}")
-
-              has_schema=$(echo "${tree}" | grep -E "^${ext_dir}/_schema\.(yml|yaml|json)$" || true)
-              has_snippets=$(echo "${tree}" | grep -E "^${ext_dir}/_snippets\.json$" || true)
-
-              if [[ -z "${has_schema}" && -z "${has_snippets}" ]]; then
-                missing="schema (\`_schema.yml\`) and snippets (\`_snippets.json\`) files"
-              elif [[ -z "${has_schema}" ]]; then
-                missing="schema (\`_schema.yml\`) file"
-              elif [[ -z "${has_snippets}" ]]; then
-                missing="snippets (\`_snippets.json\`) file"
-              else
-                continue
-              fi
-
-              line_number=$(grep -n "${entry}" ${CSV_FILE} | cut -d: -f1 | tail -n 1)
-              note_message="Extension is missing ${missing}. Consider adding [Quarto Wizard](https://m.canouil.dev/quarto-wizard/) support to provide autocompletion, validation, hover documentation, and code snippets in editors. See [Schema Specification](https://m.canouil.dev/quarto-wizard/reference/schema-specification.html) and [Snippet Specification](https://m.canouil.dev/quarto-wizard/reference/snippet-specification.html)."
-              notes_json=$(echo ${notes_json} | jq --compact-output --arg line "${line_number}" --arg message "${note_message}" '. += [{"line": $line, "message": $message}]')
-            done < diff.patch
-          fi
-          echo "notes=${notes_json}" >> ${GITHUB_OUTPUT}
+        run: bash .github/scripts/check-extensions/check-wizard.sh
       - name: Store notes
         if: always() && needs.check-submission.outputs.submission == 'true'
         id: store-notes
@@ -476,6 +303,43 @@ jobs:
           echo "No changes to ${CSV_FILE} found"
           exit 0
 
+  check-render:
+    runs-on: ubuntu-latest
+    needs: check-submission
+    if: needs.check-submission.outputs.submission == 'true'
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      packages: read
+    outputs:
+      errors: ${{ steps.check.outputs.errors || '[]' }}
+      notes: ${{ steps.check.outputs.notes || '[]' }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 2
+      - name: Log in to ghcr.io
+        shell: bash
+        run: echo "${GITHUB_TOKEN}" | docker login ghcr.io -u "${GITHUB_ACTOR}" --password-stdin
+      - name: Pre-flight render
+        id: check
+        env:
+          DIFF: ${{ needs.check-submission.outputs.diff }}
+          BLOCKING: ${{ vars.CHECK_RENDER_BLOCKING || 'false' }}
+          IMAGE: ghcr.io/${{ github.repository }}:release
+          QUARTO_CHANNEL: release
+        shell: bash
+        run: bash .github/scripts/check-extensions/preflight-render.sh
+      - name: Upload render logs
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: preflight-render-logs
+          path: logs/
+          retention-days: 7
+          if-no-files-found: ignore
+
   summary:
     runs-on: ubuntu-latest
     needs:
@@ -487,6 +351,7 @@ jobs:
       - check-redirection
       - check-structure
       - check-wizard
+      - check-render
     if: always()
     steps:
       - name: Checkout repository
@@ -511,6 +376,9 @@ jobs:
           REDIRECTION_ERRORS: ${{ needs.check-redirection.outputs.errors }}
           STRUCTURE_ERRORS: ${{ needs.check-structure.outputs.errors }}
           WIZARD_NOTES: ${{ needs.check-wizard.outputs.notes }}
+          RENDER_RESULT: ${{ needs.check-render.result }}
+          RENDER_ERRORS: ${{ needs.check-render.outputs.errors }}
+          RENDER_NOTES: ${{ needs.check-render.outputs.notes }}
         shell: bash
         run: |
           echo "## Extension Check Summary" >> "${GITHUB_STEP_SUMMARY}"
@@ -520,13 +388,16 @@ jobs:
 
           declare -A mention_owners
 
+          # The pre-flight render script emits blocking failures as errors and
+          # advisory ones as notes, and only exits non-zero when blocking.
           errors_found=false
           if [[ "${DUPLICATE_RESULT}" == "failure" || \
                 "${TOPICS_RESULT}" == "failure" || \
                 "${DESCRIPTION_RESULT}" == "failure" || \
                 "${RELEASE_RESULT}" == "failure" || \
                 "${REDIRECTION_RESULT}" == "failure" || \
-                "${STRUCTURE_RESULT}" == "failure" ]]; then
+                "${STRUCTURE_RESULT}" == "failure" || \
+                "${RENDER_RESULT}" == "failure" ]]; then
             errors_found=true
           fi
 
@@ -539,7 +410,8 @@ jobs:
             "${DESCRIPTION_ERRORS}" \
             "${RELEASE_ERRORS}" \
             "${REDIRECTION_ERRORS}" \
-            "${STRUCTURE_ERRORS}"; do
+            "${STRUCTURE_ERRORS}" \
+            "${RENDER_ERRORS}"; do
               if [[ "${errors_json}" != "[]" && "${errors_json}" != "" ]]; then
                 while read -r error_obj; do
                   line=$(echo "${error_obj}" | jq -r ".line")
@@ -572,7 +444,12 @@ jobs:
             echo "🔍 [View workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})" >> "${GITHUB_STEP_SUMMARY}"
           fi
 
-          if [[ "${WIZARD_NOTES}" != "[]" && "${WIZARD_NOTES}" != "" ]]; then
+          ALL_NOTES=$(jq -cn \
+            --argjson w "${WIZARD_NOTES:-[]}" \
+            --argjson r "${RENDER_NOTES:-[]}" \
+            '$w + $r')
+
+          if [[ "${ALL_NOTES}" != "[]" && "${ALL_NOTES}" != "" ]]; then
             declare -A file_line_notes
 
             while read -r note_obj; do
@@ -583,7 +460,7 @@ jobs:
               else
                 file_line_notes["${line}"]+=$'\n- 💡 '"${message}"
               fi
-            done < <(echo "${WIZARD_NOTES}" | jq -c ".[]")
+            done < <(echo "${ALL_NOTES}" | jq -c ".[]")
 
             echo "---" >> "${GITHUB_STEP_SUMMARY}"
             echo "" >> "${GITHUB_STEP_SUMMARY}"

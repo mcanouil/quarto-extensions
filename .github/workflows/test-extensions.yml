@@ -9,6 +9,9 @@ on:
       batch_size:
         description: "Number of extensions per batch"
         default: "25"
+      render_concurrency:
+        description: "Number of concurrent renders per batch"
+        default: "2"
   schedule:
     - cron: "0 14 15 * *"
 
@@ -82,6 +85,7 @@ jobs:
     env:
       IMAGE: ${{ matrix.image_ref }}
       QUARTO_CHANNEL: ${{ matrix.quarto_channel }}
+      RENDER_CONCURRENCY: ${{ inputs.render_concurrency }}
     steps:
       - name: Checkout scripts
         uses: actions/checkout@v7
@@ -108,14 +112,7 @@ jobs:
 
       - name: Prepare render image
         if: steps.inspect-batch.outputs.count != '0'
-        run: |
-          set -euo pipefail
-          if [[ ! "${IMAGE}" =~ @sha256:[0-9a-f]{64}$ ]]; then
-            echo "::error::Image reference '${IMAGE}' is not a valid digest-pinned reference."
-            exit 1
-          fi
-          docker pull "${IMAGE}"
-          docker tag "${IMAGE}" render-image
+        run: bash .github/scripts/test-extensions/prepare-image.sh
 
       - name: Clone extensions
         if: steps.inspect-batch.outputs.count != '0'
