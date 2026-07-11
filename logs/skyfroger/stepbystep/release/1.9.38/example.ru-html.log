@@ -1,0 +1,29 @@
+pandoc 
+
+  to: html
+  output-file: example.ru.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: ru
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Stepbystep
+  stepbystep:
+    headers-level: 4
+  
+
+Output created: example.ru.html
+
+

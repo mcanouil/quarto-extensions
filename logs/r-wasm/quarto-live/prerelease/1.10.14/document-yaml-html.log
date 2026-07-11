@@ -1,0 +1,28 @@
+pandoc 
+
+  to: html
+  output-file: document-yaml.html
+  standalone: true
+  title-prefix: Quarto Live Documentation
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme:
+    light: cosmo
+    dark: darkly
+  title: Document YAML Options
+  
+
+Output created: ../_site/reference/document-yaml.html
+
+

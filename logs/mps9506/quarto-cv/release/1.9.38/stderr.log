@@ -51,29 +51,67 @@ updating existing packages
 finding package for ebgaramond-maths.sty
 > 1 package to install
 > installing ebgaramond-maths (1 of 1)
-ERROR: NotFound: No such file or directory (os error 2)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for svn-prov.sty
+> 1 package to install
+> installing svn-prov (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for ebgaramond.sty
+> 1 package to install
+> installing ebgaramond (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for sectsty.sty
+> 1 package to install
+> installing sectsty (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for parskip.sty
+> 1 package to install
+> installing parskip (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for luatexbase.sty
+> 1 package to install
+> installing luatexbase (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for lastpage.sty
+> 1 package to install
+> installing lastpage (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for datetime.sty
+> 1 package to install
+> installing datetime (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for fmtcount.sty
+> 1 package to install
+> installing fmtcount (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for orcidlink.sty
+> 1 package to install
+> installing orcidlink (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
 
-Stack trace:
-    at Object.cwd (ext:deno_fs/30_fs.js:152:10)
-    at normalizePath (file:///opt/quarto/bin/quarto.js:8154:23)
-    at FileInformationCacheMap.has (file:///opt/quarto/bin/quarto.js:77115:26)
-    at ensureFileInformationCache (file:///opt/quarto/bin/quarto.js:77105:41)
-    at fileExecutionEngineAndTarget (file:///opt/quarto/bin/quarto.js:77381:18)
-    at Object.fileExecutionEngineAndTarget (file:///opt/quarto/bin/quarto.js:142133:14)
-    at render (file:///opt/quarto/bin/quarto.js:142233:36)
-    at eventLoopTick (ext:core/01_core.js:179:7)
-    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142470:24)
-    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102091:7)
-    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101968:14)
-    at async quarto4 (file:///opt/quarto/bin/quarto.js:187649:5)
-    at async file:///opt/quarto/bin/quarto.js:187677:5
-    at async file:///opt/quarto/bin/quarto.js:187532:14
-    at async mainRunner (file:///opt/quarto/bin/quarto.js:187534:5)
-    at async file:///opt/quarto/bin/quarto.js:187670:3
-Render failed, retrying once...
-shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
-chdir: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
-error: Failed getting cwd.
+Output created: template.pdf
 
-Caused by:
-    No such file or directory (os error 2)

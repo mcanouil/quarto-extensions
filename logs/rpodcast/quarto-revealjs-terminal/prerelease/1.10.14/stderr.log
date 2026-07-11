@@ -1,0 +1,55 @@
+Cloning into 'repo'...
+pandoc 
+  to: revealjs
+  output-file: template.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1280
+  height: 720
+  margin: 0.04
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: fade
+  backgroundTransition: fade
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  theme:
+    - default
+    - _extensions/terminal/terminal.scss
+  transitionSpeed: fast
+  slideNumber: false
+  progress: false
+  controls: false
+  terminal-path: quarto-revealjs-terminal
+  terminal-hint: press → to continue
+  terminal-statusbar: true
+  terminal-footer: true
+  terminal-dots: true
+  header-includes:
+    - |
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  title: Terminal
+  subtitle: A retro-terminal theme for Quarto reveal.js
+  author: Eric Nantz
+  date: last-modified
+  
+Output created: public/template.html
+

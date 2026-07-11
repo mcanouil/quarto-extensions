@@ -1,0 +1,56 @@
+Cloning into 'repo'...
+pandoc 
+  to: revealjs
+  output-file: index.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  variables: {}
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: slide
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: false
+  theme: _extensions/comic/comic.scss
+  logo: _extensions/comic/comic.svg
+  slideNumber: c
+  transitionSpeed: default
+  revealjs-plugins:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/_extensions/comic/revealjs-plugin/page-turn
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/_extensions/comic/revealjs-plugin/comic-fit
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/_extensions/comic/revealjs-plugin/tabset
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Caped Crusader
+  subtitle: 'Issue 01: The Signal'
+  author:
+    - name:
+        given: Mickaël
+        family: CANOUIL
+      degrees: Ph.D.
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  institute: Data Science Superhero League
+  date: today
+  
+Output created: index.html
+

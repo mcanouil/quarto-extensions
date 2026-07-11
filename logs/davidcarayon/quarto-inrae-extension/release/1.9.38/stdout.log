@@ -1,34 +1,30 @@
 Dependency install phase for davidcarayon/quarto-inrae-extension: auto-detect
 Auto-detecting R dependencies for davidcarayon/quarto-inrae-extension (knitr engine, no renv.lock).
-** libs
-using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
-gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c renv.c -o renv.o
-gcc -std=gnu2x -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o renv.so renv.o -L/opt/R/4.6.0/lib/R/lib -lR
 Installing R packages: InraeThemes, extrafont, flextable 
 No man pages found in package  'fontBitstreamVera' 
 No man pages found in package  'fontLiberation' 
 gcc -std=gnu2x -g -O2  -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' miniz.c zip.c crypto.c unixutils.c mbedtls/library/aes.c mbedtls/library/sha1.c mbedtls/library/md.c mbedtls/library/pkcs5.c mbedtls/library/platform.c mbedtls/library/platform_util.c tools/cmdzip.c -o tools/cmdzip
 gcc -std=gnu2x -g -O2  -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' miniz.c zip.c crypto.c unixutils.c mbedtls/library/aes.c mbedtls/library/sha1.c mbedtls/library/md.c mbedtls/library/pkcs5.c mbedtls/library/platform.c mbedtls/library/platform_util.c tools/cmdunzip.c -o tools/cmdunzip
-gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c init.c -o init.o
-gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c miniz.c -o miniz.o
-gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c rzip.c -o rzip.o
-gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c zip.c -o zip.o
-gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c crypto.c -o crypto.o
-gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c unixutils.c -o unixutils.o
-gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c errors.c -o errors.o
-gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c cleancall.c -o cleancall.o
-gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c cmdunzip_lib.c -o cmdunzip_lib.o
-gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c mbedtls/library/aes.c -o mbedtls/library/aes.o
-gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c mbedtls/library/sha1.c -o mbedtls/library/sha1.o
-gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c mbedtls/library/md.c -o mbedtls/library/md.o
-gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c mbedtls/library/pkcs5.c -o mbedtls/library/pkcs5.o
-gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c mbedtls/library/platform.c -o mbedtls/library/platform.o
-gcc -std=gnu2x -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.0/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c mbedtls/library/platform_util.c -o mbedtls/library/platform_util.o
-gcc -std=gnu2x -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o zip.so init.o miniz.o rzip.o zip.o crypto.o unixutils.o errors.o cleancall.o cmdunzip_lib.o mbedtls/library/aes.o mbedtls/library/sha1.o mbedtls/library/md.o mbedtls/library/pkcs5.o mbedtls/library/platform.o mbedtls/library/platform_util.o -lpthread -L/opt/R/4.6.0/lib/R/lib -lR
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.1/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c init.c -o init.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.1/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c miniz.c -o miniz.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.1/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c rzip.c -o rzip.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.1/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c zip.c -o zip.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.1/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c crypto.c -o crypto.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.1/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c unixutils.c -o unixutils.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.1/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c errors.c -o errors.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.1/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c cleancall.c -o cleancall.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.1/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c cmdunzip_lib.c -o cmdunzip_lib.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.1/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c mbedtls/library/aes.c -o mbedtls/library/aes.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.1/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c mbedtls/library/sha1.c -o mbedtls/library/sha1.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.1/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c mbedtls/library/md.c -o mbedtls/library/md.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.1/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c mbedtls/library/pkcs5.c -o mbedtls/library/pkcs5.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.1/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c mbedtls/library/platform.c -o mbedtls/library/platform.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.1/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c mbedtls/library/platform_util.c -o mbedtls/library/platform_util.o
+gcc -std=gnu2x -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o zip.so init.o miniz.o rzip.o zip.o crypto.o unixutils.o errors.o cleancall.o cmdunzip_lib.o mbedtls/library/aes.o mbedtls/library/sha1.o mbedtls/library/md.o mbedtls/library/pkcs5.o mbedtls/library/platform.o mbedtls/library/platform_util.o -lpthread -L/opt/R/4.6.1/lib/R/lib -lR
 echo "make ttf2pt1 in ttf2pt1/ ..."
 make ttf2pt1 in ttf2pt1/ ...
-(cd ttf2pt1; make CC="`"/opt/R/4.6.0/lib/R/bin/R" CMD config CC`" CFLAGS="`"/opt/R/4.6.0/lib/R/bin/R" CMD config CFLAGS`" ttf2pt1)
-make[1]: Entering directory '/tmp/Rtmp2U7iNH/R.INSTALL21e657e8979/Rttf2pt1/src/ttf2pt1'
+(cd ttf2pt1; make CC="`"/opt/R/4.6.1/lib/R/bin/R" CMD config CC`" CFLAGS="`"/opt/R/4.6.1/lib/R/bin/R" CMD config CFLAGS`" ttf2pt1)
+make[1]: Entering directory '/tmp/RtmpoRpjNm/R.INSTALL1a56b1e13b3/Rttf2pt1/src/ttf2pt1'
 gcc -std=gnu2x -g -O2 -c ttf2pt1.c
 gcc -std=gnu2x -g -O2 -c pt1.c
 gcc -std=gnu2x -g -O2  -c runt1asm.c
@@ -37,16 +33,13 @@ gcc -std=gnu2x -g -O2 -c ft.c
 gcc -std=gnu2x -g -O2 -c bdf.c
 gcc -std=gnu2x -g -O2 -c bitmap.c
 gcc -std=gnu2x -g -O2 -o ttf2pt1 ttf2pt1.o pt1.o runt1asm.o ttf.o ft.o bdf.o bitmap.o -lm  
-make[1]: Leaving directory '/tmp/Rtmp2U7iNH/R.INSTALL21e657e8979/Rttf2pt1/src/ttf2pt1'
+make[1]: Leaving directory '/tmp/RtmpoRpjNm/R.INSTALL1a56b1e13b3/Rttf2pt1/src/ttf2pt1'
 [1] ""
 Found pkg-config cflags and libs!
 Using PKG_CFLAGS=-I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1 
 Using PKG_LIBS=-lcairo -lfreetype 
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c CairoContext.cpp -o CairoContext.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c font_metrics.cpp -o font_metrics.o
-g++ -std=gnu++20 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1  -I'/opt/R/4.6.0/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c versions.cpp -o versions.o
-g++ -std=gnu++20 -shared -L/opt/R/4.6.0/lib/R/lib -L/usr/local/lib -o gdtools.so CairoContext.o RcppExports.o font_metrics.o versions.o -lcairo -lfreetype -L/opt/R/4.6.0/lib/R/lib -lR
-tlmgr: package repository https://ctan.math.illinois.edu/systems/texlive/tlnet (verified)
-tlmgr: no self-updates for tlmgr available
-Using CTAN mirror: https://ctan.math.illinois.edu/systems/texlive/tlnet
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c CairoContext.cpp -o CairoContext.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c font_metrics.cpp -o font_metrics.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c versions.cpp -o versions.o
+g++ -std=gnu++20 -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o gdtools.so CairoContext.o RcppExports.o font_metrics.o versions.o -lcairo -lfreetype -L/opt/R/4.6.1/lib/R/lib -lR

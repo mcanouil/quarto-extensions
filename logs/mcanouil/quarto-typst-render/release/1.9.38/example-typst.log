@@ -23,11 +23,15 @@ metadata
   extensions:
     typst-render:
       margin: 0.5em
+      math: typst
   papersize: a4
   margin:
     x: 2.5cm
     'y': 2.5cm
   
+
+(W)
+ [typst-render] format "html" is only available for HTML-based output; falling back to an image.
 
 [typst]: Compiling example.typ to example.pdf...
 DONE

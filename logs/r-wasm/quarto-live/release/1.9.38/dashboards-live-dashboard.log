@@ -1,0 +1,53 @@
+
+Starting python3 kernel...
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+
+Done
+
+
+Executing 'dashboards.quarto_ipynb'
+
+
+
+pandoc 
+
+  to: html
+  output-file: dashboards.html
+  template: /opt/quarto/share/formats/dashboard/template.html
+  standalone: true
+  title-prefix: Quarto Live Documentation
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  page-layout: custom
+  ojs-engine: true
+  theme:
+    light: cosmo
+    dark: darkly
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Dashboard Example
+  subtitle: Interactive Quarto Dashboards with WebAssembly computation
+  pyodide:
+    packages:
+      - numpy
+      - scipy
+      - matplotlib
+      - plotly
+      - nbformat
+      - ipywidgets
+  
+
+Output created: ../_site/interactive/dashboards.html
+
+

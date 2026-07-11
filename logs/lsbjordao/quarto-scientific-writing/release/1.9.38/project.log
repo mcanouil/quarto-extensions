@@ -1,0 +1,74 @@
+Error running 
+filter /opt/quarto/share/filters/main.lua:
+Cannot get Attr from TypeNil
+stack traceback:
+	/opt/quarto/share/filters/main.lua:21822: in function </opt/quarto/share/filters/main.lua:21790>
+	[C]: in function 'lpeg.match'
+	/opt/quarto/share/pandoc/datadir/lpegshortcode.lua:308: in function 'lpegshortcode.wrap_lpeg_match'
+	/opt/quarto/share/fil
+ters/main.lua:21826: in upvalue 'apply_code_shortcode'
+	/opt/quar
+to/share/filters/main.lua:21863: in function </opt/quarto/share/fil
+ters/main.lua:21850>
+	[C]: in ?
+	[C]: in method 'walk'
+	/opt/qua
+rto/share/pandoc/datadir/_utils.lua:607: in function '_utils.w
+alk'
+	/opt/quarto/share/filters/main.lua:574: 
+in function </opt/quarto/share/filters/
+main.lua:552>
+	(...tail calls...)
+	/opt/quarto/
+share/filters/main.lua:21879: in field 'Pandoc'
+	/opt/quarto/share/filt
+ers/main.lua:588: in function 'run_emulated_fi
+lter'
+	/opt/quarto/share/filters/main.lua:131
+7: in local 'callback'
+	/opt/qua
+rto/share/filters/main.lua:
+1335: in upvalue 'run_emul
+ated_filter_chain'
+	/opt/qu
+arto/share/filters/main.lua:1371
+: in function </opt/quart
+o/share/filters/main.lua:1
+368>
+stack traceback:
+	/o
+pt/quarto/share/pandoc/datad
+ir/_utils.lua:607: in fun
+ction '_utils.walk'
+	/op
+t/quarto/share/filters/ma
+in.lua:574: in function 
+</opt/quarto/
+share/filters/main.lua:552>
+
+	(...tail calls...)
+	/op
+t/quarto/share/filters/ma
+in.lua:21879: in field 'P
+andoc'
+	/opt/quarto/shar
+e/filters/main.lua:588: i
+n function 'run_emulated
+_filter'
+	/opt/quarto/share
+/filters/main.lua:1317: i
+n local 'callback'
+	/opt
+/quarto/share/filters/mai
+n.lua:1335: in upvalue 'r
+un_emulated_filter_chain
+'
+	/opt/quarto/share/filters
+/main.lua:
+13
+71: in function </opt/quar
+to/share/filters/main.lua:
+1368>
+
+(WARN) Error encountered when rendering files
+

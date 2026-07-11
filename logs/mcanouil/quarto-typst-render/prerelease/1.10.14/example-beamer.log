@@ -1,0 +1,88 @@
+pandoc 
+
+  to: beamer
+  output-file: example.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+
+metadata
+
+  block-headings: true
+  title: Typst Render
+  subtitle: Quarto Extension
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  extensions:
+    typst-render:
+      margin: 0.5em
+      math: typst
+  aspectratio: 169
+  
+
+(W) [typst-render] format "html" is only available for HTML-based output; falling back to an image.
+
+downloading @preview/cetz:0.4.2
+
+123.1 KiB / 123.1 KiB (100 %) 123.1 KiB/s in 4.55 ms ETA: 0 s
+
+
+downloading @preview/oxifmt:1.0.0
+
+ 19.7 KiB /  19.7 KiB (100 %)  19.7 KiB/s in 1.39 ms ETA: 0 s
+
+
+(W) [typst-render] Page selection is not supported for PDF format; embedding the full PDF.
+
+warning: unknown font family: inter
+   ┌─ <stdin>:18:16
+   │
+18 │ #set text(font: "Inter", fill: text-prima
+ry)
+   │                 ^^^^^^^
+
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for luatexbase.sty
+
+> 1 package to install
+
+> installing luatexbase (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+running lualatex - 2
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+
+
+Output created: example-beamer.pdf
+
+

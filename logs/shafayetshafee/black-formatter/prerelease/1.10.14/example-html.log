@@ -1,0 +1,66 @@
+
+Starting python3 kernel...
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+
+Done
+
+
+Executing 'example.quarto_ipynb'
+
+  Cell 1/2: 'hello_world'...
+Done
+
+  Cell 2/2: 'is_unique'.....
+Done
+
+
+
+pandoc 
+
+  to: html
+  output-file: example.html
+  standalone: true
+  embed-resources: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Black-formatter Example
+  jupyter: python3
+  
+
+reformatted _hello_world_black_formatted.py
+
+
+All done! ✨ 🍰 ✨
+1 file reformatted.
+
+reformatted _is_unique_black_formatted.py
+
+
+All done! ✨ 🍰 ✨
+1 file reformatted.
+
+reformatted _ycwjje_black_formatted.py
+
+All done! ✨ 🍰 ✨
+
+1 file reformatted.
+
+reformatted _test_function_black_formatted.py
+
+All done! ✨ 🍰 ✨
+
+1 file reformatted.
+
+Output created: example.html
+
+

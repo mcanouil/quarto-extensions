@@ -1,0 +1,153 @@
+pandoc 
+
+  to: html
+  output-file: test.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: D2 Extension For Quarto
+  d2:
+    layout: elk
+  
+
+sh: 1: d2: not found
+
+Error running f
+ilter /opt/quarto/share/filters/main.lua:
+/opt/quarto/share/pandoc/datadir/_base64.lua:81: attempt to get length of a nil value (local 'str')
+stack traceback:
+	...ions/quarto-extensions/test-7
+/repo/_extensions/d2/d2.lua:210: in function <...ions/quarto-extensions
+/test-7/repo/_extensions/d2/d2.lua:181>
+	[C]: in ?
+
+	[C]: in method 'walk'
+	...ions/quarto-extensions/te
+st-7/repo/_extensions/d2/d2.lua:366: 
+in function <...ions/qua
+rto-extensions/test-7/repo/_ex
+tensions/d2/d2.lua:339>
+	[C]: in ?
+	[C]: in method 'walk'
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:574: in local 'checked_walk'
+	/opt/quarto/share/filters/main.lua:629: in f
+unction 'run_emulated_fil
+ter'
+	/opt/quarto/sha
+re/filters/main.
+lua:1317: in lo
+cal 'callback'
+	
+[string "if pand
+oc.system.os ==
+ "mingw32" the
+n..."]:778: in 
+field 'withScri
+ptFile'
+	/opt/q
+uarto/share/fil
+ters/main.lua:1
+333: in upvalu
+e 'run_emulated
+_filter_chain'
+
+	/opt/quarto/s
+hare/filters/ma
+in.lua:1371: i
+n function </opt
+/quarto/share/
+filters/main.l
+ua:1368>
+stack 
+traceback:
+	.
+..ions/quarto-
+extensions/tes
+t-7/repo/_exte
+nsions/d2/d2.l
+ua:366: in fun
+ction <...ions/quarto-extensions/test-7/repo/_extensions/d2/d2.lua:339>
+	[C]: in ?
+	[C]: in method 'walk'
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:574: in local 'checked_walk'
+	/opt/quarto/shar
+e/filters/main.lua:629: in
+ function 'run_e
+mulated_filte
+r'
+	/opt/quart
+o/share/filters/main
+.lua:1317: in l
+ocal 'callbac
+k'
+	[string "i
+f pandoc.syste
+m.os == "mingw32"
+ then..."]:778
+: in field 'wi
+thScriptFile'
+
+	/opt/quarto/sha
+re/filters/mai
+n.lua:1333: in
+ upvalue 'run_
+emulated_filte
+r_chain'
+	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
+stack traceback:
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_uti
+ls.walk'
+	/opt/quarto/
+share/filters/m
+ain.lua:574: i
+n local 'chec
+ked_walk'
+	/op
+t/quarto/shar
+e/filters/main
+.lua:629: in function '
+run_emulated_f
+ilter'
+	/opt/
+quarto/share/
+filters/main.
+lua:1317: in 
+local 'callba
+ck'
+	[string "if pand
+oc.system.os 
+== "mingw32" 
+then..."]:778
+: in field 'wi
+thScriptFile'
+
+	/opt/quarto
+/share/filter
+s/main.lua:1
+333: in upval
+ue 'run_emula
+ted_filter_cha
+in'
+	/opt/qu
+arto/share/fi
+lters/main.lu
+a:1371: in f
+unction </opt
+/quarto/share
+/filters/main.lu
+a:1368>
+
+(WARN) Error encountered when rendering files
+

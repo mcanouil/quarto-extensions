@@ -1,0 +1,53 @@
+pandoc 
+
+  to: typst
+  output-file: template.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  toc: true
+  
+
+metadata
+
+  title: Bookly Typst - Complete Template
+  subtitle: Quarto extension usage example
+  author: Your Name
+  date: today
+  lang: en
+  lof: true
+  lot: true
+  theme: modern
+  tufte: false
+  fonts:
+    body: Lato
+    math: Lete Sans Math
+  part-numbering: A
+  config-options:
+    open-right: true
+    alt-margins: false
+  colors:
+    primary: rgb("#1d90d0")
+    secondary: rgb("#dddddd").darken(15%)
+  
+
+[typst]: Compiling template.typ to template.pdf...
+error: color string contains non-hexadecimal letters
+    ┌─ template.typ:457:17
+    │
+457 │     primary: rgb(
+"\#1d90d0"),
+    │                  ^^^^^^^^^^
+
+
+(ERROR) error: color string contains non-hexadecimal letters
+    ┌─ template.typ:457:17
+    │
+457 │     primary: rgb("\#1d90d0"),
+    │                  ^^^^^^^^^^
+
+
+
+(ERROR) Typst compilation failed
+

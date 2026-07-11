@@ -19,8 +19,7 @@ output file: qripper-revealjs-slides.knit.md
 
 processing file: qripper-output-dir.qmd
 
-1
-/5                 
+1/5                 
 
 2/5 [r-example]     
 
@@ -28,7 +27,8 @@ processing file: qripper-output-dir.qmd
 
 4/5 [python-example]
 
-5/5                 
+5
+/5                 
 
 output file: qripper-output-dir.knit.md
 
@@ -74,11 +74,13 @@ output file: qripper-custom-placement.knit.md
 [ripper] Configuration loaded: include_yaml=true, script_links_position=custom, output_name=auto, output_dir=same as document, debug=true
 
 [ripper] Skipping unsupported language: markdown
+
 [ripper] Skipping unsupported language: markdown
 [ripper] Initialized storage for language: r
 
 [ripper] Collected code block for language: r (28 bytes)
 [ripper] Initialized storage for language: python
+
 [ripper] Collected code block for language: python (70 bytes)
 
 [ripper] === Starting document processing ===
@@ -95,16 +97,15 @@ output file: qripper-custom-placement.knit.md
 [ripper] Building YAML header for r
 
 [ripper] Writing file: qripper-custom-placement.R (88 bytes)
-[ripper] Successfully wrote qripper-custom-placement.R
 
+[ripper] Successfully wrote qripper-custom-placement.R
 [ripper] Successfully created 2 file(s)
 [ripper] Creating script links section with 2 file(s)
 
 [ripper] Insert position: custom
-
 [ripper] Searching for custom position div: #ripper-links
-[ripper] Found custom position div at block 10, inserting 3 block(s)
 
+[ripper] Found custom position div at block 10, inserting 3 block(s)
 [ripper] === Document processing complete ===
 
 

@@ -25,15 +25,15 @@ metadata
     tex-dir: tikz-tex
   
 
-ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/_extensions/tikz/tikz.lua:279) inkscape not found. Please install it (the configured svg converter) to convert TeX output to SVG.
+ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-13/repo/_extensions/tikz/tikz.lua:279) inkscape not found. Please install it (the configured svg converter) to convert TeX output to SVG.
 
-ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/_extensions/tikz/tikz.lua:347) Error compiling TikZ figure 'stick-figure':
+ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-13/repo/_extensions/tikz/tikz.lua:347) Error compiling TikZ figure 'stick-figure':
 Error running pdflatex (error code 1): This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
 (./stick-figure.tex
 LaTeX2e <2026-06-01>
-L3 programming layer <2026-05-26>
+L3 programming layer <2026-06-18>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -50,14 +50,14 @@ l.3 ^^M
 Transcript written on stick-figure.log.
 
 LaTeX Log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.15)  15 JUN 2026 16:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.11)  11 JUL 2026 14:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **stick-figure.tex
 (./stick-figure.tex
 LaTeX2e <2026-06-01>
-L3 programming layer <2026-05-26>
+L3 programming layer <2026-06-18>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -74,10 +74,10 @@ l.3 ^^M
 
  
 Here is how much of TeX's memory you used:
- 19 strings out of 469114
- 452 string characters out of 5460008
+ 19 strings out of 469115
+ 452 string characters out of 5460022
  435362 words of memory out of 5000000
- 29134 multiletter control sequences out of 15000+600000
+ 29133 multiletter control sequences out of 15000+600000
  627721 words of font info for 40 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  19i,0n,29p,80b,17s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -98,7 +98,7 @@ TikZ Code:
   \draw (-1,-4) -- (0,-3) -- (1,-4);
 \end{tikzpicture}
 
-ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/_extensions/tikz/tikz.lua:417) Error converting to SVG (command: inkscape) for TikZ figure 'stick-figure':
+ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-13/repo/_extensions/tikz/tikz.lua:417) Error converting to SVG (command: inkscape) for TikZ figure 'stick-figure':
 inkscape: createProcess: posix_spawnp: does not exist (No such file or directory)
 TikZ Code:
 %%| filename: stick-figure
@@ -114,7 +114,7 @@ TikZ Code:
   % Legs
   \draw (-1,-4) -- (0,-3) -- (1,-4);
 \end{tikzpicture}
-ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/_extensions/tikz/tikz.lua:424) Failed to read generated SVG file for TikZ figure 'stick-figure'.
+ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-13/repo/_extensions/tikz/tikz.lua:424) Failed to read generated SVG file for TikZ figure 'stick-figure'.
 TikZ Code:
 %%| filename: stick-figure
 %%| caption: A Stick Figure
@@ -130,141 +130,43 @@ TikZ Code:
   \draw (-1,-4) -- (0,-3) -- (1,-4);
 \end{tikzpicture}
 
-Error running
- filter /opt/quarto/share/filters/main.lua:
+Error ru
+nning filter /opt/quarto/share/filters/main.lua:
 string expected, got nil
-	while retrieving
- function argument contents
-	while retrieving argum
-ents for function insert
-stack traceb
-ack:
-	.../quarto-extensions/te
-st-5/repo/_extensions/tik
-z/tikz.lua:544: in function <.../quarto-extensions/test-5/repo/
-_extensions/tikz/tikz.lua:446>
-	[C]: i
-n ?
-	[C]: in method 'walk'
-	.../quarto-
-extensions/test-5/repo/_extensions/tikz
-/tikz.lua:753: in fu
-nction <.../quart
-o-extensions/tes
-t-5/repo/_extens
-ions/tikz/tikz.l
-ua:751>
-	[C]: in 
-?
-	[C]: in metho
-d 'walk'
-	/opt/q
-uarto/share/pand
-oc/datadir/_utils
-.lua:607: in func
-tion '_utils.walk'
-
-	/opt/quarto/share/f
-ilters/main.lua:574: in loc
-al 'checked_walk'
-	/opt/qua
-rto/share/filters
-/main.lua:629: i
-n function 'run_
-emulated_filter'
-
-	/opt/quarto/sh
-are/filters/main
-.lua:1317: in lo
-cal 'callback'
-
-	[string "if pan
-doc.system.os == 
-"mingw32" then..
-."]:778: in fie
-ld 'withScriptFi
-le'
-	/opt/quart
-o/share/filters/
-main.lua:1333: i
-n upvalue 'run_
-emulated_filter_
-chain'
-	/opt/qu
-arto/share/filte
-rs/main.lua:1371: in function </opt/
-quarto/share/filters/main.lua:136
-8>
+	while retrieving function argument contents
+	while retrieving arguments for function insert
 stack traceback:
-	.../quarto-extensio
-ns/test-5/repo/_extensions/tikz/t
-ikz.lua:753: in function <..
-./quarto-extensions/test-5/repo/_
-extensions/tikz/tikz.lua:751>
+	...quarto-extensions/test-13/repo/_extensions/tikz/tikz.lua:544: in function <...quarto-extensions/test-13/repo/_extensions/tikz/tikz.lua:446>
 	[C]: in ?
-	[C]: in
- method 'walk'
-	/opt/quarto/share/pandoc/datadi
-r/_utils.lua:607: in fun
-ction '_utils.wal
-k'
-	/opt/quarto/
-share/filters/ma
-in.lua:574: in l
-ocal 'checked_wa
-lk'
-	/opt/quarto
-/share/filters/m
-ain.lua:629: in 
-function 'run_em
-ulated_filter'
-	/opt/quarto/sha
-re/filters/main.lua:1317: in local '
-callback'
-	[string "if pandoc.syste
-m.os == "mingw32" then..."]:778: in field 'withScr
-iptFile'
-	/opt/quarto/sh
-are/filters/main.lua:1333: in upvalue 'run_
-emulated_filter_chain'
-	/opt/quarto/share/filters/ma
-in.lua:1371: in function
- </opt/quarto/share/filters/main.lua:1368>
-s
-tack traceback:
-	/opt/quarto/share/pandoc/
-datadir/_utils.lua:60
-7: in function '_u
-tils.walk'
-	/opt
-/quarto/share/fi
-lters/main.lua:
-574: in local 'ch
-ecked_walk'
-	/o
-pt/quarto/share/
-filters/main.lua
-:629: in functio
-n 'run_emulated
-_filter'
-	/opt/q
-uarto/share/filt
-ers/main.lua:131
-7: in local 'cal
-lback'
-	[string
- "if pandoc.syst
-em.os == "mingw3
-2" then..."]:778:
- in field 'withScriptFil
-e'
-	/opt/quarto/s
-hare/filters/main.lu
-a:1333:
- in u
-pvalue 'run_emulat
-ed_filter_chain'
-
+	[C]: in method 'walk'
+	...quarto-extensions/test-13/repo/_extensions/tikz/tikz.lua:753: in function <...quarto-extensions/test-13/repo/_extensions/tikz/tikz.lua:751>
+	[C]: in ?
+	[C]: in method 'walk'
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:574: in local 'checked_walk'
+	/opt/quarto/share/filters/main.lua:629: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
+	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
+	/opt/quarto/share/filters/main.lua:1333: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
+stack traceback:
+	...quarto-extensions/test-13/repo/_extensions/tikz/tikz.lua:753: in function <...quarto-extensions/test-13/repo/_extensions/tikz/tikz.lua:751>
+	[C]: in ?
+	[C]: in method 'walk'
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:574: in local 'checked_walk'
+	/opt/quarto/share/filters/main.lua:629: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
+	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
+	/opt/quarto/share/filters/main.lua:1333: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
+stack traceback:
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:574: in local 'checked_walk'
+	/opt/quarto/share/filters/main.lua:629: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
+	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
+	/opt/quarto/share/filters/main.lua:1333: in upvalue 'run_emulated_filter_chain'
 	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
 
 (WARN) Error encountered when rendering files

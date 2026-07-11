@@ -1,0 +1,372 @@
+Cloning into 'repo'...
+
+pandoc 
+  to: html
+  output-file: getting_started.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  title: Introduction to acronyms
+  description: |
+    Learn how to get started with the basics of the **acronyms** extension.
+  
+Output created: _site/getting_started.html
+
+
+pandoc 
+  to: html
+  output-file: shortcodes.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  title: Shortcodes
+  description: |
+    Learn how to use the new shortcode syntax.
+  
+Output created: ../_site/articles/shortcodes.html
+
+
+pandoc 
+  to: html
+  output-file: styles.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  title: Styles
+  description: |
+    List and preview of the available styles for replacing acronyms.
+  acronyms:
+    keys:
+      - shortname: qmd
+        longname: Quarto document
+    insert_loa: false
+    insert_links: false
+  
+Output created: ../_site/articles/styles.html
+
+
+pandoc 
+  to: html
+  output-file: plural.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  title: Plural form
+  description: |
+    Learn how to render acronyms in plural form, and customize the plural form of your acronyms.
+  
+Output created: ../_site/articles/plural.html
+
+
+pandoc 
+  to: html
+  output-file: options.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  title: Available options
+  description: |
+    Learn how to customize the behaviour of **acronyms**.
+  
+Output created: ../_site/articles/options.html
+
+
+pandoc 
+  to: html
+  output-file: extending.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  title: Extending the acronyms features
+  description: |
+    Learn how to extend existing features, such as styles and translations.
+  
+Output created: ../_site/advanced/extending.html
+
+
+pandoc 
+  to: html
+  output-file: customized_loa_header.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  title: Customizing the List of Acronyms title
+  description: |
+    Read how to customize the List of Acronyms title (header), including putting it in an unnumbered section.
+  
+Output created: ../_site/advanced/customized_loa_header.html
+
+
+pandoc 
+  to: html
+  output-file: external_file.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  title: Defining acronyms in external file(s)
+  description: |
+    Learn how to define acronyms in one or several external files, which can be reused throughout documents or projects (rather than directly in the YAML metadata).
+  
+Output created: ../_site/advanced/external_file.html
+
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  title: Advanced usage tutorials
+  listing:
+    type: default
+    sort: date
+    fields:
+      - title
+      - description
+    exclude:
+      title: Advanced usage tutorials
+    sort-ui: false
+  
+Output created: ../_site/advanced/index.html
+
+
+pandoc 
+  to: html
+  output-file: multi_document.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  title: Using acronyms in a multi-document project
+  description: |
+    Learn how to use acronyms in several documents, for example a website or book; how to control where the List of Acronyms appear, which acronyms appear on which pages, etc.
+  
+Output created: ../_site/advanced/multi_document.html
+
+
+
+Starting python3 kernel...[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+Done
+
+Executing 'index.quarto_ipynb'
+
+pandoc 
+  to: html
+  from: markdown+emoji
+  output-file: index.html
+  standalone: true
+  title-prefix: acronyms
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  pagetitle: acronyms
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  
+Output created: _site/index.html
+
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  
+metadata
+  keep-yaml: false
+  acronyms:
+    sorting: alphabetical-case-insensitive
+    include_unused: false
+    keys:
+      - shortname: Qt
+        longname: Quarto
+      - shortname: iQt
+        longname: inside-Quarto
+      - shortname: aA
+        longname: alphabetically
+      - shortname: H
+        longname: handle
+  
+[31mFATAL (/opt/quarto/share/filters/main.lua:3760) An error occurred:
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-19/repo/tests/20-sorting-alphabetical-case-insensitive/acronyms as a JSON filter.
+Please make sure the file exists and is executable.
+
+Did you intend 'acronyms' as a Lua filter in an extension?
+If so, make sure you've spelled the name of the extension correctly.
+
+The original Pandoc error follows below.
+Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-19/repo/tests/20-sorting-alphabetical-case-insensitive/acronyms:
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-19/repo/tests/20-sorting-alphabetical-case-insensitive/acronyms
+[39mError running filter /opt/quarto/share/filters/main.lua:
+/opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERROR
+stack traceback:
+	/opt/quarto/share/filters/main.lua:2622: in function 'fatal'
+	/opt/quarto/share/filters/main.lua:2202: in function 'fail'
+	/opt/quarto/share/filters/main.lua:3760: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:588: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1335: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+pandoc 
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  
+metadata
+  keep-yaml: false
+  acronyms:
+    sorting: alphabetical-case-insensitive
+    include_unused: false
+    keys:
+      - shortname: Qt
+        longname: Quarto
+      - shortname: iQt
+        longname: inside-Quarto
+      - shortname: aA
+        longname: alphabetically
+      - shortname: H
+        longname: handle
+  
+[31mFATAL (/opt/quarto/share/filters/main.lua:3760) An error occurred:
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-19/repo/tests/20-sorting-alphabetical-case-insensitive/acronyms as a JSON filter.
+Please make sure the file exists and is executable.
+
+Did you intend 'acronyms' as a Lua filter in an extension?
+If so, make sure you've spelled the name of the extension correctly.
+
+The original Pandoc error follows below.
+Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-19/repo/tests/20-sorting-alphabetical-case-insensitive/acronyms:
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-19/repo/tests/20-sorting-alphabetical-case-insensitive/acronyms
+[39mError running filter /opt/quarto/share/filters/main.lua:
+/opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERROR
+stack traceback:
+	/opt/quarto/share/filters/main.lua:2622: in function 'fatal'
+	/opt/quarto/share/filters/main.lua:2202: in function 'fail'
+	/opt/quarto/share/filters/main.lua:3760: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:588: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1335: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
+WARN: Error encountered when rendering files

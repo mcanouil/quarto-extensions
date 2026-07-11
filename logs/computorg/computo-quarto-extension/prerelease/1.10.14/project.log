@@ -1,0 +1,27 @@
+
+
+processing file: computo-quarto-extension.qmd
+
+1/17                    
+
+2/17 [r-code]           
+
+3/17                    
+
+4/17 [setup-python-env] 
+
+5/17                    
+6/17 [fig-plotly]       
+
+Error in py_call_impl(callable, call_args$unnamed, call_args$named) : 
+  ModuleNotFoundError: No module named 'plotly'
+Run `reticulate::py_last_error()` for details.
+Calls: .main ... tryCatchList -> force -> <Anonymous> -> py_call_impl
+
+
+Quitting from computo-quarto-extension.qmd:131-147 [fig-plotly]
+
+Execution halted
+
+(WARN) Error encountered when rendering files
+

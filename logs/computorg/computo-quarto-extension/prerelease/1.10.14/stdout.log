@@ -1,0 +1,66 @@
+Dependency source policy check passed for computorg/computo-quarto-extension.
+Dependency install phase for computorg/computo-quarto-extension: renv.lock
+Installing R dependencies from renv.lock for computorg/computo-quarto-extension.
+The following required system packages are not installed:
+- chromium  [required by chromote]
+- pandoc    [required by knitr, rmarkdown]
+The R packages depending on these system packages may fail to install.
+
+An administrator can install these packages with:
+- sudo apt install chromium pandoc
+
+The following package(s) will be updated:
+
+# Repository -----------------------------------------------------------------
+- Rcpp          [1.1.2 -> 1.1.1-1.1]
+- rlang         [1.3.0 -> 1.2.0]
+- xfun          [0.60 -> 0.59]
+- AsioHeaders   [* -> 1.30.2-1]
+- chromote      [* -> 0.5.1]
+- crosstalk     [* -> 1.2.2]
+- ellipsis      [* -> 0.3.3]
+- later         [* -> 1.4.8]
+- lazyeval      [* -> 0.2.3]
+- plotly        [* -> 4.12.0]
+- promises      [* -> 1.5.0]
+- viridis       [* -> 0.6.5]
+- webshot2      [* -> 0.1.2]
+- websocket     [* -> 1.4.4]
+- zip           [* -> 3.0.0]
+
+# Downloading packages -------------------------------------------------------
+[?25l  (0/15) Downloading: viridis, plotly, zip, chromote, ...                                                                                                       y ellipsis 0.3.3                           [26 kB in 0.66s]
+  (1/15) Downloading: viridis, plotly, zip, chromote, ...                                                                                                       y later 1.4.8                              [162 kB in 0.67s]
+  (2/15) Downloading: viridis, plotly, zip, chromote, ...                                                                                                       y lazyeval 0.2.3                           [190 kB in 0.68s]
+  (3/15) Downloading: viridis, plotly, zip, chromote, ...                                                                                                       y crosstalk 1.2.2                          [417 kB in 0.69s]
+  (4/15) Downloading: viridis, plotly, zip, chromote, ...                                                                                                       y websocket 1.4.4                          [451 kB in 0.72s]
+  (5/15) Downloading: viridis, plotly, zip, chromote, ...                                                                                                       y chromote 0.5.1                           [651 kB in 0.72s]
+  (6/15) Downloading: viridis, plotly, zip, promises, ...                                                                                                       y rlang 1.2.0                              [1.6 MB in 0.72s]
+  (7/15) Downloading: viridis, plotly, zip, promises, ...                                                                                                       y promises 1.5.0                           [1.7 MB in 0.72s]
+  (8/15) Downloading: viridis, plotly, zip, AsioHeaders, ...                                                                                                    y AsioHeaders 1.30.2-1                     [666 kB in 0.72s]
+  (9/15) Downloading: viridis, plotly, zip, Rcpp, ...                                                                                                           y xfun 0.59                                [645 kB in 0.72s]
+  (10/15) Downloading: viridis, plotly, zip, Rcpp, ...                                                                                                          y zip 3.0.0                                [959 kB in 0.74s]
+  (11/15) Downloading: viridis, plotly, Rcpp, webshot2                                                                                                          y viridis 0.6.5                            [3.0 MB in 0.77s]
+  (12/15) Downloading: plotly, Rcpp, webshot2                                                                                                                   y Rcpp 1.1.1-1.1                           [2.3 MB in 0.81s]
+  (13/15) Downloading: plotly, webshot2                                                                                                                         y plotly 4.12.0                            [3.9 MB in 0.82s]
+  (14/15) Downloading: webshot2                                                                                                                                 y webshot2 0.1.2                           [572 kB in 0.83s]
+                                                                                Successfully downloaded 15 packages in 1.1 seconds.
+
+# Installing packages --------------------------------------------------------
+                                                                                y AsioHeaders 1.30.2-1                     [installed binary]
+                                                                                y Rcpp 1.1.1-1.1                           [installed binary]
+                                                                                y rlang 1.2.0                              [installed binary]
+                                                                                y viridis 0.6.5                            [installed binary]
+                                                                                y xfun 0.59                                [installed binary]
+                                                                                y zip 3.0.0                                [installed binary]
+                                                                                y ellipsis 0.3.3                           [installed binary]
+                                                                                y later 1.4.8                              [installed binary]
+                                                                                y lazyeval 0.2.3                           [installed binary]
+                                                                                y promises 1.5.0                           [installed binary]
+                                                                                y websocket 1.4.4                          [installed binary]
+                                                                                y crosstalk 1.2.2                          [installed binary]
+                                                                                y chromote 0.5.1                           [installed binary]
+                                                                                y plotly 4.12.0                            [installed binary]
+                                                                                y webshot2 0.1.2                           [installed binary]
+Successfully installed 15 packages in 5.9 seconds.
+[?25h

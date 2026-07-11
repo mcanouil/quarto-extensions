@@ -1,0 +1,41 @@
+pandoc 
+
+  to: html
+  output-file: index.html
+  standalone: true
+  embed-resources: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Div Reuse Quarto Extension
+  subtitle: Quarto Extension
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  div-reuse:
+    limit: 1
+    vars:
+      project: Quarto Extensions
+      author:
+        name: Mickaël Canouil
+      year: 2026
+  
+
+(W) [div-reuse] Div "labelled" has been reused but contains 1 Div(s) with an identifier.
+
+(W) [div-reuse] Reuse limit (1) reached for "welcome"; subsequent reuses are skipped.
+
+Output created: index.html
+
+

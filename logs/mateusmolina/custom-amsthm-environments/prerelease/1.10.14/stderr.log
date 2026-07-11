@@ -1,0 +1,365 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: chapter3.html
+  standalone: true
+  toc: true
+  number-sections: true
+  title-prefix: Test Book for Custom AmSThm Environments
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  number-offset:
+    - 3
+  
+metadata
+  crossref:
+    chapters: true
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  custom-amsthm:
+    - key: prm
+      name: Problem
+    - key: tsk
+      name: Task
+      numbering-style: global
+  theme: cosmo
+  title: "[3]{.chapter-number}\_ [Chapter 3: Cross-References Across Chapters]{.chapter-title}"
+  hide-description: true
+  
+WARN: chapter3.html: Unable to resolve crossref @thm-in-chapter2
+Output created: _output/chapter3.html
+
+[1/3] index.qmd
+[2/3] chapter2.qmd
+[3/3] chapter3.qmd
+
+pandoc 
+  to: latex
+  output-file: index.tex
+  standalone: true
+  toc: true
+  number-sections: true
+  top-level-division: chapter
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  crossref:
+    chapters: true
+  documentclass: book
+  papersize: letter
+  block-headings: true
+  custom-amsthm:
+    - key: prm
+      name: Problem
+    - key: tsk
+      name: Task
+      numbering-style: global
+  title: Test Book for Custom AmSThm Environments
+  author: Test Author
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: _output/Test-Book-for-Custom-AmSThm-Environments.pdf
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  toc: true
+  number-sections: true
+  title-prefix: Test Book for Custom AmSThm Environments
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  crossref:
+    chapters: true
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  custom-amsthm:
+    - key: prm
+      name: Problem
+    - key: tsk
+      name: Task
+      numbering-style: global
+  theme: cosmo
+  title: Test Book for Custom AmSThm Environments
+  author: Test Author
+  
+Output created: _output/index.html
+
+[1/3] index.qmd
+[2/3] chapter2.qmd
+[3/3] chapter3.qmd
+
+pandoc 
+  to: latex
+  output-file: index.tex
+  standalone: true
+  toc: true
+  number-sections: true
+  top-level-division: chapter
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  crossref:
+    chapters: true
+  documentclass: book
+  papersize: letter
+  block-headings: true
+  custom-amsthm:
+    - key: prm
+      name: Problem
+    - key: tsk
+      name: Task
+      numbering-style: global
+  title: Test Book for Custom AmSThm Environments
+  author: Test Author
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: _output/Test-Book-for-Custom-AmSThm-Environments.pdf
+
+pandoc 
+  to: html
+  output-file: chapter2.html
+  standalone: true
+  toc: true
+  number-sections: true
+  title-prefix: Test Book for Custom AmSThm Environments
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  number-offset:
+    - 2
+  
+metadata
+  crossref:
+    chapters: true
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  custom-amsthm:
+    - key: prm
+      name: Problem
+    - key: tsk
+      name: Task
+      numbering-style: global
+  theme: cosmo
+  title: "[2]{.chapter-number}\_ [Chapter 2: Basic Examples]{.chapter-title}"
+  hide-description: true
+  
+Output created: _output/chapter2.html
+
+[1/3] index.qmd
+[2/3] chapter2.qmd
+[3/3] chapter3.qmd
+
+pandoc 
+  to: latex
+  output-file: index.tex
+  standalone: true
+  toc: true
+  number-sections: true
+  top-level-division: chapter
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  crossref:
+    chapters: true
+  documentclass: book
+  papersize: letter
+  block-headings: true
+  custom-amsthm:
+    - key: prm
+      name: Problem
+    - key: tsk
+      name: Task
+      numbering-style: global
+  title: Test Book for Custom AmSThm Environments
+  author: Test Author
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: _output/Test-Book-for-Custom-AmSThm-Environments.pdf
+
+pandoc 
+  to: html
+  output-file: article.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  number-sections: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Test Article for Custom AmSThm Environments
+  author: Test Author
+  date: today
+  custom-amsthm:
+    - key: prm
+      name: Problem
+      numbering-style: section
+    - key: tsk
+      name: Task
+      numbering-style: global
+    - key: usecase
+      name: Use Case
+      numbered: false
+  
+Output created: _output/article.html
+
+pandoc 
+  to: latex
+  output-file: article.tex
+  standalone: true
+  shift-heading-level-by: -1
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  number-sections: true
+  
+metadata
+  block-headings: true
+  title: Test Article for Custom AmSThm Environments
+  author: Test Author
+  date: today
+  custom-amsthm:
+    - key: prm
+      name: Problem
+      numbering-style: section
+    - key: tsk
+      name: Task
+      numbering-style: global
+    - key: usecase
+      name: Use Case
+      numbered: false
+  documentclass: article
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: _output/article.pdf
+
+pandoc 
+  to: latex
+  output-file: example.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  number-sections: true
+  
+metadata
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  title: Custom AmSTHm Environments
+  custom-amsthm:
+    - key: prm
+      name: Problem
+    - key: clm
+      name: Claim
+      numbering-style: global
+    - key: obs
+      name: Observation
+    - key: nota
+      name: Notation
+      numbered: false
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+finding package for scrartcl.cls
+> 1 package to install
+> installing koma-script (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: example.pdf
+

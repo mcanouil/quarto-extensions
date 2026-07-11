@@ -53,6 +53,7 @@ No existing .aux file, so I'll make a simple one, and require run of *latex.
 
 Latexmk: applying rule 'pdflatex'...
 Rule 'pdflatex':  Reasons for rerun
+
 Category 'other':
   Rerun of 'pdflatex' forced or previously required:
     Reason or flag: 'Initial setup'
@@ -72,7 +73,7 @@ entering extended mode
 (./source.tex
 
 LaTeX2e <2026-06-01>
-L3 programming layer <2026-05-26>
+L3 programming layer <2026-06-18>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -80,6 +81,7 @@ Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: cls)
 
 Enter file name: 
+
 ! Emergency stop.
 <read *> 
          
@@ -112,7 +114,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-23/repo/example-quarto//:/tmp/quarto-sessione73f2c88b4e4c754/f3d0216e6b91eb51//:/home/runner/work/quarto-extensions/quarto-extensions/test-23/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=pdf source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-13/repo/example-quarto//:/tmp/quarto-session218f2edb7eceaf8e/7cb966a43a21dc16//:/home/runner/work/quarto-extensions/quarto-extensions/test-13/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=pdf source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -204,14 +206,14 @@ q1 -- q2 -- q3; % make these edges plain
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.15)  15 JUN 2026 18:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.11)  11 JUL 2026 14:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **source.tex
 (./source.tex
 LaTeX2e <2026-06-01>
-L3 programming layer <2026-05-26>
+L3 programming layer <2026-06-18>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -228,10 +230,10 @@ l.7 \usepackage
 
  
 Here is how much of TeX's memory you used:
- 31 strings out of 469114
- 658 string characters out of 5460008
+ 31 strings out of 469115
+ 658 string characters out of 5460022
  435362 words of memory out of 5000000
- 29146 multiletter control sequences out of 15000+600000
+ 29145 multiletter control sequences out of 15000+600000
  627721 words of font info for 40 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  19i,0n,29p,105b,17s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -246,10 +248,10 @@ No existing .aux file, so I'll make a simple one, and require run of *latex.
 
 Latexmk: applying rule 'pdflatex'...
 Rule 'pdflatex':  Reasons for rerun
-
 Category 'other':
   Rerun of 'pdflatex' forced or previously required:
     Reason or flag: 'Initial setup'
+
 
 ------------
 Run number 1 of rule 'pdflatex'
@@ -266,7 +268,7 @@ entering extended mode
 (./source.tex
 
 LaTeX2e <2026-06-01>
-L3 programming layer <2026-05-26>
+L3 programming layer <2026-06-18>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -307,7 +309,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-23/repo/example-quarto//:/tmp/quarto-sessione73f2c88b4e4c754/f3d0216e6b91eb51//:/home/runner/work/quarto-extensions/quarto-extensions/test-23/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=pdf source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-13/repo/example-quarto//:/tmp/quarto-session218f2edb7eceaf8e/7cb966a43a21dc16//:/home/runner/work/quarto-extensions/quarto-extensions/test-13/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=pdf source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -375,14 +377,14 @@ $
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.15)  15 JUN 2026 18:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.11)  11 JUL 2026 14:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **source.tex
 (./source.tex
 LaTeX2e <2026-06-01>
-L3 programming layer <2026-05-26>
+L3 programming layer <2026-06-18>
 
 ! LaTeX Error: File `standalone.cls' not found.
 
@@ -399,10 +401,10 @@ l.7 \usepackage
 
  
 Here is how much of TeX's memory you used:
- 31 strings out of 469114
- 658 string characters out of 5460008
+ 31 strings out of 469115
+ 658 string characters out of 5460022
  435362 words of memory out of 5000000
- 29146 multiletter control sequences out of 15000+600000
+ 29145 multiletter control sequences out of 15000+600000
  627721 words of font info for 40 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  19i,0n,29p,105b,17s stack positions out of 10000i,1000n,20000p,200000b,200000s

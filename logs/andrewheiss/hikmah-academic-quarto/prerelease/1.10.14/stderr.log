@@ -1,0 +1,230 @@
+Cloning into 'repo'...
+Installing package into '/cache/r-lib-1'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/quarto_1.5.1.tar.gz'
+Content type 'binary/octet-stream' length 409416 bytes (399 KB)
+==================================================
+downloaded 399 KB
+
+* installing *source* package 'quarto' ...
+** this is package 'quarto' version '1.5.1'
+** package 'quarto' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (quarto)
+
+The downloaded source packages are in
+	'/tmp/Rtmpq1WgOH/downloaded_packages'
+[1/5] TODO.md
+[2/5] hikmah-testing-custom.qmd
+
+
+processing file: hikmah-testing-custom.qmd
+1/5                  
+2/5 [unnamed-chunk-1]
+3/5                  
+4/5 [fig-n-lights]   
+5/5                  
+output file: hikmah-testing-custom.knit.md
+
+
+
+processing file: hikmah-testing-custom.qmd
+1/5                  
+2/5 [unnamed-chunk-1]
+3/5                  
+4/5 [fig-n-lights]   
+5/5                  
+output file: hikmah-testing-custom.knit.md
+
+
+
+processing file: hikmah-testing-custom.qmd
+1/5                  
+2/5 [unnamed-chunk-1]
+3/5                  
+4/5 [fig-n-lights]   
+5/5                  
+output file: hikmah-testing-custom.knit.md
+
+
+
+processing file: hikmah-testing-custom.qmd
+1/5                  
+2/5 [unnamed-chunk-1]
+3/5                  
+4/5 [fig-n-lights]   
+5/5                  
+output file: hikmah-testing-custom.knit.md
+
+[typst]: Compiling hikmah-testing-custom.typ to hikmah-testing-custom.pdf...warning: unknown font family: times new roman
+    ┌─ hikmah-testing-custom.typ:436:17
+    │
+436 │   set text(font: font) if font != none
+    │                  ^^^^
+
+warning: unknown font family: times new roman
+    ┌─ hikmah-testing-custom.typ:514:10
+    │
+514 │     font: if font != none { font } else { default-typst-font },
+    │           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DONE
+
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+  luaotfload | db : Reload initiated (formats: otf,ttf,ttc); reason: Font "Linux Libertine O" not found.
+updating tlmgr
+
+updating existing packages
+finding package for Linux\s*Libertine\s*O(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+ERROR: 
+compilation failed- no matching packages
+Package fontspec Error: 
+(fontspec)                The font "Linux Libertine O" cannot be found; this
+(fontspec)                may be but usually is not a fontspec bug. Either
+(fontspec)                there is a typo in the font name/file, the font is
+(fontspec)                not installed (correctly), or there is a bug in
+(fontspec)                the underlying font loading engine
+(fontspec)                (XeTeX/luaotfload).
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.29   \setmathfont
+                 []{Libertinus Math}
+
+
+see /home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/hikmah-testing-custom.log for more information.
+WARN: Error encountered when rendering files
+ERROR: NotFound: No such file or directory (os error 2): rename '/home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/hikmah-testing-custom.pdf' -> '/home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/examples/hikmah-testing-custom.pdf'
+
+Stack trace:
+    at Object.renameSync (ext:deno_fs/30_fs.js:267:3)
+    at safeMoveSync (file:///opt/quarto/bin/quarto.js:3217:10)
+    at renderProject (file:///opt/quarto/bin/quarto.js:137461:9)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142732:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102143:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102020:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:188102:5)
+    at async file:///opt/quarto/bin/quarto.js:188131:5
+    at async file:///opt/quarto/bin/quarto.js:187985:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187987:5)
+    at async file:///opt/quarto/bin/quarto.js:188124:3
+Render failed, retrying once...
+[1/5] TODO.md
+[2/5] hikmah-testing-custom.qmd
+
+
+processing file: hikmah-testing-custom.qmd
+1/5                  
+2/5 [unnamed-chunk-1]
+3/5                  
+4/5 [fig-n-lights]   
+5/5                  
+output file: hikmah-testing-custom.knit.md
+
+
+
+processing file: hikmah-testing-custom.qmd
+1/5                  
+2/5 [unnamed-chunk-1]
+3/5                  
+4/5 [fig-n-lights]   
+5/5                  
+output file: hikmah-testing-custom.knit.md
+
+
+
+processing file: hikmah-testing-custom.qmd
+1/5                  
+2/5 [unnamed-chunk-1]
+3/5                  
+4/5 [fig-n-lights]   
+5/5                  
+output file: hikmah-testing-custom.knit.md
+
+
+
+processing file: hikmah-testing-custom.qmd
+1/5                  
+2/5 [unnamed-chunk-1]
+3/5                  
+4/5 [fig-n-lights]   
+5/5                  
+output file: hikmah-testing-custom.knit.md
+
+[typst]: Compiling hikmah-testing-custom.typ to hikmah-testing-custom.pdf...warning: unknown font family: times new roman
+    ┌─ hikmah-testing-custom.typ:436:17
+    │
+436 │   set text(font: font) if font != none
+    │                  ^^^^
+
+warning: unknown font family: times new roman
+    ┌─ hikmah-testing-custom.typ:514:10
+    │
+514 │     font: if font != none { font } else { default-typst-font },
+    │           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DONE
+
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Reload initiated (formats: otf,ttf,ttc); reason: Font "Linux Libertine O" not found.
+updating tlmgr
+
+updating existing packages
+finding package for Linux\s*Libertine\s*O(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+ERROR: 
+compilation failed- no matching packages
+Package fontspec Error: 
+(fontspec)                The font "Linux Libertine O" cannot be found; this
+(fontspec)                may be but usually is not a fontspec bug. Either
+(fontspec)                there is a typo in the font name/file, the font is
+(fontspec)                not installed (correctly), or there is a bug in
+(fontspec)                the underlying font loading engine
+(fontspec)                (XeTeX/luaotfload).
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.29   \setmathfont
+                 []{Libertinus Math}
+
+
+see /home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/hikmah-testing-custom.log for more information.
+WARN: Error encountered when rendering files
+ERROR: NotFound: No such file or directory (os error 2): rename '/home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/hikmah-testing-custom.pdf' -> '/home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/examples/hikmah-testing-custom.pdf'
+
+Stack trace:
+    at Object.renameSync (ext:deno_fs/30_fs.js:267:3)
+    at safeMoveSync (file:///opt/quarto/bin/quarto.js:3217:10)
+    at renderProject (file:///opt/quarto/bin/quarto.js:137461:9)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142732:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102143:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102020:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:188102:5)
+    at async file:///opt/quarto/bin/quarto.js:188131:5
+    at async file:///opt/quarto/bin/quarto.js:187985:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187987:5)
+    at async file:///opt/quarto/bin/quarto.js:188124:3

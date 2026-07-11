@@ -1,0 +1,252 @@
+Cloning into 'repo'...
+
+
+processing file: template.qmd
+1/5           
+2/5 [fig-test]
+3/5           
+4/5 [tbl-test]
+5/5           
+output file: template.knit.md
+
+pandoc 
+  to: latex
+  output-file: template.tex
+  template: _extensions/cambridge/template_cambridgecompat.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  toc: false
+  cite-method: biblatex
+  
+metadata
+  block-headings: true
+  title: Cambridge University Press Quarto Template
+  running-title: CUP-Quarto
+  cambridge_journal: medium
+  manuscript_type: article
+  year: 2026
+  volume: 1
+  doi: 10.1017/example.2026.001
+  ack-show: true
+  contrib-show: true
+  financial-show: true
+  conflicts-show: true
+  ethics-show: true
+  dates-show: true
+  copyright-show: true
+  received: 1 January 2026
+  revised: 1 March 2026
+  accepted: 1 April 2026
+  author:
+    - name: Florence Author
+      corresponding: true
+      email: florence.author@cambridge.ac.uk
+      orcid: 0000-0001-2345-6789
+      affiliations:
+        - name: Department of Statistics, University of Cambridge
+          city: Cambridge
+          postal-code: CB3 0WB
+          country: United Kingdom
+    - name: Samuel Author
+      orcid: 0000-0002-3456-7890
+      affiliations:
+        - name: School of Mathematics, University of Edinburgh
+          city: Edinburgh
+          postal-code: EH9 3FD
+          country: United Kingdom
+    - name: Tatiana Author
+      affiliations:
+        - name: School of Mathematics, University of Edinburgh
+          city: Edinburgh
+          postal-code: EH9 3FD
+          country: United Kingdom
+  keywords:
+    - template
+    - demo
+    - cambridge
+  acknowledgments: |
+    We are grateful for the technical assistance of A. Author.
+  fundingstatement: |
+    This research was supported by grants from the Engineering and Physical Sciences Research Council (EPSRC).
+  competing: |
+    The authors declare no competing interests.
+  dataavailability: |
+    Replication data and code are available at <https://example.org/data>.
+  ethicalstandards: |
+    The research meets all ethical guidelines, including adherence to the legal requirements of the study country.
+  authorcontributions: |
+    Conceptualization: F.A.; S.A. Methodology: F.A.; S.A. Data curation: T.A. Writing original draft: F.A.; S.A. All authors approved the final submitted draft.
+  aistatement: |
+    The authors used GitHub Copilot for code completion during analysis-script development. No generative AI tools were used in drafting the manuscript text.
+  abstract: |
+    This document is a template demonstrating the Cambridge University Press journal format adapted for Quarto. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  bibliography:
+    - example.bib
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+updating tlmgr
+
+updating existing packages
+finding package for lastpage.sty
+> 1 package to install
+> installing lastpage (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for endnotes.sty
+> 1 package to install
+> installing endnotes (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for changepage.sty
+> 1 package to install
+> installing changepage (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for stringstrings.sty
+> 1 package to install
+> installing stringstrings (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for textpos.sty
+> 1 package to install
+> installing textpos (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for floatrow.sty
+> 1 package to install
+> installing floatrow (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for mfirstuc.sty
+> 1 package to install
+> installing mfirstuc (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for alphalph.sty
+> 1 package to install
+> installing alphalph (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for fbb.sty
+> 1 package to install
+> installing fbb (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for ly1enc.def
+> 1 package to install
+> installing ly1 (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for xstring.sty
+> 1 package to install
+> installing xstring (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for sourcesanspro.sty
+> 1 package to install
+> installing sourcesans (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for sansmath.sty
+> 1 package to install
+> installing sansmath (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for mathastext.sty
+> 1 package to install
+> installing mathastext (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for biblatex-chicago.sty
+> 1 package to install
+> installing biblatex-chicago (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for biblatex.sty
+> 1 package to install
+> installing biblatex (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for orcidlink.sty
+finding package for chicago-authordate-trad.dbx
+finding package for biblatex-dm.cfg
+> 1 package to install
+> installing orcidlink (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for selnolig.sty
+finding package for chicago-authordate-trad.dbx
+finding package for biblatex-dm.cfg
+> 1 package to install
+> installing selnolig (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for luatexbase.sty
+finding package for chicago-authordate-trad.dbx
+finding package for biblatex-dm.cfg
+> 1 package to install
+> installing luatexbase (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+generating bibliography
+command biber not found, attempting install
+finding package for biber
+> 1 package to install
+> installing biber (1 of 1)
+  INFO - This is Biber 2.21
+  INFO - Logfile is 'template.blg'
+  INFO - Reading 'template.bcf'
+  INFO - Found 2 citekeys in bib section 0
+  INFO - Processing section 0
+  INFO - Looking for bibtex file 'example.bib' for section 0
+  INFO - LaTeX decoding ...
+  INFO - Found BibTeX data source 'example.bib'
+  INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+  INFO - Overriding locale 'en-US' defaults 'level = 4' with 'level = 2'
+  INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+  INFO - Sorting list 'cms/global//global/global/global' of type 'entry' with template 'cms' and locale 'en-US'
+  INFO - No sort tailoring available for locale 'en-US'
+  INFO - Writing 'template.bbl' with encoding 'UTF-8'
+  INFO - Output to template.bbl
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 3
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: template.pdf
+

@@ -1,0 +1,53 @@
+pandoc 
+
+  to: revealjs
+  output-file: index.html
+  standalone: true
+  embed-resources: false
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+
+metadata
+
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en-GB
+  auto-stretch: true
+  title: RevealJS Social
+  subtitle: Quarto Extension
+  description: A Quarto extension that adds Open Graph and Twitter (X) social-card meta tags to RevealJS presentations.
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  site-url: https://m.canouil.dev/quarto-revealjs-social/
+  image: quarto-revealjs-social.png
+  open-graph:
+    site-name: Quarto Extensions
+    image-width: 1200
+    image-height: 630
+    image-alt: Social Reveal.js Card
+  
+
+Output created: index.html
+
+

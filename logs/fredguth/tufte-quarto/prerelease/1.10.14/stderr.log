@@ -1,0 +1,217 @@
+Cloning into 'repo'...
+[1/7] index.qmd
+[2/7] 02-Main/customizing.qmd
+[3/7] 02-Main/known_issues.qmd
+[4/7] about.qmd
+[5/7] 03-Back/references.qmd
+[6/7] 03-Back/ack.qmd
+[7/7] 03-Back/colophon.qmd
+
+pandoc 
+  to: latex
+  output-file: index.tex
+  standalone: true
+  toc: true
+  number-sections: false
+  top-level-division: chapter
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  reference-location: margin
+  toc-depth: 2
+  cite-method: natbib
+  
+metadata
+  crossref:
+    chapters: true
+  documentclass: tufte-book
+  papersize: letter
+  block-headings: true
+  bibliography:
+    - references.bib
+  citation-location: margin
+  fig-cap-location: bottom
+  classoption:
+    - sfsidenotes
+  toc-title: Contents
+  indent: 0px
+  mainfont: ETbb
+  sansfont: TeX Gyre Heros
+  sansfontoptions: Scale=MatchUppercase
+  title: |
+    Tufte-Quarto Project Type\
+    Documentation
+  author: Fred Guth
+  date-format: MMMM, YYYY
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+finding package for xifthen.sty
+> 1 package to install
+> installing xifthen (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for ifmtarg.sty
+> 1 package to install
+> installing ifmtarg (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for hardwrap.sty
+> 1 package to install
+> installing hardwrap (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+finding package for ragged2e.sty
+> 1 package to install
+> installing ragged2e (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for chngpage.sty
+> 1 package to install
+> installing changepage (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for paralist.sty
+> 1 package to install
+> installing paralist (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for textcase.sty
+> 1 package to install
+> installing textcase (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for setspace.sty
+> 1 package to install
+> installing setspace (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for optparams.sty
+> 1 package to install
+> installing sauerj (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for placeins.sty
+> 1 package to install
+> installing placeins (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Reload initiated (formats: otf,ttf,ttc); reason: Font "ETbb" not found.
+finding package for ETbb(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+> 1 package to install
+> installing etbb (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for savesym.sty
+> 1 package to install
+> installing savesym (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+ERROR: 
+compilation failed- error
+LaTeX Error: Command \textls undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.155 \renewcommand{\textls}
+                          [2][5]{%
+
+
+see /home/runner/work/quarto-extensions/quarto-extensions/test-18/repo/index.log for more information.
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+[1/7] index.qmd
+[2/7] 02-Main/customizing.qmd
+[3/7] 02-Main/known_issues.qmd
+[4/7] about.qmd
+[5/7] 03-Back/references.qmd
+[6/7] 03-Back/ack.qmd
+[7/7] 03-Back/colophon.qmd
+
+pandoc 
+  to: latex
+  output-file: index.tex
+  standalone: true
+  toc: true
+  number-sections: false
+  top-level-division: chapter
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  reference-location: margin
+  toc-depth: 2
+  cite-method: natbib
+  
+metadata
+  crossref:
+    chapters: true
+  documentclass: tufte-book
+  papersize: letter
+  block-headings: true
+  bibliography:
+    - references.bib
+  citation-location: margin
+  fig-cap-location: bottom
+  classoption:
+    - sfsidenotes
+  toc-title: Contents
+  indent: 0px
+  mainfont: ETbb
+  sansfont: TeX Gyre Heros
+  sansfontoptions: Scale=MatchUppercase
+  title: |
+    Tufte-Quarto Project Type\
+    Documentation
+  author: Fred Guth
+  date-format: MMMM, YYYY
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+ERROR: 
+compilation failed- error
+LaTeX Error: Command \textls undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.155 \renewcommand{\textls}
+                          [2][5]{%
+
+
+see /home/runner/work/quarto-extensions/quarto-extensions/test-18/repo/index.log for more information.
+WARN: Error encountered when rendering files

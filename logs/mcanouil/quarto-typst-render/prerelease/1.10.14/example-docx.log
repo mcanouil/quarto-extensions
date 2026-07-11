@@ -1,0 +1,26 @@
+pandoc 
+
+  to: docx
+  output-file: example-docx.docx
+  default-image-extension: png
+  
+
+metadata
+
+  title: Typst Render
+  subtitle: Quarto Extension
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  extensions:
+    typst-render:
+      margin: 0.5em
+      math: typst
+  
+
+(W) [typst-render] format "html" is only available for HTML-based output; falling back to an image.
+
+Output created: example-docx.docx
+
+

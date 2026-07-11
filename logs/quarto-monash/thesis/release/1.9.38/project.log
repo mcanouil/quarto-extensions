@@ -178,36 +178,48 @@ running pdflatex - 1
   entering extended mode
   
 
-updating tlmgr
+generating bibliography
+
+command biber not found, attempting install
+
+finding package for biber
+
+> 1 package to install
+
+> installing biber (1 of 1)
+
+  INFO - This is Biber 2.21
+  INFO - Logfile is 'index.blg'
+  INFO - Reading 'index.bcf'
+  INFO - Found 10 citekeys in bib section 0
+  INFO - Processing section 0
+  INFO - Looking for bibtex file 'thesisrefs.bib' for section 0
+  INFO - LaTeX decoding ...
+  INFO - Found BibTeX data source 'thesisrefs.bib'
+  INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+  INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+  INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+  INFO - No sort tailoring available for locale 'en-US'
+  INFO - Writing 'index.bbl' with encoding 'UTF-8'
+  INFO - Output to index.bbl
+  
+
+running pdflatex - 2
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+running pdflatex - 3
+
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
 
 
 
-updating existing packages
+Output created: _book/index.html
 
-finding package for authoryear-comp.dbx
-
-finding package for biblatex-dm.cfg
-
-finding package for index.bbl
-
-(ERROR) 
-compilation failed- no matching packages
-
-Undefined control sequence.
-\tabu@cleanup ...bu@naturalX =\tabu@naturalX@save 
-                                                  \let \tabu@naturalXmax \ta...
-l.447 \end{tabu}}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
- 
-
-
-see /home/runner/work/quarto-extensions/quarto-extensions/test-7/repo/index.log for more information.
-
-(WARN) Error encountered when rendering files
 

@@ -1,0 +1,72 @@
+Cloning into 'repo'...
+Error adding css vars block SCSSParsingError: SCSS Parsing Error: Selector ("class") expected "identifier" or "interpolation" (2774:29)
+    at cssVarsBlock (file:///opt/quarto/bin/quarto.js:87123:15)
+    at file:///opt/quarto/bin/quarto.js:87669:35
+    at file:///opt/quarto/bin/quarto.js:87317:33
+    at async handleVarsBlock (file:///opt/quarto/bin/quarto.js:87590:23)
+    at async file:///opt/quarto/bin/quarto.js:87616:17
+    at async SassCache.setFromHash (file:///opt/quarto/bin/quarto.js:80053:11)
+    at async compileSass (file:///opt/quarto/bin/quarto.js:87428:19)
+    at async revealTheme (file:///opt/quarto/bin/quarto.js:184586:15)
+    at async Object.formatExtras (file:///opt/quarto/bin/quarto.js:184743:23)
+    at async runPandoc (file:///opt/quarto/bin/quarto.js:129349:56)
+    at async renderPandoc (file:///opt/quarto/bin/quarto.js:131061:24)
+    at async Object.onRender (file:///opt/quarto/bin/quarto.js:137125:30)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:137102:9)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136833:9)
+    at async render (file:///opt/quarto/bin/quarto.js:142487:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142732:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102143:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102020:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:188102:5)
+    at async file:///opt/quarto/bin/quarto.js:188131:5
+    at async file:///opt/quarto/bin/quarto.js:187985:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:187987:5)
+    at async file:///opt/quarto/bin/quarto.js:188124:3
+The resulting CSS file will not have SCSS color variables exported as CSS.
+This is likely a Quarto bug.
+Please consider reporting it at https://github.com/quarto-dev/quarto-cli,
+along with the _quarto_internal_scss_error.scss file that can be found in the current working directory.
+pandoc 
+  to: revealjs
+  output-file: template.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  theme:
+    - default
+    - _extensions/illinois/imtheme.scss
+  slideNumber: true
+  date-format: long
+  logo: _extensions/illinois/logo-illinois-block-i.png
+  title: Overview of the Illinois Revealjs Theme
+  subtitle: Your Course - Semester YYYY @ Illinois
+  author: First Last
+  date: last-modified
+  
+Output created: template.html
+

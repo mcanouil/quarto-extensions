@@ -1,0 +1,230 @@
+Cloning into 'repo'...
+sh: 1: rollup: not found
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title-block-banner: '#222222'
+  theme:
+    - default
+    - ../../style.scss
+  linkcolor: '#ff3e00'
+  callout-appearance: simple
+  title: Default prop values
+  description: More advanced ways to instantiate your Svelte components and pass props to them.
+  
+Output created: ../../_site/articles/default-prop-values/index.html
+
+sh: 1: rollup: not found
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title-block-banner: '#222222'
+  theme:
+    - default
+    - ../../style.scss
+  linkcolor: '#ff3e00'
+  callout-appearance: simple
+  title: Migrating from Sverto v1 and Svelte 3
+  date: '2025-06-12'
+  
+Output created: ../../_site/articles/migrating-from-sverto-v1/index.html
+
+sh: 1: rollup: not found
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title-block-banner: '#222222'
+  theme:
+    - default
+    - ../style.scss
+  linkcolor: '#ff3e00'
+  callout-appearance: simple
+  title: Articles
+  description: In-depth use of quarto-svelte.
+  listing:
+    contents:
+      - '*/index.qmd'
+  
+Output created: ../_site/articles/index.html
+
+sh: 1: rollup: not found
+
+pandoc 
+  to: html
+  output-file: news.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title-block-banner: '#222222'
+  theme:
+    - default
+    - style.scss
+  linkcolor: '#ff3e00'
+  callout-appearance: simple
+  title: News
+  date: last-modified
+  
+Output created: _site/news.html
+
+sh: 1: rollup: not found
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title-block-banner: '#222222'
+  theme:
+    - default
+    - style.scss
+  linkcolor: '#ff3e00'
+  callout-appearance: simple
+  title: quarto-svelte
+  description: '**quarto-svelte** (formerly Sverto) is an extension for [Quarto](https://quarto.org) that lets you seamlessly write and include [Svelte](https://svelte.dev) components, like charts and other visuals, in your Quarto website.'
+  quarto-svelte:
+    use:
+      - Circles.svelte
+  toc-location: left
+  
+Output created: _site/index.html
+
+[WARNING] Div at line 91 column 1 unclosed at line 184 column 1, closing implicitly.
+sh: 1: rollup: not found
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title-block-banner: '#222222'
+  theme:
+    - default
+    - ../../style.scss
+  linkcolor: '#ff3e00'
+  callout-appearance: simple
+  title: 'Examples: basic barchart'
+  author: James Goldie
+  date: last-modified
+  quarto-svelte:
+    use:
+      - BarChart.svelte
+  
+Output created: ../../_site/examples/barchart/index.html
+
+sh: 1: rollup: not found
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title-block-banner: '#222222'
+  theme:
+    - default
+    - ../../style.scss
+  linkcolor: '#ff3e00'
+  callout-appearance: simple
+  title: 'Examples: time series'
+  author: James Goldie
+  date: last-modified
+  quarto-svelte:
+    use:
+      - TimeSeriesChart.svelte
+  resources:
+    - '*.csv'
+  
+Output created: ../../_site/examples/time-series/index.html
+
+pandoc 
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: quarto-svelte example
+  quarto-svelte:
+    use:
+      - Circles.svelte
+  
+Output created: example.html
+
