@@ -6,6 +6,9 @@ on:
       debug:
         description: "If 'true', test a small sample (up to 5 per extension type)"
         default: "false"
+      failing_only:
+        description: "If 'true', test only the channels currently failing or never tested"
+        default: "false"
       batch_size:
         description: "Number of extensions per batch"
         default: "25"
@@ -57,11 +60,27 @@ jobs:
           permission-contents: read
           permission-metadata: read
 
+      - name: Fetch stored test results
+        if: inputs.failing_only == 'true'
+        working-directory: _data
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh api "repos/${GITHUB_REPOSITORY}/branches/quarto-tests" >/dev/null 2>&1; then
+            gh api "repos/${GITHUB_REPOSITORY}/contents/test-results.json?ref=quarto-tests" \
+              --jq '.content' | base64 -d > test-results.json
+          else
+            echo '{}' > test-results.json
+          fi
+
       - name: Build test matrix
         id: matrix
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           DEBUG: ${{ inputs.debug || 'false' }}
+          FAILING_ONLY: ${{ inputs.failing_only || 'false' }}
           BATCH_SIZE: ${{ inputs.batch_size || '25' }}
           REPO_OWNER: ${{ github.repository_owner }}
         shell: bash

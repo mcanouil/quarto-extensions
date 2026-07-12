@@ -2,8 +2,9 @@
 set -euo pipefail
 
 # Build the test matrix for the test-extensions workflow.
-# Inputs (env): DEBUG, BATCH_SIZE, GH_TOKEN (for gh api calls)
+# Inputs (env): DEBUG, FAILING_ONLY, BATCH_SIZE, GH_TOKEN (for gh api calls)
 # Inputs (env, debug only): REPO_OWNER (filters to same-owner extensions)
+# Inputs (files, failing-only): test-results.json (from quarto-tests branch)
 # Outputs (to GITHUB_OUTPUT): matrix, skipped
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -14,6 +15,12 @@ source "${SCRIPT_DIR}/classify-extension.sh"
 
 if [[ ! "${DEBUG}" =~ ^(true|false)$ ]]; then
   echo "::error::Invalid debug value: '${DEBUG}'. Expected 'true' or 'false'."
+  exit 1
+fi
+
+FAILING_ONLY="${FAILING_ONLY:-false}"
+if [[ ! "${FAILING_ONLY}" =~ ^(true|false)$ ]]; then
+  echo "::error::Invalid failing_only value: '${FAILING_ONLY}'. Expected 'true' or 'false'."
   exit 1
 fi
 
@@ -172,54 +179,72 @@ fi
 total=$(echo "${entries}" | jq 'length')
 echo "Total extensions to test: ${total}"
 
-matrix=$(echo "${entries}" | jq -c --argjson n "${BATCH_SIZE}" --argjson meta "${image_meta_map}" '
+# Map entries to channels. Default: every extension in both channels.
+# Failing-only: per channel, keep extensions whose latest tested version failed,
+# or that have no stored result for that channel (never tested).
+entries_by_channel=$(jq -nc --argjson e "${entries}" '{release: $e, prerelease: $e}')
+if [[ "${FAILING_ONLY}" == "true" ]]; then
+  test_results='{}'
+  if [[ -f test-results.json ]] && jq -e 'type == "object"' test-results.json >/dev/null 2>&1; then
+    test_results=$(cat test-results.json)
+  else
+    echo "::warning::Missing or invalid test-results.json. Treating all channels as never tested."
+  fi
+  entries_by_channel=$(jq -nc --argjson e "${entries}" --argjson tr "${test_results}" '
+    def core(v): (v // "" | split("+")[0] | split("-")[0]
+      | split(".") | map((tonumber? // 0)) | . + [0, 0, 0, 0] | .[0:4]);
+    def suffix(v): (v // "" | split("+")[0] | split("-")[1:] | join("-"));
+    # newer(a; b): version a ranks ahead of b (mirror of compareVersionsDesc < 0).
+    def newer(a; b):
+      (core(a) as $ca | core(b) as $cb
+       | if $ca != $cb then $ca > $cb
+         else (suffix(a) as $sa | suffix(b) as $sb
+               | if $sa == $sb then false
+                 elif $sa == "" then true
+                 elif $sb == "" then false
+                 else $sa > $sb end) end);
+    def selected($id; $ch):
+      (($tr[$id].results // []) | map(select(.quarto_channel == $ch))) as $cr
+      | if ($cr | length) == 0 then true
+        else (reduce $cr[] as $r (null;
+                if . == null or newer($r.quarto_version; .quarto_version)
+                then $r else . end) | .status == "fail")
+        end;
+    {
+      release: [$e[] | select(selected(.id; "release"))],
+      prerelease: [$e[] | select(selected(.id; "prerelease"))]
+    }
+  ')
+  rel_count=$(echo "${entries_by_channel}" | jq '.release | length')
+  pre_count=$(echo "${entries_by_channel}" | jq '.prerelease | length')
+  echo "Failing-only selection: release=${rel_count}, prerelease=${pre_count}"
+fi
+
+matrix=$(echo "${entries_by_channel}" | jq -c --argjson n "${BATCH_SIZE}" --argjson meta "${image_meta_map}" '
   def pad3: tostring | if length < 3 then ("000" + .)[-3:] else . end;
-  . as $all
-  | if ($all | length) == 0 then
-      {
-        include: [
-          {
-            batch_index: (0 | pad3),
-            quarto_channel: "release",
-            image_ref: $meta.release.image_ref,
-            extensions: []
-          },
-          {
-            batch_index: (0 | pad3),
-            quarto_channel: "prerelease",
-            image_ref: $meta.prerelease.image_ref,
-            extensions: []
-          }
-        ]
-      }
-    else
-      [range(0; ($all | length); $n)] as $starts
-      | {
-          include: (
-            $starts
-            | to_entries
-            | map(
-                .value as $s
-                | .key as $bi
-                  | [
-                    {
-                      batch_index: ($bi | pad3),
-                      quarto_channel: "release",
-                      image_ref: $meta.release.image_ref,
-                      extensions: $all[$s:($s + $n)]
-                    },
-                    {
-                      batch_index: ($bi | pad3),
-                      quarto_channel: "prerelease",
-                      image_ref: $meta.prerelease.image_ref,
-                      extensions: $all[$s:($s + $n)]
-                    }
-                  ]
-              )
-            | add
+  . as $byc
+  | {
+      include: (
+        ["release", "prerelease"]
+        | map(
+            . as $ch
+            | ($byc[$ch] // []) as $list
+            | $meta[$ch].image_ref as $img
+            | if ($list | length) == 0 then
+                [{batch_index: (0 | pad3), quarto_channel: $ch, image_ref: $img, extensions: []}]
+              else
+                [range(0; ($list | length); $n)]
+                | to_entries
+                | map(
+                    .value as $s
+                    | .key as $bi
+                    | {batch_index: ($bi | pad3), quarto_channel: $ch, image_ref: $img, extensions: $list[$s:($s + $n)]}
+                  )
+              end
           )
-        }
-    end
+        | add
+      )
+    }
 ')
 
 job_count=$(echo "${matrix}" | jq '.include | length')
