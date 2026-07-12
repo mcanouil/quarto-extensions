@@ -112,7 +112,7 @@ while IFS=$'\t' read -r id status stage failure_reason quarto_version log_path; 
 		fi
 		message="Pre-flight render failed with Quarto ${quarto_version} (${QUARTO_CHANNEL}) at stage \`${stage:-unknown}\`${failure_reason:+ (${failure_reason})}."
 		if [[ -n "${log_tail}" ]]; then
-			message+=$'\n\n<details><summary>Log excerpt (stderr)</summary>\n\n```\n'"${log_tail}"$'\n```\n\n</details>'
+			message+=$'\n\n<details><summary>Log excerpt (stderr)</summary>\n\n```\n'"${log_tail}"$'\n```\n\n</details>\n\n'
 		fi
 		message+=$'\n'"Full logs: \`preflight-render-logs\` artefact on the [workflow run](${run_url})."
 		if [[ "${BLOCKING}" == "true" ]]; then
