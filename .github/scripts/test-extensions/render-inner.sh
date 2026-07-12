@@ -25,6 +25,11 @@ if [[ -f .venv/bin/activate ]]; then
 	fi
 fi
 
+# reticulate: prefer its own uv-managed ephemeral environment over the image
+# venv (VIRTUAL_ENV, discovery step 5) so Python packages declared via
+# py_require() are installed and used to execute the Python cells.
+export RETICULATE_USE_MANAGED_VENV=yes
+
 quarto_render() {
 	local log_name="$1"
 	shift
