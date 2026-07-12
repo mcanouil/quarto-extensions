@@ -21,9 +21,30 @@
           byChannel[ch].push(r);
         });
 
-        // Sort each channel by date descending
+        // Sort each channel by version (semantic versioning) descending,
+        // falling back to date descending when versions are equal.
+        const compareVersionsDesc = (a, b) => {
+          const core = v => String(v || '').split('+')[0].split('-')[0].split('.').map(n => parseInt(n, 10) || 0);
+          const pa = core(a), pb = core(b);
+          for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
+            const diff = (pb[i] || 0) - (pa[i] || 0);
+            if (diff !== 0) return diff;
+          }
+          // A pre-release (e.g. 1.10.0-daily) ranks below the matching release.
+          const suffix = v => String(v || '').split('+')[0].split('-').slice(1).join('-');
+          const sa = suffix(a), sb = suffix(b);
+          if (sa !== sb) {
+            if (!sa) return -1;
+            if (!sb) return 1;
+            return sb.localeCompare(sa);
+          }
+          return 0;
+        };
         for (const ch of Object.keys(byChannel)) {
-          byChannel[ch].sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+          byChannel[ch].sort((a, b) => {
+            const byVersion = compareVersionsDesc(a['quarto-version'], b['quarto-version']);
+            return byVersion !== 0 ? byVersion : (b.date || '').localeCompare(a.date || '');
+          });
         }
 
         for (const ch of CHANNEL_ORDER) {
