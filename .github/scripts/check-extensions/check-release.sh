@@ -12,7 +12,10 @@ while IFS=, read -r entry; do
 	repo=$(entry_repo "${entry}")
 	repo_release=$(gh repo view --json latestRelease "${repo}" --jq ".latestRelease")
 	if [[ -z "${repo_release}" ]]; then
-		add_error "${entry}" "Repository is missing release/tag."
+		repo_tags=$(gh api "repos/${repo}/tags" --jq "length" 2>/dev/null || echo 0)
+		if [[ "${repo_tags:-0}" -eq 0 ]]; then
+			add_error "${entry}" "Repository is missing release/tag."
+		fi
 	fi
 done < <(read_diff_entries)
 
