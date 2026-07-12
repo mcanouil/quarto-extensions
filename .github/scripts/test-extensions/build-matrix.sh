@@ -184,13 +184,19 @@ echo "Total extensions to test: ${total}"
 # or that have no stored result for that channel (never tested).
 entries_by_channel=$(jq -nc --argjson e "${entries}" '{release: $e, prerelease: $e}')
 if [[ "${FAILING_ONLY}" == "true" ]]; then
-  test_results='{}'
+  test_results_file=$(mktemp)
+  entries_file=$(mktemp)
   if [[ -f test-results.json ]] && jq -e 'type == "object"' test-results.json >/dev/null 2>&1; then
-    test_results=$(cat test-results.json)
+    cp test-results.json "${test_results_file}"
   else
     echo "::warning::Missing or invalid test-results.json. Treating all channels as never tested."
+    echo '{}' >"${test_results_file}"
   fi
-  entries_by_channel=$(jq -nc --argjson e "${entries}" --argjson tr "${test_results}" '
+  printf '%s' "${entries}" >"${entries_file}"
+  # Pass large JSON via files (--slurpfile) rather than --argjson so the entry
+  # list and test history do not overflow ARG_MAX on the jq command line.
+  # --slurpfile wraps each file's content in an array, hence $e[0] and $tr[0].
+  entries_by_channel=$(jq -nc --slurpfile e "${entries_file}" --slurpfile tr "${test_results_file}" '
     def core(v): (v // "" | split("+")[0] | split("-")[0]
       | split(".") | map((tonumber? // 0)) | . + [0, 0, 0, 0] | .[0:4]);
     def suffix(v): (v // "" | split("+")[0] | split("-")[1:] | join("-"));
@@ -203,18 +209,21 @@ if [[ "${FAILING_ONLY}" == "true" ]]; then
                  elif $sa == "" then true
                  elif $sb == "" then false
                  else $sa > $sb end) end);
-    def selected($id; $ch):
-      (($tr[$id].results // []) | map(select(.quarto_channel == $ch))) as $cr
+    def selected($results; $id; $ch):
+      (($results[$id].results // []) | map(select(.quarto_channel == $ch))) as $cr
       | if ($cr | length) == 0 then true
         else (reduce $cr[] as $r (null;
                 if . == null or newer($r.quarto_version; .quarto_version)
                 then $r else . end) | .status == "fail")
         end;
-    {
-      release: [$e[] | select(selected(.id; "release"))],
-      prerelease: [$e[] | select(selected(.id; "prerelease"))]
-    }
+    $e[0] as $entries
+    | $tr[0] as $results
+    | {
+        release: [$entries[] | select(selected($results; .id; "release"))],
+        prerelease: [$entries[] | select(selected($results; .id; "prerelease"))]
+      }
   ')
+  rm -f "${test_results_file}" "${entries_file}"
   rel_count=$(echo "${entries_by_channel}" | jq '.release | length')
   pre_count=$(echo "${entries_by_channel}" | jq '.prerelease | length')
   echo "Failing-only selection: release=${rel_count}, prerelease=${pre_count}"
