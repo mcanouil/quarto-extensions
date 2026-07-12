@@ -18,8 +18,8 @@ metadata
   title: Unsplash Example
   
 
-E
-rror running filter /opt/quarto/share/filters/main.lua:
+Error running filter /opt/quarto/share
+/filters/main.lua:
 Could not fetch https://source.unsplash.com/random
 HttpExceptionRequest Request {
   host                 = "source.unsplash.com"
@@ -33,235 +33,161 @@ HttpExceptionRequest Request {
   rawBody              = False
   redirectCount        = 10
   responseTimeout      = ResponseTimeoutDefault
-  requestVersion       = HTTP/1.1
-  proxySecureMode      = ProxySecureWit
-h
-Connect
+  requestVersion 
+      = HTTP/1.1
+  proxySecureMode      = ProxySecureWithConnect
 }
- (StatusCodeException (Response {responseStatus =
- Status {statusCode = 503, statusMessage = "S
-ervice Unavailable"}, responseVersion = HTTP/1.
-1, responseHeaders = [("Cache-Con
-trol","no-cache, no-store
-"),("Content-Type","text/html; c
-harset=utf-8"),("Nel","{\"report_to\":\"herok
-u-nel\",\"response_heade
-rs\":[\"Via\"],\"max_a
-ge\":3600,\"succes
-s_fraction\":0.01
-,\"failure_fraction
-\":0.1}"),("Report
--To","{\"group\"
-:\"heroku-nel\",\
-"endpoints\":[{
-\"url\":\"h
-ttps://nel.heroku
-.com/reports?s=M
-TbhEijub4HV2dfhs
-cXxKmm8efFuiVeH
-SN9yTdhZWVE%3D\\
-u0026sid=af571f
-24-
-03ee-46d
-1-9f90-ab9030c2c74c\\
-u0026ts=17837800
-35\"}],\"max_ag
-e\":3600}"),("Re
-porting-Endpoin
-ts","heroku-nel
-=\"https://nel.
-heroku.com/repo
-rts?s=MTbhEijub4
-HV2dfhscXxKmm8ef
-FuiVeHSN9yTdhZW
-VE%3D&sid=af571
-f24-03ee-46d1-9f
-90-ab9030
-c2c74c&ts=178378
-0035\""),("Serv
-er","Heroku"),("Via","1.1 
-heroku-router"),("D
-ate","Sat, 11 Jul 2
-026 14:27:15 GMT"),("Co
-ntent-Length","567
-")], responseBody = ()
-, responseCookieJa
-r = CJ {expose = []}, re
-sponseClose' = R
-esponseClose, response
-OriginalRequest = 
-Request {
-  hos
-t                 = "sour
-ce.unsplash.com"
-
-  port        
-         = 443
-
-  secure       
-        = True
-
-  requestHeade
-rs       = []
+ (StatusCodeException (Response {responseStatus 
+= Status {statusCode = 503, statusMessage = "Service Unavailable"}, resp
+onseVersion = HTTP/1.1, responseHeaders = [("Cache-Contr
+ol","no-cache, no-store"),("Content-Type","text/html; c
+harset=utf-8"),("Nel","{\"report_to\":\"heroku-n
+el\",\"response_headers\":[\"Via\"],\"
+max_age\":3600,\"success_fraction\":0
+.01,\"failure_fraction\":0.1}"),("Report-To","{\"group\":\"heroku-nel\",\"endpoints\":[{\"url\":\"http
+s://nel.heroku.com/reports?s=fgff8xx7pgJfeL41EowHnwhzSX6N97qYtNFp44
+6fRkI%3D\\u0026sid=af571f24-03ee-46d1-9f90-ab903
+0c2c74c\\u0026ts=1783888028\"}],\"max_age\":3600}"
+),("Reporting-Endpoints","herok
+u-nel=\"https://nel.heroku.com
+/reports?s=fgff8xx7pgJfeL41E
+owHnwhzSX6N97qYtNFp446fRkI%3
+D&sid=af571f24-03ee-46d1-9
+f90-ab9030c2c74c&ts=178388
+8028\""),("Server","Heroku
+"),("Via","1.1 heroku-rout
+er"),("Date","Sun, 12 Jul 
+2026 20:27:08 GMT"),("Cont
+ent-Length","567")], respon
+seBody = (), responseCookie
+Jar = CJ {expose = []}, re
+sponseClose' = ResponseClos
+e, responseOriginalRequest
+ = Request {
+  host       
+          = "source.unspla
+sh.com"
+  port            
+     = 443
+  secure        
+       = True
+  requestHea
+ders       = []
+  path    
+             = "/random"
+  q
+ueryString          = ""
   
-path                 = "/random"
-  queryString          = ""
-  method               = "GET"
-  proxy                = Nothing
+method               = "GET"
+
+  proxy                = N
+othing
   rawBody              = False
-  redirectCount        = 10
-  re
-sponseTimeout      = ResponseTimeoutD
-efault
-  requestVersion  
-     = HTTP/1.1
-  
-proxySecureMode 
-     = ProxySec
-ureWithConnect
+  redirectCount 
+       = 10
+  responseTimeout      = ResponseTimeoutDefault
+  requestV
+ersion       = HTTP/1.1
+  proxyS
+ecureMode      = ProxySecur
+eWithConnect
 }
-, resp
-onseEarlyHints =
- []}) "<!DOCTYPE html>\n<html>\n  <head>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <meta charset=\"utf-8\">\n    <title>Application Error</title>\n   
- <style media=\"screen\">\n    
-  html,body,iframe
- {\n        marg
-in: 0;\n       
- padding: 0;\n  
-    }\n\n     
- html,body {\n 
-       height: 
-100%;\n        o
-verflow: hidden;
-\n      }\n\n  
-    iframe {\n 
-       width: 10
-0%;\n        he
-ight: 100%;\n   
-     border: 0;\n  
-    }\n    </st
-yle>\n  </head>\
-n  <body>\n    
-<iframe src=\"h
-ttps://www.hero
-kucdn.com/error-
-pages/applicat
-ion-error.html\
-"></iframe>\n  <
-/body>\n</html>
-")
-stack traceb
-ack:
-	...extensi
-ons/test-3/rep
-o/_extensions/un
-splash/unsplas
-h.lua:179: in f
-unction <...ext
-ensions/test-3
-/repo/_extensio
-ns/unsplash/uns
-plash.lua:41>
-	(
-...tail calls...
-)
-	[string "if p
-andoc.system.os
- == "mingw32" t
-hen..."]:778: i
-n function <[st
-ring "if pandoc
-.system.os == "
-mingw32" then.
-.."]:776>
-	(...
-tail calls...)
-
-	/opt/quarto/sh
-are/filters/mai
-n.lua:21769: in upvalue
- 'handle_shortco
-de'
-	/opt/quar
-to/share/filter
-s/main.lua:21834: in funct
-ion </opt/quar
-to/share/filte
-rs/main.lua:218
-26>
-	[C]: in ?
-
-	[C]: in method 'w
-alk'
-	/opt/quar
-to/share/pandoc
-/datadir/_uti
-ls.lua:607: in 
-function '_utils.walk'
-	/opt/quarto/share/filters/main.lua:574: in function </opt/quarto/s
-hare/filters/main.lua:5
-52>
-	(...tail c
-alls...)
-	/opt/
-quarto/share/filter
-s/main.lua:2187
-4: in field 'P
-andoc'
-	/opt/q
-uarto/share/fi
-lters/main.lua
-:588: in funct
-ion 'run_emula
-ted_filter'
-	
-/opt/quarto/share/filters/main.lua:1317: in local 'callback'
-	/opt/quarto/share/filters/main.lua:1335: in upvalue 'run_emulated_filter_
-chain'
-	/opt/quarto/share/
-filters/main.lua
-:1371: in func
-tion </opt/qua
-rto/share/filt
-ers/main.lua:13
-68>
-stack tra
-ceback:
-	/opt/
-quarto/share/p
-andoc/datadir
-/_utils.lua:607:
- in function 
-'_utils.walk'
-
-	/opt/quarto/s
-hare/filters/main
-.lua:574: in func
-tion </opt/qua
-rto/share/filters/main.lua:552>
+, responseEa
+rlyHints = []}) "<!DOCTYPE
+ html>\n<html>\n  <head>\n    <meta name=\"viewpor
+t\" content=\"width=device-width, initial-s
+cale=1\">\n    <meta charset=\"utf-8
+\">\n    <title>Application Error</tit
+le>\n    <style media=\"screen\">\n  
+    html,body,iframe {\n        margin: 0;\n        padding: 0
+;\n      }\n\n      html,body {\n        h
+eight: 100%;\n        overflow: hid
+den;\n      }\n\n      ifram
+e {\n        width: 100%;\n        he
+ight: 100%;\n        bor
+der: 0;\n      }\n    
+</style>\n  </head>\n 
+ <body>\n    <iframe s
+rc=\"https://www.her
+okucdn.com/error-page
+s/application-error.html\">
+</iframe>\n  </body>\n</htm
+l>")
+stack traceback:
+	...xt
+ensions/test-14/repo/_exten
+sions/unsplash/unsplash.lua:179: in function <...xtensions/test-14/repo/_extensions/unsplash/unsplash.lua:41>
 	(...tail calls...)
-	/opt/quarto/share/filters/main.lua:21874: in field 'Pandoc'
-	/opt/quarto/share/filt
-ers/main.lua:588: in
- function 'run_em
+	[string "if pandoc.system.os == "mingw32" then..."]:778: in function <[string "if pandoc.system.os == "mingw32" then..."]:776>
+	(...tail calls...)
+	/opt/quarto/share/filters/main.lua:21769: in upvalue 'handle_shortcode'
+	/opt/quarto/sha
+re/filters/main.lua:21834: in function </opt/quarto/s
+hare/filters/main.lua:21826>
+	[C]: in ?
+	[C]: in me
+thod 'walk'
+	/opt/quarto
+/share/pandoc/datadir
+/_utils.lua:607: in f
+unction '_utils.walk
+'
+	/opt/quarto/share
+/filters/main.lua:57
+4: in function </opt/quarto/shar
+e/filters/mai
+n.lua:552>
+	(...tail calls.
+..)
+	/opt/quarto/share/fil
+ters/main.lua:21874: in f
+ield 'Pandoc'
+	/opt/quarto/
+share/filters/main.lua:588
+: in function 'run_emulate
+d_filter'
+	/opt/quarto/sha
+re/filters/main.lua:1317: 
+in local 'callback'
+	/opt/
+quarto/share/filters/main.
+lua:1335: in upvalue 'run_
+emulated_filter_chain'
+	/o
+pt/quarto/share/filters/m
+ain.lua:1371: in function </opt/qu
+arto/share/filters/main.lua
+:1368>
+stack traceback:
+	/opt/quarto/share/pandoc/
+datadir/_utils.lua:607: in funct
+ion '_utils.walk'
+	/opt/qua
+rto/share/filters/main.lua
+:574: in function </opt/q
+uarto/share/filters/main.
+lua:552>
+	(...tail calls.
+..)
+	/opt/quarto/share/fi
+lters/main.lua:21874: in
+ field 'Pandoc'
+	/opt/quar
+to/share/filters/main.lua
+:588: in function 'run_em
 ulated_filter'
+	/opt/quar
+to/share/filters/main.lua
+:1317: in local 'callback'
 
-	/opt/quarto/s
-hare/filters/m
-ain.lua:1317: 
-in local 'cal
-lback'
-	/opt/q
-uarto/share/fi
-lters/main.lua
-:1335: in upv
-alue 'run_emula
-ted_filter_chain'
-	
-/opt/quarto/sha
-re/filters/mai
-n.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
-
+	/opt/quarto/share/filter
+s/main.lua:1335: in upva
+lue 'run_emulated_filter_
+chain'
+	/opt/quarto/share/f
+ilters/main.lua:1371: in f
+unction </opt/quarto/shar
+e/filters/main.lua:1368>
 
 (WARN) Error encountered when rendering files
 

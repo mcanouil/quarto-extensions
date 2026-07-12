@@ -1,0 +1,67 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Python IDE in the Browser
+  
+Output created: example.html
+
+pandoc 
+  to: html
+  output-file: example.ru.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: ru
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Python IDE в браузере
+  qcode:
+    inline-doc: true
+  
+Output created: example.ru.html
+
+pandoc 
+  to: typst
+  output-file: example.ru.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  variables: {}
+  
+metadata
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Python IDE в браузере
+  lang: ru
+  qcode:
+    inline-doc: true
+  
+[typst]: Compiling example.ru.typ to example.ru.pdf...DONE
+
+Output created: example.ru.pdf
+

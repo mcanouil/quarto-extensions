@@ -11,7 +11,18 @@ processing file: computo-quarto-extension.qmd
 4/17 [setup-python-env] 
 
 5/17                    
+
 6/17 [fig-plotly]       
+
+Downloading cpython-3.12.13-linux-x86_64-gnu (download) (32.6MiB)
+
+ Downloaded cpython-3.12.13-linux-x86_64-gnu (download)
+
+Downloading numpy (15.9MiB)
+
+ Downloaded numpy
+
+Installed 1 package in 155ms
 
 Error in py_call_impl(callable, call_args$unnamed, call_args$named) : 
   ModuleNotFoundError: No module named 'plotly'
@@ -19,7 +30,7 @@ Run `reticulate::py_last_error()` for details.
 Calls: .main ... tryCatchList -> force -> <Anonymous> -> py_call_impl
 
 
-Quitting from computo-quarto-extension.qmd:131-147 [fig-plotly]
+Quitting from computo-quarto-extension.qmd:134-150 [fig-plotly]
 
 Execution halted
 

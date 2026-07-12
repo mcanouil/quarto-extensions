@@ -4,10 +4,12 @@ processing file: qpanelize-cell.qmd
 
 1/5                  
 
-2/5 [unnamed-chunk-1]
+2
+/
+5 [unnamed-chunk-1]
 
-3/5                  
-
+3
+/5                  
 4/5 [unnamed-chunk-2]
 
 5/5                  
@@ -16,42 +18,41 @@ output file: qpanelize-cell.knit.md
 
 
 FATAL (/opt/quarto/share/filters/main.lua:3760) An error occurred:
-Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-22/repo/docs/panelize as a JSON filter.
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-0/repo/docs/panelize as a JSON filter.
 Please make sure the file exists and is executable.
 
 Did you intend 'panelize' as a Lua filter in an extension?
 If so, make sure you've spelled the name of the extension correctly.
 
 The original Pandoc error follows below.
-Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-22/repo/docs/panelize:
-Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-22/repo/docs/panelize
+Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-0/repo/docs/panelize:
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-0/repo/docs/panelize
 
-Error running 
-filter /opt/quarto/share/filters/main.lua:
-/opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERROR
+Error runnin
+g filter /opt/quarto/share/filters/main.lua:
+/opt/quarto/share/filters/main.lua:588: FA
+TAL QUARTO ERROR
 stack traceback:
-	/opt/quarto/share/filters/main
-.lua:2622: in function 'fatal'
-	/opt/quarto/sh
-are/filters/main.lua:2202: in functio
-n 'fail'
-	/opt/quarto/share/filters/
-main.lua:3760: in field 'Pandoc
-'
+	/
+opt/quarto/share/filters/main.l
+ua:2622: in function 'fat
+al'
+	/opt/quarto/share/fi
+lters/main.lua:2202: in 
+function 'fail'
+	/opt/qua
+rto/share/filters/main.lu
+a:3760: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:588: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1317: in local 'ca
+llback'
 	/opt/quarto/share/filters/ma
-in.lua:588: in function 'run_e
-mulated_filter'
-	/opt/quarto
-/share/filters/main.lua:131
-7: in local 'callback'
-	/op
-t/quarto/share/filters/main
-.lua:1335: in upvalue 'run
-_emulated_filter_chain'
-	/opt/quarto/share
-/filters/main.lua:1371: in f
-unction </opt/quarto/share/filters/m
-ain.lua:1368>
+in.lua:1335: in upvalue 'run_emulated_filte
+r_chain'
+	/opt/quarto/share/filters/main
+.lua:1371: in function </o
+pt/quarto/share/filters/
+main.lua:1368>
 
 (WARN) Error encountered when rendering files
 

@@ -8,16 +8,308 @@ processing file: computo-quarto-extension.qmd
 4/17 [setup-python-env] 
 5/17                    
 6/17 [fig-plotly]       
-Error in py_call_impl(callable, call_args$unnamed, call_args$named) : 
-  ModuleNotFoundError: No module named 'plotly'
-Run `reticulate::py_last_error()` for details.
-Calls: .main ... tryCatchList -> force -> <Anonymous> -> py_call_impl
-In addition: Warning message:
-Some Python package requirements declared via `py_require()` are not installed in the selected Python environment: (/home/vscode/.venv/bin/python)
-  plotly==6.8.0 pandas kaleido==1.3.0 
+Downloading cpython-3.13.14-linux-x86_64-gnu (download) (33.4MiB)
+ Downloaded cpython-3.13.14-linux-x86_64-gnu (download)
+Downloading pygments (1.2MiB)
+Downloading numpy (15.9MiB)
+Downloading fonttools (4.7MiB)
+Downloading jedi (4.7MiB)
+Downloading pillow (6.6MiB)
+Downloading plotly (9.4MiB)
+Downloading matplotlib (9.6MiB)
+Downloading kiwisolver (1.4MiB)
+Downloading pandas (10.4MiB)
+ Downloaded kiwisolver
+ Downloaded pygments
+ Downloaded fonttools
+ Downloaded pillow
+ Downloaded matplotlib
+ Downloaded plotly
+ Downloaded numpy
+ Downloaded pandas
+ Downloaded jedi
+Installed 37 packages in 1.40s
+7/17                    
+8/17 [fig-polar]        
+9/17                    
+10/17 [fig-gg]           
+11/17                    
+12/17 [fig-viridis-alpha]
+13/17                    
+14/17 [fig-ggplotly]     
+15/17                    
+16/17 [cars]             
+17/17                    
+output file: computo-quarto-extension.knit.md
 
-Quitting from computo-quarto-extension.qmd:131-147 [fig-plotly]
-Execution halted
+pandoc 
+  to: html
+  output-file: computo-quarto-extension.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  number-sections: true
+  toc: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  lang: en
+  knitr:
+    opts_chunk:
+      screenshot.opts:
+        cliprect: viewport
+        vwidth: 640
+        vheight: 400
+      dev: svglite
+  toc-title: Contents
+  code-copy: true
+  code-block-background: true
+  theme:
+    - _extensions/computo/custom.scss
+  title-block-banner: '#034E79'
+  title-block-banner-color: '#FFFFFF'
+  license: CC BY
+  reference-section-title: Bibliography
+  date-format: long
+  hover-citations: true
+  hover-footnotes: true
+  code-summary: Hide/Show the code
+  anchor-sections: true
+  sec-prefix: Section
+  eq-prefix: Equation
+  fig-prefix: Figure
+  tbl-prefix: Table
+  title: Computo Journal Format
+  subtitle: To be used as a template for contributions to `Computo`
+  date: 01/02/2023
+  date-modified: last-modified
+  author:
+    - name: The Computo Team
+      corresponding: true
+      email: contact@computo-journal.org
+      url: https://computo-journal.org
+      orcid: 0000-0000-0000-0000
+      affiliations:
+        - name: Société Française de Statistique
+          department: Statistique
+          address: IHP
+          city: Paris
+          country: France
+          postal-code: 75005
+    - name: a friend
+      affiliations:
+        - Another Affiliation
+  keywords:
+    - template
+    - quarto
+    - R
+    - Python
+    - reproductibility
+  abstract: |
+    This document provides a template based on the quarto system for contributions to Computo. The github repository in itself provides a specific quarto extension useful for authors (and editors!).
+  bibliography:
+    - references.bib
+  google-scholar: true
+  github-user: computorg
+  repo: computo-quarto-extension
+  status: submitted
+  citation:
+    type: article-journal
+    container-title: Computo
+    issn: 2824-7795
+    doi: 10.5072/computo.0000
+  diagram:
+    engine:
+      tikz:
+        header-includes:
+          - \usetikzlibrary{arrows}
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  
+The call
+pdflatex
+failed with error code 1. Output:
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(/tmp/tikz-831244b014e3e45b/tikz-image.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-06-18>
+
+! LaTeX Error: File `standalone.cls' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.2 \usepackage
+               {tikz}^^M
+!  ==> Fatal error occurred, no output PDF file produced!
+Transcript written on /tmp/tikz-831244b014e3e45b/tikz-image.log.
+/home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/_extensions/computo/_extensions/pandoc-ext/diagram/diagram.lua: ...sions/computo/_extensions/pandoc-ext/diagram/diagram.lua:82: attempt to index a nil value (local 'fh')
+
+processing file: computo-quarto-extension.qmd
+1/17                    
+2/17 [r-code]           
+3/17                    
+4/17 [setup-python-env] 
+5/17                    
+6/17 [fig-plotly]       
+7/17                    
+8/17 [fig-polar]        
+9/17                    
+10/17 [fig-gg]           
+11/17                    
+12/17 [fig-viridis-alpha]
+13/17                    
+14/17 [fig-ggplotly]     
+15/17                    
+16/17 [cars]             
+17/17                    
+output file: computo-quarto-extension.knit.md
+
+pandoc 
+  to: latex
+  output-file: computo-quarto-extension.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  number-sections: true
+  toc: true
+  
+metadata
+  block-headings: true
+  knitr:
+    opts_chunk:
+      screenshot.opts:
+        cliprect: viewport
+        vwidth: 640
+        vheight: 400
+  toc-title: Contents
+  code-copy: true
+  code-block-background: true
+  papersize: a4
+  geometry:
+    - a4paper
+    - textheight=24cm
+    - textwidth=15.5cm
+  fontfamily: libertinus
+  fontsize: 11pt
+  monofont: Latin Modern Mono
+  monofontoptions:
+    - Scale=0.92
+  title: Computo Journal Format
+  subtitle: To be used as a template for contributions to `Computo`
+  date: 01/02/2023
+  date-modified: last-modified
+  author:
+    - name: The Computo Team
+      corresponding: true
+      email: contact@computo-journal.org
+      url: https://computo-journal.org
+      orcid: 0000-0000-0000-0000
+      affiliations:
+        - name: Société Française de Statistique
+          department: Statistique
+          address: IHP
+          city: Paris
+          country: France
+          postal-code: 75005
+    - name: a friend
+      affiliations:
+        - Another Affiliation
+  keywords:
+    - template
+    - quarto
+    - R
+    - Python
+    - reproductibility
+  abstract: |
+    This document provides a template based on the quarto system for contributions to Computo. The github repository in itself provides a specific quarto extension useful for authors (and editors!).
+  bibliography:
+    - references.bib
+  google-scholar: true
+  github-user: computorg
+  repo: computo-quarto-extension
+  status: submitted
+  citation:
+    type: article-journal
+    container-title: Computo
+    issn: 2824-7795
+    doi: 10.5072/computo.0000
+  diagram:
+    engine:
+      tikz:
+        header-includes:
+          - \usetikzlibrary{arrows}
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  
+The call
+pdflatex
+failed with error code 1. Output:
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(/tmp/tikz-2196d733eb34491d/tikz-image.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-06-18>
+
+! LaTeX Error: File `standalone.cls' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.2 \usepackage
+               {tikz}^^M
+!  ==> Fatal error occurred, no output PDF file produced!
+Transcript written on /tmp/tikz-2196d733eb34491d/tikz-image.log.
+/home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/_extensions/computo/_extensions/pandoc-ext/diagram/diagram.lua: ...sions/computo/_extensions/pandoc-ext/diagram/diagram.lua:82: attempt to index a nil value (local 'fh')[31mFATAL (/opt/quarto/share/filters/main.lua:7317) An error occurred:
+Could not convert a SVG to a PDF for output. Please ensure that rsvg-convert is available on the path.
+[39mError running filter /opt/quarto/share/filters/main.lua:
+/opt/quarto/share/filters/main.lua:7342: FATAL QUARTO ERROR
+stack traceback:
+	/opt/quarto/share/filters/main.lua:2622: in function 'fatal'
+	/opt/quarto/share/filters/main.lua:2202: in function 'fail'
+	/opt/quarto/share/filters/main.lua:7317: in upvalue 'call_rsvg_convert'
+	/opt/quarto/share/filters/main.lua:7342: in function </opt/quarto/share/filters/main.lua:7323>
+	(...tail calls...)
+	/opt/quarto/share/filters/main.lua:2930: in local 'fn'
+	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:34: in upvalue 'run_filter_function'
+	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:223: in function <...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:202>
+	(...tail calls...)
+	[C]: in function 'tmap'
+	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:125: in upvalue 'recurse'
+	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:222: in local 'jogger'
+	...	(skipping 19 levels)
+	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:98: in upvalue 'recurse'
+	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:222: in function <...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:202>
+	(...tail calls...)
+	[C]: in function 'tmap'
+	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:125: in upvalue 'recurse'
+	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:222: in local 'jogger'
+	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:171: in upvalue 'recurse'
+	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:222: in function <...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:202>
+	(...tail calls...)
+	/opt/quarto/share/filters/main.lua:574: in function </opt/quarto/share/filters/main.lua:552>
+	(...tail calls...)
+	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1335: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
 WARN: Error encountered when rendering files
 Render failed, retrying once...
 
@@ -29,11 +321,16 @@ processing file: computo-quarto-extension.qmd
 4/17 [setup-python-env] 
 5/17                    
 6/17 [fig-plotly]       
+Downloading cpython-3.12.13-linux-x86_64-gnu (download) (32.6MiB)
+ Downloaded cpython-3.12.13-linux-x86_64-gnu (download)
+Downloading numpy (15.9MiB)
+ Downloaded numpy
+Installed 1 package in 155ms
 Error in py_call_impl(callable, call_args$unnamed, call_args$named) : 
   ModuleNotFoundError: No module named 'plotly'
 Run `reticulate::py_last_error()` for details.
 Calls: .main ... tryCatchList -> force -> <Anonymous> -> py_call_impl
 
-Quitting from computo-quarto-extension.qmd:131-147 [fig-plotly]
+Quitting from computo-quarto-extension.qmd:134-150 [fig-plotly]
 Execution halted
 WARN: Error encountered when rendering files
