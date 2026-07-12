@@ -51,7 +51,7 @@ const statusBanner = getStatusBanner(item.categories);
        data-modified="<%= item['file-modified'] %>"
        data-template="<%= isTemplate %>"
        data-example="<%= isExample %>"
-       data-test-status="<%= item['test-results'] ? (item['test-results'].some(r => r.status === 'fail') ? 'fail' : item['test-results'].some(r => r.status === 'pass') ? 'pass' : 'skip') : 'none' %>">
+       data-test-status="<%= cardTestStatus(item['test-results']) %>">
     <div class="d-flex flex-column flex-md-row align-items-start">
       <!-- Extension Image -->
       <% let image = item.image; let imageAlt = item['image-alt']; if (!image) { image = "assets/media/github-placeholder.png"; imageAlt = "GitHub Placeholder Image"; } %>
@@ -72,11 +72,7 @@ const statusBanner = getStatusBanner(item.categories);
         <div class="d-flex justify-content-between align-items-center mb-1">
           <div class="test-status-badges-row d-flex flex-wrap gap-1">
             <% if (item['test-results']) {
-              const latestByChannel = {};
-              item['test-results'].forEach(r => {
-                const ch = r['quarto-channel'];
-                if (!latestByChannel[ch]) latestByChannel[ch] = r;
-              });
+              const latestByChannel = latestTestByChannel(item['test-results']);
               ['release', 'prerelease'].forEach(ch => {
                 const r = latestByChannel[ch];
                 if (!r) return;

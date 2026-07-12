@@ -25,6 +25,49 @@ const getStatusBanner = (categories) => {
   }
   return null;
 };
+
+// Compare two version strings, descending (negative when `a` is newer).
+// A pre-release (e.g. 1.10.0-daily) ranks below the matching release.
+const compareVersionsDesc = (a, b) => {
+  const core = v => String(v || '').split('+')[0].split('-')[0].split('.').map(n => parseInt(n, 10) || 0);
+  const pa = core(a), pb = core(b);
+  for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
+    const diff = (pb[i] || 0) - (pa[i] || 0);
+    if (diff !== 0) return diff;
+  }
+  const suffix = v => String(v || '').split('+')[0].split('-').slice(1).join('-');
+  const sa = suffix(a), sb = suffix(b);
+  if (sa !== sb) {
+    if (!sa) return -1;
+    if (!sb) return 1;
+    return sb.localeCompare(sa);
+  }
+  return 0;
+};
+
+// Keep the highest-version test result per channel.
+const latestTestByChannel = (testResults) => {
+  const latest = {};
+  (testResults || []).forEach(r => {
+    const ch = r['quarto-channel'];
+    if (!ch) return;
+    if (!latest[ch] || compareVersionsDesc(r['quarto-version'], latest[ch]['quarto-version']) < 0) {
+      latest[ch] = r;
+    }
+  });
+  return latest;
+};
+
+// Card status from the latest release + latest prerelease only.
+const cardTestStatus = (testResults) => {
+  if (!testResults || testResults.length === 0) return 'none';
+  const latest = latestTestByChannel(testResults);
+  const results = ['release', 'prerelease'].map(ch => latest[ch]).filter(Boolean);
+  if (results.length === 0) return 'none';
+  if (results.some(r => r.status === 'fail')) return 'fail';
+  if (results.some(r => r.status === 'pass')) return 'pass';
+  return 'skip';
+};
 %>
 
 :::: {#extensions-listing-container}
@@ -45,14 +88,14 @@ partial("_controls.ejs")
 <!-- Grid View -->
 :::: {#grid-view-container .view-container}
 <%
-partial("_grid.ejs", { items, excludeCategories, utils, getStatusBanner })
+partial("_grid.ejs", { items, excludeCategories, utils, getStatusBanner, latestTestByChannel, cardTestStatus })
 %>
 ::::
 
 <!-- List View -->
 :::: {#list-view-container .view-container .d-none}
 <%
-partial("_list.ejs", { items, excludeCategories, utils, getStatusBanner })
+partial("_list.ejs", { items, excludeCategories, utils, getStatusBanner, latestTestByChannel, cardTestStatus })
 %>
 ::::
 
@@ -69,7 +112,7 @@ if (isTemplate || isExample) {
   partial("_modal-use.ejs", { id, usage });
 }
 if (item['test-results'] && item['test-results'].length > 0) {
-  partial("_modal-test-history.ejs", { id, key, testResults: item['test-results'] });
+  partial("_modal-test-history.ejs", { id, key, testResults: item['test-results'], compareVersionsDesc });
 }
 %>
 <% } %>
