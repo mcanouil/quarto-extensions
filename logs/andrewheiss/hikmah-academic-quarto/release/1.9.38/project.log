@@ -70,8 +70,8 @@ output file: hikmah-testing-custom.knit.md
 warning: unknown font family: times new roman
     ┌─ hikmah-testing-custom.typ:436:17
     │
-436 │   set text(
-font: font) if font != none
+436 │   set te
+xt(font: font) if font != none
     │                  ^^^^
 
 warning: unknown font family: times new roman
@@ -121,11 +121,11 @@ l.29   \setmathfont
 
 
 
-see /home/runner/work/quarto-extensions/quarto-extensions/test-0/repo/hikmah-testing-custom.log for more information.
+see /home/runner/work/quarto-extensions/quarto-extensions/test-24/repo/hikmah-testing-custom.log for more information.
 
 (WARN) Error encountered when rendering files
 
-(ERROR) NotFound: No such file or directory (os error 2): rename '/home/runner/work/quarto-extensions/quarto-extensions/test-0/repo/hikmah-testing-custom.pdf' -> '/home/runner/work/quarto-extensions/quarto-extensions/test-0/repo/examples/hikmah-testing-custom.pdf'
+(ERROR) NotFound: No such file or directory (os error 2): rename '/home/runner/work/quarto-extensions/quarto-extensions/test-24/repo/hikmah-testing-custom.pdf' -> '/home/runner/work/quarto-extensions/quarto-extensions/test-24/repo/examples/hikmah-testing-custom.pdf'
 
 Stack trace:
     at Object.renameSync (ext:deno_fs/30_fs.js:264:3)

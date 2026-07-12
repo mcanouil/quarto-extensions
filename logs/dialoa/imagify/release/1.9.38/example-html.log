@@ -44,6 +44,7 @@ Latexmk: This is Latexmk, John Collins, 9 March 2026. Version 4.88.
 No existing .aux file, so I'll make a simple one, and require run of *latex.
 
 Latexmk: applying rule 'latex'...
+
 Rule 'latex':  Reasons for rerun
 
 Category 'other':
@@ -53,7 +54,6 @@ Category 'other':
 ------------
 Run number 1 of rule 'latex'
 ------------
-
 ------------
 Running 'latex  --interaction=nonstopmode -recorder  "source.tex"'
 ------------
@@ -73,6 +73,7 @@ Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: cls)
 
 Enter file name: 
+
 ! Emergency stop.
 <read *> 
          
@@ -109,7 +110,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:/tmp/quarto-sessiond0f448a42da07615/547b037ea293c78d//:/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-quarto//:/tmp/quarto-sessioneb952905875130a5/f0f170c8867eb517//:/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -168,7 +169,7 @@ $E = mc^2$
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.7.12)  12 JUL 2026 20:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.7.12)  12 JUL 2026 21:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -209,16 +210,19 @@ Latexmk: This is Latexmk, John Collins, 9 March 2026. Version 4.88.
 No existing .aux file, so I'll make a simple one, and require run of *latex.
 
 Latexmk: applying rule 'latex'...
+
 Rule 'latex':  Reasons for rerun
 
 Category 'other':
+
   Rerun of 'latex' forced or previously required:
     Reason or flag: 'Initial setup'
+
+
 
 ------------
 Run number 1 of rule 'latex'
 ------------
-
 ------------
 Running 'latex  --interaction=nonstopmode -recorder  "source.tex"'
 ------------
@@ -274,7 +278,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:/tmp/quarto-sessiond0f448a42da07615/547b037ea293c78d//:/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-quarto//:/tmp/quarto-sessioneb952905875130a5/f0f170c8867eb517//:/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -333,7 +337,7 @@ $x=\frac{-b\pm\sqrt[]{b^2-4ac}}{2a}$
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.7.12)  12 JUL 2026 20:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.7.12)  12 JUL 2026 21:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -375,10 +379,10 @@ No existing .aux file, so I'll make a simple one, and require run of *latex.
 
 Latexmk: applying rule 'latex'...
 Rule 'latex':  Reasons for rerun
-
 Category 'other':
   Rerun of 'latex' forced or previously required:
     Reason or flag: 'Initial setup'
+
 
 ------------
 Run number 1 of rule 'latex'
@@ -403,7 +407,6 @@ Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: cls)
 
 Enter file name: 
-
 ! Emergency stop.
 <read *> 
          
@@ -440,7 +443,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:/tmp/quarto-sessiond0f448a42da07615/547b037ea293c78d//:/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-quarto//:/tmp/quarto-sessioneb952905875130a5/f0f170c8867eb517//:/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -499,7 +502,7 @@ $x=\frac{-b\pm\sqrt[]{b^2-4ac}}{2a}$
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.7.12)  12 JUL 2026 20:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.7.12)  12 JUL 2026 21:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -542,9 +545,9 @@ No existing .aux file, so I'll make a simple one, and require run of *latex.
 Latexmk: applying rule 'latex'...
 Rule 'latex':  Reasons for rerun
 Category 'other':
-
   Rerun of 'latex' forced or previously required:
     Reason or flag: 'Initial setup'
+
 
 ------------
 Run number 1 of rule 'latex'
@@ -569,7 +572,6 @@ Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: cls)
 
 Enter file name: 
-
 ! Emergency stop.
 <read *> 
          
@@ -606,7 +608,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:/tmp/quarto-sessiond0f448a42da07615/547b037ea293c78d//:/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-quarto//:/tmp/quarto-sessioneb952905875130a5/f0f170c8867eb517//:/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -666,7 +668,7 @@ P = \frac{T}{V}$
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.7.12)  12 JUL 2026 20:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.7.12)  12 JUL 2026 21:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -701,14 +703,12 @@ No pages of output.
 
 
 Rc files read (in order):
+
   NONE
 Latexmk: This is Latexmk, John Collins, 9 March 2026. Version 4.88.
-
 No existing .aux file, so I'll make a simple one, and require run of *latex.
-
 Latexmk: applying rule 'latex'...
 Rule 'latex':  Reasons for rerun
-
 Category 'other':
   Rerun of 'latex' forced or previously required:
     Reason or flag: 'Initial setup'
@@ -761,8 +761,10 @@ Latexmk: For rule 'latex', no output was made
 Latexmk: Errors, so I did not complete making targets
 
 Collected error summary (may duplicate other messages):
+
   latex: Command for 'latex' gave return code 1
       Refer to 'source.log' and/or above output for details
+
 
 
 Latexmk: Sometimes, the -f option can be used to get latexmk
@@ -773,7 +775,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:/tmp/quarto-sessiond0f448a42da07615/547b037ea293c78d//:/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-quarto//:/tmp/quarto-sessioneb952905875130a5/f0f170c8867eb517//:/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -845,7 +847,7 @@ $\displaystyle
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.7.12)  12 JUL 2026 20:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.7.12)  12 JUL 2026 21:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -887,10 +889,10 @@ No existing .aux file, so I'll make a simple one, and require run of *latex.
 
 Latexmk: applying rule 'latex'...
 Rule 'latex':  Reasons for rerun
+
 Category 'other':
   Rerun of 'latex' forced or previously required:
     Reason or flag: 'Initial setup'
-
 
 ------------
 Run number 1 of rule 'latex'
@@ -915,6 +917,7 @@ Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: cls)
 
 Enter file name: 
+
 ! Emergency stop.
 <read *> 
          
@@ -943,6 +946,7 @@ Collected error summary (may duplicate other messages):
       Refer to 'source.log' and/or above output for details
 
 
+
 Latexmk: Sometimes, the -f option can be used to get latexmk
   to try to force complete processing.
   But normally, you will need to correct the file(s) that caused the
@@ -951,7 +955,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:/tmp/quarto-sessiond0f448a42da07615/547b037ea293c78d//:/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-quarto//:/tmp/quarto-sessioneb952905875130a5/f0f170c8867eb517//:/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -1011,7 +1015,7 @@ P = \frac{T}{V}$
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.7.12)  12 JUL 2026 20:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.7.12)  12 JUL 2026 21:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1053,10 +1057,10 @@ No existing .aux file, so I'll make a simple one, and require run of *latex.
 
 Latexmk: applying rule 'latex'...
 Rule 'latex':  Reasons for rerun
+
 Category 'other':
   Rerun of 'latex' forced or previously required:
     Reason or flag: 'Initial setup'
-
 
 ------------
 Run number 1 of rule 'latex'
@@ -1065,7 +1069,6 @@ Run number 1 of rule 'latex'
 ------------
 Running 'latex  --interaction=nonstopmode -recorder  "source.tex"'
 ------------
-
 This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex)
  restricted \write18 enabled.
 
@@ -1118,7 +1121,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:/tmp/quarto-sessiond0f448a42da07615/547b037ea293c78d//:/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-quarto//:/tmp/quarto-sessioneb952905875130a5/f0f170c8867eb517//:/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -1205,7 +1208,7 @@ q1 -- q2 -- q3; % make these edges plain
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.7.12)  12 JUL 2026 20:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.7.12)  12 JUL 2026 21:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1247,10 +1250,10 @@ No existing .aux file, so I'll make a simple one, and require run of *latex.
 
 Latexmk: applying rule 'latex'...
 Rule 'latex':  Reasons for rerun
+
 Category 'other':
   Rerun of 'latex' forced or previously required:
     Reason or flag: 'Initial setup'
-
 
 ------------
 Run number 1 of rule 'latex'
@@ -1275,6 +1278,7 @@ Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: cls)
 
 Enter file name: 
+
 ! Emergency stop.
 <read *> 
          
@@ -1303,6 +1307,7 @@ Collected error summary (may duplicate other messages):
       Refer to 'source.log' and/or above output for details
 
 
+
 Latexmk: Sometimes, the -f option can be used to get latexmk
   to try to force complete processing.
   But normally, you will need to correct the file(s) that caused the
@@ -1311,7 +1316,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:/tmp/quarto-sessiond0f448a42da07615/547b037ea293c78d//:/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-quarto//:/tmp/quarto-sessioneb952905875130a5/f0f170c8867eb517//:/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -1373,7 +1378,7 @@ $
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.7.12)  12 JUL 2026 20:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.7.12)  12 JUL 2026 21:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1416,9 +1421,9 @@ No existing .aux file, so I'll make a simple one, and require run of *latex.
 Latexmk: applying rule 'latex'...
 Rule 'latex':  Reasons for rerun
 Category 'other':
+
   Rerun of 'latex' forced or previously required:
     Reason or flag: 'Initial setup'
-
 
 ------------
 Run number 1 of rule 'latex'
@@ -1443,6 +1448,7 @@ Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: cls)
 
 Enter file name: 
+
 ! Emergency stop.
 <read *> 
          
@@ -1467,6 +1473,7 @@ Latexmk: For rule 'latex', no output was made
 Latexmk: Errors, so I did not complete making targets
 
 Collected error summary (may duplicate other messages):
+
   latex: Command for 'latex' gave return code 1
       Refer to 'source.log' and/or above output for details
 
@@ -1479,7 +1486,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:/tmp/quarto-sessiond0f448a42da07615/547b037ea293c78d//:/home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-quarto//:/tmp/quarto-sessioneb952905875130a5/f0f170c8867eb517//:/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -1573,7 +1580,7 @@ important line/.style={very thick}]
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.7.12)  12 JUL 2026 20:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.7.12)  12 JUL 2026 21:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.

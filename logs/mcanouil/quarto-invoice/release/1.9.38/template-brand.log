@@ -1,21 +1,77 @@
-(ERROR) Unable to read the extension 'invoice'.
-Please ensure that you provided the correct id and that the extension is installed.
 
-Stack trace:
-    at loadExtension (file:///opt/quarto/bin/quarto.js:79090:15)
-    at Object.extension (file:///opt/quarto/bin/quarto.js:78333:30)
-    at readExtensionFormat (file:///opt/quarto/bin/quarto.js:91399:50)
-    at resolveFormats (file:///opt/quarto/bin/quarto.js:91263:37)
-    at async renderContexts (file:///opt/quarto/bin/quarto.js:91053:20)
-    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:136654:16)
-    at async renderFiles (file:///opt/quarto/bin/quarto.js:136571:9)
-    at async render (file:///opt/quarto/bin/quarto.js:142225:19)
-    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142470:24)
-    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102091:7)
-    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:101968:14)
-    at async quarto4 (file:///opt/quarto/bin/quarto.js:187649:5)
-    at async file:///opt/quarto/bin/quarto.js:187677:5
-    at async file:///opt/quarto/bin/quarto.js:187532:14
-    at async mainRunner (file:///opt/quarto/bin/quarto.js:187534:5)
-    at async file:///opt/quarto/bin/quarto.js:187670:3
+
+pandoc 
+
+  to: typst
+  output-file: template-brand.typ
+  template: _extensions/invoice/template.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  variables: {}
+  
+
+metadata
+
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Consulting 2026 (brand example)
+  description: 2026/01/01 -- 2026/12/31
+  sender:
+    name: Acme Consulting Limited
+    email: hello@acme.example
+    address:
+      street: 1 Pall Mall
+      zip: SW1Y 5LU
+      city: London
+      country: United Kingdom
+    registration: 12345678
+    vat: GB123456789
+  invoice:
+    number: ACME-2026-001
+    issued: '2026-05-01'
+    due: '2026-05-31'
+    reference: ACME-2026-001
+    currency: GBP
+    fee: 8
+    penalty: 40
+    items:
+      - description: Strategy workshop
+        details: Two-day on-site facilitation.
+        quantity: 2
+        unit-price: 1500
+        vat: 20
+      - description: Follow-up report
+        quantity: 1
+        unit-price: 850
+        vat: 20
+  bank:
+    bic: ACMEGB22
+    iban: GB29 NWBK 6016 1331 9268 19
+  recipient:
+    name: Example Corp.
+    address:
+      street: 500 Broadway
+      zip: '10012'
+      city: New York
+      state: NY
+      country: United States
+  lang: en
+  region: UK
+  papersize: a4
+  margin:
+    x: 2.5cm
+    'y': 2.5cm
+  
+
+[typst]: Compiling template-brand.typ to template-brand.pdf...
+DONE
+
+
+
+
+Output created: index-brand.pdf
+
 

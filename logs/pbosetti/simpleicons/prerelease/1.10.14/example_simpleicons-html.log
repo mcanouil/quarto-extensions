@@ -19,207 +19,231 @@ metadata
   title: simpleicons Example (HTML)
   
 
-Error running filter /
-opt/quarto/share/filters/main.lua:
+Error running fi
+lter /opt/quarto/share/filters/main.lua:
 Could not fetch https://simpleicons.org/icons/slack.svg
 HttpExceptionRequest Request {
   host                 = "simpleicons.org"
   port                 = 443
-  secure               = True
+  secure   
+            = True
   requestHeaders       = []
-  path                 = "/icons/slack.svg"
+  path                 = "/ico
+ns/slack.svg"
   queryString          = ""
-  method               = "GET"
+  method           
+    = "GET"
   proxy                = Nothing
-  rawBody              = False
+  rawBody  
+            = False
   redirectCount        = 10
-
-  responseTimeout      = ResponseTimeoutDefault
-  requestVersion       = HTTP/1.1
-  proxySecureMode      = ProxySecureW
-ithConnect
+  responseTimeout     
+ = ResponseTimeoutDefault
+  requestVersion    
+   = HTTP/1.1
+  proxySecureMode      
+= ProxySecureWithConnect
 }
- (StatusCodeException (Response {responseStatus = Status {statusCode = 404, s
-tatusMessage = "Not Found"}, responseVersion = HTTP/1.1, responseHeader
-s = [("Date","Sun, 12 Jul 2026 20:16:52 GMT"),("Content-Type","text/html; charset=utf-8"),
-("Transfer-Encoding","chunked"),("Connection","keep-alive"),("X-Content-
-Type-Options","nosniff"),("Report-To","{\"group\":\"
-cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":
-\"https://a.nel.cloudflare.com/rep
-ort/v4?s=
-guEPPAfDKYvievx2KYsljORTg1ypsQPABLb0BPsaC%2B2y0rGXbDo%2Fn7gte%2BTnqLKT%2B
-nTENu%2FWs8zmVI98g6og7SLXmTXz4EK
-nmXEajaeJkiAYmQgEKLNrffeQq
-1m27Y37vQo%3D\"}]}"),("Ne
-l","{\"report_to\":\"cf-
-nel\",\"success_fraction\
-":0.0,\"max_age\":604800
-}"),("Access-Control-Allo
-w-Origin","*"),("Cache
--Control","no-store"),("R
-eferrer-Policy","strict-origin-when
--cross-origin"),("Speculat
+ (StatusCodeExce
+ption (Response {responseStatus = Status {statusCode = 404, statusMessage = "Not Found"}, responseVersion = HTTP/1.1, responseHeaders = [("Date","Sun, 12 Jul 2026 21:29:18 GMT"),("Content-Type","text/html; charset=utf-8"),("Transfer-Encoding","chunked
+"),("Connection","keep-alive"),("X-Content-Type-Option
+s","nosniff"),("Report-To","{\"group\":\
+"cf-nel\",\"max_age\":604800,\"e
+ndpoints\":[{\"url\":\"htt
+ps://a.nel.cloudflare.com/r
+eport/v4?s=nJbPWsSWY6gCE
+uaW7EgqrzFvw%2BtR5NCW21sCCv
+vNU%2F9HL6HhWj2llyH3a2LPl
+oAM6YpvYKyVrkh0ruf7aAEI9
+iR%2FlXcPs1HXONEJSNkyr%
+2FPK%2F1PI%2BIFAWYRtBm84
+EvOgccA%3D\"}]}"),("Nel","{\
+"report_to\":\"cf-nel\",\"suc
+cess_fraction\":0.0,\"max
+_age\":604800}"),("Acce
+ss-Control-Allow-Origin
+","*"),("Cache-Control"
+,"no-store"),("Referrer-Policy
+","strict-origin-when-cr
+oss-origin"),("Speculat
 ion-Rules","\"/cdn-cgi/
-speculation\""),("Server-Tim
-ing","cfCacheStatus;desc=\"BYPASS\
-""),("Server-Timing","cfEdg
-e;dur=5,cfOrigin;dur=13"),(
-"Server","cloudflare"),("Cf-
-Cache-Status","BYPASS"),
-("Vary","accept-encodin
-g"),("Content-Encoding"
-,"gzip"),("CF-RAY","a1a
-2ba659962e4ec-LAX"),("al
-t-svc","h3=\":443\"; ma
-=86400")], responseBody =
- (), responseCookieJar =
- CJ {expose = []}, respon
-seClose' = ResponseClos
-e, responseOriginalReque
-st = Request {
-  host  
-               = "simple
-icons.org"
-  port      
-           = 443
-  secu
-re               = True
-  requestHeaders       =
- []
-  path                
- = "/icons/slack.svg"
-  q
-ueryString          = ""
-
-  method             
-  = "GET"
-  proxy                = Nothing
-
-  rawBody              = F
-alse
-  redirectCount        = 10
-  respon
-seTimeout      = ResponseTim
-eoutDefault
-  requestVersion       
-= HTTP/1.1
-  proxySecureMod
-e      = ProxySecureWithCo
-nnect
+speculation\""),("Server
+-Timing","cfCacheStatus;de
+sc=\"BYPASS\""),("Server-Tim
+ing","cfEdge;dur=6,cfOr
+igin;dur=12"),("Server"
+,"cloudflare"),("Cf-Cache
+-Status","BYPASS"),("Vary","accept-
+encoding"),("Content-Enc
+oding","gzip"),("CF-RAY
+","a1a324858bb7b33f-ORD"
+),("alt-svc","h3=\":443\
+"; ma=86400")], responseB
+ody = (), responseCookie
+Jar = CJ {expose = []}, responseClose' =
+ ResponseClose, responseOr
+iginalRequest = Request 
+{
+  host                 = "sim
+pleicons.org"
+  port     
+            = 443
+  secure        
+       = True
+  requestHeaders       
+= []
+  path                 = "/ic
+ons/slack.svg"
+  queryStri
+ng          = ""
+  method         
+      = "GET"
+  proxy       
+         = Nothing
+  rawBody      
+        = False
+  redirect
+Count        = 10
+  respo
+nseTimeout      = Respon
+seTimeoutDefault
+  reque
+stVersion       = HTTP
+/1.1
+  proxySecureMode 
+     = ProxySecureWith
+Connect
 }
-, responseEarl
-yHints = []}) "<!doctype html><scrip
-t type=\"995cf43dfb211b01689fa
-f7d-text/javascript\">c
-onst PATH=`404/`,param
-s=new URL(window.locat
-ion).searchParams.toSt
-ring(),opts=params?`?${p
-arams}`:``;window.loca
-tion=`https://simpleicons.org/404/${opts}`;</script><noscript><meta content=\"0; URL=https://simpleicons.org/404/\" http-equiv=refresh></head></noscript></html><script defer src=\"https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496\" integrity=\"sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==\" data-cf-beacon='{\"version\":\"2024.11.0\
-",\"token\":\"6119c6c2ff1c4ac59e73ca98c9a7d467\",\"r\":1,\"server_timing\":{\"name\":{\"cfCache
-Status\":true,\"cfEdge\":true
-,\"cfExtPri\":true,\"cfL4
-\":true,\"cfOrigin\":tru
-e,\"cfSpeedBrain\":true
-},\"location_startswith
-\":null}}' crossorigin=\"anonymous\"></scri
-pt>\n<script src=\"/cdn-c
-gi/scripts/7d0fa10a/cloud
-flare-static/rocket-loa
-der.min.js\" data-cf-set
-tings=\"995cf43dfb211b01
-689faf7d-|49\" defer></s
-cript>")
-stack traceback
-:
-	...ons/test-15/repo/
-_extensions/simpleicons
-/simpleicons.lua:18: in
- function <...ons/test-
-15/repo/_extensions/simp
-leicons/simpleicons.lua
-:8>
-	(...tail calls...)
-
-	[string "if pandoc.syst
-em.os == "mingw32" then.
-.."]:778: in function <[strin
-g "if pandoc.system.os ==
- "mingw32" then..."]:77
-6>
-	(...tail calls...)
-	/opt/quar
-to/share/filters/main.lua
-:21769: in upvalue 'hand
-le_shortcode'
-	/opt/qua
-rto/share/filters/main.
-lua:21839: in local 'fil
-ter_fn'
-	/opt/quarto/sh
-are/filters/main.lua:65
-5: in function </opt/qua
-rto/share/filters/main.
-lua:645>
-	(...tail call
-s...)
-	[C]: in ?
-	[C]: 
-in method 'walk'
-	/opt/
-quarto/share/pandoc/data
-dir/_utils.lua:607: in 
-function '_utils.walk'
-	
-/opt/quarto/share/filte
-rs/main.lua:574: in functi
-on </opt/quarto/share/fi
-lters/main.lua:552>
-	(.
-..tail calls...)
-	/opt/q
-uarto/share/filters/mai
-n.lua:21894: in field '
-Pandoc'
+, responseEar
+lyHints = []}) "
+<!do
+ctype html><script type=\"92662311ae44115b8
+6681508-text/javascript\">const PATH=`404/`,
+params=new URL(window.locatio
+n).searchParams.toString(),opts=params?
+`?${params}`:``;window.lo
+cation=`https://simplei
+cons.org/404/${opts}`;<
+/script><noscript><meta 
+content=\"0; URL=https://simpleicons.org/404/\" http-equiv=refresh></head></noscript></html><script defer src=\"https://static.cloudflareinsights.com/beacon.min.js/v4513226
+cdae34746b4dedf0b4dfa099e1781791509496\" int
+egrity=\"sha512-ZE9pZaUXND6
+6v380QUtch/5sE9tPFh2zg45
+pR2PB0CVkCtOREv2AJKkSidI
+SWkysEuQ0EH8faUU5du78bx87
+UQ==\" data-cf-beacon='{\"
+version\":\"2024.11.0\"
+,\"token\":\"6119c6c2ff1
+c4ac59e73ca98c9a7d467\"
+,\"r\":1,\"server_timing\
+":{\"name\":{\"cfCacheStat
+us\":true,\"cfEdge\":tr
+ue,\"cfExtPri\":true,
+\"cfL4\
+":true,\"cfOrigin\":true,\"cfSp
+eedBrain\":true},\"locat
+ion_startswith\":null}}'
+ crossorigin=\"anonymou
+s\"></script>\n<script s
+rc=\"/cdn-cgi/scripts/7
+d0fa10a/cloudflare-stati
+c/rocket-loader.min.js\
+" data-cf-settings=\"926
+62311ae44115b86681508-|
+49\" defer></script>")
+s
+tack traceback:
+	...ons/
+test-15/repo/_extension
+s/simpleicons/simpleicons.lua:
+18: in function <...ons/te
+st-15/repo/_extensions/s
+impleicons/simpleicons.
+lua:8>
+	(...tail calls..
+.)
+	[string "if pandoc.sy
+stem.os == "mingw32" the
+n..."]:778: in function
+ <[string "if pandoc.sy
+stem.os == "mingw32" th
+en..."]:776>
+	(...tail calls.
+..)
+	/opt/quarto/share/
+filters/main.lua:21769: 
+in upvalue 'handle_sho
+rtcode'
 	/opt/quarto/sha
-re/filters/main.lua:58
-8: in function 'run_
-emulated_filt
-er'
-	/opt/quarto/share/filters/main.lua:1317:
- in local 'callback'
-	/opt
-/quarto/share/filters/m
-ain.lua:1335: in upvalue 
-'run_emulated_filter_chain'
-	/opt/quarto
-/share/filters/main.lua:13
-71: in function </opt/qu
-arto/share/filters/main.lua:1368>
-stack
- traceback:
-	/opt/quarto/share/pand
-oc/datadir/_utils.lua:607
-: in function '_utils.walk'
-	/opt/qu
-arto/share/filters/main.l
-ua:574: in function </op
+re/filters/main.lua:21839
+: in local 'filter_fn'
+	/opt/
+quarto/share/filters/main
+.lua:655: in function </
+opt/quarto/share/filter
+s/main.lua:645>
+	(...tai
+l calls...)
+	[C]: in ?
+	[C]: in met
+hod 'walk'
+	/opt/quarto/share/pa
+ndoc/datadir/_utils.lua:6
+07: in function '_utils.
+walk'
+	/opt/quarto/share/filters
+/main.lua:574: in function </op
 t/quarto/share/filters/
 main.lua:552>
-	(...tail
- calls...)
+	(...tail 
+calls...)
 	/opt/quarto
-/share/filters/main.lua:
-21894: in field 'Pando
-c'
-	/opt/quarto/share/filters/main.lua:588: in function 'run_emulated_filter'
-	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
-	/opt/quarto/share/filters/main.lua:1335: in upvalue 'run_emulated_filter_c
-hain'
-	/opt/quarto/share/filters/main.lua:1371: in function </opt/quar
-to/share/filters/main.lua:13
-68>
+/share/filters/main.lua:2
+1894: in field 'Pandoc'
+	/o
+pt/quarto/share/filters
+/main.lua:588: in functi
+on 'run_emulated_filter
+'
+	/opt/quarto/share/fil
+ters/main.lua:1317: in local '
+callback'
+	/opt/quarto/s
+hare/filters/main.lua:1
+335: in upvalue 'run_emulated_filter
+_chain'
+	/opt/quarto/sha
+re/filters/main.lua:1371: 
+in function </opt/quarto/share/filters/m
+ain.lua:1368>
+stack traceba
+ck:
+	/opt/quarto/share/pan
+doc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:574: in function </opt/quarto/share/filters/main.l
+ua:552>
+	(...tail calls...)
+	/opt/qu
+arto/share/filters/main.lua
+:21894: in field 'Pandoc
+'
+	/opt/quarto/share/filte
+rs/main.lua:588: in fun
+ction 'run_emulated_filt
+er'
+	/opt/quarto/share/
+filters/main.lua:1317: 
+in local 'callback'
+	/op
+t/quarto/share/filters/m
+ain.lua:1335: in upvalue 
+'run_emulated_filter_chain'
+
+	/opt/quarto/share/filte
+rs/main.lua:1371: in fu
+nction </opt/quarto/shar
+e/filters/main.lua:136
+8>
 
 (WARN) Error encountered when rendering files
 

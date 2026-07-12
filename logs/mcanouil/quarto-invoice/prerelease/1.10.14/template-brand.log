@@ -1,21 +1,74 @@
-(ERROR) Unable to read the extension 'invoice'.
-Please ensure that you provided the correct id and that the extension is installed.
 
-Stack trace:
-    at loadExtension (file:///opt/quarto/bin/quarto.js:79412:15)
-    at Object.extension (file:///opt/quarto/bin/quarto.js:78618:30)
-    at readExtensionFormat (file:///opt/quarto/bin/quarto.js:91414:50)
-    at resolveFormats (file:///opt/quarto/bin/quarto.js:91273:37)
-    at async renderContexts (file:///opt/quarto/bin/quarto.js:91063:20)
-    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:136916:16)
-    at async renderFiles (file:///opt/quarto/bin/quarto.js:136833:9)
-    at async render (file:///opt/quarto/bin/quarto.js:142487:19)
-    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142732:24)
-    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102143:7)
-    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102020:14)
-    at async quarto4 (file:///opt/quarto/bin/quarto.js:188102:5)
-    at async file:///opt/quarto/bin/quarto.js:188131:5
-    at async file:///opt/quarto/bin/quarto.js:187985:14
-    at async mainRunner (file:///opt/quarto/bin/quarto.js:187987:5)
-    at async file:///opt/quarto/bin/quarto.js:188124:3
+
+pandoc 
+
+  to: typst
+  output-file: template-brand.typ
+  template: _extensions/invoice/template.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+
+metadata
+
+  title: Consulting 2026 (brand example)
+  description: 2026/01/01 -- 2026/12/31
+  sender:
+    name: Acme Consulting Limited
+    email: hello@acme.example
+    address:
+      street: 1 Pall Mall
+      zip: SW1Y 5LU
+      city: London
+      country: United Kingdom
+    registration: 12345678
+    vat: GB123456789
+  invoice:
+    number: ACME-2026-001
+    issued: '2026-05-01'
+    due: '2026-05-31'
+    reference: ACME-2026-001
+    currency: GBP
+    fee: 8
+    penalty: 40
+    items:
+      - description: Strategy workshop
+        details: Two-day on-site facilitation.
+        quantity: 2
+        unit-price: 1500
+        vat: 20
+      - description: Follow-up report
+        quantity: 1
+        unit-price: 850
+        vat: 20
+  bank:
+    bic: ACMEGB22
+    iban: GB29 NWBK 6016 1331 9268 19
+  recipient:
+    name: Example Corp.
+    address:
+      street: 500 Broadway
+      zip: '10012'
+      city: New York
+      state: NY
+      country: United States
+  lang: en
+  region: UK
+  papersize: a4
+  margin:
+    x: 2.5cm
+    'y': 2.5cm
+  
+
+[typst]: Compiling template-brand.typ to template-brand.pdf...
+DONE
+
+
+
+
+Output created: index-brand.pdf
+
 

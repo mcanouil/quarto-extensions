@@ -15,8 +15,8 @@ Traceback (most recent call last):
     from nbformat import v3, validator
   File "/home/vscode/.venv/lib/python3.13/site-packages/nbformat/validator.py", line 17, in <module>
     from .json_compat import ValidationError, _validator_for_name, get_current_validator
-  File "/home/vscode/.venv/lib/python3.13/site-packages/nbformat/json_compat.py", line 13, in <module>
 
+  File "/home/vscode/.venv/lib/python3.13/site-packages/nbformat/json_compat.py", line 13, in <module>
     import jsonschema
   File "/home/vscode/.venv/lib/python3.13/site-packages/jsonschema/__init__.py", line 13, in <module>
 
@@ -32,8 +32,8 @@ Traceback (most recent call last):
 
     from rpds import HashTrieMap, HashTrieSet, List
   File "/home/vscode/.venv/lib/python3.13/site-packages/rpds/__init__.py", line 1, in <module>
-    from .rpds import *
 
+    from .rpds import *
 ModuleNotFoundError: No module named 'rpds.rpds'
 
 (WARN) Error encountered when rendering files
