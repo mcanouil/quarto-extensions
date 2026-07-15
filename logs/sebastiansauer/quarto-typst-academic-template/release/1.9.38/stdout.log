@@ -247,13 +247,13 @@ set LDFLAGS=-L/usr/local/lib
 -- Looking for __cplusplus - found
 -- Could NOT find JNI (missing: JAVA_INCLUDE_PATH JAVA_INCLUDE_PATH2 JVM) 
 -- Could NOT find Java (missing: Java_JAVA_EXECUTABLE Java_JAR_EXECUTABLE Java_JAVAC_EXECUTABLE Java_JAVAH_EXECUTABLE Java_JAVADOC_EXECUTABLE) (Required is at least version "1.5")
--- Configuring done (2.4s)
+-- Configuring done (2.6s)
 -- Generating done (0.0s)
--- Build files have been written to: /tmp/RtmpaYrs2R/R.INSTALL89a5050de66/nloptr/src/nlopt-build
+-- Build files have been written to: /tmp/Rtmp63S77W/R.INSTALL89a4baecfa4/nloptr/src/nlopt-build
 [  2%] Generating nlopt.hpp
 [  2%] Built target generate-cpp
-[  6%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/direct_wrap.c.o
 [  6%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRect.c.o
+[  6%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/direct_wrap.c.o
 [  8%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRserial.c.o
 [ 10%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRsubrout.c.o
 [ 12%] Building C object CMakeFiles/nlopt.dir/src/algs/cdirect/cdirect.c.o
@@ -304,17 +304,17 @@ set LDFLAGS=-L/usr/local/lib
 [100%] Built target nlopt
 Install the project...
 -- Install configuration: "Release"
--- Installing: /tmp/RtmpaYrs2R/R.INSTALL89a5050de66/nloptr/src/nlopt/lib/pkgconfig/nlopt.pc
--- Installing: /tmp/RtmpaYrs2R/R.INSTALL89a5050de66/nloptr/src/nlopt/include/nlopt.h
--- Installing: /tmp/RtmpaYrs2R/R.INSTALL89a5050de66/nloptr/src/nlopt/include/nlopt.hpp
--- Installing: /tmp/RtmpaYrs2R/R.INSTALL89a5050de66/nloptr/src/nlopt/lib/libnlopt.a
--- Installing: /tmp/RtmpaYrs2R/R.INSTALL89a5050de66/nloptr/src/nlopt/share/man/man3/nlopt.3
--- Installing: /tmp/RtmpaYrs2R/R.INSTALL89a5050de66/nloptr/src/nlopt/share/man/man3/nlopt_minimize.3
--- Installing: /tmp/RtmpaYrs2R/R.INSTALL89a5050de66/nloptr/src/nlopt/share/man/man3/nlopt_minimize_constrained.3
--- Installing: /tmp/RtmpaYrs2R/R.INSTALL89a5050de66/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends.cmake
--- Installing: /tmp/RtmpaYrs2R/R.INSTALL89a5050de66/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends-release.cmake
--- Installing: /tmp/RtmpaYrs2R/R.INSTALL89a5050de66/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfig.cmake
--- Installing: /tmp/RtmpaYrs2R/R.INSTALL89a5050de66/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfigVersion.cmake
+-- Installing: /tmp/Rtmp63S77W/R.INSTALL89a4baecfa4/nloptr/src/nlopt/lib/pkgconfig/nlopt.pc
+-- Installing: /tmp/Rtmp63S77W/R.INSTALL89a4baecfa4/nloptr/src/nlopt/include/nlopt.h
+-- Installing: /tmp/Rtmp63S77W/R.INSTALL89a4baecfa4/nloptr/src/nlopt/include/nlopt.hpp
+-- Installing: /tmp/Rtmp63S77W/R.INSTALL89a4baecfa4/nloptr/src/nlopt/lib/libnlopt.a
+-- Installing: /tmp/Rtmp63S77W/R.INSTALL89a4baecfa4/nloptr/src/nlopt/share/man/man3/nlopt.3
+-- Installing: /tmp/Rtmp63S77W/R.INSTALL89a4baecfa4/nloptr/src/nlopt/share/man/man3/nlopt_minimize.3
+-- Installing: /tmp/Rtmp63S77W/R.INSTALL89a4baecfa4/nloptr/src/nlopt/share/man/man3/nlopt_minimize_constrained.3
+-- Installing: /tmp/Rtmp63S77W/R.INSTALL89a4baecfa4/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends.cmake
+-- Installing: /tmp/Rtmp63S77W/R.INSTALL89a4baecfa4/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends-release.cmake
+-- Installing: /tmp/Rtmp63S77W/R.INSTALL89a4baecfa4/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfig.cmake
+-- Installing: /tmp/Rtmp63S77W/R.INSTALL89a4baecfa4/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfigVersion.cmake
 Moving nlopt/lib to nlopt/lib
 Copying headers found in src/nlopt/include into inst/include
 configure: creating ./config.status

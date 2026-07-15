@@ -1,4 +1,30 @@
 Cloning into 'repo'...
+Installing package into '/cache/r-lib-0'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/quarto_1.5.1.tar.gz'
+Content type 'binary/octet-stream' length 409416 bytes (399 KB)
+==================================================
+downloaded 399 KB
+
+* installing *source* package 'quarto' ...
+** this is package 'quarto' version '1.5.1'
+** package 'quarto' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (quarto)
+
+The downloaded source packages are in
+	'/tmp/Rtmp31GFLh/downloaded_packages'
 [1/5] TODO.md
 [2/5] hikmah-testing-custom.qmd
 
@@ -85,9 +111,9 @@ l.29   \setmathfont
                  []{Libertinus Math}
 
 
-see /home/runner/work/quarto-extensions/quarto-extensions/test-24/repo/hikmah-testing-custom.log for more information.
+see /home/runner/work/quarto-extensions/quarto-extensions/test-18/repo/hikmah-testing-custom.log for more information.
 WARN: Error encountered when rendering files
-ERROR: NotFound: No such file or directory (os error 2): rename '/home/runner/work/quarto-extensions/quarto-extensions/test-24/repo/hikmah-testing-custom.pdf' -> '/home/runner/work/quarto-extensions/quarto-extensions/test-24/repo/examples/hikmah-testing-custom.pdf'
+ERROR: NotFound: No such file or directory (os error 2): rename '/home/runner/work/quarto-extensions/quarto-extensions/test-18/repo/hikmah-testing-custom.pdf' -> '/home/runner/work/quarto-extensions/quarto-extensions/test-18/repo/examples/hikmah-testing-custom.pdf'
 
 Stack trace:
     at Object.renameSync (ext:deno_fs/30_fs.js:267:3)
@@ -186,9 +212,9 @@ l.29   \setmathfont
                  []{Libertinus Math}
 
 
-see /home/runner/work/quarto-extensions/quarto-extensions/test-24/repo/hikmah-testing-custom.log for more information.
+see /home/runner/work/quarto-extensions/quarto-extensions/test-18/repo/hikmah-testing-custom.log for more information.
 WARN: Error encountered when rendering files
-ERROR: NotFound: No such file or directory (os error 2): rename '/home/runner/work/quarto-extensions/quarto-extensions/test-24/repo/hikmah-testing-custom.pdf' -> '/home/runner/work/quarto-extensions/quarto-extensions/test-24/repo/examples/hikmah-testing-custom.pdf'
+ERROR: NotFound: No such file or directory (os error 2): rename '/home/runner/work/quarto-extensions/quarto-extensions/test-18/repo/hikmah-testing-custom.pdf' -> '/home/runner/work/quarto-extensions/quarto-extensions/test-18/repo/examples/hikmah-testing-custom.pdf'
 
 Stack trace:
     at Object.renameSync (ext:deno_fs/30_fs.js:267:3)

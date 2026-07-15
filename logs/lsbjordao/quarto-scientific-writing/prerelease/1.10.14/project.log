@@ -1,6 +1,6 @@
-E
-rror running filter /opt/quarto/share/filters/main.lua:
-Cannot get Attr from TypeNil
+Error running filter /opt/quarto/share/filters/main.lua:
+Cannot get Attr fro
+m TypeNil
 stack traceback:
 	/opt/quarto/share/filters/main.lua:21817: in function </opt/quarto/share/filters/main.lua:21785>
 	[C]: in function 'lpeg.match'
@@ -9,52 +9,23 @@ stack traceback:
 	/opt/quarto/share/filters/main.lua:21858: in function </opt/quarto/share/filters/main.lua:21845>
 	[C]: in ?
 	[C]: in method 'walk'
-	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_
-utils.walk'
-	/opt/quarto/share/filters/main.lua:574: in function </opt/quarto/
-share/filters/main.lua:552>
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:574: in function </opt/quarto/share/filters/main.lua:552>
 	(...tail calls...)
-	/opt/quarto/share/
-filters/main.lua:21874: in field 'Pandoc'
-	/opt/quarto/sh
-are/filters/main.lua:588: in function 'run_emulated_filter'
-	/o
-pt/quarto/share/filters/main.lua:1317: in local
- 'callback'
-	/opt/quarto/share/filters/m
-ain.lua:1335: in upvalue 'run_emulated_filter_chain'
-	/opt/
-quarto/share/filters/main.lua:1371: in function </opt/quarto/share/
-filters/main.lua:1368>
+	/opt/quarto/share/filters/main.lua:21874: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:588: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1335: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
 stack traceback:
-	/op
-t/quarto/share/pandoc/datadir/_utils.lua:
-607: in function '_utils.walk'
-	/opt/qu
-arto/share/filters/main.lua:574: i
-n function </opt/quarto/share/f
-ilters/main.lua:552>
-	(...tail
- calls...)
-	/opt/quarto/share/
-filters/main.lua:2187
-4: in fi
-eld 'Pandoc'
-	/opt/quarto/share/filters/main.
-lua:588: in function 'run_emul
-ated_filter'
-	/opt/quarto/s
-hare/filters/main.lua:1317:
- in local 'callback'
-	/opt
-/quarto/share/filters/main.lua:13
-35: in upvalue 'run_emulate
-d_filter_chain'
-	/opt/quar
-to/share/filters/main.lua:
-1371: in function </opt/q
-uarto/share/filters/main.l
-ua:1368>
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:574: in function </opt/quarto/share/filters/main.lua:552>
+	(...tail calls...)
+	/opt/quarto/share/filters/main.lua:21874: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:588: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1317: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1335: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1371: in function </opt/quarto/share/filters/main.lua:1368>
 
 (WARN) Error encountered when rendering files
 

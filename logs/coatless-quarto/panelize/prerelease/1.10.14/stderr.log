@@ -2,8 +2,19 @@ Cloning into 'repo'...
 Using CPython 3.13.9 interpreter at: /usr/local/python/current/bin/python
 Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
-Resolved 11 packages in 6ms
-Installed 11 packages in 256ms
+Resolved 11 packages in 358ms
+Downloading fonttools (4.7MiB)
+Downloading numpy (15.9MiB)
+Downloading pillow (6.6MiB)
+Downloading matplotlib (9.6MiB)
+Downloading kiwisolver (1.4MiB)
+ Downloaded kiwisolver
+ Downloaded pillow
+ Downloaded fonttools
+ Downloaded matplotlib
+ Downloaded numpy
+Prepared 11 packages in 538ms
+Installed 11 packages in 166ms
  + contourpy==1.3.3
  + cycler==0.12.1
  + fonttools==4.63.0
@@ -28,15 +39,15 @@ processing file: qpanelize-cell.qmd
 output file: qpanelize-cell.knit.md
 
 [31mFATAL (/opt/quarto/share/filters/main.lua:3760) An error occurred:
-Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-24/repo/docs/panelize as a JSON filter.
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-23/repo/docs/panelize as a JSON filter.
 Please make sure the file exists and is executable.
 
 Did you intend 'panelize' as a Lua filter in an extension?
 If so, make sure you've spelled the name of the extension correctly.
 
 The original Pandoc error follows below.
-Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-24/repo/docs/panelize:
-Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-24/repo/docs/panelize
+Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-23/repo/docs/panelize:
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-23/repo/docs/panelize
 [39mError running filter /opt/quarto/share/filters/main.lua:
 /opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERROR
 stack traceback:
@@ -62,15 +73,15 @@ processing file: qpanelize-cell.qmd
 output file: qpanelize-cell.knit.md
 
 [31mFATAL (/opt/quarto/share/filters/main.lua:3760) An error occurred:
-Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-24/repo/docs/panelize as a JSON filter.
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-23/repo/docs/panelize as a JSON filter.
 Please make sure the file exists and is executable.
 
 Did you intend 'panelize' as a Lua filter in an extension?
 If so, make sure you've spelled the name of the extension correctly.
 
 The original Pandoc error follows below.
-Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-24/repo/docs/panelize:
-Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-24/repo/docs/panelize
+Error running filter /home/runner/work/quarto-extensions/quarto-extensions/test-23/repo/docs/panelize:
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-23/repo/docs/panelize
 [39mError running filter /opt/quarto/share/filters/main.lua:
 /opt/quarto/share/filters/main.lua:588: FATAL QUARTO ERROR
 stack traceback:

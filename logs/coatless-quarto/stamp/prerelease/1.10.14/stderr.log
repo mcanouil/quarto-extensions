@@ -1,14 +1,12 @@
 Cloning into 'repo'...
 pandoc 
   to: html
-  output-file: qstamp-custom-placement.html
+  output-file: template.html
   standalone: true
-  title-prefix: colab
   section-divs: true
   html-math-method: mathjax
   wrap: none
   default-image-extension: png
-  toc: true
   
 metadata
   document-css: false
@@ -30,7 +28,7 @@ contributes:
   filters:
     - stamp.lua
 
-Output created: _site/qstamp-custom-placement.html
+Output created: template.html
 
 pandoc 
   to: html
@@ -53,35 +51,6 @@ metadata
   date-modified: last-modified
   
 Output created: _site/qstamp-release-notes.html
-
-pandoc 
-  to: html
-  output-file: index.html
-  standalone: true
-  title-prefix: colab
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  toc: false
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  title: Stamp Extension
-  
-Reading YAML file: _extensions/stamp/_extension.yml
-title: stamp
-author: James Joseph Balamuta
-version: 0.0.0-dev.1
-quarto-required: ">=1.6.0"
-contributes:
-  filters:
-    - stamp.lua
-
-Output created: _site/index.html
 
 pandoc 
   to: html
@@ -114,12 +83,43 @@ Output created: _site/qstamp-faq.html
 
 pandoc 
   to: html
-  output-file: template.html
+  output-file: index.html
   standalone: true
+  title-prefix: colab
   section-divs: true
   html-math-method: mathjax
   wrap: none
   default-image-extension: png
+  toc: false
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Stamp Extension
+  
+Reading YAML file: _extensions/stamp/_extension.yml
+title: stamp
+author: James Joseph Balamuta
+version: 0.0.0-dev.1
+quarto-required: ">=1.6.0"
+contributes:
+  filters:
+    - stamp.lua
+
+Output created: _site/index.html
+
+pandoc 
+  to: html
+  output-file: qstamp-custom-placement.html
+  standalone: true
+  title-prefix: colab
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
   
 metadata
   document-css: false
@@ -141,5 +141,5 @@ contributes:
   filters:
     - stamp.lua
 
-Output created: template.html
+Output created: _site/qstamp-custom-placement.html
 

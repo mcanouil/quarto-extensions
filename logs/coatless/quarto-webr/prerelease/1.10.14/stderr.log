@@ -43,6 +43,30 @@ output file: qwebr-loading-data.knit.md
 [12/28] qwebr-first-steps.qmd
 
 Starting python3 kernel...[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+Exception in thread Heartbeat:
+Traceback (most recent call last):
+  File "/usr/local/python/current/lib/python3.13/threading.py", line 1043, in _bootstrap_inner
+    self.run()
+    ~~~~~~~~^^
+  File "/home/vscode/.venv/lib/python3.13/site-packages/ipykernel/heartbeat.py", line 117, in run
+    self._bind_socket()
+    ~~~~~~~~~~~~~~~~~^^
+  File "/home/vscode/.venv/lib/python3.13/site-packages/ipykernel/heartbeat.py", line 92, in _bind_socket
+    self._try_bind_socket()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/vscode/.venv/lib/python3.13/site-packages/ipykernel/heartbeat.py", line 79, in _try_bind_socket
+    return self.socket.bind(f"{self.transport}://{self.ip}" + c + str(self.port))
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.venv/lib/python3.13/site-packages/zmq/sugar/socket.py", line 320, in bind
+    super().bind(addr)
+    ~~~~~~~~~~~~^^^^^^
+  File "zmq/backend/cython/_zmq.py", line 1009, in zmq.backend.cython._zmq.Socket.bind
+    _check_rc(rc)
+    
+  File "zmq/backend/cython/_zmq.py", line 190, in zmq.backend.cython._zmq._check_rc
+    raise ZMQError(errno)
+    
+zmq.error.ZMQError: Address already in use (addr='tcp://127.0.0.1:36093')
 Done
 
 Executing 'qwebr-first-steps.quarto_ipynb'

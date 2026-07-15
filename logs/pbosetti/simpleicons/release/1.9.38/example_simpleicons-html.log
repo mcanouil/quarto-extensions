@@ -22,96 +22,143 @@ metadata
   title: simpleicons Example (HTML)
   
 
-Error runnin
-g filter /opt/quarto/share/filters/main.lua:
+Error running filter /
+opt/quarto/share/filters/main.lua:
 Could not fetch https://simpleicons.org/icons/slack.svg
 HttpExceptionRequest Request {
-  host                 = "simpleico
-ns.org"
-  port                 = 443
-  secure            
-   = True
-  requestHeaders       = []
-  path           
-      = "/icons/slack.svg"
-  queryString          = "
-"
-  method               = "GET"
-  proxy                = No
-thing
-  rawBody              = False
-  r
-edirectCount        = 
-10
-  responseTimeout      = ResponseTim
-eoutDefault
-  requestVersion       = HTTP/1.1
-  proxyS
-ecureMode      = ProxySecureW
-ithConnect
-}
- (StatusCode
-Exception (Response {
-responseStat
-us = Status
- {statusCode
- = 404, stat
-usMessage =
- "Not Found
-"}, respons
-eVersion = 
-HTTP/1.1, 
-responseHeader
-s = [("Date
-","Sun, 12
- Jul 2026 2
-1:29:25 GM
-T"),("Cont
-ent-Type",
-"text/html;
- charset=u
-tf-8"),("Transfe
-r-Encoding"
-,"chunked"
-),("Connec
-tion","kee
-p-alive"),
-("X-Conten
-t-Type-Opt
-ions","nosn
-iff"),("Re
-port-To","
-{\"group\":
-\"cf-nel\"
-,\"max_age
-\":604800,\
-"endpoints
-\":[{\"url
-\":\"https://a.nel.cloudflar
-e.com/report/v4?s=tnc3L
-Eqtkd5x6YmuXeD8qbKcJILOGJH3ZhdeR9xg8adfGfSXTx%2BJhWES4BLfEaUGABYadt6rkqCxX3vWxVF3ZXngrFEh%2BHlXeAtJ7CDc5CZRjl6s%2FU22iUqhYxb762cyWsY%3D\"}]}"),("Nel","{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"),("Access-Control-Allow-Origin","*"),("Cache-Control","no-store"),("Referrer-Policy","strict-origin-when-cross-origin"),("Speculation-Rules","\"/cdn-cgi/speculation\""),("Server-Timing","cfCacheStatus;desc=\"BYPASS\""),("Server-Timing","cfEdge;dur=4,cfOrigin;dur=13"),("Server","cloudflare"),("Cf-Cache-Status","BYPASS"),("Vary","accept-encoding"),("Content-Encoding","gzip"),("CF-RAY","a1a324ac9b0e5946-IAD"),("alt-svc","h3=\":443\"; ma=86400")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
   host                 = "simpleicons.org"
   port                 = 443
   secure               = True
   requestHeaders       = []
-  path                 = "/icons/slack.svg"
+  path                 = "/icons/slack.sv
+g"
   queryString          = ""
   method               = "GET"
   proxy                = Nothing
-  rawBody              = False
+  rawBody              = Fa
+lse
   redirectCount        = 10
-  responseTimeout      = ResponseTimeoutDefault
-  requestVersion       = HTTP/1.1
+  responseTimeout      = 
+ResponseTimeoutDefault
+  requestVersion       = HTTP/
+1.1
   proxySecureMode      = ProxySecureWithConnect
+
 }
-, responseEarlyHints = []}) "<!doctype html><script type=\"23fa18595b373d40e56f1f36-text/javascript\">const PATH=`404/`,params=new URL(window.location).searchParams.toString(),opts=params?`?${params}`:``;window.location=`https://simpleicons.org/404/${opts}`;</script><noscript><meta content=\"0; URL=https://simpleicons.org/404/\" http-equiv=refresh></head></noscript></html><script defer src=\"https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496\" integrity=\"sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==\" data-cf-beacon='{\"version\":\"2024.11.0\",\"token\":\"6119c6c2ff1c4ac59e73ca98c9a7d467\",\"r\":1,\"server_timing\":{\"name\":{\"cfCacheStatus\":true,\"cfEdge\":true,\"cfExtPri\":true,\"cfL4\":true,\"cfOrigin\":true,\"cfSpeedBrain\":true},\"location_startswith\":null}}' crossorigin=\"anonymous\"></script>\n<script src=\"/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js\" data-cf-settings=\"23fa18595b373d40e56f1f36-|49\" defer></script>")
-stack traceback:
-	...ons/test-15/repo/_extensions/simpleicons/simpleicons.lua:18: in function <...ons/test-15/repo/_extensions/simpleicons/simpleicons.lua:8>
+ (StatusCodeException (Response {responseStatus =
+ Status {statusCode = 404, statusMessage = "Not Fo
+und"}, responseVersion = HTTP/1.1, responseHeade
+rs = [("Date","Wed, 15 Jul 2026 14:54:22 GMT"),("Content-Type","text/html; charset=utf
+-8"),("Transfer-Encoding","chunked"),("Connection","keep-alive"),("X-Cont
+ent-Type-Options","nosniff"),("Report-To","{\"g
+roup\":\"cf-nel\",\"max_age\":604
+800,\"endpoints\":[{\"url\":\"
+https://a.nel.cloudflare.com/r
+eport/v4?s=zDfKlphGp4c2%2FMX
+vOzhmTjp3u4EXtGqkJNy%2BeAo6b8
+YSohuQAJbtMxlO53fDQuiKMPBQsR
+VRQ%2B55k6W82iI1c7n5tH173CviM
+jAw8MLd2e%2BiQEdr00g6uj86FR
+SXad36DiM%3D\"}]}"),("Nel","
+{\"report_to\":\"cf-nel\",\"
+success_fraction\":0.0,\"ma
+x_age\":604800}"),("Access-C
+ontrol-Allow-Origin","*"),("C
+ache-Control","no-store"),("Referre
+r-Policy","strict-origin-when-
+cross-origin"),("Speculation
+-Rules","\"/cdn-cgi/speculat
+ion\""),("Server-Timing","cfC
+acheStatus;desc=\"BYPASS\"")
+,("Server-Timing","cfEdge;d
+ur=3,cfOrigin;dur=11"),("Ser
+ver","cloudflare"),("Cf-Cach
+e-Status","BYPASS"),("Vary",
+"accept-encoding"),("Conten
+t-Encoding","gzip"),("CF-RA
+Y","a1b99a1dfa8ab8b6-SJC"),
+("alt-svc","h3=\":443\"; ma
+=86400")], responseBody = (
+), responseCookieJar = CJ {e
+xpose = []}, responseClose' 
+= ResponseClose, responseOri
+ginalRequest = Request {
+  h
+ost                 = "simp
+leicons.org"
+  port         
+        = 443
+  secure      
+         = True
+  requestHeaders   
+    = []
+  path                 = "/icons/slack.svg"
+  queryS
+tring          = ""
+  method               = "GET"
+  pr
+oxy                = Nothing
+  rawBody              = False
+  redir
+ectCount        = 10
+  responseTim
+eout      = ResponseTimeoutDe
+fault
+  requestVersion       = HTTP/1.1
+  proxyS
+ecureMode      = ProxySecureWithConnect
+}
+, responseEar
+lyHints = []}) "<!doctype html><script type=\"7dcc96bf5380
+035ce5577d41-text/javascript\">
+const PATH=`404/`,params=new 
+URL(window.location).search
+Params.toString(),opts=para
+ms?`?${params}`:``;window.lo
+cation=`https://simpleicons.org/404/${o
+pts}`;</script><noscript><meta content=
+\"0; URL=https://simpleicons.
+org/404/\" http-equiv=refresh
+></head></noscript></html><s
+cript defer src=\"https://static.cloudflareinsig
+hts.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e17
+81791509496\" integrity=\"sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2z
+g45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5d
+u78bx87UQ==\" data-cf-beacon='
+{\"version\":\"2024.11.0\",\"token\":\"6119c6c2ff1c4ac59e73ca98
+c9a7d467\",\"r\":1,\"server_timing\":{\"name\":{\"cfCacheSt
+atus\":true,\"cfEdge\":true,\"cfE
+xtPri\":true,\"cfL4\":true,\"cfOrigin\":true,\"cfSpeedBrain\":tr
+ue},\"location_sta
+rtswith\":null}}' crossorigin=\"an
+onymous\"></script>\n<script s
+rc=\"/cdn-cgi/scripts/7d0fa10
+a/cloudflare-static/rocket-l
+oader.min.js\" data-cf-settin
+gs=\"7dcc96bf5380035ce5577d41
+-|49\" defer></script>")
+stac
+k traceback:
+	...ions/test-
+7/repo/_extensions/simpleico
+ns/simpleicons.lua:18: in f
+unction <...ions/test-7/rep
+o/_extensions/simpleicons/s
+impleicons.lua:8>
+	(...tai
+l calls...)
+	[string "if pan
+doc.system.os == "mingw32" 
+then..."]:778: in function <[
+string "if pandoc.system.os
+ == "mingw32" then..."]:776
+>
 	(...tail calls...)
-	[string "if pandoc.system.os == "mingw32" then..."]:778: in function <[string "if pandoc.system.os == "mingw32" then..."]:776>
-	(...tail calls...)
-	/opt/quarto/share/filters/main.lua:21774: in upvalue 'handle_shortcode'
-	/opt/quarto/share/filters/main.lua:21844: in local 'filter_fn'
+	/opt
+/quarto/share/filters/main.lua:2
+1774: in upvalue 'handle_shortcode'
+	/opt/quarto/share/
+filters/main.lua:21844: in local 'filter_fn'
 	/opt/quarto/share/filters/main.lua:655: in function </opt/quarto/share/filters/main.lua:645>
 	(...tail calls...)
 	[C]: in ?

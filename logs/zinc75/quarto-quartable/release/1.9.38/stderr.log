@@ -1,83 +1,5 @@
 Cloning into 'repo'...
 pandoc 
-  to: html
-  output-file: test_quartable.html
-  standalone: true
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  toc: true
-  toc-depth: 2
-  number-sections: true
-  variables: {}
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: '`quartable` test document'
-  subtitle: colspan · rowspan · midrule · cline · vline · align
-  author: Eric Bavu
-  date: today
-  theme: cosmo
-  
-[quartable] WARNING: rs=3 on row 2 crosses a === separator on row 4 — LaTeX rendering will be incorrect.
-[quartable] WARNING: ^ marker without a matching origin cell (row 5, logical column 1).
-Output created: test_quartable.html
-
-pandoc 
-  to: latex
-  output-file: test_quartable.tex
-  standalone: true
-  pdf-engine: pdflatex
-  variables:
-    graphics: true
-    tables: true
-  default-image-extension: pdf
-  toc: true
-  number-sections: true
-  
-metadata
-  block-headings: true
-  engines:
-    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
-  title: '`quartable` test document'
-  subtitle: colspan · rowspan · midrule · cline · vline · align
-  author: Eric Bavu
-  date: today
-  lang: en
-  documentclass: article
-  papersize: a4
-  fontsize: 11pt
-  geometry: margin=2.5cm
-  
-[quartable] WARNING: rs=3 on row 2 crosses a === separator on row 4 — LaTeX rendering will be incorrect.
-[quartable] WARNING: ^ marker without a matching origin cell (row 5, logical column 1).
-
-Rendering PDF
-running pdflatex - 1
-  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
-   restricted \write18 enabled.
-  entering extended mode
-  
-running pdflatex - 2
-  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
-   restricted \write18 enabled.
-  entering extended mode
-  
-running pdflatex - 3
-  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
-   restricted \write18 enabled.
-  entering extended mode
-  
-
-Output created: test_quartable.pdf
-
-pandoc 
   to: revealjs
   output-file: test_reveal_quartable.html
   standalone: true
@@ -192,4 +114,82 @@ metadata
   theme: cosmo
   
 Output created: index.html
+
+pandoc 
+  to: html
+  output-file: test_quartable.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  toc-depth: 2
+  number-sections: true
+  variables: {}
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: '`quartable` test document'
+  subtitle: colspan · rowspan · midrule · cline · vline · align
+  author: Eric Bavu
+  date: today
+  theme: cosmo
+  
+[quartable] WARNING: rs=3 on row 2 crosses a === separator on row 4 — LaTeX rendering will be incorrect.
+[quartable] WARNING: ^ marker without a matching origin cell (row 5, logical column 1).
+Output created: test_quartable.html
+
+pandoc 
+  to: latex
+  output-file: test_quartable.tex
+  standalone: true
+  pdf-engine: pdflatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  toc: true
+  number-sections: true
+  
+metadata
+  block-headings: true
+  engines:
+    - path: /opt/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: '`quartable` test document'
+  subtitle: colspan · rowspan · midrule · cline · vline · align
+  author: Eric Bavu
+  date: today
+  lang: en
+  documentclass: article
+  papersize: a4
+  fontsize: 11pt
+  geometry: margin=2.5cm
+  
+[quartable] WARNING: rs=3 on row 2 crosses a === separator on row 4 — LaTeX rendering will be incorrect.
+[quartable] WARNING: ^ marker without a matching origin cell (row 5, logical column 1).
+
+Rendering PDF
+running pdflatex - 1
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+running pdflatex - 2
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+running pdflatex - 3
+  This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+Output created: test_quartable.pdf
 

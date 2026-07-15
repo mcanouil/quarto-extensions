@@ -1,15 +1,17 @@
 Cloning into 'repo'...
-Installing package into '/cache/r-lib-1'
+Installing packages into '/cache/r-lib-1'
 (as 'lib' is unspecified)
-also installing the dependencies 'pkgbuild', 'diffobj', 'brio', 'desc', 'pkgload', 'praise', 'waldo'
+also installing the dependencies 'pkgbuild', 'diffobj', 'later', 'brio', 'desc', 'pkgload', 'praise', 'waldo'
 
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/pkgbuild_1.4.8.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/diffobj_0.3.6.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/later_1.4.8.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/brio_1.1.5.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/desc_1.4.3.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/pkgload_1.5.3.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/praise_1.0.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/waldo_0.6.2.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/quarto_1.5.1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/testthat_3.3.2.tar.gz'
 * installing *source* package 'diffobj' ...
 ** this is package 'diffobj' version '0.3.6'
@@ -30,6 +32,26 @@ installing to /cache/r-lib-1/00LOCK-diffobj/00new/diffobj/libs
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (diffobj)
+* installing *source* package 'later' ...
+** this is package 'later' version '1.4.8'
+** package 'later' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+using C++ compiler: 'g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+installing to /cache/r-lib-1/00LOCK-later/00new/later/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (later)
 * installing *source* package 'brio' ...
 ** this is package 'brio' version '1.1.5'
 ** package 'brio' successfully unpacked and MD5 sums checked
@@ -102,6 +124,22 @@ installing to /cache/r-lib-1/00LOCK-brio/00new/brio/libs
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (waldo)
+* installing *source* package 'quarto' ...
+** this is package 'quarto' version '1.5.1'
+** package 'quarto' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (quarto)
 * installing *source* package 'pkgload' ...
 ** this is package 'pkgload' version '1.5.3'
 ** package 'pkgload' successfully unpacked and MD5 sums checked
@@ -139,7 +177,7 @@ installing to /cache/r-lib-1/00LOCK-testthat/00new/testthat/libs
 * DONE (testthat)
 
 The downloaded source packages are in
-	'/tmp/RtmpVRwUP7/downloaded_packages'
+	'/tmp/RtmpaH8cMx/downloaded_packages'
 ERROR: Unable to read the extension 'wordcount'.
 Please ensure that you provided the correct id and that the extension is installed.
 

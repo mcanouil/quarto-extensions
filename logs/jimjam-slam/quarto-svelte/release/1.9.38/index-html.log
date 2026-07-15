@@ -9,6 +9,7 @@ pandoc
   html-math-method: mathjax
   wrap: none
   default-image-extension: png
+  toc: true
   variables: {}
   
 
@@ -23,19 +24,17 @@ metadata
   title-block-banner: '#222222'
   theme:
     - default
-    - ../../style.scss
+    - style.scss
   linkcolor: '#ff3e00'
   callout-appearance: simple
-  title: 'Examples: time series'
-  author: James Goldie
-  date: last-modified
+  title: quarto-svelte
+  description: '**quarto-svelte** (formerly Sverto) is an extension for [Quarto](https://quarto.org) that lets you seamlessly write and include [Svelte](https://svelte.dev) components, like charts and other visuals, in your Quarto website.'
   quarto-svelte:
     use:
-      - TimeSeriesChart.svelte
-  resources:
-    - '*.csv'
+      - Circles.svelte
+  toc-location: left
   
 
-Output created: ../../_site/examples/time-series/index.html
+Output created: _site/index.html
 
 
