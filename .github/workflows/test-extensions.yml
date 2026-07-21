@@ -95,7 +95,7 @@ jobs:
       contents: read
     strategy:
       fail-fast: false
-      max-parallel: 10
+      max-parallel: 20
       matrix: ${{ fromJSON(needs.build-matrix.outputs.matrix) }}
     timeout-minutes: 90
     defaults:

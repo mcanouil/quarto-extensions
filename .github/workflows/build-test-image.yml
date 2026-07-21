@@ -2,6 +2,10 @@ name: Build Test Image
 
 on:
   workflow_dispatch:
+    inputs:
+      force:
+        description: "If 'true', rebuild even when the Dockerfile and base image are unchanged"
+        default: "false"
   workflow_call:
 
 permissions:
@@ -15,11 +19,16 @@ jobs:
       fail-fast: false
       matrix:
         channel: [release, prerelease]
+    env:
+      BASE_IMAGE: ghcr.io/mcanouil/quarto-codespaces:${{ matrix.channel }}
+      TARGET_IMAGE: ghcr.io/${{ github.repository }}:${{ matrix.channel }}
     steps:
       - name: Checkout Dockerfile
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v6
         with:
-          sparse-checkout: .github/docker/test-extensions
+          sparse-checkout: |
+            .github/docker/test-extensions
+            .github/scripts/build-test-image
           sparse-checkout-cone-mode: false
           persist-credentials: false
 
@@ -30,14 +39,22 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Pull base image
-        run: docker pull "ghcr.io/mcanouil/quarto-codespaces:${{ matrix.channel }}"
+      - name: Determine whether a build is needed
+        id: plan
+        env:
+          FORCE: ${{ inputs.force || 'false' }}
+        shell: bash
+        run: bash .github/scripts/build-test-image/plan.sh
 
       - name: Build and push
+        if: steps.plan.outputs.build == 'true'
         uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7.3.0
         with:
           context: .github/docker/test-extensions
           push: true
           build-args: |
-            BASE_IMAGE=ghcr.io/mcanouil/quarto-codespaces:${{ matrix.channel }}
-          tags: ghcr.io/${{ github.repository }}:${{ matrix.channel }}
+            BASE_IMAGE=${{ env.BASE_IMAGE }}
+          labels: |
+            org.opencontainers.image.base.digest=${{ steps.plan.outputs.base-digest }}
+            io.quarto-extensions.dockerfile-sha256=${{ steps.plan.outputs.dockerfile-sha }}
+          tags: ${{ env.TARGET_IMAGE }}
