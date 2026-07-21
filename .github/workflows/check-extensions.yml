@@ -67,6 +67,7 @@ jobs:
     env:
       DIFF: ${{ needs.check-submission.outputs.diff }}
     outputs:
+      failed: ${{ steps.duplicate.outcome == 'failure' || steps.topics.outcome == 'failure' || steps.description.outcome == 'failure' || steps.release.outcome == 'failure' || steps.redirection.outcome == 'failure' || steps.structure.outcome == 'failure' }}
       duplicate-errors: ${{ steps.duplicate.outputs.errors || '[]' }}
       topics-errors: ${{ steps.topics.outputs.errors || '[]' }}
       description-errors: ${{ steps.description.outputs.errors || '[]' }}
@@ -170,6 +171,7 @@ jobs:
           NUMBER: ${{ github.event.pull_request.number }}
           PR_BRANCH: ${{ github.event.pull_request.head.ref }}
           METADATA_RESULT: ${{ needs.check-metadata.result }}
+          METADATA_FAILED: ${{ needs.check-metadata.outputs.failed }}
           DUPLICATE_ERRORS: ${{ needs.check-metadata.outputs.duplicate-errors }}
           TOPICS_ERRORS: ${{ needs.check-metadata.outputs.topics-errors }}
           DESCRIPTION_ERRORS: ${{ needs.check-metadata.outputs.description-errors }}
@@ -189,11 +191,12 @@ jobs:
 
           declare -A mention_owners
 
-          # Metadata checks run with continue-on-error, so their job result is
-          # only 'failure' on infrastructure errors; check errors surface via
-          # the per-step errors arrays. The pre-flight render script emits
-          # blocking failures as errors and advisory ones as notes, and only
-          # exits non-zero when blocking.
+          # Metadata checks run with continue-on-error: check errors surface
+          # via the per-step errors arrays, METADATA_FAILED covers scripts
+          # that crashed before writing outputs, and METADATA_RESULT is only
+          # 'failure' on infrastructure errors. The pre-flight render script
+          # emits blocking failures as errors and advisory ones as notes, and
+          # only exits non-zero when blocking.
           errors_found=false
           for errors_json in \
           "${DUPLICATE_ERRORS}" \
@@ -207,7 +210,7 @@ jobs:
               errors_found=true
             fi
           done
-          if [[ "${METADATA_RESULT}" == "failure" || "${RENDER_RESULT}" == "failure" ]]; then
+          if [[ "${METADATA_RESULT}" == "failure" || "${METADATA_FAILED}" == "true" || "${RENDER_RESULT}" == "failure" ]]; then
             errors_found=true
           fi
 
