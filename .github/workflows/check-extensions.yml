@@ -60,248 +60,60 @@ jobs:
           fi
           exit 0
 
-  check-duplicate:
+  check-metadata:
     runs-on: ubuntu-latest
     needs: check-submission
+    if: needs.check-submission.outputs.submission == 'true'
+    env:
+      DIFF: ${{ needs.check-submission.outputs.diff }}
     outputs:
-      errors: ${{ steps.store-errors.outputs.errors }}
+      duplicate-errors: ${{ steps.duplicate.outputs.errors || '[]' }}
+      topics-errors: ${{ steps.topics.outputs.errors || '[]' }}
+      description-errors: ${{ steps.description.outputs.errors || '[]' }}
+      release-errors: ${{ steps.release.outputs.errors || '[]' }}
+      redirection-errors: ${{ steps.redirection.outputs.errors || '[]' }}
+      structure-errors: ${{ steps.structure.outputs.errors || '[]' }}
+      wizard-notes: ${{ steps.wizard.outputs.notes || '[]' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
         with:
           fetch-depth: 2
       - name: Check for duplicates
-        if: needs.check-submission.outputs.submission == 'true'
-        id: check
+        id: duplicate
+        continue-on-error: true
         shell: bash
         run: bash .github/scripts/check-extensions/check-duplicate.sh
-      - name: Store errors
-        if: always() && needs.check-submission.outputs.submission == 'true'
-        id: store-errors
-        env:
-          errors: ${{ steps.check.outputs.errors }}
-        shell: bash
-        run: |
-          if [[ -z "${errors}" ]]; then
-            errors="[]"
-          fi
-          echo "errors=${errors}" >> ${GITHUB_OUTPUT}
-      - name: End of check
-        if: needs.check-submission.outputs.submission == 'false'
-        shell: bash
-        run: |
-          echo "No changes to ${CSV_FILE} found"
-          exit 0
-
-  check-topics:
-    runs-on: ubuntu-latest
-    needs: check-submission
-    outputs:
-      errors: ${{ steps.store-errors.outputs.errors }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 2
       - name: Check for topics
-        if: needs.check-submission.outputs.submission == 'true'
-        id: check
-        env:
-          DIFF: ${{ needs.check-submission.outputs.diff }}
+        id: topics
+        continue-on-error: true
         shell: bash
         run: bash .github/scripts/check-extensions/check-topics.sh
-      - name: Store errors
-        if: always() && needs.check-submission.outputs.submission == 'true'
-        id: store-errors
-        env:
-          errors: ${{ steps.check.outputs.errors }}
-        shell: bash
-        run: |
-          if [[ -z "${errors}" ]]; then
-            errors="[]"
-          fi
-          echo "errors=${errors}" >> ${GITHUB_OUTPUT}
-      - name: End of check
-        if: needs.check-submission.outputs.submission == 'false'
-        shell: bash
-        run: |
-          echo "No changes to ${CSV_FILE} found"
-          exit 0
-
-  check-description:
-    runs-on: ubuntu-latest
-    needs: check-submission
-    outputs:
-      errors: ${{ steps.store-errors.outputs.errors }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 2
       - name: Check for description
-        if: needs.check-submission.outputs.submission == 'true'
-        id: check
-        env:
-          DIFF: ${{ needs.check-submission.outputs.diff }}
+        id: description
+        continue-on-error: true
         shell: bash
         run: bash .github/scripts/check-extensions/check-description.sh
-      - name: Store errors
-        if: always() && needs.check-submission.outputs.submission == 'true'
-        id: store-errors
-        env:
-          errors: ${{ steps.check.outputs.errors }}
-        shell: bash
-        run: |
-          if [[ -z "${errors}" ]]; then
-            errors="[]"
-          fi
-          echo "errors=${errors}" >> ${GITHUB_OUTPUT}
-      - name: End of check
-        if: needs.check-submission.outputs.submission == 'false'
-        shell: bash
-        run: |
-          echo "No changes to ${CSV_FILE} found"
-          exit 0
-
-  check-release:
-    runs-on: ubuntu-latest
-    needs: check-submission
-    outputs:
-      errors: ${{ steps.store-errors.outputs.errors }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 2
       - name: Check for release/tag
-        if: needs.check-submission.outputs.submission == 'true'
-        id: check
-        env:
-          DIFF: ${{ needs.check-submission.outputs.diff }}
+        id: release
+        continue-on-error: true
         shell: bash
         run: bash .github/scripts/check-extensions/check-release.sh
-      - name: Store errors
-        if: always() && needs.check-submission.outputs.submission == 'true'
-        id: store-errors
-        env:
-          errors: ${{ steps.check.outputs.errors }}
-        shell: bash
-        run: |
-          if [[ -z "${errors}" ]]; then
-            errors="[]"
-          fi
-          echo "errors=${errors}" >> ${GITHUB_OUTPUT}
-      - name: End of check
-        if: needs.check-submission.outputs.submission == 'false'
-        shell: bash
-        run: |
-          echo "No changes to ${CSV_FILE} found"
-          exit 0
-
-  check-redirection:
-    runs-on: ubuntu-latest
-    needs: check-submission
-    outputs:
-      errors: ${{ steps.store-errors.outputs.errors }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 2
       - name: Check for redirection
-        if: needs.check-submission.outputs.submission == 'true'
-        id: check
-        env:
-          DIFF: ${{ needs.check-submission.outputs.diff }}
+        id: redirection
+        continue-on-error: true
         shell: bash
         run: bash .github/scripts/check-extensions/check-redirection.sh
-      - name: Store errors
-        if: always() && needs.check-submission.outputs.submission == 'true'
-        id: store-errors
-        env:
-          errors: ${{ steps.check.outputs.errors }}
-        shell: bash
-        run: |
-          if [[ -z "${errors}" ]]; then
-            errors="[]"
-          fi
-          echo "errors=${errors}" >> ${GITHUB_OUTPUT}
-      - name: End of check
-        if: needs.check-submission.outputs.submission == 'false'
-        shell: bash
-        run: |
-          echo "No changes to ${CSV_FILE} found"
-          exit 0
-
-  check-structure:
-    runs-on: ubuntu-latest
-    needs: check-submission
-    outputs:
-      errors: ${{ steps.store-errors.outputs.errors }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 2
       - name: Check for extension structure
-        if: needs.check-submission.outputs.submission == 'true'
-        id: check
-        env:
-          DIFF: ${{ needs.check-submission.outputs.diff }}
+        id: structure
+        continue-on-error: true
         shell: bash
         run: bash .github/scripts/check-extensions/check-structure.sh
-      - name: Store errors
-        if: always() && needs.check-submission.outputs.submission == 'true'
-        id: store-errors
-        env:
-          errors: ${{ steps.check.outputs.errors }}
-        shell: bash
-        run: |
-          if [[ -z "${errors}" ]]; then
-            errors="[]"
-          fi
-          echo "errors=${errors}" >> ${GITHUB_OUTPUT}
-      - name: End of check
-        if: needs.check-submission.outputs.submission == 'false'
-        shell: bash
-        run: |
-          echo "No changes to ${CSV_FILE} found"
-          exit 0
-
-  check-wizard:
-    runs-on: ubuntu-latest
-    needs: check-submission
-    outputs:
-      notes: ${{ steps.store-notes.outputs.notes }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 2
       - name: Check for Quarto Wizard support
-        if: needs.check-submission.outputs.submission == 'true'
-        id: check
-        env:
-          DIFF: ${{ needs.check-submission.outputs.diff }}
+        id: wizard
+        continue-on-error: true
         shell: bash
         run: bash .github/scripts/check-extensions/check-wizard.sh
-      - name: Store notes
-        if: always() && needs.check-submission.outputs.submission == 'true'
-        id: store-notes
-        env:
-          notes: ${{ steps.check.outputs.notes }}
-        shell: bash
-        run: |
-          if [[ -z "${notes}" ]]; then
-            notes="[]"
-          fi
-          echo "notes=${notes}" >> ${GITHUB_OUTPUT}
-      - name: End of check
-        if: needs.check-submission.outputs.submission == 'false'
-        shell: bash
-        run: |
-          echo "No changes to ${CSV_FILE} found"
-          exit 0
 
   check-render:
     runs-on: ubuntu-latest
@@ -344,13 +156,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - check-submission
-      - check-duplicate
-      - check-topics
-      - check-description
-      - check-release
-      - check-redirection
-      - check-structure
-      - check-wizard
+      - check-metadata
       - check-render
     if: always()
     steps:
@@ -363,19 +169,14 @@ jobs:
         env:
           NUMBER: ${{ github.event.pull_request.number }}
           PR_BRANCH: ${{ github.event.pull_request.head.ref }}
-          DUPLICATE_RESULT: ${{ needs.check-duplicate.result }}
-          TOPICS_RESULT: ${{ needs.check-topics.result }}
-          DESCRIPTION_RESULT: ${{ needs.check-description.result }}
-          RELEASE_RESULT: ${{ needs.check-release.result }}
-          REDIRECTION_RESULT: ${{ needs.check-redirection.result }}
-          STRUCTURE_RESULT: ${{ needs.check-structure.result }}
-          DUPLICATE_ERRORS: ${{ needs.check-duplicate.outputs.errors }}
-          TOPICS_ERRORS: ${{ needs.check-topics.outputs.errors }}
-          DESCRIPTION_ERRORS: ${{ needs.check-description.outputs.errors }}
-          RELEASE_ERRORS: ${{ needs.check-release.outputs.errors }}
-          REDIRECTION_ERRORS: ${{ needs.check-redirection.outputs.errors }}
-          STRUCTURE_ERRORS: ${{ needs.check-structure.outputs.errors }}
-          WIZARD_NOTES: ${{ needs.check-wizard.outputs.notes }}
+          METADATA_RESULT: ${{ needs.check-metadata.result }}
+          DUPLICATE_ERRORS: ${{ needs.check-metadata.outputs.duplicate-errors }}
+          TOPICS_ERRORS: ${{ needs.check-metadata.outputs.topics-errors }}
+          DESCRIPTION_ERRORS: ${{ needs.check-metadata.outputs.description-errors }}
+          RELEASE_ERRORS: ${{ needs.check-metadata.outputs.release-errors }}
+          REDIRECTION_ERRORS: ${{ needs.check-metadata.outputs.redirection-errors }}
+          STRUCTURE_ERRORS: ${{ needs.check-metadata.outputs.structure-errors }}
+          WIZARD_NOTES: ${{ needs.check-metadata.outputs.wizard-notes }}
           RENDER_RESULT: ${{ needs.check-render.result }}
           RENDER_ERRORS: ${{ needs.check-render.outputs.errors }}
           RENDER_NOTES: ${{ needs.check-render.outputs.notes }}
@@ -388,16 +189,25 @@ jobs:
 
           declare -A mention_owners
 
-          # The pre-flight render script emits blocking failures as errors and
-          # advisory ones as notes, and only exits non-zero when blocking.
+          # Metadata checks run with continue-on-error, so their job result is
+          # only 'failure' on infrastructure errors; check errors surface via
+          # the per-step errors arrays. The pre-flight render script emits
+          # blocking failures as errors and advisory ones as notes, and only
+          # exits non-zero when blocking.
           errors_found=false
-          if [[ "${DUPLICATE_RESULT}" == "failure" || \
-                "${TOPICS_RESULT}" == "failure" || \
-                "${DESCRIPTION_RESULT}" == "failure" || \
-                "${RELEASE_RESULT}" == "failure" || \
-                "${REDIRECTION_RESULT}" == "failure" || \
-                "${STRUCTURE_RESULT}" == "failure" || \
-                "${RENDER_RESULT}" == "failure" ]]; then
+          for errors_json in \
+          "${DUPLICATE_ERRORS}" \
+          "${TOPICS_ERRORS}" \
+          "${DESCRIPTION_ERRORS}" \
+          "${RELEASE_ERRORS}" \
+          "${REDIRECTION_ERRORS}" \
+          "${STRUCTURE_ERRORS}" \
+          "${RENDER_ERRORS}"; do
+            if [[ "${errors_json}" != "[]" && "${errors_json}" != "" ]]; then
+              errors_found=true
+            fi
+          done
+          if [[ "${METADATA_RESULT}" == "failure" || "${RENDER_RESULT}" == "failure" ]]; then
             errors_found=true
           fi
 
