@@ -31,15 +31,6 @@ permissions:
 jobs:
   get-extensions:
     runs-on: ubuntu-latest
-    outputs:
-      updated-count: ${{ steps.get-extensions-details.outputs.updated-count }}
-      skipped-count: ${{ steps.get-extensions-details.outputs.skipped-count }}
-      outdated-count: ${{ steps.get-extensions-details.outputs.outdated-count }}
-      renamed-count: ${{ steps.get-extensions-details.outputs.renamed-count }}
-      updated-extensions: ${{ steps.get-extensions-details.outputs.updated-extensions }}
-      skipped-extensions: ${{ steps.get-extensions-details.outputs.skipped-extensions }}
-      outdated-extensions: ${{ steps.get-extensions-details.outputs.outdated-extensions }}
-      renamed-extensions: ${{ steps.get-extensions-details.outputs.renamed-extensions }}
     env:
       BRANCH: quarto-wizard
       COMMIT: "ci: update extensions details"
@@ -85,22 +76,6 @@ jobs:
           git config --global user.name "${APP_SLUG}[bot]"
           git config --global user.email "${USER_ID}+${APP_SLUG}[bot]@users.noreply.github.com"
 
-      - name: Branch Setup
-        if: false
-        shell: bash
-        run: |
-          git fetch --all
-          if git show-ref --verify --quiet refs/heads/"${BRANCH}"; then
-            echo "Branch exists"
-          else
-            echo "Branch does not exist"
-            git checkout --orphan "${BRANCH}"
-            git rm -rf .
-            git commit --allow-empty -m "ci: setup ${BRANCH} branch"
-            git push --force origin "${BRANCH}"
-          fi
-          git checkout "${BRANCH}"
-
       - name: Checkout scripts from main branch
         uses: actions/checkout@v7
         with:
@@ -130,30 +105,18 @@ jobs:
           CSV_FILE: ${{ env.CSV_FILE }}
         run: .github/scripts/quarto-wizard/main.sh
 
-  summary:
-    runs-on: ubuntu-latest
-    needs:
-      - get-extensions
-    if: always()
-    env:
-      BRANCH: quarto-wizard
-      UPDATED_COUNT: ${{ needs.get-extensions.outputs.updated-count }}
-      SKIPPED_COUNT: ${{ needs.get-extensions.outputs.skipped-count }}
-      OUTDATED_COUNT: ${{ needs.get-extensions.outputs.outdated-count }}
-      RENAMED_COUNT: ${{ needs.get-extensions.outputs.renamed-count }}
-      UPDATED_EXTENSIONS: ${{ needs.get-extensions.outputs.updated-extensions }}
-      SKIPPED_EXTENSIONS: ${{ needs.get-extensions.outputs.skipped-extensions }}
-      OUTDATED_EXTENSIONS: ${{ needs.get-extensions.outputs.outdated-extensions }}
-      RENAMED_EXTENSIONS: ${{ needs.get-extensions.outputs.renamed-extensions }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
-        with:
-          ref: ${{ env.BRANCH }}
-
       - name: Generate workflow summary
+        if: always()
         env:
           DEBUG_MODE: ${{ github.event.inputs.debug }}
+          UPDATED_COUNT: ${{ steps.get-extensions-details.outputs.updated-count }}
+          SKIPPED_COUNT: ${{ steps.get-extensions-details.outputs.skipped-count }}
+          OUTDATED_COUNT: ${{ steps.get-extensions-details.outputs.outdated-count }}
+          RENAMED_COUNT: ${{ steps.get-extensions-details.outputs.renamed-count }}
+          UPDATED_EXTENSIONS: ${{ steps.get-extensions-details.outputs.updated-extensions }}
+          SKIPPED_EXTENSIONS: ${{ steps.get-extensions-details.outputs.skipped-extensions }}
+          OUTDATED_EXTENSIONS: ${{ steps.get-extensions-details.outputs.outdated-extensions }}
+          RENAMED_EXTENSIONS: ${{ steps.get-extensions-details.outputs.renamed-extensions }}
         shell: bash
         run: |
           UPDATED_COUNT=${UPDATED_COUNT:-0}
