@@ -2,6 +2,10 @@ name: Build Test Image
 
 on:
   workflow_dispatch:
+    inputs:
+      force:
+        description: "If 'true', rebuild even when the Dockerfile and base image are unchanged"
+        default: "false"
   workflow_call:
 
 permissions:
@@ -15,6 +19,9 @@ jobs:
       fail-fast: false
       matrix:
         channel: [release, prerelease]
+    env:
+      BASE_IMAGE: ghcr.io/mcanouil/quarto-codespaces:${{ matrix.channel }}
+      TARGET_IMAGE: ghcr.io/${{ github.repository }}:${{ matrix.channel }}
     steps:
       - name: Checkout Dockerfile
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v6
@@ -30,14 +37,52 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Determine whether a build is needed
+        id: plan
+        env:
+          FORCE: ${{ inputs.force || 'false' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          dockerfile_sha=$(sha256sum .github/docker/test-extensions/Dockerfile | cut -d' ' -f1)
+          base_digest=$(docker buildx imagetools inspect "${BASE_IMAGE}" --format '{{.Manifest.Digest}}')
+          {
+            echo "dockerfile-sha=${dockerfile_sha}"
+            echo "base-digest=${base_digest}"
+          } >>"${GITHUB_OUTPUT}"
+
+          if [[ "${FORCE}" == "true" ]]; then
+            echo "::notice::Force rebuild requested for '${TARGET_IMAGE}'."
+            echo "build=true" >>"${GITHUB_OUTPUT}"
+            exit 0
+          fi
+
+          labels=$(docker buildx imagetools inspect "${TARGET_IMAGE}" \
+            --format '{{json .Image.Config.Labels}}' 2>/dev/null || echo '{}')
+          stored_sha=$(jq -r '."io.quarto-extensions.dockerfile-sha256" // empty' <<<"${labels}")
+          stored_base=$(jq -r '."org.opencontainers.image.base.digest" // empty' <<<"${labels}")
+
+          if [[ "${stored_sha}" == "${dockerfile_sha}" && "${stored_base}" == "${base_digest}" ]]; then
+            echo "::notice::'${TARGET_IMAGE}' is up to date (Dockerfile and base image unchanged). Skipping build."
+            echo "build=false" >>"${GITHUB_OUTPUT}"
+          else
+            echo "::notice::'${TARGET_IMAGE}' needs a rebuild (Dockerfile or base image changed, or labels missing)."
+            echo "build=true" >>"${GITHUB_OUTPUT}"
+          fi
+
       - name: Pull base image
-        run: docker pull "ghcr.io/mcanouil/quarto-codespaces:${{ matrix.channel }}"
+        if: steps.plan.outputs.build == 'true'
+        run: docker pull "${BASE_IMAGE}"
 
       - name: Build and push
+        if: steps.plan.outputs.build == 'true'
         uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7.3.0
         with:
           context: .github/docker/test-extensions
           push: true
           build-args: |
-            BASE_IMAGE=ghcr.io/mcanouil/quarto-codespaces:${{ matrix.channel }}
-          tags: ghcr.io/${{ github.repository }}:${{ matrix.channel }}
+            BASE_IMAGE=${{ env.BASE_IMAGE }}
+          labels: |
+            org.opencontainers.image.base.digest=${{ steps.plan.outputs.base-digest }}
+            io.quarto-extensions.dockerfile-sha256=${{ steps.plan.outputs.dockerfile-sha }}
+          tags: ${{ env.TARGET_IMAGE }}
