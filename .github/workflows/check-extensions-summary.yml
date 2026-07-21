@@ -60,6 +60,25 @@ jobs:
             --edit-last \
             --repo ${GITHUB_REPOSITORY}
           cat ${DOWNLOAD_PATH}/summary.md  >> "${GITHUB_STEP_SUMMARY}"
+      - name: Normalise title and label
+        if: steps.download-artifact.outputs.download-path != ''
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          DOWNLOAD_PATH: ${{ steps.download-artifact.outputs.download-path }}
+        shell: bash
+        run: |
+          PR_NUMBER=$(cat "${DOWNLOAD_PATH}/pr_number")
+          TITLE=$(gh pr view "${PR_NUMBER}" --repo "${GITHUB_REPOSITORY}" --json title --jq .title)
+          LOWER=$(echo "${TITLE}" | tr '[:upper:]' '[:lower:]')
+          if echo "${LOWER}" | grep -qE '^[a-z]+(\([^)]*\))?!?:[[:space:]]'; then
+            NEW_TITLE="${LOWER}"
+          else
+            NEW_TITLE="chore: ${LOWER}"
+          fi
+          if [[ "${TITLE}" != "${NEW_TITLE}" ]]; then
+            gh pr edit "${PR_NUMBER}" --repo "${GITHUB_REPOSITORY}" --title "${NEW_TITLE}"
+          fi
+          gh pr edit "${PR_NUMBER}" --repo "${GITHUB_REPOSITORY}" --add-label "Type: Valorisation :tada:"
       - name: Workflow completion
         env:
           DOWNLOAD_PATH: ${{ steps.download-artifact.outputs.download-path }}
