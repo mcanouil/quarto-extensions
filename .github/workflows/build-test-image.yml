@@ -26,7 +26,9 @@ jobs:
       - name: Checkout Dockerfile
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v6
         with:
-          sparse-checkout: .github/docker/test-extensions
+          sparse-checkout: |
+            .github/docker/test-extensions
+            .github/scripts/build-test-image
           sparse-checkout-cone-mode: false
           persist-credentials: false
 
@@ -42,37 +44,7 @@ jobs:
         env:
           FORCE: ${{ inputs.force || 'false' }}
         shell: bash
-        run: |
-          set -euo pipefail
-          dockerfile_sha=$(sha256sum .github/docker/test-extensions/Dockerfile | cut -d' ' -f1)
-          base_digest=$(docker buildx imagetools inspect "${BASE_IMAGE}" --format '{{.Manifest.Digest}}')
-          {
-            echo "dockerfile-sha=${dockerfile_sha}"
-            echo "base-digest=${base_digest}"
-          } >>"${GITHUB_OUTPUT}"
-
-          if [[ "${FORCE}" == "true" ]]; then
-            echo "::notice::Force rebuild requested for '${TARGET_IMAGE}'."
-            echo "build=true" >>"${GITHUB_OUTPUT}"
-            exit 0
-          fi
-
-          labels=$(docker buildx imagetools inspect "${TARGET_IMAGE}" \
-            --format '{{json .Image.Config.Labels}}' 2>/dev/null || echo '{}')
-          stored_sha=$(jq -r '."io.quarto-extensions.dockerfile-sha256" // empty' <<<"${labels}")
-          stored_base=$(jq -r '."org.opencontainers.image.base.digest" // empty' <<<"${labels}")
-
-          if [[ "${stored_sha}" == "${dockerfile_sha}" && "${stored_base}" == "${base_digest}" ]]; then
-            echo "::notice::'${TARGET_IMAGE}' is up to date (Dockerfile and base image unchanged). Skipping build."
-            echo "build=false" >>"${GITHUB_OUTPUT}"
-          else
-            echo "::notice::'${TARGET_IMAGE}' needs a rebuild (Dockerfile or base image changed, or labels missing)."
-            echo "build=true" >>"${GITHUB_OUTPUT}"
-          fi
-
-      - name: Pull base image
-        if: steps.plan.outputs.build == 'true'
-        run: docker pull "${BASE_IMAGE}"
+        run: bash .github/scripts/build-test-image/plan.sh
 
       - name: Build and push
         if: steps.plan.outputs.build == 'true'

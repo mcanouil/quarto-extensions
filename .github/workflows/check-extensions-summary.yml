@@ -65,10 +65,11 @@ jobs:
           else
             NEW_TITLE="chore: ${LOWER}"
           fi
+          args=(--add-label "Type: Valorisation :tada:")
           if [[ "${TITLE}" != "${NEW_TITLE}" ]]; then
-            gh pr edit "${PR_NUMBER}" --repo "${GITHUB_REPOSITORY}" --title "${NEW_TITLE}"
+            args+=(--title "${NEW_TITLE}")
           fi
-          gh pr edit "${PR_NUMBER}" --repo "${GITHUB_REPOSITORY}" --add-label "Type: Valorisation :tada:"
+          gh pr edit "${PR_NUMBER}" --repo "${GITHUB_REPOSITORY}" "${args[@]}"
       - name: Workflow completion
         env:
           DOWNLOAD_PATH: ${{ steps.download-artifact.outputs.download-path }}

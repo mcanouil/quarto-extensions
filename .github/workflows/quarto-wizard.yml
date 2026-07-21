@@ -108,7 +108,6 @@ jobs:
       - name: Generate workflow summary
         if: always()
         env:
-          DEBUG_MODE: ${{ github.event.inputs.debug }}
           UPDATED_COUNT: ${{ steps.get-extensions-details.outputs.updated-count }}
           SKIPPED_COUNT: ${{ steps.get-extensions-details.outputs.skipped-count }}
           OUTDATED_COUNT: ${{ steps.get-extensions-details.outputs.outdated-count }}
