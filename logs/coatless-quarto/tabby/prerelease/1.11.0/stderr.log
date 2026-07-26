@@ -1,0 +1,106 @@
+Cloning into 'repo'...
+Using CPython 3.14.6 interpreter at: /usr/local/python/current/bin/python
+Creating virtual environment at: .venv
+Activate with: source .venv/bin/activate
+Resolved 13 packages in 132ms
+Downloading pandas (10.5MiB)
+ Downloaded pandas
+Prepared 2 packages in 367ms
+Installed 13 packages in 402ms
+ + contourpy==1.3.3
+ + cycler==0.12.1
+ + fonttools==4.63.0
+ + kiwisolver==1.5.0
+ + matplotlib==3.11.1
+ + numpy==2.5.1
+ + packaging==26.2
+ + pandas==3.0.5
+ + pillow==12.3.0
+ + pyparsing==3.3.2
+ + python-dateutil==2.9.0.post0
+ + seaborn==0.13.2
+ + six==1.17.0
+[1/4] qtabby-faq.qmd
+
+
+processing file: qtabby-faq.qmd
+1/5                  
+2/5 [unnamed-chunk-1]
+Downloading cpython-3.12.13-linux-x86_64-gnu (download) (32.6MiB)
+ Downloaded cpython-3.12.13-linux-x86_64-gnu (download)
+Installed 1 package in 152ms
+Error in py_call_impl(callable, call_args$unnamed, call_args$named) : 
+  ImportError: 
+
+<...truncated...>s failed. This error can happen for
+many reasons, often due to issues with your setup or how NumPy was
+installed.
+The following compiled module files exist, but seem incompatible
+with with either python 'cpython-312' or the platform 'linux':
+
+  * _multiarray_umath.cpython-314-x86_64-linux-gnu.so
+
+We have compiled some common reasons and troubleshooting tips at:
+
+    https://numpy.org/devdocs/user/troubleshooting-importerror.html
+
+Please note and check the following:
+
+  * The Python version is: Python 3.12 from "/cache/uv/archive-v0/b7UkMTUYl18SI6L9/bin/python"
+  * The NumPy version is: "2.5.1"
+
+and make sure that they are the versions you expect.
+
+Please carefully study the information and documentation linked above.
+This is unlikely to be a NumPy issue but will be caused by a bad install
+or environment on your machine.
+
+Original error was: No module named 'numpy._core._multiarray_umath'
+
+Run `reticulate::py_last_error()` for details.
+Calls: .main ... tryCatchList -> force -> <Anonymous> -> py_call_impl
+
+Quitting from qtabby-faq.qmd:78-82 [unnamed-chunk-1]
+Execution halted
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+[1/4] qtabby-faq.qmd
+
+
+processing file: qtabby-faq.qmd
+1/5                  
+2/5 [unnamed-chunk-1]
+Error in py_call_impl(callable, call_args$unnamed, call_args$named) : 
+  ImportError: 
+
+<...truncated...>s failed. This error can happen for
+many reasons, often due to issues with your setup or how NumPy was
+installed.
+The following compiled module files exist, but seem incompatible
+with with either python 'cpython-312' or the platform 'linux':
+
+  * _multiarray_umath.cpython-314-x86_64-linux-gnu.so
+
+We have compiled some common reasons and troubleshooting tips at:
+
+    https://numpy.org/devdocs/user/troubleshooting-importerror.html
+
+Please note and check the following:
+
+  * The Python version is: Python 3.12 from "/cache/uv/archive-v0/b7UkMTUYl18SI6L9/bin/python"
+  * The NumPy version is: "2.5.1"
+
+and make sure that they are the versions you expect.
+
+Please carefully study the information and documentation linked above.
+This is unlikely to be a NumPy issue but will be caused by a bad install
+or environment on your machine.
+
+Original error was: No module named 'numpy._core._multiarray_umath'
+
+Run `reticulate::py_last_error()` for details.
+Calls: .main ... tryCatchList -> force -> <Anonymous> -> py_call_impl
+
+Quitting from qtabby-faq.qmd:78-82 [unnamed-chunk-1]
+Execution halted
+WARN: Error encountered when rendering files

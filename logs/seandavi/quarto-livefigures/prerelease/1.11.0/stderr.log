@@ -1,0 +1,809 @@
+Cloning into 'repo'...
+pandoc 
+  to: revealjs
+  output-file: slides.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  title: Slides with live figures
+  
+Output created: slides.html
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  toc: true
+  number-sections: true
+  title-prefix: Book with live figures
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  crossref:
+    chapters: true
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  lightbox: true
+  title: Book with live figures
+  
+WARN: index.html: Unable to resolve crossref @fig-flow
+Output created: _book/index.html
+
+pandoc 
+  to: html
+  output-file: design.html
+  standalone: true
+  toc: true
+  number-sections: true
+  title-prefix: Book with live figures
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  number-offset:
+    - 2
+  
+metadata
+  crossref:
+    chapters: true
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  lightbox: true
+  hide-description: true
+  title: "[2]{.chapter-number}\_ [Design]{.chapter-title}"
+  
+Output created: _book/design.html
+
+pandoc 
+  to: html
+  output-file: excalidraw.html
+  standalone: true
+  title-prefix: livefigures gallery
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  lightbox: true
+  title: Excalidraw
+  
+Output created: _site/excalidraw.html
+
+pandoc 
+  to: html
+  output-file: plantuml.html
+  standalone: true
+  title-prefix: livefigures gallery
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  lightbox: true
+  title: PlantUML
+  
+Output created: _site/plantuml.html
+
+pandoc 
+  to: html
+  output-file: nomnoml.html
+  standalone: true
+  title-prefix: livefigures gallery
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  lightbox: true
+  title: nomnoml
+  
+Output created: _site/nomnoml.html
+
+pandoc 
+  to: html
+  output-file: bytefield.html
+  standalone: true
+  title-prefix: livefigures gallery
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  lightbox: true
+  title: bytefield
+  
+Output created: _site/bytefield.html
+
+pandoc 
+  to: html
+  output-file: wavedrom.html
+  standalone: true
+  title-prefix: livefigures gallery
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  lightbox: true
+  title: WaveDrom
+  
+Output created: _site/wavedrom.html
+
+pandoc 
+  to: html
+  output-file: vega.html
+  standalone: true
+  title-prefix: livefigures gallery
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  lightbox: true
+  title: Vega-Lite & Vega
+  
+Output created: _site/vega.html
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: livefigures gallery
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  lightbox: true
+  title: livefigures gallery
+  
+Output created: _site/index.html
+
+pandoc 
+  to: html
+  output-file: kroki.html
+  standalone: true
+  title-prefix: livefigures gallery
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  lightbox: true
+  title: More kroki formats
+  
+Output created: _site/kroki.html
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  lightbox: true
+  title: Article with live figures
+  
+Output created: index.html
+
+pandoc 
+  to: html
+  output-file: page.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: subdir
+  
+Output created: page.html
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Livefigures fixture article
+  
+Output created: index.html
+
+pandoc 
+  to: html
+  output-file: references.html
+  standalone: true
+  title-prefix: livefigures
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  bibliography:
+    - references.bib
+  theme:
+    - cosmo
+    - custom.scss
+  lightbox: true
+  code-copy: true
+  title: References
+  nocite: |
+    @*
+  
+Output created: _site/references.html
+
+pandoc 
+  to: html
+  output-file: install.html
+  standalone: true
+  title-prefix: livefigures
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  bibliography:
+    - references.bib
+  theme:
+    - cosmo
+    - custom.scss
+  lightbox: true
+  code-copy: true
+  title: Get started
+  
+Output created: _site/install.html
+
+pandoc 
+  to: html
+  output-file: limitations.html
+  standalone: true
+  title-prefix: livefigures
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  bibliography:
+    - references.bib
+  theme:
+    - cosmo
+    - custom.scss
+  lightbox: true
+  code-copy: true
+  title: Limitations & roadmap
+  
+Output created: _site/limitations.html
+
+pandoc 
+  to: html
+  output-file: options.html
+  standalone: true
+  title-prefix: livefigures
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  bibliography:
+    - references.bib
+  theme:
+    - cosmo
+    - custom.scss
+  lightbox: true
+  code-copy: true
+  title: Options
+  
+Output created: _site/options.html
+
+pandoc 
+  to: html
+  output-file: mcp.html
+  standalone: true
+  title-prefix: livefigures
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  bibliography:
+    - references.bib
+  theme:
+    - cosmo
+    - custom.scss
+  lightbox: true
+  code-copy: true
+  title: MCP server
+  
+Output created: _site/mcp.html
+
+pandoc 
+  to: html
+  output-file: agents.html
+  standalone: true
+  title-prefix: livefigures
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  bibliography:
+    - references.bib
+  theme:
+    - cosmo
+    - custom.scss
+  lightbox: true
+  code-copy: true
+  title: Agents & figures
+  
+Output created: _site/agents.html
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: livefigures
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: false
+  
+metadata
+  pagetitle: livefigures
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  bibliography:
+    - references.bib
+  theme:
+    - cosmo
+    - custom.scss
+  lightbox: true
+  code-copy: true
+  title: ''
+  
+Output created: _site/index.html
+
+pandoc 
+  to: html
+  output-file: excalidraw.html
+  standalone: true
+  title-prefix: livefigures
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  bibliography:
+    - ../references.bib
+  theme:
+    - cosmo
+    - ../custom.scss
+  lightbox: true
+  code-copy: true
+  title: Excalidraw
+  
+Output created: ../_site/gallery/excalidraw.html
+
+pandoc 
+  to: html
+  output-file: plantuml.html
+  standalone: true
+  title-prefix: livefigures
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  bibliography:
+    - ../references.bib
+  theme:
+    - cosmo
+    - ../custom.scss
+  lightbox: true
+  code-copy: true
+  title: PlantUML
+  
+Output created: ../_site/gallery/plantuml.html
+
+pandoc 
+  to: html
+  output-file: nomnoml.html
+  standalone: true
+  title-prefix: livefigures
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  bibliography:
+    - ../references.bib
+  theme:
+    - cosmo
+    - ../custom.scss
+  lightbox: true
+  code-copy: true
+  title: nomnoml
+  
+Output created: ../_site/gallery/nomnoml.html
+
+pandoc 
+  to: html
+  output-file: bytefield.html
+  standalone: true
+  title-prefix: livefigures
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  bibliography:
+    - ../references.bib
+  theme:
+    - cosmo
+    - ../custom.scss
+  lightbox: true
+  code-copy: true
+  title: bytefield
+  
+Output created: ../_site/gallery/bytefield.html
+
+pandoc 
+  to: html
+  output-file: wavedrom.html
+  standalone: true
+  title-prefix: livefigures
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  bibliography:
+    - ../references.bib
+  theme:
+    - cosmo
+    - ../custom.scss
+  lightbox: true
+  code-copy: true
+  title: WaveDrom
+  
+Output created: ../_site/gallery/wavedrom.html
+
+pandoc 
+  to: html
+  output-file: vega.html
+  standalone: true
+  title-prefix: livefigures
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  bibliography:
+    - ../references.bib
+  theme:
+    - cosmo
+    - ../custom.scss
+  lightbox: true
+  code-copy: true
+  title: Vega-Lite & Vega
+  
+Output created: ../_site/gallery/vega.html
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: livefigures
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: false
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  bibliography:
+    - ../references.bib
+  theme:
+    - cosmo
+    - ../custom.scss
+  lightbox: true
+  code-copy: true
+  title: Gallery
+  
+Output created: ../_site/gallery/index.html
+
+pandoc 
+  to: html
+  output-file: kroki.html
+  standalone: true
+  title-prefix: livefigures
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  bibliography:
+    - ../references.bib
+  theme:
+    - cosmo
+    - ../custom.scss
+  lightbox: true
+  code-copy: true
+  title: More kroki formats
+  
+Output created: ../_site/gallery/kroki.html
+
+pandoc 
+  to: html
+  output-file: graphviz.html
+  standalone: true
+  title-prefix: livefigures
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  bibliography:
+    - ../references.bib
+  theme:
+    - cosmo
+    - ../custom.scss
+  lightbox: true
+  code-copy: true
+  title: Graphviz & DBML
+  
+Output created: ../_site/gallery/graphviz.html
+
+pandoc 
+  to: html
+  output-file: formats.html
+  standalone: true
+  title-prefix: livefigures
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  bibliography:
+    - references.bib
+  theme:
+    - cosmo
+    - custom.scss
+  lightbox: true
+  code-copy: true
+  title: Formats
+  
+Output created: _site/formats.html
+
+pandoc 
+  to: html
+  output-file: cli.html
+  standalone: true
+  title-prefix: livefigures
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  bibliography:
+    - references.bib
+  theme:
+    - cosmo
+    - custom.scss
+  lightbox: true
+  code-copy: true
+  title: CLI
+  
+Output created: _site/cli.html
+
+pandoc 
+  to: html
+  output-file: template.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: livefigures template
+  
+Output created: template.html
+

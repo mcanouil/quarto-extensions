@@ -1,0 +1,32 @@
+
+
+pandoc 
+
+  to: html
+  output-file: features.html
+  standalone: true
+  title-prefix: Editable Extension
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  title: Features
+  
+
+(E) Arrow shortcode requires 'from' and 'to' coordinates
+
+
+
+Output created: _site/features.html
+
+

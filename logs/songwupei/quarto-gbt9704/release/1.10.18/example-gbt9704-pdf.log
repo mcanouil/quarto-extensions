@@ -1,0 +1,143 @@
+pandoc 
+
+  to: latex
+  output-file: example.tex
+  standalone: true
+  pdf-engine: xelatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+
+metadata
+
+  block-headings: true
+  documentclass: gbt9704
+  title: 关于印发《公文格式示例》的通知
+  header-org: XX单位办公室
+  header-number: XX发〔202X〕X号
+  header-signatory: 张三
+  subtitle: ——关于做好公文格式标准化工作的通知
+  mainreceiver: 各有关单位：
+  signature: XX单位办公室
+  signdate: 202X年X月X日
+  notes: 此件公开发布
+  copyto: XX部门、XX委员会
+  issue-author: XX单位办公室
+  issue-date: 202X年X月X日
+  attachments:
+    - 1. 关于印发《公文处理办法》的通知
+    - 2. 公文格式标准对照表
+  emoji: true
+  classoption:
+    - zhlineskip
+    - redline
+  
+
+
+Rendering PDF
+
+running xelatex - 1
+
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+  kpathsea: Running mktextfm FangSong/OT
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Could not map source abbreviation  for OT.
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Need to update ?
+  mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input OT
+  This is METAFONT, Version 2.71828182 (TeX Live 2026) (preloaded base=mf)
+  
+  kpathsea: Running mktexmf OT
+  
+  ! I can't find file `OT'.
+  <*> \mode:=ljfour; mag:=1; ; nonstopmode; input OT
+                                                    
+  Please type another input file name
+  ! Emergency stop.
+  <*> \mode:=ljfour; mag:=1; ; nonstopmode; input OT
+                                                    
+  Transcript written on mfput.log.
+  grep: OT.log: No such file or directory
+  mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input OT' failed to make OT.tfm.
+  kpathsea: Appending font creation commands to missfont.log.
+  
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for FangSong(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+
+finding package for FangSong/OT
+
+finding package for mktextfm
+
+> 1 package to install
+
+> installing texlive-scripts (1 of 1)
+
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+  kpathsea: Running mktextfm FangSong/OT
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Could not map source abbreviation  for OT.
+  /opt/tinytex/texmf-dist/web2c/mktexnam: Need to update ?
+  mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input OT
+  This is METAFONT, Version 2.71828182 (TeX Live 2026) (preloaded base=mf)
+  
+  kpathsea: Running mktexmf OT
+  
+  ! I can't find file `OT'.
+  <*> \mode:=ljfour; mag:=1; ; nonstopmode; input OT
+                                                    
+  Please type another input file name
+  ! Emergency stop.
+  <*> \mode:=ljfour; mag:=1; ; nonstopmode; input OT
+                                                    
+  Transcript written on mfput.log.
+  grep: OT.log: No such file or directory
+  mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input OT' failed to make OT.tfm.
+  kpathsea: Appending font creation commands to missfont.log.
+  
+
+finding package for FangSong(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+
+finding package for FangSong/OT
+
+finding package for mktextfm
+
+(ERROR) 
+compilation failed- package installation error
+
+Package fontspec Error: 
+(fontspec)                The font "FangSong" cannot be found; this may be
+(fontspec)                but usually is not a fontspec bug. Either there is
+(fontspec)                a typo in the font name/file, the font is not
+(fontspec)                installed (correctly), or there is a bug in the
+(fontspec)                underlying font loading engine (XeTeX/luaotfload).
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.52 ]
+      
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+ 
+
+
+see /home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/example.log for more information.
+
+(WARN) Error encountered when rendering files
+

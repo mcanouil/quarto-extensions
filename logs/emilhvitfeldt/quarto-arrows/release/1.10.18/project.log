@@ -1,0 +1,36 @@
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+running lualatex - 2
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+
+
+[typst]: Compiling typst.typ to typst.pdf...
+error: expected path or string, found array
+    ┌─ @preview/cetz:0.3.2/src/canvas.typ:129:10
+    │
+129 │    
+       ..vertices,
+    │           ^^^^^^^^^^
+
+
+(ERROR) error: expected path or string, found array
+    ┌─ @preview/cetz:0.3.2/src/canvas.typ:129:10
+    │
+129 │           ..vertices,
+    │           ^^^^^^^^^^
+
+
+
+(ERROR) Typst compilation failed
+

@@ -1,0 +1,111 @@
+Cloning into 'repo'...
+Using CPython 3.14.6 interpreter at: /usr/local/python/current/bin/python
+Creating virtual environment at: .venv
+Activate with: source .venv/bin/activate
+Resolved 13 packages in 187ms
+Downloading kiwisolver (1.4MiB)
+Downloading matplotlib (10.6MiB)
+Downloading pillow (6.6MiB)
+Downloading numpy (15.9MiB)
+Downloading fonttools (4.7MiB)
+Downloading pandas (10.5MiB)
+ Downloaded kiwisolver
+ Downloaded pillow
+ Downloaded fonttools
+ Downloaded matplotlib
+ Downloaded numpy
+ Downloaded pandas
+Prepared 13 packages in 819ms
+Installed 13 packages in 510ms
+ + contourpy==1.3.3
+ + cycler==0.12.1
+ + fonttools==4.63.0
+ + kiwisolver==1.5.0
+ + matplotlib==3.11.1
+ + numpy==2.5.1
+ + packaging==26.2
+ + pandas==3.0.5
+ + pillow==12.3.0
+ + pyparsing==3.3.2
+ + python-dateutil==2.9.0.post0
+ + six==1.17.0
+ + tabulate==0.10.0
+[ 1/17] index.qmd
+[ 2/17] content_fr/liminaire/remerciements.qmd
+[ 3/17] content_fr/liminaire/resume.qmd
+[ 4/17] content_fr/liminaire/abstract.qmd
+[ 5/17] content_fr/liminaire/tables.qmd
+[ 6/17] content_fr/liminaire/glossaire-entries.qmd
+[ 7/17] content_fr/liminaire/acronymes.qmd
+[ 8/17] content_fr/liminaire/glossaire.qmd
+[ 9/17] content_fr/liminaire/listoftodos.qmd
+[10/17] content_fr/chapitres/00-introduction.qmd
+[11/17] content_fr/chapitres/01-chapitre1.qmd
+[12/17] content_fr/chapitres/02-chapitre2.qmd
+[13/17] content_fr/postliminaire/conclusion.qmd
+[14/17] content_fr/postliminaire/bibliographie.qmd
+[15/17] content_fr/postliminaire/aide-memoire.qmd
+Error running filter '/opt/quarto/share/filters/main.lua':
+...tensions/test-3/repo/_extensions/quartable/quartable.lua:336: bad argument #2 to 'setmetatable' (nil or table expected, got boolean)
+stack traceback:
+	...tensions/test-3/repo/_extensions/quartable/quartable.lua:336: in upvalue 'clone_body'
+	...tensions/test-3/repo/_extensions/quartable/quartable.lua:351: in upvalue 'split_body'
+	...tensions/test-3/repo/_extensions/quartable/quartable.lua:1052: in function <...tensions/test-3/repo/_extensions/quartable/quartable.lua:1004>
+	[C]: in ?
+	[C]: in method 'walk'
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:575: in local 'checked_walk'
+	/opt/quarto/share/filters/main.lua:630: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1318: in local 'callback'
+	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
+	/opt/quarto/share/filters/main.lua:1334: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
+stack traceback:
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:575: in local 'checked_walk'
+	/opt/quarto/share/filters/main.lua:630: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1318: in local 'callback'
+	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
+	/opt/quarto/share/filters/main.lua:1334: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+[ 1/17] index.qmd
+[ 2/17] content_fr/liminaire/remerciements.qmd
+[ 3/17] content_fr/liminaire/resume.qmd
+[ 4/17] content_fr/liminaire/abstract.qmd
+[ 5/17] content_fr/liminaire/tables.qmd
+[ 6/17] content_fr/liminaire/glossaire-entries.qmd
+[ 7/17] content_fr/liminaire/acronymes.qmd
+[ 8/17] content_fr/liminaire/glossaire.qmd
+[ 9/17] content_fr/liminaire/listoftodos.qmd
+[10/17] content_fr/chapitres/00-introduction.qmd
+[11/17] content_fr/chapitres/01-chapitre1.qmd
+[12/17] content_fr/chapitres/02-chapitre2.qmd
+[13/17] content_fr/postliminaire/conclusion.qmd
+[14/17] content_fr/postliminaire/bibliographie.qmd
+[15/17] content_fr/postliminaire/aide-memoire.qmd
+Error running filter '/opt/quarto/share/filters/main.lua':
+...tensions/test-3/repo/_extensions/quartable/quartable.lua:336: bad argument #2 to 'setmetatable' (nil or table expected, got boolean)
+stack traceback:
+	...tensions/test-3/repo/_extensions/quartable/quartable.lua:336: in upvalue 'clone_body'
+	...tensions/test-3/repo/_extensions/quartable/quartable.lua:351: in upvalue 'split_body'
+	...tensions/test-3/repo/_extensions/quartable/quartable.lua:1052: in function <...tensions/test-3/repo/_extensions/quartable/quartable.lua:1004>
+	[C]: in ?
+	[C]: in method 'walk'
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:575: in local 'checked_walk'
+	/opt/quarto/share/filters/main.lua:630: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1318: in local 'callback'
+	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
+	/opt/quarto/share/filters/main.lua:1334: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
+stack traceback:
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:575: in local 'checked_walk'
+	/opt/quarto/share/filters/main.lua:630: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1318: in local 'callback'
+	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
+	/opt/quarto/share/filters/main.lua:1334: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
+WARN: Error encountered when rendering files

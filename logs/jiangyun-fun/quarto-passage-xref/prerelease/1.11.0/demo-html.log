@@ -1,0 +1,27 @@
+pandoc 
+
+  to: html
+  output-file: demo.html
+  standalone: true
+  embed-resources: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Passage Cross-References Demo
+  author: Yun Jiang
+  date: today
+  theme: cosmo
+  
+
+Output created: demo.html
+
+

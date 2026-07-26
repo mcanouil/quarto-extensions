@@ -1,0 +1,53 @@
+
+Starting python3 kernel...
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+
+Done
+
+
+Executing 'py_output.quarto_ipynb'
+
+
+
+pandoc 
+
+  to: html
+  output-file: py_output.html
+  standalone: true
+  title-prefix: Quarto Live Documentation
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  ojs-engine: true
+  theme:
+    light: cosmo
+    dark: darkly
+  title: Python HTML Output
+  subtitle: Rich IPython output, HTML content, and Jupyter Widgets
+  resources:
+    - images
+  pyodide:
+    cell-options:
+      autorun: true
+    packages:
+      - matplotlib
+      - ipywidgets
+      - altair
+      - numpy
+      - pandas
+      - vega_datasets
+  
+
+Output created: ../_site/other/py_output.html
+
+

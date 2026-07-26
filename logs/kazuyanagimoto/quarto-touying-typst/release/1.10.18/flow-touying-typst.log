@@ -1,0 +1,81 @@
+pandoc 
+
+  to: typst
+  output-file: flow.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+
+metadata
+
+  theme: default
+  aspect-ratio: 16-9
+  title: flow
+  subtitle: A Touying theme from Typst Universe
+  author:
+    - name: Your Name
+      affiliations: Your Institution
+  date: today
+  date-format: long
+  brand:
+    typography:
+      monospace: JetBrains Mono
+      fonts:
+        - family: JetBrains Mono
+          source: google
+  theme-typst: flow-theme
+  
+
+[typst]: Compiling flow.typ to flow.pdf...
+error: unknown variable: kai
+     ┌─ @preview/mitex:0.2.5/specs/latex/standard.typ:1045:30
+     │
+1045 │   KaTe
+X: of-sym(math.upright($kai A T E X$)),
+     │                               ^^^
+     │
+     = hint: if you meant to display multiple letters as is, try adding spaces between each letter: `k a i`
+     = hint: or if you meant to display this as text, try placing it in quotes: `"kai"`
+
+  while importing `latex/standard.typ` at @preview/mitex:0.2.5/specs/mod.typ:3:1
+    import "latex/standard.typ": package as latex-std
+  while importing `specs/mod.typ` at @preview/mitex:0.2.5/mitex.typ:1:1
+    import "specs/mod.typ": mitex-scope
+  while importing `mitex.typ` at @preview/mitex:0.2.5/lib.typ:1:1
+    import "mitex.typ": mitex-wasm, mitex-convert, mitex-scope, mitex, mitext, mimath, mi
+  while importing `@preview/mitex:0.2.5` at @preview/touying-flow:1.2.0/lib.typ:2:1
+    import "@preview/mitex:0.2.5" : *
+  while importing `lib.typ` at @preview/touying-flow:1.2.0/theme.typ:1:1
+    import "lib.typ": *
+  while importing `@preview/touying-flow:1.2.0` at docs/gallery/flow.typ:387:1
+    import "@preview/touying-flow:1.2.0": *
+
+
+(ERROR) error: unknown variable: kai
+     ┌─ @preview/mitex:0.2.5/specs/latex/standard.typ:1045:30
+     │
+1045 │   KaTeX: of-sym(math.upright($kai A T E X$)),
+     │                               ^^^
+     │
+     = hint: if you meant to display multiple letters as is, try adding spaces between each letter: `k a i`
+     = hint: or if you meant to display this as text, try placing it in quotes: `"kai"`
+
+  while importing `latex/standard.typ` at @preview/mitex:0.2.5/specs/mod.typ:3:1
+    import "latex/standard.typ": package as latex-std
+  while importing `specs/mod.typ` at @preview/mitex:0.2.5/mitex.typ:1:1
+    import "specs/mod.typ": mitex-scope
+  while importing `mitex.typ` at @preview/mitex:0.2.5/lib.typ:1:1
+    import "mitex.typ": mitex-wasm, mitex-convert, mitex-scope, mitex, mitext, mimath, mi
+  while importing `@preview/mitex:0.2.5` at @preview/touying-flow:1.2.0/lib.typ:2:1
+    import "@preview/mitex:0.2.5" : *
+  while importing `lib.typ` at @preview/touying-flow:1.2.0/theme.typ:1:1
+    import "lib.typ": *
+  while importing `@preview/touying-flow:1.2.0` at docs/gallery/flow.typ:387:1
+    import "@preview/touying-flow:1.2.0": *
+
+
+
+(ERROR) Typst compilation failed
+

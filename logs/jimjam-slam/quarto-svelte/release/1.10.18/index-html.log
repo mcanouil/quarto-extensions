@@ -1,0 +1,37 @@
+
+
+pandoc 
+
+  to: html
+  output-file: index.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title-block-banner: '#222222'
+  theme:
+    - default
+    - style.scss
+  linkcolor: '#ff3e00'
+  callout-appearance: simple
+  title: quarto-svelte
+  description: '**quarto-svelte** (formerly Sverto) is an extension for [Quarto](https://quarto.org) that lets you seamlessly write and include [Svelte](https://svelte.dev) components, like charts and other visuals, in your Quarto website.'
+  quarto-svelte:
+    use:
+      - Circles.svelte
+  toc-location: left
+  
+
+Output created: _site/index.html
+
+

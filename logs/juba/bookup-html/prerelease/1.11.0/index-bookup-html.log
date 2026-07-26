@@ -1,0 +1,40 @@
+pandoc 
+
+  to: html
+  output-file: index.html
+  standalone: true
+  toc: true
+  number-sections: true
+  title-prefix: Sample bookup-html book project
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  crossref:
+    chapters: true
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  embed-fonts: true
+  theme:
+    light:
+      - _extensions/bookup/bookup.scss
+    dark:
+      - _extensions/bookup/bookup.scss
+      - _extensions/bookup/bookup_dark.scss
+  bibliography:
+    - references.bib
+  title: Sample bookup-html book project
+  author: Jane Doe
+  date: '2026-07-26T00:00:00+00:00'
+  doi: 10.XXX/XXX
+  
+
+Output created: _book/index.html
+
+

@@ -1,0 +1,32 @@
+
+
+pandoc 
+
+  to: html
+  output-file: news.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title-block-banner: '#222222'
+  theme:
+    - default
+    - style.scss
+  linkcolor: '#ff3e00'
+  callout-appearance: simple
+  title: News
+  date: last-modified
+  
+
+Output created: _site/news.html
+
+

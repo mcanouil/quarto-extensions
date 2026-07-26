@@ -1,0 +1,168 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: On the Optimal Immersion Time of a Biscuit in Hot Tea
+  subtitle: A working draft in revision before submission — annotations shown live
+  author: B. Crumble, E. Dunkin, P. G. Tips, G. Marchetti, and M. Halvorsen
+  date: '2026-06-06'
+  extensions:
+    quarto-proofread-comments:
+      enabled: true
+      show_list: true
+      list_title: Annotations
+      reviewers:
+        sup:
+          name: Prof. Halvorsen
+          color_html: '#0072B2'
+          color_latex: blue!20
+        r2:
+          name: John Chief
+          color_html: '#D55E00'
+          color_latex: orange!35
+        co:
+          name: Dr. Marchetti
+        ed:
+          name: Copy-editor
+          color_html: '#CC79A7'
+          color_latex: magenta!25
+  
+Output created: example.html
+
+pandoc 
+  to: latex
+  output-file: example.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  title: On the Optimal Immersion Time of a Biscuit in Hot Tea
+  subtitle: A working draft in revision before submission — annotations shown live
+  author: B. Crumble, E. Dunkin, P. G. Tips, G. Marchetti, and M. Halvorsen
+  date: '2026-06-06'
+  extensions:
+    quarto-proofread-comments:
+      enabled: true
+      show_list: true
+      list_title: Annotations
+      reviewers:
+        sup:
+          name: Prof. Halvorsen
+          color_html: '#0072B2'
+          color_latex: blue!20
+        r2:
+          name: John Chief
+          color_html: '#D55E00'
+          color_latex: orange!35
+        co:
+          name: Dr. Marchetti
+        ed:
+          name: Copy-editor
+          color_html: '#CC79A7'
+          color_latex: magenta!25
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+finding package for scrartcl.cls
+> 1 package to install
+> installing koma-script (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+finding package for todonotes.sty
+> 1 package to install
+> installing todonotes (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for luatexbase.sty
+> 1 package to install
+> installing luatexbase (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for mparhack.sty
+> 1 package to install
+> installing mparhack (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for eso-pic.sty
+> 1 package to install
+> installing eso-pic (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for soulpos.sty
+> 1 package to install
+> installing soulpos (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for tikzlibrarytopaths.code.tex
+finding package for tikzlibrarypositioning.code.tex
+finding package for tikzlibraryfill.image.code.tex
+finding package for tikzlibrarycalc.code.tex
+finding package for tikzlibrarytikzmark.code.tex
+> 3 packages to install
+> installing pgf (1 of 3)
+> installing tikzfill (2 of 3)
+> installing tikzmark (3 of 3)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 3
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 4
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 5
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 6
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: example.pdf
+

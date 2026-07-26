@@ -1,0 +1,32 @@
+pandoc 
+
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: livefigures
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: false
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  bibliography:
+    - ../references.bib
+  theme:
+    - cosmo
+    - ../custom.scss
+  lightbox: true
+  code-copy: true
+  title: Gallery
+  
+
+Output created: ../_site/gallery/index.html
+
+

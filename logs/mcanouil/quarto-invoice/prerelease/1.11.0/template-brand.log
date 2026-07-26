@@ -1,0 +1,74 @@
+
+
+pandoc 
+
+  to: typst
+  output-file: template-brand.typ
+  template: _extensions/invoice/template.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+
+metadata
+
+  title: Consulting 2026 (brand example)
+  description: 2026/01/01 -- 2026/12/31
+  sender:
+    name: Acme Consulting Limited
+    email: hello@acme.example
+    address:
+      street: 1 Pall Mall
+      zip: SW1Y 5LU
+      city: London
+      country: United Kingdom
+    registration: 12345678
+    vat: GB123456789
+  invoice:
+    number: ACME-2026-001
+    issued: '2026-05-01'
+    due: '2026-05-31'
+    reference: ACME-2026-001
+    currency: GBP
+    fee: 8
+    penalty: 40
+    items:
+      - description: Strategy workshop
+        details: Two-day on-site facilitation.
+        quantity: 2
+        unit-price: 1500
+        vat: 20
+      - description: Follow-up report
+        quantity: 1
+        unit-price: 850
+        vat: 20
+  bank:
+    bic: ACMEGB22
+    iban: GB29 NWBK 6016 1331 9268 19
+  recipient:
+    name: Example Corp.
+    address:
+      street: 500 Broadway
+      zip: '10012'
+      city: New York
+      state: NY
+      country: United States
+  lang: en
+  region: UK
+  papersize: a4
+  margin:
+    x: 2.5cm
+    'y': 2.5cm
+  
+
+[typst]: Compiling template-brand.typ to template-brand.pdf...
+DONE
+
+
+
+
+Output created: index-brand.pdf
+
+

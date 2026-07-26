@@ -1,0 +1,74 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: custom-fonts.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  tegaki-fonts:
+    - permanent-marker.zip
+  
+Output created: custom-fonts.html
+
+pandoc 
+  to: html
+  output-file: index-html.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  
+Output created: index-html.html
+
+pandoc 
+  to: revealjs
+  output-file: index.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1280
+  height: 720
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  pagetitle: Title of Talk
+  theme:
+    - default
+    - styles.scss
+  
+Output created: index.html
+

@@ -1,0 +1,48 @@
+pandoc 
+
+  to: html
+  output-file: example-stard.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: false
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: STARD 2015 flow diagram example
+  study-flow:
+    type: stard
+    assessed: 612
+    excluded: 137
+    exclusion_reasons:
+      - 'Did not meet inclusion criteria: 92'
+      - 'Declined consent: 34'
+      - 'Withdrew before testing: 11'
+    enrolled: 475
+    index_test: 461
+    not_index: 14
+    not_index_reasons:
+      - 'Equipment malfunction: 8'
+      - 'Sample not collected: 6'
+    reference_standard: 442
+    not_reference: 19
+    not_reference_reasons:
+      - 'Refused reference test: 12'
+      - 'Reference test contraindicated: 7'
+    outcomes:
+      true_positive: 148
+      false_positive: 41
+      false_negative: 27
+      true_negative: 226
+  
+
+Output created: example-stard.html
+
+

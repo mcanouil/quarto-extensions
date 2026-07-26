@@ -1,0 +1,26 @@
+Error running filter '/opt/quarto/share/filters/main.lua':
+...tensions/test-3/repo/_extensions/quartable/quartable.lua:336: bad argument #2 to 'setmetatable' (nil or table expected, got boolean)
+stack traceback:
+	...tensions/test-3/repo/_extensions/quartable/quartable.lua:336: in upvalue 'clone_body'
+	...tensions/test-3/repo/_extensions/quartable/quartable.lua:351: in upvalue 'split_body'
+	...tensions/test-3/repo/_extensions/quartable/quartable.lua:1052: in function <...tensions/test-3/repo/_extensions/quartable/quartable.lua:1004>
+	[C]: in ?
+	[C]: in method 'walk'
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:575: in local 'checked_walk'
+	/opt/quarto/share/filters/main.lua:630: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1318: in local 'callback'
+	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
+	/opt/quarto/share/filters/main.lua:1334: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
+stack traceback:
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:575: in local 'checked_walk'
+	/opt/quarto/share/filters/main.lua:630: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1318: in local 'callback'
+	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
+	/opt/quarto/share/filters/main.lua:1334: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
+
+(WARN) Error encountered when rendering files
+
