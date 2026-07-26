@@ -3,6 +3,22 @@
 /*-- scss:rules --*/
 
 // ===========================================================================
+// SCHEME-AWARE PALETTE
+// ===========================================================================
+// Quarto compiles a separate bundle per colour scheme and brand injects a
+// different $body-bg into each, so the bundle can be identified at build time.
+// Anything that must differ between light and dark is picked here rather than
+// with a runtime selector, because Quarto swaps whole stylesheets and never
+// sets data-bs-theme.
+$is-dark: lightness($body-bg) < 50%;
+
+// Two accents for the Template and Example markers. They must stay clear of
+// the brand blue and of each other, and reach at least 4.5:1 on the page
+// background in both schemes, so each has a light-mode and a dark-mode value.
+$accent-template: if($is-dark, #6cc4a1, #1f6b4d);
+$accent-example: if($is-dark, #e0a458, #8f5511);
+
+// ===========================================================================
 // NAVBAR TOKENS
 // ===========================================================================
 // Atelier pins the navbar and footer dark in both schemes and exposes these
@@ -44,6 +60,167 @@
 }
 
 // ===========================================================================
+// NEUTRAL BUTTON
+// ===========================================================================
+// Bootstrap's `btn-outline-light` paints near-white text on a near-white page,
+// so every control using it (view toggle, clear, load more, sort direction, the
+// editor links) was invisible in light mode and only appeared once active. This
+// is the same affordance keyed to the page instead of a fixed grey: body-colour
+// text with a hairline edge, filling with the brand accent on hover and when a
+// toggle is checked.
+.btn-outline-body {
+  --bs-btn-color: #{$body-color};
+  // 50% is the lightest mix that still clears 3:1 against the page in both
+  // schemes, which WCAG 1.4.11 requires of a control's boundary.
+  --bs-btn-border-color: #{body-mix(50%)};
+  --bs-btn-bg: transparent;
+  --bs-btn-hover-color: #{color-contrast($primary)};
+  --bs-btn-hover-bg: #{$primary};
+  --bs-btn-hover-border-color: #{$primary};
+  --bs-btn-focus-shadow-rgb: #{to-rgb($primary)};
+  --bs-btn-active-color: #{color-contrast($primary)};
+  --bs-btn-active-bg: #{$primary};
+  --bs-btn-active-border-color: #{$primary};
+  --bs-btn-disabled-color: #{body-mix(50%)};
+  --bs-btn-disabled-border-color: #{body-mix(75%)};
+  --bs-gradient: none;
+}
+
+// ===========================================================================
+// FORM CONTROLS
+// ===========================================================================
+// `.input-group-text` and the select/input surfaces compile from Bootstrap's
+// fixed grey scale, which does not follow the active bundle; the search field's
+// addon and the "Sort" label stayed light-on-light in dark mode. Derive all
+// three from the page so they track the scheme.
+.form-control,
+.form-select,
+.input-group-text {
+  background-color: body-mix(96%);
+  border-color: body-mix(50%);
+  color: $body-color;
+}
+
+.input-group-text {
+  background-color: body-mix(88%);
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: body-mix(98%);
+  border-color: $primary;
+  color: $body-color;
+  box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
+}
+
+.form-control::placeholder {
+  color: body-mix(45%);
+}
+
+// The native clear affordance on type="search" is a dark glyph that disappears
+// on a dark field, so recolour it with the body colour.
+.form-control[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 0.8em;
+  width: 0.8em;
+  cursor: pointer;
+  background-color: currentcolor;
+  mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/></svg>');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+}
+
+// ===========================================================================
+// MODAL
+// ===========================================================================
+// Bootstrap's close button is a baked black SVG, unreadable on the dark modal
+// surface. 5.3 exposes a filter hook for exactly this.
+@if $is-dark {
+  .modal .btn-close {
+    --bs-btn-close-filter: invert(1) grayscale(100%) brightness(200%);
+  }
+}
+
+.modal-content {
+  border: 1px solid body-mix(80%);
+}
+
+.modal-header {
+  border-bottom-color: body-mix(85%);
+}
+
+// ===========================================================================
+// TEMPLATE AND EXAMPLE MARKERS
+// ===========================================================================
+// Bootstrap's `bg-success` and `bg-info` are off-palette and the latter puts
+// light text on a pale cyan. These are soft badges instead: a tint of the
+// accent behind the accent itself, which keeps text contrast on the badge and
+// lets the two stay distinguishable in both schemes.
+.badge-template,
+.badge-example {
+  background-color: transparent;
+  border: 1px solid currentcolor;
+  font-weight: 600;
+}
+
+.badge-template {
+  color: $accent-template;
+  background-color: rgba($accent-template, 0.14);
+}
+
+.badge-example {
+  color: $accent-example;
+  background-color: rgba($accent-example, 0.14);
+}
+
+// The Use button carries the same accent as the badge that explains it, so a
+// template card and an example card read as a pair rather than as two
+// unrelated Bootstrap colours.
+.btn-use-template,
+.btn-use-example {
+  --bs-btn-bg: transparent;
+  --bs-btn-focus-shadow-rgb: #{to-rgb($primary)};
+  --bs-gradient: none;
+}
+
+.btn-use-template {
+  --bs-btn-color: #{$accent-template};
+  --bs-btn-border-color: #{$accent-template};
+  --bs-btn-hover-color: #{color-contrast($accent-template)};
+  --bs-btn-hover-bg: #{$accent-template};
+  --bs-btn-hover-border-color: #{$accent-template};
+  --bs-btn-active-color: #{color-contrast($accent-template)};
+  --bs-btn-active-bg: #{$accent-template};
+  --bs-btn-active-border-color: #{$accent-template};
+}
+
+.btn-use-example {
+  --bs-btn-color: #{$accent-example};
+  --bs-btn-border-color: #{$accent-example};
+  --bs-btn-hover-color: #{color-contrast($accent-example)};
+  --bs-btn-hover-bg: #{$accent-example};
+  --bs-btn-hover-border-color: #{$accent-example};
+  --bs-btn-active-color: #{color-contrast($accent-example)};
+  --bs-btn-active-bg: #{$accent-example};
+  --bs-btn-active-border-color: #{$accent-example};
+}
+
+// Category chips are buttons, so they inherit none of Bootstrap's badge
+// colours; give them the same page-derived surface as the other neutrals.
+.category-badge {
+  background-color: body-mix(88%);
+  color: $body-color;
+  border: 1px solid body-mix(78%);
+
+  &:hover,
+  &:focus-visible {
+    background-color: rgba($primary, 0.16);
+    border-color: $primary;
+    color: $primary;
+  }
+}
+
+// ===========================================================================
 // EXTENSION CARDS
 // ===========================================================================
 // body-mix() comes from Atelier's theme layer and resolves per colour scheme,
@@ -55,15 +232,21 @@
   border-color: body-mix(85%);
 }
 
+// Social cards are shown whole. A fixed wrapper ratio with object-fit: cover
+// cropped the left and right off every card, because the flex column stretched
+// the wrapper away from the ratio it was given and cover then ate the overflow.
+// Letting the image set its own height keeps each card intact, and since they
+// all come from GitHub at the same 2400x1260 the rows still line up.
 .extension-card .card-img-wrapper {
   overflow: hidden;
-  aspect-ratio: 40 / 21;
+  flex: 0 0 auto;
+  background-color: body-mix(92%);
 }
 
 .extension-card .card-img-top {
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
 }
 
 .extension-card .btn:hover,
@@ -99,6 +282,7 @@
   .card-img-wrapper {
     flex: 0 0 12rem;
     max-width: 12rem;
+    align-self: flex-start;
   }
 
   .card-body {

@@ -265,14 +265,14 @@
             <div class="d-flex justify-content-between align-items-center mb-1 gap-2">
               <div class="test-status-badges-row d-flex flex-wrap gap-1">${testBadges(item)}</div>
               <div class="text-nowrap">
-                ${item.template ? '<span class="badge bg-success ms-1">Template</span>' : ''}
-                ${item.example ? '<span class="badge bg-info ms-1">Example</span>' : ''}
+                ${item.template ? '<span class="badge badge-template ms-1">Template</span>' : ''}
+                ${item.example ? '<span class="badge badge-example ms-1">Example</span>' : ''}
               </div>
             </div>
             <h3 class="card-title h6 d-flex align-items-center justify-content-between no-anchor extension-title">
               <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.title)}</a>
               <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer"
-                class="btn btn-outline-light btn-sm ms-auto" aria-label="View ${escapeHtml(item.title)} on GitHub">
+                class="btn btn-outline-body btn-sm ms-auto" aria-label="View ${escapeHtml(item.title)} on GitHub">
                 <i class="bi bi-github" aria-hidden="true"></i>
               </a>
             </h3>
@@ -296,7 +296,7 @@
               <button type="button" class="btn btn-primary btn-sm flex-fill" data-modal="install" data-key="${escapeHtml(item.key)}">
                 <i class="bi bi-download" aria-hidden="true"></i> Install
               </button>
-              ${(item.template || item.example) ? `<button type="button" class="btn btn-outline-${item.template ? 'success' : 'info'} btn-sm flex-fill"
+              ${(item.template || item.example) ? `<button type="button" class="btn btn-use-${item.template ? 'template' : 'example'} btn-sm flex-fill"
                 data-modal="use" data-key="${escapeHtml(item.key)}">
                 <i class="bi bi-${item.template ? 'file-plus' : 'eye'}" aria-hidden="true"></i> Use
               </button>` : ''}
@@ -319,10 +319,18 @@
       els.loadMore.classList.toggle('d-none', shown >= visible.length);
       els.loadMore.textContent = `Load more (${visible.length - shown} remaining)`;
 
+      // Report what is on screen, not what matched: saying "all 359" while a
+      // single page of 24 was rendered read as a rendering failure.
       const total = extensions.length;
-      els.counter.innerHTML = visible.length === total
-        ? `<em>Showing all ${total} extensions</em>`
-        : `<em>Showing ${shown} of ${visible.length} matching extensions, out of ${total}</em>`;
+      if (visible.length === 0) {
+        // The empty-state panel already explains this; a count here would only
+        // repeat it as "Showing all 0".
+        els.counter.innerHTML = '';
+        return;
+      }
+      const head = shown < visible.length ? `Showing ${shown} of ${visible.length}` : `Showing all ${visible.length}`;
+      const tail = visible.length === total ? ' extensions' : ` matching extensions, out of ${total}`;
+      els.counter.innerHTML = `<em>${head}${tail}</em>`;
     };
 
     const refresh = ({ resetPage = true, push = false } = {}) => {
@@ -338,7 +346,7 @@
 
     const codeBlock = (code) => `<div class="d-flex align-items-center gap-2">
       <pre class="flex-grow-1 mb-0"><code>${escapeHtml(code)}</code></pre>
-      <button type="button" class="btn btn-outline-light btn-sm copy-button" data-copy="${escapeHtml(code)}"
+      <button type="button" class="btn btn-outline-body btn-sm copy-button" data-copy="${escapeHtml(code)}"
         aria-label="Copy to clipboard"><i class="bi bi-clipboard" aria-hidden="true"></i></button>
     </div>`;
 
@@ -349,7 +357,7 @@
         ['VSCodium', 'vscodium']
       ];
       return `<div class="btn-group w-100" role="group" aria-label="Quarto Wizard installer options">
-        ${editors.map(([label, scheme]) => `<a class="btn btn-outline-light"
+        ${editors.map(([label, scheme]) => `<a class="btn btn-outline-body"
           href="${scheme}://mcanouil.quarto-wizard/install?repo=${encodeURIComponent(usage)}"
           title="Install ${escapeHtml(usage)} in ${label} using the Quarto Wizard extension.">${label}</a>`).join('')}
       </div>`;

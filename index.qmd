@@ -25,11 +25,11 @@ grid:
       <div class="g-col-12 g-col-md-4 text-md-end">
         <div class="btn-group" role="group" aria-label="View toggle">
           <input type="radio" class="btn-check" name="view-toggle" id="grid-view" checked>
-          <label class="btn btn-outline-light" for="grid-view">
+          <label class="btn btn-outline-body" for="grid-view">
             <i class="bi bi-grid-3x3-gap" aria-hidden="true"></i> Grid
           </label>
           <input type="radio" class="btn-check" name="view-toggle" id="list-view">
-          <label class="btn btn-outline-light" for="list-view">
+          <label class="btn btn-outline-body" for="list-view">
             <i class="bi bi-list-ul" aria-hidden="true"></i> List
           </label>
         </div>
@@ -78,7 +78,7 @@ grid:
             <span class="d-none d-sm-inline">Metadata</span>
           </button>
         </div>
-        <button type="button" class="btn btn-sm btn-outline-light" id="clear-filters">
+        <button type="button" class="btn btn-sm btn-outline-body" id="clear-filters">
           <i class="bi bi-x-circle" aria-hidden="true"></i> Clear
         </button>
       </div>
@@ -99,7 +99,7 @@ grid:
             <option value="stars">Stars</option>
             <option value="title">Name</option>
           </select>
-          <button type="button" class="btn btn-outline-light" id="sort-direction" data-direction="desc"
+          <button type="button" class="btn btn-outline-body" id="sort-direction" data-direction="desc"
             aria-label="Sort descending">
             <i class="bi bi-sort-down" aria-hidden="true"></i>
           </button>
@@ -125,13 +125,13 @@ grid:
     <i class="bi bi-search" aria-hidden="true"></i>
     <p class="mt-3 mb-1"><strong>No extensions match the current filters.</strong></p>
     <p class="text-muted">Try a different search term, or clear the filters to start again.</p>
-    <button type="button" class="btn btn-outline-light btn-sm" id="empty-clear-filters">
+    <button type="button" class="btn btn-outline-body btn-sm" id="empty-clear-filters">
       <i class="bi bi-x-circle" aria-hidden="true"></i> Clear filters
     </button>
   </div>
 
   <div class="text-center my-4">
-    <button type="button" class="btn btn-outline-light d-none" id="load-more">Load more</button>
+    <button type="button" class="btn btn-outline-body d-none" id="load-more">Load more</button>
   </div>
 
   <div class="modal fade" id="extension-modal" tabindex="-1" aria-labelledby="extension-modal-label" aria-hidden="true">
