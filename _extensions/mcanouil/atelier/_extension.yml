@@ -1,8 +1,8 @@
 title: Atelier
 author: Mickaël Canouil
-version: 0.3.0
+version: 0.6.0
 quarto-required: '>=1.9.36'
-source: mcanouil/quarto-atelier@0.3.0
+source: mcanouil/quarto-atelier@0.6.0
 source-type: github
 contributes:
   formats:
@@ -14,6 +14,7 @@ contributes:
       code-link: false
     html:
       respect-user-color-scheme: true
+      canonical-url: true
       theme:
         light:
           - brand
@@ -32,6 +33,8 @@ contributes:
         sidebar-width: 300px
         body-width: 1000px
         margin-width: 300px
+      filters:
+        - social-metadata.lua
       include-before-body:
         - file: html/scripts/skip-link.html
       include-after-body:
@@ -50,7 +53,10 @@ contributes:
         - issue
       repo-link-target: _blank
       repo-link-rel: noopener noreferrer
-      open-graph: true
+      open-graph:
+        locale: en_GB
+      twitter-card:
+        card-style: summary_large_image
       page-navigation: true
       back-to-top-navigation: true
       llms-txt: true
