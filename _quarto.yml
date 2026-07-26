@@ -1,11 +1,16 @@
 project:
   type: atelier
   pre-render:
-    - git fetch --depth=1 origin quarto-wizard:quarto-wizard
+    # Only the branch tips are ever read, and they carry thousands of
+    # image-heavy commits, so CI fetches shallow. A developer's full clone must
+    # not be truncated, hence the guard. `--force` keeps the fetch idempotent:
+    # without it it is rejected as non-fast-forward once the branch exists
+    # locally, which is every run after the first.
+    - bash assets/scripts/fetch-data-branch.sh quarto-wizard
     - git restore --source=quarto-wizard --worktree "extensions"
     - git restore --source=quarto-wizard quarto-extensions.json
     - mv quarto-extensions.json extensions.json
-    - bash -c "git fetch --depth=1 origin quarto-tests:quarto-tests || true"
+    - bash -c "bash assets/scripts/fetch-data-branch.sh quarto-tests || true"
     - bash -c "git restore --source=quarto-tests test-results.json || echo '{}' > test-results.json"
     - bash assets/scripts/build-index.sh
   resources:
