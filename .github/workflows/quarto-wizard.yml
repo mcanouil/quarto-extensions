@@ -99,14 +99,14 @@ jobs:
           rm -rf scripts-checkout
 
       # Social cards are downscaled to WebP before they are stored; the runner
-      # image does not ship ImageMagick, so install it rather than assume it.
-      - name: Install ImageMagick
+      # image does not ship cwebp, so install it rather than assume it.
+      - name: Install WebP tools
         shell: bash
         run: |
           set -euo pipefail
           sudo apt-get update --quiet
-          sudo apt-get install --quiet --yes imagemagick webp
-          magick --version | head -n 1
+          sudo apt-get install --quiet --yes webp
+          cwebp -version
 
       - name: Get extensions details
         id: get-extensions-details

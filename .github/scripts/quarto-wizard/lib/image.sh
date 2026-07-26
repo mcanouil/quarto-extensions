@@ -51,7 +51,17 @@ downscale_to_webp() {
   local source="$1"
   local destination="$2"
 
-  if magick "${source}" -resize "${IMAGE_WIDTH}x>" -quality "${IMAGE_QUALITY}" "${destination}" 2>/dev/null; then
+  # cwebp resizes unconditionally, so a source narrower than the target must be
+  # converted as is rather than upscaled.
+  local width
+  width=$(file -b "${source}" | grep -oE '[0-9]+ x [0-9]+' | head -n 1 | cut -d ' ' -f 1)
+
+  local resize=()
+  if [[ -z "${width}" || "${width}" -gt "${IMAGE_WIDTH}" ]]; then
+    resize=(-resize "${IMAGE_WIDTH}" 0)
+  fi
+
+  if cwebp -quiet "${resize[@]}" -q "${IMAGE_QUALITY}" "${source}" -o "${destination}" 2>/dev/null; then
     return 0
   fi
 
