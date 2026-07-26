@@ -64,24 +64,44 @@ jobs:
             exit 0
           fi
 
+          # One branch and one pull request per run, rather than per extension:
+          # a week's crawl regularly finds several at once, and reviewing them
+          # together is both cheaper in Actions minutes and easier to merge.
+          branch="ci/get-quarto-web-extensions"
+          git checkout -B "${branch}" main --quiet
+
+          count=0
+          body=$'Extensions discovered on the Quarto website:\n\n'
           while IFS= read -r extension; do
             [[ -z "${extension}" ]] && continue
-            slug=$(echo "${extension}" | tr '/' '-')
-            branch="ci/get-quarto-web-extension-${slug}"
-
-            git checkout -B "${branch}" main --quiet
             echo "${extension}" >> "${CSV_FILE}"
-            git add "${CSV_FILE}"
-            git commit -m "ci: add ${extension} from quarto-web"
-            git push --force origin "${branch}"
-
-            if [[ -z "$(gh pr list --head "${branch}" --state open --json number --jq '.[].number')" ]]; then
-              gh pr create \
-                --title "ci: add ${extension} from quarto-web" \
-                --body "Add \`${extension}\` discovered on the Quarto website." \
-                --base "main" \
-                --head "${branch}" \
-                --label "Type: CI/CD :robot:" \
-                --reviewer "${GITHUB_REPOSITORY_OWNER}"
-            fi
+            body+="- \`${extension}\`"$'\n'
+            count=$((count + 1))
           done <<< "${extensions_to_add}"
+
+          if [[ "${count}" -eq 0 ]]; then
+            echo "No new extensions to add."
+            exit 0
+          fi
+
+          if [[ "${count}" -eq 1 ]]; then
+            title="ci: add ${extensions_to_add} from quarto-web"
+          else
+            title="ci: add ${count} extensions from quarto-web"
+          fi
+
+          git add "${CSV_FILE}"
+          git commit -m "${title}"
+          git push --force origin "${branch}"
+
+          if [[ -z "$(gh pr list --head "${branch}" --state open --json number --jq '.[].number')" ]]; then
+            gh pr create \
+              --title "${title}" \
+              --body "${body}" \
+              --base "main" \
+              --head "${branch}" \
+              --label "Type: CI/CD :robot:" \
+              --reviewer "${GITHUB_REPOSITORY_OWNER}"
+          else
+            gh pr edit "${branch}" --title "${title}" --body "${body}"
+          fi

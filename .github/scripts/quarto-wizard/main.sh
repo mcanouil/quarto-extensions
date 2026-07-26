@@ -5,6 +5,9 @@ set -e
 
 # Determine script directory for sourcing modules
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Modules locate their siblings (the prefetch helper, the shared jq filter)
+# through this rather than re-deriving it each time.
+LIB_DIR="${SCRIPT_DIR}/lib"
 
 # Source all library modules
 # shellcheck source=lib/constants.sh
@@ -13,8 +16,6 @@ source "${SCRIPT_DIR}/lib/constants.sh"
 source "${SCRIPT_DIR}/lib/utils.sh"
 # shellcheck source=lib/image.sh
 source "${SCRIPT_DIR}/lib/image.sh"
-# shellcheck source=lib/yaml.sh
-source "${SCRIPT_DIR}/lib/yaml.sh"
 # shellcheck source=lib/git.sh
 source "${SCRIPT_DIR}/lib/git.sh"
 # shellcheck source=lib/extension.sh
@@ -55,6 +56,9 @@ git_stage_and_commit "${JSON_FILE}"
 
 # Clean up outdated directories
 github_cleanup_extensions_dir "${EXTENSIONS_DIR}" "${valid_dirs[@]}"
+
+# Publish every commit made above in a single push
+git_push_branch
 
 # Push renamed entries to main branch CSV
 if [[ ${#renamed_extensions[@]} -gt 0 ]]; then

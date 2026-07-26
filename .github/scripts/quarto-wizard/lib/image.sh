@@ -36,10 +36,33 @@ author_image_file() {
   echo "${base_file}.${extension}"
 }
 
+# Downscale an image in place to the width the cards actually render.
+#
+# GitHub serves OpenGraph cards at 2400x1260 and around 700 KB, which the
+# catalogue displays as a thumbnail a few hundred pixels wide. Converting to
+# WebP at 640 px cuts roughly 700 KB to 40 KB per extension.
+#
+# Arguments:
+#   $1 - Source image path
+#   $2 - Destination WebP path
+# Returns:
+#   0 when the destination was written, 1 when it was not
+downscale_to_webp() {
+  local source="$1"
+  local destination="$2"
+
+  if magick "${source}" -resize "${IMAGE_WIDTH}x>" -quality "${IMAGE_QUALITY}" "${destination}" 2>/dev/null; then
+    return 0
+  fi
+
+  echo "::warning title=Image Conversion Failed::Could not convert ${source} to WebP"
+  return 1
+}
+
 # Download extension image with retry logic and placeholder detection
 # Arguments:
 #   $1 - Image URL to download
-#   $2 - Output file path
+#   $2 - Output file path (WebP)
 # Returns:
 #   Final image path via stdout (either downloaded image or placeholder)
 extension_image_file() {
@@ -50,17 +73,19 @@ extension_image_file() {
   local http_code=""
   local mime_type=""
   local downloaded=false
-  local placeholder_file="${PLACEHOLDER_IMAGE:-assets/media/github-placeholder.png}"
+  # GitHub serves PNG, so the placeholder is compared against the raw download
+  # before conversion, never against the stored WebP.
+  local placeholder_source="${PLACEHOLDER_IMAGE:-assets/media/github-placeholder.png}"
+  local legacy_file="${output_file%.webp}.png"
   local temp_file="${output_file}.tmp"
   local header_file="${output_file}.hdr"
 
-  # Step 1: Delete existing extension.png if it is the same as placeholder
-  if [[ -f "${output_file}" ]]; then
-    if cmp -s "${output_file}" "${placeholder_file}"; then
-      echo "Existing image is identical to placeholder, removing"
-      git rm --cached "${output_file}" 2>/dev/null || true
-      rm -f "${output_file}"
-    fi
+  # Step 1: Drop the pre-WebP card, whether it is a real image now superseded by
+  # the conversion below or a copy of the placeholder that should be retried.
+  if [[ -f "${legacy_file}" ]]; then
+    echo "Removing superseded PNG card ${legacy_file}"
+    git rm --cached --quiet "${legacy_file}" 2>/dev/null || true
+    rm -f "${legacy_file}"
   fi
 
   # Step 2: Download with redirect following, HTTP-status checking, and backoff.
@@ -98,13 +123,15 @@ extension_image_file() {
   done
 
   # Step 3: Only keep a confirmed download, and never downgrade a real image to
-  # the placeholder on transient failure.
+  # the placeholder on transient failure. The stored card is WebP, so a failed
+  # conversion leaves any existing card untouched rather than replacing it with
+  # a 700 KB PNG.
   if [[ "${downloaded}" == true ]]; then
-    if cmp -s "${temp_file}" "${placeholder_file}"; then
+    if cmp -s "${temp_file}" "${placeholder_source}"; then
       echo "Downloaded image is identical to placeholder, removing"
       rm -f "${temp_file}"
     else
-      mv "${temp_file}" "${output_file}"
+      downscale_to_webp "${temp_file}" "${output_file}" || true
     fi
   fi
 
@@ -113,7 +140,7 @@ extension_image_file() {
   if [[ -f "${output_file}" ]]; then
     echo "${output_file}"
   else
-    echo "::warning title=Image Unavailable::Using placeholder for ${image_url}"
-    echo "${placeholder_file}"
+    echo "::warning title=Image Unavailable::No card stored for ${image_url}"
+    echo ""
   fi
 }

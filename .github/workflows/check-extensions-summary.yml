@@ -14,8 +14,11 @@ permissions:
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+# Keyed on the triggering run so that summaries for two pull requests in flight
+# at once do not cancel one another; a superseded run for the same pull request
+# still cancels, because each new Check Extensions run gets a fresh id.
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event_name }}
+  group: ${{ github.workflow }}-${{ github.event.workflow_run.id || github.run_id }}
   cancel-in-progress: true
 
 jobs:

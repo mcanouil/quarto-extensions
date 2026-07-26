@@ -2,22 +2,54 @@
 # shellcheck shell=bash
 # Extension processing functions for quarto-wizard
 
-# Extract contributes and quarto-required from _extension.yml files
+# Fetch the full recursive tree for a ref, once per extension.
+#
+# Everything the run needs from the repository contents (template.qmd,
+# example.qmd, and the extension manifests) is derived from this one response.
+# Fetching it per question cost three identical round trips per extension.
+#
 # Arguments:
 #   $1 - repo: Repository in owner/repo format
 #   $2 - repo_branch: Branch or tag to query
-#   $3 - repo_subdirectory: Optional subdirectory path (with trailing /)
+# Returns:
+#   Compact JSON array of {path, url} entries via stdout
+fetch_repo_tree() {
+  local repo="$1"
+  local repo_branch="$2"
+
+  gh api -X GET "repos/${repo}/git/trees/${repo_branch}?recursive=1" \
+    --jq '[.tree[] | {path: .path, url: .url}]' 2>/dev/null || echo '[]'
+}
+
+# Report whether a path exists at the extension's root.
+# Arguments:
+#   $1 - tree: JSON array from fetch_repo_tree
+#   $2 - path: Path relative to the repository root
+tree_has_path() {
+  local tree="$1"
+  local path="$2"
+
+  [[ $(echo "${tree}" | jq --arg p "${path}" 'map(select(.path == $p)) | length') -gt 0 ]]
+}
+
+# Extract contributes and quarto-required from _extension.yml files
+# Arguments:
+#   $1 - tree: JSON array from fetch_repo_tree
+#   $2 - repo: Repository in owner/repo format, for diagnostics
+#   $3 - repo_branch: Branch or tag queried, for diagnostics
+#   $4 - repo_subdirectory: Optional subdirectory path (with trailing /)
 # Returns:
 #   JSON object with contributes array and quartoRequired string via stdout
 extract_extension_manifest() {
-  local repo="$1"
-  local repo_branch="$2"
-  local repo_subdirectory="${3:-}"
+  local tree="$1"
+  local repo="$2"
+  local repo_branch="$3"
+  local repo_subdirectory="${4:-}"
 
   local extension_files
-  extension_files=$(gh api \
-    -X GET "repos/${repo}/git/trees/${repo_branch}?recursive=1" \
-    --jq ".tree[] | select(.path | test(\"${repo_subdirectory}_extensions/.*/_extension\\\\.ya?ml$\")) | .url")
+  extension_files=$(echo "${tree}" |
+    jq -r --arg pattern "${repo_subdirectory}_extensions/.*/_extension\\.ya?ml$" \
+      '.[] | select(.path | test($pattern)) | .url')
 
   if [[ -z "${extension_files}" ]]; then
     echo '{"contributes": null, "quartoRequired": null}'
@@ -43,6 +75,55 @@ extract_extension_manifest() {
   }'
 }
 
+# Fetch every repository's metadata up front, in parallel.
+#
+# The main loop is serial because it mutates git state, but the `gh repo view`
+# call that opens each iteration is read-only and independent, and dominates a
+# nightly run where most extensions turn out to be unchanged. Fetching them
+# concurrently turns roughly 354 sequential round trips into a handful of
+# batches. Concurrency is kept modest to stay clear of GitHub's secondary rate
+# limits.
+#
+# Arguments:
+#   $1 - CSV entries, one per line
+#   $2 - Cache directory
+prefetch_repo_info() {
+  local csv_entries="$1"
+  local cache_dir="$2"
+  local concurrency="${PREFETCH_CONCURRENCY:-6}"
+
+  echo "::group::Prefetching repository metadata"
+  mkdir -p "${cache_dir}"
+
+  local helper="${LIB_DIR}/fetch-repo-info.sh"
+  echo "${csv_entries}" |
+    grep -v '^[[:space:]]*$' |
+    xargs -P "${concurrency}" -I {} bash "${helper}" {} "${cache_dir}"
+
+  echo "Prefetched $(find "${cache_dir}" -name '*.json' | wc -l | tr -d ' ') of $(echo "${csv_entries}" | grep -c '[^[:space:]]') repositories."
+  echo "::endgroup::"
+}
+
+# Read a prefetched record, falling back to a direct fetch when the prefetch
+# missed it (a transient API failure, or an entry added since).
+# Arguments:
+#   $1 - repo: Repository in owner/repo format
+#   $2 - Cache directory
+read_repo_info() {
+  local repo="$1"
+  local cache_dir="$2"
+  local cached="${cache_dir}/${repo//\//__}.json"
+
+  if [[ -s "${cached}" ]]; then
+    cat "${cached}"
+    return
+  fi
+
+  gh repo view "${repo}" \
+    --json name,nameWithOwner,owner,description,openGraphImageUrl,stargazerCount,licenseInfo,url,latestRelease,createdAt,updatedAt,pushedAt,repositoryTopics,defaultBranchRef \
+    --jq "$(cat "${LIB_DIR}/repo-view.jq")"
+}
+
 # Main function to process extensions from CSV
 # Uses global variables: CSV_ENTRIES, EXTENSIONS_DIR, COMMIT, DEBUG_MODE, BRANCH, FORCE_UPDATE
 # Modifies global arrays: updated_extensions, skipped_extensions, outdated_extensions, valid_dirs
@@ -52,40 +133,19 @@ process_extensions() {
   local previous_owner=""
   local previous_author=""
 
+  local cache_dir
+  cache_dir="$(mktemp -d)"
+  # shellcheck disable=SC2064 # expand cache_dir now, while it is still in scope
+  trap "rm -rf '${cache_dir}'" RETURN
+  prefetch_repo_info "${CSV_ENTRIES}" "${cache_dir}"
+
   while IFS=, read -r entry; do
     echo "::group::Processing entry: ${entry}"
     local repo
     repo=$(echo "${entry}" | cut -d'/' -f1,2)
 
     local repo_info
-    repo_info=$(gh repo view "${repo}" \
-      --json name,nameWithOwner,owner,description,openGraphImageUrl,stargazerCount,licenseInfo,url,latestRelease,createdAt,updatedAt,pushedAt,repositoryTopics,defaultBranchRef \
-      --jq '{
-        name: .name,
-        title: (.name | split("-|_"; "") | map(select(. != "quarto" and . != "template")) | join(" ") | ascii_upcase),
-        nameWithOwner: (.nameWithOwner | ascii_downcase),
-        owner: (.owner.login | ascii_downcase),
-        description: (if .description == "" then "No description available." else .description end),
-        openGraphImageUrl: .openGraphImageUrl,
-        stargazerCount: (.stargazerCount // 0),
-        licenseInfo: (.licenseInfo.name // "none"),
-        url: .url,
-        latestRelease: (.latestRelease.tagName // "none"),
-        latestReleaseUrl: (.latestRelease.url // null),
-        createdAt: .createdAt,
-        updatedAt: .updatedAt,
-        pushedAt: .pushedAt,
-        defaultBranchRef: .defaultBranchRef.name,
-        repositoryTopics: (if .repositoryTopics == null then [] else
-        [.repositoryTopics[].name |
-          sub("^quarto-"; "") |
-          sub("-template[s]*"; "") |
-          if test("filters$|formats$|journals$|templates|shortcodes$|extensions$") then sub("s$"; "") else . end |
-          sub("reveal-js"; "reveal.js") |
-          sub("revealjs"; "reveal.js") |
-          select(test("quarto|extension|template|^pub$") | not)] | unique
-        end)
-      }')
+    repo_info=$(read_repo_info "${repo}" "${cache_dir}")
 
     local nameWithOwner owner
     nameWithOwner=$(echo "${repo_info}" | jq -r ".nameWithOwner")
@@ -115,8 +175,7 @@ process_extensions() {
     local author_json_file="${EXTENSIONS_DIR}/${owner}/author.json"
     local author_png_file="${EXTENSIONS_DIR}/${owner}/author"
     local extension_json_file="${EXTENSIONS_DIR}/${nameWithOwner}/extension.json"
-    local extension_png_file="${EXTENSIONS_DIR}/${nameWithOwner}/extension.png"
-    local extension_yaml_file="${EXTENSIONS_DIR}/${nameWithOwner}/extension.yml"
+    local extension_card_file="${EXTENSIONS_DIR}/${nameWithOwner}/extension.webp"
 
     local author update_author_json
     if [[ "${owner}" == "${previous_owner}" ]]; then
@@ -155,34 +214,23 @@ process_extensions() {
       local existing_updated_at current_updated_at
       existing_updated_at=$(jq -r ".[\"${entry,,}\"].updatedAt // empty" "${extension_json_file}")
       current_updated_at=$(echo "${repo_info}" | jq -r ".updatedAt")
-      local files=("${extension_json_file}" "${extension_png_file}" "${extension_yaml_file}")
-      local all_exist=true
-      for file in "${files[@]}"; do
-        [[ -f "${file}" ]] || all_exist=false
-      done
-      local placeholder_file="${PLACEHOLDER_IMAGE:-assets/media/github-placeholder.png}"
-      local has_placeholder=false
-      if [[ -f "${extension_yaml_file}" ]]; then
-        if grep -q 'image: "/assets/media/github-placeholder.png"' "${extension_yaml_file}"; then
-          has_placeholder=true
-        fi
-      fi
-      # Treat a missing or placeholder-identical extension.png as a missing
-      # social card so the entry is reprocessed and the image retried.
-      if [[ ! -f "${extension_png_file}" ]] || cmp -s "${extension_png_file}" "${placeholder_file}"; then
-        has_placeholder=true
+      # A card is only ever stored when the download differed from GitHub's
+      # generic placeholder, so a missing file is the sole retry signal.
+      local missing_card=false
+      if [[ ! -f "${extension_card_file}" ]]; then
+        missing_card=true
       fi
       if [[ "${FORCE_UPDATE}" != "true" ]]; then
-        if [[ -n "${existing_updated_at}" && "${existing_updated_at}" == "${current_updated_at}" && "${all_exist}" == true && "${has_placeholder}" == false ]]; then
+        if [[ -n "${existing_updated_at}" && "${existing_updated_at}" == "${current_updated_at}" && "${missing_card}" == false ]]; then
           echo "Skipping ${entry}: updatedAt matches existing record (${existing_updated_at})"
           skipped_extensions+=("${entry}")
           echo "::endgroup::"
           continue
-        elif [[ "${has_placeholder}" == true ]]; then
-          echo "Processing ${entry}: missing or placeholder social card image"
+        elif [[ "${missing_card}" == true ]]; then
+          echo "Processing ${entry}: social card image missing"
         fi
       else
-        echo "Force update enabled: processing ${entry} regardless of timestamps or placeholder."
+        echo "Force update enabled: processing ${entry} regardless of timestamps or card state."
       fi
     else
       echo "Processing ${entry}: JSON file does not exist, will create new record"
@@ -190,10 +238,8 @@ process_extensions() {
 
     local repo_subdirectory
     repo_subdirectory=$(echo "${entry}" | cut -d'/' -f3-)
-    local repo_recursive=""
     if [[ -n "${repo_subdirectory}" ]]; then
       repo_subdirectory="${repo_subdirectory}/"
-      repo_recursive="?recursive=1"
     fi
 
     local default_branch repo_tag repo_branch
@@ -205,23 +251,18 @@ process_extensions() {
       repo_branch="${default_branch}"
     fi
 
-    # Fetch template.qmd
-    local repo_template
-    repo_template=$(gh api \
-      -X GET "repos/${repo}/git/trees/${repo_branch}${repo_recursive}" \
-      --jq ".tree[] | select(.path | endswith(\"${repo_subdirectory}template.qmd\")) | .url | @sh" | xargs -I {} gh api -X GET {} --jq ".content")
-    if [[ -n "${repo_template}" ]]; then
+    local repo_tree
+    repo_tree=$(fetch_repo_tree "${repo}" "${repo_branch}")
+
+    # Presence of template.qmd and example.qmd at the extension root. The tree
+    # already answers this, so no blob needs to be downloaded to find out.
+    if tree_has_path "${repo_tree}" "${repo_subdirectory}template.qmd"; then
       repo_info=$(echo "${repo_info}" | jq '. + {template: true} | .repositoryTopics += ["template"]')
     else
       repo_info=$(echo "${repo_info}" | jq '. + {template: false}')
     fi
 
-    # Fetch example.qmd
-    local repo_example
-    repo_example=$(gh api \
-      -X GET "repos/${repo}/git/trees/${repo_branch}${repo_recursive}" \
-      --jq ".tree[] | select(.path | endswith(\"${repo_subdirectory}example.qmd\")) | .url | @sh" | xargs -I {} gh api -X GET {} --jq ".content")
-    if [[ -n "${repo_example}" ]]; then
+    if tree_has_path "${repo_tree}" "${repo_subdirectory}example.qmd"; then
       repo_info=$(echo "${repo_info}" | jq '. + {example: true} | .repositoryTopics += ["example"]')
     else
       repo_info=$(echo "${repo_info}" | jq '. + {example: false}')
@@ -234,7 +275,7 @@ process_extensions() {
 
     # Extract contributes and quarto-required in single pass
     local manifest_data repo_contributes repo_quarto_required
-    manifest_data=$(extract_extension_manifest "${repo}" "${repo_branch}" "${repo_subdirectory}")
+    manifest_data=$(extract_extension_manifest "${repo_tree}" "${repo}" "${repo_branch}" "${repo_subdirectory}")
     repo_contributes=$(echo "${manifest_data}" | jq -c '.contributes')
     repo_quarto_required=$(echo "${manifest_data}" | jq -r '.quartoRequired')
 
@@ -250,57 +291,20 @@ process_extensions() {
       repo_info=$(echo "${repo_info}" | jq '. + {quartoRequired: null}')
     fi
 
-    # Extract fields for YAML generation
-    local entry_title entry_created entry_updated entry_url entry_topics entry_contributes
-    local entry_license entry_stars entry_image entry_author entry_template entry_example
-    local entry_description entry_release yaml_usage_body entry_quarto_required
-
-    entry_title=$(echo "${repo_info}" | jq -r '.title')
-    entry_created=$(echo "${repo_info}" | jq -r '.createdAt')
-    entry_updated=$(echo "${repo_info}" | jq -r '.pushedAt')
-    entry_url=$(echo "${repo_info}" | jq -r '.url')
-    entry_topics=$(echo "${repo_info}" | jq -r '.repositoryTopics' | jq -c 'unique')
-    entry_contributes=$(echo "${repo_info}" | jq -r '.contributes' | jq -c 'unique')
-    entry_license=$(echo "${repo_info}" | jq -r '.licenseInfo')
-    entry_stars=$(echo "${repo_info}" | jq -r '.stargazerCount')
+    # Download and store the social card. The website derives every display
+    # field from extension.json, so this is the only per-extension artefact
+    # beyond the record itself.
+    local entry_image stored_card
     entry_image=$(echo "${repo_info}" | jq -r '.openGraphImageUrl')
-    entry_author=$(echo "${repo_info}" | jq -r '.author')
-    entry_template=$(echo "${repo_info}" | jq -r '.template')
-    entry_example=$(echo "${repo_info}" | jq -r '.example')
-    entry_quarto_required=$(echo "${repo_info}" | jq -r '.quartoRequired // empty')
-    entry_description=$(echo "${repo_info}" | jq -r '.description')
-    entry_description=$(echo "${entry_description}" | sed 's/^[[:space:]]*//')
-    entry_description=$(echo "${entry_description}" | sed -E 's/([^`])(<[^<>]+>)([^`])/\1`\2`\3/g')
-    entry_description=$(escape_bash "${entry_description}")
-    entry_release=$(echo "${repo_info}" | jq -r '.latestRelease')
-    yaml_usage_body="${nameWithOwner}"
+    stored_card=$(extension_image_file "${entry_image}" "${extension_card_file}" | tail -n 1)
 
-    if [[ "${entry_release}" == "none" ]]; then
-      local entry_commit
-      entry_commit=$(echo "${repo_info}" | jq -r '.latestCommit')
-      # yaml_usage_body="${nameWithOwner}@${entry_commit:0:7}" # Quarto CLI does not support commit SHAs yet
-    else
-      local entry_release_url
-      entry_release_url=$(echo "${repo_info}" | jq -r '.latestReleaseUrl')
-      yaml_usage_body="${nameWithOwner}@${entry_release}"
-      entry_release=$(echo "${entry_release}" | sed 's/^[^0-9]*//')
-      entry_release="[${entry_release}](${entry_release_url})"
-    fi
-
-    local clean_extension_png_file
-    clean_extension_png_file=$(extension_image_file "${entry_image}" "${extension_png_file}" | tail -n 1)
-
-    generate_extension_yaml \
-      "${extension_yaml_file}" "${entry_title}" "${clean_extension_png_file}" "${entry_url}" \
-      "${entry_author}" "${owner}" "${entry_created}" "${entry_updated}" "${entry_topics}" \
-      "${entry_license}" "${entry_stars}" "${entry_release}" "${entry_description}" \
-      "${yaml_usage_body}" "${entry_template}" "${entry_example}" "${entry_contributes}" \
-      "${entry_quarto_required}"
-
-    echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}' > "${extension_json_file}"
+    echo "${repo_info}" | jq --arg entry "${entry,,}" '{($entry): .}' >"${extension_json_file}"
 
     # Gather all files to stage and commit
-    local files_to_commit=("${extension_json_file}" "${extension_yaml_file}" "${clean_extension_png_file}")
+    local files_to_commit=("${extension_json_file}")
+    if [[ -n "${stored_card}" ]]; then
+      files_to_commit+=("${stored_card}")
+    fi
     if [[ "${owner}" != "${previous_owner}" && "${update_author_json}" == "true" ]]; then
       files_to_commit+=("${author_json_file}" "${author_png_file}")
     fi

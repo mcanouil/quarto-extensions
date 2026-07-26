@@ -28,6 +28,13 @@ permissions:
   contents: write
   pull-requests: write
 
+# Cron, pushes to the CSV, releases and dispatches all write the same data
+# branch, so they must not run concurrently. Queue rather than cancel: a
+# cancelled run leaves the branch half-updated.
+concurrency:
+  group: quarto-wizard
+  cancel-in-progress: false
+
 jobs:
   get-extensions:
     runs-on: ubuntu-latest
@@ -90,6 +97,16 @@ jobs:
           mkdir -p .github/scripts
           cp -r scripts-checkout/.github/scripts/* .github/scripts/
           rm -rf scripts-checkout
+
+      # Social cards are downscaled to WebP before they are stored; the runner
+      # image does not ship ImageMagick, so install it rather than assume it.
+      - name: Install ImageMagick
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update --quiet
+          sudo apt-get install --quiet --yes imagemagick webp
+          magick --version | head -n 1
 
       - name: Get extensions details
         id: get-extensions-details

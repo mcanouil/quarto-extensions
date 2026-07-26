@@ -2,32 +2,50 @@
 # shellcheck shell=bash
 # Git operations for quarto-wizard
 
-# Stage files and commit with optional push
-# Uses global variables: COMMIT, DEBUG_MODE, BRANCH
+# Stage files and commit them locally.
+#
+# Deliberately does not push: the caller pushes once at the end of the run via
+# git_push_branch. Pushing here ran once per extension, which is how the branch
+# accumulated thousands of commits and hundreds of megabytes of history.
+#
+# Uses global variables: COMMIT
 # Arguments:
 #   $@ - Files to stage and commit
 git_stage_and_commit() {
   local files=("$@")
-  local staged=false
 
   for file in "${files[@]}"; do
     if [[ -f "${file}" ]]; then
-      git add "${file}" 2>/dev/null && staged=true || echo "No changes detected for ${file}, skipping add"
+      git add "${file}" || echo "Could not stage ${file}, skipping"
     fi
   done
 
-  if [[ "${staged}" == true ]]; then
-    git commit --allow-empty -m "${COMMIT}"
-    if [[ "${DEBUG_MODE}" == "false" ]]; then
-      git push --force origin "${BRANCH}"
-    else
-      echo "Debug mode is enabled, skipping push"
-    fi
+  # Only commit real changes; an unchanged extension must not leave a commit
+  # behind just because it was re-examined.
+  if git diff --cached --quiet; then
+    return
   fi
+
+  git commit -m "${COMMIT}"
+}
+
+# Push every commit made during the run.
+# Uses global variables: DEBUG_MODE, BRANCH
+git_push_branch() {
+  if [[ "${DEBUG_MODE}" == "true" ]]; then
+    echo "Debug mode is enabled, skipping push"
+    return
+  fi
+
+  if git diff --quiet "origin/${BRANCH}" HEAD 2>/dev/null; then
+    echo "::notice title=No Changes::${BRANCH} is already up to date."
+    return
+  fi
+
+  git push origin "${BRANCH}"
 }
 
 # Clean up outdated extension directories
-# Uses global variables: DEBUG_MODE, BRANCH
 # Arguments:
 #   $1 - Extensions directory path
 #   $@ - Valid directory paths to keep
@@ -62,11 +80,8 @@ github_cleanup_extensions_dir() {
     fi
   done
 
-  git commit --allow-empty -m "ci: cleanup outdated extensions directories"
-  if [[ "${DEBUG_MODE}" == "false" ]]; then
-    git push --force origin "${BRANCH}"
-  else
-    echo "Debug mode is enabled, skipping push"
+  if ! git diff --cached --quiet; then
+    git commit -m "ci: cleanup outdated extensions directories"
   fi
   echo "::endgroup::"
 }
