@@ -34,23 +34,23 @@ The following package(s) will be updated:
 - zip           [* -> 3.0.0]
 
 # Downloading packages -------------------------------------------------------
-[?25l  (0/16) Downloading: xfun, websocket, crosstalk, chromote, ...                                                                                                 y ellipsis 0.3.3                           [26 kB in 0.71s]
-  (1/16) Downloading: xfun, websocket, crosstalk, chromote, ...                                                                                                 y later 1.4.8                              [162 kB in 0.72s]
-  (2/16) Downloading: xfun, websocket, crosstalk, chromote, ...                                                                                                 y lazyeval 0.2.3                           [190 kB in 0.73s]
-  (3/16) Downloading: xfun, websocket, crosstalk, chromote, ...                                                                                                 y crosstalk 1.2.2                          [417 kB in 0.73s]
-  (4/16) Downloading: xfun, websocket, chromote, plotly, ...                                                                                                    y websocket 1.4.4                          [451 kB in 0.74s]
-  (5/16) Downloading: xfun, chromote, plotly, viridis, ...                                                                                                      y gridExtra 2.3.1                          [528 kB in 0.74s]
-  (6/16) Downloading: xfun, chromote, plotly, viridis, ...                                                                                                      y chromote 0.5.1                           [651 kB in 0.74s]
-  (7/16) Downloading: xfun, plotly, viridis, webshot2, ...                                                                                                      y zip 3.0.0                                [959 kB in 0.75s]
-  (8/16) Downloading: xfun, plotly, viridis, webshot2, ...                                                                                                      y AsioHeaders 1.30.2-1                     [666 kB in 0.75s]
-  (9/16) Downloading: xfun, plotly, viridis, webshot2, ...                                                                                                      y webshot2 0.1.2                           [572 kB in 0.76s]
-  (10/16) Downloading: xfun, plotly, viridis, promises, ...                                                                                                     y xfun 0.59                                [645 kB in 0.76s]
-  (11/16) Downloading: plotly, viridis, promises, rlang, ...                                                                                                    y rlang 1.2.0                              [1.6 MB in 0.76s]
-  (12/16) Downloading: plotly, viridis, promises, Rcpp                                                                                                          y promises 1.5.0                           [1.7 MB in 0.78s]
-  (13/16) Downloading: plotly, viridis, Rcpp                                                                                                                    y Rcpp 1.1.1-1.1                           [2.3 MB in 0.78s]
-  (14/16) Downloading: plotly, viridis                                                                                                                          y viridis 0.6.5                            [3.0 MB in 0.78s]
-  (15/16) Downloading: plotly                                                                                                                                   y plotly 4.12.0                            [3.9 MB in 0.79s]
-                                                                                Successfully downloaded 16 packages in 1.1 seconds.
+[?25l  (0/16) Downloading: xfun, websocket, crosstalk, chromote, ...                                                                                                 y ellipsis 0.3.3                           [26 kB in 1.6s]
+  (1/16) Downloading: xfun, websocket, crosstalk, chromote, ...                                                                                                 y webshot2 0.1.2                           [572 kB in 1.6s]
+  (2/16) Downloading: xfun, websocket, crosstalk, chromote, ...                                                                                                 y lazyeval 0.2.3                           [190 kB in 1.6s]
+  (3/16) Downloading: xfun, websocket, crosstalk, chromote, ...                                                                                                 y websocket 1.4.4                          [451 kB in 1.6s]
+  (4/16) Downloading: xfun, crosstalk, chromote, plotly, ...                                                                                                    y later 1.4.8                              [162 kB in 1.6s]
+  (5/16) Downloading: xfun, crosstalk, chromote, plotly, ...                                                                                                    y viridis 0.6.5                            [3.0 MB in 1.6s]
+  (6/16) Downloading: xfun, crosstalk, chromote, plotly, ...                                                                                                    y crosstalk 1.2.2                          [417 kB in 1.6s]
+  (7/16) Downloading: xfun, chromote, plotly, zip, ...                                                                                                          y xfun 0.59                                [645 kB in 1.6s]
+  (8/16) Downloading: chromote, plotly, zip, promises, ...                                                                                                      y AsioHeaders 1.30.2-1                     [666 kB in 1.6s]
+  (9/16) Downloading: chromote, plotly, zip, promises, ...                                                                                                      y rlang 1.2.0                              [1.6 MB in 1.6s]
+  (10/16) Downloading: chromote, plotly, zip, promises, ...                                                                                                     y plotly 4.12.0                            [3.9 MB in 1.6s]
+  (11/16) Downloading: chromote, zip, promises, gridExtra, ...                                                                                                  y chromote 0.5.1                           [651 kB in 1.7s]
+  (12/16) Downloading: zip, promises, gridExtra, Rcpp                                                                                                           y promises 1.5.0                           [1.7 MB in 2.1s]
+  (13/16) Downloading: zip, gridExtra, Rcpp                                                                                                                     y gridExtra 2.3.1                          [528 kB in 2.1s]
+  (14/16) Downloading: zip, Rcpp                                                                                                                                y zip 3.0.0                                [959 kB in 2.2s]
+  (15/16) Downloading: Rcpp                                                                                                                                     y Rcpp 1.1.1-1.1                           [2.3 MB in 2.4s]
+                                                                                Successfully downloaded 16 packages in 2.7 seconds.
 
 # Installing packages --------------------------------------------------------
                                                                                 y AsioHeaders 1.30.2-1                     [installed binary]
@@ -66,7 +66,7 @@ The following package(s) will be updated:
                                                                                 y websocket 1.4.4                          [installed binary]
                                                                                 y crosstalk 1.2.2                          [installed binary]
                                                                                 y plotly 4.12.0                            [installed binary]
-Successfully installed 13 packages in 7.1 seconds.
+Successfully installed 13 packages in 6.1 seconds.
 
 The following package(s) were not installed successfully:
 - [chromote]: dependency failed (zip)
@@ -110,10 +110,10 @@ The following package(s) will be updated:
 - zip           [* -> 3.0.0]
 
 # Downloading packages -------------------------------------------------------
-[?25l  (0/3) Downloading: chromote, webshot2, zip                                                                                                                    y chromote 0.5.1                           [651 kB in 0.23s]
-  (1/3) Downloading: webshot2, zip                                                                                                                              y zip 3.0.0                                [959 kB in 0.23s]
-  (2/3) Downloading: webshot2                                                                                                                                   y webshot2 0.1.2                           [572 kB in 0.23s]
-                                                                                Successfully downloaded 3 packages in 0.49 seconds.
+[?25l  (0/3) Downloading: chromote, webshot2, zip                                                                                                                    y webshot2 0.1.2                           [572 kB in 0.54s]
+  (1/3) Downloading: chromote, zip                                                                                                                              y chromote 0.5.1                           [651 kB in 0.56s]
+  (2/3) Downloading: zip                                                                                                                                        y zip 3.0.0                                [959 kB in 0.61s]
+                                                                                Successfully downloaded 3 packages in 0.85 seconds.
 
 # Installing packages --------------------------------------------------------
 y xfun 0.59                                [copied from cache]
@@ -129,7 +129,7 @@ y gridExtra 2.3.1                          [copied from cache]
 y rlang 1.2.0                              [copied from cache]
 y AsioHeaders 1.30.2-1                     [copied from cache]
 y Rcpp 1.1.1-1.1                           [copied from cache]
-Successfully installed 13 packages in 0.24 seconds.
+Successfully installed 13 packages in 0.19 seconds.
 
 The following package(s) were not installed successfully:
 - [chromote]: dependency failed (zip)

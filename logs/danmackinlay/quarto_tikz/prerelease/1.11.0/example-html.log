@@ -22,9 +22,9 @@ metadata
     tex-dir: tikz-tex
   
 
-ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-4/repo/_extensions/tikz/tikz.lua:279) inkscape not found. Please install it (the configured svg converter) to convert TeX output to SVG.
+ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-0/repo/_extensions/tikz/tikz.lua:279) inkscape not found. Please install it (the configured svg converter) to convert TeX output to SVG.
 
-ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-4/repo/_extensions/tikz/tikz.lua:347) Error compiling TikZ figure 'stick-figure':
+ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-0/repo/_extensions/tikz/tikz.lua:347) Error compiling TikZ figure 'stick-figure':
 Error running pdflatex (error code 1): This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
@@ -47,7 +47,7 @@ l.3 ^^M
 Transcript written on stick-figure.log.
 
 LaTeX Log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.26)  26 JUL 2026 22:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.26)  26 JUL 2026 23:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -95,7 +95,7 @@ TikZ Code:
   \draw (-1,-4) -- (0,-3) -- (1,-4);
 \end{tikzpicture}
 
-ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-4/repo/_extensions/tikz/tikz.lua:417) Error converting to SVG (command: inkscape) for TikZ figure 'stick-figure':
+ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-0/repo/_extensions/tikz/tikz.lua:417) Error converting to SVG (command: inkscape) for TikZ figure 'stick-figure':
 inkscape: createProcess: posix_spawnp: does not exist (No such file or directory)
 TikZ Code:
 %%| filename: stick-figure
@@ -111,7 +111,7 @@ TikZ Code:
   % Legs
   \draw (-1,-4) -- (0,-3) -- (1,-4);
 \end{tikzpicture}
-ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-4/repo/_extensions/tikz/tikz.lua:424) Failed to read generated SVG file for TikZ figure 'stick-figure'.
+ERROR (/home/runner/work/quarto-extensions/quarto-extensions/test-0/repo/_extensions/tikz/tikz.lua:424) Failed to read generated SVG file for TikZ figure 'stick-figure'.
 TikZ Code:
 %%| filename: stick-figure
 %%| caption: A Stick Figure
@@ -132,10 +132,10 @@ string expected, got nil
 	while retrieving function argument contents
 	while retrieving arguments for function insert
 stack traceback:
-	.../quarto-extensions/test-4/repo/_extensions/tikz/tikz.lua:544: in function <.../quarto-extensions/test-4/repo/_extensions/tikz/tikz.lua:446>
+	.../quarto-extensions/test-0/repo/_extensions/tikz/tikz.lua:544: in function <.../quarto-extensions/test-0/repo/_extensions/tikz/tikz.lua:446>
 	[C]: in ?
 	[C]: in method 'walk'
-	.../quarto-extensions/test-4/repo/_extensions/tikz/tikz.lua:753: in function <.../quarto-extensions/test-4/repo/_extensions/tikz/tikz.lua:751>
+	.../quarto-extensions/test-0/repo/_extensions/tikz/tikz.lua:753: in function <.../quarto-extensions/test-0/repo/_extensions/tikz/tikz.lua:751>
 	[C]: in ?
 	[C]: in method 'walk'
 	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
@@ -146,7 +146,7 @@ stack traceback:
 	/opt/quarto/share/filters/main.lua:1334: in upvalue 'run_emulated_filter_chain'
 	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
 stack traceback:
-	.../quarto-extensions/test-4/repo/_extensions/tikz/tikz.lua:753: in function <.../quarto-extensions/test-4/repo/_extensions/tikz/tikz.lua:751>
+	.../quarto-extensions/test-0/repo/_extensions/tikz/tikz.lua:753: in function <.../quarto-extensions/test-0/repo/_extensions/tikz/tikz.lua:751>
 	[C]: in ?
 	[C]: in method 'walk'
 	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
