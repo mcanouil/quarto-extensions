@@ -1,0 +1,244 @@
+/*-- scss:defaults --*/
+
+/*-- scss:rules --*/
+
+// ===========================================================================
+// NAVBAR TOKENS
+// ===========================================================================
+// Atelier pins the navbar and footer dark in both schemes and exposes these
+// tokens for a site to repaint them. Match the catalogue's palette: the dark
+// page background as the bar surface, the brand blue as the accent.
+:root {
+  --atelier-navbar-bg: #161b22;
+  --atelier-navbar-surface: #1f2630;
+  --atelier-navbar-fg: #e8e6e1;
+  --atelier-navbar-muted: #9aa7b4;
+  --atelier-navbar-accent: #74aadb;
+  --atelier-navbar-accent-soft: rgba(116, 170, 219, 0.16);
+  --atelier-navbar-border: rgba(232, 230, 225, 0.14);
+}
+
+// ===========================================================================
+// BRAND GLYPHS
+// ===========================================================================
+// Rendered as `[]{.quarto-wizard}` in the navbar, about.qmd and the install
+// modal. A mask keeps the glyph on currentColor so it reads on the dark navbar
+// and in body copy alike. Quarto resolves url() against this stylesheet and
+// copies the file into the compiled bundle, so the path is relative to
+// assets/stylesheets/ and independent of the site's base path.
+.quarto-wizard {
+  display: inline-block;
+  aspect-ratio: 1 / 1;
+  height: 1em;
+  margin-bottom: -0.15em;
+  mask-image: url("assets/media/quarto-wizard.svg");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url("assets/media/quarto-wizard.svg");
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  background-color: currentcolor;
+  vertical-align: baseline;
+}
+
+// ===========================================================================
+// EXTENSION CARDS
+// ===========================================================================
+// body-mix() comes from Atelier's theme layer and resolves per colour scheme,
+// so these edges track light and dark instead of the fixed grey the previous
+// inline stylesheet fell back to.
+.extension-card,
+.extension-card .card-footer,
+.list-group-item.extension-item {
+  border-color: body-mix(85%);
+}
+
+.extension-card .card-img-wrapper {
+  overflow: hidden;
+  aspect-ratio: 40 / 21;
+}
+
+.extension-card .card-img-top {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.extension-card .btn:hover,
+.modal .btn:hover {
+  transform: none;
+}
+
+// Categories double as filters, so they are buttons; strip the button chrome so
+// they still read as badges.
+.category-badge {
+  cursor: pointer;
+  font-weight: 400;
+}
+
+// ===========================================================================
+// LIST VIEW
+// ===========================================================================
+// One renderer feeds both views: list mode is the same cards reflowed to a
+// single column with the social card as a fixed-width thumbnail, rather than a
+// second copy of every item in the DOM.
+#extensions-results.list-mode {
+  grid-template-columns: 1fr;
+
+  .extension-cell {
+    grid-column: 1 / -1;
+  }
+
+  .extension-card {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .card-img-wrapper {
+    flex: 0 0 12rem;
+    max-width: 12rem;
+  }
+
+  .card-body {
+    flex: 1 1 20rem;
+  }
+
+  .status-banner {
+    flex: 0 0 100%;
+    order: -1;
+  }
+
+  .card-footer {
+    flex: 0 0 100%;
+  }
+
+  @media (max-width: 575px) {
+    .card-img-wrapper {
+      flex-basis: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+.modal .btn-group {
+  width: 100%;
+}
+
+.status-banner {
+  font-size: 0.875rem;
+  border: none;
+  margin: 0;
+
+  i {
+    font-size: 0.875rem;
+  }
+}
+
+// ===========================================================================
+// TEST STATUS BADGES
+// ===========================================================================
+.test-status-badges-row {
+  min-height: 0;
+}
+
+.test-badge-btn {
+  font-size: 0.75rem;
+  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.15s ease-in-out;
+
+  i {
+    font-size: 0.8rem;
+  }
+
+  &:hover {
+    background-color: body-mix(88%);
+  }
+}
+
+#extension-modal .table {
+  font-size: 0.875rem;
+}
+
+#extension-modal code {
+  font-size: 0.8rem;
+}
+
+// ===========================================================================
+// CONTROLS
+// ===========================================================================
+.btn-group.flex-wrap {
+  flex-wrap: wrap !important;
+
+  .btn {
+    flex-shrink: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.filter-chip {
+  min-width: 2.5rem;
+
+  @media (max-width: 576px) {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+// The chip row scrolls sideways on narrow viewports rather than wrapping into a
+// tall block; the scrollbar itself is hidden because the row is short.
+.quick-filters .d-flex {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .btn-group {
+    max-width: 100%;
+
+    .btn {
+      font-size: 0.875rem;
+      padding: 0.375rem 0.5rem;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .grid .g-col-12 {
+    text-align: center !important;
+  }
+}
+
+// ===========================================================================
+// EMPTY STATE
+// ===========================================================================
+#extensions-empty {
+  padding: 3rem 1rem;
+  text-align: center;
+  border: 1px dashed body-mix(80%);
+  border-radius: 0.5rem;
+
+  i {
+    font-size: 2rem;
+    color: body-mix(60%);
+  }
+}

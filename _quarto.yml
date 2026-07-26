@@ -1,25 +1,31 @@
 project:
-  type: mcanouil
-  output-dir: _site
+  type: atelier
   pre-render:
-    - git fetch origin quarto-wizard:quarto-wizard
+    - git fetch --depth=1 origin quarto-wizard:quarto-wizard
     - git restore --source=quarto-wizard --worktree "extensions"
     - git restore --source=quarto-wizard quarto-extensions.json
     - mv quarto-extensions.json extensions.json
-    - bash -c "git fetch origin quarto-tests:quarto-tests || true"
+    - bash -c "git fetch --depth=1 origin quarto-tests:quarto-tests || true"
     - bash -c "git restore --source=quarto-tests test-results.json || echo '{}' > test-results.json"
-    - bash assets/scripts/inject-test-results.sh
+    - bash assets/scripts/build-index.sh
   resources:
+    # Consumed by the client renderer on this site.
+    - extensions-index.json
+    # The full harvested metadata, published as-is because it is the registry
+    # other tooling reads; nothing on this site fetches it.
     - extensions.json
+    # Referenced only from the client renderer and the site stylesheet, so
+    # Quarto's resource discovery does not pick them up.
+    - assets/media/quarto-wizard.svg
+    - assets/media/github-placeholder.png
+    - extensions/*/*/extension.webp
+    - extensions/*/*/extension.png
 
 date-meta: 2023-12-09
 
 website:
   site-url: https://m.canouil.dev/quarto-extensions/
   repo-url: https://github.com/mcanouil/quarto-extensions
-  repo-actions: [edit, issue]
-  repo-link-target: _blank
-  repo-link-rel: noopener noreferrer
   title: Quarto Extensions
   description: |
     Explore the 'Quarto Extensions' website, a comprehensive repository of extensions designed to enhance your Quarto experience.
@@ -29,43 +35,65 @@ website:
   image: "assets/media/social-card.png"
   favicon: "assets/media/quarto-extensions.png"
   sidebar: false
+  page-navigation: false
+  # The catalogue ships its own client-side filter over the extension index, so
+  # Quarto's full-text search would only ever index the two static pages.
+  search: false
   page-footer:
-    border: true
-    background: dark
-    foreground: light
     left: |
       Powered by [[{{< iconify simple-icons:quarto title='Quarto Logo' label='Quarto Logo' >}}]{style="color:#74aadb;"} Quarto](https://quarto.org).
-    center: |
-      &copy; []{#current-year} [Mickaël CANOUIL](https://mickael.canouil.fr/).
     right: |
       [{{< iconify octicon:heart-16 title='Heart Sponsor' label='Heart Sponsor' style='color:#c96198;' >}} Sponsor](https://github.com/sponsors/mcanouil?o=esb).
   navbar:
     logo: "assets/media/quarto-extensions.png"
     logo-alt: "Quarto Extensions Logo"
     search: false
-    background: dark
-    foreground: light
     right:
       - text: "{{< iconify octicon:question-16 title='Help' label='Help' >}} About"
         href: about.qmd
-      - text: "{{< iconify octicon:mark-github-16 title='GitHub Source Repository' label='GitHub Source Repository' >}}"
-        href: "https://github.com/mcanouil/quarto-extensions"
-        target: _blank
-        rel: noopener noreferrer
-      - text: "{{< iconify simple-icons:quarto title='Quarto Documentation' label='Quarto Documentation' >}}"
-        href: "https://quarto.org/"
-        target: _blank
-        rel: noopener noreferrer
       - text: '[]{.quarto-wizard title="Quarto Wizard" aria-label="Quarto Wizard"}'
         href: "https://github.com/mcanouil/quarto-wizard"
         target: _blank
         rel: noopener noreferrer
+      - text: "GitHub"
+        href: "#gitlink-widget"
+        aria-label: "GitHub repository"
 
 brand: _brand.yml
 
+filters:
+  - gitlink
+
+extensions:
+  gitlink:
+    platform: github
+    repository-name: mcanouil/quarto-extensions
+    widget:
+      enabled: true
+      links:
+        discussions: true
+      extra-links:
+        - text: "Quarto Documentation"
+          href: "https://quarto.org"
+          icon: globe
+        - text: "Submit an Extension"
+          href: "/edit/main/extensions/quarto-extensions.csv"
+          icon: plus-circle
+      sponsor: mcanouil
+      style-navbar-tools: true
+
 format:
-  mcanouil-html:
+  atelier-html:
     html-table-processing: none
+    theme:
+      light:
+        - brand
+        - _extensions/mcanouil/atelier/html/theme.scss
+        - assets/stylesheets/site.scss
+      dark:
+        - brand
+        - _extensions/mcanouil/atelier/html/theme.scss
+        - assets/stylesheets/site.scss
     include-in-header:
       - text: |
           <style> #title-block-header, #quarto-appendix { display: none; } </style>

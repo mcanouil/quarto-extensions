@@ -2,21 +2,149 @@
 repo-actions: false
 image: "assets/media/social-card.png"
 date-format: iso
-listing:
-  id: extensions-listings
-  template: assets/ejs/listing.ejs
-  contents:
-    - extensions/**/extension.yml
-  sort-ui: false
-  filter-ui: false
-  categories: false
 include-after-body:
   - file: assets/scripts/quarto-extensions-listing.html
 grid:
   sidebar-width: 100px
-  body-width: 950px
+  body-width: 1200px
   margin-width: 100px
 ---
 
-:::: {#extensions-listings}
-:::
+```{=html}
+<div id="extensions-listing" data-index="extensions-index.json" data-page-size="24">
+
+  <form id="listing-controls" class="mb-4" role="search" onsubmit="return false;">
+    <div class="grid align-items-center mb-3">
+      <div class="g-col-12 g-col-md-8">
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-search" aria-hidden="true"></i></span>
+          <input type="search" id="extension-search" class="form-control"
+            placeholder="Search extensions, authors, categories…" aria-label="Search extensions">
+        </div>
+      </div>
+      <div class="g-col-12 g-col-md-4 text-md-end">
+        <div class="btn-group" role="group" aria-label="View toggle">
+          <input type="radio" class="btn-check" name="view-toggle" id="grid-view" checked>
+          <label class="btn btn-outline-light" for="grid-view">
+            <i class="bi bi-grid-3x3-gap" aria-hidden="true"></i> Grid
+          </label>
+          <input type="radio" class="btn-check" name="view-toggle" id="list-view">
+          <label class="btn btn-outline-light" for="list-view">
+            <i class="bi bi-list-ul" aria-hidden="true"></i> List
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="quick-filters mb-3">
+      <div class="d-flex flex-wrap gap-2 justify-content-center align-items-center">
+        <button type="button" class="btn btn-sm btn-outline-success filter-chip" data-filter="test-pass"
+          aria-pressed="false">
+          <i class="bi bi-check-circle-fill" aria-hidden="true"></i> Passing
+        </button>
+        <button type="button" class="btn btn-sm btn-outline-danger filter-chip" data-filter="test-fail"
+          aria-pressed="false">
+          <i class="bi bi-x-circle-fill" aria-hidden="true"></i> Failing
+        </button>
+        <div class="btn-group flex-wrap" role="group" aria-label="Contribution filters">
+          <button type="button" class="btn btn-sm btn-outline-primary filter-chip" data-filter="shortcode"
+            aria-label="Shortcodes" aria-pressed="false">
+            <i class="bi bi-code-square" aria-hidden="true"></i>
+            <span class="d-none d-sm-inline">Shortcodes</span>
+          </button>
+          <button type="button" class="btn btn-sm btn-outline-primary filter-chip" data-filter="filter"
+            aria-label="Filters" aria-pressed="false">
+            <i class="bi bi-funnel" aria-hidden="true"></i>
+            <span class="d-none d-sm-inline">Filters</span>
+          </button>
+          <button type="button" class="btn btn-sm btn-outline-primary filter-chip" data-filter="format"
+            aria-label="Formats" aria-pressed="false">
+            <i class="bi bi-file-earmark-code" aria-hidden="true"></i>
+            <span class="d-none d-sm-inline">Formats</span>
+          </button>
+          <button type="button" class="btn btn-sm btn-outline-primary filter-chip" data-filter="project"
+            aria-label="Projects" aria-pressed="false">
+            <i class="bi bi-folder" aria-hidden="true"></i>
+            <span class="d-none d-sm-inline">Projects</span>
+          </button>
+          <button type="button" class="btn btn-sm btn-outline-primary filter-chip" data-filter="revealjs-plugin"
+            aria-label="Reveal.js Plugins" aria-pressed="false">
+            <i class="bi bi-sliders" aria-hidden="true"></i>
+            <span class="d-none d-sm-inline">Reveal.js Plugins</span>
+          </button>
+          <button type="button" class="btn btn-sm btn-outline-primary filter-chip" data-filter="metadata"
+            aria-label="Metadata" aria-pressed="false">
+            <i class="bi bi-info-circle" aria-hidden="true"></i>
+            <span class="d-none d-sm-inline">Metadata</span>
+          </button>
+        </div>
+        <button type="button" class="btn btn-sm btn-outline-light" id="clear-filters">
+          <i class="bi bi-x-circle" aria-hidden="true"></i> Clear
+        </button>
+      </div>
+    </div>
+
+    <div class="grid align-items-center">
+      <div class="g-col-12 g-col-sm-6">
+        <label class="visually-hidden" for="category-filter">Filter by category</label>
+        <select class="form-select form-select-sm" id="category-filter">
+          <option value="">All categories</option>
+        </select>
+      </div>
+      <div class="g-col-12 g-col-sm-6">
+        <div class="input-group input-group-sm">
+          <label class="input-group-text" for="sort-field">Sort</label>
+          <select class="form-select" id="sort-field">
+            <option value="modified">Recently updated</option>
+            <option value="stars">Stars</option>
+            <option value="title">Name</option>
+          </select>
+          <button type="button" class="btn btn-outline-light" id="sort-direction" data-direction="desc"
+            aria-label="Sort descending">
+            <i class="bi bi-sort-down" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <p id="extensions-counter" class="mb-3 text-muted text-center" aria-live="polite">
+    <em>Loading extensions…</em>
+  </p>
+
+  <noscript>
+    <div class="alert alert-warning" role="alert">
+      This catalogue is rendered in the browser. Enable JavaScript, or browse the source list on
+      <a href="https://github.com/mcanouil/quarto-extensions/blob/main/extensions/quarto-extensions.csv">GitHub</a>.
+    </div>
+  </noscript>
+
+  <div id="extensions-results" class="grid" role="list"></div>
+
+  <div id="extensions-empty" class="d-none">
+    <i class="bi bi-search" aria-hidden="true"></i>
+    <p class="mt-3 mb-1"><strong>No extensions match the current filters.</strong></p>
+    <p class="text-muted">Try a different search term, or clear the filters to start again.</p>
+    <button type="button" class="btn btn-outline-light btn-sm" id="empty-clear-filters">
+      <i class="bi bi-x-circle" aria-hidden="true"></i> Clear filters
+    </button>
+  </div>
+
+  <div class="text-center my-4">
+    <button type="button" class="btn btn-outline-light d-none" id="load-more">Load more</button>
+  </div>
+
+  <div class="modal fade" id="extension-modal" tabindex="-1" aria-labelledby="extension-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h5 no-anchor" id="extension-modal-label"></h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="extension-modal-body"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+```
