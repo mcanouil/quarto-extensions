@@ -96,8 +96,11 @@ fetch_batch() {
   local names_json
   names_json=$(printf '%s\n' "${bases[@]}" | jq -R . | jq -s -c .)
 
-  # Emitted as TSV of destination path and record, so one jq pass covers the
-  # whole batch; tojson has already escaped anything @tsv would mangle.
+  # Emitted as destination path and record on one tab-separated line, so a single
+  # jq pass covers the whole batch. Concatenated rather than passed through @tsv,
+  # which escapes the backslashes tojson has already written and would turn a
+  # description containing a quote into invalid JSON. A record can hold no raw
+  # tab or newline of its own, tojson having escaped both.
   local path record
   while IFS=$'\t' read -r path record; do
     printf '%s\n' "${record}" > "${path}"
@@ -106,10 +109,8 @@ fetch_batch() {
       --argjson names "${names_json}" \
       --arg dir "${cache_dir}" "
       (.data // {}) | to_entries[] | select(.value != null) |
-      [
-        (\$dir + \"/\" + \$names[(.key | ltrimstr(\"r\") | tonumber)] + \".json\"),
-        (.value | ${normalise} | ${view_filter} | tojson)
-      ] | @tsv
+      (\$dir + \"/\" + \$names[(.key | ltrimstr(\"r\") | tonumber)] + \".json\")
+      + \"\t\" + (.value | ${normalise} | ${view_filter} | tojson)
     " 2>/dev/null
   )
 }

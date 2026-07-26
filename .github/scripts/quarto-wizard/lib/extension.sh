@@ -110,7 +110,9 @@ prefetch_repo_info() {
 }
 
 # Read a prefetched record, falling back to a direct fetch when the prefetch
-# missed it (a transient API failure, or an entry added since).
+# missed it (a transient API failure, or an entry added since) or wrote something
+# unparseable. The cache is an optimisation, so a bad entry costs one extra
+# request rather than aborting the run at the first jq that reads it.
 # Arguments:
 #   $1 - repo: Repository in owner/repo format
 #   $2 - Cache directory
@@ -119,8 +121,7 @@ read_repo_info() {
   local cache_dir="$2"
   local cached="${cache_dir}/${repo//\//__}.json"
 
-  if [[ -s "${cached}" ]]; then
-    cat "${cached}"
+  if [[ -s "${cached}" ]] && jq -c . "${cached}" 2>/dev/null; then
     return
   fi
 
