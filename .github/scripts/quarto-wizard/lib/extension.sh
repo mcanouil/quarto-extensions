@@ -81,14 +81,16 @@ extract_extension_manifest() {
   }'
 }
 
-# Fetch every repository's metadata up front, in parallel.
+# Fetch every repository's metadata up front, batched into few GraphQL queries.
 #
-# The main loop is serial because it mutates git state, but the `gh repo view`
-# call that opens each iteration is read-only and independent, and dominates a
-# nightly run where most extensions turn out to be unchanged. Fetching them
-# concurrently turns roughly 354 sequential round trips into a handful of
-# batches. Concurrency is kept modest to stay clear of GitHub's secondary rate
-# limits.
+# The main loop is serial because it mutates git state, but the metadata each
+# iteration opens with is read-only and independent, and dominates a nightly run
+# where most extensions turn out to be unchanged.
+#
+# Entries sharing a repository (an extension living in a subdirectory) collapse
+# to one query alias, and the phase prints per batch rather than only at the
+# end: wrapped in a log group it looked like a stalled run for its whole
+# duration.
 #
 # Arguments:
 #   $1 - CSV entries, one per line
@@ -96,18 +98,15 @@ extract_extension_manifest() {
 prefetch_repo_info() {
   local csv_entries="$1"
   local cache_dir="$2"
-  local concurrency="${PREFETCH_CONCURRENCY:-6}"
 
-  echo "::group::Prefetching repository metadata"
+  echo "Prefetching repository metadata"
   mkdir -p "${cache_dir}"
 
-  local helper="${LIB_DIR}/fetch-repo-info.sh"
   echo "${csv_entries}" |
     grep -v '^[[:space:]]*$' |
-    xargs -P "${concurrency}" -I {} bash "${helper}" {} "${cache_dir}"
-
-  echo "Prefetched $(find "${cache_dir}" -name '*.json' | wc -l | tr -d ' ') of $(echo "${csv_entries}" | grep -c '[^[:space:]]') repositories."
-  echo "::endgroup::"
+    cut -d'/' -f1,2 |
+    sort -fu |
+    bash "${LIB_DIR}/prefetch-repo-info.sh" "${cache_dir}"
 }
 
 # Read a prefetched record, falling back to a direct fetch when the prefetch
@@ -134,7 +133,6 @@ read_repo_info() {
 # Uses global variables: CSV_ENTRIES, EXTENSIONS_DIR, COMMIT, DEBUG_MODE, BRANCH, FORCE_UPDATE
 # Modifies global arrays: updated_extensions, skipped_extensions, outdated_extensions, valid_dirs
 process_extensions() {
-  echo "::group::Processing Extensions"
   local CSV_ENTRIES="$1"
   local previous_owner=""
   local previous_author=""
@@ -318,5 +316,4 @@ process_extensions() {
     updated_extensions+=("${entry}")
     echo "::endgroup::"
   done < <(echo "$CSV_ENTRIES" | sort -f)
-  echo "::endgroup::"
 }

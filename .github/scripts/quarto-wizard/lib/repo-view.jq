@@ -1,6 +1,6 @@
 # Shape a `gh repo view` payload into the record stored as extension.json.
 #
-# Used by both the parallel prefetch and the inline fallback in extension.sh, so
+# Used by both the batched prefetch and the inline fallback in extension.sh, so
 # a record is identical whichever path produced it.
 {
   name: .name,
