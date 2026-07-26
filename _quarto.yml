@@ -90,14 +90,15 @@ extensions:
 format:
   atelier-html:
     html-table-processing: none
+    # Atelier's own stylesheet is applied by the format; listing a file here
+    # appends it afterwards, so these rules win the cascade. Both lists are
+    # written out because the schema rejects a YAML anchor shared between them.
     theme:
       light:
         - brand
-        - _extensions/mcanouil/atelier/html/theme.scss
         - assets/stylesheets/site.scss
       dark:
         - brand
-        - _extensions/mcanouil/atelier/html/theme.scss
         - assets/stylesheets/site.scss
     include-in-header:
       - text: |

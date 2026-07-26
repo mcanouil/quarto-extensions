@@ -34,14 +34,19 @@ $status-neutral: if($is-dark, #a8b0ba, #5a5f66);
 // Atelier pins the navbar and footer dark in both schemes and exposes these
 // tokens for a site to repaint them. Match the catalogue's palette: the dark
 // page background as the bar surface, the brand blue as the accent.
+// The dark-pinned bars use the dark end of the palette in both schemes, taken
+// from the `$brand-*` variables generated from _brand.yml so those values are
+// not restated here. Surface and muted have no palette entry and are picked by
+// hand: mixing them off the bar background desaturates the blue tint and, for
+// muted, drops it from 7.05:1 to 5.06:1 against the bar.
 :root {
-  --atelier-navbar-bg: #161b22;
+  --atelier-navbar-bg: #{$brand-paper-dark};
   --atelier-navbar-surface: #1f2630;
-  --atelier-navbar-fg: #e8e6e1;
+  --atelier-navbar-fg: #{$brand-ink-dark};
   --atelier-navbar-muted: #9aa7b4;
-  --atelier-navbar-accent: #74aadb;
-  --atelier-navbar-accent-soft: rgba(116, 170, 219, 0.16);
-  --atelier-navbar-border: rgba(232, 230, 225, 0.14);
+  --atelier-navbar-accent: #{$brand-blue-dark};
+  --atelier-navbar-accent-soft: #{rgba($brand-blue-dark, 0.16)};
+  --atelier-navbar-border: #{rgba($brand-ink-dark, 0.14)};
 }
 
 // ===========================================================================
