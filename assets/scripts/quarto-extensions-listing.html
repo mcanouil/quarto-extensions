@@ -7,10 +7,6 @@
     const INDEX_URL = root.dataset.index;
     const PLACEHOLDER = 'assets/media/github-placeholder.png';
 
-    // Contribution kinds surfaced as quick-filter chips; matched as a prefix so
-    // `revealjs-plugin` also catches `revealjs-plugins`.
-    const CONTRIBUTION_FILTERS = ['shortcode', 'filter', 'format', 'project', 'revealjs-plugin', 'metadata'];
-
     // Categories that duplicate a chip or a badge and would only add noise to
     // the per-card badge row.
     const EXCLUDED_CATEGORIES = new Set([

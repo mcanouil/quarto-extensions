@@ -2,6 +2,12 @@
 # shellcheck shell=bash
 # Extension processing functions for quarto-wizard
 
+# Locates this module's siblings, the prefetch helper and the shared jq filter.
+# main.sh exports it; the default keeps the module usable on its own, since the
+# scripts do not run under `set -u` and an unset value would silently resolve
+# those helpers against the filesystem root.
+LIB_DIR="${LIB_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)}"
+
 # Fetch the full recursive tree for a ref, once per extension.
 #
 # Everything the run needs from the repository contents (template.qmd,
