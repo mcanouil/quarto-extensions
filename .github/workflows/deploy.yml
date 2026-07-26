@@ -20,6 +20,11 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # The nightly Quarto Wizard run triggers this workflow on completion, not on
+    # success, so without this guard a failed harvest still redeploys the site.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

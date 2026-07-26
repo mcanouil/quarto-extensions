@@ -12,4 +12,10 @@ readonly DEFAULT_COMMIT="ci: update extensions details"
 readonly DEFAULT_CSV_FILE="extensions/quarto-extensions.csv"
 
 # Asset paths
+# Compared against the raw download to detect GitHub's generic OpenGraph card.
 readonly PLACEHOLDER_IMAGE="assets/media/github-placeholder.png"
+
+# Stored social card geometry. The catalogue renders cards at roughly 300 px
+# wide, so 640 px covers high-density displays with room to spare.
+readonly IMAGE_WIDTH="${IMAGE_WIDTH:-640}"
+readonly IMAGE_QUALITY="${IMAGE_QUALITY:-82}"

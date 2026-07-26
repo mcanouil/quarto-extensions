@@ -37,28 +37,30 @@ jobs:
           base_ref: ${{ github.event.pull_request.base.ref }}
         shell: bash
         run: |
-          set -x
-          extension_submitted=$(git diff --name-only ${base_sha} ${head_sha} | grep "${CSV_FILE}" || true)
+          set -euo pipefail
+          extension_submitted=$(git diff --name-only "${base_sha}" "${head_sha}" | grep "${CSV_FILE}" || true)
           if [[ -z "${extension_submitted}" ]]; then
             echo "::notice::No changes to ${CSV_FILE} found"
-            echo "SUBMISSION=false" >>${GITHUB_OUTPUT}
-            echo "DIFF=" >>${GITHUB_OUTPUT}
+            echo "SUBMISSION=false" >>"${GITHUB_OUTPUT}"
+            echo "DIFF=" >>"${GITHUB_OUTPUT}"
           else
             echo "::notice::Changes to ${CSV_FILE} found!"
-            git fetch origin ${base_ref} --depth=1
+            git fetch origin "${base_ref}" --depth=1
+            # A pull request that only removes or edits lines yields no additions,
+            # so grep exits 1 here on a legitimate path; that must not abort under
+            # `pipefail`.
             DIFF=$(
-              git diff origin/${base_ref} HEAD -- ${CSV_FILE} | grep '^+[^+]' | sed 's/^+//' | base64 --wrap=0
+              git diff "origin/${base_ref}" HEAD -- "${CSV_FILE}" | grep '^+[^+]' | sed 's/^+//' | base64 --wrap=0 || true
             )
             if [[ -z "${DIFF}" ]]; then
               echo "::notice::No additions to ${CSV_FILE} found"
-              echo "SUBMISSION=false" >>${GITHUB_OUTPUT}
-              echo "DIFF=" >>${GITHUB_OUTPUT}
+              echo "SUBMISSION=false" >>"${GITHUB_OUTPUT}"
+              echo "DIFF=" >>"${GITHUB_OUTPUT}"
             else
-              echo "SUBMISSION=true" >>${GITHUB_OUTPUT}
-              echo "DIFF=${DIFF}" >>${GITHUB_OUTPUT}
+              echo "SUBMISSION=true" >>"${GITHUB_OUTPUT}"
+              echo "DIFF=${DIFF}" >>"${GITHUB_OUTPUT}"
             fi
           fi
-          exit 0
 
   check-metadata:
     runs-on: ubuntu-latest
