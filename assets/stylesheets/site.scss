@@ -18,6 +18,16 @@ $is-dark: lightness($body-bg) < 50%;
 $accent-template: if($is-dark, #6cc4a1, #1f6b4d);
 $accent-example: if($is-dark, #e0a458, #8f5511);
 
+// Status accents. Colour carries severity, not the specific status: deprecated
+// and superseded share the negative accent and are told apart by their icon and
+// label, which is also what keeps the meaning available when hue is not (WCAG
+// 1.4.1). Statuses are mutually exclusive per card, so two of them are never
+// side by side to be compared.
+$status-positive: if($is-dark, #6cc4a1, #1f6b4d);
+$status-caution: if($is-dark, #5cc2d0, #0f6c78);
+$status-negative: if($is-dark, #f28b7f, #a32d21);
+$status-neutral: if($is-dark, #a8b0ba, #5a5f66);
+
 // ===========================================================================
 // NAVBAR TOKENS
 // ===========================================================================
@@ -310,14 +320,49 @@ $accent-example: if($is-dark, #e0a458, #8f5511);
   width: 100%;
 }
 
+// ===========================================================================
+// STATUS BANNERS
+// ===========================================================================
+// Previously Bootstrap alerts, whose palette is off-theme and whose `info` tint
+// put pale text on pale cyan. Each status is now a tint of its own accent with
+// that accent as the text and a leading rule, so the bar reads at a glance and
+// every colour clears 4.5:1 against its own tint in both schemes.
+// Flex items are blockified, so inline-block still stretches to a full-width
+// bar inside the card while staying an inline chip in the about page's legend,
+// which lists the same statuses in running text.
 .status-banner {
+  display: inline-block;
   font-size: 0.875rem;
-  border: none;
   margin: 0;
+  padding: 0.25rem 0.5rem;
+  border: none;
+  border-left: 3px solid currentcolor;
+  font-weight: 600;
 
   i {
     font-size: 0.875rem;
   }
+}
+
+.status-stable {
+  color: $status-positive;
+  background-color: rgba($status-positive, 0.14);
+}
+
+.status-experimental {
+  color: $status-caution;
+  background-color: rgba($status-caution, 0.14);
+}
+
+.status-deprecated,
+.status-superseded {
+  color: $status-negative;
+  background-color: rgba($status-negative, 0.14);
+}
+
+.status-archived {
+  color: $status-neutral;
+  background-color: rgba($status-neutral, 0.14);
 }
 
 // ===========================================================================

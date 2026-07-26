@@ -127,14 +127,20 @@
     };
 
     // Priority: superseded > deprecated > archived > experimental > stable.
+    // Every status carries a label and its own icon, so the meaning survives
+    // when the colour does not; superseded and deprecated previously shared
+    // both a colour and an icon and so were indistinguishable.
+    const STATUSES = [
+      { name: 'superseded', text: 'Superseded', icon: 'bi-arrow-right-circle-fill' },
+      { name: 'deprecated', text: 'Deprecated', icon: 'bi-exclamation-triangle-fill' },
+      { name: 'archived', text: 'Archived', icon: 'bi-archive-fill' },
+      { name: 'experimental', text: 'Experimental', icon: 'bi-flask' },
+      { name: 'stable', text: 'Stable', icon: 'bi-check-circle-fill' }
+    ];
+
     const statusBanner = (categories) => {
-      const lower = categories.map((c) => c.toLowerCase());
-      if (lower.includes('superseded')) return { text: 'Superseded', class: 'warning', icon: 'bi-exclamation-triangle-fill' };
-      if (lower.includes('deprecated')) return { text: 'Deprecated', class: 'warning', icon: 'bi-exclamation-triangle-fill' };
-      if (lower.includes('archived')) return { text: 'Archived', class: 'secondary', icon: 'bi-archive-fill' };
-      if (lower.includes('experimental')) return { text: 'Experimental', class: 'info', icon: 'bi-flask' };
-      if (lower.includes('stable')) return { text: 'Stable', class: 'success', icon: 'bi-check-circle-fill' };
-      return null;
+      const lower = new Set(categories.map((c) => c.toLowerCase()));
+      return STATUSES.find((status) => lower.has(status.name)) || null;
     };
 
     // -----------------------------------------------------------------------
@@ -258,8 +264,8 @@
           <div class="card-img-wrapper">
             <img src="${escapeHtml(image)}" loading="lazy" decoding="async" alt="${escapeHtml(imageAlt)}" class="card-img-top">
           </div>
-          ${banner ? `<div class="alert alert-${banner.class} status-banner mb-0 rounded-0 text-center py-1" role="status">
-            <i class="bi ${banner.icon}" aria-hidden="true"></i> <strong>${banner.text}</strong>
+          ${banner ? `<div class="status-banner status-${banner.name} text-center" role="status">
+            <i class="bi ${banner.icon}" aria-hidden="true"></i> ${banner.text}
           </div>` : ''}
           <div class="card-body d-flex flex-column">
             <div class="d-flex justify-content-between align-items-center mb-1 gap-2">
