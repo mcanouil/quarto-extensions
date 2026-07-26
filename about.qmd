@@ -27,10 +27,6 @@ This is a listing of [{{< iconify simple-icons:quarto title='Quarto Logo' label=
 
 ## Use with []{.quarto-wizard title="Quarto Wizard Logo" aria-label="Quarto Wizard Logo"} Quarto Wizard
 
-[![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/mcanouil.quarto-wizard?style=flat-square&color=333333&label=Visual%20Studio%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=mcanouil.quarto-wizard)
-[![Open VSX Downloads](https://img.shields.io/open-vsx/dt/mcanouil/quarto-wizard?style=flat-square&color=333333&label=Open%20VSX)](https://open-vsx.org/extension/mcanouil/quarto-wizard)
-[![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/mcanouil/quarto-wizard/total?style=flat-square&color=333333&label=GitHub)](https://github.com/mcanouil/quarto-wizard/releases/latest)
-
 [[]{.quarto-wizard title="Quarto Wizard Logo" aria-label="Quarto Wizard Logo"} Quarto Wizard](https://github.com/mcanouil/quarto-wizard) is a Visual Studio Code extension/Positron/Codium that helps you manage your [{{< iconify simple-icons:quarto title='Quarto Logo' label='Quarto Logo' >}} Quarto](https://quarto.org) projects.  
 It allows you to easily install Quarto extensions directly from the [Quarto Extensions](https://github.com/mcanouil/quarto-extensions) listing repository.  
 This extension provides a user-friendly interface to browse, select, and install Quarto extensions, enhancing your Quarto development experience.
@@ -59,11 +55,11 @@ Please make sure that:
 Extensions can display status banners to indicate their maintenance or development state.
 Add one of the following topics to your GitHub repository to display a status banner:
 
-- [{{< iconify bi:exclamation-triangle-fill >}} superseded]{.alert .alert-warning .mb-0 .rounded-0 .text-center .py-1 role="alert"} - For extensions that have been replaced by a newer version or alternative.
-- [{{< iconify bi:exclamation-triangle-fill >}} deprecated]{.alert .alert-warning .mb-0 .rounded-0 .text-center .py-1 role="alert"} - For extensions that are outdated and should not be used in new projects.
-- [{{< iconify bi:archive-fill >}} archived]{.alert .alert-secondary .mb-0 .rounded-0 .text-center .py-1 role="alert"} - For extensions that are no longer actively maintained.
-- [{{< iconify bi:flask >}} experimental]{.alert .alert-info .mb-0 .rounded-0 .text-center .py-1 role="alert"} - For extensions that are in early development or testing phase.
-- [{{< iconify bi:check-circle-fill >}} stable]{.alert .alert-success .mb-0 .rounded-0 .text-center .py-1 role="alert"} - For extensions that are production-ready and actively maintained.
+- [{{< iconify bi:arrow-right-circle-fill >}} superseded]{.status-banner .status-superseded} - For extensions that have been replaced by a newer version or alternative.
+- [{{< iconify bi:exclamation-triangle-fill >}} deprecated]{.status-banner .status-deprecated} - For extensions that are outdated and should not be used in new projects.
+- [{{< iconify bi:archive-fill >}} archived]{.status-banner .status-archived} - For extensions that are no longer actively maintained.
+- [{{< iconify bi:flask >}} experimental]{.status-banner .status-experimental} - For extensions that are in early development or testing phase.
+- [{{< iconify bi:check-circle-fill >}} stable]{.status-banner .status-stable} - For extensions that are production-ready and actively maintained.
 
 If multiple status topics are present, the priority order is: `superseded` > `deprecated` > `archived` > `experimental` > `stable`.
 
