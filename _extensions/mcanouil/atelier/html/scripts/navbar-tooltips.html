@@ -27,12 +27,30 @@
 			}
 		}
 
-		document.querySelectorAll("#quarto-header .navbar a.nav-link").forEach(function (link) {
+		// An icon-only link carries its name on the glyph. Iconify puts it on an
+		// <iconify-icon>, but a glyph is just as often an empty element painted
+		// with a CSS mask or holding an inline SVG, so fall back to the first
+		// empty labelled descendant instead of assuming one element type.
+		// Emptiness is what distinguishes a glyph from a labelled control that
+		// happens to sit inside the link.
+		function glyphOf(link) {
 			var icon = link.querySelector("iconify-icon");
+			if (icon) return icon;
+			var candidates = link.querySelectorAll("[aria-label], [title]");
+			for (var i = 0; i < candidates.length; i++) {
+				if (!candidates[i].textContent.replace(/\s+/g, " ").trim()) return candidates[i];
+			}
+			return null;
+		}
+
+		document.querySelectorAll("#quarto-header .navbar a.nav-link").forEach(function (link) {
+			var icon = glyphOf(link);
 			var visibleText = link.textContent.replace(/\s+/g, " ").trim();
 			var label = (icon && (icon.getAttribute("aria-label") || icon.getAttribute("title"))) || visibleText;
 			// The icon is decorative once the link is named; hiding it avoids a
 			// doubled screen-reader announcement (e.g. "Credits Credits").
+			// Dropping its title also suppresses the browser's own tooltip, which
+			// would otherwise appear unstyled alongside the themed one.
 			if (icon) {
 				icon.removeAttribute("title");
 				icon.setAttribute("aria-hidden", "true");
