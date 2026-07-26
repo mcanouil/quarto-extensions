@@ -23,12 +23,10 @@ if [[ ! -f "${RESULTS_FILE}" ]]; then
   echo '{}' >"${RESULTS_FILE}"
 fi
 
-# Map "owner/repo" to the social card that is actually on disk, preferring WebP
-# over the legacy PNG so the index stays correct while the data branch is being
-# converted. Cards without an image fall back to the placeholder client-side.
+# Map "owner/repo" to the social card that is actually on disk. Cards without an
+# image fall back to the placeholder client-side.
 images=$(
-  find "${EXTENSIONS_DIR}" -mindepth 3 -maxdepth 3 -type f \
-    \( -name 'extension.webp' -o -name 'extension.png' \) -print |
+  find "${EXTENSIONS_DIR}" -mindepth 3 -maxdepth 3 -type f -name 'extension.webp' -print |
     jq -R -s '
       split("\n")
       | map(select(length > 0))
