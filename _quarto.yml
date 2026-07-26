@@ -7,7 +7,11 @@ project:
     # without it it is rejected as non-fast-forward once the branch exists
     # locally, which is every run after the first.
     - bash assets/scripts/fetch-data-branch.sh quarto-wizard
-    - git restore --source=quarto-wizard --worktree "extensions"
+    # `--overlay` is required: git restore defaults to --no-overlay, which
+    # deletes worktree files absent from the source, and the data branch has no
+    # quarto-extensions.csv. Without it the render removes the submission
+    # registry, which lives only on main.
+    - git restore --overlay --source=quarto-wizard --worktree "extensions"
     - git restore --source=quarto-wizard quarto-extensions.json
     - mv quarto-extensions.json extensions.json
     - bash -c "bash assets/scripts/fetch-data-branch.sh quarto-tests || true"
