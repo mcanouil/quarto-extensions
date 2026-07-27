@@ -262,9 +262,10 @@ body .navbar .gitlink-widget-dropdown {
 // ===========================================================================
 // COLLAPSED NAVBAR (mobile)
 // ===========================================================================
-// Below the expand breakpoint, keep the collapsed menu a wrapping row and stop
+// Below the expand breakpoint, keep the collapsed menu a wrapping row, stop
 // Bootstrap's navbar-nav-scroll (max-height + overflow-y) from clipping an
-// absolutely-positioned dropdown; re-anchor navbar dropdowns to absolute.
+// absolutely-positioned dropdown by re-anchoring navbar dropdowns to absolute,
+// and regroup the bar as toggler, brand, then tools.
 @media (max-width: 991.98px) {
   .navbar .navbar-collapse .navbar-nav {
     flex-direction: row;
@@ -284,6 +285,21 @@ body .navbar .gitlink-widget-dropdown {
     position: absolute;
     top: 100%;
     left: 0;
+  }
+
+  // Quarto orders the collapsed bar as toggler, brand, tools, search, pins the
+  // brand's inline margins to 0 !important, and hands all the free space to the
+  // search's `margin-left: auto`; that strands the colour-scheme toggle beside
+  // the brand while the search sits alone at the far right. Zero the search
+  // margin and give the brand the auto margins instead, so the free space lands
+  // either side of it: toggler left, brand centred, toggle and search grouped
+  // right. !important is required to beat Quarto's own !important margins.
+  .navbar.navbar-expand-lg .navbar-container > .navbar-brand-container {
+    margin-inline: auto !important;
+  }
+
+  .navbar.navbar-expand-lg .navbar-container > #quarto-search {
+    margin-left: 0;
   }
 }
 
