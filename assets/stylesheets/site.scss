@@ -29,34 +29,13 @@ $status-negative: if($is-dark, #f28b7f, #a32d21);
 $status-neutral: if($is-dark, #a8b0ba, #5a5f66);
 
 // ===========================================================================
-// NAVBAR TOKENS
-// ===========================================================================
-// Atelier pins the navbar and footer dark in both schemes and exposes these
-// tokens for a site to repaint them. Match the catalogue's palette: the dark
-// page background as the bar surface, the brand blue as the accent.
-// The dark-pinned bars use the dark end of the palette in both schemes, taken
-// from the `$brand-*` variables generated from _brand.yml so those values are
-// not restated here. Surface and muted have no palette entry and are picked by
-// hand: mixing them off the bar background desaturates the blue tint and, for
-// muted, drops it from 7.05:1 to 5.06:1 against the bar.
-:root {
-  --atelier-navbar-bg: #{$brand-paper-dark};
-  --atelier-navbar-surface: #1f2630;
-  --atelier-navbar-fg: #{$brand-ink-dark};
-  --atelier-navbar-muted: #9aa7b4;
-  --atelier-navbar-accent: #{$brand-blue-dark};
-  --atelier-navbar-accent-soft: #{rgba($brand-blue-dark, 0.16)};
-  --atelier-navbar-border: #{rgba($brand-ink-dark, 0.14)};
-}
-
-// ===========================================================================
 // BRAND GLYPHS
 // ===========================================================================
 // Rendered as `[]{.quarto-wizard}` in the navbar, about.qmd and the install
-// modal. A mask keeps the glyph on currentColor so it reads on the dark navbar
-// and in body copy alike. Quarto resolves url() against this stylesheet and
-// copies the file into the compiled bundle, so the path is relative to
-// assets/stylesheets/ and independent of the site's base path.
+// modal. A mask keeps the glyph on currentColor so it reads on the navbar and
+// in body copy alike, in either scheme. Quarto resolves url() against this
+// stylesheet and copies the file into the compiled bundle, so the path is
+// relative to assets/stylesheets/ and independent of the site's base path.
 .quarto-wizard {
   display: inline-block;
   aspect-ratio: 1 / 1;
