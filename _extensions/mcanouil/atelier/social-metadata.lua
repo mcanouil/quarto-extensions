@@ -31,9 +31,13 @@ local ICON_LINKS = {
   { option = 'manifest', rel = 'manifest' },
 }
 
---- Colour schemes read from the `theme-color` option, in head order.
+--- Colour schemes carrying a `theme-color` tag, in head order.
 --- @type string[]
 local THEME_COLOUR_SCHEMES = { 'light', 'dark' }
+
+--- Brand colour that paints the page background, and so the browser UI tint.
+--- @type string
+local BRAND_BACKGROUND_COLOUR = 'background'
 
 --- Name of the page Quarto renders for missing paths. It is served from any
 --- URL depth, so it must not claim a URL of its own.
@@ -159,17 +163,32 @@ local function icon_tags(config)
   return tags
 end
 
+--- The browser UI tint for one colour scheme.
+--- Falls back to the brand background of that mode, which is the colour Quarto
+--- compiles into `$body-bg` for the matching theme bundle, and so the colour
+--- the page is actually painted with. A configured value wins per scheme.
+--- @param config table|nil The `extensions.atelier` configuration table
+--- @param scheme string The colour scheme, `light` or `dark`
+--- @return string|nil The colour, or nil when neither source supplies one
+local function theme_colour(config, scheme)
+  local colours = config and config['theme-color']
+  local configured = colours and colours[scheme] and str.stringify(colours[scheme])
+  if not str.is_empty(configured) then
+    return configured
+  end
+  if quarto.brand.has_mode(scheme) then
+    return quarto.brand.get_color_css(scheme, BRAND_BACKGROUND_COLOUR)
+  end
+  return nil
+end
+
 --- Collect the `theme-color` tags for the page.
 --- @param config table|nil The `extensions.atelier` configuration table
 --- @return table<integer, string>
 local function theme_colour_tags(config)
   local tags = {}
-  local colours = config and config['theme-color']
-  if not colours then
-    return tags
-  end
   for _, scheme in ipairs(THEME_COLOUR_SCHEMES) do
-    local colour = colours[scheme] and str.stringify(colours[scheme])
+    local colour = theme_colour(config, scheme)
     if not str.is_empty(colour) then
       table.insert(
         tags,
