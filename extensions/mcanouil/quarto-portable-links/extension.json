@@ -5,15 +5,15 @@
     "nameWithOwner": "mcanouil/quarto-portable-links",
     "owner": "mcanouil",
     "description": "Rewrite relative cross-page links to absolute site-url links for non-HTML Quarto formats.",
-    "openGraphImageUrl": "https://repository-images.githubusercontent.com/github-production-repository-image-32fea6/1246595688/a32ae86b-7eb7-4d50-a99d-3436b756a689?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260801%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260801T080051Z&X-Amz-Expires=300&X-Amz-Signature=aff8d79dba09f15240b4323fd03695570b6e08da51b10c4748a1581e1d4026fe&X-Amz-SignedHeaders=host&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoiaHR0cHM6Ly9yZXBvc2l0b3J5LWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NTU3MTU1MSwibmJmIjoxNzg1NTcxMjUxLCJwYXRoIjoicmVwb3NpdG9yeS1pbWFnZXMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIn0.mxxe9uW3eM805d_1kbG-xVQxwfTIEdf9A2mQUNZyY4Q",
+    "openGraphImageUrl": "https://repository-images.githubusercontent.com/github-production-repository-image-32fea6/1246595688/a32ae86b-7eb7-4d50-a99d-3436b756a689?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260801%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260801T180036Z&X-Amz-Expires=300&X-Amz-Signature=b408b1e9e15a5feff6a9df50ca3619673fa3fdc06bc9c991b0889308b579483b&X-Amz-SignedHeaders=host&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoiaHR0cHM6Ly9yZXBvc2l0b3J5LWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NTYwNzUzNiwibmJmIjoxNzg1NjA3MjM2LCJwYXRoIjoicmVwb3NpdG9yeS1pbWFnZXMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIn0.iCO6ZSHA57IuqzZ8QWwVgEbmZkvzr39CnalrxBuUEXA",
     "stargazerCount": 3,
     "licenseInfo": "MIT License",
     "url": "https://github.com/mcanouil/quarto-portable-links",
-    "latestRelease": "0.2.0",
-    "latestReleaseUrl": "https://github.com/mcanouil/quarto-portable-links/releases/tag/0.2.0",
+    "latestRelease": "0.2.1",
+    "latestReleaseUrl": "https://github.com/mcanouil/quarto-portable-links/releases/tag/0.2.1",
     "createdAt": "2026-05-22T10:56:53Z",
-    "updatedAt": "2026-07-31T21:34:48Z",
-    "pushedAt": "2026-08-01T07:53:04Z",
+    "updatedAt": "2026-08-01T17:59:09Z",
+    "pushedAt": "2026-08-01T18:00:18Z",
     "defaultBranchRef": "main",
     "repositoryTopics": [
       "book",
@@ -29,9 +29,13 @@
     "author": "Mickaël Canouil",
     "template": false,
     "example": true,
-    "latestCommit": "2c15366b7a576df29f4f8ee08210ab0ec96bd1ed",
+    "latestCommit": "a71162fe859408a21eb6d992836925a87a5f3f6b",
     "contributes": [
-      "filter"
+      "filter",
+      "format",
+      "metadata",
+      "project",
+      "shortcode"
     ],
     "quartoRequired": ">=1.6"
   }
