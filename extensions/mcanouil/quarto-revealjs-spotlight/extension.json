@@ -5,15 +5,15 @@
     "nameWithOwner": "mcanouil/quarto-revealjs-spotlight",
     "owner": "mcanouil",
     "description": "A Quarto extension for Reveal.js allowing to highlight the current mouse position with a spotlight.",
-    "openGraphImageUrl": "https://repository-images.githubusercontent.com/github-production-repository-image-32fea6/599963298/74245a9e-59d3-4180-bb12-10ff6e50f4b1?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260801%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260801T180036Z&X-Amz-Expires=300&X-Amz-Signature=9c4bed65561212e0e77e609a1b5f4fd6104f21c74ed2424aa3a43a95c8e4e23c&X-Amz-SignedHeaders=host&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoiaHR0cHM6Ly9yZXBvc2l0b3J5LWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NTYwNzUzNiwibmJmIjoxNzg1NjA3MjM2LCJwYXRoIjoicmVwb3NpdG9yeS1pbWFnZXMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIn0.iCO6ZSHA57IuqzZ8QWwVgEbmZkvzr39CnalrxBuUEXA",
+    "openGraphImageUrl": "https://repository-images.githubusercontent.com/github-production-repository-image-32fea6/599963298/74245a9e-59d3-4180-bb12-10ff6e50f4b1?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260801%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260801T214441Z&X-Amz-Expires=300&X-Amz-Signature=a60c456aca05c7ec0067a5c23711653ffbfea2bc9306006665ab0776db6cc9ae&X-Amz-SignedHeaders=host&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoiaHR0cHM6Ly9yZXBvc2l0b3J5LWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NTYyMDk4MSwibmJmIjoxNzg1NjIwNjgxLCJwYXRoIjoicmVwb3NpdG9yeS1pbWFnZXMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIn0.pkP25YBTEWzSBBX-JGMhaiWxmfADpsai2vPq-ddbVlo",
     "stargazerCount": 30,
     "licenseInfo": "MIT License",
     "url": "https://github.com/mcanouil/quarto-revealjs-spotlight",
-    "latestRelease": "1.2.0",
-    "latestReleaseUrl": "https://github.com/mcanouil/quarto-revealjs-spotlight/releases/tag/1.2.0",
+    "latestRelease": "1.2.1",
+    "latestReleaseUrl": "https://github.com/mcanouil/quarto-revealjs-spotlight/releases/tag/1.2.1",
     "createdAt": "2023-02-10T09:16:45Z",
-    "updatedAt": "2026-08-01T17:59:49Z",
-    "pushedAt": "2026-08-01T17:59:46Z",
+    "updatedAt": "2026-08-01T19:53:30Z",
+    "pushedAt": "2026-08-01T19:53:27Z",
     "defaultBranchRef": "main",
     "repositoryTopics": [
       "reveal.js",
@@ -24,9 +24,14 @@
     "author": "Mickaël Canouil",
     "template": false,
     "example": true,
-    "latestCommit": "e9a01f9a78899f10362d64b3bb942218884cbe2d",
+    "latestCommit": "ef0a89ba08a4a98af0e2107eb9b9e55c9d76f005",
     "contributes": [
-      "revealjs-plugin"
+      "filter",
+      "format",
+      "metadata",
+      "project",
+      "revealjs-plugin",
+      "shortcode"
     ],
     "quartoRequired": ">=1.2.280"
   }
