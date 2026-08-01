@@ -5,15 +5,15 @@
     "nameWithOwner": "mcanouil/quarto-revealjs-fragmention",
     "owner": "mcanouil",
     "description": "A Quarto extension to hoist fragment attributes to list items in Reveal.JS presentations.",
-    "openGraphImageUrl": "https://repository-images.githubusercontent.com/github-production-repository-image-32fea6/1202024792/99046f54-5dd4-414a-b62f-2f7c1fdb39e3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260801%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260801T180036Z&X-Amz-Expires=300&X-Amz-Signature=1c6d59f8c21ae2efa13ef887a8af6ded3edf1206e1c61e2a48f5f1629f2ce807&X-Amz-SignedHeaders=host&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoiaHR0cHM6Ly9yZXBvc2l0b3J5LWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NTYwNzUzNiwibmJmIjoxNzg1NjA3MjM2LCJwYXRoIjoicmVwb3NpdG9yeS1pbWFnZXMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIn0.iCO6ZSHA57IuqzZ8QWwVgEbmZkvzr39CnalrxBuUEXA",
+    "openGraphImageUrl": "https://repository-images.githubusercontent.com/github-production-repository-image-32fea6/1202024792/99046f54-5dd4-414a-b62f-2f7c1fdb39e3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260801%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260801T214441Z&X-Amz-Expires=300&X-Amz-Signature=2148aacba4978bee9ba87b9ad0f8e0738cae15f78bc6c807b52bcbf3424c7864&X-Amz-SignedHeaders=host&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoiaHR0cHM6Ly9yZXBvc2l0b3J5LWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NTYyMDk4MSwibmJmIjoxNzg1NjIwNjgxLCJwYXRoIjoicmVwb3NpdG9yeS1pbWFnZXMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIn0.pkP25YBTEWzSBBX-JGMhaiWxmfADpsai2vPq-ddbVlo",
     "stargazerCount": 5,
     "licenseInfo": "MIT License",
     "url": "https://github.com/mcanouil/quarto-revealjs-fragmention",
-    "latestRelease": "0.2.0",
-    "latestReleaseUrl": "https://github.com/mcanouil/quarto-revealjs-fragmention/releases/tag/0.2.0",
+    "latestRelease": "0.2.1",
+    "latestReleaseUrl": "https://github.com/mcanouil/quarto-revealjs-fragmention/releases/tag/0.2.1",
     "createdAt": "2026-04-05T13:50:59Z",
-    "updatedAt": "2026-08-01T17:59:47Z",
-    "pushedAt": "2026-08-01T17:59:40Z",
+    "updatedAt": "2026-08-01T19:53:08Z",
+    "pushedAt": "2026-08-01T19:53:04Z",
     "defaultBranchRef": "main",
     "repositoryTopics": [
       "experimental",
@@ -27,9 +27,13 @@
     "author": "Mickaël Canouil",
     "template": false,
     "example": true,
-    "latestCommit": "9bff2fe726d8a530f89fd3ace9df41910975a732",
+    "latestCommit": "7f4a07429c8dbef5c70d71260f6838332598eecf",
     "contributes": [
-      "filter"
+      "filter",
+      "format",
+      "metadata",
+      "project",
+      "shortcode"
     ],
     "quartoRequired": ">=1.9.36"
   }
