@@ -5,15 +5,15 @@
     "nameWithOwner": "mcanouil/quarto-highlight-text",
     "owner": "mcanouil",
     "description": "Quarto extension that allows to highlight text in a document for various formats: HTML, LaTeX, Typst, Docx, PowerPoint, Reveal.js, and Beamer.",
-    "openGraphImageUrl": "https://repository-images.githubusercontent.com/github-production-repository-image-32fea6/795686327/491f7677-f471-429e-a800-72f605efdfbc?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260801%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260801T080051Z&X-Amz-Expires=300&X-Amz-Signature=160fe24d31f6c7345ed730790f28371439f3d81daf980eb595135111780701b2&X-Amz-SignedHeaders=host&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoiaHR0cHM6Ly9yZXBvc2l0b3J5LWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NTU3MTU1MSwibmJmIjoxNzg1NTcxMjUxLCJwYXRoIjoicmVwb3NpdG9yeS1pbWFnZXMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIn0.mxxe9uW3eM805d_1kbG-xVQxwfTIEdf9A2mQUNZyY4Q",
+    "openGraphImageUrl": "https://repository-images.githubusercontent.com/github-production-repository-image-32fea6/795686327/491f7677-f471-429e-a800-72f605efdfbc?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260801%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260801T180032Z&X-Amz-Expires=300&X-Amz-Signature=ee8b7aa15c0c502f84c1009841cbdcdf789d20a84a443b5e7f5fa97da5804525&X-Amz-SignedHeaders=host&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoiaHR0cHM6Ly9yZXBvc2l0b3J5LWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NTYwNzUzMiwibmJmIjoxNzg1NjA3MjMyLCJwYXRoIjoicmVwb3NpdG9yeS1pbWFnZXMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIn0.DHKKy2IQ5EnDLJdi9tWnfUPv7VnTtgBBtv4-ddSJ2jA",
     "stargazerCount": 53,
     "licenseInfo": "MIT License",
     "url": "https://github.com/mcanouil/quarto-highlight-text",
-    "latestRelease": "2.3.0",
-    "latestReleaseUrl": "https://github.com/mcanouil/quarto-highlight-text/releases/tag/2.3.0",
+    "latestRelease": "2.3.1",
+    "latestReleaseUrl": "https://github.com/mcanouil/quarto-highlight-text/releases/tag/2.3.1",
     "createdAt": "2024-05-03T20:09:15Z",
-    "updatedAt": "2026-07-31T21:34:06Z",
-    "pushedAt": "2026-08-01T07:52:45Z",
+    "updatedAt": "2026-08-01T17:58:10Z",
+    "pushedAt": "2026-08-01T18:00:06Z",
     "defaultBranchRef": "main",
     "repositoryTopics": [
       "docx",
@@ -29,9 +29,13 @@
     "author": "Mickaël Canouil",
     "template": false,
     "example": true,
-    "latestCommit": "0d02dffc481cf356fb4a6fd538abd9b8e3ef6f12",
+    "latestCommit": "2358c7c00b6171e491ca63a92d9457bb591dfffa",
     "contributes": [
-      "filter"
+      "filter",
+      "format",
+      "metadata",
+      "project",
+      "shortcode"
     ],
     "quartoRequired": ">=1.7.29"
   }
