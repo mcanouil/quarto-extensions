@@ -5,15 +5,15 @@
     "nameWithOwner": "mcanouil/quarto-typst-render",
     "owner": "mcanouil",
     "description": "Quarto extension to compile Typst code blocks to images (PNG, SVG, PDF) for use across all output formats.",
-    "openGraphImageUrl": "https://repository-images.githubusercontent.com/github-production-repository-image-32fea6/1176030905/0d4bffe0-0138-44b4-8afd-476c18fede15?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260801%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260801T180036Z&X-Amz-Expires=300&X-Amz-Signature=6bfeaff4db32544f83b1bc9bf572edfb953268cb1e69677f7ee6bfcdc3faec3b&X-Amz-SignedHeaders=host&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoiaHR0cHM6Ly9yZXBvc2l0b3J5LWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NTYwNzUzNiwibmJmIjoxNzg1NjA3MjM2LCJwYXRoIjoicmVwb3NpdG9yeS1pbWFnZXMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIn0.iCO6ZSHA57IuqzZ8QWwVgEbmZkvzr39CnalrxBuUEXA",
+    "openGraphImageUrl": "https://repository-images.githubusercontent.com/github-production-repository-image-32fea6/1176030905/0d4bffe0-0138-44b4-8afd-476c18fede15?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260801%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260801T214441Z&X-Amz-Expires=300&X-Amz-Signature=5e0cfc876f8d465cf7f9bf1cc30b842097b549151180cde02f8e1f851dbbf0c6&X-Amz-SignedHeaders=host&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoiaHR0cHM6Ly9yZXBvc2l0b3J5LWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NTYyMDk4MSwibmJmIjoxNzg1NjIwNjgxLCJwYXRoIjoicmVwb3NpdG9yeS1pbWFnZXMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIn0.pkP25YBTEWzSBBX-JGMhaiWxmfADpsai2vPq-ddbVlo",
     "stargazerCount": 43,
     "licenseInfo": "MIT License",
     "url": "https://github.com/mcanouil/quarto-typst-render",
-    "latestRelease": "0.20.0",
-    "latestReleaseUrl": "https://github.com/mcanouil/quarto-typst-render/releases/tag/0.20.0",
+    "latestRelease": "0.20.1",
+    "latestReleaseUrl": "https://github.com/mcanouil/quarto-typst-render/releases/tag/0.20.1",
     "createdAt": "2026-03-08T14:22:30Z",
-    "updatedAt": "2026-08-01T17:11:36Z",
-    "pushedAt": "2026-08-01T18:00:18Z",
+    "updatedAt": "2026-08-01T20:05:32Z",
+    "pushedAt": "2026-08-01T20:05:29Z",
     "defaultBranchRef": "main",
     "repositoryTopics": [
       "experimental",
@@ -25,9 +25,13 @@
     "author": "Mickaël Canouil",
     "template": false,
     "example": true,
-    "latestCommit": "775da63acef0cad95cb7446b67e083dac5f93b2a",
+    "latestCommit": "04a3f802f744facc45c6e6c5f69e0bf414c6e059",
     "contributes": [
-      "filter"
+      "filter",
+      "format",
+      "metadata",
+      "project",
+      "shortcode"
     ],
     "quartoRequired": ">=1.10.18"
   }
