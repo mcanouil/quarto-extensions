@@ -5,15 +5,15 @@
     "nameWithOwner": "mcanouil/quarto-toc-depth",
     "owner": "mcanouil",
     "description": "A Quarto extension that provides fine-grained control over table of contents depth at the header level.",
-    "openGraphImageUrl": "https://repository-images.githubusercontent.com/github-production-repository-image-32fea6/1037557582/2c019f19-9d9b-43eb-afed-2dfa3b293589?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260801%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260801T180036Z&X-Amz-Expires=300&X-Amz-Signature=b891aa6f2b0f1c82758f182cead0412e99b5a274de89bff5639b9be8eb049c02&X-Amz-SignedHeaders=host&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoiaHR0cHM6Ly9yZXBvc2l0b3J5LWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NTYwNzUzNiwibmJmIjoxNzg1NjA3MjM2LCJwYXRoIjoicmVwb3NpdG9yeS1pbWFnZXMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIn0.iCO6ZSHA57IuqzZ8QWwVgEbmZkvzr39CnalrxBuUEXA",
+    "openGraphImageUrl": "https://repository-images.githubusercontent.com/github-production-repository-image-32fea6/1037557582/2c019f19-9d9b-43eb-afed-2dfa3b293589?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260801%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260801T214441Z&X-Amz-Expires=300&X-Amz-Signature=632cf0455e31f9172ec99e8fc0095862a8c94b8158f8cf0c84ef555a173e35af&X-Amz-SignedHeaders=host&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoiaHR0cHM6Ly9yZXBvc2l0b3J5LWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NTYyMDk4MSwibmJmIjoxNzg1NjIwNjgxLCJwYXRoIjoicmVwb3NpdG9yeS1pbWFnZXMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIn0.pkP25YBTEWzSBBX-JGMhaiWxmfADpsai2vPq-ddbVlo",
     "stargazerCount": 7,
     "licenseInfo": "MIT License",
     "url": "https://github.com/mcanouil/quarto-toc-depth",
-    "latestRelease": "0.6.0",
-    "latestReleaseUrl": "https://github.com/mcanouil/quarto-toc-depth/releases/tag/0.6.0",
+    "latestRelease": "0.6.1",
+    "latestReleaseUrl": "https://github.com/mcanouil/quarto-toc-depth/releases/tag/0.6.1",
     "createdAt": "2025-08-13T18:53:39Z",
-    "updatedAt": "2026-08-01T18:00:27Z",
-    "pushedAt": "2026-08-01T18:00:12Z",
+    "updatedAt": "2026-08-01T19:53:32Z",
+    "pushedAt": "2026-08-01T19:53:28Z",
     "defaultBranchRef": "main",
     "repositoryTopics": [
       "experimental",
@@ -25,9 +25,13 @@
     "author": "Mickaël Canouil",
     "template": false,
     "example": true,
-    "latestCommit": "145f106860d4a20915a60f0f8ca652dee70c0aa5",
+    "latestCommit": "76945745d3e0d64f5d2e00f3b0d3d09560c33f82",
     "contributes": [
-      "filter"
+      "filter",
+      "format",
+      "metadata",
+      "project",
+      "shortcode"
     ],
     "quartoRequired": ">=1.7.33"
   }
