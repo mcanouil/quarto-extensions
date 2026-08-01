@@ -5,15 +5,15 @@
     "nameWithOwner": "mcanouil/quarto-prism",
     "owner": "mcanouil",
     "description": "Attach format-specific values to a single Div, Span, or CodeBlock and let each output pick its own.",
-    "openGraphImageUrl": "https://repository-images.githubusercontent.com/github-production-repository-image-32fea6/1228060392/05a24279-c5b2-4de4-a668-05a11ee54779?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260801%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260801T180036Z&X-Amz-Expires=300&X-Amz-Signature=bd0202e4ae7a5a0a4e4af412fe8648ba53e54fc149e2775760d558d15792d525&X-Amz-SignedHeaders=host&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoiaHR0cHM6Ly9yZXBvc2l0b3J5LWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NTYwNzUzNiwibmJmIjoxNzg1NjA3MjM2LCJwYXRoIjoicmVwb3NpdG9yeS1pbWFnZXMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIn0.iCO6ZSHA57IuqzZ8QWwVgEbmZkvzr39CnalrxBuUEXA",
+    "openGraphImageUrl": "https://repository-images.githubusercontent.com/github-production-repository-image-32fea6/1228060392/05a24279-c5b2-4de4-a668-05a11ee54779?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260801%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260801T214441Z&X-Amz-Expires=300&X-Amz-Signature=19e3955d22195a04167c0c6f48a9e12a2c98385a2314af94db511592933ac8e5&X-Amz-SignedHeaders=host&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoiaHR0cHM6Ly9yZXBvc2l0b3J5LWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NTYyMDk4MSwibmJmIjoxNzg1NjIwNjgxLCJwYXRoIjoicmVwb3NpdG9yeS1pbWFnZXMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIn0.pkP25YBTEWzSBBX-JGMhaiWxmfADpsai2vPq-ddbVlo",
     "stargazerCount": 8,
     "licenseInfo": "MIT License",
     "url": "https://github.com/mcanouil/quarto-prism",
-    "latestRelease": "0.4.1",
-    "latestReleaseUrl": "https://github.com/mcanouil/quarto-prism/releases/tag/0.4.1",
+    "latestRelease": "0.4.2",
+    "latestReleaseUrl": "https://github.com/mcanouil/quarto-prism/releases/tag/0.4.2",
     "createdAt": "2026-05-03T14:42:06Z",
-    "updatedAt": "2026-08-01T17:56:55Z",
-    "pushedAt": "2026-08-01T17:58:21Z",
+    "updatedAt": "2026-08-01T19:52:16Z",
+    "pushedAt": "2026-08-01T19:52:12Z",
     "defaultBranchRef": "main",
     "repositoryTopics": [
       "conditional-attributes",
@@ -29,10 +29,14 @@
     "author": "Mickaël Canouil",
     "template": false,
     "example": true,
-    "latestCommit": "fe812215cb0a29ac176cf5fa99bc49a55e87ce4d",
+    "latestCommit": "3bf7c4cbd209e44e10e1ed0f08c96228e6509311",
     "contributes": [
-      "filter"
+      "filter",
+      "format",
+      "metadata",
+      "project",
+      "shortcode"
     ],
-    "quartoRequired": ">=1.8.21"
+    "quartoRequired": ">=1.9.38"
   }
 }
