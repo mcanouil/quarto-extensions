@@ -5,15 +5,15 @@
     "nameWithOwner": "mcanouil/quarto-revealjs-cascade",
     "owner": "mcanouil",
     "description": "A Quarto extension that automatically repeats the heading chain for Reveal.js slides following the DRY principle.",
-    "openGraphImageUrl": "https://repository-images.githubusercontent.com/github-production-repository-image-32fea6/1205248626/b4b9a591-1fc1-43cd-b0c9-567ebc242c15?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260801%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260801T180036Z&X-Amz-Expires=300&X-Amz-Signature=18d5da79e8522457e7274e49814607990efed147d092bcd9ba3961709c48b5bb&X-Amz-SignedHeaders=host&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoiaHR0cHM6Ly9yZXBvc2l0b3J5LWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NTYwNzUzNiwibmJmIjoxNzg1NjA3MjM2LCJwYXRoIjoicmVwb3NpdG9yeS1pbWFnZXMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIn0.iCO6ZSHA57IuqzZ8QWwVgEbmZkvzr39CnalrxBuUEXA",
+    "openGraphImageUrl": "https://repository-images.githubusercontent.com/github-production-repository-image-32fea6/1205248626/b4b9a591-1fc1-43cd-b0c9-567ebc242c15?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260801%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260801T214441Z&X-Amz-Expires=300&X-Amz-Signature=ec8e847ed457d197528e2f14a09f332429872ba831e928479fbc2bad7059887c&X-Amz-SignedHeaders=host&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoiaHR0cHM6Ly9yZXBvc2l0b3J5LWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NTYyMDk4MSwibmJmIjoxNzg1NjIwNjgxLCJwYXRoIjoicmVwb3NpdG9yeS1pbWFnZXMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIn0.pkP25YBTEWzSBBX-JGMhaiWxmfADpsai2vPq-ddbVlo",
     "stargazerCount": 9,
     "licenseInfo": "MIT License",
     "url": "https://github.com/mcanouil/quarto-revealjs-cascade",
-    "latestRelease": "1.0.0",
-    "latestReleaseUrl": "https://github.com/mcanouil/quarto-revealjs-cascade/releases/tag/1.0.0",
+    "latestRelease": "1.0.1",
+    "latestReleaseUrl": "https://github.com/mcanouil/quarto-revealjs-cascade/releases/tag/1.0.1",
     "createdAt": "2026-04-08T19:30:00Z",
-    "updatedAt": "2026-08-01T17:59:28Z",
-    "pushedAt": "2026-08-01T17:59:24Z",
+    "updatedAt": "2026-08-01T19:52:32Z",
+    "pushedAt": "2026-08-01T19:52:27Z",
     "defaultBranchRef": "main",
     "repositoryTopics": [
       "dry",
@@ -26,9 +26,13 @@
     "author": "Mickaël Canouil",
     "template": false,
     "example": true,
-    "latestCommit": "1bb294fb24476042923293383bf8a97fae7a5d8f",
+    "latestCommit": "fa2f13851e611ff0c536494706ab7996b7668e9d",
     "contributes": [
-      "filter"
+      "filter",
+      "format",
+      "metadata",
+      "project",
+      "shortcode"
     ],
     "quartoRequired": ">=1.9.36"
   }
