@@ -5,15 +5,15 @@
     "nameWithOwner": "mcanouil/quarto-revealjs-tabset",
     "owner": "mcanouil",
     "description": "Quarto extension enabling proper tabset navigation with keyboard controls and PDF export support for Reveal.js presentations.",
-    "openGraphImageUrl": "https://repository-images.githubusercontent.com/github-production-repository-image-32fea6/1103381201/556de1ad-e8b5-49dd-b928-9a07b7f31866?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260801%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260801T180036Z&X-Amz-Expires=300&X-Amz-Signature=bb2f4ffe694753189b1f11403f3870d44e8fd16fef699ede09db72e2bee90681&X-Amz-SignedHeaders=host&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoiaHR0cHM6Ly9yZXBvc2l0b3J5LWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NTYwNzUzNiwibmJmIjoxNzg1NjA3MjM2LCJwYXRoIjoicmVwb3NpdG9yeS1pbWFnZXMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIn0.iCO6ZSHA57IuqzZ8QWwVgEbmZkvzr39CnalrxBuUEXA",
+    "openGraphImageUrl": "https://repository-images.githubusercontent.com/github-production-repository-image-32fea6/1103381201/556de1ad-e8b5-49dd-b928-9a07b7f31866?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260801%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260801T214441Z&X-Amz-Expires=300&X-Amz-Signature=8cfeed3935134f86594da4ce7c415852596f65766919ea850d8e81c8b422156f&X-Amz-SignedHeaders=host&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoiaHR0cHM6Ly9yZXBvc2l0b3J5LWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NTYyMDk4MSwibmJmIjoxNzg1NjIwNjgxLCJwYXRoIjoicmVwb3NpdG9yeS1pbWFnZXMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIn0.pkP25YBTEWzSBBX-JGMhaiWxmfADpsai2vPq-ddbVlo",
     "stargazerCount": 6,
     "licenseInfo": "MIT License",
     "url": "https://github.com/mcanouil/quarto-revealjs-tabset",
-    "latestRelease": "1.4.0",
-    "latestReleaseUrl": "https://github.com/mcanouil/quarto-revealjs-tabset/releases/tag/1.4.0",
+    "latestRelease": "1.4.1",
+    "latestReleaseUrl": "https://github.com/mcanouil/quarto-revealjs-tabset/releases/tag/1.4.1",
     "createdAt": "2025-11-24T19:50:20Z",
-    "updatedAt": "2026-08-01T18:00:10Z",
-    "pushedAt": "2026-08-01T18:00:01Z",
+    "updatedAt": "2026-08-01T19:53:31Z",
+    "pushedAt": "2026-08-01T19:53:28Z",
     "defaultBranchRef": "main",
     "repositoryTopics": [
       "reveal.js",
@@ -26,9 +26,14 @@
     "author": "Mickaël Canouil",
     "template": false,
     "example": true,
-    "latestCommit": "3e5059077b7a7f05cd6a8c5382067d873139e2b0",
+    "latestCommit": "8246ea66aa3096b7aefa50cd152edf3be2861811",
     "contributes": [
-      "revealjs-plugin"
+      "filter",
+      "format",
+      "metadata",
+      "project",
+      "revealjs-plugin",
+      "shortcode"
     ],
     "quartoRequired": ">=1.8.26"
   }
