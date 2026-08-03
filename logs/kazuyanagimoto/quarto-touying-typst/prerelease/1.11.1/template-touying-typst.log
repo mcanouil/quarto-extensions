@@ -1,0 +1,31 @@
+pandoc 
+
+  to: typst
+  output-file: template.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+
+metadata
+
+  theme: default
+  aspect-ratio: 16-9
+  title: Touying for Quarto
+  subtitle: A drop-in Touying base extension
+  author:
+    - name: Your Name
+      affiliations: Your Institution
+  institute: Your Institution
+  date: today
+  date-format: long
+  
+
+[typst]: Compiling template.typ to template.pdf...
+DONE
+
+
+Output created: template.pdf
+
+

@@ -1,0 +1,70 @@
+pandoc 
+
+  to: typst
+  output-file: clean.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+
+metadata
+
+  theme: default
+  aspect-ratio: 16-9
+  title: clean
+  subtitle: A Touying theme for Quarto
+  author:
+    - name: Your Name
+      orcid: 0000-0002-1825-0097
+      email: you@example.org
+      affiliations: Your Institution
+  date: today
+  date-format: long
+  brand:
+    typography:
+      fonts:
+        - family: Roboto
+          weight:
+            - 100
+            - 200
+            - 300
+            - 400
+            - 500
+            - 600
+            - 700
+          style:
+            - normal
+            - italic
+          source: google
+        - family: Fira Code
+          weight:
+            - 100
+            - 200
+            - 300
+            - 400
+            - 500
+            - 600
+            - 700
+          source: google
+      base: Roboto
+      headings: Roboto
+      monospace:
+        family: Fira Code
+        size: 0.9em
+  theme-typst: clean-theme
+  
+
+[typst]: Compiling clean.typ to clean.pdf...
+downloading @preview/touying-quarto-clean:0.2.0
+
+  0 B /   5.8 KiB (  0 %),  58.3 KiB/s, ETA: 0 s
+  
+5.8 KiB /   5.8 KiB (100 %),  58.3 KiB/s, ETA: 0 s
+
+DONE
+
+
+Output created: ../_site/gallery/clean.pdf
+
+

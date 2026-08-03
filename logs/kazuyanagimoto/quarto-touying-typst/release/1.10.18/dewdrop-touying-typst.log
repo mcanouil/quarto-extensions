@@ -1,0 +1,32 @@
+pandoc 
+
+  to: typst
+  output-file: dewdrop.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+
+metadata
+
+  theme: dewdrop
+  aspect-ratio: 16-9
+  title: dewdrop
+  subtitle: A Touying theme for Quarto
+  author:
+    - name: Your Name
+      orcid: 0000-0002-1825-0097
+      email: you@example.org
+      affiliations: Your Institution
+  date: today
+  date-format: long
+  
+
+[typst]: Compiling dewdrop.typ to dewdrop.pdf...
+DONE
+
+
+Output created: ../_site/gallery/dewdrop.pdf
+
+

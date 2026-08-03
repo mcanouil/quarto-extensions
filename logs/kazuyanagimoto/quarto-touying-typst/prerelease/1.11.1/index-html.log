@@ -1,0 +1,30 @@
+pandoc 
+
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: quarto-touying-typst
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - styles.css
+  toc: true
+  toc-depth: 3
+  
+
+metadata
+
+  pagetitle: quarto-touying-typst
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  lightbox: true
+  
+
+Output created: _site/index.html
+
+

@@ -1,0 +1,31 @@
+Dependency source policy check passed for kazuyanagimoto/quarto-awesomecv-typst.
+Dependency install phase for kazuyanagimoto/quarto-awesomecv-typst: renv.lock
+Installing R dependencies from renv.lock for kazuyanagimoto/quarto-awesomecv-typst.
+# Bootstrapping renv 1.2.3 ---------------------------------------------------
+- Downloading renv ... OK
+- Installing renv  ... OK
+
+- One or more packages recorded in the lockfile are not installed.
+- Use `renv::status()` for more details.
+- One or more packages recorded in the lockfile are not installed.
+- Use `renv::status()` for more details.
+The following required system packages are not installed:
+- pandoc  [required by knitr, rmarkdown]
+The R packages depending on these system packages may fail to install.
+
+An administrator can install these packages with:
+- sudo apt install pandoc
+
+The following package(s) will be updated:
+
+# Repository -----------------------------------------------------------------
+- typstcv   [* -> 0.0.2.4]
+
+# Downloading packages -------------------------------------------------------
+y typstcv 0.0.2.4                         
+Successfully downloaded 1 package in 55 seconds.
+
+# Installing packages --------------------------------------------------------
+[?25l  (0/1) Installing: typstcv                                                       (0/1) Installing: typstcv                                                                                                                                     y typstcv 0.0.2.4                          [built from source in 1.2s]
+Successfully installed 1 package in 1.2 seconds.
+[?25h

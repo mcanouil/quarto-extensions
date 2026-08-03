@@ -1,0 +1,32 @@
+pandoc 
+
+  to: typst
+  output-file: university.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+
+metadata
+
+  theme: university
+  aspect-ratio: 16-9
+  title: university
+  subtitle: A Touying theme for Quarto
+  author:
+    - name: Your Name
+      orcid: 0000-0002-1825-0097
+      email: you@example.org
+      affiliations: Your Institution
+  date: today
+  date-format: long
+  
+
+[typst]: Compiling university.typ to university.pdf...
+DONE
+
+
+Output created: ../_site/gallery/university.pdf
+
+

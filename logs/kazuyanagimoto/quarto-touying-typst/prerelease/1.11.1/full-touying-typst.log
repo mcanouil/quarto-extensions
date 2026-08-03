@@ -1,0 +1,135 @@
+
+
+processing file: full.qmd
+
+1/15                   
+
+2/15 [setup]           
+
+3/15                   
+
+4/15 [plot-facet]      
+
+5/15                   
+
+6/15 [plot-layout]     
+
+7/15                   
+8/15 [prep-table]      
+
+9/15                   
+
+10/15 [table-1]         
+
+11/15                   
+
+12/15 [table-2]         
+
+13/15                   
+
+14/15 [table-regression]
+
+15/15                   
+
+output file: full.knit.md
+
+
+There were 50 or more warnings (use warnings() to see the first 50)
+
+
+pandoc 
+
+  to: typst
+  output-file: full.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+
+metadata
+
+  theme: default
+  aspect-ratio: 16-9
+  title: quarto-touying-typst
+  subtitle: A complete feature tour
+  date: today
+  date-format: long
+  author:
+    - name: Your Name
+      orcid: 0000-0002-1825-0097
+      email: you@example.org
+      affiliations: Your Institution
+  bibliography:
+    - static/references.bib
+  brand:
+    typography:
+      fonts:
+        - family: Roboto
+          weight:
+            - 100
+            - 200
+            - 300
+            - 400
+            - 500
+            - 600
+            - 700
+          style:
+            - normal
+            - italic
+          source: google
+        - family: Fira Code
+          weight:
+            - 100
+            - 200
+            - 300
+            - 400
+            - 500
+            - 600
+            - 700
+          source: google
+      base: Roboto
+      headings: Roboto
+      monospace:
+        family: Fira Code
+        size: 0.9em
+  knitr:
+    opts_chunk:
+      fig.align: center
+      dev: svg
+  theme-typst: clean-theme
+  bibliographystyle: chicago-author-date
+  
+
+[typst]: Compiling full.typ to full.pdf...
+downloading @preview/touying:0.7.4
+
+  0 B / 109.5 KiB (  0 %),   1.1 MiB/s, ETA: 0 s
+
+109.5 KiB / 109.5 KiB (100 %),   1.1 MiB/s, ETA: 0 s
+
+downloading @preview/uniwarn:0.1.1
+
+  0 B /   3.6 KiB (  0 %),  36.2 KiB/s, ETA: 0 s
+  3.6 KiB /   3.6 KiB (100 %),  36.2 KiB/s, ETA: 0
+ s
+
+downloading @preview/touying-quarto-clean:0.2.0
+
+  0 B /   5.8 KiB (  0 %),  58.3 KiB/s, ETA: 0 s
+  5.8 KiB /   5.8 KiB (100 %),  58.3 KiB/s, ETA: 0 s
+
+warning: unknown font family: times new roman
+    ┌─ docs/gallery/full.typ:654:29
+    │
+654 │ #set text(size: 30pt , fon
+t: ("Times New Roman",));
+    │                              ^^^^^^^^^^^^^^^^^^^^
+
+
+DONE
+
+
+Output created: ../_site/gallery/full.pdf
+
+

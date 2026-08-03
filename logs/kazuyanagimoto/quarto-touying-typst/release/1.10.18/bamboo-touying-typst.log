@@ -1,0 +1,31 @@
+pandoc 
+
+  to: typst
+  output-file: bamboo.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+
+metadata
+
+  theme: default
+  aspect-ratio: 16-9
+  title: bamboo
+  subtitle: A custom Touying theme
+  author:
+    - name: Your Name
+      affiliations: Your Institution
+  date: today
+  date-format: long
+  theme-typst: bamboo-theme
+  
+
+[typst]: Compiling bamboo.typ to bamboo.pdf...
+DONE
+
+
+Output created: ../_site/gallery/bamboo.pdf
+
+

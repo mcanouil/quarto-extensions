@@ -1,0 +1,32 @@
+pandoc 
+
+  to: typst
+  output-file: simple.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+
+metadata
+
+  theme: simple
+  aspect-ratio: 16-9
+  title: simple
+  subtitle: A Touying theme for Quarto
+  author:
+    - name: Your Name
+      orcid: 0000-0002-1825-0097
+      email: you@example.org
+      affiliations: Your Institution
+  date: today
+  date-format: long
+  
+
+[typst]: Compiling simple.typ to simple.pdf...
+DONE
+
+
+Output created: ../_site/gallery/simple.pdf
+
+

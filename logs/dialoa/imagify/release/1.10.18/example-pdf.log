@@ -55,7 +55,6 @@ Category 'other':
   Rerun of 'pdflatex' forced or previously required:
     Reason or flag: 'Initial setup'
 
-
 ------------
 Run number 1 of rule 'pdflatex'
 ------------
@@ -110,7 +109,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/example-quarto//:/tmp/quarto-session42bd5c6bca3f5a27/c3b842a5294d79a1//:/home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=pdf source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-quarto//:/tmp/quarto-session3ebb0dea0b37788/96797ff0a2c1f44c//:/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=pdf source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -206,7 +205,7 @@ q1 -- q2 -- q3; % make these edges plain
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.26)  26 JUL 2026 23:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.3)  3 AUG 2026 07:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -231,7 +230,7 @@ l.7 \usepackage
  
 Here is how much of TeX's memory you used:
  31 strings out of 469115
- 658 string characters out of 5460022
+ 658 string characters out of 5460023
  435362 words of memory out of 5000000
  29145 multiletter control sequences out of 15000+600000
  627721 words of font info for 40 fonts, out of 8000000 for 9000
@@ -248,8 +247,8 @@ No existing .aux file, so I'll make a simple one, and require run of *latex.
 
 Latexmk: applying rule 'pdflatex'...
 Rule 'pdflatex':  Reasons for rerun
-Category 'other':
 
+Category 'other':
   Rerun of 'pdflatex' forced or previously required:
     Reason or flag: 'Initial setup'
 
@@ -276,6 +275,7 @@ Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: cls)
 
 Enter file name: 
+
 ! Emergency stop.
 <read *> 
          
@@ -300,6 +300,7 @@ Collected error summary (may duplicate other messages):
       Refer to 'source.log' and/or above output for details
 
 
+
 Latexmk: Sometimes, the -f option can be used to get latexmk
   to try to force complete processing.
   But normally, you will need to correct the file(s) that caused the
@@ -308,7 +309,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/example-quarto//:/tmp/quarto-session42bd5c6bca3f5a27/c3b842a5294d79a1//:/home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=pdf source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-quarto//:/tmp/quarto-session3ebb0dea0b37788/96797ff0a2c1f44c//:/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=pdf source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -380,7 +381,7 @@ $
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.26)  26 JUL 2026 23:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.3)  3 AUG 2026 07:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -405,7 +406,7 @@ l.7 \usepackage
  
 Here is how much of TeX's memory you used:
  31 strings out of 469115
- 658 string characters out of 5460022
+ 658 string characters out of 5460023
  435362 words of memory out of 5000000
  29145 multiletter control sequences out of 15000+600000
  627721 words of font info for 40 fonts, out of 8000000 for 9000
@@ -438,7 +439,7 @@ l.203 \usetikzlibrary
 
 
 
-see /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/example-quarto/example.log for more information.
+see /home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-quarto/example.log for more information.
 
 (WARN) Error encountered when rendering files
 

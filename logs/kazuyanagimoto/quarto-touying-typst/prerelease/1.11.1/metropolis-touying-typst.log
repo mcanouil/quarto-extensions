@@ -1,0 +1,32 @@
+pandoc 
+
+  to: typst
+  output-file: metropolis.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+
+metadata
+
+  theme: metropolis
+  aspect-ratio: 16-9
+  title: metropolis
+  subtitle: A Touying theme for Quarto
+  author:
+    - name: Your Name
+      orcid: 0000-0002-1825-0097
+      email: you@example.org
+      affiliations: Your Institution
+  date: today
+  date-format: long
+  
+
+[typst]: Compiling metropolis.typ to metropolis.pdf...
+DONE
+
+
+Output created: ../_site/gallery/metropolis.pdf
+
+

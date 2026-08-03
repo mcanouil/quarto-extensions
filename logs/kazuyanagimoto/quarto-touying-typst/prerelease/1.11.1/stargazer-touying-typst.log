@@ -1,0 +1,32 @@
+pandoc 
+
+  to: typst
+  output-file: stargazer.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+
+metadata
+
+  theme: stargazer
+  aspect-ratio: 16-9
+  title: stargazer
+  subtitle: A Touying theme for Quarto
+  author:
+    - name: Your Name
+      orcid: 0000-0002-1825-0097
+      email: you@example.org
+      affiliations: Your Institution
+  date: today
+  date-format: long
+  
+
+[typst]: Compiling stargazer.typ to stargazer.pdf...
+DONE
+
+
+Output created: ../_site/gallery/stargazer.pdf
+
+
