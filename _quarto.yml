@@ -49,15 +49,15 @@ website:
   search: false
   page-footer:
     left: |
-      Powered by [[{{< iconify simple-icons:quarto aria-hidden=true >}}]{style="color:#74aadb;"} Quarto](https://quarto.org).
+      Powered by [[{{< iconify simple-icons:quarto aria-hidden='true' >}}]{style="color:#74aadb;"} Quarto](https://quarto.org).
     right: |
-      [{{< iconify octicon:heart-16 aria-hidden=true style='color:#c96198;' >}} Sponsor](https://github.com/sponsors/mcanouil?o=esb).
+      [{{< iconify octicon:heart-16 aria-hidden='true' style='color:#c96198;' >}} Sponsor](https://github.com/sponsors/mcanouil?o=esb).
   navbar:
     logo: "assets/media/quarto-extensions.png"
     logo-alt: "Quarto Extensions Logo"
     search: false
     right:
-      - text: "{{< iconify octicon:question-16 aria-hidden=true >}} About"
+      - text: "{{< iconify octicon:question-16 aria-hidden='true' >}} About"
         href: about.qmd
       - text: '[]{.quarto-wizard title="Quarto Wizard" aria-label="Quarto Wizard"}'
         href: "https://m.canouil.dev/quarto-wizard"
