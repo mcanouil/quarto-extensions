@@ -1,0 +1,78 @@
+[pre-render] _extension.yml -> _variables.yml (mcanouil/quarto-github@1.6.0)
+
+[pre-render] CHANGELOG.md -> changelog.qmd
+
+
+
+pandoc 
+
+  to: html
+  output-file: 404.html
+  standalone: true
+  title-prefix: Github
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: false
+  toc-depth: 3
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  lang: en-GB
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  code-copy: true
+  respect-user-color-scheme: true
+  theme:
+    light:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+    dark:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+  anchor-sections: true
+  grid:
+    sidebar-width: 300px
+    body-width: 1000px
+    margin-width: 300px
+  brand: _extensions/mcanouil/pastel/brand.yml
+  extensions:
+    atelier:
+      site-url: https://m.canouil.dev/quarto-github
+    gitlink:
+      enabled: false
+      widget:
+        enabled: true
+        extra-links:
+          - text: Ideas / Feature Requests
+            href: /discussions/categories/ideas
+            icon: discussion
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+        sponsor: mcanouil
+        style-navbar-tools: false
+    code-window:
+      style: macos
+      auto-filename: false
+    github:
+      repository-name: jlord/sheetsee.js
+      base-url: https://github.com
+  title: Page not found
+  description: That page does not exist or has moved.
+  sidebar: false
+  
+
+ERROR (/opt/quarto/share/filters/main.lua:3828) cannot open github: No such file or directory
+
+(WARN) Error encountered when rendering files
+

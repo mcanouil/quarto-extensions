@@ -1,6 +1,33 @@
 Cloning into 'repo'...
 Installing package into '/cache/r-lib-0'
 (as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.4.tar.gz'
+Content type 'binary/octet-stream' length 1435963 bytes (1.4 MB)
+==================================================
+downloaded 1.4 MB
+
+* installing *source* package 'renv' ...
+** this is package 'renv' version '1.2.4'
+** package 'renv' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/RtmpY9bUuG/downloaded_packages'
+Installing package into '/cache/r-lib-0'
+(as 'lib' is unspecified)
 also installing the dependencies 'lazyeval', 'later', 'crosstalk', 'promises'
 
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/lazyeval_0.2.3.tar.gz'
@@ -94,7 +121,7 @@ installing to /cache/r-lib-0/00LOCK-later/00new/later/libs
 * DONE (DT)
 
 The downloaded source packages are in
-	'/tmp/RtmpXsRgbH/downloaded_packages'
+	'/tmp/RtmpY9bUuG/downloaded_packages'
 
 
 processing file: template.qmd

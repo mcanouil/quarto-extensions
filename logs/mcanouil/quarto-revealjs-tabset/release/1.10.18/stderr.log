@@ -1,7 +1,7 @@
 Cloning into 'repo'...
 pandoc 
   to: revealjs
-  output-file: /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/index.html
+  output-file: /home/runner/work/quarto-extensions/quarto-extensions/test-19/repo/index.html
   standalone: true
   wrap: none
   default-image-extension: png
@@ -41,3 +41,332 @@ metadata
   
 Output created: index.html
 
+[pre-render] warning: 1.4.2 is not tagged; the install commands name an unreleased version
+[pre-render] _extension.yml -> _variables.yml (mcanouil/quarto-revealjs-tabset@1.4.2)
+[pre-render] CHANGELOG.md -> changelog.qmd
+
+pandoc 
+  to: html
+  output-file: 404.html
+  standalone: true
+  title-prefix: RevealJS Tabset
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: false
+  toc-depth: 3
+  
+metadata
+  document-css: false
+  link-citations: true
+  lang: en-GB
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  code-copy: true
+  respect-user-color-scheme: true
+  theme:
+    light:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+    dark:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+  anchor-sections: true
+  grid:
+    sidebar-width: 300px
+    body-width: 1000px
+    margin-width: 300px
+  brand: _extensions/mcanouil/pastel/brand.yml
+  extensions:
+    atelier:
+      site-url: https://m.canouil.dev/quarto-revealjs-tabset
+    gitlink:
+      enabled: false
+      widget:
+        enabled: true
+        extra-links:
+          - text: Ideas / Feature Requests
+            href: /discussions/categories/ideas
+            icon: discussion
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+        sponsor: mcanouil
+        style-navbar-tools: false
+    code-window:
+      style: macos
+      auto-filename: false
+  title: Page not found
+  description: That page does not exist or has moved.
+  sidebar: false
+  
+[post-render] Removed changelog.qmd and _variables.yml
+
+Output created: _site/404.html
+
+[pre-render] warning: 1.4.2 is not tagged; the install commands name an unreleased version
+[pre-render] _extension.yml -> _variables.yml (mcanouil/quarto-revealjs-tabset@1.4.2)
+[pre-render] CHANGELOG.md -> changelog.qmd
+
+pandoc 
+  to: html
+  output-file: reference.html
+  standalone: true
+  title-prefix: RevealJS Tabset
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  toc-depth: 3
+  
+metadata
+  document-css: false
+  link-citations: true
+  lang: en-GB
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  code-copy: true
+  respect-user-color-scheme: true
+  theme:
+    light:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+    dark:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+  anchor-sections: true
+  grid:
+    sidebar-width: 300px
+    body-width: 1000px
+    margin-width: 300px
+  brand: _extensions/mcanouil/pastel/brand.yml
+  extensions:
+    atelier:
+      site-url: https://m.canouil.dev/quarto-revealjs-tabset
+    gitlink:
+      enabled: false
+      widget:
+        enabled: true
+        extra-links:
+          - text: Ideas / Feature Requests
+            href: /discussions/categories/ideas
+            icon: discussion
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+        sponsor: mcanouil
+        style-navbar-tools: false
+    code-window:
+      style: macos
+      auto-filename: false
+  title: Reference
+  subtitle: Everything the tabset plugin does.
+  description: 'The complete tabset behaviour: fragment navigation, the attributes, the ARIA roles, and how a tabset is exported to PDF.'
+  
+[post-render] Removed changelog.qmd and _variables.yml
+
+Output created: _site/reference.html
+
+[pre-render] warning: 1.4.2 is not tagged; the install commands name an unreleased version
+[pre-render] _extension.yml -> _variables.yml (mcanouil/quarto-revealjs-tabset@1.4.2)
+[pre-render] CHANGELOG.md -> changelog.qmd
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: RevealJS Tabset
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  toc-depth: 3
+  
+metadata
+  document-css: false
+  link-citations: true
+  lang: en-GB
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  code-copy: true
+  respect-user-color-scheme: true
+  theme:
+    light:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+    dark:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+  anchor-sections: true
+  grid:
+    sidebar-width: 300px
+    body-width: 1000px
+    margin-width: 300px
+  brand: _extensions/mcanouil/pastel/brand.yml
+  extensions:
+    atelier:
+      site-url: https://m.canouil.dev/quarto-revealjs-tabset
+    gitlink:
+      enabled: false
+      widget:
+        enabled: true
+        extra-links:
+          - text: Ideas / Feature Requests
+            href: /discussions/categories/ideas
+            icon: discussion
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+        sponsor: mcanouil
+        style-navbar-tools: false
+    code-window:
+      style: macos
+      auto-filename: false
+  title: RevealJS Tabset
+  subtitle: Quarto tabsets that work on slides.
+  description: What the tabset plugin adds to a RevealJS presentation, how to enable it, and how tabs become fragments.
+  authors:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  
+[post-render] Removed changelog.qmd and _variables.yml
+
+Output created: _site/index.html
+
+[pre-render] warning: 1.4.2 is not tagged; the install commands name an unreleased version
+[pre-render] _extension.yml -> _variables.yml (mcanouil/quarto-revealjs-tabset@1.4.2)
+[pre-render] CHANGELOG.md -> changelog.qmd
+
+pandoc 
+  to: html
+  output-file: examples.html
+  standalone: true
+  title-prefix: RevealJS Tabset
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  toc-depth: 3
+  
+metadata
+  document-css: false
+  link-citations: true
+  lang: en-GB
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  code-copy: true
+  respect-user-color-scheme: true
+  theme:
+    light:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+    dark:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+  anchor-sections: true
+  grid:
+    sidebar-width: 300px
+    body-width: 1000px
+    margin-width: 300px
+  brand: _extensions/mcanouil/pastel/brand.yml
+  extensions:
+    atelier:
+      site-url: https://m.canouil.dev/quarto-revealjs-tabset
+    gitlink:
+      enabled: false
+      widget:
+        enabled: true
+        extra-links:
+          - text: Ideas / Feature Requests
+            href: /discussions/categories/ideas
+            icon: discussion
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+        sponsor: mcanouil
+        style-navbar-tools: false
+    code-window:
+      style: macos
+      auto-filename: false
+  title: Examples
+  subtitle: The source behind the deck.
+  description: Tabsets on slides, with the source for each and what the preview deck does with it.
+  
+[post-render] Removed changelog.qmd and _variables.yml
+
+Output created: _site/examples.html
+
+[pre-render] warning: 1.4.2 is not tagged; the install commands name an unreleased version
+[pre-render] _extension.yml -> _variables.yml (mcanouil/quarto-revealjs-tabset@1.4.2)
+[pre-render] CHANGELOG.md -> changelog.qmd
+
+ERROR: Specified Reveal plugin directory 'tabset' does not exist.
+
+Stack trace:
+    at pluginFromBundle (file:///opt/quarto/bin/quarto.js:184449:11)
+    at revealPluginExtras (file:///opt/quarto/bin/quarto.js:184245:52)
+    at async Object.formatExtras (file:///opt/quarto/bin/quarto.js:184841:34)
+    at async runPandoc (file:///opt/quarto/bin/quarto.js:129395:56)
+    at async renderPandoc (file:///opt/quarto/bin/quarto.js:131107:24)
+    at async Object.onRender (file:///opt/quarto/bin/quarto.js:137191:30)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:137168:9)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136884:9)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:137468:23)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142798:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102189:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102066:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:188195:5)
+    at async file:///opt/quarto/bin/quarto.js:188224:5
+    at async file:///opt/quarto/bin/quarto.js:188078:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:188080:5)
+    at async file:///opt/quarto/bin/quarto.js:188217:3
+Render failed, retrying once...
+[pre-render] warning: 1.4.2 is not tagged; the install commands name an unreleased version
+[pre-render] _extension.yml -> _variables.yml (mcanouil/quarto-revealjs-tabset@1.4.2)
+[pre-render] CHANGELOG.md -> changelog.qmd
+
+ERROR: Specified Reveal plugin directory 'tabset' does not exist.
+
+Stack trace:
+    at pluginFromBundle (file:///opt/quarto/bin/quarto.js:184449:11)
+    at revealPluginExtras (file:///opt/quarto/bin/quarto.js:184245:52)
+    at async Object.formatExtras (file:///opt/quarto/bin/quarto.js:184841:34)
+    at async runPandoc (file:///opt/quarto/bin/quarto.js:129395:56)
+    at async renderPandoc (file:///opt/quarto/bin/quarto.js:131107:24)
+    at async Object.onRender (file:///opt/quarto/bin/quarto.js:137191:30)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:137168:9)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136884:9)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:137468:23)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142798:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102189:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102066:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:188195:5)
+    at async file:///opt/quarto/bin/quarto.js:188224:5
+    at async file:///opt/quarto/bin/quarto.js:188078:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:188080:5)
+    at async file:///opt/quarto/bin/quarto.js:188217:3

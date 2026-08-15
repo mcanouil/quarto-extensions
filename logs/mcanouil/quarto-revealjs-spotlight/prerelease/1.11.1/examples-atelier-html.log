@@ -1,0 +1,80 @@
+[pre-render] warning: 1.2.2 is not tagged; the install commands name an unreleased version
+
+[pre-render] _extension.yml -> _variables.yml (mcanouil/quarto-revealjs-spotlight@1.2.2)
+
+[pre-render] CHANGELOG.md -> changelog.qmd
+
+
+
+pandoc 
+
+  to: html
+  output-file: examples.html
+  standalone: true
+  title-prefix: RevealJS Spotlight
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  toc-depth: 3
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  lang: en-GB
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  code-copy: true
+  respect-user-color-scheme: true
+  theme:
+    light:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+    dark:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+  anchor-sections: true
+  grid:
+    sidebar-width: 300px
+    body-width: 1000px
+    margin-width: 300px
+  brand: _extensions/mcanouil/pastel/brand.yml
+  extensions:
+    atelier:
+      site-url: https://m.canouil.dev/quarto-revealjs-spotlight
+    gitlink:
+      enabled: false
+      widget:
+        enabled: true
+        extra-links:
+          - text: Ideas / Feature Requests
+            href: /discussions/categories/ideas
+            icon: discussion
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+        sponsor: mcanouil
+        style-navbar-tools: false
+    code-window:
+      style: macos
+      auto-filename: false
+  title: Examples
+  subtitle: The configurations worth knowing.
+  description: Spotlight configurations for a room, a stream, and a bright projector, with what each changes.
+  
+
+[post-render] Removed changelog.qmd and _variables.yml
+
+
+
+Output created: _site/examples.html
+
+

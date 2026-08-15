@@ -5,6 +5,8 @@ Installing R dependencies from renv.lock for mcanouil/quarto-collapse-output.
 - Downloading renv ... OK
 - Installing renv  ... OK
 
+- The project is out-of-sync -- use `renv::status()` for details.
+- The project is out-of-sync -- use `renv::status()` for details.
 The following required system packages are not installed:
 - pandoc  [required by knitr, rmarkdown]
 The R packages depending on these system packages may fail to install.
@@ -12,5 +14,16 @@ The R packages depending on these system packages may fail to install.
 An administrator can install these packages with:
 - sudo apt install pandoc
 
-- The library is already synchronized with the lockfile.
-Installing Python dependencies for mcanouil/quarto-collapse-output.
+The following package(s) will be updated:
+
+# Repository -----------------------------------------------------------------
+- bslib   [0.12.0 -> 0.11.0]
+
+# Downloading packages -------------------------------------------------------
+[?25l  (0/1) Downloading: bslib                                                                                                                                      y bslib 0.11.0                             [6.2 MB in 0.38s]
+                                                                                Successfully downloaded 1 package in 0.62 seconds.
+
+# Installing packages --------------------------------------------------------
+                                                                                y bslib 0.11.0                             [installed binary]
+Successfully installed 1 package in 0.78 seconds.
+[?25hInstalling Python dependencies for mcanouil/quarto-collapse-output.

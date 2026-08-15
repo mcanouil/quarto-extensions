@@ -1,7 +1,7 @@
 Cloning into 'repo'...
 Installing packages into '/cache/r-lib-0'
 (as 'lib' is unspecified)
-also installing the dependencies 'colorspace', 'fracdiff', 'lmtest', 'timeDate', 'urca', 'zoo', 'RcppArmadillo', 'Deriv', 'forecast', 'rbibutils', 'numDeriv', 'doBy', 'SparseM', 'MatrixModels', 'Rdpack', 'minqa', 'nloptr', 'reformulas', 'carData', 'abind', 'pbkrtest', 'quantreg', 'lme4', 'corrplot', 'car', 'bayestestR', 'datawizard', 'Formula', 'RcppEigen', 'ggrepel', 'ggsci', 'cowplot', 'ggsignif', 'polynom', 'rstatix', 'cards', 'cardx', 'checkmate', 'insight', 'parameters', 'performance', 'tables', 'units', 'sysfonts', 'showtextdb'
+also installing the dependencies 'colorspace', 'fracdiff', 'lmtest', 'timeDate', 'urca', 'zoo', 'RcppArmadillo', 'Deriv', 'forecast', 'rbibutils', 'doBy', 'SparseM', 'MatrixModels', 'Rdpack', 'minqa', 'nloptr', 'reformulas', 'carData', 'abind', 'pbkrtest', 'quantreg', 'lme4', 'proxy', 'corrplot', 'car', 'bayestestR', 'datawizard', 'e1071', 'wk', 'Formula', 'RcppEigen', 'ggrepel', 'ggsci', 'cowplot', 'ggsignif', 'polynom', 'rstatix', 'cards', 'cardx', 'checkmate', 'insight', 'parameters', 'performance', 'tables', 'classInt', 's2', 'units', 'sysfonts', 'showtextdb'
 
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/colorspace_2.1-3.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fracdiff_1.5-4.tar.gz'
@@ -13,7 +13,6 @@ trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/RcppArmadill
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/Deriv_4.3.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/forecast_9.0.2.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/rbibutils_2.4.1.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/numDeriv_2016.8-1.1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/doBy_4.7.2.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/SparseM_1.84-2.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/MatrixModels_0.5-4.tar.gz'
@@ -26,11 +25,14 @@ trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/abind_1.4-8.
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/pbkrtest_0.5.5.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/quantreg_6.1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/lme4_2.0-6.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/proxy_0.4-29.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/corrplot_0.95.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/car_3.1-5.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/bayestestR_0.18.1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/datawizard_1.3.1.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/Formula_1.2-5.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/e1071_1.7-17.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/wk_0.9.5.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/Formula_1.2-6.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/RcppEigen_0.3.4.0.2.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/ggrepel_0.9.8.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/ggsci_5.2.0.tar.gz'
@@ -45,6 +47,8 @@ trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/insight_1.5.
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/parameters_0.29.2.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/performance_0.17.1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/tables_0.9.35.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/classInt_0.4-11.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/s2_1.1.11.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/units_1.0-1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/sysfonts_0.8.9.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/showtextdb_3.0.tar.gz'
@@ -205,21 +209,6 @@ installing to /cache/r-lib-0/00LOCK-rbibutils/00new/rbibutils/libs
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (rbibutils)
-* installing *source* package 'numDeriv' ...
-** this is package 'numDeriv' version '2016.8-1.1'
-** package 'numDeriv' successfully unpacked and MD5 sums checked
-** using staged installation
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (numDeriv)
 * installing *source* package 'SparseM' ...
 ** this is package 'SparseM' version '1.84-2'
 ** package 'SparseM' successfully unpacked and MD5 sums checked
@@ -327,6 +316,25 @@ installing to /cache/r-lib-0/00LOCK-nloptr/00new/nloptr/libs
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (abind)
+* installing *source* package 'proxy' ...
+** this is package 'proxy' version '0.4-29'
+** package 'proxy' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+installing to /cache/r-lib-0/00LOCK-proxy/00new/proxy/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (proxy)
 * installing *source* package 'corrplot' ...
 ** this is package 'corrplot' version '0.95'
 ** package 'corrplot' successfully unpacked and MD5 sums checked
@@ -342,8 +350,29 @@ installing to /cache/r-lib-0/00LOCK-nloptr/00new/nloptr/libs
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (corrplot)
+* installing *source* package 'wk' ...
+** this is package 'wk' version '0.9.5'
+** package 'wk' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+using C++ compiler: 'g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+installing to /cache/r-lib-0/00LOCK-wk/00new/wk/libs
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (wk)
 * installing *source* package 'Formula' ...
-** this is package 'Formula' version '1.2-5'
+** this is package 'Formula' version '1.2-6'
 ** package 'Formula' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
@@ -7760,7 +7789,7 @@ installing to /cache/r-lib-0/00LOCK-checkmate/00new/checkmate/libs
 ** this is package 'units' version '1.0-1'
 ** package 'units' successfully unpacked and MD5 sums checked
 ** using staged installation
-configure: error: in '/tmp/Rtmp2PUz9U/R.INSTALL13957324ee62/units':
+configure: error: in '/tmp/RtmppsR1Hf/R.INSTALL14742787adc/units':
 configure: error: 
 --------------------------------------------------------------------------------
   Configuration failed because libudunits2.so was not found. Try installing:
@@ -7903,6 +7932,26 @@ installing to /cache/r-lib-0/00LOCK-quantreg/00new/quantreg/libs
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (datawizard)
+* installing *source* package 'e1071' ...
+** this is package 'e1071' version '1.7-17'
+** package 'e1071' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+using C++ compiler: 'g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+installing to /cache/r-lib-0/00LOCK-e1071/00new/e1071/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (e1071)
 * installing *source* package 'cardx' ...
 ** this is package 'cardx' version '0.3.4'
 ** package 'cardx' successfully unpacked and MD5 sums checked
@@ -7918,6 +7967,194 @@ installing to /cache/r-lib-0/00LOCK-quantreg/00new/quantreg/libs
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (cardx)
+* installing *source* package 's2' ...
+** this is package 's2' version '1.1.11'
+** package 's2' successfully unpacked and MD5 sums checked
+** using staged installation
+Warning message:
+In readRenviron("~/.R/Makevars") :
+  file '/home/runner/work/quarto-extensions/quarto-extensions/test-16/.R/Makevars' cannot be opened for reading
+In file included from /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:53,
+                 from /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.h:78,
+                 from /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:15:
+In member function 'absl::s2_lts_20230802::inlined_vector_internal::Pointer<A> absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::GetAllocatedData() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]',
+    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::pointer absl::s2_lts_20230802::InlinedVector<T, N, A>::data() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:345:65,
+    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::ValueType<A>& absl::s2_lts_20230802::InlinedVector<T, N, A>::back() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:421:16,
+    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1297:23,
+    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:387:58: warning: 'stack.absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Allocated::allocated_data' may be used uninitialized [-Wmaybe-uninitialized]
+  387 |   Pointer<A> GetAllocatedData() { return data_.allocated.allocated_data; }
+      |                                                          ^~~~~~~~~~~~~~
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1258:53: note: 'stack' declared here
+ 1258 |   absl::InlinedVector<CordRep*, kInlinedVectorSize> stack;
+      |                                                     ^~~~~
+In function 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)',
+    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1299:14: warning: 'indents.absl::s2_lts_20230802::InlinedVector<int, 47, std::allocator<int> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Data::inlined.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Inlined::inlined_data' may be used uninitialized [-Wmaybe-uninitialized]
+ 1299 |       indent = indents.back();
+      |       ~~~~~~~^~~~~~~~~~~~~~~~
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1259:48: note: 'indents' declared here
+ 1259 |   absl::InlinedVector<int, kInlinedVectorSize> indents;
+      |                                                ^~~~~~~
+In member function 'absl::s2_lts_20230802::inlined_vector_internal::Pointer<A> absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::GetAllocatedData() [with T = int; long unsigned int N = 47; A = std::allocator<int>]',
+    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::pointer absl::s2_lts_20230802::InlinedVector<T, N, A>::data() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:345:65,
+    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::ValueType<A>& absl::s2_lts_20230802::InlinedVector<T, N, A>::back() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:421:16,
+    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1299:28,
+    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:387:58: warning: 'indents.absl::s2_lts_20230802::InlinedVector<int, 47, std::allocator<int> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Allocated::allocated_data' may be used uninitialized [-Wmaybe-uninitialized]
+  387 |   Pointer<A> GetAllocatedData() { return data_.allocated.allocated_data; }
+      |                                                          ^~~~~~~~~~~~~~
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1259:48: note: 'indents' declared here
+ 1259 |   absl::InlinedVector<int, kInlinedVectorSize> indents;
+      |                                                ^~~~~~~
+In member function 'absl::s2_lts_20230802::inlined_vector_internal::SizeType<A> absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::GetAllocatedCapacity() const [with T = int; long unsigned int N = 47; A = std::allocator<int>]',
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
+    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
+    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
+    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
+    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:408:28: warning: 'indents.absl::s2_lts_20230802::InlinedVector<int, 47, std::allocator<int> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Allocated::allocated_capacity' may be used uninitialized [-Wmaybe-uninitialized]
+  408 |     return data_.allocated.allocated_capacity;
+      |                            ^~~~~~~~~~~~~~~~~~
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1259:48: note: 'indents' declared here
+ 1259 |   absl::InlinedVector<int, kInlinedVectorSize> indents;
+      |                                                ^~~~~~~
+In member function 'absl::s2_lts_20230802::inlined_vector_internal::Pointer<A> absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::GetAllocatedData() [with T = int; long unsigned int N = 47; A = std::allocator<int>]',
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
+    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
+    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
+    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
+    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:387:58: warning: 'indents.absl::s2_lts_20230802::InlinedVector<int, 47, std::allocator<int> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Allocated::allocated_data' may be used uninitialized [-Wmaybe-uninitialized]
+  387 |   Pointer<A> GetAllocatedData() { return data_.allocated.allocated_data; }
+      |                                                          ^~~~~~~~~~~~~~
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1259:48: note: 'indents' declared here
+ 1259 |   absl::InlinedVector<int, kInlinedVectorSize> indents;
+      |                                                ^~~~~~~
+In member function 'absl::s2_lts_20230802::inlined_vector_internal::SizeType<A> absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::GetAllocatedCapacity() const [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]',
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
+    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
+    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
+    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
+    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:408:28: warning: '*(const absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >*)((char*)&stack + offsetof(absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >,absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::metadata_.absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>::<unnamed>.absl::s2_lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl<absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>, absl::s2_lts_20230802::integer_sequence<long unsigned int, 0, 1>, true>::<unnamed>)).absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Allocated::allocated_capacity' may be used uninitialized [-Wmaybe-uninitialized]
+  408 |     return data_.allocated.allocated_capacity;
+      |                            ^~~~~~~~~~~~~~~~~~
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1258:53: note: 'stack' declared here
+ 1258 |   absl::InlinedVector<CordRep*, kInlinedVectorSize> stack;
+      |                                                     ^~~~~
+In member function 'absl::s2_lts_20230802::inlined_vector_internal::Pointer<A> absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::GetAllocatedData() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]',
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
+    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
+    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
+    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
+    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:387:58: warning: '*(absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >*)((char*)&stack + offsetof(absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >,absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::metadata_.absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>::<unnamed>.absl::s2_lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl<absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>, absl::s2_lts_20230802::integer_sequence<long unsigned int, 0, 1>, true>::<unnamed>)).absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Allocated::allocated_data' may be used uninitialized [-Wmaybe-uninitialized]
+  387 |   Pointer<A> GetAllocatedData() { return data_.allocated.allocated_data; }
+      |                                                          ^~~~~~~~~~~~~~
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1258:53: note: 'stack' declared here
+ 1258 |   absl::InlinedVector<CordRep*, kInlinedVectorSize> stack;
+      |                                                     ^~~~~
+In member function 'absl::s2_lts_20230802::inlined_vector_internal::SizeType<A> absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::GetAllocatedCapacity() const [with T = int; long unsigned int N = 47; A = std::allocator<int>]',
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
+    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
+    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
+    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
+    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:408:28: warning: 'indents.absl::s2_lts_20230802::InlinedVector<int, 47, std::allocator<int> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Allocated::allocated_capacity' may be used uninitialized [-Wmaybe-uninitialized]
+  408 |     return data_.allocated.allocated_capacity;
+      |                            ^~~~~~~~~~~~~~~~~~
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1259:48: note: 'indents' declared here
+ 1259 |   absl::InlinedVector<int, kInlinedVectorSize> indents;
+      |                                                ^~~~~~~
+In member function 'absl::s2_lts_20230802::inlined_vector_internal::Pointer<A> absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::GetAllocatedData() [with T = int; long unsigned int N = 47; A = std::allocator<int>]',
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
+    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
+    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
+    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
+    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:387:58: warning: 'indents.absl::s2_lts_20230802::InlinedVector<int, 47, std::allocator<int> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Allocated::allocated_data' may be used uninitialized [-Wmaybe-uninitialized]
+  387 |   Pointer<A> GetAllocatedData() { return data_.allocated.allocated_data; }
+      |                                                          ^~~~~~~~~~~~~~
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1259:48: note: 'indents' declared here
+ 1259 |   absl::InlinedVector<int, kInlinedVectorSize> indents;
+      |                                                ^~~~~~~
+In member function 'absl::s2_lts_20230802::inlined_vector_internal::SizeType<A> absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::GetAllocatedCapacity() const [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]',
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
+    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
+    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
+    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
+    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:408:28: warning: '*(const absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >*)((char*)&stack + offsetof(absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >,absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::metadata_.absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>::<unnamed>.absl::s2_lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl<absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>, absl::s2_lts_20230802::integer_sequence<long unsigned int, 0, 1>, true>::<unnamed>)).absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Allocated::allocated_capacity' may be used uninitialized [-Wmaybe-uninitialized]
+  408 |     return data_.allocated.allocated_capacity;
+      |                            ^~~~~~~~~~~~~~~~~~
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1258:53: note: 'stack' declared here
+ 1258 |   absl::InlinedVector<CordRep*, kInlinedVectorSize> stack;
+      |                                                     ^~~~~
+In member function 'absl::s2_lts_20230802::inlined_vector_internal::Pointer<A> absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::GetAllocatedData() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]',
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
+    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
+    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
+    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
+    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:387:58: warning: '*(absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >*)((char*)&stack + offsetof(absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >,absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::metadata_.absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>::<unnamed>.absl::s2_lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl<absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>, absl::s2_lts_20230802::integer_sequence<long unsigned int, 0, 1>, true>::<unnamed>)).absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Allocated::allocated_data' may be used uninitialized [-Wmaybe-uninitialized]
+  387 |   Pointer<A> GetAllocatedData() { return data_.allocated.allocated_data; }
+      |                                                          ^~~~~~~~~~~~~~
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1258:53: note: 'stack' declared here
+ 1258 |   absl::InlinedVector<CordRep*, kInlinedVectorSize> stack;
+      |                                                     ^~~~~
+In member function 'absl::s2_lts_20230802::inlined_vector_internal::SizeType<A> absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::GetAllocatedCapacity() const [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]',
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
+    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
+    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
+    inlined from 'bool absl::s2_lts_20230802::VerifyNode(cord_internal::CordRep*, cord_internal::CordRep*, bool)' at /tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1352:1:
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:408:28: warning: 'worklist.absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Allocated::allocated_capacity' may be used uninitialized [-Wmaybe-uninitialized]
+  408 |     return data_.allocated.allocated_capacity;
+      |                            ^~~~~~~~~~~~~~~~~~
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'bool absl::s2_lts_20230802::VerifyNode(cord_internal::CordRep*, cord_internal::CordRep*, bool)':
+/tmp/RtmpfSrOMe/R.INSTALL1cfe623a847a/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1315:36: note: 'worklist' declared here
+ 1315 |   absl::InlinedVector<CordRep*, 2> worklist;
+      |                                    ^~~~~~~~
+** libs
+specified C++17
+using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+using C++ compiler: 'g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+using C++17
+installing to /cache/r-lib-0/00LOCK-s2/00new/s2/libs
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (s2)
 * installing *source* package 'showtextdb' ...
 ** this is package 'showtextdb' version '3.0'
 ** package 'showtextdb' successfully unpacked and MD5 sums checked
@@ -8067,7 +8304,7 @@ In file included from /cache/r-lib-0/RcppEigen/include/Eigen/SparseCore:37,
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/Matrix.h:22:57:   required from 'struct Eigen::internal::traits<Eigen::Matrix<double, -1, 1> >'
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/PlainObjectBase.h:98:7:   required from 'class Eigen::PlainObjectBase<Eigen::Matrix<double, -1, 1> >'
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/Matrix.h:178:7:   required from 'class Eigen::Matrix<double, -1, 1>'
-/opt/R/4.6.1/lib/R/library/Rcpp/include/Rcpp/InputParameter.h:77:11:   required from 'class Rcpp::ConstReferenceInputParameter<Eigen::Matrix<double, -1, 1> >'
+/cache/r-lib-0/Rcpp/include/Rcpp/InputParameter.h:77:11:   required from 'class Rcpp::ConstReferenceInputParameter<Eigen::Matrix<double, -1, 1> >'
 RcppExports.cpp:20:76:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/util/XprHelper.h:190:44: warning: ignoring attributes on template argument 'Eigen::internal::packet_traits<double>::type' {aka '__m128d'} [-Wignored-attributes]
   190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
@@ -8087,7 +8324,7 @@ RcppExports.cpp:20:76:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/MatrixBase.h:48:34:   required from 'class Eigen::MatrixBase<Eigen::Matrix<double, -1, 1> >'
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/PlainObjectBase.h:98:7:   required from 'class Eigen::PlainObjectBase<Eigen::Matrix<double, -1, 1> >'
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/Matrix.h:178:7:   required from 'class Eigen::Matrix<double, -1, 1>'
-/opt/R/4.6.1/lib/R/library/Rcpp/include/Rcpp/InputParameter.h:77:11:   required from 'class Rcpp::ConstReferenceInputParameter<Eigen::Matrix<double, -1, 1> >'
+/cache/r-lib-0/Rcpp/include/Rcpp/InputParameter.h:77:11:   required from 'class Rcpp::ConstReferenceInputParameter<Eigen::Matrix<double, -1, 1> >'
 RcppExports.cpp:20:76:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h:56:30: warning: ignoring attributes on template argument 'Eigen::internal::packet_traits<double>::type' {aka '__m128d'} [-Wignored-attributes]
    56 |                      >::type PacketReturnType;
@@ -8099,7 +8336,7 @@ RcppExports.cpp:20:76:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/MatrixBase.h:48:34:   required from 'class Eigen::MatrixBase<Eigen::Matrix<double, -1, -1> >'
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/PlainObjectBase.h:98:7:   required from 'class Eigen::PlainObjectBase<Eigen::Matrix<double, -1, -1> >'
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/Matrix.h:178:7:   required from 'class Eigen::Matrix<double, -1, -1>'
-/opt/R/4.6.1/lib/R/library/Rcpp/include/Rcpp/InputParameter.h:77:11:   required from 'class Rcpp::ConstReferenceInputParameter<Eigen::Matrix<double, -1, -1> >'
+/cache/r-lib-0/Rcpp/include/Rcpp/InputParameter.h:77:11:   required from 'class Rcpp::ConstReferenceInputParameter<Eigen::Matrix<double, -1, -1> >'
 RcppExports.cpp:22:78:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h:56:30: warning: ignoring attributes on template argument 'Eigen::internal::packet_traits<double>::type' {aka '__m128d'} [-Wignored-attributes]
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h: In instantiation of 'class Eigen::DenseCoeffsBase<Eigen::Array<double, -1, -1>, 0>':
@@ -8119,7 +8356,7 @@ RcppExports.cpp:52:44:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/MapBase.h:37:34:   required from 'class Eigen::MapBase<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, 0>'
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/MapBase.h:223:34:   required from 'class Eigen::MapBase<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, 1>'
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/Map.h:94:79:   required from 'class Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >'
-/opt/R/4.6.1/lib/R/library/Rcpp/include/Rcpp/InputParameter.h:77:11:   required from 'class Rcpp::ConstReferenceInputParameter<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> > >'
+/cache/r-lib-0/Rcpp/include/Rcpp/InputParameter.h:77:11:   required from 'class Rcpp::ConstReferenceInputParameter<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> > >'
 RcppExports.cpp:85:86:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h:56:30: warning: ignoring attributes on template argument 'Eigen::internal::packet_traits<double>::type' {aka '__m128d'} [-Wignored-attributes]
 In file included from /cache/r-lib-0/RcppEigen/include/Eigen/Core:205,
@@ -17685,10 +17922,6 @@ installing to /cache/r-lib-0/00LOCK-estimatr/00new/estimatr/libs
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (estimatr)
-ERROR: dependency 'units' is not available for package 'sf'
-Perhaps try a variation of:
-install.packages('units')
-* removing '/cache/r-lib-0/sf'
 * installing *source* package 'forecast' ...
 ** this is package 'forecast' version '9.0.2'
 ** package 'forecast' successfully unpacked and MD5 sums checked
@@ -17743,6 +17976,26 @@ installing to /cache/r-lib-0/00LOCK-forecast/00new/forecast/libs
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (bayestestR)
+* installing *source* package 'classInt' ...
+** this is package 'classInt' version '0.4-11'
+** package 'classInt' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+using Fortran compiler: 'GNU Fortran (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+installing to /cache/r-lib-0/00LOCK-classInt/00new/classInt/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (classInt)
 * installing *source* package 'gtsummary' ...
 ** this is package 'gtsummary' version '2.5.1'
 ** package 'gtsummary' successfully unpacked and MD5 sums checked
@@ -17809,13 +18062,27 @@ installing to /cache/r-lib-0/00LOCK-lme4/00new/lme4/libs
 *** moving datasets to lazyload DB
 ** inst
 ** byte-compile and prepare package for lazy loading
+Dependency install failed (exit 137) for simonreif/zewwwwecon; retrying once.
 ** help
 *** installing help indices
 ** building package indices
 ** installing vignettes
 ** testing if installed package can be loaded from temporary location
+Installing packages into '/cache/r-lib-0'
+(as 'lib' is unspecified)
 ** checking absolute paths in shared objects and dynamic libraries
 ** testing if installed package can be loaded from final location
+also installing the dependencies 'pbkrtest', 'car', 'rstatix', 'parameters', 'performance', 'units'
+
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/pbkrtest_0.5.5.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/car_3.1-5.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/rstatix_1.1.0.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/parameters_0.29.2.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/performance_0.17.1.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/units_1.0-1.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/ggpubr_1.0.0.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/modelsummary_2.6.0.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/sf_1.1-2.tar.gz'
 ** testing if installed package keeps a record of temporary installation path
 * DONE (lme4)
 * installing *source* package 'parameters' ...
@@ -17826,30 +18093,6 @@ installing to /cache/r-lib-0/00LOCK-lme4/00new/lme4/libs
 ** data
 ** inst
 ** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-*** copying figures
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (parameters)
-* installing *source* package 'performance' ...
-** this is package 'performance' version '0.17.1'
-** package 'performance' successfully unpacked and MD5 sums checked
-** using staged installation
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-*** copying figures
-** building package indices
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (performance)
 * installing *source* package 'pbkrtest' ...
 ** this is package 'pbkrtest' version '0.5.5'
 ** package 'pbkrtest' successfully unpacked and MD5 sums checked
@@ -17867,9 +18110,93 @@ installing to /cache/r-lib-0/00LOCK-lme4/00new/lme4/libs
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (pbkrtest)
+ERROR: failed to lock directory '/cache/r-lib-0' for modifying
+Try removing '/cache/r-lib-0/00LOCK-parameters'
+* installing *source* package 'performance' ...
+** this is package 'performance' version '0.17.1'
+** package 'performance' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (parameters)
+ERROR: failed to lock directory '/cache/r-lib-0' for modifying
+Try removing '/cache/r-lib-0/00LOCK-performance'
+ERROR: dependency 'units' is not available for package 'sf'
+Perhaps try a variation of:
+install.packages('units')
+* removing '/cache/r-lib-0/sf'
+* installing *source* package 'pbkrtest' ...
+** this is package 'pbkrtest' version '0.5.5'
+** package 'pbkrtest' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (performance)
+* installing *source* package 'units' ...
+** this is package 'units' version '1.0-1'
+** package 'units' successfully unpacked and MD5 sums checked
+** using staged installation
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+configure: error: in '/tmp/RtmpAES72n/R.INSTALLd56004adb3/units':
+configure: error: 
+--------------------------------------------------------------------------------
+  Configuration failed because libudunits2.so was not found. Try installing:
+    * deb: libudunits2-dev (Debian, Ubuntu, ...)
+    * rpm: udunits2-devel (Fedora, EPEL, ...)
+    * brew: udunits (OSX)
+  If udunits2 is already installed in a non-standard location, use:
+    --configure-args='--with-udunits2-lib=/usr/local/lib'
+  if the library was not found, and/or:
+    --configure-args='--with-udunits2-include=/usr/include/udunits2'
+  if the header was not found, replacing paths with appropriate values.
+  You can alternatively set UDUNITS2_INCLUDE and UDUNITS2_LIBS manually.
+--------------------------------------------------------------------------------
+
+See 'config.log' for more details
+ERROR: configuration failed for package 'units'
+* removing '/cache/r-lib-0/units'
+ERROR: dependency 'pbkrtest' is not available for package 'car'
+Perhaps try a variation of:
+install.packages('pbkrtest')
+* removing '/cache/r-lib-0/car'
+** testing if installed package can be loaded from final location
 * installing *source* package 'modelsummary' ...
 ** this is package 'modelsummary' version '2.6.0'
 ** package 'modelsummary' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** testing if installed package keeps a record of temporary installation path
+* DONE (pbkrtest)
+ERROR: failed to lock directory '/cache/r-lib-0' for modifying
+Try removing '/cache/r-lib-0/00LOCK-modelsummary'
+* installing *source* package 'car' ...
+** this is package 'car' version '3.1-5'
+** package 'car' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
 ** inst
@@ -17882,19 +18209,62 @@ installing to /cache/r-lib-0/00LOCK-lme4/00new/lme4/libs
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (modelsummary)
-* installing *source* package 'car' ...
-** this is package 'car' version '3.1-5'
-** package 'car' successfully unpacked and MD5 sums checked
-** using staged installation
-** R
-** inst
-** byte-compile and prepare package for lazy loading
+ERROR: dependency 'units' is not available for package 'sf'
+Perhaps try a variation of:
+install.packages('units')
+* removing '/cache/r-lib-0/sf'
+ERROR: dependency 'car' is not available for package 'rstatix'
+Perhaps try a variation of:
+install.packages('car')
+* removing '/cache/r-lib-0/rstatix'
+ERROR: dependency 'rstatix' is not available for package 'ggpubr'
+Perhaps try a variation of:
+install.packages('rstatix')
+* removing '/cache/r-lib-0/ggpubr'
+
+The downloaded source packages are in
+	'/tmp/RtmpxxTDIr/downloaded_packages'
+Warning messages:
+1: In install.packages(deps, repos = ppm) :
+  installation of package 'parameters' had non-zero exit status
+2: In install.packages(deps, repos = ppm) :
+  installation of package 'units' had non-zero exit status
+3: In install.packages(deps, repos = ppm) :
+  installation of package 'car' had non-zero exit status
+4: In install.packages(deps, repos = ppm) :
+  installation of package 'sf' had non-zero exit status
+5: In install.packages(deps, repos = ppm) :
+  installation of package 'rstatix' had non-zero exit status
+6: In install.packages(deps, repos = ppm) :
+  installation of package 'ggpubr' had non-zero exit status
+[1/9] examples/Slides/example_slides_solo.qmd
+
+
+processing file: example_slides_solo.qmd
+1/21               
+2/21 [Setup]       
+3/21               
+4/21 [program]     
+5/21               
+6/21 [Histogram]   
 ** help
+7/21               
+8/21 [Barchart]    
 *** installing help indices
+9/21               
+10/21 [tsplot1]     
 ** building package indices
+11/21               
+12/21 [scatterplot] 
 ** installing vignettes
 ** testing if installed package can be loaded from temporary location
+13/21               
+14/21 [dotplot]     
+15/21               
+16/21 [eventstudy]  
 ** testing if installed package can be loaded from final location
+17/21               
+18/21 [descriptives]
 ** testing if installed package keeps a record of temporary installation path
 * DONE (car)
 * installing *source* package 'rstatix' ...
@@ -17904,12 +18274,27 @@ installing to /cache/r-lib-0/00LOCK-lme4/00new/lme4/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
+19/21               
+20/21 [regressions] 
+21/21               
+output file: example_slides_solo.knit.md
+
+
+Rendering PDF
+running xelatex - 1
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+updating tlmgr
 ** help
 *** installing help indices
 *** copying figures
 ** building package indices
 ** installing vignettes
 ** testing if installed package can be loaded from temporary location
+
+updating existing packages
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (rstatix)
@@ -17931,42 +18316,362 @@ installing to /cache/r-lib-0/00LOCK-lme4/00new/lme4/libs
 * DONE (ggpubr)
 
 The downloaded source packages are in
-	'/tmp/RtmpGVq6e5/downloaded_packages'
+	'/tmp/RtmpCAPRXw/downloaded_packages'
 Warning messages:
 1: In install.packages(deps, repos = ppm) :
   installation of package 'units' had non-zero exit status
 2: In install.packages(deps, repos = ppm) :
+  installation of package 'performance' had non-zero exit status
+3: In install.packages(deps, repos = ppm) :
   installation of package 'sf' had non-zero exit status
-[1/9] LICENSE.md
-[2/9] Paper/template_paper.qmd
+4: In install.packages(deps, repos = ppm) :
+  installation of package 'modelsummary' had non-zero exit status
+finding package for biblatex.sty
+> 1 package to install
+> installing biblatex (1 of 1)
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for apa.dbx
+finding package for biblatex-dm.cfg
+finding package for apa.bbx
+> 1 package to install
+> installing biblatex-apa (1 of 1)
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for setspace.sty
+finding package for biblatex-dm.cfg
+> 1 package to install
+> installing setspace (1 of 1)
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for tabularray.sty
+finding package for biblatex-dm.cfg
+> 1 package to install
+> installing tabularray (1 of 1)
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for lipsum.sty
+finding package for biblatex-dm.cfg
+> 1 package to install
+> installing lipsum (1 of 1)
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+generating bibliography
+command biber not found, attempting install
+finding package for biber
+> 1 package to install
+> installing biber (1 of 1)
+  INFO - This is Biber 2.21
+  INFO - Logfile is 'example_slides_solo.blg'
+  INFO - Reading 'example_slides_solo.bcf'
+  INFO - Found 1 citekeys in bib section 0
+  INFO - Processing section 0
+  INFO - Looking for bibtex file 'references.bib' for section 0
+  INFO - LaTeX decoding ...
+  INFO - Found BibTeX data source 'references.bib'
+  INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+  INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+  INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
+  INFO - No sort tailoring available for locale 'en-US'
+  INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+  INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+  INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
+  INFO - No sort tailoring available for locale 'en-US'
+  INFO - Writing 'example_slides_solo.bbl' with encoding 'UTF-8'
+  INFO - Output to example_slides_solo.bbl
+  
+running xelatex - 2
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+running xelatex - 3
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+[2/9] examples/Paper/example_paper_solo.qmd
 
 
-processing file: template_paper.qmd
-1/3        
-2/3 [Setup]
+processing file: example_paper_solo.qmd
+1/25               
+2/25 [Setup]       
+3/25               
+4/25 [program]     
+5/25               
+6/25 [Histogram]   
+7/25               
+8/25 [Barchart]    
+9/25               
+10/25 [tsplot1]     
+11/25               
+12/25 [scatterplot] 
+13/25               
+14/25 [dotplot]     
+15/25               
+16/25 [eventstudy]  
+17/25               
+18/25 [descriptives]
+19/25               
+20/25 [regressions] 
+21/25               
+22/25 [eventstudy2] 
+23/25               
+24/25 [regression2] 
+25/25               
+output file: example_paper_solo.knit.md
+
+
+Rendering PDF
+running xelatex - 1
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+updating tlmgr
+
+updating existing packages
+finding package for txfonts.sty
+> 1 package to install
+> installing txfonts (1 of 1)
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for csquotes.sty
+> 1 package to install
+> installing csquotes (1 of 1)
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for titling.sty
+> 1 package to install
+> installing titling (1 of 1)
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for placeins.sty
+finding package for biblatex-dm.cfg
+> 1 package to install
+> installing placeins (1 of 1)
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+finding package for pdflscape.sty
+finding package for biblatex-dm.cfg
+> 1 package to install
+> installing pdflscape (1 of 1)
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+generating bibliography
+  INFO - This is Biber 2.21
+  INFO - Logfile is 'example_paper_solo.blg'
+  INFO - Reading 'example_paper_solo.bcf'
+  INFO - Found 1 citekeys in bib section 0
+  INFO - Processing section 0
+  INFO - Looking for bibtex file 'references.bib' for section 0
+  INFO - LaTeX decoding ...
+  INFO - Found BibTeX data source 'references.bib'
+  INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+  INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+  INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
+  INFO - No sort tailoring available for locale 'en-US'
+  INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+  INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+  INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
+  INFO - No sort tailoring available for locale 'en-US'
+  INFO - Writing 'example_paper_solo.bbl' with encoding 'UTF-8'
+  INFO - Output to example_paper_solo.bbl
+  
+running xelatex - 2
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+running xelatex - 3
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+[3/9] examples/FullProject/Slides/example_slides.qmd
+
+
+processing file: example_slides.qmd
+1/29               
+2/29 [Setup]       
 Error in `library()`:
 ! there is no package called 'sf'
 Backtrace:
     x
  1. \-base::library(sf)
 
-Quitting from template_paper.qmd:46-53 [Setup]
+Quitting from example_slides.qmd:30-37 [Setup]
 Execution halted
 WARN: Error encountered when rendering files
 Render failed, retrying once...
-[1/9] LICENSE.md
-[2/9] Paper/template_paper.qmd
+[1/9] examples/Slides/example_slides_solo.qmd
 
 
-processing file: template_paper.qmd
-1/3        
-2/3 [Setup]
+processing file: example_slides_solo.qmd
+1/21               
+2/21 [Setup]       
+3/21               
+4/21 [program]     
+5/21               
+6/21 [Histogram]   
+7/21               
+8/21 [Barchart]    
+9/21               
+10/21 [tsplot1]     
+11/21               
+12/21 [scatterplot] 
+13/21               
+14/21 [dotplot]     
+15/21               
+16/21 [eventstudy]  
+17/21               
+18/21 [descriptives]
+19/21               
+20/21 [regressions] 
+21/21               
+output file: example_slides_solo.knit.md
+
+
+Rendering PDF
+running xelatex - 1
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+generating bibliography
+  INFO - This is Biber 2.21
+  INFO - Logfile is 'example_slides_solo.blg'
+  INFO - Reading 'example_slides_solo.bcf'
+  INFO - Found 1 citekeys in bib section 0
+  INFO - Processing section 0
+  INFO - Looking for bibtex file 'references.bib' for section 0
+  INFO - LaTeX decoding ...
+  INFO - Found BibTeX data source 'references.bib'
+  INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+  INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+  INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
+  INFO - No sort tailoring available for locale 'en-US'
+  INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+  INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+  INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
+  INFO - No sort tailoring available for locale 'en-US'
+  INFO - Writing 'example_slides_solo.bbl' with encoding 'UTF-8'
+  INFO - Output to example_slides_solo.bbl
+  
+running xelatex - 2
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+running xelatex - 3
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+[2/9] examples/Paper/example_paper_solo.qmd
+
+
+processing file: example_paper_solo.qmd
+1/25               
+2/25 [Setup]       
+3/25               
+4/25 [program]     
+5/25               
+6/25 [Histogram]   
+7/25               
+8/25 [Barchart]    
+9/25               
+10/25 [tsplot1]     
+11/25               
+12/25 [scatterplot] 
+13/25               
+14/25 [dotplot]     
+15/25               
+16/25 [eventstudy]  
+17/25               
+18/25 [descriptives]
+19/25               
+20/25 [regressions] 
+21/25               
+22/25 [eventstudy2] 
+23/25               
+24/25 [regression2] 
+25/25               
+output file: example_paper_solo.knit.md
+
+
+Rendering PDF
+running xelatex - 1
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+generating bibliography
+  INFO - This is Biber 2.21
+  INFO - Logfile is 'example_paper_solo.blg'
+  INFO - Reading 'example_paper_solo.bcf'
+  INFO - Found 1 citekeys in bib section 0
+  INFO - Processing section 0
+  INFO - Looking for bibtex file 'references.bib' for section 0
+  INFO - LaTeX decoding ...
+  INFO - Found BibTeX data source 'references.bib'
+  INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+  INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+  INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
+  INFO - No sort tailoring available for locale 'en-US'
+  INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+  INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+  INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
+  INFO - No sort tailoring available for locale 'en-US'
+  INFO - Writing 'example_paper_solo.bbl' with encoding 'UTF-8'
+  INFO - Output to example_paper_solo.bbl
+  
+running xelatex - 2
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+running xelatex - 3
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+[3/9] examples/FullProject/Slides/example_slides.qmd
+
+
+processing file: example_slides.qmd
+1/29               
+2/29 [Setup]       
 Error in `library()`:
 ! there is no package called 'sf'
 Backtrace:
     x
  1. \-base::library(sf)
 
-Quitting from template_paper.qmd:46-53 [Setup]
+Quitting from example_slides.qmd:30-37 [Setup]
 Execution halted
 WARN: Error encountered when rendering files

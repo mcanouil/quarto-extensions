@@ -1,0 +1,62 @@
+pandoc 
+
+  to: typst
+  output-file: typst.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+
+metadata
+
+  title: D2 Example
+  d2:
+    layout: elk
+    format: svg
+    theme: GrapeSoda
+  
+
+sh: 1: d2: not found
+
+Error running filter '/opt/quarto/share/filters/main.lua':
+string expected, got nil
+	while retrieving function argument contents
+	while retrieving arguments for function insert
+stack traceback:
+	...arto-extensions/test-15/repo/tests/_extensions/d2/d2.lua:210: in function <...arto-extensions/test-15/repo/tests/_extensions/d2/d2.lua:181>
+	[C]: in ?
+	[C]: in method 'walk'
+	...arto-extensions/test-15/repo/tests/_extensions/d2/d2.lua:366: in function <...arto-extensions/test-15/repo/tests/_extensions/d2/d2.lua:339>
+	[C]: in ?
+	[C]: in method 'walk'
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:575: in local 'checked_walk'
+	/opt/quarto/share/filters/main.lua:630: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1318: in local 'callback'
+	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
+	/opt/quarto/share/filters/main.lua:1334: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
+stack traceback:
+	...arto-extensions/test-15/repo/tests/_extensions/d2/d2.lua:366: in function <...arto-extensions/test-15/repo/tests/_extensions/d2/d2.lua:339>
+	[C]: in ?
+	[C]: in method 'walk'
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:575: in local 'checked_walk'
+	/opt/quarto/share/filters/main.lua:630: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1318: in local 'callback'
+	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
+	/opt/quarto/share/filters/main.lua:1334: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
+stack traceback:
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:575: in local 'checked_walk'
+	/opt/quarto/share/filters/main.lua:630: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1318: in local 'callback'
+	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
+	/opt/quarto/share/filters/main.lua:1334: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
+
+(WARN) Error encountered when rendering files
+

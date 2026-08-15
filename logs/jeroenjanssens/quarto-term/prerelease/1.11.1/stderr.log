@@ -1,15 +1,237 @@
 Cloning into 'repo'...
 Running script 'cp'
+Running script './use-dev-binary.sh'
+Running script './render-termshow.sh'
+Downloading jedi (4.7MiB)
+Downloading ruff (10.5MiB)
+Downloading notebook (5.3MiB)
+Downloading widgetsnbextension (2.1MiB)
+Downloading pillow (6.6MiB)
+Downloading pygments (1.2MiB)
+Downloading debugpy (3.7MiB)
+Downloading jupyterlab (16.4MiB)
+Downloading babel (9.7MiB)
+ Downloaded widgetsnbextension
+ Downloaded pygments
+ Downloaded debugpy
+ Downloaded notebook
+ Downloaded pillow
+ Downloaded ruff
+ Downloaded babel
+ Downloaded jupyterlab
+ Downloaded jedi
+Installed 106 packages in 880ms
+✓ Rendered 204 keyframes to termshow/recording-demo/
+  Duration: 12.4s | Chapters: 0
 
-[1/5] examples.qmd
+[ 1/23] debugging.qmd
+[ 2/23] demo-formats.qmd
 quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
-[2/5] get-started.qmd
 quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
-[3/5] reference.qmd
-[4/5] index.qmd
 quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
-[5/5] themes.qmd
 quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
+[typst]: Compiling demo-formats.typ to demo-formats.pdf...DONE
+
+[ 3/23] styling.qmd
+quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
+[ 4/23] recording.qmd
+quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
+[ 5/23] demo-presentation.qmd
+quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
+[ 6/23] recipes.qmd
+quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
+[ 7/23] reference.qmd
+[ 8/23] use-cases.md
+[ 9/23] get-started.qmd
+quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
+[10/23] shells/bash.qmd
+quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
+[11/23] shells/duckdb.qmd
+quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
+[12/23] shells/sqlite.qmd
+quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
+[13/23] shells/python.qmd
+quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
+[14/23] shells/nushell.qmd
+quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
+[15/23] shells/node.qmd
+quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
+[16/23] shells/zsh.qmd
+quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
+[17/23] shells/index.qmd
+[18/23] shells/r.qmd
+quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
+[19/23] shells/ruby.qmd
+quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
+[20/23] shells/fish.qmd
+quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
+[21/23] shells/sh.qmd
+quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
+[22/23] index.qmd
+quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
+[23/23] docker.qmd
+
+Running script './render-readme.sh'
+✓ Rendered 204 keyframes to termshow/recording-demo/
+  Duration: 12.4s | Chapters: 0
+Download https://deno.land/std@0.224.0/yaml/mod.ts
+Download https://deno.land/std@0.224.0/fs/mod.ts
+Download https://deno.land/std@0.224.0/path/mod.ts
+Download https://deno.land/std@0.224.0/yaml/parse.ts
+Download https://deno.land/std@0.224.0/yaml/stringify.ts
+Download https://deno.land/std@0.224.0/yaml/type.ts
+Download https://deno.land/std@0.224.0/yaml/schema/mod.ts
+Download https://deno.land/std@0.224.0/fs/empty_dir.ts
+Download https://deno.land/std@0.224.0/fs/ensure_dir.ts
+Download https://deno.land/std@0.224.0/fs/ensure_file.ts
+Download https://deno.land/std@0.224.0/fs/ensure_link.ts
+Download https://deno.land/std@0.224.0/fs/ensure_symlink.ts
+Download https://deno.land/std@0.224.0/fs/exists.ts
+Download https://deno.land/std@0.224.0/fs/expand_glob.ts
+Download https://deno.land/std@0.224.0/fs/move.ts
+Download https://deno.land/std@0.224.0/fs/copy.ts
+Download https://deno.land/std@0.224.0/fs/walk.ts
+Download https://deno.land/std@0.224.0/fs/eol.ts
+Download https://deno.land/std@0.224.0/path/windows/mod.ts
+Download https://deno.land/std@0.224.0/path/posix/mod.ts
+Download https://deno.land/std@0.224.0/path/basename.ts
+Download https://deno.land/std@0.224.0/path/constants.ts
+Download https://deno.land/std@0.224.0/path/dirname.ts
+Download https://deno.land/std@0.224.0/path/extname.ts
+Download https://deno.land/std@0.224.0/path/format.ts
+Download https://deno.land/std@0.224.0/path/from_file_url.ts
+Download https://deno.land/std@0.224.0/path/is_absolute.ts
+Download https://deno.land/std@0.224.0/path/join.ts
+Download https://deno.land/std@0.224.0/path/normalize.ts
+Download https://deno.land/std@0.224.0/path/parse.ts
+Download https://deno.land/std@0.224.0/path/relative.ts
+Download https://deno.land/std@0.224.0/path/resolve.ts
+Download https://deno.land/std@0.224.0/path/to_file_url.ts
+Download https://deno.land/std@0.224.0/path/to_namespaced_path.ts
+Download https://deno.land/std@0.224.0/path/common.ts
+Download https://deno.land/std@0.224.0/path/_interface.ts
+Download https://deno.land/std@0.224.0/path/glob_to_regexp.ts
+Download https://deno.land/std@0.224.0/path/is_glob.ts
+Download https://deno.land/std@0.224.0/path/join_globs.ts
+Download https://deno.land/std@0.224.0/path/normalize_glob.ts
+Download https://deno.land/std@0.224.0/yaml/_loader/loader.ts
+Download https://deno.land/std@0.224.0/yaml/_dumper/dumper.ts
+Download https://deno.land/std@0.224.0/yaml/schema/core.ts
+Download https://deno.land/std@0.224.0/yaml/schema/default.ts
+Download https://deno.land/std@0.224.0/yaml/schema/extended.ts
+Download https://deno.land/std@0.224.0/yaml/schema/failsafe.ts
+Download https://deno.land/std@0.224.0/yaml/schema/json.ts
+Download https://deno.land/std@0.224.0/fs/_to_path_string.ts
+Download https://deno.land/std@0.224.0/fs/_get_file_info_type.ts
+Download https://deno.land/std@0.224.0/assert/assert.ts
+Download https://deno.land/std@0.224.0/fs/_create_walk_entry.ts
+Download https://deno.land/std@0.224.0/fs/_is_subdir.ts
+Download https://deno.land/std@0.224.0/fs/_is_same_path.ts
+Download https://deno.land/std@0.224.0/path/windows/basename.ts
+Download https://deno.land/std@0.224.0/path/windows/constants.ts
+Download https://deno.land/std@0.224.0/path/windows/dirname.ts
+Download https://deno.land/std@0.224.0/path/windows/extname.ts
+Download https://deno.land/std@0.224.0/path/windows/format.ts
+Download https://deno.land/std@0.224.0/path/windows/from_file_url.ts
+Download https://deno.land/std@0.224.0/path/windows/is_absolute.ts
+Download https://deno.land/std@0.224.0/path/windows/join.ts
+Download https://deno.land/std@0.224.0/path/windows/normalize.ts
+Download https://deno.land/std@0.224.0/path/windows/parse.ts
+Download https://deno.land/std@0.224.0/path/windows/relative.ts
+Download https://deno.land/std@0.224.0/path/windows/resolve.ts
+Download https://deno.land/std@0.224.0/path/windows/to_file_url.ts
+Download https://deno.land/std@0.224.0/path/windows/to_namespaced_path.ts
+Download https://deno.land/std@0.224.0/path/windows/common.ts
+Download https://deno.land/std@0.224.0/path/windows/glob_to_regexp.ts
+Download https://deno.land/std@0.224.0/path/windows/is_glob.ts
+Download https://deno.land/std@0.224.0/path/windows/join_globs.ts
+Download https://deno.land/std@0.224.0/path/windows/normalize_glob.ts
+Download https://deno.land/std@0.224.0/path/posix/basename.ts
+Download https://deno.land/std@0.224.0/path/posix/constants.ts
+Download https://deno.land/std@0.224.0/path/posix/dirname.ts
+Download https://deno.land/std@0.224.0/path/posix/extname.ts
+Download https://deno.land/std@0.224.0/path/posix/format.ts
+Download https://deno.land/std@0.224.0/path/posix/from_file_url.ts
+Download https://deno.land/std@0.224.0/path/posix/is_absolute.ts
+Download https://deno.land/std@0.224.0/path/posix/join.ts
+Download https://deno.land/std@0.224.0/path/posix/normalize.ts
+Download https://deno.land/std@0.224.0/path/posix/parse.ts
+Download https://deno.land/std@0.224.0/path/posix/relative.ts
+Download https://deno.land/std@0.224.0/path/posix/resolve.ts
+Download https://deno.land/std@0.224.0/path/posix/to_file_url.ts
+Download https://deno.land/std@0.224.0/path/posix/to_namespaced_path.ts
+Download https://deno.land/std@0.224.0/path/posix/common.ts
+Download https://deno.land/std@0.224.0/path/posix/glob_to_regexp.ts
+Download https://deno.land/std@0.224.0/path/posix/is_glob.ts
+Download https://deno.land/std@0.224.0/path/posix/join_globs.ts
+Download https://deno.land/std@0.224.0/path/posix/normalize_glob.ts
+Download https://deno.land/std@0.224.0/path/_os.ts
+Download https://deno.land/std@0.224.0/path/_common/common.ts
+Download https://deno.land/std@0.224.0/yaml/_error.ts
+Download https://deno.land/std@0.224.0/yaml/_mark.ts
+Download https://deno.land/std@0.224.0/yaml/_utils.ts
+Download https://deno.land/std@0.224.0/yaml/_loader/loader_state.ts
+Download https://deno.land/std@0.224.0/yaml/_dumper/dumper_state.ts
+Download https://deno.land/std@0.224.0/yaml/schema.ts
+Download https://deno.land/std@0.224.0/yaml/_type/mod.ts
+Download https://deno.land/std@0.224.0/assert/assertion_error.ts
+Download https://deno.land/std@0.224.0/path/_common/basename.ts
+Download https://deno.land/std@0.224.0/path/_common/constants.ts
+Download https://deno.land/std@0.224.0/path/_common/strip_trailing_separators.ts
+Download https://deno.land/std@0.224.0/path/windows/_util.ts
+Download https://deno.land/std@0.224.0/path/_common/dirname.ts
+Download https://deno.land/std@0.224.0/path/_common/assert_path.ts
+Download https://deno.land/std@0.224.0/path/_common/format.ts
+Download https://deno.land/std@0.224.0/path/_common/from_file_url.ts
+Download https://deno.land/std@0.224.0/path/_common/normalize.ts
+Download https://deno.land/std@0.224.0/path/_common/normalize_string.ts
+Download https://deno.land/std@0.224.0/path/_common/relative.ts
+Download https://deno.land/std@0.224.0/path/_common/to_file_url.ts
+Download https://deno.land/std@0.224.0/path/_common/glob_to_reg_exp.ts
+Download https://deno.land/std@0.224.0/path/posix/_util.ts
+Download https://deno.land/std@0.224.0/yaml/_state.ts
+Download https://deno.land/std@0.224.0/yaml/_type/binary.ts
+Download https://deno.land/std@0.224.0/yaml/_type/bool.ts
+Download https://deno.land/std@0.224.0/yaml/_type/float.ts
+Download https://deno.land/std@0.224.0/yaml/_type/function.ts
+Download https://deno.land/std@0.224.0/yaml/_type/int.ts
+Download https://deno.land/std@0.224.0/yaml/_type/map.ts
+Download https://deno.land/std@0.224.0/yaml/_type/merge.ts
+Download https://deno.land/std@0.224.0/yaml/_type/nil.ts
+Download https://deno.land/std@0.224.0/yaml/_type/omap.ts
+Download https://deno.land/std@0.224.0/yaml/_type/pairs.ts
+Download https://deno.land/std@0.224.0/yaml/_type/regexp.ts
+Download https://deno.land/std@0.224.0/yaml/_type/seq.ts
+Download https://deno.land/std@0.224.0/yaml/_type/set.ts
+Download https://deno.land/std@0.224.0/yaml/_type/str.ts
+Download https://deno.land/std@0.224.0/yaml/_type/timestamp.ts
+Download https://deno.land/std@0.224.0/yaml/_type/undefined.ts
+quarto-term: downloading v0.5.0 for x86_64-unknown-linux-gnu...
+quarto-term: installed v0.5.0 (quarto-term-x86_64-unknown-linux-gnu)
+
+pandoc --output README.md
+  to: >-
+    commonmark+autolink_bare_uris+emoji+footnotes+gfm_auto_identifiers+pipe_tables+strikeout+task_lists+tex_math_dollars
+  standalone: true
+  default-image-extension: png
+  
+metadata
+  extensions:
+    term:
+      shell: zsh
+      init:
+        - zsh-syntax-highlighting
+        - setopt INTERACTIVE_COMMENTS
+      spacing: true
+      style:
+        html:
+          colorscheme-light: solarized-dark
+          colorscheme-dark: solarized-light
+  title: quarto-term
+  subtitle: Persistent interactive terminal sessions for Quarto
+  
+
+Output created: _site/README.md
 
 Running script 'rm'
 

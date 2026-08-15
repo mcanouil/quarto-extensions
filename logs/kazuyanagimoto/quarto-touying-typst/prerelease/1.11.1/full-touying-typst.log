@@ -15,6 +15,7 @@ processing file: full.qmd
 6/15 [plot-layout]     
 
 7/15                   
+
 8/15 [prep-table]      
 
 9/15                   
@@ -25,8 +26,8 @@ processing file: full.qmd
 
 12/15 [table-2]         
 
-13/15                   
-
+13
+/15                   
 14/15 [table-regression]
 
 15/15                   
@@ -35,7 +36,6 @@ output file: full.knit.md
 
 
 There were 50 or more warnings (use warnings() to see the first 50)
-
 
 pandoc 
 
@@ -111,8 +111,7 @@ downloading @preview/touying:0.7.4
 downloading @preview/uniwarn:0.1.1
 
   0 B /   3.6 KiB (  0 %),  36.2 KiB/s, ETA: 0 s
-  3.6 KiB /   3.6 KiB (100 %),  36.2 KiB/s, ETA: 0
- s
+  3.6 KiB /   3.6 KiB (100 %),  36.2 KiB/s, ETA: 0 s
 
 downloading @preview/touying-quarto-clean:0.2.0
 
@@ -122,9 +121,9 @@ downloading @preview/touying-quarto-clean:0.2.0
 warning: unknown font family: times new roman
     ┌─ docs/gallery/full.typ:654:29
     │
-654 │ #set text(size: 30pt , fon
-t: ("Times New Roman",));
-    │                              ^^^^^^^^^^^^^^^^^^^^
+654 │ #set text(size: 30pt , font: ("Times New Roman",));
+    │ 
+                             ^^^^^^^^^^^^^^^^^^^^
 
 
 DONE

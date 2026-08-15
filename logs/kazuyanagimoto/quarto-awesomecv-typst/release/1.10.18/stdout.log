@@ -19,13 +19,16 @@ An administrator can install these packages with:
 The following package(s) will be updated:
 
 # Repository -----------------------------------------------------------------
+- bslib     [0.12.0 -> 0.11.0]
 - typstcv   [* -> 0.0.2.4]
 
 # Downloading packages -------------------------------------------------------
-y typstcv 0.0.2.4                         
-Successfully downloaded 1 package in 1.1 seconds.
+[?25l  (0/1) Downloading: bslib                                                                                                                                      [32m✔[0m bslib 0.11.0                             [6.2 MB in 0.53s]
+                                                                                [32m✔[0m typstcv 0.0.2.4                         
+Successfully downloaded 2 packages in 1.9 seconds.
 
 # Installing packages --------------------------------------------------------
-[?25l  (0/1) Installing: typstcv                                                       (0/1) Installing: typstcv                                                                                                                                     y typstcv 0.0.2.4                          [built from source in 1.5s]
-Successfully installed 1 package in 1.6 seconds.
+                                                                                [32m✔[0m bslib 0.11.0                             [installed binary]
+  (1/2) Installing: typstcv                                                       (1/2) Installing: typstcv                                                                                                                                     [32m✔[0m typstcv 0.0.2.4                          [built from source in 1.3s]
+Successfully installed 2 packages in 2.1 seconds.
 [?25h

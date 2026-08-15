@@ -1,5 +1,24 @@
 Cloning into 'repo'...
-[1/2] template-typstcv.qmd
+[1/2] template.qmd
+[typst]: Compiling template.typ to template.pdf...downloading @preview/fontawesome:0.6.2
+
+  0 B /  84.8 KiB (  0 %), 848.3 KiB/s, ETA: 0 s
+ 84.8 KiB /  84.8 KiB (100 %), 848.3 KiB/s, ETA: 0 s
+warning: unknown font family: font awesome 7 free
+   ┌─ @preview/fontawesome:0.6.2/lib-impl.typ:80:12
+   │
+80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
+   │             ^^^^^^^^^^^^^
+
+warning: unknown font family: font awesome 7 brands
+   ┌─ @preview/fontawesome:0.6.2/lib-impl.typ:80:12
+   │
+80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
+   │             ^^^^^^^^^^^^^
+
+DONE
+
+[2/2] template-typstcv.qmd
 
 
 processing file: template-typstcv.qmd
@@ -80,7 +99,22 @@ error: unclosed label
 
 ERROR: Typst compilation failed
 Render failed, retrying once...
-[1/2] template-typstcv.qmd
+[1/2] template.qmd
+[typst]: Compiling template.typ to template.pdf...warning: unknown font family: font awesome 7 free
+   ┌─ @preview/fontawesome:0.6.2/lib-impl.typ:80:12
+   │
+80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
+   │             ^^^^^^^^^^^^^
+
+warning: unknown font family: font awesome 7 brands
+   ┌─ @preview/fontawesome:0.6.2/lib-impl.typ:80:12
+   │
+80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
+   │             ^^^^^^^^^^^^^
+
+DONE
+
+[2/2] template-typstcv.qmd
 
 
 processing file: template-typstcv.qmd

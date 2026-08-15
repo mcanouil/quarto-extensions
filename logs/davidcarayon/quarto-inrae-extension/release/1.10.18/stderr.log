@@ -1,12 +1,11 @@
 Cloning into 'repo'...
-Installing packages into '/cache/r-lib-1'
+Installing packages into '/cache/r-lib-0'
 (as 'lib' is unspecified)
-also installing the dependencies 'fontBitstreamVera', 'fontLiberation', 'fontquiver', 'zip', 'extrafontdb', 'Rttf2pt1', 'gdtools', 'officer'
+also installing the dependencies 'fontBitstreamVera', 'fontLiberation', 'fontquiver', 'extrafontdb', 'Rttf2pt1', 'gdtools', 'officer'
 
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fontBitstreamVera_0.1.1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fontLiberation_0.1.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fontquiver_0.2.1.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/zip_3.0.1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/extrafontdb_1.1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/Rttf2pt1_1.3.14.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/gdtools_0.5.1.tar.gz'
@@ -37,24 +36,6 @@ trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/flextable_0.
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (fontLiberation)
-* installing *source* package 'zip' ...
-** this is package 'zip' version '3.0.1'
-** package 'zip' successfully unpacked and MD5 sums checked
-** using staged installation
-** libs
-using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
-installing via 'install.libs.R' to /cache/r-lib-1/00LOCK-zip/00new/zip
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-** building package indices
-** testing if installed package can be loaded from temporary location
-** checking absolute paths in shared objects and dynamic libraries
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (zip)
 * installing *source* package 'extrafontdb' ...
 ** this is package 'extrafontdb' version '1.1'
 ** package 'extrafontdb' successfully unpacked and MD5 sums checked
@@ -74,8 +55,8 @@ installing via 'install.libs.R' to /cache/r-lib-1/00LOCK-zip/00new/zip
 ** package 'Rttf2pt1' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** libs
-installing via 'install.libs.R' to /cache/r-lib-1/00LOCK-Rttf2pt1/00new/Rttf2pt1
-Installing ttf2pt1/ttf2pt1 to /cache/r-lib-1/00LOCK-Rttf2pt1/00new/Rttf2pt1/exec
+installing via 'install.libs.R' to /cache/r-lib-0/00LOCK-Rttf2pt1/00new/Rttf2pt1
+Installing ttf2pt1/ttf2pt1 to /cache/r-lib-0/00LOCK-Rttf2pt1/00new/Rttf2pt1/exec
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -86,20 +67,6 @@ Installing ttf2pt1/ttf2pt1 to /cache/r-lib-1/00LOCK-Rttf2pt1/00new/Rttf2pt1/exec
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (Rttf2pt1)
-* installing *source* package 'fontquiver' ...
-** this is package 'fontquiver' version '0.2.1'
-** package 'fontquiver' successfully unpacked and MD5 sums checked
-** using staged installation
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-** building package indices
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (fontquiver)
 * installing *source* package 'officer' ...
 ** this is package 'officer' version '0.7.6'
 ** package 'officer' successfully unpacked and MD5 sums checked
@@ -115,6 +82,20 @@ Installing ttf2pt1/ttf2pt1 to /cache/r-lib-1/00LOCK-Rttf2pt1/00new/Rttf2pt1/exec
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (officer)
+* installing *source* package 'fontquiver' ...
+** this is package 'fontquiver' version '0.2.1'
+** package 'fontquiver' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (fontquiver)
 * installing *source* package 'extrafont' ...
 ** this is package 'extrafont' version '0.20'
 ** package 'extrafont' successfully unpacked and MD5 sums checked
@@ -134,7 +115,7 @@ Installing ttf2pt1/ttf2pt1 to /cache/r-lib-1/00LOCK-Rttf2pt1/00new/Rttf2pt1/exec
 ** using staged installation
 ** libs
 using C++ compiler: 'g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
-installing to /cache/r-lib-1/00LOCK-gdtools/00new/gdtools/libs
+installing to /cache/r-lib-0/00LOCK-gdtools/00new/gdtools/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -164,14 +145,37 @@ installing to /cache/r-lib-1/00LOCK-gdtools/00new/gdtools/libs
 * DONE (flextable)
 
 The downloaded source packages are in
-	'/tmp/RtmpyE4OMw/downloaded_packages'
+	'/tmp/RtmpYA1obq/downloaded_packages'
 Warning message:
 package 'InraeThemes' is not available for this version of R
 
 A version of this package for your version of R might be available elsewhere,
 see the ideas at
 https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages 
-[1/8] template_powerpoint.qmd
+[1/8] template_word.qmd
+
+
+processing file: template_word.qmd
+1/5                  
+2/5 [unnamed-chunk-1]
+3/5                  
+4/5 [fig-n-lights]   
+5/5                  
+output file: template_word.knit.md
+
+Warning message:
+Duplicated chunk option(s) 'label' in both chunk header and pipe comments of the chunk 'fig-n-lights'. 
+[WARNING] Could not fetch resource field.jpg: replacing image with description
+[2/8] template_revealjs.qmd
+
+
+processing file: template_revealjs.qmd
+1/3                  
+2/3 [unnamed-chunk-1]
+3/3                  
+output file: template_revealjs.knit.md
+
+[3/8] template_powerpoint.qmd
 
 
 processing file: template_powerpoint.qmd
@@ -180,23 +184,48 @@ processing file: template_powerpoint.qmd
 3/3                  
 output file: template_powerpoint.knit.md
 
-[2/8] template_html.qmd
+[4/8] template_pdf.qmd
 
 
-processing file: template_html.qmd
-1/10                  
-2/10 [unnamed-chunk-1]
+processing file: template_pdf.qmd
+1/18                  
+2/18 [setup]          
+3/18                  
+4/18 [unnamed-chunk-1]
 Error in `library()`:
 ! there is no package called 'InraeThemes'
 Backtrace:
     x
  1. \-base::library(InraeThemes)
 
-Quitting from template_html.qmd:51-70 [unnamed-chunk-1]
+Quitting from template_pdf.qmd:46-65 [unnamed-chunk-1]
 Execution halted
 WARN: Error encountered when rendering files
 Render failed, retrying once...
-[1/8] template_powerpoint.qmd
+[1/8] template_word.qmd
+
+
+processing file: template_word.qmd
+1/5                  
+2/5 [unnamed-chunk-1]
+3/5                  
+4/5 [fig-n-lights]   
+5/5                  
+output file: template_word.knit.md
+
+Warning message:
+Duplicated chunk option(s) 'label' in both chunk header and pipe comments of the chunk 'fig-n-lights'. 
+[WARNING] Could not fetch resource field.jpg: replacing image with description
+[2/8] template_revealjs.qmd
+
+
+processing file: template_revealjs.qmd
+1/3                  
+2/3 [unnamed-chunk-1]
+3/3                  
+output file: template_revealjs.knit.md
+
+[3/8] template_powerpoint.qmd
 
 
 processing file: template_powerpoint.qmd
@@ -205,18 +234,20 @@ processing file: template_powerpoint.qmd
 3/3                  
 output file: template_powerpoint.knit.md
 
-[2/8] template_html.qmd
+[4/8] template_pdf.qmd
 
 
-processing file: template_html.qmd
-1/10                  
-2/10 [unnamed-chunk-1]
+processing file: template_pdf.qmd
+1/18                  
+2/18 [setup]          
+3/18                  
+4/18 [unnamed-chunk-1]
 Error in `library()`:
 ! there is no package called 'InraeThemes'
 Backtrace:
     x
  1. \-base::library(InraeThemes)
 
-Quitting from template_html.qmd:51-70 [unnamed-chunk-1]
+Quitting from template_pdf.qmd:46-65 [unnamed-chunk-1]
 Execution halted
 WARN: Error encountered when rendering files

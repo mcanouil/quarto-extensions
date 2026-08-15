@@ -13,7 +13,10 @@ The following package(s) will be updated:
 
 # Repository -----------------------------------------------------------------
 - Rcpp          [1.1.2 -> 1.1.1-1.1]
+- bslib         [0.12.0 -> 0.11.0]
+- renv          [1.2.4 -> 1.2.3]
 - rlang         [1.3.0 -> 1.2.0]
+- stringi       [1.8.9 -> 1.8.7]
 - xfun          [0.60 -> 0.59]
 - AsioHeaders   [* -> 1.30.2-1]
 - chromote      [* -> 0.5.1]
@@ -31,116 +34,52 @@ The following package(s) will be updated:
 - zip           [* -> 3.0.0]
 
 # Downloading packages -------------------------------------------------------
-[?25l  (0/17) Downloading: xfun, websocket, crosstalk, chromote, ...                                                                                                 y ellipsis 0.3.3                           [26 kB in 0.7s]
-  (1/17) Downloading: xfun, websocket, crosstalk, chromote, ...                                                                                                 y later 1.4.8                              [162 kB in 0.7s]
-  (2/17) Downloading: xfun, websocket, crosstalk, chromote, ...                                                                                                 y lazyeval 0.2.3                           [190 kB in 0.71s]
-  (3/17) Downloading: xfun, websocket, crosstalk, chromote, ...                                                                                                 y cpp11 0.5.5                              [309 kB in 0.71s]
-  (4/17) Downloading: xfun, websocket, crosstalk, chromote, ...                                                                                                 y crosstalk 1.2.2                          [417 kB in 0.71s]
-  (5/17) Downloading: xfun, websocket, chromote, plotly, ...                                                                                                    y chromote 0.5.1                           [651 kB in 0.72s]
-  (6/17) Downloading: xfun, websocket, plotly, viridis, ...                                                                                                     y AsioHeaders 1.30.2-1                     [666 kB in 0.72s]
-  (7/17) Downloading: xfun, websocket, plotly, viridis, ...                                                                                                     y websocket 1.4.4                          [451 kB in 0.72s]
-  (8/17) Downloading: xfun, plotly, viridis, webshot2, ...                                                                                                      y webshot2 0.1.2                           [572 kB in 0.72s]
-  (9/17) Downloading: xfun, plotly, viridis, zip, ...                                                                                                           y gridExtra 2.3.1                          [528 kB in 0.72s]
-  (10/17) Downloading: xfun, plotly, viridis, zip, ...                                                                                                          y zip 3.0.0                                [959 kB in 0.73s]
-  (11/17) Downloading: xfun, plotly, viridis, promises, ...                                                                                                     y rlang 1.2.0                              [1.6 MB in 0.73s]
-  (12/17) Downloading: xfun, plotly, viridis, promises, ...                                                                                                     y promises 1.5.0                           [1.7 MB in 0.74s]
-  (13/17) Downloading: xfun, plotly, viridis, Rcpp                                                                                                              y viridis 0.6.5                            [3.0 MB in 0.75s]
-  (14/17) Downloading: xfun, plotly, Rcpp                                                                                                                       y plotly 4.12.0                            [3.9 MB in 0.75s]
-  (15/17) Downloading: xfun, Rcpp                                                                                                                               y Rcpp 1.1.1-1.1                           [2.3 MB in 63s]
-  (16/17) Downloading: xfun                                                                                                                                     y xfun 0.59                                [645 kB in 0.92s]
-                                                                                Successfully downloaded 17 packages in 1.2 seconds.
+[?25l  (0/20) Downloading: viridis, plotly, renv, stringi, ...                                                                                                       y later 1.4.8                              [162 kB in 0.91s]
+  (1/20) Downloading: viridis, plotly, renv, stringi, ...                                                                                                       y ellipsis 0.3.3                           [26 kB in 0.92s]
+  (2/20) Downloading: viridis, plotly, renv, stringi, ...                                                                                                       y lazyeval 0.2.3                           [191 kB in 0.94s]
+  (3/20) Downloading: viridis, plotly, renv, stringi, ...                                                                                                       y cpp11 0.5.5                              [309 kB in 0.94s]
+  (4/20) Downloading: viridis, plotly, renv, stringi, ...                                                                                                       y crosstalk 1.2.2                          [416 kB in 0.96s]
+  (5/20) Downloading: viridis, plotly, renv, stringi, ...                                                                                                       y chromote 0.5.1                           [651 kB in 0.97s]
+  (6/20) Downloading: viridis, plotly, renv, stringi, ...                                                                                                       y gridExtra 2.3.1                          [528 kB in 0.97s]
+  (7/20) Downloading: viridis, plotly, renv, stringi, ...                                                                                                       y zip 3.0.0                                [959 kB in 1.0s]
+  (8/20) Downloading: viridis, plotly, renv, stringi, ...                                                                                                       y promises 1.5.0                           [1.7 MB in 1.0s]
+  (9/20) Downloading: viridis, plotly, renv, stringi, ...                                                                                                       y viridis 0.6.5                            [3.0 MB in 1.0s]
+  (10/20) Downloading: plotly, renv, stringi, AsioHeaders, ...                                                                                                  y renv 1.2.3                               [2.5 MB in 1.0s]
+  (11/20) Downloading: plotly, stringi, AsioHeaders, rlang, ...                                                                                                 y stringi 1.8.7                            [3.5 MB in 1.0s]
+  (12/20) Downloading: plotly, AsioHeaders, rlang, bslib, ...                                                                                                   y rlang 1.2.0                              [1.6 MB in 1.1s]
+  (13/20) Downloading: plotly, AsioHeaders, bslib, Rcpp, ...                                                                                                    y plotly 4.12.0                            [3.9 MB in 1.1s]
+  (14/20) Downloading: AsioHeaders, bslib, Rcpp, xfun, ...                                                                                                      y AsioHeaders 1.30.2-1                     [666 kB in 1.1s]
+  (15/20) Downloading: bslib, Rcpp, xfun, websocket, ...                                                                                                        y xfun 0.59                                [645 kB in 0.16s]
+  (16/20) Downloading: bslib, Rcpp, websocket, webshot2                                                                                                         y websocket 1.4.4                          [451 kB in 0.18s]
+  (17/20) Downloading: bslib, Rcpp, webshot2                                                                                                                    y webshot2 0.1.2                           [572 kB in 0.18s]
+  (18/20) Downloading: bslib, Rcpp                                                                                                                              y bslib 0.11.0                             [6.2 MB in 1.1s]
+  (19/20) Downloading: Rcpp                                                                                                                                     y Rcpp 1.1.1-1.1                           [2.3 MB in 0.25s]
+                                                                                Successfully downloaded 20 packages in 1.4 seconds.
 
 # Installing packages --------------------------------------------------------
                                                                                 y AsioHeaders 1.30.2-1                     [installed binary]
                                                                                 y Rcpp 1.1.1-1.1                           [installed binary]
                                                                                 y cpp11 0.5.5                              [installed binary]
                                                                                 y gridExtra 2.3.1                          [installed binary]
+                                                                                y renv 1.2.3                               [installed binary]
                                                                                 y rlang 1.2.0                              [installed binary]
+                                                                                y stringi 1.8.7                            [installed binary]
                                                                                 y xfun 0.59                                [installed binary]
+                                                                                y zip 3.0.0                                [installed binary]
                                                                                 y viridis 0.6.5                            [installed binary]
+                                                                                y bslib 0.11.0                             [installed binary]
                                                                                 y ellipsis 0.3.3                           [installed binary]
                                                                                 y later 1.4.8                              [installed binary]
                                                                                 y lazyeval 0.2.3                           [installed binary]
                                                                                 y promises 1.5.0                           [installed binary]
                                                                                 y websocket 1.4.4                          [installed binary]
                                                                                 y crosstalk 1.2.2                          [installed binary]
+                                                                                y chromote 0.5.1                           [installed binary]
                                                                                 y plotly 4.12.0                            [installed binary]
-Successfully installed 14 packages in 6.6 seconds.
+                                                                                y webshot2 0.1.2                           [installed binary]
+Successfully installed 20 packages in 9.4 seconds.
+[?25h
+The following loaded package(s) have been updated:
+- renv
+Restart your R session to use the new versions.
 
-The following package(s) were not installed successfully:
-- [chromote]: dependency failed (zip)
-- [webshot2]: dependency failed (chromote)
-- [zip]: dependency failed (webshot2)
-You may need to manually download and install these packages.
-
-[?25hTraceback (most recent calls last):
-4: renv::restore()
-3: renv_restore_run_actions(project, diff, current, lockfile, rebuild, 
-       strict, descriptions)
-2: stopf("failed to install %s", paste(dQuote(failed), collapse = ", "))
-1: stop(sprintf(fmt, ...), call. = call.)
-Installing R dependencies from renv.lock for computorg/computo-quarto-extension.
-The following required system packages are not installed:
-- chromium  [required by chromote]
-- pandoc    [required by knitr, rmarkdown]
-The R packages depending on these system packages may fail to install.
-
-An administrator can install these packages with:
-- sudo apt install chromium pandoc
-
-The following package(s) will be updated:
-
-# Repository -----------------------------------------------------------------
-- Rcpp          [1.1.2 -> 1.1.1-1.1]
-- rlang         [1.3.0 -> 1.2.0]
-- xfun          [0.60 -> 0.59]
-- AsioHeaders   [* -> 1.30.2-1]
-- chromote      [* -> 0.5.1]
-- cpp11         [* -> 0.5.5]
-- crosstalk     [* -> 1.2.2]
-- ellipsis      [* -> 0.3.3]
-- gridExtra     [* -> 2.3.1]
-- later         [* -> 1.4.8]
-- lazyeval      [* -> 0.2.3]
-- plotly        [* -> 4.12.0]
-- promises      [* -> 1.5.0]
-- viridis       [* -> 0.6.5]
-- webshot2      [* -> 0.1.2]
-- websocket     [* -> 1.4.4]
-- zip           [* -> 3.0.0]
-
-# Downloading packages -------------------------------------------------------
-[?25l  (0/3) Downloading: chromote, webshot2, zip                                                                                                                    y chromote 0.5.1                           [651 kB in 0.21s]
-  (1/3) Downloading: webshot2, zip                                                                                                                              y webshot2 0.1.2                           [572 kB in 0.21s]
-  (2/3) Downloading: zip                                                                                                                                        y zip 3.0.0                                [959 kB in 0.21s]
-                                                                                Successfully downloaded 3 packages in 0.46 seconds.
-
-# Installing packages --------------------------------------------------------
-y xfun 0.59                                [copied from cache]
-y websocket 1.4.4                          [copied from cache]
-y crosstalk 1.2.2                          [copied from cache]
-y lazyeval 0.2.3                           [copied from cache]
-y plotly 4.12.0                            [copied from cache]
-y later 1.4.8                              [copied from cache]
-y ellipsis 0.3.3                           [copied from cache]
-y viridis 0.6.5                            [copied from cache]
-y promises 1.5.0                           [copied from cache]
-y cpp11 0.5.5                              [copied from cache]
-y gridExtra 2.3.1                          [copied from cache]
-y rlang 1.2.0                              [copied from cache]
-y AsioHeaders 1.30.2-1                     [copied from cache]
-y Rcpp 1.1.1-1.1                           [copied from cache]
-Successfully installed 14 packages in 0.22 seconds.
-
-The following package(s) were not installed successfully:
-- [chromote]: dependency failed (zip)
-- [webshot2]: dependency failed (chromote)
-- [zip]: dependency failed (webshot2)
-You may need to manually download and install these packages.
-
-[?25hTraceback (most recent calls last):
-4: renv::restore()
-3: renv_restore_run_actions(project, diff, current, lockfile, rebuild, 
-       strict, descriptions)
-2: stopf("failed to install %s", paste(dQuote(failed), collapse = ", "))
-1: stop(sprintf(fmt, ...), call. = call.)

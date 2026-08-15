@@ -1,5 +1,32 @@
 Cloning into 'repo'...
-Installing packages into '/cache/r-lib-1'
+Installing package into '/cache/r-lib-0'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.4.tar.gz'
+Content type 'binary/octet-stream' length 1435963 bytes (1.4 MB)
+==================================================
+downloaded 1.4 MB
+
+* installing *source* package 'renv' ...
+** this is package 'renv' version '1.2.4'
+** package 'renv' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/RtmpsZeVNN/downloaded_packages'
+Installing packages into '/cache/r-lib-0'
 (as 'lib' is unspecified)
 also installing the dependencies 'pkgbuild', 'diffobj', 'later', 'brio', 'desc', 'pkgload', 'praise', 'waldo'
 
@@ -19,7 +46,7 @@ trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/testthat_3.3
 ** using staged installation
 ** libs
 using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
-installing to /cache/r-lib-1/00LOCK-diffobj/00new/diffobj/libs
+installing to /cache/r-lib-0/00LOCK-diffobj/00new/diffobj/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -39,7 +66,7 @@ installing to /cache/r-lib-1/00LOCK-diffobj/00new/diffobj/libs
 ** libs
 using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
 using C++ compiler: 'g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
-installing to /cache/r-lib-1/00LOCK-later/00new/later/libs
+installing to /cache/r-lib-0/00LOCK-later/00new/later/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -58,7 +85,7 @@ installing to /cache/r-lib-1/00LOCK-later/00new/later/libs
 ** using staged installation
 ** libs
 using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
-installing to /cache/r-lib-1/00LOCK-brio/00new/brio/libs
+installing to /cache/r-lib-0/00LOCK-brio/00new/brio/libs
 ** R
 ** byte-compile and prepare package for lazy loading
 ** help
@@ -161,7 +188,7 @@ installing to /cache/r-lib-1/00LOCK-brio/00new/brio/libs
 ** libs
 using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
 using C++ compiler: 'g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
-installing to /cache/r-lib-1/00LOCK-testthat/00new/testthat/libs
+installing to /cache/r-lib-0/00LOCK-testthat/00new/testthat/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -177,7 +204,7 @@ installing to /cache/r-lib-1/00LOCK-testthat/00new/testthat/libs
 * DONE (testthat)
 
 The downloaded source packages are in
-	'/tmp/RtmpdFqfLb/downloaded_packages'
+	'/tmp/RtmpsZeVNN/downloaded_packages'
 ERROR: Unable to read the extension 'wordcount'.
 Please ensure that you provided the correct id and that the extension is installed.
 

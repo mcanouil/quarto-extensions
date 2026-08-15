@@ -1,0 +1,319 @@
+Cloning into 'repo'...
+pandoc 
+  to: docx
+  output-file: template.docx
+  template: _extensions/better-word/template.xml
+  default-image-extension: png
+  toc: true
+  
+metadata
+  docx-page-width: 11906
+  docx-page-height: 16838
+  docx-page-margin: 1440
+  title: Better Word Template Playground
+  subtitle: Custom OpenXML Pandoc Template
+  title-logo: '![](logo.svg){height=2cm}'
+  author:
+    - name:
+        given: Robin
+        family: Everhart
+      orcid: 0000-0000-0000-0000
+      email: robin.everhart@example.org
+      corresponding: true
+      affiliations:
+        - ref: uni
+        - ref: lab
+    - name: Sam Okoro
+      affiliations:
+        - ref: uni
+    - name: Priya Chandra
+      affiliations:
+        - ref: lab
+  affiliations:
+    - id: uni
+      name: Fictional University
+      department: Department of Examples
+      city: Springfield
+      country: Freedonia
+    - id: lab
+      name: Placeholder Research Institute
+      city: Metropolis
+      country: Ruritania
+  date: today
+  date-modified: today
+  doi: 10.5555/12345678
+  description: |
+    A short description of the document, rendered in the title block just like
+    Quarto's HTML format.
+  categories:
+    - Quarto
+    - OpenXML
+    - Word
+  keywords:
+    - docx
+    - template
+    - title block
+  abstract: |
+    This document is a playground for Quarto's `docx` format driven by a custom
+    OpenXML Pandoc template. It shows how the title block, author and affiliation
+    metadata, page geometry, and landscape sections can be customised structurally,
+    in the spirit of the HTML and Typst templates.
+  docx-title-page-break: true
+  
+[WARNING] Could not convert image logo.svg: "check that rsvg-convert is in path.\nrsvg-convert: createProcess: posix_spawnp: does not exist (No such file or directory)"
+Output created: template.docx
+
+[pre-render] warning: 0.1.0 is not tagged; the install commands name an unreleased version
+[pre-render] _extension.yml -> _variables.yml (mcanouil/quarto-better-word@0.1.0)
+[pre-render] CHANGELOG.md -> changelog.qmd
+
+pandoc 
+  to: html
+  output-file: 404.html
+  standalone: true
+  title-prefix: Better Word
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: false
+  toc-depth: 3
+  
+metadata
+  document-css: false
+  link-citations: true
+  lang: en-GB
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  code-copy: true
+  respect-user-color-scheme: true
+  theme:
+    light:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+    dark:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+  anchor-sections: true
+  grid:
+    sidebar-width: 300px
+    body-width: 1000px
+    margin-width: 300px
+  brand: _extensions/mcanouil/pastel/brand.yml
+  extensions:
+    atelier:
+      site-url: https://m.canouil.dev/quarto-better-word
+    gitlink:
+      enabled: false
+      widget:
+        enabled: true
+        extra-links:
+          - text: Ideas / Feature Requests
+            href: /discussions/categories/ideas
+            icon: discussion
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+        sponsor: mcanouil
+        style-navbar-tools: false
+    code-window:
+      style: macos
+      auto-filename: false
+  title: Page not found
+  description: That page does not exist or has moved.
+  sidebar: false
+  
+[post-render] Removed changelog.qmd and _variables.yml
+
+Output created: _site/404.html
+
+[pre-render] warning: 0.1.0 is not tagged; the install commands name an unreleased version
+[pre-render] _extension.yml -> _variables.yml (mcanouil/quarto-better-word@0.1.0)
+[pre-render] CHANGELOG.md -> changelog.qmd
+
+pandoc 
+  to: html
+  output-file: reference.html
+  standalone: true
+  title-prefix: Better Word
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  toc-depth: 3
+  
+metadata
+  document-css: false
+  link-citations: true
+  lang: en-GB
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  code-copy: true
+  respect-user-color-scheme: true
+  theme:
+    light:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+    dark:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+  anchor-sections: true
+  grid:
+    sidebar-width: 300px
+    body-width: 1000px
+    margin-width: 300px
+  brand: _extensions/mcanouil/pastel/brand.yml
+  extensions:
+    atelier:
+      site-url: https://m.canouil.dev/quarto-better-word
+    gitlink:
+      enabled: false
+      widget:
+        enabled: true
+        extra-links:
+          - text: Ideas / Feature Requests
+            href: /discussions/categories/ideas
+            icon: discussion
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+        sponsor: mcanouil
+        style-navbar-tools: false
+    code-window:
+      style: macos
+      auto-filename: false
+  title: Reference
+  subtitle: Every option the better-word format accepts.
+  description: 'The complete better-word configuration: the options, the title block, the template layout, and what an OpenXML template cannot do.'
+  
+ERROR: Unable to read the extension 'better-word'.
+Please ensure that you provided the correct id and that the extension is installed.
+
+Stack trace:
+    at loadExtension (file:///opt/quarto/bin/quarto.js:79448:15)
+    at Object.extension (file:///opt/quarto/bin/quarto.js:78654:30)
+    at readExtensionFormat (file:///opt/quarto/bin/quarto.js:91460:50)
+    at resolveFormats (file:///opt/quarto/bin/quarto.js:91319:37)
+    at async renderContexts (file:///opt/quarto/bin/quarto.js:91109:20)
+    at async Object.renderFormats (file:///opt/quarto/bin/quarto.js:91168:20)
+    at async readBaseInputIndex (file:///opt/quarto/bin/quarto.js:131766:20)
+    at async inputTargetIndex (file:///opt/quarto/bin/quarto.js:131754:18)
+    at async inputFileForOutputFile (file:///opt/quarto/bin/quarto.js:131907:20)
+    at async inputModified (file:///opt/quarto/bin/quarto.js:149138:25)
+    at async urlsetEntry (file:///opt/quarto/bin/quarto.js:149156:18)
+    at async updateSitemap (file:///opt/quarto/bin/quarto.js:149177:23)
+    at async websitePostRender (file:///opt/quarto/bin/quarto.js:152925:3)
+    at async Object.postRender (file:///opt/quarto/bin/quarto.js:152887:5)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:137755:7)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142808:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102199:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102076:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:188205:5)
+    at async file:///opt/quarto/bin/quarto.js:188234:5
+    at async file:///opt/quarto/bin/quarto.js:188088:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:188090:5)
+    at async file:///opt/quarto/bin/quarto.js:188227:3
+Render failed, retrying once...
+[pre-render] warning: 0.1.0 is not tagged; the install commands name an unreleased version
+[pre-render] _extension.yml -> _variables.yml (mcanouil/quarto-better-word@0.1.0)
+[pre-render] CHANGELOG.md -> changelog.qmd
+
+pandoc 
+  to: html
+  output-file: reference.html
+  standalone: true
+  title-prefix: Better Word
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  toc-depth: 3
+  
+metadata
+  document-css: false
+  link-citations: true
+  lang: en-GB
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  code-copy: true
+  respect-user-color-scheme: true
+  theme:
+    light:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+    dark:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+  anchor-sections: true
+  grid:
+    sidebar-width: 300px
+    body-width: 1000px
+    margin-width: 300px
+  brand: _extensions/mcanouil/pastel/brand.yml
+  extensions:
+    atelier:
+      site-url: https://m.canouil.dev/quarto-better-word
+    gitlink:
+      enabled: false
+      widget:
+        enabled: true
+        extra-links:
+          - text: Ideas / Feature Requests
+            href: /discussions/categories/ideas
+            icon: discussion
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+        sponsor: mcanouil
+        style-navbar-tools: false
+    code-window:
+      style: macos
+      auto-filename: false
+  title: Reference
+  subtitle: Every option the better-word format accepts.
+  description: 'The complete better-word configuration: the options, the title block, the template layout, and what an OpenXML template cannot do.'
+  
+ERROR: Unable to read the extension 'better-word'.
+Please ensure that you provided the correct id and that the extension is installed.
+
+Stack trace:
+    at loadExtension (file:///opt/quarto/bin/quarto.js:79448:15)
+    at Object.extension (file:///opt/quarto/bin/quarto.js:78654:30)
+    at readExtensionFormat (file:///opt/quarto/bin/quarto.js:91460:50)
+    at resolveFormats (file:///opt/quarto/bin/quarto.js:91319:37)
+    at async renderContexts (file:///opt/quarto/bin/quarto.js:91109:20)
+    at async Object.renderFormats (file:///opt/quarto/bin/quarto.js:91168:20)
+    at async readBaseInputIndex (file:///opt/quarto/bin/quarto.js:131766:20)
+    at async inputTargetIndex (file:///opt/quarto/bin/quarto.js:131754:18)
+    at async inputFileForOutputFile (file:///opt/quarto/bin/quarto.js:131907:20)
+    at async inputModified (file:///opt/quarto/bin/quarto.js:149138:25)
+    at async urlsetEntry (file:///opt/quarto/bin/quarto.js:149156:18)
+    at async updateSitemap (file:///opt/quarto/bin/quarto.js:149177:23)
+    at async websitePostRender (file:///opt/quarto/bin/quarto.js:152925:3)
+    at async Object.postRender (file:///opt/quarto/bin/quarto.js:152887:5)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:137755:7)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142808:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102199:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102076:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:188205:5)
+    at async file:///opt/quarto/bin/quarto.js:188234:5
+    at async file:///opt/quarto/bin/quarto.js:188088:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:188090:5)
+    at async file:///opt/quarto/bin/quarto.js:188227:3

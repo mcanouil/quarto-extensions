@@ -1,5 +1,58 @@
 Cloning into 'repo'...
-[1/9] example.qmd
+Installing package into '/cache/r-lib-1'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.4.tar.gz'
+Content type 'binary/octet-stream' length 1435963 bytes (1.4 MB)
+==================================================
+downloaded 1.4 MB
+
+* installing *source* package 'renv' ...
+** this is package 'renv' version '1.2.4'
+** package 'renv' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/RtmpACSgNs/downloaded_packages'
+Installing package into '/cache/r-lib-1'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/tinytable_0.17.0.tar.gz'
+Content type 'binary/octet-stream' length 411166 bytes (401 KB)
+==================================================
+downloaded 401 KB
+
+* installing *source* package 'tinytable' ...
+** this is package 'tinytable' version '0.17.0'
+** package 'tinytable' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (tinytable)
+
+The downloaded source packages are in
+	'/tmp/RtmpACSgNs/downloaded_packages'
+[ 1/10] NEWS.md
+[ 2/10] example.qmd
 
 
 processing file: example.qmd
@@ -14,13 +67,46 @@ output file: example.knit.md
 
 [typst]: Compiling example.typ to example.pdf...DONE
 
-[2/9] tests/appendix-numberings/index.qmd
+[ 3/10] tests/appendix-numberings/index.qmd
 [typst]: Compiling index.typ to index.pdf...DONE
 
-[3/9] tests/authornote-citation/index.qmd
+[ 4/10] tests/bibliography/index.qmd
 [typst]: Compiling index.typ to index.pdf...DONE
 
-[4/9] tests/text/index.qmd
+[ 5/10] tests/authornote-citation/index.qmd
+[typst]: Compiling index.typ to index.pdf...DONE
+
+[ 6/10] tests/brand/index.qmd
+[typst]: Compiling index.typ to index.pdf...warning: unknown font family: georgia
+    ┌─ tests/brand/index.typ:848:30
+    │
+848 │ #show heading: set text(font: ("Georgia",), weight: 600, style: "normal", fill: rgb("#800020"), )
+    │                               ^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ tests/brand/index.typ:487:17
+    │
+487 │   set text(font: font) if font != none
+    │                  ^^^^
+
+warning: unknown font family: courier new
+    ┌─ tests/brand/index.typ:490:27
+    │
+490 │   show raw: set text(font: codefont) if codefont != none
+    │                            ^^^^^^^^
+
+warning: unknown font family: georgia
+    ┌─ tests/brand/index.typ:637:26
+    │
+637 │           #set text(font: heading-family) if heading-family != none
+    │                           ^^^^^^^^^^^^^^
+
+DONE
+
+[ 7/10] tests/math-block-spacing/index.qmd
+[typst]: Compiling index.typ to index.pdf...DONE
+
+[ 8/10] tests/text/index.qmd
 
 
 processing file: index.qmd
@@ -31,17 +117,10 @@ output file: index.knit.md
 
 [typst]: Compiling index.typ to index.pdf...DONE
 
-[5/9] tests/callouts/index.qmd
+[ 9/10] tests/callouts/index.qmd
 [typst]: Compiling index.typ to index.pdf...DONE
 
-[6/9] tests/math-block-spacing/index.qmd
-[typst]: Compiling index.typ to index.pdf...DONE
-
-[7/9] tests/bibliography/index.qmd
-[typst]: Compiling index.typ to index.pdf...DONE
-
-[8/9] NEWS.md
-[9/9] template.qmd
+[10/10] template.qmd
 [typst]: Compiling template.typ to template.pdf...DONE
 
 

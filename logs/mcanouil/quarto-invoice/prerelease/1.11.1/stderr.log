@@ -1,0 +1,396 @@
+Cloning into 'repo'...
+
+pandoc 
+  to: typst
+  output-file: template-brand.typ
+  template: _extensions/invoice/template.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+metadata
+  title: Consulting 2026 (brand example)
+  description: 2026/01/01 -- 2026/12/31
+  sender:
+    name: Acme Consulting Limited
+    email: hello@acme.example
+    address:
+      street: 1 Pall Mall
+      zip: SW1Y 5LU
+      city: London
+      country: United Kingdom
+    registration: 12345678
+    vat: GB123456789
+  invoice:
+    number: ACME-2026-001
+    issued: '2026-05-01'
+    due: '2026-05-31'
+    reference: ACME-2026-001
+    currency: GBP
+    fee: 8
+    penalty: 40
+    items:
+      - description: Strategy workshop
+        details: Two-day on-site facilitation.
+        quantity: 2
+        unit-price: 1500
+        vat: 20
+      - description: Follow-up report
+        quantity: 1
+        unit-price: 850
+        vat: 20
+  bank:
+    bic: ACMEGB22
+    iban: GB29 NWBK 6016 1331 9268 19
+  recipient:
+    name: Example Corp.
+    address:
+      street: 500 Broadway
+      zip: '10012'
+      city: New York
+      state: NY
+      country: United States
+  lang: en
+  region: UK
+  papersize: a4
+  margin:
+    x: 2.5cm
+    'y': 2.5cm
+  
+[typst]: Compiling template-brand.typ to template-brand.pdf...DONE
+
+
+Output created: index-brand.pdf
+
+pandoc 
+  to: typst
+  output-file: template.typ
+  template: _extensions/invoice/template.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+metadata
+  title: Consulting 2026
+  description: 2026/01/01 -- 2026/12/31
+  sender:
+    name: Firstname LASTNAME
+    email: Firstname.LASTNAME@company.dev
+    address:
+      street: 123 Rue de la Paix
+      zip: 75000
+      city: Paris
+      country: France
+    registration: 123 456 789
+    vat: FR1234567890
+    exempted: Exempted from VAT (article 259-1 du CGI, France).
+  invoice:
+    number: 2026-001
+    issued: '2026-01-01'
+    due: '2026-01-31'
+    reference: abcd1234
+    fee: 2.28
+    penalty: 40
+    currency: EUR
+    items:
+      - description: A very important deliverable
+        details: A description of the tasks.
+        quantity: 1
+        unit-price: 12345.67
+        vat: 0
+  bank:
+    bic: AZERTYUI
+    iban: FR12 1234 4567 7890 1234 5678 901
+  recipient:
+    name: Company, Inc.
+    address:
+      street: 123 Main Street
+      zip: 12345
+      city: New York
+      state: NY
+      country: United States
+  brand:
+    typography:
+      fonts:
+        - family: Alegreya Sans
+          source: google
+          weight:
+            - 400
+            - 700
+          style:
+            - normal
+            - italic
+      base:
+        family: Alegreya Sans
+        size: 12pt
+      headings:
+        color: dodgerblue
+  lang: en
+  region: UK
+  papersize: a4
+  margin:
+    x: 2.5cm
+    'y': 2.5cm
+  
+[typst]: Compiling template.typ to template.pdf...DONE
+
+Output created: index.pdf
+
+[pre-render] warning: 2.0.2 is not tagged; the install commands name an unreleased version
+[pre-render] _extension.yml -> _variables.yml (mcanouil/quarto-invoice@2.0.2)
+[pre-render] CHANGELOG.md -> changelog.qmd
+
+pandoc 
+  to: html
+  output-file: 404.html
+  standalone: true
+  title-prefix: Invoice
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: false
+  toc-depth: 3
+  
+metadata
+  document-css: false
+  link-citations: true
+  lang: en-GB
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  code-copy: true
+  respect-user-color-scheme: true
+  theme:
+    light:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+    dark:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+  anchor-sections: true
+  grid:
+    sidebar-width: 300px
+    body-width: 1000px
+    margin-width: 300px
+  brand: _extensions/mcanouil/pastel/brand.yml
+  extensions:
+    atelier:
+      site-url: https://m.canouil.dev/quarto-invoice
+    gitlink:
+      enabled: false
+      widget:
+        enabled: true
+        extra-links:
+          - text: Ideas / Feature Requests
+            href: /discussions/categories/ideas
+            icon: discussion
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+        sponsor: mcanouil
+        style-navbar-tools: false
+    code-window:
+      style: macos
+      auto-filename: false
+  title: Page not found
+  description: That page does not exist or has moved.
+  sidebar: false
+  
+[post-render] Removed changelog.qmd and _variables.yml
+
+Output created: _site/404.html
+
+[pre-render] warning: 2.0.2 is not tagged; the install commands name an unreleased version
+[pre-render] _extension.yml -> _variables.yml (mcanouil/quarto-invoice@2.0.2)
+[pre-render] CHANGELOG.md -> changelog.qmd
+
+pandoc 
+  to: html
+  output-file: reference.html
+  standalone: true
+  title-prefix: Invoice
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  toc-depth: 3
+  
+metadata
+  document-css: false
+  link-citations: true
+  lang: en-GB
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  code-copy: true
+  respect-user-color-scheme: true
+  theme:
+    light:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+    dark:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+  anchor-sections: true
+  grid:
+    sidebar-width: 300px
+    body-width: 1000px
+    margin-width: 300px
+  brand: _extensions/mcanouil/pastel/brand.yml
+  extensions:
+    atelier:
+      site-url: https://m.canouil.dev/quarto-invoice
+    gitlink:
+      enabled: false
+      widget:
+        enabled: true
+        extra-links:
+          - text: Ideas / Feature Requests
+            href: /discussions/categories/ideas
+            icon: discussion
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+        sponsor: mcanouil
+        style-navbar-tools: false
+    code-window:
+      style: macos
+      auto-filename: false
+  title: Reference
+  subtitle: Every option the invoice format accepts.
+  description: 'The complete invoice configuration: sender and recipient, the invoice block and its line items, bank details, currency handling, and validation.'
+  
+ERROR: Unable to read the extension 'invoice'.
+Please ensure that you provided the correct id and that the extension is installed.
+
+Stack trace:
+    at loadExtension (file:///opt/quarto/bin/quarto.js:79448:15)
+    at Object.extension (file:///opt/quarto/bin/quarto.js:78654:30)
+    at readExtensionFormat (file:///opt/quarto/bin/quarto.js:91460:50)
+    at resolveFormats (file:///opt/quarto/bin/quarto.js:91319:37)
+    at async renderContexts (file:///opt/quarto/bin/quarto.js:91109:20)
+    at async Object.renderFormats (file:///opt/quarto/bin/quarto.js:91168:20)
+    at async readBaseInputIndex (file:///opt/quarto/bin/quarto.js:131766:20)
+    at async inputTargetIndex (file:///opt/quarto/bin/quarto.js:131754:18)
+    at async inputFileForOutputFile (file:///opt/quarto/bin/quarto.js:131907:20)
+    at async inputModified (file:///opt/quarto/bin/quarto.js:149138:25)
+    at async urlsetEntry (file:///opt/quarto/bin/quarto.js:149156:18)
+    at async updateSitemap (file:///opt/quarto/bin/quarto.js:149177:23)
+    at async websitePostRender (file:///opt/quarto/bin/quarto.js:152925:3)
+    at async Object.postRender (file:///opt/quarto/bin/quarto.js:152887:5)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:137755:7)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142808:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102199:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102076:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:188205:5)
+    at async file:///opt/quarto/bin/quarto.js:188234:5
+    at async file:///opt/quarto/bin/quarto.js:188088:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:188090:5)
+    at async file:///opt/quarto/bin/quarto.js:188227:3
+Render failed, retrying once...
+[pre-render] warning: 2.0.2 is not tagged; the install commands name an unreleased version
+[pre-render] _extension.yml -> _variables.yml (mcanouil/quarto-invoice@2.0.2)
+[pre-render] CHANGELOG.md -> changelog.qmd
+
+pandoc 
+  to: html
+  output-file: reference.html
+  standalone: true
+  title-prefix: Invoice
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  toc-depth: 3
+  
+metadata
+  document-css: false
+  link-citations: true
+  lang: en-GB
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  code-copy: true
+  respect-user-color-scheme: true
+  theme:
+    light:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+    dark:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+  anchor-sections: true
+  grid:
+    sidebar-width: 300px
+    body-width: 1000px
+    margin-width: 300px
+  brand: _extensions/mcanouil/pastel/brand.yml
+  extensions:
+    atelier:
+      site-url: https://m.canouil.dev/quarto-invoice
+    gitlink:
+      enabled: false
+      widget:
+        enabled: true
+        extra-links:
+          - text: Ideas / Feature Requests
+            href: /discussions/categories/ideas
+            icon: discussion
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+        sponsor: mcanouil
+        style-navbar-tools: false
+    code-window:
+      style: macos
+      auto-filename: false
+  title: Reference
+  subtitle: Every option the invoice format accepts.
+  description: 'The complete invoice configuration: sender and recipient, the invoice block and its line items, bank details, currency handling, and validation.'
+  
+ERROR: Unable to read the extension 'invoice'.
+Please ensure that you provided the correct id and that the extension is installed.
+
+Stack trace:
+    at loadExtension (file:///opt/quarto/bin/quarto.js:79448:15)
+    at Object.extension (file:///opt/quarto/bin/quarto.js:78654:30)
+    at readExtensionFormat (file:///opt/quarto/bin/quarto.js:91460:50)
+    at resolveFormats (file:///opt/quarto/bin/quarto.js:91319:37)
+    at async renderContexts (file:///opt/quarto/bin/quarto.js:91109:20)
+    at async Object.renderFormats (file:///opt/quarto/bin/quarto.js:91168:20)
+    at async readBaseInputIndex (file:///opt/quarto/bin/quarto.js:131766:20)
+    at async inputTargetIndex (file:///opt/quarto/bin/quarto.js:131754:18)
+    at async inputFileForOutputFile (file:///opt/quarto/bin/quarto.js:131907:20)
+    at async inputModified (file:///opt/quarto/bin/quarto.js:149138:25)
+    at async urlsetEntry (file:///opt/quarto/bin/quarto.js:149156:18)
+    at async updateSitemap (file:///opt/quarto/bin/quarto.js:149177:23)
+    at async websitePostRender (file:///opt/quarto/bin/quarto.js:152925:3)
+    at async Object.postRender (file:///opt/quarto/bin/quarto.js:152887:5)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:137755:7)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142808:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102199:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102076:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:188205:5)
+    at async file:///opt/quarto/bin/quarto.js:188234:5
+    at async file:///opt/quarto/bin/quarto.js:188088:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:188090:5)
+    at async file:///opt/quarto/bin/quarto.js:188227:3

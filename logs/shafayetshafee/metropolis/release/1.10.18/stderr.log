@@ -1,13 +1,13 @@
 Cloning into 'repo'...
 Installing package into '/cache/r-lib-0'
 (as 'lib' is unspecified)
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.3.tar.gz'
-Content type 'binary/octet-stream' length 1375285 bytes (1.3 MB)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.4.tar.gz'
+Content type 'binary/octet-stream' length 1435963 bytes (1.4 MB)
 ==================================================
-downloaded 1.3 MB
+downloaded 1.4 MB
 
 * installing *source* package 'renv' ...
-** this is package 'renv' version '1.2.3'
+** this is package 'renv' version '1.2.4'
 ** package 'renv' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
@@ -25,7 +25,115 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/RtmpSVTgxR/downloaded_packages'
+	'/tmp/RtmpZfR7UA/downloaded_packages'
+pandoc 
+  to: revealjs
+  output-file: example_header02.html
+  standalone: true
+  embed-resources: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 3
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  theme:
+    - serif
+    - _extensions/metropolis/metropolis.scss
+  title: Metropolis-Revealjs
+  subtitle: A reveal.js theme inspired by Beamer Metropolis Theme.
+  institute: University of Dhaka
+  author: Shafayet Khan Shafee
+  reveal-header:
+    sc-sb-title: true
+    header-logo: images/reveal_logo.svg
+    subtitle-as-header: true
+  slideNumber: true
+  logo: images/quarto.png
+  footer: <https://quarto.org>
+  
+[WARNING] Could not fetch resource images/reveal_logo.svg
+[WARNING] Could not fetch resource images/quarto.png
+Output created: example_header02.html
+
+
+
+processing file: example_header01.qmd
+1/3                  
+2/3 [unnamed-chunk-1]
+3/3                  
+output file: example_header01.knit.md
+
+pandoc 
+  to: revealjs
+  output-file: example_header01.html
+  standalone: true
+  embed-resources: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  theme:
+    - serif
+    - _extensions/metropolis/metropolis.scss
+  title: Metropolis-Revealjs
+  subtitle: A reveal.js theme inspired by Beamer Metropolis Theme.
+  institute: University of Dhaka
+  author: Shafayet Khan Shafee
+  reveal-header:
+    sc-sb-title: true
+    header-logo: images/reveal_logo.svg
+    header-text: Quarto Presentations with beautiful slide decks made by RevealJs
+  slideNumber: true
+  logo: images/quarto.png
+  footer: <https://quarto.org>
+  
+[WARNING] Could not fetch resource images/reveal_logo.svg
+[WARNING] Could not fetch resource images/quarto.png
+Output created: example_header01.html
+
 
 
 processing file: example_fullscreen.qmd
@@ -135,159 +243,6 @@ Output created: example_gif.html
 
 
 
-processing file: example_header01.qmd
-1/3                  
-2/3 [unnamed-chunk-1]
-3/3                  
-output file: example_header01.knit.md
-
-pandoc 
-  to: revealjs
-  output-file: example_header01.html
-  standalone: true
-  embed-resources: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  theme:
-    - serif
-    - _extensions/metropolis/metropolis.scss
-  title: Metropolis-Revealjs
-  subtitle: A reveal.js theme inspired by Beamer Metropolis Theme.
-  institute: University of Dhaka
-  author: Shafayet Khan Shafee
-  reveal-header:
-    sc-sb-title: true
-    header-logo: images/reveal_logo.svg
-    header-text: Quarto Presentations with beautiful slide decks made by RevealJs
-  slideNumber: true
-  logo: images/quarto.png
-  footer: <https://quarto.org>
-  
-[WARNING] Could not fetch resource images/reveal_logo.svg
-[WARNING] Could not fetch resource images/quarto.png
-Output created: example_header01.html
-
-pandoc 
-  to: revealjs
-  output-file: example_header03.html
-  standalone: true
-  embed-resources: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 3
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  theme:
-    - serif
-    - _extensions/metropolis/metropolis.scss
-  title: Metropolis-Revealjs
-  subtitle: A reveal.js theme inspired by Beamer Metropolis Theme.
-  institute: University of Dhaka
-  author: Shafayet Khan Shafee
-  reveal-header:
-    sc-sb-title: true
-  slideNumber: true
-  
-[WARNING] Could not fetch resource 
-Output created: example_header03.html
-
-pandoc 
-  to: revealjs
-  output-file: example_header02.html
-  standalone: true
-  embed-resources: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 3
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  theme:
-    - serif
-    - _extensions/metropolis/metropolis.scss
-  title: Metropolis-Revealjs
-  subtitle: A reveal.js theme inspired by Beamer Metropolis Theme.
-  institute: University of Dhaka
-  author: Shafayet Khan Shafee
-  reveal-header:
-    sc-sb-title: true
-    header-logo: images/reveal_logo.svg
-    subtitle-as-header: true
-  slideNumber: true
-  logo: images/quarto.png
-  footer: <https://quarto.org>
-  
-[WARNING] Could not fetch resource images/reveal_logo.svg
-[WARNING] Could not fetch resource images/quarto.png
-Output created: example_header02.html
-
-
-
 processing file: template.qmd
 1/9                  
 2/9 [unnamed-chunk-1]
@@ -345,4 +300,49 @@ metadata
   slideNumber: true
   
 Output created: template.html
+
+pandoc 
+  to: revealjs
+  output-file: example_header03.html
+  standalone: true
+  embed-resources: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 3
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  theme:
+    - serif
+    - _extensions/metropolis/metropolis.scss
+  title: Metropolis-Revealjs
+  subtitle: A reveal.js theme inspired by Beamer Metropolis Theme.
+  institute: University of Dhaka
+  author: Shafayet Khan Shafee
+  reveal-header:
+    sc-sb-title: true
+  slideNumber: true
+  
+[WARNING] Could not fetch resource 
+Output created: example_header03.html
 

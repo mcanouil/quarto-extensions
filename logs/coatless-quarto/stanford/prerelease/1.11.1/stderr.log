@@ -1,6 +1,45 @@
 Cloning into 'repo'...
-[1/6] qstanford-release-notes.qmd
-[2/6] demos/template-beamer.qmd
+Installing package into '/cache/r-lib-1'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.4.tar.gz'
+Content type 'binary/octet-stream' length 1435963 bytes (1.4 MB)
+==================================================
+downloaded 1.4 MB
+
+* installing *source* package 'renv' ...
+** this is package 'renv' version '1.2.4'
+** package 'renv' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/RtmpHnFNzK/downloaded_packages'
+[1/6] index.qmd
+[2/6] demos/template-html.qmd
+
+
+processing file: template-html.qmd
+1/5                
+2/5 [load-packages]
+3/5                
+4/5 [fig-mpg]      
+5/5                
+output file: template-html.knit.md
+
+[WARNING] Could not fetch resource ../site_libs/quarto-contrib/quarto-project/stanford/html/../../../_extensions/coatless-quarto/stanford/logos/stanford_logo_2.png
+[3/6] demos/template-beamer.qmd
 
 Rendering PDF
 running lualatex - 1
@@ -40,11 +79,23 @@ l.205 \usetheme{Stanford}
                        
 
 
-see /home/runner/work/quarto-extensions/quarto-extensions/test-23/repo/docs/demos/template-beamer.log for more information.
+see /home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/docs/demos/template-beamer.log for more information.
 WARN: Error encountered when rendering files
 Render failed, retrying once...
-[1/6] qstanford-release-notes.qmd
-[2/6] demos/template-beamer.qmd
+[1/6] index.qmd
+[2/6] demos/template-html.qmd
+
+
+processing file: template-html.qmd
+1/5                
+2/5 [load-packages]
+3/5                
+4/5 [fig-mpg]      
+5/5                
+output file: template-html.knit.md
+
+[WARNING] Could not fetch resource ../site_libs/quarto-contrib/quarto-project/stanford/html/../../../_extensions/coatless-quarto/stanford/logos/stanford_logo_2.png
+[3/6] demos/template-beamer.qmd
 
 Rendering PDF
 running lualatex - 1
@@ -70,5 +121,5 @@ l.205 \usetheme{Stanford}
                        
 
 
-see /home/runner/work/quarto-extensions/quarto-extensions/test-23/repo/docs/demos/template-beamer.log for more information.
+see /home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/docs/demos/template-beamer.log for more information.
 WARN: Error encountered when rendering files

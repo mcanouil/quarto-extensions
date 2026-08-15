@@ -1,0 +1,107 @@
+[pre-render] warning: 2.5.2 is not tagged; the install commands name an unreleased version
+
+[pre-render] _extension.yml -> _variables.yml (mcanouil/quarto-badge@2.5.2)
+
+[pre-render] CHANGELOG.md -> changelog.qmd
+
+
+
+pandoc 
+
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Badge
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  toc-depth: 3
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  lang: en-GB
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  code-copy: true
+  respect-user-color-scheme: true
+  theme:
+    light:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+    dark:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+  anchor-sections: true
+  grid:
+    sidebar-width: 300px
+    body-width: 1000px
+    margin-width: 300px
+  brand: _extensions/mcanouil/pastel/brand.yml
+  extensions:
+    atelier:
+      site-url: https://m.canouil.dev/quarto-badge
+    gitlink:
+      enabled: false
+      widget:
+        enabled: true
+        extra-links:
+          - text: Ideas / Feature Requests
+            href: /discussions/categories/ideas
+            icon: discussion
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+        sponsor: mcanouil
+        style-navbar-tools: false
+    code-window:
+      style: macos
+      auto-filename: false
+    badge:
+      - key: stable
+        colour: springgreen
+      - key: beta
+        colour: gold
+      - key: experimental
+        class: bg-info
+      - key: deprecated
+        class: bg-warning
+        href: https://github.com/mcanouil/quarto-badge/releases/tag/{{value}}
+      - key: release
+        colour: dodgerblue
+        icon: tag
+        href: https://github.com/mcanouil/quarto-badge/releases/tag/{{value}}
+        target: _blank
+        title: Open release {{value}} in a new tab
+      - key: note
+        colour: hotpink
+        title: Notes for release {{value}}
+  title: Badge
+  subtitle: Small, styled labels for versions and status, written as a shortcode.
+  description: What the badge extension is for, how to install it, and the smallest configuration that renders a badge.
+  authors:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  
+
+WARNING (/opt/quarto/share/filters/main.lua:21983) Shortcode 'badge' not found
+
+WARNING (/opt/quarto/share/filters/main.lua:21983) Shortcode 'badge' not found
+
+[post-render] Removed changelog.qmd and _variables.yml
+
+
+
+Output created: _site/index.html
+
+

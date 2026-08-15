@@ -1,28 +1,30 @@
 Cloning into 'repo'...
 pandoc 
-  to: html
-  output-file: minimum.html
+  to: typst
+  output-file: typst.typ
   standalone: true
-  section-divs: true
-  html-math-method: mathjax
+  shift-heading-level-by: -1
+  default-image-extension: svg
   wrap: none
-  default-image-extension: png
+  citeproc: false
   
 metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
   title: D2 Example
+  d2:
+    layout: elk
+    format: svg
+    theme: GrapeSoda
   
 sh: 1: d2: not found
 Error running filter '/opt/quarto/share/filters/main.lua':
-/opt/quarto/share/pandoc/datadir/_base64.lua:81: attempt to get length of a nil value (local 'str')
+string expected, got nil
+	while retrieving function argument contents
+	while retrieving arguments for function insert
 stack traceback:
-	...uarto-extensions/test-5/repo/tests/_extensions/d2/d2.lua:210: in function <...uarto-extensions/test-5/repo/tests/_extensions/d2/d2.lua:181>
+	...arto-extensions/test-15/repo/tests/_extensions/d2/d2.lua:210: in function <...arto-extensions/test-15/repo/tests/_extensions/d2/d2.lua:181>
 	[C]: in ?
 	[C]: in method 'walk'
-	...uarto-extensions/test-5/repo/tests/_extensions/d2/d2.lua:366: in function <...uarto-extensions/test-5/repo/tests/_extensions/d2/d2.lua:339>
+	...arto-extensions/test-15/repo/tests/_extensions/d2/d2.lua:366: in function <...arto-extensions/test-15/repo/tests/_extensions/d2/d2.lua:339>
 	[C]: in ?
 	[C]: in method 'walk'
 	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
@@ -33,7 +35,7 @@ stack traceback:
 	/opt/quarto/share/filters/main.lua:1334: in upvalue 'run_emulated_filter_chain'
 	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
 stack traceback:
-	...uarto-extensions/test-5/repo/tests/_extensions/d2/d2.lua:366: in function <...uarto-extensions/test-5/repo/tests/_extensions/d2/d2.lua:339>
+	...arto-extensions/test-15/repo/tests/_extensions/d2/d2.lua:366: in function <...arto-extensions/test-15/repo/tests/_extensions/d2/d2.lua:339>
 	[C]: in ?
 	[C]: in method 'walk'
 	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
@@ -54,29 +56,31 @@ stack traceback:
 WARN: Error encountered when rendering files
 Render failed, retrying once...
 pandoc 
-  to: html
-  output-file: minimum.html
+  to: typst
+  output-file: typst.typ
   standalone: true
-  section-divs: true
-  html-math-method: mathjax
+  shift-heading-level-by: -1
+  default-image-extension: svg
   wrap: none
-  default-image-extension: png
+  citeproc: false
   
 metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
   title: D2 Example
+  d2:
+    layout: elk
+    format: svg
+    theme: GrapeSoda
   
 sh: 1: d2: not found
 Error running filter '/opt/quarto/share/filters/main.lua':
-/opt/quarto/share/pandoc/datadir/_base64.lua:81: attempt to get length of a nil value (local 'str')
+string expected, got nil
+	while retrieving function argument contents
+	while retrieving arguments for function insert
 stack traceback:
-	...uarto-extensions/test-5/repo/tests/_extensions/d2/d2.lua:210: in function <...uarto-extensions/test-5/repo/tests/_extensions/d2/d2.lua:181>
+	...arto-extensions/test-15/repo/tests/_extensions/d2/d2.lua:210: in function <...arto-extensions/test-15/repo/tests/_extensions/d2/d2.lua:181>
 	[C]: in ?
 	[C]: in method 'walk'
-	...uarto-extensions/test-5/repo/tests/_extensions/d2/d2.lua:366: in function <...uarto-extensions/test-5/repo/tests/_extensions/d2/d2.lua:339>
+	...arto-extensions/test-15/repo/tests/_extensions/d2/d2.lua:366: in function <...arto-extensions/test-15/repo/tests/_extensions/d2/d2.lua:339>
 	[C]: in ?
 	[C]: in method 'walk'
 	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
@@ -87,7 +91,7 @@ stack traceback:
 	/opt/quarto/share/filters/main.lua:1334: in upvalue 'run_emulated_filter_chain'
 	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
 stack traceback:
-	...uarto-extensions/test-5/repo/tests/_extensions/d2/d2.lua:366: in function <...uarto-extensions/test-5/repo/tests/_extensions/d2/d2.lua:339>
+	...arto-extensions/test-15/repo/tests/_extensions/d2/d2.lua:366: in function <...arto-extensions/test-15/repo/tests/_extensions/d2/d2.lua:339>
 	[C]: in ?
 	[C]: in method 'walk'
 	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'

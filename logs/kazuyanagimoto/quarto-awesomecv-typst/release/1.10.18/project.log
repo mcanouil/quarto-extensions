@@ -1,12 +1,31 @@
+[typst]: Compiling template.typ to template.pdf...
+warning: unknown font family: font awesome 7 free
+   ┌─ @preview/fontawesome:0.6.2/lib-impl.typ:80:12
+   │
+80 │       font: 
+default_fonts, // If you see warning here, please check whether the FA font is installed
+   │             ^^^^^^^^^^^^^
+
+warning: unknown font family: font awesome 7 brands
+   ┌─ @preview/fontawesome:0.6.2/lib-impl.typ:80:12
+   │
+80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
+   │             ^^^^^^^^^^^^^
+
+
+DONE
+
+
 
 
 processing file: template-typstcv.qmd
 
 1/12                  
+
 2/12 [unnamed-chunk-1]
 
-3
-/12                  
+3/12                  
+
 4/12 [unnamed-chunk-2]
 
 5/12                  
@@ -16,6 +35,7 @@ processing file: template-typstcv.qmd
 7/12                  
 
 8/12 [unnamed-chunk-4]
+
 
 9/12                  
 
@@ -30,36 +50,63 @@ output file: template-typstcv.knit.md
 
 [typst]: Compiling template-typstcv.typ to template-typstcv.pdf...
 error: unclosed label
-    ┌─ template-typstcv.typ:716:52
+    ┌─ template-typstcv.typ:716
+:52
     │
-716 │ #resume-entry(title: [Ph.D. in Physics],location: [Z<U+00FC>rich, Switzerland],date: [1905],descr
-iption: [University of Z<U+00FC>rich],)
-    │                                                     ^^
+716 │ #resume-entry(title: [Ph.D. in Physics],location: [Z<U+00FC>rich, Switzerland],date: [1905],description: [University of Z<U+00FC>r
+ich],)
+    │                                       
+              ^^
 
 error: unclosed label
-    ┌─ template-typstcv.typ:716:121
+    ┌─ 
+template-typstcv.typ:716:121
     │
-716 │ #resume-entry(title: [Ph.D. in Physics],location: [Z<U+00FC>rich, Switzerland],date: [1905],description: [University of Z<U+00FC>rich],)
-    │                                                                                                                          ^^
+716 │ #resume-entry(t
+itle: [Ph.D. in Physics],location: [Z
+<U+00FC>rich, Switz
+erland],date: [1905],de
+scription: [University of Z<U+00FC>r
+ich],)
+    │                     
+                                   
+                                  
+                               
+ ^^
 
 error: unclosed label
     ┌─ template-typstcv.typ:717:53
-    │
-717 │ #resume-entry(title: [Master of Science],location: [Z<U+00FC>rich, Switzerland],date: [1896 - 1900],description: [ETH],)
-    │                                                      ^^
+  
+  │
+717 │ #resume-entry(title: [Master 
+of Science],location: [Z<U+00FC>ri
+ch, Switzerland],date: [1896 - 19
+00],description: [ETH],)
+    │   
+                                  
+                 ^^
 
 error: unclosed label
+
     ┌─ template-typstcv.typ:724:55
     │
-724 │ #resume-entry(title: [Associate Professor],location: [Z<U+00FC>rich, Switzerland],date: [1909 - 1911],description: [University of Z<U+00FC>rich],)
-    │                                                        ^^
+724 │ #resume-entr
+y(title: [Associate Professor],location: [Z<U+00FC>rich, Switzerl
+and],date: [1909 - 1911],description: [Universi
+ty of Z<U+00FC>rich],)
+    │      
+                                                  ^
+^
 
 error: unclosed label
     ┌─ template-typstcv.typ:724:131
     │
-724 │ #resume-entry(title: [Associate Professor],location: [Z<U+00FC>rich, Switzerland],date: [1909 - 1911],description: [University of Z<U+00FC>rich],)
+724 │ #resume-entry(
+title: [Associate Professor],location:
+ [Z<U+00FC>rich, Switzerland],dat
+e: [1909 - 1911],description
+: [University of Z<U+00FC>rich],)
     │                                                                                                                                    ^^
-
 
 
 (ERROR) error: unclosed label

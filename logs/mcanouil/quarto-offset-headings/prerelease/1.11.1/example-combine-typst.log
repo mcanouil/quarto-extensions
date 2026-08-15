@@ -1,0 +1,64 @@
+pandoc 
+
+  to: typst
+  output-file: example-combine.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  number-sections: true
+  shift-heading-level-by: 0
+  
+
+metadata
+
+  section-numbering: 1.1.a
+  title: Offset Headings — Combined Rules
+  subtitle: Document-level offset combined with per-heading offsets, max-level cap, and cascade depth
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  extensions:
+    offset-headings:
+      by: 1
+      quarto-shift-warning: false
+  papersize: a4
+  margin:
+    x: 2.5cm
+    'y': 2.5cm
+  
+
+[typst]: Compiling example-combine.typ to example-combine.pdf...
+warning: the numeral system `latin` cannot represent zero
+    ┌─ example-combine.typ:446:0
+    │
+446 │ ==== Ca
+pped Combined Level
+    │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    │
+    = hint: this will become a hard error in the future
+
+warning: the numeral system `latin` cannot represent zero
+    ┌─ example-combine.typ:450:0
+    │
+450 │ ==== Cascaded and Capped Subsection
+    │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    │
+    = hint: this will become a hard error in the future
+
+warning: the numeral system `latin` cannot represent zero
+    ┌─ example-combine.typ:454:0
+    │
+454 │ ===== Beyond the Cascade Depth
+    │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    │
+    = hint: this will become a hard error in the future
+
+
+DONE
+
+
+Output created: example-combine-typst.pdf
+
+

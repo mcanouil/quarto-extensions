@@ -1,46 +1,59 @@
 
 
-processing file: qtabby-faq.qmd
+processing file: index.qmd
 
-1/5                  
+1/13                  
 
-2/5 [unnamed-chunk-1]
+2/13 [unnamed-chunk-1]
 
-Error in py_call_impl(callable, call_args$unnamed, call_args$named) : 
-  ImportError: 
+3/13                  
 
-<...truncated...>s failed. This error can happen for
-many reasons, often due to issues with your setup or how NumPy was
-installed.
-The following compiled module files exist, but seem incompatible
-with with either python 'cpython-312' or the platform 'linux':
+4/13 [unnamed-chunk-2]
 
-  * _multiarray_umath.cpython-314-x86_64-linux-gnu.so
+5/13                  
 
-We have compiled some common reasons and troubleshooting tips at:
+6/13 [unnamed-chunk-3]
 
-    https://numpy.org/devdocs/user/troubleshooting-importerror.html
+7/13                  
 
-Please note and check the following:
+8/13 [unnamed-chunk-4]
 
-  * The Python version is: Python 3.12 from "/cache/uv/archive-v0/naA7yk8eEDEIRlvj/bin/python"
-  * The NumPy version is: "2.5.1"
+9/13                  
 
-and make sure that they are the versions you expect.
+10/13 [unnamed-chunk-5]
 
-Please carefully study the information and documentation linked above.
-This is unlikely to be a NumPy issue but will be caused by a bad install
-or environment on your machine.
+11/13                  
 
-Original error was: No module named 'numpy._core._multiarray_umath'
+12/13 [unnamed-chunk-6]
 
-Run `reticulate::py_last_error()` for details.
-Calls: .main ... tryCatchList -> force -> <Anonymous> -> py_call_impl
+13/13                  
+
+output file: index.knit.md
 
 
-Quitting from qtabby-faq.qmd:78-82 [unnamed-chunk-1]
-
-Execution halted
+Error running filter '/opt/quarto/share/filters/main.lua':
+/opt/quarto/share/filters/main.lua:23088: attempt to call a nil value (method 'map')
+stack traceback:
+	/opt/quarto/share/filters/main.lua:938: in field 'Tabset'
+	...-extensions/test-9/repo/docs/_extensions/tabby/tabby.lua:212: in function <...-extensions/test-9/repo/docs/_extensions/tabby/tabby.lua:147>
+	(...tail calls...)
+	[C]: in ?
+	[C]: in method 'walk'
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:575: in function </opt/quarto/share/filters/main.lua:553>
+	(...tail calls...)
+	/opt/quarto/share/filters/main.lua:1318: in local 'callback'
+	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
+	/opt/quarto/share/filters/main.lua:1334: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
+stack traceback:
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:575: in function </opt/quarto/share/filters/main.lua:553>
+	(...tail calls...)
+	/opt/quarto/share/filters/main.lua:1318: in local 'callback'
+	[string "if pandoc.system.os == "mingw32" then..."]:778: in field 'withScriptFile'
+	/opt/quarto/share/filters/main.lua:1334: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
 
 (WARN) Error encountered when rendering files
 

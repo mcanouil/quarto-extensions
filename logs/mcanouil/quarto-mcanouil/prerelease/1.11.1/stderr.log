@@ -1,0 +1,1515 @@
+Cloning into 'repo'...
+
+
+processing file: _revealjs-example.qmd
+1/9                  
+2/9 [unnamed-chunk-1]
+3/9                  
+4/9 [unnamed-chunk-2]
+5/9                  
+6/9 [unnamed-chunk-3]
+7/9                  
+8/9 [unnamed-chunk-4]
+9/9                  
+output file: _revealjs-example.knit.md
+
+pandoc 
+  to: revealjs
+  output-file: _revealjs-example.html
+  template: _extensions/mcanouil/revealjs/template.html
+  standalone: true
+  embed-resources: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: slide
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  author:
+    - name:
+        given: Mickaël
+        family: CANOUIL
+      degrees: Ph.D.
+      email: pro@mickael.canouil.dev
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+      attributes:
+        corresponding: true
+      affiliations:
+        - name: Independent Contractor
+          city: Lille
+          country: France
+  copyright: © 2026 Mickaël CANOUIL
+  license: CC BY-NC-SA
+  code-copy: true
+  date: today
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  mermaid:
+    theme: dark
+  extensions:
+    mcanouil:
+      grid-background: true
+      section-outline: true
+      date-superscript: true
+      hide-title-slide-chrome: true
+      favicon-from-logo: true
+      code-annotation-fragments: true
+      debug-borders: true
+  brand-mode: dark
+  logo:
+    light: light
+    dark: dark
+  theme:
+    - default
+    - _extensions/mcanouil/revealjs/theme.scss
+    - brand
+  revealjs-plugins:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/_extensions/mcanouil/revealjs-plugin/mcanouil
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/_extensions/mcanouil/revealjs-plugin/tabset
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/_extensions/mcanouil/revealjs-plugin/line-fragment-indices
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/_extensions/mcanouil/revealjs-plugin/code-annotation-fragments
+  slideNumber: c
+  code-annotations: select
+  footer: |
+    <a href="https://mickael.canouil.fr/" target="_blank" rel="noopener noreferrer">mickael.canouil.fr</a>
+    |
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">License: CC BY-NC-SA 4.0</a>
+  closing-slide:
+    photo: https://github.com/mcanouil.png
+    social:
+      website: https://mickael.canouil.fr
+      github: mcanouil
+      linkedin: MickaelCanouil
+      bluesky: mickael.canouil.fr
+      mastodon: https://fosstodon.org/%40MickaelCanouil
+  title: Reveal.js Format Test
+  subtitle: Comprehensive Component Testing
+  
+Output created: _revealjs-example.html
+
+pandoc 
+  to: html
+  output-file: /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/index.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  toc-depth: 3
+  
+metadata
+  document-css: false
+  link-citations: true
+  lang: en-GB
+  author:
+    - name:
+        given: Mickaël
+        family: CANOUIL
+      degrees: Ph.D.
+      email: pro@mickael.canouil.dev
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+      attributes:
+        corresponding: true
+      affiliations:
+        - name: Independent Contractor
+          city: Lille
+          country: France
+    - name:
+        given: Jane
+        family: Doe
+      orcid: 0000-0001-2345-6789
+      affiliations:
+        - name: Example University
+          department: Department of Statistics
+          city: London
+          country: United Kingdom
+  copyright: © 2026 Mickaël CANOUIL
+  license: CC BY-NC-SA
+  code-copy: true
+  date: today
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  mermaid:
+    theme: dark
+  extensions:
+    mcanouil:
+      grid-background: true
+  respect-user-color-scheme: true
+  theme:
+    light:
+      - cosmo
+      - brand
+      - _extensions/mcanouil/html/theme.scss
+    dark:
+      - cosmo
+      - brand
+      - _extensions/mcanouil/html/theme.scss
+  grid:
+    sidebar-width: 300px
+    body-width: 900px
+    margin-width: 300px
+  anchor-sections: true
+  email-obfuscate: javascript
+  title: Mickaël CANOUIL Template
+  subtitle: Complete Guide
+  date-modified: today
+  abstract: |
+    This document showcases all features of the Mickaël CANOUIL template for Quarto, spanning HTML, Typst (PDF), and Reveal.js (presentations) formats.
+    It demonstrates template-specific components including value boxes, info panels, status badges, dividers, progress bars, cards, card grids, executive summaries, and highlighted blocks.
+    Additionally, it covers standard Quarto features such as figures, tables, mathematical notation, callouts, code blocks, code annotations, mermaid diagrams, and cross-references.
+    Use this document as both a learning resource and a quick reference guide for all available template capabilities.
+  keywords:
+    - Quarto
+    - Typst
+    - Template
+    - Documentation
+    - Tutorial
+  crossref:
+    custom:
+      - kind: float
+        reference-prefix: Text
+        key: txt
+  references:
+    - id: example_2024
+      author:
+        - family: Example
+          given: Jane
+        - family: Author
+          given: John
+      container-title: Journal of Examples
+      doi: 10.1234/example.2024
+      issued: 2024
+      title: An Example Article for Demonstrating Citations
+      type: article-journal
+  style: professional
+  other-links:
+    - text: HTML (Academic Style)
+      href: example-academic.html
+      target: _blank
+      rel: noopener noreferrer
+  
+Output created: index.html
+
+pandoc 
+  to: html
+  output-file: >-
+    /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/example-academic.html
+  standalone: true
+  embed-resources: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  toc-depth: 3
+  
+metadata
+  document-css: false
+  link-citations: true
+  lang: en-GB
+  author:
+    - name:
+        given: Mickaël
+        family: CANOUIL
+      degrees: Ph.D.
+      email: pro@mickael.canouil.dev
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+      attributes:
+        corresponding: true
+      affiliations:
+        - name: Independent Contractor
+          city: Lille
+          country: France
+    - name:
+        given: Jane
+        family: Doe
+      orcid: 0000-0001-2345-6789
+      affiliations:
+        - name: Example University
+          department: Department of Statistics
+          city: London
+          country: United Kingdom
+  copyright: © 2026 Mickaël CANOUIL
+  license: CC BY-NC-SA
+  code-copy: true
+  date: today
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  mermaid:
+    theme: dark
+  extensions:
+    mcanouil:
+      grid-background: true
+  respect-user-color-scheme: true
+  theme:
+    light:
+      - cosmo
+      - brand
+      - _extensions/mcanouil/html/theme.scss
+    dark:
+      - cosmo
+      - brand
+      - _extensions/mcanouil/html/theme.scss
+  grid:
+    sidebar-width: 300px
+    body-width: 900px
+    margin-width: 300px
+  anchor-sections: true
+  email-obfuscate: javascript
+  title: Mickaël CANOUIL Template
+  subtitle: Complete Guide
+  date-modified: today
+  abstract: |
+    This document showcases all features of the Mickaël CANOUIL template for Quarto, spanning HTML, Typst (PDF), and Reveal.js (presentations) formats.
+    It demonstrates template-specific components including value boxes, info panels, status badges, dividers, progress bars, cards, card grids, executive summaries, and highlighted blocks.
+    Additionally, it covers standard Quarto features such as figures, tables, mathematical notation, callouts, code blocks, code annotations, mermaid diagrams, and cross-references.
+    Use this document as both a learning resource and a quick reference guide for all available template capabilities.
+  keywords:
+    - Quarto
+    - Typst
+    - Template
+    - Documentation
+    - Tutorial
+  crossref:
+    custom:
+      - kind: float
+        reference-prefix: Text
+        key: txt
+  references:
+    - id: example_2024
+      author:
+        - family: Example
+          given: Jane
+        - family: Author
+          given: John
+      container-title: Journal of Examples
+      doi: 10.1234/example.2024
+      issued: 2024
+      title: An Example Article for Demonstrating Citations
+      type: article-journal
+  style: academic
+  other-links:
+    - text: HTML (Academic Style)
+      href: example-academic.html
+      target: _blank
+      rel: noopener noreferrer
+  
+Output created: example-academic.html
+
+pandoc 
+  to: revealjs
+  output-file: >-
+    /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/example-revealjs-dark.html
+  template: _extensions/mcanouil/revealjs/template.html
+  standalone: true
+  embed-resources: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: slide
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en-GB
+  auto-stretch: true
+  author:
+    - name:
+        given: Mickaël
+        family: CANOUIL
+      degrees: Ph.D.
+      email: pro@mickael.canouil.dev
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+      attributes:
+        corresponding: true
+      affiliations:
+        - name: Independent Contractor
+          city: Lille
+          country: France
+    - name:
+        given: Jane
+        family: Doe
+      orcid: 0000-0001-2345-6789
+      affiliations:
+        - name: Example University
+          department: Department of Statistics
+          city: London
+          country: United Kingdom
+  copyright: © 2026 Mickaël CANOUIL
+  license: CC BY-NC-SA
+  code-copy: true
+  date: today
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  mermaid:
+    theme: dark
+  extensions:
+    mcanouil:
+      grid-background: true
+      section-outline: true
+      date-superscript: true
+      hide-title-slide-chrome: true
+      favicon-from-logo: true
+      code-annotation-fragments: true
+      debug-borders: false
+  brand-mode: dark
+  logo:
+    light: light
+    dark: dark
+  theme:
+    - default
+    - _extensions/mcanouil/revealjs/theme.scss
+    - brand
+  revealjs-plugins:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/_extensions/mcanouil/revealjs-plugin/mcanouil
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/_extensions/mcanouil/revealjs-plugin/tabset
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/_extensions/mcanouil/revealjs-plugin/line-fragment-indices
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/_extensions/mcanouil/revealjs-plugin/code-annotation-fragments
+  slideNumber: c
+  code-annotations: select
+  footer: |
+    <a href="https://mickael.canouil.fr/" target="_blank" rel="noopener noreferrer">mickael.canouil.fr</a>
+    |
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">License: CC BY-NC-SA 4.0</a>
+  closing-slide:
+    photo: https://github.com/mcanouil.png
+    social:
+      website: https://mickael.canouil.fr
+      github: mcanouil
+      linkedin: MickaelCanouil
+      bluesky: mickael.canouil.fr
+      mastodon: https://fosstodon.org/%40MickaelCanouil
+  title: Mickaël CANOUIL Template
+  subtitle: Complete Guide
+  date-modified: today
+  abstract: |
+    This document showcases all features of the Mickaël CANOUIL template for Quarto, spanning HTML, Typst (PDF), and Reveal.js (presentations) formats.
+    It demonstrates template-specific components including value boxes, info panels, status badges, dividers, progress bars, cards, card grids, executive summaries, and highlighted blocks.
+    Additionally, it covers standard Quarto features such as figures, tables, mathematical notation, callouts, code blocks, code annotations, mermaid diagrams, and cross-references.
+    Use this document as both a learning resource and a quick reference guide for all available template capabilities.
+  keywords:
+    - Quarto
+    - Typst
+    - Template
+    - Documentation
+    - Tutorial
+  crossref:
+    custom:
+      - kind: float
+        reference-prefix: Text
+        key: txt
+  references:
+    - id: example_2024
+      author:
+        - family: Example
+          given: Jane
+        - family: Author
+          given: John
+      container-title: Journal of Examples
+      doi: 10.1234/example.2024
+      issued: 2024
+      title: An Example Article for Demonstrating Citations
+      type: article-journal
+  style: professional
+  other-links:
+    - text: HTML (Academic Style)
+      href: example-academic.html
+      target: _blank
+      rel: noopener noreferrer
+  scrollable: true
+  smaller: true
+  
+Output created: example-revealjs-dark.html
+
+pandoc 
+  to: revealjs
+  output-file: >-
+    /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/example-revealjs-light.html
+  template: _extensions/mcanouil/revealjs/template.html
+  standalone: true
+  embed-resources: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: slide
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en-GB
+  auto-stretch: true
+  author:
+    - name:
+        given: Mickaël
+        family: CANOUIL
+      degrees: Ph.D.
+      email: pro@mickael.canouil.dev
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+      attributes:
+        corresponding: true
+      affiliations:
+        - name: Independent Contractor
+          city: Lille
+          country: France
+    - name:
+        given: Jane
+        family: Doe
+      orcid: 0000-0001-2345-6789
+      affiliations:
+        - name: Example University
+          department: Department of Statistics
+          city: London
+          country: United Kingdom
+  copyright: © 2026 Mickaël CANOUIL
+  license: CC BY-NC-SA
+  code-copy: true
+  date: today
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  mermaid:
+    theme: dark
+  extensions:
+    mcanouil:
+      grid-background: true
+      section-outline: true
+      date-superscript: true
+      hide-title-slide-chrome: true
+      favicon-from-logo: true
+      code-annotation-fragments: true
+      debug-borders: false
+  brand-mode: light
+  logo:
+    light: light
+    dark: dark
+  theme:
+    - default
+    - _extensions/mcanouil/revealjs/theme.scss
+    - brand
+  revealjs-plugins:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/_extensions/mcanouil/revealjs-plugin/mcanouil
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/_extensions/mcanouil/revealjs-plugin/tabset
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/_extensions/mcanouil/revealjs-plugin/line-fragment-indices
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-20/repo/_extensions/mcanouil/revealjs-plugin/code-annotation-fragments
+  slideNumber: c
+  code-annotations: select
+  footer: |
+    <a href="https://mickael.canouil.fr/" target="_blank" rel="noopener noreferrer">mickael.canouil.fr</a>
+    |
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">License: CC BY-NC-SA 4.0</a>
+  closing-slide:
+    photo: https://github.com/mcanouil.png
+    social:
+      website: https://mickael.canouil.fr
+      github: mcanouil
+      linkedin: MickaelCanouil
+      bluesky: mickael.canouil.fr
+      mastodon: https://fosstodon.org/%40MickaelCanouil
+  title: Mickaël CANOUIL Template
+  subtitle: Complete Guide
+  date-modified: today
+  abstract: |
+    This document showcases all features of the Mickaël CANOUIL template for Quarto, spanning HTML, Typst (PDF), and Reveal.js (presentations) formats.
+    It demonstrates template-specific components including value boxes, info panels, status badges, dividers, progress bars, cards, card grids, executive summaries, and highlighted blocks.
+    Additionally, it covers standard Quarto features such as figures, tables, mathematical notation, callouts, code blocks, code annotations, mermaid diagrams, and cross-references.
+    Use this document as both a learning resource and a quick reference guide for all available template capabilities.
+  keywords:
+    - Quarto
+    - Typst
+    - Template
+    - Documentation
+    - Tutorial
+  crossref:
+    custom:
+      - kind: float
+        reference-prefix: Text
+        key: txt
+  references:
+    - id: example_2024
+      author:
+        - family: Example
+          given: Jane
+        - family: Author
+          given: John
+      container-title: Journal of Examples
+      doi: 10.1234/example.2024
+      issued: 2024
+      title: An Example Article for Demonstrating Citations
+      type: article-journal
+  style: professional
+  other-links:
+    - text: HTML (Academic Style)
+      href: example-academic.html
+      target: _blank
+      rel: noopener noreferrer
+  scrollable: true
+  smaller: true
+  
+Output created: example-revealjs-light.html
+
+pandoc 
+  to: typst-citations
+  output-file: example.typ
+  template: _extensions/mcanouil/typst/template.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  number-sections: true
+  toc: true
+  
+metadata
+  columns: 1
+  author:
+    - name:
+        given: Mickaël
+        family: CANOUIL
+      degrees: Ph.D.
+      email: pro@mickael.canouil.dev
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+      attributes:
+        corresponding: true
+      affiliations:
+        - name: Independent Contractor
+          city: Lille
+          country: France
+    - name:
+        given: Jane
+        family: Doe
+      orcid: 0000-0001-2345-6789
+      affiliations:
+        - name: Example University
+          department: Department of Statistics
+          city: London
+          country: United Kingdom
+  copyright: © 2026 Mickaël CANOUIL
+  license: CC BY-NC-SA
+  lang: en-GB
+  code-copy: true
+  date: today
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  mermaid:
+    theme: dark
+  extensions:
+    mcanouil:
+      grid-background: true
+  document-type: report
+  brand-mode: dark
+  style: academic
+  show-corner-brackets: true
+  show-margin-decoration: true
+  show-title-page-background: true
+  show-heading-underlines: true
+  show-logo: true
+  logo:
+    light:
+      path: dark
+      alt: Mickaël CANOUIL Logo
+      width: 7cm
+    dark:
+      path: light
+      alt: Mickaël CANOUIL Logo
+      width: 7cm
+  orcid-icon: _extensions/mcanouil/typst/assets/orcid.svg
+  mainfont: Alegreya Sans
+  sansfont: Alegreya Sans
+  fontsize: 11pt
+  papersize: a4
+  margin:
+    top: 2.5cm
+    bottom: 2.5cm
+    left: 2.5cm
+    right: 2.5cm
+  title-page: true
+  section-numbering: 1.1.1.
+  section-page: true
+  section-pagebreak: true
+  special-sections:
+    references:
+      name: References
+      numbering: none
+      prefix: false
+    appendix:
+      name: Appendix
+      numbering: A.a.
+      prefix: true
+    supplementary:
+      name: Supplementary
+      numbering: I.i.
+      prefix: true
+  list-of: true
+  bibliographystyle: apa
+  title: Mickaël CANOUIL Template
+  subtitle: Complete Guide
+  date-modified: today
+  abstract: |
+    This document showcases all features of the Mickaël CANOUIL template for Quarto, spanning HTML, Typst (PDF), and Reveal.js (presentations) formats.
+    It demonstrates template-specific components including value boxes, info panels, status badges, dividers, progress bars, cards, card grids, executive summaries, and highlighted blocks.
+    Additionally, it covers standard Quarto features such as figures, tables, mathematical notation, callouts, code blocks, code annotations, mermaid diagrams, and cross-references.
+    Use this document as both a learning resource and a quick reference guide for all available template capabilities.
+  keywords:
+    - Quarto
+    - Typst
+    - Template
+    - Documentation
+    - Tutorial
+  crossref:
+    custom:
+      - kind: float
+        reference-prefix: Text
+        key: txt
+  references:
+    - id: example_2024
+      author:
+        - family: Example
+          given: Jane
+        - family: Author
+          given: John
+      container-title: Journal of Examples
+      doi: 10.1234/example.2024
+      issued: 2024
+      title: An Example Article for Demonstrating Citations
+      type: article-journal
+  other-links:
+    - text: HTML (Academic Style)
+      href: example-academic.html
+      target: _blank
+      rel: noopener noreferrer
+  watermark-text: DEMO
+  
+[typst]: Compiling example.typ to example.pdf...warning: unknown font family: menlo
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: monaco
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: courier new
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: georgia
+     ┌─ example.typ:5588:80
+     │
+5588 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+     │                                                                                 ^^^^^^^^^
+
+warning: unknown font family: georgia
+     ┌─ example.typ:5598:80
+     │
+5598 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+     │                                                                                 ^^^^^^^^^
+
+DONE
+
+Output created: example-dark-academic.pdf
+
+pandoc 
+  to: typst-citations
+  output-file: example.typ
+  template: _extensions/mcanouil/typst/template.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  number-sections: true
+  toc: true
+  
+metadata
+  columns: 1
+  author:
+    - name:
+        given: Mickaël
+        family: CANOUIL
+      degrees: Ph.D.
+      email: pro@mickael.canouil.dev
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+      attributes:
+        corresponding: true
+      affiliations:
+        - name: Independent Contractor
+          city: Lille
+          country: France
+    - name:
+        given: Jane
+        family: Doe
+      orcid: 0000-0001-2345-6789
+      affiliations:
+        - name: Example University
+          department: Department of Statistics
+          city: London
+          country: United Kingdom
+  copyright: © 2026 Mickaël CANOUIL
+  license: CC BY-NC-SA
+  lang: en-GB
+  code-copy: true
+  date: today
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  mermaid:
+    theme: dark
+  extensions:
+    mcanouil:
+      grid-background: true
+  document-type: report
+  brand-mode: dark
+  style: professional
+  show-corner-brackets: true
+  show-margin-decoration: true
+  show-title-page-background: true
+  show-heading-underlines: true
+  show-logo: true
+  logo:
+    light:
+      path: dark
+      alt: Mickaël CANOUIL Logo
+      width: 7cm
+    dark:
+      path: light
+      alt: Mickaël CANOUIL Logo
+      width: 7cm
+  orcid-icon: _extensions/mcanouil/typst/assets/orcid.svg
+  mainfont: Alegreya Sans
+  sansfont: Alegreya Sans
+  fontsize: 11pt
+  papersize: a4
+  margin:
+    top: 2.5cm
+    bottom: 2.5cm
+    left: 2.5cm
+    right: 2.5cm
+  title-page: true
+  section-numbering: 1.1.1.
+  section-page: true
+  section-pagebreak: true
+  special-sections:
+    references:
+      name: References
+      numbering: none
+      prefix: false
+    appendix:
+      name: Appendix
+      numbering: A.a.
+      prefix: true
+    supplementary:
+      name: Supplementary
+      numbering: I.i.
+      prefix: true
+  list-of: true
+  bibliographystyle: apa
+  title: Mickaël CANOUIL Template
+  subtitle: Complete Guide
+  date-modified: today
+  abstract: |
+    This document showcases all features of the Mickaël CANOUIL template for Quarto, spanning HTML, Typst (PDF), and Reveal.js (presentations) formats.
+    It demonstrates template-specific components including value boxes, info panels, status badges, dividers, progress bars, cards, card grids, executive summaries, and highlighted blocks.
+    Additionally, it covers standard Quarto features such as figures, tables, mathematical notation, callouts, code blocks, code annotations, mermaid diagrams, and cross-references.
+    Use this document as both a learning resource and a quick reference guide for all available template capabilities.
+  keywords:
+    - Quarto
+    - Typst
+    - Template
+    - Documentation
+    - Tutorial
+  crossref:
+    custom:
+      - kind: float
+        reference-prefix: Text
+        key: txt
+  references:
+    - id: example_2024
+      author:
+        - family: Example
+          given: Jane
+        - family: Author
+          given: John
+      container-title: Journal of Examples
+      doi: 10.1234/example.2024
+      issued: 2024
+      title: An Example Article for Demonstrating Citations
+      type: article-journal
+  other-links:
+    - text: HTML (Academic Style)
+      href: example-academic.html
+      target: _blank
+      rel: noopener noreferrer
+  watermark-text: DEMO
+  
+[typst]: Compiling example.typ to example.pdf...warning: unknown font family: menlo
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: monaco
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: courier new
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: georgia
+     ┌─ example.typ:5588:80
+     │
+5588 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+     │                                                                                 ^^^^^^^^^
+
+warning: unknown font family: georgia
+     ┌─ example.typ:5598:80
+     │
+5598 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+     │                                                                                 ^^^^^^^^^
+
+DONE
+
+Output created: example-dark-professional.pdf
+
+pandoc 
+  to: typst-citations
+  output-file: example.typ
+  template: _extensions/mcanouil/typst/template.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  number-sections: true
+  toc: true
+  
+metadata
+  columns: 1
+  author:
+    - name:
+        given: Mickaël
+        family: CANOUIL
+      degrees: Ph.D.
+      email: pro@mickael.canouil.dev
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+      attributes:
+        corresponding: true
+      affiliations:
+        - name: Independent Contractor
+          city: Lille
+          country: France
+    - name:
+        given: Jane
+        family: Doe
+      orcid: 0000-0001-2345-6789
+      affiliations:
+        - name: Example University
+          department: Department of Statistics
+          city: London
+          country: United Kingdom
+  copyright: © 2026 Mickaël CANOUIL
+  license: CC BY-NC-SA
+  lang: en-GB
+  code-copy: true
+  date: today
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  mermaid:
+    theme: dark
+  extensions:
+    mcanouil:
+      grid-background: true
+  document-type: report
+  brand-mode: light
+  style: academic
+  show-corner-brackets: true
+  show-margin-decoration: true
+  show-title-page-background: true
+  show-heading-underlines: true
+  show-logo: true
+  logo:
+    light:
+      path: dark
+      alt: Mickaël CANOUIL Logo
+      width: 7cm
+    dark:
+      path: light
+      alt: Mickaël CANOUIL Logo
+      width: 7cm
+  orcid-icon: _extensions/mcanouil/typst/assets/orcid.svg
+  mainfont: Alegreya Sans
+  sansfont: Alegreya Sans
+  fontsize: 11pt
+  papersize: a4
+  margin:
+    top: 2.5cm
+    bottom: 2.5cm
+    left: 2.5cm
+    right: 2.5cm
+  title-page: true
+  section-numbering: 1.1.1.
+  section-page: true
+  section-pagebreak: true
+  special-sections:
+    references:
+      name: References
+      numbering: none
+      prefix: false
+    appendix:
+      name: Appendix
+      numbering: A.a.
+      prefix: true
+    supplementary:
+      name: Supplementary
+      numbering: I.i.
+      prefix: true
+  list-of: true
+  bibliographystyle: apa
+  title: Mickaël CANOUIL Template
+  subtitle: Complete Guide
+  date-modified: today
+  abstract: |
+    This document showcases all features of the Mickaël CANOUIL template for Quarto, spanning HTML, Typst (PDF), and Reveal.js (presentations) formats.
+    It demonstrates template-specific components including value boxes, info panels, status badges, dividers, progress bars, cards, card grids, executive summaries, and highlighted blocks.
+    Additionally, it covers standard Quarto features such as figures, tables, mathematical notation, callouts, code blocks, code annotations, mermaid diagrams, and cross-references.
+    Use this document as both a learning resource and a quick reference guide for all available template capabilities.
+  keywords:
+    - Quarto
+    - Typst
+    - Template
+    - Documentation
+    - Tutorial
+  crossref:
+    custom:
+      - kind: float
+        reference-prefix: Text
+        key: txt
+  references:
+    - id: example_2024
+      author:
+        - family: Example
+          given: Jane
+        - family: Author
+          given: John
+      container-title: Journal of Examples
+      doi: 10.1234/example.2024
+      issued: 2024
+      title: An Example Article for Demonstrating Citations
+      type: article-journal
+  other-links:
+    - text: HTML (Academic Style)
+      href: example-academic.html
+      target: _blank
+      rel: noopener noreferrer
+  watermark-text: DEMO
+  
+[typst]: Compiling example.typ to example.pdf...warning: unknown font family: menlo
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: monaco
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: courier new
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: georgia
+     ┌─ example.typ:5588:80
+     │
+5588 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+     │                                                                                 ^^^^^^^^^
+
+warning: unknown font family: georgia
+     ┌─ example.typ:5598:80
+     │
+5598 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+     │                                                                                 ^^^^^^^^^
+
+DONE
+
+Output created: example-light-academic.pdf
+
+pandoc 
+  to: typst-citations
+  output-file: example.typ
+  template: _extensions/mcanouil/typst/template.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  number-sections: true
+  toc: true
+  
+metadata
+  columns: 1
+  author:
+    - name:
+        given: Mickaël
+        family: CANOUIL
+      degrees: Ph.D.
+      email: pro@mickael.canouil.dev
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+      attributes:
+        corresponding: true
+      affiliations:
+        - name: Independent Contractor
+          city: Lille
+          country: France
+    - name:
+        given: Jane
+        family: Doe
+      orcid: 0000-0001-2345-6789
+      affiliations:
+        - name: Example University
+          department: Department of Statistics
+          city: London
+          country: United Kingdom
+  copyright: © 2026 Mickaël CANOUIL
+  license: CC BY-NC-SA
+  lang: en-GB
+  code-copy: true
+  date: today
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  mermaid:
+    theme: dark
+  extensions:
+    mcanouil:
+      grid-background: true
+  document-type: report
+  brand-mode: light
+  style: professional
+  show-corner-brackets: true
+  show-margin-decoration: true
+  show-title-page-background: true
+  show-heading-underlines: true
+  show-logo: true
+  logo:
+    light:
+      path: dark
+      alt: Mickaël CANOUIL Logo
+      width: 7cm
+    dark:
+      path: light
+      alt: Mickaël CANOUIL Logo
+      width: 7cm
+  orcid-icon: _extensions/mcanouil/typst/assets/orcid.svg
+  mainfont: Alegreya Sans
+  sansfont: Alegreya Sans
+  fontsize: 11pt
+  papersize: a4
+  margin:
+    top: 2.5cm
+    bottom: 2.5cm
+    left: 2.5cm
+    right: 2.5cm
+  title-page: true
+  section-numbering: 1.1.1.
+  section-page: true
+  section-pagebreak: true
+  special-sections:
+    references:
+      name: References
+      numbering: none
+      prefix: false
+    appendix:
+      name: Appendix
+      numbering: A.a.
+      prefix: true
+    supplementary:
+      name: Supplementary
+      numbering: I.i.
+      prefix: true
+  list-of: true
+  bibliographystyle: apa
+  title: Mickaël CANOUIL Template
+  subtitle: Complete Guide
+  date-modified: today
+  abstract: |
+    This document showcases all features of the Mickaël CANOUIL template for Quarto, spanning HTML, Typst (PDF), and Reveal.js (presentations) formats.
+    It demonstrates template-specific components including value boxes, info panels, status badges, dividers, progress bars, cards, card grids, executive summaries, and highlighted blocks.
+    Additionally, it covers standard Quarto features such as figures, tables, mathematical notation, callouts, code blocks, code annotations, mermaid diagrams, and cross-references.
+    Use this document as both a learning resource and a quick reference guide for all available template capabilities.
+  keywords:
+    - Quarto
+    - Typst
+    - Template
+    - Documentation
+    - Tutorial
+  crossref:
+    custom:
+      - kind: float
+        reference-prefix: Text
+        key: txt
+  references:
+    - id: example_2024
+      author:
+        - family: Example
+          given: Jane
+        - family: Author
+          given: John
+      container-title: Journal of Examples
+      doi: 10.1234/example.2024
+      issued: 2024
+      title: An Example Article for Demonstrating Citations
+      type: article-journal
+  other-links:
+    - text: HTML (Academic Style)
+      href: example-academic.html
+      target: _blank
+      rel: noopener noreferrer
+  watermark-text: DEMO
+  
+[typst]: Compiling example.typ to example.pdf...warning: unknown font family: menlo
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: monaco
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: courier new
+     ┌─ example.typ:5426:12
+     │
+5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: georgia
+     ┌─ example.typ:5588:80
+     │
+5588 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+     │                                                                                 ^^^^^^^^^
+
+warning: unknown font family: georgia
+     ┌─ example.typ:5598:80
+     │
+5598 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+     │                                                                                 ^^^^^^^^^
+
+DONE
+
+Output created: example-light-professional.pdf
+
+[pre-render] warning: 0.20.2 is not tagged; the install commands name an unreleased version
+[pre-render] _extension.yml -> _variables.yml (mcanouil/quarto-mcanouil@0.20.2)
+[pre-render] CHANGELOG.md -> changelog.qmd
+
+pandoc 
+  to: html
+  output-file: 404.html
+  standalone: true
+  title-prefix: Mickaël Canouil's Brand
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: false
+  toc-depth: 3
+  
+metadata
+  document-css: false
+  link-citations: true
+  lang: en-GB
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  code-copy: true
+  respect-user-color-scheme: true
+  theme:
+    light:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+    dark:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+  anchor-sections: true
+  grid:
+    sidebar-width: 300px
+    body-width: 1000px
+    margin-width: 300px
+  brand: _extensions/mcanouil/pastel/brand.yml
+  extensions:
+    atelier:
+      site-url: https://m.canouil.dev/quarto-mcanouil
+    gitlink:
+      enabled: false
+      widget:
+        enabled: true
+        extra-links:
+          - text: Ideas / Feature Requests
+            href: /discussions/categories/ideas
+            icon: discussion
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+        sponsor: mcanouil
+        style-navbar-tools: false
+    code-window:
+      style: macos
+      auto-filename: false
+  title: Page not found
+  description: That page does not exist or has moved.
+  sidebar: false
+  
+[post-render] Removed changelog.qmd and _variables.yml
+
+Output created: _site/404.html
+
+[pre-render] warning: 0.20.2 is not tagged; the install commands name an unreleased version
+[pre-render] _extension.yml -> _variables.yml (mcanouil/quarto-mcanouil@0.20.2)
+[pre-render] CHANGELOG.md -> changelog.qmd
+
+pandoc 
+  to: html
+  output-file: reference.html
+  standalone: true
+  title-prefix: Mickaël Canouil's Brand
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  toc-depth: 3
+  
+metadata
+  document-css: false
+  link-citations: true
+  lang: en-GB
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  code-copy: true
+  respect-user-color-scheme: true
+  theme:
+    light:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+    dark:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+  anchor-sections: true
+  grid:
+    sidebar-width: 300px
+    body-width: 1000px
+    margin-width: 300px
+  brand: _extensions/mcanouil/pastel/brand.yml
+  extensions:
+    atelier:
+      site-url: https://m.canouil.dev/quarto-mcanouil
+    gitlink:
+      enabled: false
+      widget:
+        enabled: true
+        extra-links:
+          - text: Ideas / Feature Requests
+            href: /discussions/categories/ideas
+            icon: discussion
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+        sponsor: mcanouil
+        style-navbar-tools: false
+    code-window:
+      style: macos
+      auto-filename: false
+  title: Reference
+  subtitle: The project type, the formats, and what they share.
+  description: 'The complete mcanouil extension: the project type, the three format families, the shared components, and the RevealJS options.'
+  
+ERROR: Unable to read the extension 'mcanouil'.
+Please ensure that you provided the correct id and that the extension is installed.
+
+Stack trace:
+    at loadExtension (file:///opt/quarto/bin/quarto.js:79448:15)
+    at Object.extension (file:///opt/quarto/bin/quarto.js:78654:30)
+    at readExtensionFormat (file:///opt/quarto/bin/quarto.js:91460:50)
+    at resolveFormats (file:///opt/quarto/bin/quarto.js:91319:37)
+    at async renderContexts (file:///opt/quarto/bin/quarto.js:91109:20)
+    at async Object.renderFormats (file:///opt/quarto/bin/quarto.js:91168:20)
+    at async readBaseInputIndex (file:///opt/quarto/bin/quarto.js:131766:20)
+    at async inputTargetIndex (file:///opt/quarto/bin/quarto.js:131754:18)
+    at async inputFileForOutputFile (file:///opt/quarto/bin/quarto.js:131907:20)
+    at async inputModified (file:///opt/quarto/bin/quarto.js:149138:25)
+    at async urlsetEntry (file:///opt/quarto/bin/quarto.js:149156:18)
+    at async updateSitemap (file:///opt/quarto/bin/quarto.js:149177:23)
+    at async websitePostRender (file:///opt/quarto/bin/quarto.js:152925:3)
+    at async Object.postRender (file:///opt/quarto/bin/quarto.js:152887:5)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:137755:7)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142808:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102199:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102076:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:188205:5)
+    at async file:///opt/quarto/bin/quarto.js:188234:5
+    at async file:///opt/quarto/bin/quarto.js:188088:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:188090:5)
+    at async file:///opt/quarto/bin/quarto.js:188227:3
+Render failed, retrying once...
+[pre-render] warning: 0.20.2 is not tagged; the install commands name an unreleased version
+[pre-render] _extension.yml -> _variables.yml (mcanouil/quarto-mcanouil@0.20.2)
+[pre-render] CHANGELOG.md -> changelog.qmd
+
+pandoc 
+  to: html
+  output-file: reference.html
+  standalone: true
+  title-prefix: Mickaël Canouil's Brand
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  toc-depth: 3
+  
+metadata
+  document-css: false
+  link-citations: true
+  lang: en-GB
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  code-copy: true
+  respect-user-color-scheme: true
+  theme:
+    light:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+    dark:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+  anchor-sections: true
+  grid:
+    sidebar-width: 300px
+    body-width: 1000px
+    margin-width: 300px
+  brand: _extensions/mcanouil/pastel/brand.yml
+  extensions:
+    atelier:
+      site-url: https://m.canouil.dev/quarto-mcanouil
+    gitlink:
+      enabled: false
+      widget:
+        enabled: true
+        extra-links:
+          - text: Ideas / Feature Requests
+            href: /discussions/categories/ideas
+            icon: discussion
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+        sponsor: mcanouil
+        style-navbar-tools: false
+    code-window:
+      style: macos
+      auto-filename: false
+  title: Reference
+  subtitle: The project type, the formats, and what they share.
+  description: 'The complete mcanouil extension: the project type, the three format families, the shared components, and the RevealJS options.'
+  
+ERROR: Unable to read the extension 'mcanouil'.
+Please ensure that you provided the correct id and that the extension is installed.
+
+Stack trace:
+    at loadExtension (file:///opt/quarto/bin/quarto.js:79448:15)
+    at Object.extension (file:///opt/quarto/bin/quarto.js:78654:30)
+    at readExtensionFormat (file:///opt/quarto/bin/quarto.js:91460:50)
+    at resolveFormats (file:///opt/quarto/bin/quarto.js:91319:37)
+    at async renderContexts (file:///opt/quarto/bin/quarto.js:91109:20)
+    at async Object.renderFormats (file:///opt/quarto/bin/quarto.js:91168:20)
+    at async readBaseInputIndex (file:///opt/quarto/bin/quarto.js:131766:20)
+    at async inputTargetIndex (file:///opt/quarto/bin/quarto.js:131754:18)
+    at async inputFileForOutputFile (file:///opt/quarto/bin/quarto.js:131907:20)
+    at async inputModified (file:///opt/quarto/bin/quarto.js:149138:25)
+    at async urlsetEntry (file:///opt/quarto/bin/quarto.js:149156:18)
+    at async updateSitemap (file:///opt/quarto/bin/quarto.js:149177:23)
+    at async websitePostRender (file:///opt/quarto/bin/quarto.js:152925:3)
+    at async Object.postRender (file:///opt/quarto/bin/quarto.js:152887:5)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:137755:7)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142808:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102199:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102076:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:188205:5)
+    at async file:///opt/quarto/bin/quarto.js:188234:5
+    at async file:///opt/quarto/bin/quarto.js:188088:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:188090:5)
+    at async file:///opt/quarto/bin/quarto.js:188227:3

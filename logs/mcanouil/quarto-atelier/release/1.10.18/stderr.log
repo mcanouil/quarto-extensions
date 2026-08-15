@@ -1,8 +1,30 @@
 Cloning into 'repo'...
-[1/4] index.qmd
-[2/4] example.qmd
-[3/4] reference/index.qmd
-[4/4] 404.qmd
+ERROR: Unsupported project type atelier
 
-Output created: _site/index.html
+Stack trace:
+    at projectType (file:///opt/quarto/bin/quarto.js:69723:11)
+    at projectContext (file:///opt/quarto/bin/quarto.js:92028:23)
+    at async render (file:///opt/quarto/bin/quarto.js:142516:29)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142798:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102189:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102066:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:188195:5)
+    at async file:///opt/quarto/bin/quarto.js:188224:5
+    at async file:///opt/quarto/bin/quarto.js:188078:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:188080:5)
+    at async file:///opt/quarto/bin/quarto.js:188217:3
+Render failed, retrying once...
+ERROR: Unsupported project type atelier
 
+Stack trace:
+    at projectType (file:///opt/quarto/bin/quarto.js:69723:11)
+    at projectContext (file:///opt/quarto/bin/quarto.js:92028:23)
+    at async render (file:///opt/quarto/bin/quarto.js:142516:29)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142798:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102189:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102066:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:188195:5)
+    at async file:///opt/quarto/bin/quarto.js:188224:5
+    at async file:///opt/quarto/bin/quarto.js:188078:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:188080:5)
+    at async file:///opt/quarto/bin/quarto.js:188217:3

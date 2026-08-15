@@ -1,0 +1,70 @@
+
+
+processing file: template.qmd
+
+1/3              
+
+2/3 [fig-density]
+
+3/3              
+
+output file: template.knit.md
+
+
+pandoc 
+
+  to: typst
+  output-file: template.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  toc: false
+  number-sections: true
+  
+
+metadata
+
+  section-numbering: 1.1.a
+  papersize: a4
+  fontsize: 11pt
+  date: today
+  date-format: D MMMM YYYY
+  number-depth: 2
+  linestretch: 1.5
+  knitr:
+    opts_chunk:
+      echo: false
+      warning: false
+      message: false
+  lang: en
+  region: AU
+  bibliographystyle: apa
+  margin:
+    top: 2.4cm
+    bottom: 2.4cm
+    left: 2.5cm
+    right: 2.5cm
+  font-paths:
+    - _extensions/report/fonts
+  title: Expert advice from experts
+  author:
+    - name: Professor Marie Curie
+      degrees: Nobel Prize, PhD
+      email: mcurie.notreal@gmail.com
+    - name: Dr Pierre Curie
+      degrees: Nobel Prize, PhD
+  phone: (03) 9905 2478
+  email: BusEco-Econometrics@monash.edu
+  organization: Acme Corporation
+  bibliography:
+    - references.bib
+  
+
+[typst]: Compiling template.typ to template.pdf...
+DONE
+
+
+Output created: template.pdf
+
+

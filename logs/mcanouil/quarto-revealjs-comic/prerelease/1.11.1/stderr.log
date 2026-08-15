@@ -1,0 +1,307 @@
+Cloning into 'repo'...
+pandoc 
+  to: revealjs
+  output-file: /home/runner/work/quarto-extensions/quarto-extensions/test-9/repo/index.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: slide
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: false
+  theme: _extensions/comic/comic.scss
+  logo: _extensions/comic/comic.svg
+  slideNumber: c
+  transitionSpeed: default
+  revealjs-plugins:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-9/repo/_extensions/comic/revealjs-plugin/page-turn
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-9/repo/_extensions/comic/revealjs-plugin/comic-fit
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-9/repo/_extensions/comic/revealjs-plugin/tabset
+  title: Caped Crusader
+  subtitle: 'Issue 01: The Signal'
+  author:
+    - name:
+        given: Mickaël
+        family: CANOUIL
+      degrees: Ph.D.
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  institute: Data Science Superhero League
+  date: today
+  
+Output created: index.html
+
+[pre-render] warning: 1.0.1 is not tagged; the install commands name an unreleased version
+[pre-render] _extension.yml -> _variables.yml (mcanouil/quarto-revealjs-comic@1.0.1)
+[pre-render] CHANGELOG.md -> changelog.qmd
+
+pandoc 
+  to: html
+  output-file: 404.html
+  standalone: true
+  title-prefix: RevealJS Comic
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: false
+  toc-depth: 3
+  
+metadata
+  document-css: false
+  link-citations: true
+  lang: en-GB
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  code-copy: true
+  respect-user-color-scheme: true
+  theme:
+    light:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+    dark:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+  anchor-sections: true
+  grid:
+    sidebar-width: 300px
+    body-width: 1000px
+    margin-width: 300px
+  brand: _extensions/mcanouil/pastel/brand.yml
+  extensions:
+    atelier:
+      site-url: https://m.canouil.dev/quarto-revealjs-comic
+    gitlink:
+      enabled: false
+      widget:
+        enabled: true
+        extra-links:
+          - text: Ideas / Feature Requests
+            href: /discussions/categories/ideas
+            icon: discussion
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+        sponsor: mcanouil
+        style-navbar-tools: false
+    code-window:
+      style: macos
+      auto-filename: false
+  title: Page not found
+  description: That page does not exist or has moved.
+  sidebar: false
+  
+[post-render] Removed changelog.qmd and _variables.yml
+
+Output created: _site/404.html
+
+[pre-render] warning: 1.0.1 is not tagged; the install commands name an unreleased version
+[pre-render] _extension.yml -> _variables.yml (mcanouil/quarto-revealjs-comic@1.0.1)
+[pre-render] CHANGELOG.md -> changelog.qmd
+
+pandoc 
+  to: html
+  output-file: reference.html
+  standalone: true
+  title-prefix: RevealJS Comic
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  toc-depth: 3
+  
+metadata
+  document-css: false
+  link-citations: true
+  lang: en-GB
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  code-copy: true
+  respect-user-color-scheme: true
+  theme:
+    light:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+    dark:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+  anchor-sections: true
+  grid:
+    sidebar-width: 300px
+    body-width: 1000px
+    margin-width: 300px
+  brand: _extensions/mcanouil/pastel/brand.yml
+  extensions:
+    atelier:
+      site-url: https://m.canouil.dev/quarto-revealjs-comic
+    gitlink:
+      enabled: false
+      widget:
+        enabled: true
+        extra-links:
+          - text: Ideas / Feature Requests
+            href: /discussions/categories/ideas
+            icon: discussion
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+        sponsor: mcanouil
+        style-navbar-tools: false
+    code-window:
+      style: macos
+      auto-filename: false
+  title: Reference
+  subtitle: Every class the comic format accepts.
+  description: 'The complete comic vocabulary: the slide classes, the bubble divs, the fragment entrances, and how they compose.'
+  
+ERROR: Unable to read the extension 'comic'.
+Please ensure that you provided the correct id and that the extension is installed.
+
+Stack trace:
+    at loadExtension (file:///opt/quarto/bin/quarto.js:79448:15)
+    at Object.extension (file:///opt/quarto/bin/quarto.js:78654:30)
+    at readExtensionFormat (file:///opt/quarto/bin/quarto.js:91460:50)
+    at resolveFormats (file:///opt/quarto/bin/quarto.js:91319:37)
+    at async renderContexts (file:///opt/quarto/bin/quarto.js:91109:20)
+    at async Object.renderFormats (file:///opt/quarto/bin/quarto.js:91168:20)
+    at async readBaseInputIndex (file:///opt/quarto/bin/quarto.js:131766:20)
+    at async inputTargetIndex (file:///opt/quarto/bin/quarto.js:131754:18)
+    at async inputFileForOutputFile (file:///opt/quarto/bin/quarto.js:131907:20)
+    at async inputModified (file:///opt/quarto/bin/quarto.js:149138:25)
+    at async urlsetEntry (file:///opt/quarto/bin/quarto.js:149156:18)
+    at async updateSitemap (file:///opt/quarto/bin/quarto.js:149177:23)
+    at async websitePostRender (file:///opt/quarto/bin/quarto.js:152925:3)
+    at async Object.postRender (file:///opt/quarto/bin/quarto.js:152887:5)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:137755:7)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142808:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102199:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102076:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:188205:5)
+    at async file:///opt/quarto/bin/quarto.js:188234:5
+    at async file:///opt/quarto/bin/quarto.js:188088:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:188090:5)
+    at async file:///opt/quarto/bin/quarto.js:188227:3
+Render failed, retrying once...
+[pre-render] warning: 1.0.1 is not tagged; the install commands name an unreleased version
+[pre-render] _extension.yml -> _variables.yml (mcanouil/quarto-revealjs-comic@1.0.1)
+[pre-render] CHANGELOG.md -> changelog.qmd
+
+pandoc 
+  to: html
+  output-file: reference.html
+  standalone: true
+  title-prefix: RevealJS Comic
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  toc-depth: 3
+  
+metadata
+  document-css: false
+  link-citations: true
+  lang: en-GB
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  code-copy: true
+  respect-user-color-scheme: true
+  theme:
+    light:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+    dark:
+      - _extensions/mcanouil/atelier/html/chrome.scss
+      - brand
+      - _extensions/mcanouil/atelier/html/theme.scss
+      - _extensions/mcanouil/pastel/pastel.scss
+      - assets/theme.scss
+  anchor-sections: true
+  grid:
+    sidebar-width: 300px
+    body-width: 1000px
+    margin-width: 300px
+  brand: _extensions/mcanouil/pastel/brand.yml
+  extensions:
+    atelier:
+      site-url: https://m.canouil.dev/quarto-revealjs-comic
+    gitlink:
+      enabled: false
+      widget:
+        enabled: true
+        extra-links:
+          - text: Ideas / Feature Requests
+            href: /discussions/categories/ideas
+            icon: discussion
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+        sponsor: mcanouil
+        style-navbar-tools: false
+    code-window:
+      style: macos
+      auto-filename: false
+  title: Reference
+  subtitle: Every class the comic format accepts.
+  description: 'The complete comic vocabulary: the slide classes, the bubble divs, the fragment entrances, and how they compose.'
+  
+ERROR: Unable to read the extension 'comic'.
+Please ensure that you provided the correct id and that the extension is installed.
+
+Stack trace:
+    at loadExtension (file:///opt/quarto/bin/quarto.js:79448:15)
+    at Object.extension (file:///opt/quarto/bin/quarto.js:78654:30)
+    at readExtensionFormat (file:///opt/quarto/bin/quarto.js:91460:50)
+    at resolveFormats (file:///opt/quarto/bin/quarto.js:91319:37)
+    at async renderContexts (file:///opt/quarto/bin/quarto.js:91109:20)
+    at async Object.renderFormats (file:///opt/quarto/bin/quarto.js:91168:20)
+    at async readBaseInputIndex (file:///opt/quarto/bin/quarto.js:131766:20)
+    at async inputTargetIndex (file:///opt/quarto/bin/quarto.js:131754:18)
+    at async inputFileForOutputFile (file:///opt/quarto/bin/quarto.js:131907:20)
+    at async inputModified (file:///opt/quarto/bin/quarto.js:149138:25)
+    at async urlsetEntry (file:///opt/quarto/bin/quarto.js:149156:18)
+    at async updateSitemap (file:///opt/quarto/bin/quarto.js:149177:23)
+    at async websitePostRender (file:///opt/quarto/bin/quarto.js:152925:3)
+    at async Object.postRender (file:///opt/quarto/bin/quarto.js:152887:5)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:137755:7)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142808:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102199:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102076:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:188205:5)
+    at async file:///opt/quarto/bin/quarto.js:188234:5
+    at async file:///opt/quarto/bin/quarto.js:188088:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:188090:5)
+    at async file:///opt/quarto/bin/quarto.js:188227:3

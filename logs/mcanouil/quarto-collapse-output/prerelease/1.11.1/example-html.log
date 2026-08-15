@@ -10,6 +10,7 @@ Traceback (most recent call last):
     from . import v1, v2, v3, v4
   File "/home/vscode/.venv/lib/python3.14/site-packages/nbformat/v4/__init__.py", line 24, in <module>
     from .convert import downgrade, upgrade
+
   File "/home/vscode/.venv/lib/python3.14/site-packages/nbformat/v4/convert.py", line 12, in <module>
     from nbformat import v3, validator
   File "/home/vscode/.venv/lib/python3.14/site-packages/nbformat/validator.py", line 17, in <module>
@@ -26,7 +27,6 @@ Traceback (most recent call last):
     from referencing._core import Anchor, Registry, Resource, Specification
   File "/home/vscode/.venv/lib/python3.14/site-packages/referencing/_core.py", line 9, in <module>
     from rpds import HashTrieMap, HashTrieSet, List
-
   File "/home/vscode/.venv/lib/python3.14/site-packages/rpds/__init__.py", line 1, in <module>
     from .rpds import *
 ModuleNotFoundError: No module named 'rpds.rpds'

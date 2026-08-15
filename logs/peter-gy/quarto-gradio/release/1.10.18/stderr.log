@@ -2,35 +2,39 @@ Cloning into 'repo'...
 Using CPython 3.12.3 interpreter at: /usr/bin/python3.12
 Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
-Resolved 137 packages in 0.74ms
-Downloading numpy (15.4MiB)
-Downloading gradio (59.4MiB)
-Downloading jupyterlab (11.1MiB)
-Downloading debugpy (4.0MiB)
+Resolved 137 packages in 0.76ms
+Downloading babel (9.7MiB)
+Downloading jedi (1.5MiB)
+Downloading pygments (1.2MiB)
+Downloading pillow (4.3MiB)
 Downloading plotly (14.1MiB)
-Downloading setuptools (1.2MiB)
-Downloading widgetsnbextension (2.2MiB)
+Downloading jupyterlab (11.1MiB)
 Downloading notebook (12.6MiB)
 Downloading ruff (12.0MiB)
+Downloading numpy (15.4MiB)
+Downloading widgetsnbextension (2.2MiB)
 Downloading pydantic-core (1.9MiB)
+Downloading debugpy (4.0MiB)
 Downloading pandas (12.1MiB)
-Downloading pillow (4.3MiB)
-Downloading pygments (1.2MiB)
+Downloading setuptools (1.2MiB)
+Downloading gradio (59.4MiB)
  Downloaded pydantic-core
- Downloaded widgetsnbextension
  Downloaded pygments
+ Downloaded widgetsnbextension
  Downloaded setuptools
- Downloaded debugpy
  Downloaded pillow
- Downloaded jupyterlab
+ Downloaded debugpy
+ Downloaded babel
  Downloaded ruff
+ Downloaded jupyterlab
+ Downloaded jedi
  Downloaded notebook
  Downloaded pandas
  Downloaded numpy
- Downloaded gradio
  Downloaded plotly
-Prepared 87 packages in 4.13s
-Installed 131 packages in 6.52s
+ Downloaded gradio
+Prepared 131 packages in 6.13s
+Installed 131 packages in 4.71s
  + aiofiles==23.2.1
  + annotated-types==0.7.0
  + anyio==4.8.0
@@ -162,6 +166,1118 @@ Installed 131 packages in 6.52s
  + websocket-client==1.8.0
  + websockets==15.0
  + widgetsnbextension==4.0.13
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../public/quarto-gradio-bg.png
+  title: Reference
+  description: Configuration options and technical details of the extension.
+  
+Output created: ../_site/reference/index.html
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: /public/quarto-gradio-bg.png
+  title: Overview
+  description: A Quarto extension enabling the embedding of serverless Gradio Lite apps into HTML documents.
+  
+Output created: _site/index.html
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+  title: 🚀 Get Started
+  description: This guide will help you get started with the `quarto-gradio` extension via a simple example. You will see how you can iterate on your Gradio app's source code in your local environment, then embed the very same app with no changes into an entirely browser-based environment.
+  
+Output created: ../../_site/guide/get-started/index.html
+
+pandoc 
+  to: html
+  output-file: hello-world.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+  
+Output created: ../../_site/guide/get-started/hello-world.html
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+  title: 🎨 Customize Styles
+  
+Output created: ../../_site/guide/customize-styles/index.html
+
+pandoc 
+  to: html
+  output-file: attributes-block.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+  
+Output created: ../../_site/guide/enable-coding-playground/attributes-block.html
+
+pandoc 
+  to: html
+  output-file: coding-challenge.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+  
+Output created: ../../_site/guide/enable-coding-playground/coding-challenge.html
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+    attributes:
+      playground: true
+  title: 🛝 Enable Coding Playground
+  description: This guide will show you how to convert your Gradio app into a coding playground embedded in your Quarto document. Along the way, you will also learn how to specify custom options for your embedded app that the `quarto-gradio` extension will understand and apply.
+  
+Output created: ../../_site/guide/enable-coding-playground/index.html
+
+pandoc 
+  to: html
+  output-file: attributes-doc.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+    attributes:
+      playground: true
+  
+Output created: ../../_site/guide/enable-coding-playground/attributes-doc.html
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+  title: 💡 Use with Reveal.js
+  description: This guide will demonstrate how you can embed a Gradio app into a Reveal.js presentation.
+  
+Output created: ../../_site/guide/use-with-revealjs/index.html
+
+pandoc 
+  to: revealjs
+  output-file: reveal-gradio-lite-minimal.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  image: ../../public/quarto-gradio-bg.png
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+  theme: dark
+  slideNumber: true
+  
+Output created: ../../_site/guide/use-with-revealjs/reveal-gradio-lite-minimal.html
+
+pandoc 
+  to: revealjs
+  output-file: reveal-gradio-lite.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  image: ../../public/quarto-gradio-bg.png
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+    requirements:
+      - transformers-js-py
+  title: 'Bringing ML to Life: Gradio + Reveal.js via `quarto-gradio`'
+  theme: dark
+  slideNumber: true
+  logo: ../../public/quarto-gradio.png
+  
+Output created: ../../_site/guide/use-with-revealjs/reveal-gradio-lite.html
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+  title: 📓 Use with Jupyter
+  
+Output created: ../../_site/guide/use-with-jupyter/index.html
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+  title: 📚 Define Multiple Apps
+  
+Output created: ../../_site/guide/define-multiple-apps/index.html
+
+pandoc 
+  to: html
+  output-file: install-module-via-micropip.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+  
+Output created: ../../_site/guide/customize-python-modules/install-module-via-micropip.html
+
+pandoc 
+  to: html
+  output-file: install-module-via-requirements.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+    requirements:
+      - plotly==5.24.0
+  
+Output created: ../../_site/guide/customize-python-modules/install-module-via-requirements.html
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+    requirements:
+      - plotly==5.24.0
+  title: 📦 Customize Python Modules
+  description: Learn how to manage Python packages and specify custom dependencies for your browser-based Gradio apps.
+  
+Output created: ../../_site/guide/customize-python-modules/index.html
+
+pandoc 
+  to: html
+  output-file: sentiment-analysis.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  subtitle: Adapted from [Gradio Playground](https://gradio.app/playground/){target=_blank}.
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+    attributes:
+      playground: true
+      layout: vertical
+    requirements:
+      - transformers-js-py
+  title: Sentiment Analysis
+  
+Output created: ../../_site/playground/transformers/sentiment-analysis.html
+
+pandoc 
+  to: html
+  output-file: chatbot-with-artifacts.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  subtitle: Adapted from [Gradio Playground](https://gradio.app/playground/){target=_blank}.
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+    attributes:
+      playground: true
+      layout: horizontal
+  title: Chatbot with Artifacts
+  
+Output created: ../../_site/playground/chatbots/chatbot-with-artifacts.html
+
+pandoc 
+  to: html
+  output-file: chatbot-with-tools.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  subtitle: Adapted from [Gradio Playground](https://gradio.app/playground/){target=_blank}.
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+    attributes:
+      playground: true
+      layout: horizontal
+  title: Chatbot with Tools
+  
+Output created: ../../_site/playground/chatbots/chatbot-with-tools.html
+
+pandoc 
+  to: html
+  output-file: chatbot.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  subtitle: Adapted from [Gradio Playground](https://gradio.app/playground/){target=_blank}.
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+    attributes:
+      playground: true
+      layout: horizontal
+  title: Chatbot
+  
+Output created: ../../_site/playground/chatbots/chatbot.html
+
+pandoc 
+  to: html
+  output-file: streaming-chatbot.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  subtitle: Adapted from [Gradio Playground](https://gradio.app/playground/){target=_blank}.
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+    attributes:
+      playground: true
+      layout: horizontal
+  title: Streaming Chatbot
+  
+Output created: ../../_site/playground/chatbots/streaming-chatbot.html
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../public/quarto-gradio-bg.png
+  subtitle: Adapted from [Gradio Playground](https://gradio.app/playground/){target=_blank}.
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+    attributes:
+      playground: true
+      layout: horizontal
+  
+Output created: ../_site/playground/index.html
+
+pandoc 
+  to: html
+  output-file: transpose-matrix.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  subtitle: Adapted from [Gradio Playground](https://gradio.app/playground/){target=_blank}.
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+    attributes:
+      playground: true
+      layout: horizontal
+  title: Transpose Matrix
+  
+Output created: ../../_site/playground/tabular/transpose-matrix.html
+
+pandoc 
+  to: html
+  output-file: filter-records.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  subtitle: Adapted from [Gradio Playground](https://gradio.app/playground/){target=_blank}.
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+    attributes:
+      playground: true
+      layout: horizontal
+  title: Filter Records
+  
+Output created: ../../_site/playground/tabular/filter-records.html
+
+pandoc 
+  to: html
+  output-file: kinematics.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  subtitle: Adapted from [Gradio Playground](https://gradio.app/playground/){target=_blank}.
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+    attributes:
+      playground: true
+      layout: horizontal
+  title: Kinematics
+  
+Output created: ../../_site/playground/tabular/kinematics.html
+
+pandoc 
+  to: html
+  output-file: sentence-builder.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  subtitle: Adapted from [Gradio Playground](https://gradio.app/playground/){target=_blank}.
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+    attributes:
+      playground: true
+      layout: horizontal
+  title: Sentence Builder
+  
+Output created: ../../_site/playground/text/sentence-builder.html
+
+pandoc 
+  to: html
+  output-file: diff-texts.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  subtitle: Adapted from [Gradio Playground](https://gradio.app/playground/){target=_blank}.
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+    attributes:
+      playground: true
+      layout: horizontal
+  title: Diff Texts
+  
+Output created: ../../_site/playground/text/diff-texts.html
+
+pandoc 
+  to: html
+  output-file: layouts.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  subtitle: Adapted from [Gradio Playground](https://gradio.app/playground/){target=_blank}.
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+    attributes:
+      playground: true
+      layout: horizontal
+  title: Layouts
+  
+Output created: ../../_site/playground/design/layouts.html
+
+pandoc 
+  to: html
+  output-file: tabbed-interface.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  subtitle: Adapted from [Gradio Playground](https://gradio.app/playground/){target=_blank}.
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+    attributes:
+      playground: true
+      layout: horizontal
+  title: Tabbed Interface
+  
+Output created: ../../_site/playground/design/tabbed-interface.html
+
+pandoc 
+  to: html
+  output-file: video-identity.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  subtitle: Adapted from [Gradio Playground](https://gradio.app/playground/){target=_blank}.
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+    attributes:
+      playground: true
+      layout: horizontal
+  title: Video Identity
+  
+Output created: ../../_site/playground/media/video-identity.html
+
+pandoc 
+  to: html
+  output-file: generate-tone.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  subtitle: Adapted from [Gradio Playground](https://gradio.app/playground/){target=_blank}.
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+    attributes:
+      playground: true
+      layout: horizontal
+  title: Generate Tone
+  
+Output created: ../../_site/playground/media/generate-tone.html
+
+pandoc 
+  to: html
+  output-file: sepia-filter.html
+  standalone: true
+  title-prefix: Quarto 🔹🔸 Gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  image: ../../public/quarto-gradio-bg.png
+  subtitle: Adapted from [Gradio Playground](https://gradio.app/playground/){target=_blank}.
+  gradio:
+    cdn: https://peter-gy.github.io/static/npm/gradio-lite
+    attributes:
+      playground: true
+      layout: horizontal
+  title: Sepia Filter
+  
+Output created: ../../_site/playground/media/sepia-filter.html
+
 
 Starting python3 kernel...Traceback (most recent call last):
   File "/opt/quarto/share/jupyter/jupyter.py", line 20, in <module>

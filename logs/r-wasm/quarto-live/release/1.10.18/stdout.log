@@ -243,12 +243,12 @@ set LDFLAGS=-L/usr/local/lib
 -- Looking for __cplusplus - found
 -- Could NOT find JNI (missing: JAVA_INCLUDE_PATH JAVA_INCLUDE_PATH2 JVM) 
 -- Could NOT find Java (missing: Java_JAVA_EXECUTABLE Java_JAR_EXECUTABLE Java_JAVAC_EXECUTABLE Java_JAVAH_EXECUTABLE Java_JAVADOC_EXECUTABLE) (Required is at least version "1.5")
--- Configuring done (2.2s)
+-- Configuring done (2.5s)
 -- Generating done (0.0s)
--- Build files have been written to: /tmp/Rtmpw9dAOF/R.INSTALL9fb5ac1d33d/nloptr/src/nlopt-build
+-- Build files have been written to: /tmp/Rtmpchh4RR/R.INSTALL9fb21e46bea/nloptr/src/nlopt-build
 [  2%] Generating nlopt.hpp
 [  2%] Built target generate-cpp
-[  4%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRect.c.o
+[  6%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRect.c.o
 [  6%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/direct_wrap.c.o
 [  8%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRserial.c.o
 [ 10%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRsubrout.c.o
@@ -300,17 +300,17 @@ set LDFLAGS=-L/usr/local/lib
 [100%] Built target nlopt
 Install the project...
 -- Install configuration: "Release"
--- Installing: /tmp/Rtmpw9dAOF/R.INSTALL9fb5ac1d33d/nloptr/src/nlopt/lib/pkgconfig/nlopt.pc
--- Installing: /tmp/Rtmpw9dAOF/R.INSTALL9fb5ac1d33d/nloptr/src/nlopt/include/nlopt.h
--- Installing: /tmp/Rtmpw9dAOF/R.INSTALL9fb5ac1d33d/nloptr/src/nlopt/include/nlopt.hpp
--- Installing: /tmp/Rtmpw9dAOF/R.INSTALL9fb5ac1d33d/nloptr/src/nlopt/lib/libnlopt.a
--- Installing: /tmp/Rtmpw9dAOF/R.INSTALL9fb5ac1d33d/nloptr/src/nlopt/share/man/man3/nlopt.3
--- Installing: /tmp/Rtmpw9dAOF/R.INSTALL9fb5ac1d33d/nloptr/src/nlopt/share/man/man3/nlopt_minimize.3
--- Installing: /tmp/Rtmpw9dAOF/R.INSTALL9fb5ac1d33d/nloptr/src/nlopt/share/man/man3/nlopt_minimize_constrained.3
--- Installing: /tmp/Rtmpw9dAOF/R.INSTALL9fb5ac1d33d/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends.cmake
--- Installing: /tmp/Rtmpw9dAOF/R.INSTALL9fb5ac1d33d/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends-release.cmake
--- Installing: /tmp/Rtmpw9dAOF/R.INSTALL9fb5ac1d33d/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfig.cmake
--- Installing: /tmp/Rtmpw9dAOF/R.INSTALL9fb5ac1d33d/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfigVersion.cmake
+-- Installing: /tmp/Rtmpchh4RR/R.INSTALL9fb21e46bea/nloptr/src/nlopt/lib/pkgconfig/nlopt.pc
+-- Installing: /tmp/Rtmpchh4RR/R.INSTALL9fb21e46bea/nloptr/src/nlopt/include/nlopt.h
+-- Installing: /tmp/Rtmpchh4RR/R.INSTALL9fb21e46bea/nloptr/src/nlopt/include/nlopt.hpp
+-- Installing: /tmp/Rtmpchh4RR/R.INSTALL9fb21e46bea/nloptr/src/nlopt/lib/libnlopt.a
+-- Installing: /tmp/Rtmpchh4RR/R.INSTALL9fb21e46bea/nloptr/src/nlopt/share/man/man3/nlopt.3
+-- Installing: /tmp/Rtmpchh4RR/R.INSTALL9fb21e46bea/nloptr/src/nlopt/share/man/man3/nlopt_minimize.3
+-- Installing: /tmp/Rtmpchh4RR/R.INSTALL9fb21e46bea/nloptr/src/nlopt/share/man/man3/nlopt_minimize_constrained.3
+-- Installing: /tmp/Rtmpchh4RR/R.INSTALL9fb21e46bea/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends.cmake
+-- Installing: /tmp/Rtmpchh4RR/R.INSTALL9fb21e46bea/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends-release.cmake
+-- Installing: /tmp/Rtmpchh4RR/R.INSTALL9fb21e46bea/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfig.cmake
+-- Installing: /tmp/Rtmpchh4RR/R.INSTALL9fb21e46bea/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfigVersion.cmake
 Moving nlopt/lib to nlopt/lib
 Copying headers found in src/nlopt/include into inst/include
 configure: creating ./config.status
@@ -325,34 +325,40 @@ g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/
 g++ -std=gnu++20 -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o RcppEigen.so RcppEigen.o RcppExports.o fastLm.o -llapack -lblas -lgfortran -lm -lquadmath -L/opt/R/4.6.1/lib/R/lib -lR
 No man pages found in package  'fontBitstreamVera' 
 No man pages found in package  'fontLiberation' 
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c write_xlsx.c -o write_xlsx.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/app.c -o libxlsxwriter/app.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/format.c -o libxlsxwriter/format.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/theme.c -o libxlsxwriter/theme.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/chart.c -o libxlsxwriter/chart.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/hash_table.c -o libxlsxwriter/hash_table.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/utility.c -o libxlsxwriter/utility.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/content_types.c -o libxlsxwriter/content_types.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/packager.c -o libxlsxwriter/packager.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/workbook.c -o libxlsxwriter/workbook.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/core.c -o libxlsxwriter/core.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/relationships.c -o libxlsxwriter/relationships.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/worksheet.c -o libxlsxwriter/worksheet.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/custom.c -o libxlsxwriter/custom.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/shared_strings.c -o libxlsxwriter/shared_strings.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/xmlwriter.c -o libxlsxwriter/xmlwriter.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/drawing.c -o libxlsxwriter/drawing.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/styles.c -o libxlsxwriter/styles.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c tmpfileplus/tmpfileplus.c -o tmpfileplus/tmpfileplus.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/chartsheet.c -o libxlsxwriter/chartsheet.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c minizip/ioapi.c -o minizip/ioapi.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c minizip/zip.c -o minizip/zip.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/metadata.c -o libxlsxwriter/metadata.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/comment.c -o libxlsxwriter/comment.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/vml.c -o libxlsxwriter/vml.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c md5/md5.c -o md5/md5.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/table.c -o libxlsxwriter/table.o
-gcc -std=gnu2x -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o writexl.so write_xlsx.o -Llibxlsxwriter -lstatxlsxwriter -lz -L/opt/R/4.6.1/lib/R/lib -lR
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c write_xlsx.c -o write_xlsx.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/app.c -o libxlsxwriter/src/app.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/format.c -o libxlsxwriter/src/format.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/theme.c -o libxlsxwriter/src/theme.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/chart.c -o libxlsxwriter/src/chart.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/hash_table.c -o libxlsxwriter/src/hash_table.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/utility.c -o libxlsxwriter/src/utility.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/content_types.c -o libxlsxwriter/src/content_types.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/packager.c -o libxlsxwriter/src/packager.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/workbook.c -o libxlsxwriter/src/workbook.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/core.c -o libxlsxwriter/src/core.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/relationships.c -o libxlsxwriter/src/relationships.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/worksheet.c -o libxlsxwriter/src/worksheet.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/custom.c -o libxlsxwriter/src/custom.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/shared_strings.c -o libxlsxwriter/src/shared_strings.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/xmlwriter.c -o libxlsxwriter/src/xmlwriter.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/drawing.c -o libxlsxwriter/src/drawing.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/styles.c -o libxlsxwriter/src/styles.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/third_party/tmpfileplus/tmpfileplus.c -o libxlsxwriter/third_party/tmpfileplus/tmpfileplus.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/chartsheet.c -o libxlsxwriter/src/chartsheet.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/third_party/minizip/ioapi.c -o libxlsxwriter/third_party/minizip/ioapi.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/third_party/minizip/zip.c -o libxlsxwriter/third_party/minizip/zip.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/metadata.c -o libxlsxwriter/src/metadata.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/comment.c -o libxlsxwriter/src/comment.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/vml.c -o libxlsxwriter/src/vml.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/third_party/md5/md5.c -o libxlsxwriter/third_party/md5/md5.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/table.c -o libxlsxwriter/src/table.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/rich_value.c -o libxlsxwriter/src/rich_value.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/rich_value_rel.c -o libxlsxwriter/src/rich_value_rel.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/rich_value_structure.c -o libxlsxwriter/src/rich_value_structure.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Ilibxlsxwriter/include -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/src/rich_value_types.c -o libxlsxwriter/src/rich_value_types.o
+ar -cr libxlsxwriter/src/libstatxlsxwriter.a libxlsxwriter/src/app.o libxlsxwriter/src/format.o libxlsxwriter/src/theme.o libxlsxwriter/src/chart.o libxlsxwriter/src/hash_table.o libxlsxwriter/src/utility.o libxlsxwriter/src/content_types.o libxlsxwriter/src/packager.o libxlsxwriter/src/workbook.o libxlsxwriter/src/core.o libxlsxwriter/src/relationships.o libxlsxwriter/src/worksheet.o libxlsxwriter/src/custom.o libxlsxwriter/src/shared_strings.o libxlsxwriter/src/xmlwriter.o libxlsxwriter/src/drawing.o libxlsxwriter/src/styles.o libxlsxwriter/third_party/tmpfileplus/tmpfileplus.o libxlsxwriter/src/chartsheet.o libxlsxwriter/third_party/minizip/ioapi.o libxlsxwriter/third_party/minizip/zip.o libxlsxwriter/src/metadata.o libxlsxwriter/src/comment.o libxlsxwriter/src/vml.o libxlsxwriter/third_party/md5/md5.o libxlsxwriter/src/table.o libxlsxwriter/src/rich_value.o libxlsxwriter/src/rich_value_rel.o libxlsxwriter/src/rich_value_structure.o libxlsxwriter/src/rich_value_types.o 
+ranlib libxlsxwriter/src/libstatxlsxwriter.a
+gcc -std=gnu2x -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o writexl.so write_xlsx.o -Llibxlsxwriter/src -lstatxlsxwriter -lz -L/opt/R/4.6.1/lib/R/lib -lR
 gcc -std=gnu2x -g -O2  -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' miniz.c zip.c crypto.c unixutils.c mbedtls/library/aes.c mbedtls/library/sha1.c mbedtls/library/md.c mbedtls/library/pkcs5.c mbedtls/library/platform.c mbedtls/library/platform_util.c tools/cmdzip.c -o tools/cmdzip
 gcc -std=gnu2x -g -O2  -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' miniz.c zip.c crypto.c unixutils.c mbedtls/library/aes.c mbedtls/library/sha1.c mbedtls/library/md.c mbedtls/library/pkcs5.c mbedtls/library/platform.c mbedtls/library/platform_util.c tools/cmdunzip.c -o tools/cmdunzip
 gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Imbedtls/include -Imbedtls/library -DMBEDTLS_CONFIG_FILE='"zip_mbedtls_config.h"' -I'/opt/R/4.6.1/lib/R/library/cli/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c init.c -o init.o
@@ -445,15 +451,6 @@ gfortran  -fpic  -g -O2  -c rtmng.f -o rtmng.o
 gfortran  -fpic  -g -O2  -c sadmvnt.f -o sadmvnt.o
 gfortran  -fpic  -g -O2  -c tvpack.f -o tvpack.o
 gcc -std=gnu2x -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o mnormt.so biv-nt.o mnormt_init.o rtmng.o sadmvnt.o tvpack.o -lgfortran -lm -lquadmath -L/opt/R/4.6.1/lib/R/lib -lR
-g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c along.cpp -o along.o
-g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c at.cpp -o at.o
-g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c cpp11.cpp -o cpp11.o
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/cpp11/include' -I/usr/local/include    -fpic  -g -O2  -c easing.c -o easing.o
-g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c element.cpp -o element.o
-g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c element_at.cpp -o element_at.o
-g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c fill.cpp -o fill.o
-g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c state.cpp -o state.o
-g++ -std=gnu++20 -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o tweenr.so along.o at.o cpp11.o easing.o element.o element_at.o fill.o state.o -L/opt/R/4.6.1/lib/R/lib -lR
 checking whether the C++ compiler works... yes
 checking for C++ compiler default output file name... a.out
 checking for suffix of executables... 
@@ -530,18 +527,18 @@ g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c write_file.cpp -o write_file.o
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c write_file_2.cpp -o write_file_2.o
 g++ -std=gnu++20 -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o openxlsx.so RcppExports.o helper_functions.o load_workbook.o read_workbook.o write_data.o write_file.o write_file_2.o -L/opt/R/4.6.1/lib/R/lib -lR
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/cache/r-lib-1/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c along.cpp -o along.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/cache/r-lib-1/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c at.cpp -o at.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/cache/r-lib-1/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c cpp11.cpp -o cpp11.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/cache/r-lib-1/cpp11/include' -I/usr/local/include    -fpic  -g -O2  -c easing.c -o easing.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/cache/r-lib-1/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c element.cpp -o element.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/cache/r-lib-1/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c element_at.cpp -o element_at.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/cache/r-lib-1/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c fill.cpp -o fill.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/cache/r-lib-1/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c state.cpp -o state.o
+g++ -std=gnu++20 -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o tweenr.so along.o at.o cpp11.o easing.o element.o element_at.o fill.o state.o -L/opt/R/4.6.1/lib/R/lib -lR
 gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
 gfortran  -fpic  -g -O2  -c pan.f -o pan.o
 gcc -std=gnu2x -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o lmtest.so init.o pan.o -lgfortran -lm -lquadmath -L/opt/R/4.6.1/lib/R/lib -lR
-g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c bSpline.cpp -o bSpline.o
-g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c bezier.cpp -o bezier.o
-g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c concaveman.cpp -o concaveman.o
-g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c cpp11.cpp -o cpp11.o
-g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c deBoor.cpp -o deBoor.o
-g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c ellipseEnclose.cpp -o ellipseEnclose.o
-g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c enclose.cpp -o enclose.o
-g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c pointPath.cpp -o pointPath.o
-g++ -std=gnu++20 -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o ggforce.so bSpline.o bezier.o concaveman.o cpp11.o deBoor.o ellipseEnclose.o enclose.o pointPath.o -L/opt/R/4.6.1/lib/R/lib -lR
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/RcppArmadillo/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/RcppArmadillo/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c calcBATS.cpp -o calcBATS.o
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/RcppArmadillo/include' -I/usr/local/include   -fopenmp -DR_NO_REMAP -fpic  -g -O2   -c calcTBATS.cpp -o calcTBATS.o
@@ -601,20 +598,29 @@ g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I/usr/include/cairo -I
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c font_metrics.cpp -o font_metrics.o
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c versions.cpp -o versions.o
 g++ -std=gnu++20 -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o gdtools.so CairoContext.o RcppExports.o font_metrics.o versions.o -lcairo -lfreetype -L/opt/R/4.6.1/lib/R/lib -lR
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/cache/r-lib-1/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c bSpline.cpp -o bSpline.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/cache/r-lib-1/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c bezier.cpp -o bezier.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/cache/r-lib-1/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c concaveman.cpp -o concaveman.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/cache/r-lib-1/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c cpp11.cpp -o cpp11.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/cache/r-lib-1/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c deBoor.cpp -o deBoor.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/cache/r-lib-1/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c ellipseEnclose.cpp -o ellipseEnclose.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/cache/r-lib-1/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c enclose.cpp -o enclose.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/cache/r-lib-1/cpp11/include' -I/usr/local/include    -fpic  -g -O2   -c pointPath.cpp -o pointPath.o
+g++ -std=gnu++20 -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o ggforce.so bSpline.o bezier.o concaveman.o cpp11.o deBoor.o ellipseEnclose.o enclose.o pointPath.o -L/opt/R/4.6.1/lib/R/lib -lR
 Note: ... may be used in an incorrect context 
 Note: ... may be used in an incorrect context 
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Matrix/include' -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c external.cpp -o external.o
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Matrix/include' -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c glmFamily.cpp -o glmFamily.o
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Matrix/include' -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c optimizer.cpp -o optimizer.o
-g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Matrix/include' -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c predModule.cpp -o predModule.o
-g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Matrix/include' -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c respModule.cpp -o respModule.o
-g++ -std=gnu++20 -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o lme4.so external.o glmFamily.o optimizer.o predModule.o respModule.o -L/opt/R/4.6.1/lib/R/lib -lR
 Auto-detecting R dependencies for r-wasm/quarto-live (knitr engine, no renv.lock).
 Installing R packages: webr 
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Matrix/include' -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c predModule.cpp -o predModule.o
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c a_color.cpp -o a_color.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Matrix/include' -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c respModule.cpp -o respModule.o
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c a_prstgeom.cpp -o a_prstgeom.o
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c clipper.cpp -o clipper.o
+g++ -std=gnu++20 -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o lme4.so external.o glmFamily.o optimizer.o predModule.o respModule.o -L/opt/R/4.6.1/lib/R/lib -lR
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c line_style.cpp -o line_style.o
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c main_tree.cpp -o main_tree.o
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c ppr.cpp -o ppr.o
@@ -627,7 +633,3 @@ g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c xfrm.cpp -o xfrm.o
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c xlsx.cpp -o xlsx.o
 g++ -std=gnu++20 -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o rvg.so RcppExports.o a_color.o a_prstgeom.o clipper.o line_style.o main_tree.o ppr.o pptx.o raster.o rpr.o shapes.o text.o write_nv_pr.o xfrm.o xlsx.o -lpng -lz -L/opt/R/4.6.1/lib/R/lib -lR
-Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
-  there is no package called 'shiny'
-Calls: <Anonymous> ... loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
-Execution halted

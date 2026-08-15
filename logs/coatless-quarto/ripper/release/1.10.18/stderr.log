@@ -1,13 +1,13 @@
 Cloning into 'repo'...
-Installing package into '/cache/r-lib-1'
+Installing package into '/cache/r-lib-0'
 (as 'lib' is unspecified)
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.3.tar.gz'
-Content type 'binary/octet-stream' length 1375285 bytes (1.3 MB)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.4.tar.gz'
+Content type 'binary/octet-stream' length 1435963 bytes (1.4 MB)
 ==================================================
-downloaded 1.3 MB
+downloaded 1.4 MB
 
 * installing *source* package 'renv' ...
-** this is package 'renv' version '1.2.3'
+** this is package 'renv' version '1.2.4'
 ** package 'renv' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
@@ -25,25 +25,8 @@ downloaded 1.3 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/RtmpD9K45H/downloaded_packages'
-[1/8] qripper-faq.qmd
-[2/8] qripper-default-config.qmd
-
-
-processing file: qripper-default-config.qmd
-1/5                     
-2/5 [simple-calculation]
-3/5                     
-4/5 [python-calculation]
-Downloading cpython-3.12.13-linux-x86_64-gnu (download) (32.6MiB)
- Downloaded cpython-3.12.13-linux-x86_64-gnu (download)
-Downloading numpy (15.9MiB)
- Downloaded numpy
-Installed 1 package in 72ms
-5/5                     
-output file: qripper-default-config.knit.md
-
-[3/8] qripper-custom-placement.qmd
+	'/tmp/RtmpeSLDWi/downloaded_packages'
+[1/8] qripper-custom-placement.qmd
 
 
 processing file: qripper-custom-placement.qmd
@@ -51,6 +34,9 @@ processing file: qripper-custom-placement.qmd
 2/7 [r-analysis]     
 3/7                  
 4/7 [python-analysis]
+Downloading cpython-3.12.13-linux-x86_64-gnu (download) (32.6MiB)
+ Downloaded cpython-3.12.13-linux-x86_64-gnu (download)
+Installed 1 package in 152ms
 5/7                  
 6/7 [r-plotting]     
 7/7                  
@@ -67,21 +53,22 @@ output file: qripper-custom-placement.knit.md
 [ripper] Output base name: qripper-custom-placement
 [ripper] Writing all scripts with base name: qripper-custom-placement
 [ripper] Found code blocks in 2 language(s)
-[ripper] Building content for r with 1 code block(s)
-[ripper] Building YAML header for r
-[ripper] Writing file: qripper-custom-placement.R (88 bytes)
-[ripper] Successfully wrote qripper-custom-placement.R
 [ripper] Building content for python with 1 code block(s)
 [ripper] Building YAML header for python
 [ripper] Writing file: qripper-custom-placement.py (130 bytes)
 [ripper] Successfully wrote qripper-custom-placement.py
+[ripper] Building content for r with 1 code block(s)
+[ripper] Building YAML header for r
+[ripper] Writing file: qripper-custom-placement.R (88 bytes)
+[ripper] Successfully wrote qripper-custom-placement.R
 [ripper] Successfully created 2 file(s)
 [ripper] Creating script links section with 2 file(s)
 [ripper] Insert position: custom
 [ripper] Searching for custom position div: #ripper-links
 [ripper] Found custom position div at block 10, inserting 3 block(s)
 [ripper] === Document processing complete ===
-[4/8] qripper-output-dir.qmd
+[2/8] qripper-release-notes.qmd
+[3/8] qripper-output-dir.qmd
 
 
 processing file: qripper-output-dir.qmd
@@ -92,10 +79,8 @@ processing file: qripper-output-dir.qmd
 5/5                 
 output file: qripper-output-dir.knit.md
 
-[5/8] qripper-revealjs.qmd
-[6/8] qripper-release-notes.qmd
-[7/8] index.qmd
-[8/8] qripper-revealjs-slides.qmd
+[4/8] index.qmd
+[5/8] qripper-revealjs-slides.qmd
 
 
 processing file: qripper-revealjs-slides.qmd
@@ -105,6 +90,19 @@ processing file: qripper-revealjs-slides.qmd
 4/5 [unnamed-chunk-2]
 5/5                  
 output file: qripper-revealjs-slides.knit.md
+
+[6/8] qripper-faq.qmd
+[7/8] qripper-revealjs.qmd
+[8/8] qripper-default-config.qmd
+
+
+processing file: qripper-default-config.qmd
+1/5                     
+2/5 [simple-calculation]
+3/5                     
+4/5 [python-calculation]
+5/5                     
+output file: qripper-default-config.knit.md
 
 
 Output created: _site/index.html

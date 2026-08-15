@@ -94,303 +94,7 @@ installing to /cache/r-lib-0/00LOCK-later/00new/later/libs
 * DONE (DT)
 
 The downloaded source packages are in
-	'/tmp/Rtmp3Xu4ev/downloaded_packages'
-pandoc 
-  to: html
-  output-file: about.html
-  standalone: true
-  title-prefix: Bookup website
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  toc: true
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  embed-fonts: true
-  theme:
-    light:
-      - _extensions/bookup/bookup.scss
-    dark:
-      - _extensions/bookup/bookup.scss
-      - _extensions/bookup/bookup_dark.scss
-  title: About
-  
-Output created: _site/about.html
-
-pandoc 
-  to: html
-  output-file: index.html
-  standalone: true
-  title-prefix: Bookup website
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  toc: true
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  embed-fonts: true
-  theme:
-    light:
-      - _extensions/bookup/bookup.scss
-    dark:
-      - _extensions/bookup/bookup.scss
-      - _extensions/bookup/bookup_dark.scss
-  title: Sample bookup-html website project
-  
-Output created: _site/index.html
-
-
-
-processing file: page.qmd
-1/15               
-2/15 [setup]       
-3/15               
-4/15 [sh]          
-5/15               
-6/15 [penguins_str]
-7/15               
-8/15 [table]       
-9/15               
-10/15 [dt]          
-11/15               
-12/15 [hist]        
-13/15               
-14/15 [scatter]     
-15/15               
-output file: page.knit.md
-
-pandoc 
-  to: html
-  output-file: page.html
-  standalone: true
-  title-prefix: Bookup website
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  toc: true
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  embed-fonts: true
-  theme:
-    light:
-      - _extensions/bookup/bookup.scss
-    dark:
-      - _extensions/bookup/bookup.scss
-      - _extensions/bookup/bookup_dark.scss
-  title: Sample page
-  
-Output created: _site/page.html
-
-pandoc 
-  to: html
-  output-file: references.html
-  standalone: true
-  toc: true
-  number-sections: false
-  title-prefix: Sample bookup-html book project
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  
-metadata
-  crossref:
-    chapters: true
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  embed-fonts: true
-  theme:
-    light:
-      - _extensions/bookup/bookup.scss
-    dark:
-      - _extensions/bookup/bookup.scss
-      - _extensions/bookup/bookup_dark.scss
-  bibliography:
-    - references.bib
-  hide-description: true
-  title: References
-  
-Output created: _book/references.html
-
-
-
-processing file: sample.qmd
-1/15               
-2/15 [setup]       
-3/15               
-4/15 [sh]          
-5/15               
-6/15 [penguins_str]
-7/15               
-8/15 [table]       
-9/15               
-10/15 [dt]          
-11/15               
-12/15 [hist]        
-13/15               
-14/15 [scatter]     
-15/15               
-output file: sample.knit.md
-
-pandoc 
-  to: html
-  output-file: sample.html
-  standalone: true
-  toc: true
-  number-sections: true
-  title-prefix: Sample bookup-html book project
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  number-offset:
-    - 2
-  
-metadata
-  crossref:
-    chapters: true
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  embed-fonts: true
-  theme:
-    light:
-      - _extensions/bookup/bookup.scss
-    dark:
-      - _extensions/bookup/bookup.scss
-      - _extensions/bookup/bookup_dark.scss
-  bibliography:
-    - references.bib
-  hide-description: true
-  title: "[2]{.chapter-number}\_ [Features overview]{.chapter-title}"
-  
-Output created: _book/sample.html
-
-pandoc 
-  to: html
-  output-file: index.html
-  standalone: true
-  toc: true
-  number-sections: true
-  title-prefix: Sample bookup-html book project
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  
-metadata
-  crossref:
-    chapters: true
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  embed-fonts: true
-  theme:
-    light:
-      - _extensions/bookup/bookup.scss
-    dark:
-      - _extensions/bookup/bookup.scss
-      - _extensions/bookup/bookup_dark.scss
-  bibliography:
-    - references.bib
-  title: Sample bookup-html book project
-  author: Jane Doe
-  date: '2026-07-26T00:00:00+00:00'
-  doi: 10.XXX/XXX
-  
-Output created: _book/index.html
-
-pandoc 
-  to: html
-  output-file: summary.html
-  standalone: true
-  toc: true
-  number-sections: true
-  title-prefix: Sample bookup-html book project
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  number-offset:
-    - 3
-  
-metadata
-  crossref:
-    chapters: true
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  embed-fonts: true
-  theme:
-    light:
-      - _extensions/bookup/bookup.scss
-    dark:
-      - _extensions/bookup/bookup.scss
-      - _extensions/bookup/bookup_dark.scss
-  bibliography:
-    - references.bib
-  hide-description: true
-  title: "[3]{.chapter-number}\_ [An empty page]{.chapter-title}"
-  
-Output created: _book/summary.html
-
-
-
-processing file: _sample.qmd
-1/15               
-2/15 [setup]       
-3/15               
-4/15 [sh]          
-5/15               
-6/15 [penguins_str]
-7/15               
-8/15 [table]       
-9/15               
-10/15 [dt]          
-11/15               
-12/15 [hist]        
-13/15               
-14/15 [scatter]     
-15/15               
-output file: _sample.knit.md
-
-pandoc 
-  to: html
-  output-file: _sample.html
-  standalone: true
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  
-Output created: _sample.html
-
+	'/tmp/RtmpDHYwns/downloaded_packages'
 
 
 processing file: bookup-dark.qmd
@@ -485,6 +189,302 @@ metadata
   author: Jane Doe
   
 Output created: bookup.html
+
+pandoc 
+  to: html
+  output-file: summary.html
+  standalone: true
+  toc: true
+  number-sections: true
+  title-prefix: Sample bookup-html book project
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  number-offset:
+    - 3
+  
+metadata
+  crossref:
+    chapters: true
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  embed-fonts: true
+  theme:
+    light:
+      - _extensions/bookup/bookup.scss
+    dark:
+      - _extensions/bookup/bookup.scss
+      - _extensions/bookup/bookup_dark.scss
+  bibliography:
+    - references.bib
+  hide-description: true
+  title: "[3]{.chapter-number}\_ [An empty page]{.chapter-title}"
+  
+Output created: _book/summary.html
+
+
+
+processing file: sample.qmd
+1/15               
+2/15 [setup]       
+3/15               
+4/15 [sh]          
+5/15               
+6/15 [penguins_str]
+7/15               
+8/15 [table]       
+9/15               
+10/15 [dt]          
+11/15               
+12/15 [hist]        
+13/15               
+14/15 [scatter]     
+15/15               
+output file: sample.knit.md
+
+pandoc 
+  to: html
+  output-file: sample.html
+  standalone: true
+  toc: true
+  number-sections: true
+  title-prefix: Sample bookup-html book project
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  number-offset:
+    - 2
+  
+metadata
+  crossref:
+    chapters: true
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  embed-fonts: true
+  theme:
+    light:
+      - _extensions/bookup/bookup.scss
+    dark:
+      - _extensions/bookup/bookup.scss
+      - _extensions/bookup/bookup_dark.scss
+  bibliography:
+    - references.bib
+  hide-description: true
+  title: "[2]{.chapter-number}\_ [Features overview]{.chapter-title}"
+  
+Output created: _book/sample.html
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  toc: true
+  number-sections: true
+  title-prefix: Sample bookup-html book project
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  crossref:
+    chapters: true
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  embed-fonts: true
+  theme:
+    light:
+      - _extensions/bookup/bookup.scss
+    dark:
+      - _extensions/bookup/bookup.scss
+      - _extensions/bookup/bookup_dark.scss
+  bibliography:
+    - references.bib
+  title: Sample bookup-html book project
+  author: Jane Doe
+  date: '2026-08-15T00:00:00+00:00'
+  doi: 10.XXX/XXX
+  
+Output created: _book/index.html
+
+pandoc 
+  to: html
+  output-file: references.html
+  standalone: true
+  toc: true
+  number-sections: false
+  title-prefix: Sample bookup-html book project
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  crossref:
+    chapters: true
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  embed-fonts: true
+  theme:
+    light:
+      - _extensions/bookup/bookup.scss
+    dark:
+      - _extensions/bookup/bookup.scss
+      - _extensions/bookup/bookup_dark.scss
+  bibliography:
+    - references.bib
+  hide-description: true
+  title: References
+  
+Output created: _book/references.html
+
+
+
+processing file: _sample.qmd
+1/15               
+2/15 [setup]       
+3/15               
+4/15 [sh]          
+5/15               
+6/15 [penguins_str]
+7/15               
+8/15 [table]       
+9/15               
+10/15 [dt]          
+11/15               
+12/15 [hist]        
+13/15               
+14/15 [scatter]     
+15/15               
+output file: _sample.knit.md
+
+pandoc 
+  to: html
+  output-file: _sample.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  
+Output created: _sample.html
+
+
+
+processing file: page.qmd
+1/15               
+2/15 [setup]       
+3/15               
+4/15 [sh]          
+5/15               
+6/15 [penguins_str]
+7/15               
+8/15 [table]       
+9/15               
+10/15 [dt]          
+11/15               
+12/15 [hist]        
+13/15               
+14/15 [scatter]     
+15/15               
+output file: page.knit.md
+
+pandoc 
+  to: html
+  output-file: page.html
+  standalone: true
+  title-prefix: Bookup website
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  embed-fonts: true
+  theme:
+    light:
+      - _extensions/bookup/bookup.scss
+    dark:
+      - _extensions/bookup/bookup.scss
+      - _extensions/bookup/bookup_dark.scss
+  title: Sample page
+  
+Output created: _site/page.html
+
+pandoc 
+  to: html
+  output-file: about.html
+  standalone: true
+  title-prefix: Bookup website
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  embed-fonts: true
+  theme:
+    light:
+      - _extensions/bookup/bookup.scss
+    dark:
+      - _extensions/bookup/bookup.scss
+      - _extensions/bookup/bookup_dark.scss
+  title: About
+  
+Output created: _site/about.html
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Bookup website
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  embed-fonts: true
+  theme:
+    light:
+      - _extensions/bookup/bookup.scss
+    dark:
+      - _extensions/bookup/bookup.scss
+      - _extensions/bookup/bookup_dark.scss
+  title: Sample bookup-html website project
+  
+Output created: _site/index.html
 
 pandoc 
   to: html
