@@ -61,7 +61,9 @@ render_single_qmd() {
 # those links so nested _quarto.yml projects resolve the extension when their
 # documents are rendered individually. Skip projects whose _quarto.yml already
 # references _extensions: they manage it themselves (e.g. a pre-render copy),
-# and a pre-created symlink would collide with that copy.
+# and a pre-created symlink would collide with that copy. docs/ is skipped
+# because a documentation website there is never rendered as part of a
+# repository that has other content; see the discovery below.
 root_ext="$(pwd)/_extensions"
 if [[ -d "${root_ext}" ]]; then
 	while IFS= read -r -d '' qy; do
@@ -70,7 +72,7 @@ if [[ -d "${root_ext}" ]]; then
 		[[ -e "${proj_dir}/_extensions" ]] && continue
 		grep -q '_extensions' "${qy}" && continue
 		ln -s "${root_ext}" "${proj_dir}/_extensions"
-	done < <(find . \( -name _quarto.yml -o -name _quarto.yaml \) -not -path './_extensions/*' -print0)
+	done < <(find . \( -name _quarto.yml -o -name _quarto.yaml \) -not -path './_extensions/*' -not -path './docs/*' -print0)
 fi
 
 if [[ -f _quarto.yml ]] || [[ -f _quarto.yaml ]]; then
@@ -84,7 +86,17 @@ elif [[ "${EXT_TYPE}" == "document" ]]; then
 		fi
 	done <<<"${qmd_files}"
 else
-	while IFS= read -r -d '' qmd; do
+	# A documentation website under docs/ is a separate project that documents
+	# the extension rather than exercising it, and it often stages the extension
+	# with a script the harness knows nothing about, so rendering it reports a
+	# failure the extension does not have. Keep it out of the discovery, unless
+	# the repository holds nothing else: rendering the site is still better than
+	# rendering nothing, which the loop below would report as a pass.
+	mapfile -d '' qmd_found < <(find . -name '*.qmd' -not -path './_extensions/*' -not -path './docs/*' -print0)
+	if [[ "${#qmd_found[@]}" -eq 0 ]]; then
+		mapfile -d '' qmd_found < <(find . -name '*.qmd' -not -path './_extensions/*' -print0)
+	fi
+	for qmd in "${qmd_found[@]}"; do
 		render_single_qmd "${qmd}"
-	done < <(find . -name '*.qmd' -not -path './_extensions/*' -print0)
+	done
 fi
