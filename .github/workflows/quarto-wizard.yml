@@ -24,9 +24,9 @@ on:
   schedule:
     - cron: "0 6 * * *"
 
+# Every write goes through the App token, so GITHUB_TOKEN only has to clone.
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 
 # Cron, pushes to the CSV, releases and dispatches all write the same data
 # branch, so they must not run concurrently. Queue rather than cancel: a
@@ -47,10 +47,23 @@ jobs:
       DEBUG_MODE: ${{ github.event.inputs.debug }}
       FORCE_UPDATE: ${{ github.event.inputs.force_update }}
     steps:
+      # The token must exist before the first checkout. A checkout without an
+      # explicit token persists GITHUB_TOKEN in .git/config, and the later push
+      # then authenticates as github-actions[bot] whatever git config says.
+      - name: Create GitHub App token
+        uses: actions/create-github-app-token@v3
+        id: app-token
+        with:
+          client-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_KEY }}
+          permission-contents: write
+          permission-metadata: read
+
       - name: Checkout repository
         uses: actions/checkout@v7
         with:
           ref: ${{ env.BRANCH }}
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Checkout repository with sparse checkout
         uses: actions/checkout@v7
@@ -58,13 +71,6 @@ jobs:
           sparse-checkout: ${{ env.CSV_FILE }}
           sparse-checkout-cone-mode: false
           path: data
-
-      - name: Create GitHub App token
-        uses: actions/create-github-app-token@v3
-        id: app-token
-        with:
-          client-id: ${{ vars.APP_ID }}
-          private-key: ${{ secrets.APP_KEY }}
 
       - name: Get GitHub App User ID
         id: get-user-id
@@ -76,12 +82,14 @@ jobs:
 
       - name: Git Config
         env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
           APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
           USER_ID: ${{ steps.get-user-id.outputs.user-id }}
         shell: bash
         run: |
           git config --global user.name "${APP_SLUG}[bot]"
           git config --global user.email "${USER_ID}+${APP_SLUG}[bot]@users.noreply.github.com"
+          gh auth setup-git
 
       - name: Checkout scripts from main branch
         uses: actions/checkout@v7
