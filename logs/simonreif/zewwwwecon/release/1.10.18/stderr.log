@@ -7789,7 +7789,7 @@ installing to /cache/r-lib-0/00LOCK-checkmate/00new/checkmate/libs
 ** this is package 'units' version '1.0-1'
 ** package 'units' successfully unpacked and MD5 sums checked
 ** using staged installation
-configure: error: in '/tmp/RtmpWH5bqT/R.INSTALL1474154c89c8/units':
+configure: error: in '/tmp/RtmphSGvNB/R.INSTALL14741b025964/units':
 configure: error: 
 --------------------------------------------------------------------------------
   Configuration failed because libudunits2.so was not found. Try installing:
@@ -7973,166 +7973,166 @@ installing to /cache/r-lib-0/00LOCK-e1071/00new/e1071/libs
 ** using staged installation
 Warning message:
 In readRenviron("~/.R/Makevars") :
-  file '/home/runner/work/quarto-extensions/quarto-extensions/test-16/.R/Makevars' cannot be opened for reading
-In file included from /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:53,
-                 from /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.h:78,
-                 from /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:15:
+  file '/home/runner/work/quarto-extensions/quarto-extensions/test-18/.R/Makevars' cannot be opened for reading
+In file included from /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:53,
+                 from /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.h:78,
+                 from /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:15:
 In member function 'absl::s2_lts_20230802::inlined_vector_internal::Pointer<A> absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::GetAllocatedData() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]',
-    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::pointer absl::s2_lts_20230802::InlinedVector<T, N, A>::data() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:345:65,
-    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::ValueType<A>& absl::s2_lts_20230802::InlinedVector<T, N, A>::back() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:421:16,
-    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1297:23,
-    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:387:58: warning: 'stack.absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Allocated::allocated_data' may be used uninitialized [-Wmaybe-uninitialized]
+    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::pointer absl::s2_lts_20230802::InlinedVector<T, N, A>::data() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:345:65,
+    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::ValueType<A>& absl::s2_lts_20230802::InlinedVector<T, N, A>::back() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:421:16,
+    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1297:23,
+    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:387:58: warning: 'stack.absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Allocated::allocated_data' may be used uninitialized [-Wmaybe-uninitialized]
   387 |   Pointer<A> GetAllocatedData() { return data_.allocated.allocated_data; }
       |                                                          ^~~~~~~~~~~~~~
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1258:53: note: 'stack' declared here
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1258:53: note: 'stack' declared here
  1258 |   absl::InlinedVector<CordRep*, kInlinedVectorSize> stack;
       |                                                     ^~~~~
 In function 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)',
-    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1299:14: warning: 'indents.absl::s2_lts_20230802::InlinedVector<int, 47, std::allocator<int> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Data::inlined.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Inlined::inlined_data' may be used uninitialized [-Wmaybe-uninitialized]
+    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1299:14: warning: 'indents.absl::s2_lts_20230802::InlinedVector<int, 47, std::allocator<int> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Data::inlined.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Inlined::inlined_data' may be used uninitialized [-Wmaybe-uninitialized]
  1299 |       indent = indents.back();
       |       ~~~~~~~^~~~~~~~~~~~~~~~
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1259:48: note: 'indents' declared here
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1259:48: note: 'indents' declared here
  1259 |   absl::InlinedVector<int, kInlinedVectorSize> indents;
       |                                                ^~~~~~~
 In member function 'absl::s2_lts_20230802::inlined_vector_internal::Pointer<A> absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::GetAllocatedData() [with T = int; long unsigned int N = 47; A = std::allocator<int>]',
-    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::pointer absl::s2_lts_20230802::InlinedVector<T, N, A>::data() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:345:65,
-    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::ValueType<A>& absl::s2_lts_20230802::InlinedVector<T, N, A>::back() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:421:16,
-    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1299:28,
-    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:387:58: warning: 'indents.absl::s2_lts_20230802::InlinedVector<int, 47, std::allocator<int> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Allocated::allocated_data' may be used uninitialized [-Wmaybe-uninitialized]
+    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::pointer absl::s2_lts_20230802::InlinedVector<T, N, A>::data() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:345:65,
+    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::ValueType<A>& absl::s2_lts_20230802::InlinedVector<T, N, A>::back() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:421:16,
+    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1299:28,
+    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:387:58: warning: 'indents.absl::s2_lts_20230802::InlinedVector<int, 47, std::allocator<int> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Allocated::allocated_data' may be used uninitialized [-Wmaybe-uninitialized]
   387 |   Pointer<A> GetAllocatedData() { return data_.allocated.allocated_data; }
       |                                                          ^~~~~~~~~~~~~~
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1259:48: note: 'indents' declared here
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1259:48: note: 'indents' declared here
  1259 |   absl::InlinedVector<int, kInlinedVectorSize> indents;
       |                                                ^~~~~~~
 In member function 'absl::s2_lts_20230802::inlined_vector_internal::SizeType<A> absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::GetAllocatedCapacity() const [with T = int; long unsigned int N = 47; A = std::allocator<int>]',
-    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
-    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
-    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
-    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
-    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
-    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:408:28: warning: 'indents.absl::s2_lts_20230802::InlinedVector<int, 47, std::allocator<int> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Allocated::allocated_capacity' may be used uninitialized [-Wmaybe-uninitialized]
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
+    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
+    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
+    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
+    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:408:28: warning: 'indents.absl::s2_lts_20230802::InlinedVector<int, 47, std::allocator<int> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Allocated::allocated_capacity' may be used uninitialized [-Wmaybe-uninitialized]
   408 |     return data_.allocated.allocated_capacity;
       |                            ^~~~~~~~~~~~~~~~~~
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1259:48: note: 'indents' declared here
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1259:48: note: 'indents' declared here
  1259 |   absl::InlinedVector<int, kInlinedVectorSize> indents;
       |                                                ^~~~~~~
 In member function 'absl::s2_lts_20230802::inlined_vector_internal::Pointer<A> absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::GetAllocatedData() [with T = int; long unsigned int N = 47; A = std::allocator<int>]',
-    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
-    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
-    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
-    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
-    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
-    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:387:58: warning: 'indents.absl::s2_lts_20230802::InlinedVector<int, 47, std::allocator<int> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Allocated::allocated_data' may be used uninitialized [-Wmaybe-uninitialized]
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
+    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
+    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
+    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
+    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:387:58: warning: 'indents.absl::s2_lts_20230802::InlinedVector<int, 47, std::allocator<int> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Allocated::allocated_data' may be used uninitialized [-Wmaybe-uninitialized]
   387 |   Pointer<A> GetAllocatedData() { return data_.allocated.allocated_data; }
       |                                                          ^~~~~~~~~~~~~~
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1259:48: note: 'indents' declared here
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1259:48: note: 'indents' declared here
  1259 |   absl::InlinedVector<int, kInlinedVectorSize> indents;
       |                                                ^~~~~~~
 In member function 'absl::s2_lts_20230802::inlined_vector_internal::SizeType<A> absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::GetAllocatedCapacity() const [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]',
-    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
-    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
-    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
-    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
-    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
-    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:408:28: warning: '*(const absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >*)((char*)&stack + offsetof(absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >,absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::metadata_.absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>::<unnamed>.absl::s2_lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl<absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>, absl::s2_lts_20230802::integer_sequence<long unsigned int, 0, 1>, true>::<unnamed>)).absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Allocated::allocated_capacity' may be used uninitialized [-Wmaybe-uninitialized]
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
+    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
+    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
+    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
+    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:408:28: warning: '*(const absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >*)((char*)&stack + offsetof(absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >,absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::metadata_.absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>::<unnamed>.absl::s2_lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl<absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>, absl::s2_lts_20230802::integer_sequence<long unsigned int, 0, 1>, true>::<unnamed>)).absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Allocated::allocated_capacity' may be used uninitialized [-Wmaybe-uninitialized]
   408 |     return data_.allocated.allocated_capacity;
       |                            ^~~~~~~~~~~~~~~~~~
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1258:53: note: 'stack' declared here
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1258:53: note: 'stack' declared here
  1258 |   absl::InlinedVector<CordRep*, kInlinedVectorSize> stack;
       |                                                     ^~~~~
 In member function 'absl::s2_lts_20230802::inlined_vector_internal::Pointer<A> absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::GetAllocatedData() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]',
-    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
-    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
-    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
-    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
-    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
-    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:387:58: warning: '*(absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >*)((char*)&stack + offsetof(absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >,absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::metadata_.absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>::<unnamed>.absl::s2_lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl<absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>, absl::s2_lts_20230802::integer_sequence<long unsigned int, 0, 1>, true>::<unnamed>)).absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Allocated::allocated_data' may be used uninitialized [-Wmaybe-uninitialized]
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
+    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
+    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
+    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
+    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:387:58: warning: '*(absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >*)((char*)&stack + offsetof(absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >,absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::metadata_.absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>::<unnamed>.absl::s2_lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl<absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>, absl::s2_lts_20230802::integer_sequence<long unsigned int, 0, 1>, true>::<unnamed>)).absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Allocated::allocated_data' may be used uninitialized [-Wmaybe-uninitialized]
   387 |   Pointer<A> GetAllocatedData() { return data_.allocated.allocated_data; }
       |                                                          ^~~~~~~~~~~~~~
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1258:53: note: 'stack' declared here
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1258:53: note: 'stack' declared here
  1258 |   absl::InlinedVector<CordRep*, kInlinedVectorSize> stack;
       |                                                     ^~~~~
 In member function 'absl::s2_lts_20230802::inlined_vector_internal::SizeType<A> absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::GetAllocatedCapacity() const [with T = int; long unsigned int N = 47; A = std::allocator<int>]',
-    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
-    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
-    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
-    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
-    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
-    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:408:28: warning: 'indents.absl::s2_lts_20230802::InlinedVector<int, 47, std::allocator<int> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Allocated::allocated_capacity' may be used uninitialized [-Wmaybe-uninitialized]
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
+    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
+    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
+    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
+    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:408:28: warning: 'indents.absl::s2_lts_20230802::InlinedVector<int, 47, std::allocator<int> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Allocated::allocated_capacity' may be used uninitialized [-Wmaybe-uninitialized]
   408 |     return data_.allocated.allocated_capacity;
       |                            ^~~~~~~~~~~~~~~~~~
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1259:48: note: 'indents' declared here
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1259:48: note: 'indents' declared here
  1259 |   absl::InlinedVector<int, kInlinedVectorSize> indents;
       |                                                ^~~~~~~
 In member function 'absl::s2_lts_20230802::inlined_vector_internal::Pointer<A> absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::GetAllocatedData() [with T = int; long unsigned int N = 47; A = std::allocator<int>]',
-    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
-    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
-    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
-    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
-    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
-    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:387:58: warning: 'indents.absl::s2_lts_20230802::InlinedVector<int, 47, std::allocator<int> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Allocated::allocated_data' may be used uninitialized [-Wmaybe-uninitialized]
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
+    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
+    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = int; long unsigned int N = 47; A = std::allocator<int>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
+    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
+    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:387:58: warning: 'indents.absl::s2_lts_20230802::InlinedVector<int, 47, std::allocator<int> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<int, 47, std::allocator<int> >::Allocated::allocated_data' may be used uninitialized [-Wmaybe-uninitialized]
   387 |   Pointer<A> GetAllocatedData() { return data_.allocated.allocated_data; }
       |                                                          ^~~~~~~~~~~~~~
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1259:48: note: 'indents' declared here
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1259:48: note: 'indents' declared here
  1259 |   absl::InlinedVector<int, kInlinedVectorSize> indents;
       |                                                ^~~~~~~
 In member function 'absl::s2_lts_20230802::inlined_vector_internal::SizeType<A> absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::GetAllocatedCapacity() const [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]',
-    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
-    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
-    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
-    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
-    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
-    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:408:28: warning: '*(const absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >*)((char*)&stack + offsetof(absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >,absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::metadata_.absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>::<unnamed>.absl::s2_lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl<absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>, absl::s2_lts_20230802::integer_sequence<long unsigned int, 0, 1>, true>::<unnamed>)).absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Allocated::allocated_capacity' may be used uninitialized [-Wmaybe-uninitialized]
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
+    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
+    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
+    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
+    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:408:28: warning: '*(const absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >*)((char*)&stack + offsetof(absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >,absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::metadata_.absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>::<unnamed>.absl::s2_lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl<absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>, absl::s2_lts_20230802::integer_sequence<long unsigned int, 0, 1>, true>::<unnamed>)).absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Allocated::allocated_capacity' may be used uninitialized [-Wmaybe-uninitialized]
   408 |     return data_.allocated.allocated_capacity;
       |                            ^~~~~~~~~~~~~~~~~~
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1258:53: note: 'stack' declared here
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1258:53: note: 'stack' declared here
  1258 |   absl::InlinedVector<CordRep*, kInlinedVectorSize> stack;
       |                                                     ^~~~~
 In member function 'absl::s2_lts_20230802::inlined_vector_internal::Pointer<A> absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::GetAllocatedData() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]',
-    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
-    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
-    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
-    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
-    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
-    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:387:58: warning: '*(absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >*)((char*)&stack + offsetof(absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >,absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::metadata_.absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>::<unnamed>.absl::s2_lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl<absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>, absl::s2_lts_20230802::integer_sequence<long unsigned int, 0, 1>, true>::<unnamed>)).absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Allocated::allocated_data' may be used uninitialized [-Wmaybe-uninitialized]
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
+    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
+    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 47; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
+    inlined from 'void absl::s2_lts_20230802::DumpNode(cord_internal::CordRep*, bool, std::ostream*, int)' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1304:1,
+    inlined from 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1309:11:
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:387:58: warning: '*(absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >*)((char*)&stack + offsetof(absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >,absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 47, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::metadata_.absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>::<unnamed>.absl::s2_lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl<absl::s2_lts_20230802::container_internal::CompressedTuple<std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>, long unsigned int>, absl::s2_lts_20230802::integer_sequence<long unsigned int, 0, 1>, true>::<unnamed>)).absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Allocated::allocated_data' may be used uninitialized [-Wmaybe-uninitialized]
   387 |   Pointer<A> GetAllocatedData() { return data_.allocated.allocated_data; }
       |                                                          ^~~~~~~~~~~~~~
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1258:53: note: 'stack' declared here
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'std::string absl::s2_lts_20230802::ReportError(cord_internal::CordRep*, cord_internal::CordRep*)':
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1258:53: note: 'stack' declared here
  1258 |   absl::InlinedVector<CordRep*, kInlinedVectorSize> stack;
       |                                                     ^~~~~
 In member function 'absl::s2_lts_20230802::inlined_vector_internal::SizeType<A> absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::GetAllocatedCapacity() const [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]',
-    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
-    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
-    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
-    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
-    inlined from 'bool absl::s2_lts_20230802::VerifyNode(cord_internal::CordRep*, cord_internal::CordRep*, bool)' at /tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1352:1:
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:408:28: warning: 'worklist.absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Allocated::allocated_capacity' may be used uninitialized [-Wmaybe-uninitialized]
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:526:35,
+    inlined from 'void absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::DeallocateIfAllocated() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:524:8,
+    inlined from 'absl::s2_lts_20230802::inlined_vector_internal::Storage<T, N, A>::~Storage() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:366:28,
+    inlined from 'absl::s2_lts_20230802::InlinedVector<T, N, A>::~InlinedVector() [with T = absl::s2_lts_20230802::cord_internal::CordRep*; long unsigned int N = 2; A = std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*>]' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/inlined_vector.h:296:21,
+    inlined from 'bool absl::s2_lts_20230802::VerifyNode(cord_internal::CordRep*, cord_internal::CordRep*, bool)' at /tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1352:1:
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/container/internal/inlined_vector.h:408:28: warning: 'worklist.absl::s2_lts_20230802::InlinedVector<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::storage_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::data_.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Data::allocated.absl::s2_lts_20230802::inlined_vector_internal::Storage<absl::s2_lts_20230802::cord_internal::CordRep*, 2, std::allocator<absl::s2_lts_20230802::cord_internal::CordRep*> >::Allocated::allocated_capacity' may be used uninitialized [-Wmaybe-uninitialized]
   408 |     return data_.allocated.allocated_capacity;
       |                            ^~~~~~~~~~~~~~~~~~
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'bool absl::s2_lts_20230802::VerifyNode(cord_internal::CordRep*, cord_internal::CordRep*, bool)':
-/tmp/RtmpoiWU0F/R.INSTALL1cfe7d8a4960/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1315:36: note: 'worklist' declared here
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc: In function 'bool absl::s2_lts_20230802::VerifyNode(cord_internal::CordRep*, cord_internal::CordRep*, bool)':
+/tmp/RtmpK3pVyt/R.INSTALL1cfe22fcfb62/s2/tools/vendor/abseil-cpp/absl/strings/cord.cc:1315:36: note: 'worklist' declared here
  1315 |   absl::InlinedVector<CordRep*, 2> worklist;
       |                                    ^~~~~~~~
 ** libs
@@ -18033,12 +18033,6 @@ installing to /cache/r-lib-0/00LOCK-showtext/00new/showtext/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
-installing to /cache/r-lib-0/00LOCK-forecast/00new/forecast/libs
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** byte-compile and prepare package for lazy loading
 ** help
 *** installing help indices
 ** building package indices
@@ -18058,6 +18052,12 @@ install.packages('forecast')
 ** using staged installation
 ** libs
 using C++ compiler: 'g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+installing to /cache/r-lib-0/00LOCK-forecast/00new/forecast/libs
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
 ** help
 *** installing help indices
 *** copying figures
@@ -18123,7 +18123,7 @@ installing to /cache/r-lib-0/00LOCK-classInt/00new/classInt/libs
 ** this is package 'units' version '1.0-1'
 ** package 'units' successfully unpacked and MD5 sums checked
 ** using staged installation
-configure: error: in '/tmp/Rtmp4PBY3b/R.INSTALL1ac734d32d4/units':
+configure: error: in '/tmp/Rtmp9Sgd4m/R.INSTALL1ac34158d6d/units':
 configure: error: 
 --------------------------------------------------------------------------------
   Configuration failed because libudunits2.so was not found. Try installing:
@@ -18492,6 +18492,12 @@ horvitz_thompson_variance.cpp:18:25:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/Matrix.h:178:7:   required from 'class Eigen::Matrix<double, -1, -1>'
 horvitz_thompson_variance.cpp:20:13:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h:56:30: warning: ignoring attributes on template argument 'Eigen::internal::packet_traits<double>::type' {aka '__m128d'} [-Wignored-attributes]
+installing to /cache/r-lib-0/00LOCK-lme4/00new/lme4/libs
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
 In file included from /cache/r-lib-0/RcppEigen/include/Eigen/Core:205,
                  from /cache/r-lib-0/RcppEigen/include/Eigen/Dense:1,
                  from /cache/r-lib-0/RcppEigen/include/RcppEigenForward.h:28,
@@ -18924,7 +18930,6 @@ lm_robust_helper.cpp:258:48:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/CwiseBinaryOp.h:77:7:   required from 'class Eigen::CwiseBinaryOp<Eigen::internal::scalar_pow_op<double, double>, const Eigen::ArrayWrapper<const Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> > >, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Array<double, -1, -1> > >'
 lm_robust_helper.cpp:258:48:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h:56:30: warning: ignoring attributes on template argument 'Eigen::internal::packet_traits<double>::type' {aka '__m128d'} [-Wignored-attributes]
-installing to /cache/r-lib-0/00LOCK-lme4/00new/lme4/libs
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h: In instantiation of 'class Eigen::DenseCoeffsBase<Eigen::PartialReduxExpr<Eigen::Matrix<double, -1, -1>, Eigen::internal::member_sum<double, double>, 0>, 0>':
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseBase.h:41:34:   required from 'class Eigen::DenseBase<Eigen::PartialReduxExpr<Eigen::Matrix<double, -1, -1>, Eigen::internal::member_sum<double, double>, 0> >'
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/MatrixBase.h:48:34:   required from 'class Eigen::MatrixBase<Eigen::PartialReduxExpr<Eigen::Matrix<double, -1, -1>, Eigen::internal::member_sum<double, double>, 0> >'
@@ -18940,7 +18945,6 @@ lm_robust_helper.cpp:260:39:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/CwiseBinaryOp.h:77:7:   required from 'class Eigen::CwiseBinaryOp<Eigen::internal::scalar_quotient_op<double, double>, const Eigen::PartialReduxExpr<Eigen::Matrix<double, -1, -1>, Eigen::internal::member_sum<double, double>, 0>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 1, -1> > >'
 lm_robust_helper.cpp:260:67:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h:56:30: warning: ignoring attributes on template argument 'Eigen::internal::packet_traits<double>::type' {aka '__m128d'} [-Wignored-attributes]
-** R
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h: In instantiation of 'class Eigen::DenseCoeffsBase<Eigen::CwiseBinaryOp<Eigen::internal::scalar_quotient_op<double, double>, const Eigen::PartialReduxExpr<Eigen::Matrix<double, -1, -1>, Eigen::internal::member_sum<double, double>, 0>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 1, -1> > >, 0>':
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseBase.h:41:34:   required from 'class Eigen::DenseBase<Eigen::CwiseBinaryOp<Eigen::internal::scalar_quotient_op<double, double>, const Eigen::PartialReduxExpr<Eigen::Matrix<double, -1, -1>, Eigen::internal::member_sum<double, double>, 0>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 1, -1> > > >'
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/MatrixBase.h:48:34:   required from 'class Eigen::MatrixBase<Eigen::CwiseBinaryOp<Eigen::internal::scalar_quotient_op<double, double>, const Eigen::PartialReduxExpr<Eigen::Matrix<double, -1, -1>, Eigen::internal::member_sum<double, double>, 0>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 1, -1> > > >'
@@ -19039,8 +19043,6 @@ lm_robust_helper.cpp:298:42:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/ArrayWrapper.h:42:7:   required from 'class Eigen::ArrayWrapper<Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, true> >'
 lm_robust_helper.cpp:308:63:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h:56:30: warning: ignoring attributes on template argument 'Eigen::internal::packet_traits<double>::type' {aka '__m128d'} [-Wignored-attributes]
-** data
-*** moving datasets to lazyload DB
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h: In instantiation of 'class Eigen::DenseCoeffsBase<Eigen::Block<const Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, 1, true>, 0>':
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h:481:7:   required from 'class Eigen::DenseCoeffsBase<Eigen::Block<const Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, 1, true>, 2>'
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseBase.h:41:34:   required from 'class Eigen::DenseBase<Eigen::Block<const Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, 1, true> >'
@@ -19207,7 +19209,6 @@ lm_robust_helper.cpp:365:65:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Eigenvalues/SelfAdjointEigenSolver.h:111:62:   required from 'class Eigen::SelfAdjointEigenSolver<Eigen::Matrix<double, -1, -1> >'
 lm_robust_helper.cpp:365:65:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h:56:30: warning: ignoring attributes on template argument 'Eigen::internal::packet_traits<double>::type' {aka '__m128d'} [-Wignored-attributes]
-** inst
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h: In instantiation of 'class Eigen::DenseCoeffsBase<Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_identity_op<double>, Eigen::Matrix<double, -1, -1> >, const Eigen::Matrix<double, -1, -1> >, 0>':
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseBase.h:41:34:   required from 'class Eigen::DenseBase<Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_identity_op<double>, Eigen::Matrix<double, -1, -1> >, const Eigen::Matrix<double, -1, -1> > >'
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/MatrixBase.h:48:34:   required from 'class Eigen::MatrixBase<Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_identity_op<double>, Eigen::Matrix<double, -1, -1> >, const Eigen::Matrix<double, -1, -1> > >'
@@ -19215,7 +19216,6 @@ lm_robust_helper.cpp:365:65:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/CwiseBinaryOp.h:77:7:   required from 'class Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_identity_op<double>, Eigen::Matrix<double, -1, -1> >, const Eigen::Matrix<double, -1, -1> >'
 lm_robust_helper.cpp:366:56:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h:56:30: warning: ignoring attributes on template argument 'Eigen::internal::packet_traits<double>::type' {aka '__m128d'} [-Wignored-attributes]
-** byte-compile and prepare package for lazy loading
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h: In instantiation of 'class Eigen::DenseCoeffsBase<Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<double, double>, const Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_identity_op<double>, Eigen::Matrix<double, -1, -1> >, const Eigen::Matrix<double, -1, -1> >, const Eigen::Transpose<Eigen::Matrix<double, -1, -1> > >, 0>':
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseBase.h:41:34:   required from 'class Eigen::DenseBase<Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<double, double>, const Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_identity_op<double>, Eigen::Matrix<double, -1, -1> >, const Eigen::Matrix<double, -1, -1> >, const Eigen::Transpose<Eigen::Matrix<double, -1, -1> > > >'
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/MatrixBase.h:48:34:   required from 'class Eigen::MatrixBase<Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<double, double>, const Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_identity_op<double>, Eigen::Matrix<double, -1, -1> >, const Eigen::Matrix<double, -1, -1> >, const Eigen::Transpose<Eigen::Matrix<double, -1, -1> > > >'
@@ -24945,6 +24945,7 @@ lm_robust_helper.cpp:331:83:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h:56:30: warning: ignoring attributes on template argument 'Eigen::internal::packet_traits<double>::type' {aka '__m128d'} [-Wignored-attributes]
    56 |                      >::type PacketReturnType;
       |                              ^~~~~~~~~~~~~~~~
+** help
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h: In instantiation of 'class Eigen::DenseCoeffsBase<Eigen::CwiseBinaryOp<Eigen::internal::scalar_conj_product_op<double, double>, const Eigen::Transpose<const Eigen::Block<const Eigen::Product<Eigen::Product<Eigen::Matrix<double, -1, -1>, Eigen::Transpose<Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, true> >, 0>, Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, true>, 0>, 1, -1, false> >, const Eigen::Block<const Eigen::Block<const Eigen::Matrix<double, -1, -1>, -1, 1, true>, -1, 1, true> >, 0>':
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseBase.h:41:34:   required from 'class Eigen::DenseBase<Eigen::CwiseBinaryOp<Eigen::internal::scalar_conj_product_op<double, double>, const Eigen::Transpose<const Eigen::Block<const Eigen::Product<Eigen::Product<Eigen::Matrix<double, -1, -1>, Eigen::Transpose<Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, true> >, 0>, Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, true>, 0>, 1, -1, false> >, const Eigen::Block<const Eigen::Block<const Eigen::Matrix<double, -1, -1>, -1, 1, true>, -1, 1, true> > >'
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/MatrixBase.h:48:34:   required from 'class Eigen::MatrixBase<Eigen::CwiseBinaryOp<Eigen::internal::scalar_conj_product_op<double, double>, const Eigen::Transpose<const Eigen::Block<const Eigen::Product<Eigen::Product<Eigen::Matrix<double, -1, -1>, Eigen::Transpose<Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, true> >, 0>, Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, true>, 0>, 1, -1, false> >, const Eigen::Block<const Eigen::Block<const Eigen::Matrix<double, -1, -1>, -1, 1, true>, -1, 1, true> > >'
@@ -25484,6 +25485,7 @@ lm_robust_helper.cpp:370:13:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h:56:30: warning: ignoring attributes on template argument 'Eigen::internal::packet_traits<double>::type' {aka '__m128d'} [-Wignored-attributes]
    56 |                      >::type PacketReturnType;
       |                              ^~~~~~~~~~~~~~~~
+*** installing help indices
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/CoreEvaluators.h: In instantiation of 'struct Eigen::internal::evaluator<Eigen::Block<const Eigen::Block<const Eigen::Product<Eigen::Matrix<double, -1, -1>, Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, false>, 0>, 1, -1, false>, 1, -1, true> >':
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/CoreEvaluators.h:100:8:   required from 'struct Eigen::internal::evaluator<const Eigen::Block<const Eigen::Block<const Eigen::Product<Eigen::Matrix<double, -1, -1>, Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, false>, 0>, 1, -1, false>, 1, -1, true> >'
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/CoreEvaluators.h:311:41:   required from 'struct Eigen::internal::unary_evaluator<Eigen::Transpose<const Eigen::Block<const Eigen::Block<const Eigen::Product<Eigen::Matrix<double, -1, -1>, Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, false>, 0>, 1, -1, false>, 1, -1, true> >, Eigen::internal::IndexBased, double>'
@@ -25778,6 +25780,7 @@ lm_robust_helper.cpp:331:83:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/CoreEvaluators.h:1071:54: warning: ignoring attributes on template argument 'Eigen::internal::packet_traits<double>::type' {aka '__m128d'} [-Wignored-attributes]
  1071 |     PacketAlignment = unpacket_traits<PacketScalar>::alignment,
       |                                                      ^~~~~~~~~
+** building package indices
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h: In instantiation of 'class Eigen::DenseCoeffsBase<Eigen::Product<Eigen::Product<Eigen::Block<Eigen::Matrix<double, -1, -1>, -1, -1, false>, Eigen::Matrix<double, -1, -1>, 0>, Eigen::Transpose<const Eigen::Block<Eigen::Matrix<double, -1, -1>, -1, -1, false> >, 1>, 0>':
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseBase.h:41:34:   required from 'class Eigen::DenseBase<Eigen::Product<Eigen::Product<Eigen::Block<Eigen::Matrix<double, -1, -1>, -1, -1, false>, Eigen::Matrix<double, -1, -1>, 0>, Eigen::Transpose<const Eigen::Block<Eigen::Matrix<double, -1, -1>, -1, -1, false> >, 1> >'
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/MatrixBase.h:48:34:   required from 'class Eigen::MatrixBase<Eigen::Product<Eigen::Product<Eigen::Block<Eigen::Matrix<double, -1, -1>, -1, -1, false>, Eigen::Matrix<double, -1, -1>, 0>, Eigen::Transpose<const Eigen::Block<Eigen::Matrix<double, -1, -1>, -1, -1, false> >, 1> >'
@@ -26258,6 +26261,7 @@ lm_robust_helper.cpp:189:60:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Householder/HouseholderSequence.h:427:25:   required from 'typename Eigen::internal::matrix_type_times_scalar_type<typename Eigen::internal::traits<Eigen::HouseholderSequence<VectorsType, CoeffsType, Side> >::Scalar, OtherDerived>::Type Eigen::HouseholderSequence<VectorsType, CoeffsType, Side>::operator*(const Eigen::MatrixBase<OtherDerived>&) const [with OtherDerived = Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >; VectorsType = Eigen::Matrix<double, -1, -1>; CoeffsType = Eigen::Matrix<double, -1, 1>; int Side = 1; typename Eigen::internal::matrix_type_times_scalar_type<typename Eigen::internal::traits<Eigen::HouseholderSequence<VectorsType, CoeffsType, Side> >::Scalar, OtherDerived>::Type = Eigen::Matrix<double, -1, -1>; typename Eigen::internal::traits<Eigen::HouseholderSequence<VectorsType, CoeffsType, Side> >::Scalar = double]'
 lm_robust_helper.cpp:189:60:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/CoreEvaluators.h:1071:54: warning: ignoring attributes on template argument 'Eigen::internal::packet_traits<double>::type' {aka '__m128d'} [-Wignored-attributes]
+** installing vignettes
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/CoreEvaluators.h: In instantiation of 'struct Eigen::internal::evaluator<Eigen::Block<const Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, -1, -1> >, const Eigen::Block<Eigen::Matrix<double, -1, -1>, -1, -1, false> >, -1, -1, false> >':
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/AssignEvaluator.h:774:20:   required from 'void Eigen::internal::call_dense_assignment_loop(DstXprType&, const SrcXprType&, const Functor&) [with DstXprType = Eigen::Block<Eigen::Matrix<double, -1, -1>, -1, -1, false>; SrcXprType = Eigen::Block<const Eigen::CwiseBinaryOp<scalar_product_op<double, double>, const Eigen::CwiseNullaryOp<scalar_constant_op<double>, const Eigen::Matrix<double, -1, -1> >, const Eigen::Block<Eigen::Matrix<double, -1, -1>, -1, -1, false> >, -1, -1, false>; Functor = sub_assign_op<double, double>]'
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/AssignEvaluator.h:954:31:   required from 'static void Eigen::internal::Assignment<DstXprType, SrcXprType, Functor, Eigen::internal::Dense2Dense, Weak>::run(DstXprType&, const SrcXprType&, const Functor&) [with DstXprType = Eigen::Block<Eigen::Matrix<double, -1, -1>, -1, -1, false>; SrcXprType = Eigen::Block<const Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, -1, -1> >, const Eigen::Block<Eigen::Matrix<double, -1, -1>, -1, -1, false> >, -1, -1, false>; Functor = Eigen::internal::sub_assign_op<double, double>; Weak = void]'
@@ -26286,6 +26290,7 @@ lm_robust_helper.cpp:189:60:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Householder/HouseholderSequence.h:427:25:   required from 'typename Eigen::internal::matrix_type_times_scalar_type<typename Eigen::internal::traits<Eigen::HouseholderSequence<VectorsType, CoeffsType, Side> >::Scalar, OtherDerived>::Type Eigen::HouseholderSequence<VectorsType, CoeffsType, Side>::operator*(const Eigen::MatrixBase<OtherDerived>&) const [with OtherDerived = Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >; VectorsType = Eigen::Matrix<double, -1, -1>; CoeffsType = Eigen::Matrix<double, -1, 1>; int Side = 1; typename Eigen::internal::matrix_type_times_scalar_type<typename Eigen::internal::traits<Eigen::HouseholderSequence<VectorsType, CoeffsType, Side> >::Scalar, OtherDerived>::Type = Eigen::Matrix<double, -1, -1>; typename Eigen::internal::traits<Eigen::HouseholderSequence<VectorsType, CoeffsType, Side> >::Scalar = double]'
 lm_robust_helper.cpp:189:60:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/CoreEvaluators.h:1071:54: warning: ignoring attributes on template argument 'Eigen::internal::packet_traits<double>::type' {aka '__m128d'} [-Wignored-attributes]
+** testing if installed package can be loaded from temporary location
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h: In instantiation of 'class Eigen::DenseCoeffsBase<Eigen::Product<Eigen::Product<Eigen::Matrix<double, -1, -1>, Eigen::Transpose<Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, true> >, 0>, const Eigen::Block<const Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, true>, -1, 1, true>, 0>, 0>':
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseBase.h:41:34:   required from 'class Eigen::DenseBase<Eigen::Product<Eigen::Product<Eigen::Matrix<double, -1, -1>, Eigen::Transpose<Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, true> >, 0>, const Eigen::Block<const Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, true>, -1, 1, true>, 0> >'
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/MatrixBase.h:48:34:   required from 'class Eigen::MatrixBase<Eigen::Product<Eigen::Product<Eigen::Matrix<double, -1, -1>, Eigen::Transpose<Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, true> >, 0>, const Eigen::Block<const Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, true>, -1, 1, true>, 0> >'
@@ -27672,6 +27677,7 @@ lm_robust_helper.cpp:331:83:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/Matrix.h:225:24:   required from 'Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>& Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::operator=(const Eigen::DenseBase<OtherDerived>&) [with OtherDerived = Eigen::Product<Eigen::Product<Eigen::Product<Eigen::Matrix<double, -1, -1>, Eigen::Transpose<Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, true> >, 0>, Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, true>, 0>, Eigen::Matrix<double, -1, -1>, 0>; _Scalar = double; int _Rows = -1; int _Cols = -1; int _Options = 0; int _MaxRows = -1; int _MaxCols = -1]'
 lm_robust_helper.cpp:331:83:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h:56:30: warning: ignoring attributes on template argument 'Eigen::internal::packet_traits<double>::type' {aka '__m128d'} [-Wignored-attributes]
+** checking absolute paths in shared objects and dynamic libraries
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h: In instantiation of 'class Eigen::DenseCoeffsBase<Eigen::CwiseBinaryOp<Eigen::internal::scalar_conj_product_op<double, double>, const Eigen::Transpose<const Eigen::Block<const Eigen::Block<const Eigen::Matrix<double, -1, -1>, 1, -1, false>, 1, -1, true> >, const Eigen::Block<const Eigen::Transpose<Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, true> >, -1, 1, false> >, 0>':
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseBase.h:41:34:   required from 'class Eigen::DenseBase<Eigen::CwiseBinaryOp<Eigen::internal::scalar_conj_product_op<double, double>, const Eigen::Transpose<const Eigen::Block<const Eigen::Block<const Eigen::Matrix<double, -1, -1>, 1, -1, false>, 1, -1, true> >, const Eigen::Block<const Eigen::Transpose<Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, true> >, -1, 1, false> > >'
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/MatrixBase.h:48:34:   required from 'class Eigen::MatrixBase<Eigen::CwiseBinaryOp<Eigen::internal::scalar_conj_product_op<double, double>, const Eigen::Transpose<const Eigen::Block<const Eigen::Block<const Eigen::Matrix<double, -1, -1>, 1, -1, false>, 1, -1, true> >, const Eigen::Block<const Eigen::Transpose<Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, true> >, -1, 1, false> > >'
@@ -27686,6 +27692,7 @@ lm_robust_helper.cpp:331:83:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/Matrix.h:225:24:   required from 'Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>& Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::operator=(const Eigen::DenseBase<OtherDerived>&) [with OtherDerived = Eigen::Product<Eigen::Product<Eigen::Product<Eigen::Matrix<double, -1, -1>, Eigen::Transpose<Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, true> >, 0>, Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, true>, 0>, Eigen::Matrix<double, -1, -1>, 0>; _Scalar = double; int _Rows = -1; int _Cols = -1; int _Options = 0; int _MaxRows = -1; int _MaxCols = -1]'
 lm_robust_helper.cpp:331:83:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h:56:30: warning: ignoring attributes on template argument 'Eigen::internal::packet_traits<double>::type' {aka '__m128d'} [-Wignored-attributes]
+** testing if installed package can be loaded from final location
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h: In instantiation of 'class Eigen::DenseCoeffsBase<Eigen::Transpose<const Eigen::Transpose<const Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, true> > >, 0>':
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseCoeffsBase.h:481:7:   required from 'class Eigen::DenseCoeffsBase<Eigen::Transpose<const Eigen::Transpose<const Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, true> > >, 2>'
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/DenseBase.h:41:34:   required from 'class Eigen::DenseBase<Eigen::Transpose<const Eigen::Transpose<const Eigen::Block<Eigen::Map<Eigen::Matrix<double, -1, -1>, 0, Eigen::Stride<0, 0> >, -1, -1, true> > > >'
@@ -27762,13 +27769,6 @@ lm_robust_helper.cpp:331:83:   required from here
 /cache/r-lib-0/RcppEigen/include/Eigen/src/Core/CoreEvaluators.h:1071:54: warning: ignoring attributes on template argument 'Eigen::internal::packet_traits<double>::type' {aka '__m128d'} [-Wignored-attributes]
  1071 |     PacketAlignment = unpacket_traits<PacketScalar>::alignment,
       |                                                      ^~~~~~~~~
-** help
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded from temporary location
-** checking absolute paths in shared objects and dynamic libraries
-** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (lme4)
 * installing *source* package 'parameters' ...
@@ -27926,12 +27926,7 @@ In file included from /cache/r-lib-0/RcppEigen/include/Eigen/SparseCore:37,
 ** building package indices
 ** testing if installed package can be loaded from temporary location
 ** testing if installed package can be loaded from final location
-installing to /cache/r-lib-0/00LOCK-estimatr/00new/estimatr/libs
-** R
 ** testing if installed package keeps a record of temporary installation path
-** data
-*** moving datasets to lazyload DB
-** byte-compile and prepare package for lazy loading
 * DONE (performance)
 ERROR: dependency 'units' is not available for package 'sf'
 Perhaps try a variation of:
@@ -27948,14 +27943,24 @@ install.packages('doBy')
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
+installing to /cache/r-lib-0/00LOCK-estimatr/00new/estimatr/libs
+** R
+** data
+*** moving datasets to lazyload DB
+** byte-compile and prepare package for lazy loading
 ** help
 *** installing help indices
 ** building package indices
 ** testing if installed package can be loaded from temporary location
 ** checking absolute paths in shared objects and dynamic libraries
 ** testing if installed package can be loaded from final location
+** help
 ** testing if installed package keeps a record of temporary installation path
 * DONE (estimatr)
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
 * installing *source* package 'gtsummary' ...
 ** this is package 'gtsummary' version '2.5.1'
 ** package 'gtsummary' successfully unpacked and MD5 sums checked
@@ -27965,11 +27970,6 @@ install.packages('doBy')
 *** moving datasets to lazyload DB
 ** inst
 ** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-*** copying figures
-** building package indices
-** testing if installed package can be loaded from temporary location
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (modelsummary)
@@ -27987,7 +27987,7 @@ install.packages('rstatix')
 * removing '/cache/r-lib-0/ggpubr'
 
 The downloaded source packages are in
-	'/tmp/RtmpjC9TZG/downloaded_packages'
+	'/tmp/RtmpNZ7kWq/downloaded_packages'
 Warning messages:
 1: In install.packages(deps, repos = ppm) :
   installation of package 'units' had non-zero exit status
@@ -28188,7 +28188,7 @@ install.packages('units')
 * DONE (ggpubr)
 
 The downloaded source packages are in
-	'/tmp/RtmpSeBRhW/downloaded_packages'
+	'/tmp/Rtmp6Flb7Z/downloaded_packages'
 Warning messages:
 1: In install.packages(deps, repos = ppm) :
   installation of package 'units' had non-zero exit status
@@ -28276,7 +28276,7 @@ command biber not found, attempting install
 finding package for biber
 > 1 package to install
 > installing biber (1 of 1)
-  INFO - This is Biber 2.21
+  INFO - This is Biber 2.22
   INFO - Logfile is 'example_slides_solo.blg'
   INFO - Reading 'example_slides_solo.bcf'
   INFO - Found 1 citekeys in bib section 0
@@ -28284,12 +28284,12 @@ finding package for biber
   INFO - Looking for bibtex file 'references.bib' for section 0
   INFO - LaTeX decoding ...
   INFO - Found BibTeX data source 'references.bib'
-  INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
   INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+  INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
   INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
   INFO - No sort tailoring available for locale 'en-US'
-  INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
   INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+  INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
   INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
   INFO - No sort tailoring available for locale 'en-US'
   INFO - Writing 'example_slides_solo.bbl' with encoding 'UTF-8'
@@ -28385,7 +28385,7 @@ finding package for biblatex-dm.cfg
   entering extended mode
   
 generating bibliography
-  INFO - This is Biber 2.21
+  INFO - This is Biber 2.22
   INFO - Logfile is 'example_paper_solo.blg'
   INFO - Reading 'example_paper_solo.bcf'
   INFO - Found 1 citekeys in bib section 0
@@ -28466,7 +28466,7 @@ running xelatex - 1
   entering extended mode
   
 generating bibliography
-  INFO - This is Biber 2.21
+  INFO - This is Biber 2.22
   INFO - Logfile is 'example_slides_solo.blg'
   INFO - Reading 'example_slides_solo.bcf'
   INFO - Found 1 citekeys in bib section 0
@@ -28535,7 +28535,7 @@ running xelatex - 1
   entering extended mode
   
 generating bibliography
-  INFO - This is Biber 2.21
+  INFO - This is Biber 2.22
   INFO - Logfile is 'example_paper_solo.blg'
   INFO - Reading 'example_paper_solo.bcf'
   INFO - Found 1 citekeys in bib section 0
@@ -28543,8 +28543,8 @@ generating bibliography
   INFO - Looking for bibtex file 'references.bib' for section 0
   INFO - LaTeX decoding ...
   INFO - Found BibTeX data source 'references.bib'
-  INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
   INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+  INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
   INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
   INFO - No sort tailoring available for locale 'en-US'
   INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'

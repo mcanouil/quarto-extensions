@@ -1,7 +1,7 @@
 Cloning into 'repo'...
 pandoc 
   to: html
-  output-file: /home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/index.html
+  output-file: /home/runner/work/quarto-extensions/quarto-extensions/test-12/repo/index.html
   standalone: true
   section-divs: true
   html-math-method: mathjax
@@ -28,176 +28,288 @@ metadata
   
 Output created: index.html
 
-[pre-render] warning: 1.10.0 is not tagged; the install commands name an unreleased version
-[pre-render] _extension.yml -> _variables.yml (mcanouil/quarto-gitlink@1.10.0)
-[pre-render] CHANGELOG.md -> changelog.qmd
 
 pandoc 
   to: html
-  output-file: 404.html
+  output-file: codeberg.html
   standalone: true
-  title-prefix: Gitlink
+  title-prefix: Gitlink Widget Test
   section-divs: true
   html-math-method: mathjax
   wrap: none
   default-image-extension: png
-  toc: false
-  toc-depth: 3
   
 metadata
   document-css: false
   link-citations: true
-  lang: en-GB
-  date-format: dddd[, the] Do [of] MMMM, YYYY
-  code-copy: true
-  respect-user-color-scheme: true
-  theme:
-    light:
-      - _extensions/mcanouil/atelier/html/chrome.scss
-      - brand
-      - _extensions/mcanouil/atelier/html/theme.scss
-      - _extensions/mcanouil/pastel/pastel.scss
-      - assets/theme.scss
-    dark:
-      - _extensions/mcanouil/atelier/html/chrome.scss
-      - brand
-      - _extensions/mcanouil/atelier/html/theme.scss
-      - _extensions/mcanouil/pastel/pastel.scss
-      - assets/theme.scss
-  anchor-sections: true
-  grid:
-    sidebar-width: 300px
-    body-width: 1000px
-    margin-width: 300px
-  brand: _extensions/mcanouil/pastel/brand.yml
+  date-format: long
+  lang: en
   extensions:
-    atelier:
-      site-url: https://m.canouil.dev/quarto-gitlink
     gitlink:
-      enabled: true
+      platform: codeberg
+      repository-name: forgejo/forgejo
       widget:
         enabled: true
+        links:
+          discussions: true
         extra-links:
-          - text: Ideas / Feature Requests
-            href: /discussions/categories/ideas
-            icon: discussion
           - text: Q&A
             href: /discussions/categories/q-a
             icon: question
+          - text: Quarto
+            href: https://quarto.org
+            icon: globe
         sponsor: mcanouil
-        style-navbar-tools: false
-    code-window:
-      style: macos
-      auto-filename: false
-  title: Page not found
-  description: That page does not exist or has moved.
-  sidebar: false
+        style-navbar-tools: true
+  theme:
+    light: flatly
+    dark: darkly
+  title: 'Widget test: Codeberg'
   
-[31mFATAL (/opt/quarto/share/filters/main.lua:3757) An error occurred:
-Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/docs/gitlink as a JSON filter.
-Please make sure the file exists and is executable.
 
-Did you intend 'gitlink' as a Lua filter in an extension?
-If so, make sure you've spelled the name of the extension correctly.
+Output created: _site/codeberg.html
 
-The original Pandoc error follows below.
-Error running filter '/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/docs/gitlink':
-Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/docs/gitlink
-[39mError running filter '/opt/quarto/share/filters/main.lua':
-/opt/quarto/share/filters/main.lua:589: FATAL QUARTO ERROR
-stack traceback:
-	/opt/quarto/share/filters/main.lua:2621: in function 'fatal'
-	/opt/quarto/share/filters/main.lua:2201: in function 'fail'
-	/opt/quarto/share/filters/main.lua:3757: in field 'Pandoc'
-	/opt/quarto/share/filters/main.lua:589: in function 'run_emulated_filter'
-	/opt/quarto/share/filters/main.lua:1318: in local 'callback'
-	/opt/quarto/share/filters/main.lua:1336: in upvalue 'run_emulated_filter_chain'
-	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
-WARN: Error encountered when rendering files
-Render failed, retrying once...
-[pre-render] warning: 1.10.0 is not tagged; the install commands name an unreleased version
-[pre-render] _extension.yml -> _variables.yml (mcanouil/quarto-gitlink@1.10.0)
-[pre-render] CHANGELOG.md -> changelog.qmd
 
 pandoc 
   to: html
-  output-file: 404.html
+  output-file: index.html
   standalone: true
-  title-prefix: Gitlink
+  title-prefix: Gitlink Widget Test
   section-divs: true
   html-math-method: mathjax
   wrap: none
   default-image-extension: png
-  toc: false
-  toc-depth: 3
   
 metadata
   document-css: false
   link-citations: true
-  lang: en-GB
-  date-format: dddd[, the] Do [of] MMMM, YYYY
-  code-copy: true
-  respect-user-color-scheme: true
-  theme:
-    light:
-      - _extensions/mcanouil/atelier/html/chrome.scss
-      - brand
-      - _extensions/mcanouil/atelier/html/theme.scss
-      - _extensions/mcanouil/pastel/pastel.scss
-      - assets/theme.scss
-    dark:
-      - _extensions/mcanouil/atelier/html/chrome.scss
-      - brand
-      - _extensions/mcanouil/atelier/html/theme.scss
-      - _extensions/mcanouil/pastel/pastel.scss
-      - assets/theme.scss
-  anchor-sections: true
-  grid:
-    sidebar-width: 300px
-    body-width: 1000px
-    margin-width: 300px
-  brand: _extensions/mcanouil/pastel/brand.yml
+  date-format: long
+  lang: en
   extensions:
-    atelier:
-      site-url: https://m.canouil.dev/quarto-gitlink
     gitlink:
-      enabled: true
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
       widget:
         enabled: true
+        links:
+          discussions: true
         extra-links:
-          - text: Ideas / Feature Requests
-            href: /discussions/categories/ideas
-            icon: discussion
           - text: Q&A
             href: /discussions/categories/q-a
             icon: question
+          - text: Quarto
+            href: https://quarto.org
+            icon: globe
         sponsor: mcanouil
-        style-navbar-tools: false
-    code-window:
-      style: macos
-      auto-filename: false
-  title: Page not found
-  description: That page does not exist or has moved.
-  sidebar: false
+        style-navbar-tools: true
+  theme:
+    light: flatly
+    dark: darkly
+  title: 'Widget test: GitHub defaults'
   
-[31mFATAL (/opt/quarto/share/filters/main.lua:3757) An error occurred:
-Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/docs/gitlink as a JSON filter.
-Please make sure the file exists and is executable.
 
-Did you intend 'gitlink' as a Lua filter in an extension?
-If so, make sure you've spelled the name of the extension correctly.
+Output created: _site/index.html
 
-The original Pandoc error follows below.
-Error running filter '/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/docs/gitlink':
-Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/docs/gitlink
-[39mError running filter '/opt/quarto/share/filters/main.lua':
-/opt/quarto/share/filters/main.lua:589: FATAL QUARTO ERROR
-stack traceback:
-	/opt/quarto/share/filters/main.lua:2621: in function 'fatal'
-	/opt/quarto/share/filters/main.lua:2201: in function 'fail'
-	/opt/quarto/share/filters/main.lua:3757: in field 'Pandoc'
-	/opt/quarto/share/filters/main.lua:589: in function 'run_emulated_filter'
-	/opt/quarto/share/filters/main.lua:1318: in local 'callback'
-	/opt/quarto/share/filters/main.lua:1336: in upvalue 'run_emulated_filter_chain'
-	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
-WARN: Error encountered when rendering files
+
+pandoc 
+  to: html
+  output-file: widget-only.html
+  standalone: true
+  title-prefix: Gitlink Widget Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      widget:
+        enabled: true
+        links:
+          discussions: true
+        extra-links:
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+          - text: Quarto
+            href: https://quarto.org
+            icon: globe
+        sponsor: mcanouil
+        style-navbar-tools: true
+      enabled: false
+  theme:
+    light: flatly
+    dark: darkly
+  title: 'Widget test: widget only'
+  
+
+Output created: _site/widget-only.html
+
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Gitlink Sidebar Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      widget:
+        enabled: true
+        links:
+          discussions: true
+        extra-links:
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+          - text: Quarto
+            href: https://quarto.org
+            icon: globe
+        sponsor: mcanouil
+  theme:
+    light: flatly
+    dark: darkly
+  title: 'Session 1: Introduction and setup'
+  
+
+Output created: ../../_site/sessions/01-introduction-setup/index.html
+
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Gitlink Sidebar Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      widget:
+        enabled: true
+        links:
+          discussions: true
+        extra-links:
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+          - text: Quarto
+            href: https://quarto.org
+            icon: globe
+        sponsor: mcanouil
+      enabled: false
+  theme:
+    light: flatly
+    dark: darkly
+  title: 'Session 2: Authoring essentials'
+  
+
+Output created: ../../_site/sessions/02-authoring-essentials/index.html
+
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Gitlink Sidebar Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      widget:
+        enabled: true
+        links:
+          discussions: true
+        extra-links:
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+          - text: Quarto
+            href: https://quarto.org
+            icon: globe
+        sponsor: mcanouil
+  theme:
+    light: flatly
+    dark: darkly
+  title: 'Sidebar widget test: home'
+  
+
+Output created: _site/index.html
+
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Gitlink Sidebar Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      widget:
+        enabled: true
+        links:
+          discussions: true
+        extra-links:
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+          - text: Quarto
+            href: https://quarto.org
+            icon: globe
+        sponsor: mcanouil
+  theme:
+    light: flatly
+    dark: darkly
+  title: Program
+  
+
+Output created: ../_site/program/index.html
+

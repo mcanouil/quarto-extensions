@@ -8366,7 +8366,6 @@ installing to /cache/r-lib-1/00LOCK-ggforce/00new/ggforce/libs
 ** R
 ** data
 *** moving datasets to lazyload DB
-Dependency install failed (exit 137) for r-wasm/quarto-live; retrying once.
 ** inst
 ** byte-compile and prepare package for lazy loading
 ** help
@@ -8383,68 +8382,7 @@ Dependency install failed (exit 137) for r-wasm/quarto-live; retrying once.
 ** using staged installation
 ** libs
 using C++ compiler: 'g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
-Installing package into '/cache/r-lib-1'
-(as 'lib' is unspecified)
-also installing the dependencies 'pbkrtest', 'lme4', 'car', 'miniUI', 'rio', 'rstatix', 'sjmisc', 'rvg', 'shiny', 'editData', 'shinyWidgets', 'ggpubr', 'moonBook', 'flextable', 'rrtable', 'ztable'
-
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/pbkrtest_0.5.5.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/lme4_2.0-6.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/car_3.1-5.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/miniUI_0.1.2.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/rio_1.3.0.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/rstatix_1.1.0.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/sjmisc_2.8.11.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/rvg_0.4.2.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/shiny_1.14.0.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/editData_0.1.8.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/shinyWidgets_0.9.1.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/ggpubr_1.0.0.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/moonBook_0.3.1.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/flextable_0.10.0.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/rrtable_0.3.4.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/ztable_0.2.5.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/webr_0.1.7.tar.gz'
-ERROR: failed to lock directory '/cache/r-lib-1' for modifying
-Try removing '/cache/r-lib-1/00LOCK-lme4'
-* installing *source* package 'rio' ...
-** this is package 'rio' version '1.3.0'
-** package 'rio' successfully unpacked and MD5 sums checked
-** using staged installation
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-*** copying figures
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (rio)
-* installing *source* package 'sjmisc' ...
-** this is package 'sjmisc' version '2.8.11'
-** package 'sjmisc' successfully unpacked and MD5 sums checked
-** using staged installation
-** R
-** data
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-*** copying figures
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (sjmisc)
-* installing *source* package 'rvg' ...
-** this is package 'rvg' version '0.4.2'
-** package 'rvg' successfully unpacked and MD5 sums checked
-** using staged installation
-** libs
-using C++ compiler: 'g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+Dependency install failed (exit 137) for r-wasm/quarto-live; retrying once.
 installing to /cache/r-lib-1/00LOCK-lme4/00new/lme4/libs
 ** R
 ** data
@@ -8493,11 +8431,85 @@ installing to /cache/r-lib-1/00LOCK-lme4/00new/lme4/libs
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (sjmisc)
+* installing *source* package 'rvg' ...
+** this is package 'rvg' version '0.4.2'
+** package 'rvg' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C++ compiler: 'g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+Installing package into '/cache/r-lib-1'
+(as 'lib' is unspecified)
+also installing the dependencies 'pbkrtest', 'car', 'miniUI', 'rstatix', 'rvg', 'shiny', 'editData', 'shinyWidgets', 'ggpubr', 'moonBook', 'flextable', 'rrtable', 'ztable'
+
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/pbkrtest_0.5.5.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/car_3.1-5.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/miniUI_0.1.2.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/rstatix_1.1.0.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/rvg_0.4.2.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/shiny_1.14.0.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/editData_0.1.8.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/shinyWidgets_0.9.1.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/ggpubr_1.0.0.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/moonBook_0.3.1.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/flextable_0.10.0.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/rrtable_0.3.4.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/ztable_0.2.5.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/webr_0.1.7.tar.gz'
+* installing *source* package 'pbkrtest' ...
+** this is package 'pbkrtest' version '0.5.5'
+** package 'pbkrtest' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (pbkrtest)
 ERROR: failed to lock directory '/cache/r-lib-1' for modifying
 Try removing '/cache/r-lib-1/00LOCK-rvg'
 * installing *source* package 'shiny' ...
 ** this is package 'shiny' version '1.14.0'
 ** package 'shiny' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (shiny)
+* installing *source* package 'moonBook' ...
+** this is package 'moonBook' version '0.3.1'
+** package 'moonBook' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (moonBook)
+* installing *source* package 'flextable' ...
+** this is package 'flextable' version '0.10.0'
+** package 'flextable' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
 ** inst
@@ -8514,11 +8526,25 @@ installing to /cache/r-lib-1/00LOCK-rvg/00new/rvg/libs
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (rvg)
-ERROR: failed to lock directory '/cache/r-lib-1' for modifying
-Try removing '/cache/r-lib-1/00LOCK-shiny'
-* installing *source* package 'flextable' ...
-** this is package 'flextable' version '0.10.0'
-** package 'flextable' successfully unpacked and MD5 sums checked
+* installing *source* package 'shiny' ...
+** this is package 'shiny' version '1.14.0'
+** package 'shiny' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (flextable)
+* installing *source* package 'car' ...
+** this is package 'car' version '3.1-5'
+** package 'car' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
 ** inst
@@ -8531,34 +8557,21 @@ Try removing '/cache/r-lib-1/00LOCK-shiny'
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (shiny)
-ERROR: failed to lock directory '/cache/r-lib-1' for modifying
-Try removing '/cache/r-lib-1/00LOCK-flextable'
 ** help
-* installing *source* package 'pbkrtest' ...
-** this is package 'pbkrtest' version '0.5.5'
-** package 'pbkrtest' successfully unpacked and MD5 sums checked
+*** installing help indices
+* installing *source* package 'flextable' ...
+** this is package 'flextable' version '0.10.0'
+** package 'flextable' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
-** data
-*** moving datasets to lazyload DB
 ** inst
 ** byte-compile and prepare package for lazy loading
-*** installing help indices
-*** copying figures
 ** building package indices
 ** installing vignettes
 ** testing if installed package can be loaded from temporary location
-** help
-*** installing help indices
 ** testing if installed package can be loaded from final location
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded from temporary location
 ** testing if installed package keeps a record of temporary installation path
-* DONE (flextable)
-ERROR: failed to lock directory '/cache/r-lib-1' for modifying
-Try removing '/cache/r-lib-1/00LOCK-pbkrtest'
-** testing if installed package can be loaded from final location
+* DONE (car)
 * installing *source* package 'miniUI' ...
 ** this is package 'miniUI' version '0.1.2'
 ** package 'miniUI' successfully unpacked and MD5 sums checked
@@ -8572,15 +8585,9 @@ Try removing '/cache/r-lib-1/00LOCK-pbkrtest'
 ** testing if installed package can be loaded from temporary location
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
-* DONE (pbkrtest)
-ERROR: failed to lock directory '/cache/r-lib-1' for modifying
-Try removing '/cache/r-lib-1/00LOCK-miniUI'
-** testing if installed package keeps a record of temporary installation path
 * DONE (miniUI)
 * installing *source* package 'shinyWidgets' ...
 ** this is package 'shinyWidgets' version '0.9.1'
-ERROR: failed to lock directory '/cache/r-lib-1' for modifying
-Try removing '/cache/r-lib-1/00LOCK-shinyWidgets'
 ** package 'shinyWidgets' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
@@ -8588,9 +8595,37 @@ Try removing '/cache/r-lib-1/00LOCK-shinyWidgets'
 *** moving datasets to lazyload DB
 ** inst
 ** byte-compile and prepare package for lazy loading
-* installing *source* package 'moonBook' ...
-** this is package 'moonBook' version '0.3.1'
-** package 'moonBook' successfully unpacked and MD5 sums checked
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** help
+** testing if installed package keeps a record of temporary installation path
+* DONE (shinyWidgets)
+*** installing help indices
+ERROR: dependency 'flextable' is not available for package 'ztable'
+Perhaps try a variation of:
+install.packages('flextable')
+* removing '/cache/r-lib-1/ztable'
+*** copying figures
+** building package indices
+* installing *source* package 'rstatix' ...
+** this is package 'rstatix' version '1.1.0'
+** package 'rstatix' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (flextable)
+* installing *source* package 'pbkrtest' ...
+** this is package 'pbkrtest' version '0.5.5'
+** package 'pbkrtest' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
 ** data
@@ -8603,24 +8638,77 @@ Try removing '/cache/r-lib-1/00LOCK-shinyWidgets'
 ** building package indices
 ** installing vignettes
 ** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
 ** help
 *** installing help indices
-** testing if installed package can be loaded from final location
-*** copying figures
 ** building package indices
-** testing if installed package keeps a record of temporary installation path
-* DONE (moonBook)
+** installing vignettes
 ** testing if installed package can be loaded from temporary location
-* installing *source* package 'ztable' ...
-** this is package 'ztable' version '0.2.5'
-** package 'ztable' successfully unpacked and MD5 sums checked
+** testing if installed package keeps a record of temporary installation path
+* DONE (rstatix)
+* installing *source* package 'editData' ...
+** this is package 'editData' version '0.1.8'
+** package 'editData' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
 ** data
 *** moving datasets to lazyload DB
 ** inst
 ** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
 ** testing if installed package can be loaded from final location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (editData)
+* installing *source* package 'ggpubr' ...
+** this is package 'ggpubr' version '1.0.0'
+** package 'ggpubr' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** data
+*** moving datasets to lazyload DB
+** testing if installed package keeps a record of temporary installation path
+* DONE (pbkrtest)
+** inst
+** byte-compile and prepare package for lazy loading
+* installing *source* package 'miniUI' ...
+** this is package 'miniUI' version '0.1.2'
+** package 'miniUI' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (miniUI)
+* installing *source* package 'shinyWidgets' ...
+** this is package 'shinyWidgets' version '0.9.1'
+** package 'shinyWidgets' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** help
+** testing if installed package can be loaded from temporary location
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from final location
+** testing if installed package can be loaded from temporary location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (shinyWidgets)
 * installing *source* package 'moonBook' ...
@@ -8632,194 +8720,47 @@ Try removing '/cache/r-lib-1/00LOCK-shinyWidgets'
 *** moving datasets to lazyload DB
 ** inst
 ** byte-compile and prepare package for lazy loading
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (ggpubr)
 ** help
 *** installing help indices
 *** copying figures
 ** building package indices
-** help
-** installing vignettes
-*** installing help indices
-** testing if installed package can be loaded from temporary location
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (moonBook)
-ERROR: failed to lock directory '/cache/r-lib-1' for modifying
-Try removing '/cache/r-lib-1/00LOCK-ztable'
-* installing *source* package 'car' ...
-** this is package 'car' version '3.1-5'
-** package 'car' successfully unpacked and MD5 sums checked
-** using staged installation
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (ztable)
-ERROR: failed to lock directory '/cache/r-lib-1' for modifying
-Try removing '/cache/r-lib-1/00LOCK-car'
-* installing *source* package 'editData' ...
-** this is package 'editData' version '0.1.8'
-** package 'editData' successfully unpacked and MD5 sums checked
-** using staged installation
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-*** copying figures
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (editData)
-ERROR: dependency 'car' is not available for package 'rstatix'
+ERROR: dependencies 'moonBook', 'ztable' are not available for package 'rrtable'
 Perhaps try a variation of:
-install.packages('car')
-* removing '/cache/r-lib-1/rstatix'
-ERROR: dependency 'rstatix' is not available for package 'ggpubr'
-Perhaps try a variation of:
-install.packages('rstatix')
-* removing '/cache/r-lib-1/ggpubr'
-ERROR: dependency 'ggpubr' is not available for package 'rrtable'
-Perhaps try a variation of:
-install.packages('ggpubr')
+install.packages(c('moonBook', 'ztable'))
 * removing '/cache/r-lib-1/rrtable'
-ERROR: dependency 'rrtable' is not available for package 'webr'
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+ERROR: dependencies 'moonBook', 'rrtable', 'ztable' are not available for package 'webr'
 Perhaps try a variation of:
-install.packages('rrtable')
+install.packages(c('moonBook', 'rrtable', 'ztable'))
 * removing '/cache/r-lib-1/webr'
 
 The downloaded source packages are in
-	'/tmp/RtmpdpOauJ/downloaded_packages'
+	'/tmp/RtmpnySjK8/downloaded_packages'
 Warning messages:
 1: In install.packages(deps, repos = ppm) :
   installation of package 'rvg' had non-zero exit status
 2: In install.packages(deps, repos = ppm) :
-  installation of package 'flextable' had non-zero exit status
-3: In install.packages(deps, repos = ppm) :
-  installation of package 'miniUI' had non-zero exit status
-4: In install.packages(deps, repos = ppm) :
-  installation of package 'shinyWidgets' had non-zero exit status
-5: In install.packages(deps, repos = ppm) :
-  installation of package 'car' had non-zero exit status
-6: In install.packages(deps, repos = ppm) :
-  installation of package 'rstatix' had non-zero exit status
-7: In install.packages(deps, repos = ppm) :
-  installation of package 'ggpubr' had non-zero exit status
-8: In install.packages(deps, repos = ppm) :
-  installation of package 'rrtable' had non-zero exit status
-9: In install.packages(deps, repos = ppm) :
-  installation of package 'webr' had non-zero exit status
-** help
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (car)
-* installing *source* package 'editData' ...
-** this is package 'editData' version '0.1.8'
-** package 'editData' successfully unpacked and MD5 sums checked
-** using staged installation
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-*** copying figures
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (editData)
-* installing *source* package 'rstatix' ...
-** this is package 'rstatix' version '1.1.0'
-** package 'rstatix' successfully unpacked and MD5 sums checked
-** using staged installation
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-*** copying figures
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (rstatix)
-* installing *source* package 'ggpubr' ...
-** this is package 'ggpubr' version '1.0.0'
-** package 'ggpubr' successfully unpacked and MD5 sums checked
-** using staged installation
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-** building package indices
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (ggpubr)
-* installing *source* package 'rrtable' ...
-** this is package 'rrtable' version '0.3.4'
-** package 'rrtable' successfully unpacked and MD5 sums checked
-** using staged installation
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-*** copying figures
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (rrtable)
-* installing *source* package 'webr' ...
-** this is package 'webr' version '0.1.7'
-** package 'webr' successfully unpacked and MD5 sums checked
-** using staged installation
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-*** copying figures
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (webr)
-
-The downloaded source packages are in
-	'/tmp/RtmpRFEe4y/downloaded_packages'
-Warning messages:
-1: In install.packages(deps, repos = ppm) :
-  installation of package 'lme4' had non-zero exit status
-2: In install.packages(deps, repos = ppm) :
-  installation of package 'shiny' had non-zero exit status
-3: In install.packages(deps, repos = ppm) :
-  installation of package 'pbkrtest' had non-zero exit status
-4: In install.packages(deps, repos = ppm) :
   installation of package 'ztable' had non-zero exit status
+3: In install.packages(deps, repos = ppm) :
+  installation of package 'rrtable' had non-zero exit status
+4: In install.packages(deps, repos = ppm) :
+  installation of package 'webr' had non-zero exit status
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (moonBook)
+* installing *source* package 'ztable' ...
+** this is package 'ztable' version '0.2.5'
+** package 'ztable' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
 
 
 processing file: template.qmd
@@ -8830,6 +8771,7 @@ processing file: template.qmd
 5/5                  
 output file: template.knit.md
 
+** help
 pandoc 
   to: html
   output-file: template.html
@@ -8851,993 +8793,91 @@ metadata
       - dplyr
       - ggplot2
   
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
 Output created: template.html
 
-
-
-processing file: cell-options.qmd
-1/3                  
-2/3 [unnamed-chunk-1]
-3/3                  
-output file: cell-options.knit.md
-
-pandoc 
-  to: html
-  output-file: cell-options.html
-  standalone: true
-  title-prefix: Quarto Live Documentation
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  theme:
-    light: cosmo
-    dark: darkly
-  title: Code Cell Options
-  
-Output created: ../_site/reference/cell-options.html
-
-pandoc 
-  to: html
-  output-file: document-yaml.html
-  standalone: true
-  title-prefix: Quarto Live Documentation
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  toc: true
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  theme:
-    light: cosmo
-    dark: darkly
-  title: Document YAML Options
-  
-Output created: ../_site/reference/document-yaml.html
-
-
-
-processing file: reactivity.qmd
-1/21                   
-2/21 [unnamed-chunk-1] 
-3/21                   
-4/21 [unnamed-chunk-2] 
-5/21                   
-6/21 [unnamed-chunk-3] 
-7/21                   
-8/21 [unnamed-chunk-4] 
-9/21                   
-10/21 [unnamed-chunk-5] 
-11/21                   
-12/21 [unnamed-chunk-6] 
-13/21                   
-14/21 [unnamed-chunk-7] 
-15/21                   
-16/21 [unnamed-chunk-8] 
-17/21                   
-18/21 [unnamed-chunk-9] 
-19/21                   
-20/21 [unnamed-chunk-10]
-21/21                   
-output file: reactivity.knit.md
-
-pandoc 
-  to: html
-  output-file: reactivity.html
-  standalone: true
-  title-prefix: Quarto Live Documentation
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  toc: true
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  ojs-engine: true
-  theme:
-    light: cosmo
-    dark: darkly
-  title: Reactivity with OJS
-  subtitle: Client-side interactive documents through integration with OJS
-  webr:
-    cell-options:
-      autorun: true
-    packages:
-      - palmerpenguins
-      - ggplot2
-  
-Output created: ../_site/interactive/reactivity.html
-
-
-
-processing file: dynamic.qmd
-1/33                   
-2/33 [unnamed-chunk-1] 
-3/33                   
-4/33 [unnamed-chunk-2] 
-5/33                   
-6/33 [unnamed-chunk-3] 
-7/33                   
-8/33 [unnamed-chunk-4] 
-9/33                   
-10/33 [unnamed-chunk-5] 
-11/33                   
-12/33 [unnamed-chunk-6] 
-13/33                   
-14/33 [unnamed-chunk-7] 
-15/33                   
-16/33 [unnamed-chunk-8] 
-17/33                   
-18/33 [unnamed-chunk-9] 
-19/33                   
-20/33 [unnamed-chunk-10]
-21/33                   
-22/33 [unnamed-chunk-11]
-23/33                   
-24/33 [unnamed-chunk-12]
-25/33                   
-26/33 [unnamed-chunk-13]
-27/33                   
-28/33 [unnamed-chunk-14]
-29/33                   
-30/33 [unnamed-chunk-15]
-31/33                   
-32/33 [unnamed-chunk-16]
-33/33                   
-output file: dynamic.knit.md
-
-pandoc 
-  to: html
-  output-file: dynamic.html
-  standalone: true
-  title-prefix: Quarto Live Documentation
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  toc: true
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  ojs-engine: true
-  theme:
-    light: cosmo
-    dark: darkly
-  title: Dynamic Exercises
-  subtitle: Unique code exercises for every learner
-  webr:
-    packages:
-      - dplyr
-      - ggplot2
-      - plotly
-      - tidyr
-      - palmerpenguins
-  
-Output created: ../_site/interactive/dynamic.html
-
-
-Starting python3 kernel...[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
-Done
-
-Executing 'dashboards.quarto_ipynb'
-
-pandoc 
-  to: html
-  output-file: dashboards.html
-  template: /opt/quarto/share/formats/dashboard/template.html
-  standalone: true
-  title-prefix: Quarto Live Documentation
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  page-layout: custom
-  ojs-engine: true
-  theme:
-    light: cosmo
-    dark: darkly
-  title: Dashboard Example
-  subtitle: Interactive Quarto Dashboards with WebAssembly computation
-  pyodide:
-    packages:
-      - numpy
-      - scipy
-      - matplotlib
-      - plotly
-      - nbformat
-      - ipywidgets
-  
-Output created: ../_site/interactive/dashboards.html
-
-
-
-processing file: data.qmd
-1/17                  
-2/17 [unnamed-chunk-1]
-3/17                  
-4/17 [unnamed-chunk-2]
-5/17                  
-6/17 [unnamed-chunk-3]
-7/17                  
-8/17 [unnamed-chunk-4]
-9/17                  
-10/17 [unnamed-chunk-5]
-11/17                  
-12/17 [unnamed-chunk-6]
-13/17                  
-14/17 [unnamed-chunk-7]
-15/17                  
-16/17 [unnamed-chunk-8]
-17/17                  
-output file: data.knit.md
-
-pandoc 
-  to: html
-  output-file: data.html
-  standalone: true
-  title-prefix: Quarto Live Documentation
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  toc: true
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  ojs-engine: true
-  theme:
-    light: cosmo
-    dark: darkly
-  title: Data Conversion
-  subtitle: Automatic handling of data conversion to and from WebAssembly
-  webr:
-    cell-options:
-      autorun: true
-  
-Output created: ../_site/interactive/data.html
-
-
-
-processing file: hybrid.qmd
-1/15                  
-2/15 [unnamed-chunk-1]
-3/15                  
-4/15 [unnamed-chunk-2]
-5/15                  
-6/15 [unnamed-chunk-3]
-7/15                  
-8/15 [unnamed-chunk-4]
-9/15                  
-10/15 [unnamed-chunk-5]
-11/15                  
-12/15 [unnamed-chunk-6]
-13/15                  
-14/15 [unnamed-chunk-7]
-15/15                  
-output file: hybrid.knit.md
-
-pandoc 
-  to: html
-  output-file: hybrid.html
-  standalone: true
-  title-prefix: Quarto Live Documentation
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  toc: true
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  ojs-engine: true
-  theme:
-    light: cosmo
-    dark: darkly
-  title: Hybrid Execution
-  subtitle: Combine pre-rendered and client-side WebAssembly computation
-  webr:
-    packages: dplyr
-  
-Output created: ../_site/interactive/hybrid.html
-
-
-
-processing file: index.qmd
-1/5                  
-2/5 [unnamed-chunk-1]
-3/5                  
-4/5 [unnamed-chunk-2]
-5/5                  
-output file: index.knit.md
-
-pandoc 
-  to: html
-  output-file: index.html
-  standalone: true
-  title-prefix: Quarto Live Documentation
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  toc: true
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  ojs-engine: true
-  theme:
-    light: cosmo
-    dark: darkly
-  title: Introduction
-  subtitle: WebAssembly powered code blocks and exercises for Quarto HTML documents
-  
-Output created: _site/index.html
-
-
-
-processing file: htmlwidgets.qmd
-1/11                  
-2/11 [unnamed-chunk-1]
-3/11                  
-4/11 [unnamed-chunk-2]
-5/11                  
-6/11 [unnamed-chunk-3]
-7/11                  
-8/11 [unnamed-chunk-4]
-9/11                  
-10/11 [unnamed-chunk-5]
-11/11                  
-output file: htmlwidgets.knit.md
-
-pandoc 
-  to: html
-  output-file: htmlwidgets.html
-  standalone: true
-  title-prefix: Quarto Live Documentation
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  toc: true
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  ojs-engine: true
-  theme:
-    light: cosmo
-    dark: darkly
-  title: HTML Widgets
-  webr:
-    packages:
-      - rgl
-      - gt
-      - leaflet
-  
-Output created: ../_site/other/htmlwidgets.html
-
-
-
-processing file: tables.qmd
-1/5                  
-2/5 [unnamed-chunk-1]
-3/5                  
-4/5 [unnamed-chunk-2]
-5/5                  
-output file: tables.knit.md
-
-pandoc 
-  to: html
-  output-file: tables.html
-  standalone: true
-  title-prefix: Quarto Live Documentation
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  toc: true
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  ojs-engine: true
-  theme:
-    light: cosmo
-    dark: darkly
-  title: Displaying Tables
-  webr:
-    render-df: gt-interactive
-    cell-options:
-      autorun: true
-  
-Output created: ../_site/other/tables.html
-
-
-
-processing file: resources.qmd
-1/11                  
-2/11 [unnamed-chunk-1]
-3/11                  
-4/11 [unnamed-chunk-2]
-5/11                  
-6/11 [unnamed-chunk-3]
-7/11                  
-8/11 [unnamed-chunk-4]
-9/11                  
-10/11 [unnamed-chunk-5]
-11/11                  
-output file: resources.knit.md
-
-pandoc 
-  to: html
-  output-file: resources.html
-  standalone: true
-  title-prefix: Quarto Live Documentation
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  toc: true
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  ojs-engine: true
-  theme:
-    light: cosmo
-    dark: darkly
-  title: Loading Resources
-  subtitle: Local and external resources made available in interactive code blocks
-  resources:
-    - data
-  webr:
-    cell-options:
-      autorun: true
-    resources:
-      - data
-      - https://raw.githubusercontent.com/mwaskom/seaborn-data/master/flights.csv
-  pyodide:
-    cell-options:
-      autorun: true
-    packages:
-      - pandas
-      - seaborn
-    resources:
-      - data
-      - https://raw.githubusercontent.com/mwaskom/seaborn-data/master/flights.csv
-  
-Output created: ../_site/other/resources.html
-
-
-
-processing file: slides.qmd
-1/13                  
-2/13 [unnamed-chunk-1]
-3/13                  
-4/13 [unnamed-chunk-2]
-5/13                  
-6/13 [unnamed-chunk-3]
-7/13                  
-8/13 [unnamed-chunk-4]
-9/13                  
-10/13 [unnamed-chunk-5]
-11/13                  
-12/13 [unnamed-chunk-6]
-13/13                  
-output file: slides.knit.md
-
-pandoc 
-  to: revealjs
-  output-file: slides.html
-  standalone: true
-  title-prefix: Quarto Live Documentation
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  ojs-engine: true
-  theme: default
-  title: Example Slides
-  webr:
-    cell-options:
-      autorun: true
-      fig-width: 11
-      fig-height: 5
-  
-Output created: ../_site/other/slides.html
-
-
-Starting python3 kernel...[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
-Done
-
-Executing 'py_output.quarto_ipynb'
-
-pandoc 
-  to: html
-  output-file: py_output.html
-  standalone: true
-  title-prefix: Quarto Live Documentation
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  toc: true
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  ojs-engine: true
-  theme:
-    light: cosmo
-    dark: darkly
-  title: Python HTML Output
-  subtitle: Rich IPython output, HTML content, and Jupyter Widgets
-  resources:
-    - images
-  pyodide:
-    cell-options:
-      autorun: true
-    packages:
-      - matplotlib
-      - ipywidgets
-      - altair
-      - numpy
-      - pandas
-      - vega_datasets
-  
-Output created: ../_site/other/py_output.html
-
-
-
-processing file: packages.qmd
-1/7                  
-2/7 [unnamed-chunk-1]
-3/7                  
-4/7 [unnamed-chunk-2]
-5/7                  
-6/7 [unnamed-chunk-3]
-7/7                  
-output file: packages.knit.md
-
-pandoc 
-  to: html
-  output-file: packages.html
-  standalone: true
-  title-prefix: Quarto Live Documentation
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  toc: true
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  ojs-engine: true
-  theme:
-    light: cosmo
-    dark: darkly
-  title: Loading and Using Packages
-  subtitle: Integrating R and Python packages into interactive Quarto documents
-  pyodide:
-    packages:
-      - https://cdn.jsdelivr.net/pyodide/v0.26.1/full/decorator-5.1.1-py3-none-any.whl
-  
-Output created: ../_site/getting_started/packages.html
-
-
-
-processing file: plotting.qmd
-1/11                  
-2/11 [unnamed-chunk-1]
-3/11                  
-4/11 [unnamed-chunk-2]
-5/11                  
-6/11 [unnamed-chunk-3]
-7/11                  
-8/11 [unnamed-chunk-4]
-9/11                  
-10/11 [unnamed-chunk-5]
-11/11                  
-output file: plotting.knit.md
-
-pandoc 
-  to: html
-  output-file: plotting.html
-  standalone: true
-  title-prefix: Quarto Live Documentation
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  ojs-engine: true
-  theme:
-    light: cosmo
-    dark: darkly
-  title: Plotting and Graphics
-  subtitle: Dynamic data visualisation for interactive code blocks
-  webr:
-    cell-options:
-      autorun: true
-    packages:
-      - ggplot2
-  pyodide:
-    packages:
-      - matplotlib
-  
-Output created: ../_site/getting_started/plotting.html
-
-
-
-processing file: installation.qmd
-1/1
-output file: installation.knit.md
-
-pandoc 
-  to: html
-  output-file: installation.html
-  standalone: true
-  title-prefix: Quarto Live Documentation
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  toc: true
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  ojs-engine: true
-  theme:
-    light: cosmo
-    dark: darkly
-  title: Installation
-  
-Output created: ../_site/getting_started/installation.html
-
-
-
-processing file: editor.qmd
-1/29                   
-2/29 [unnamed-chunk-1] 
-3/29                   
-4/29 [unnamed-chunk-2] 
-5/29                   
-6/29 [unnamed-chunk-3] 
-7/29                   
-8/29 [unnamed-chunk-4] 
-9/29                   
-10/29 [unnamed-chunk-5] 
-11/29                   
-12/29 [unnamed-chunk-6] 
-13/29                   
-14/29 [unnamed-chunk-7] 
-15/29                   
-16/29 [unnamed-chunk-8] 
-17/29                   
-18/29 [unnamed-chunk-9] 
-19/29                   
-20/29 [unnamed-chunk-10]
-21/29                   
-22/29 [unnamed-chunk-11]
-23/29                   
-24/29 [unnamed-chunk-12]
-25/29                   
-26/29 [unnamed-chunk-13]
-27/29                   
-28/29 [unnamed-chunk-14]
-29/29                   
-output file: editor.knit.md
-
-pandoc 
-  to: html
-  output-file: editor.html
-  standalone: true
-  title-prefix: Quarto Live Documentation
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  toc: true
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  ojs-engine: true
-  theme:
-    light: cosmo
-    dark: darkly
-  title: Interactive Code Blocks
-  subtitle: Dynamic evaluation of user provided code and data visualisation
-  
-Output created: ../_site/getting_started/editor.html
-
-
-
-processing file: exercises.qmd
-1/23                   
-2/23 [unnamed-chunk-1] 
-3/23                   
-4/23 [unnamed-chunk-2] 
-5/23                   
-6/23 [unnamed-chunk-3] 
-7/23                   
-8/23 [unnamed-chunk-4] 
-9/23                   
-10/23 [unnamed-chunk-5] 
-11/23                   
-12/23 [unnamed-chunk-6] 
-13/23                   
-14/23 [unnamed-chunk-7] 
-15/23                   
-16/23 [unnamed-chunk-8] 
-17/23                   
-18/23 [unnamed-chunk-9] 
-19/23                   
-20/23 [unnamed-chunk-10]
-21/23                   
-22/23 [unnamed-chunk-11]
-23/23                   
-output file: exercises.knit.md
-
-pandoc 
-  to: html
-  output-file: exercises.html
-  standalone: true
-  title-prefix: Quarto Live Documentation
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  toc: true
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  ojs-engine: true
-  theme:
-    light: cosmo
-    dark: darkly
-  title: Creating Exercises
-  subtitle: Evaluate learner code, providing support with hints and solutions
-  webr:
-    packages:
-      - dplyr
-  
-Output created: ../_site/exercises/exercises.html
-
-
-
-processing file: grading.qmd
-1/19                  
-2/19 [unnamed-chunk-1]
-3/19                  
-4/19 [unnamed-chunk-2]
-5/19                  
-6/19 [unnamed-chunk-3]
-7/19                  
-8/19 [unnamed-chunk-4]
-9/19                  
-10/19 [unnamed-chunk-5]
-11/19                  
-12/19 [unnamed-chunk-6]
-13/19                  
-14/19 [unnamed-chunk-7]
-15/19                  
-16/19 [unnamed-chunk-8]
-17/19                  
-18/19 [unnamed-chunk-9]
-19/19                  
-output file: grading.knit.md
-
-pandoc 
-  to: html
-  output-file: grading.html
-  standalone: true
-  title-prefix: Quarto Live Documentation
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  toc: true
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  ojs-engine: true
-  theme:
-    light: cosmo
-    dark: darkly
-  title: Grading Solutions
-  subtitle: Custom algorithms for grading and feedback of submitted R and Python code
-  webr:
-    packages:
-      - dplyr
-  
-Output created: ../_site/exercises/grading.html
-
-
-
-processing file: gradethis.qmd
-1/13                  
-2/13 [unnamed-chunk-1]
-3/13                  
-4/13 [unnamed-chunk-2]
-5/13                  
-6/13 [unnamed-chunk-3]
-7/13                  
-8/13 [unnamed-chunk-4]
-9/13                  
-10/13 [unnamed-chunk-5]
-11/13                  
-12/13 [unnamed-chunk-6]
-13/13                  
-output file: gradethis.knit.md
-
-pandoc 
-  to: html
-  output-file: gradethis.html
-  standalone: true
-  title-prefix: Quarto Live Documentation
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  toc: true
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  ojs-engine: true
-  theme:
-    light: cosmo
-    dark: darkly
-  title: Grading with `{gradethis}`
-  subtitle: Grade solutions to R exercises using the existing `{gradethis}` R package
-  webr:
-    packages:
-      - dplyr
-  
-Output created: ../_site/exercises/gradethis.html
-
-
-
-processing file: environments.qmd
-1/29                   
-2/29 [unnamed-chunk-1] 
-3/29                   
-4/29 [unnamed-chunk-2] 
-5/29                   
-6/29 [unnamed-chunk-3] 
-7/29                   
-8/29 [unnamed-chunk-4] 
-9/29                   
-10/29 [unnamed-chunk-5] 
-11/29                   
-12/29 [unnamed-chunk-6] 
-13/29                   
-14/29 [unnamed-chunk-7] 
-15/29                   
-16/29 [unnamed-chunk-8] 
-17/29                   
-18/29 [unnamed-chunk-9] 
-19/29                   
-20/29 [unnamed-chunk-10]
-21/29                   
-22/29 [unnamed-chunk-11]
-23/29                   
-24/29 [unnamed-chunk-12]
-25/29                   
-26/29 [unnamed-chunk-13]
-27/29                   
-28/29 [unnamed-chunk-14]
-29/29                   
-output file: environments.knit.md
-
-pandoc 
-  to: html
-  output-file: environments.html
-  standalone: true
-  title-prefix: Quarto Live Documentation
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  toc: true
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  ojs-engine: true
-  theme:
-    light: cosmo
-    dark: darkly
-  title: Managing Environments
-  webr:
-    cell-options:
-      autorun: true
-  
-Output created: ../_site/exercises/environments.html
-
+Error in setwd(startdir) : cannot change working directory
+Error in setwd(startdir) : cannot change working directory
+Execution halted
+sh: 0: getcwd() failed: No such file or directory
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+Error in tools:::.install_packages() : 
+  current working directory cannot be ascertained
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+Error in tools:::.install_packages() : 
+  current working directory cannot be ascertained
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+Error in tools:::.install_packages() : 
+  current working directory cannot be ascertained
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+Error in tools:::.install_packages() : 
+  current working directory cannot be ascertained
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+Error in tools:::.install_packages() : 
+  current working directory cannot be ascertained
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+Error in tools:::.install_packages() : 
+  current working directory cannot be ascertained
+sh: 0: getcwd() failed: No such file or directory
+
+The downloaded source packages are in
+	'/tmp/RtmpVd1kjN/downloaded_packages'
+Warning messages:
+1: In install.packages(deps, repos = ppm) :
+  installation of package 'ztable' had non-zero exit status
+2: In install.packages(deps, repos = ppm) :
+  installation of package 'car' had non-zero exit status
+3: In install.packages(deps, repos = ppm) :
+  installation of package 'editData' had non-zero exit status
+4: In install.packages(deps, repos = ppm) :
+  installation of package 'rstatix' had non-zero exit status
+5: In install.packages(deps, repos = ppm) :
+  installation of package 'ggpubr' had non-zero exit status
+6: In install.packages(deps, repos = ppm) :
+  installation of package 'rrtable' had non-zero exit status
+7: In install.packages(deps, repos = ppm) :
+  installation of package 'webr' had non-zero exit status
+sh: 0: getcwd() failed: No such file or directory

@@ -42,162 +42,162 @@ Please install them using your package manager (brew, apt, npm, etc.).
   Note: abc2svg can be installed via 'npm install -g abc2svg'
 
 The required SoundFont file was not found:
-  Path: /home/runner/work/quarto-extensions/quarto-extensions/test-14/.local/share/soundfonts/timbresOfHeaven4.00.sf2
+  Path: /home/runner/work/quarto-extensions/quarto-extensions/test-16/.local/share/soundfonts/timbresOfHeaven4.00.sf2
 
 Please download 'Timbres of Heaven 4.00' and place it at this location.
 ============================================================
 
-2026-08-15 14:35:41,046 - INFO - Logging initialized. Log file: output/log/abc.log
-2026-08-15 14:35:41,046 - INFO - [run_abc.py:77]: Resolving image directory. arg_value=cache/images
-2026-08-15 14:35:41,046 - INFO - [run_abc.py:78]: Resolving audio directory. arg_value=cache/audio
-2026-08-15 14:35:41,046 - INFO - [run_abc.py:84]: Target file name base: CMajorScale
-2026-08-15 14:35:41,046 - INFO - --- IMAGE GENERATION START (Renderer: abc2svg) ---
-2026-08-15 14:35:41,046 - INFO - File cache/images/CMajorScale.svg missing. Generation needed.
-2026-08-15 14:35:41,046 - INFO - Executing abc2svg: abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/CMajorScale.abc
-2026-08-15 14:35:41,048 - ERROR - abc2svg failed: Command 'abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/CMajorScale.abc' returned non-zero exit status 127.
-2026-08-15 14:35:41,048 - INFO - SVGO not found; skipping optional optimization.
-2026-08-15 14:35:41,048 - INFO - Preparing SVG for seamless HTML embedding
-2026-08-15 14:35:41,048 - INFO - --- AUDIO GENERATION START ---
-2026-08-15 14:35:41,048 - INFO - File cache/audio/CMajorScale.webm missing. Generation needed.
-2026-08-15 14:35:41,048 - INFO - [run_abc.py:240]: Executing abc2midi: abc2midi cache/audio/CMajorScale.abc -o cache/audio/CMajorScale.mid
-2026-08-15 14:35:41,049 - ERROR - Executable for 'abc2midi' (abc2midi) not found. Is it installed?
-2026-08-15 14:35:41,049 - INFO - Using SoundFont: /home/runner/work/quarto-extensions/quarto-extensions/test-14/.local/share/soundfonts/timbresOfHeaven4.00.sf2
-2026-08-15 14:35:41,049 - INFO - [run_abc.py:251]: Executing fluidsynth: fluidsynth -n -i -F cache/audio/CMajorScale.wav /home/runner/work/quarto-extensions/quarto-extensions/test-14/.local/share/soundfonts/timbresOfHeaven4.00.sf2 cache/audio/CMajorScale.mid
-2026-08-15 14:35:41,050 - ERROR - Executable for 'fluidsynth' (fluidsynth) not found. Is it installed?
-2026-08-15 14:35:41,050 - INFO - [run_abc.py:256]: Executing ffmpeg: ffmpeg -y -i cache/audio/CMajorScale.wav -c:a libopus -b:a 64k cache/audio/CMajorScale.webm
-2026-08-15 14:35:41,050 - ERROR - Executable for 'ffmpeg' (ffmpeg) not found. Is it installed?
-2026-08-15 14:35:41,134 - INFO - Logging initialized. Log file: output/log/abc.log
-2026-08-15 14:35:41,134 - INFO - [run_abc.py:77]: Resolving image directory. arg_value=cache/images
-2026-08-15 14:35:41,135 - INFO - [run_abc.py:78]: Resolving audio directory. arg_value=cache/audio
-2026-08-15 14:35:41,135 - INFO - [run_abc.py:84]: Target file name base: breton
-2026-08-15 14:35:41,135 - INFO - --- IMAGE GENERATION START (Renderer: abc2svg) ---
-2026-08-15 14:35:41,135 - INFO - File cache/images/breton.svg missing. Generation needed.
-2026-08-15 14:35:41,135 - INFO - Executing abc2svg: abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/breton.abc
-2026-08-15 14:35:41,136 - ERROR - abc2svg failed: Command 'abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/breton.abc' returned non-zero exit status 127.
-2026-08-15 14:35:41,136 - INFO - SVGO not found; skipping optional optimization.
-2026-08-15 14:35:41,136 - INFO - Preparing SVG for seamless HTML embedding
-2026-08-15 14:35:41,136 - INFO - --- AUDIO GENERATION START ---
-2026-08-15 14:35:41,136 - INFO - File cache/audio/breton.webm missing. Generation needed.
-2026-08-15 14:35:41,136 - INFO - [run_abc.py:240]: Executing abc2midi: abc2midi cache/audio/breton.abc -o cache/audio/breton.mid
-2026-08-15 14:35:41,137 - ERROR - Executable for 'abc2midi' (abc2midi) not found. Is it installed?
-2026-08-15 14:35:41,137 - INFO - Using SoundFont: /home/runner/work/quarto-extensions/quarto-extensions/test-14/.local/share/soundfonts/timbresOfHeaven4.00.sf2
-2026-08-15 14:35:41,137 - INFO - [run_abc.py:251]: Executing fluidsynth: fluidsynth -n -i -F cache/audio/breton.wav /home/runner/work/quarto-extensions/quarto-extensions/test-14/.local/share/soundfonts/timbresOfHeaven4.00.sf2 cache/audio/breton.mid
-2026-08-15 14:35:41,137 - ERROR - Executable for 'fluidsynth' (fluidsynth) not found. Is it installed?
-2026-08-15 14:35:41,138 - INFO - [run_abc.py:256]: Executing ffmpeg: ffmpeg -y -i cache/audio/breton.wav -c:a libopus -b:a 64k cache/audio/breton.webm
-2026-08-15 14:35:41,138 - ERROR - Executable for 'ffmpeg' (ffmpeg) not found. Is it installed?
-2026-08-15 14:35:41,219 - INFO - Logging initialized. Log file: output/log/abc.log
-2026-08-15 14:35:41,220 - INFO - [run_abc.py:77]: Resolving image directory. arg_value=cache/images
-2026-08-15 14:35:41,220 - INFO - [run_abc.py:78]: Resolving audio directory. arg_value=cache/audio
-2026-08-15 14:35:41,220 - INFO - [run_abc.py:84]: Target file name base: boarsHead
-2026-08-15 14:35:41,220 - INFO - --- IMAGE GENERATION START (Renderer: abc2svg) ---
-2026-08-15 14:35:41,220 - INFO - File cache/images/boarsHead.svg missing. Generation needed.
-2026-08-15 14:35:41,220 - INFO - Executing abc2svg: abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/boarsHead.abc
-2026-08-15 14:35:41,221 - ERROR - abc2svg failed: Command 'abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/boarsHead.abc' returned non-zero exit status 127.
-2026-08-15 14:35:41,221 - INFO - SVGO not found; skipping optional optimization.
-2026-08-15 14:35:41,221 - INFO - Preparing SVG for seamless HTML embedding
-2026-08-15 14:35:41,222 - INFO - --- AUDIO GENERATION START ---
-2026-08-15 14:35:41,222 - INFO - File cache/audio/boarsHead.webm missing. Generation needed.
-2026-08-15 14:35:41,222 - INFO - [run_abc.py:240]: Executing abc2midi: abc2midi cache/audio/boarsHead.abc -o cache/audio/boarsHead.mid
-2026-08-15 14:35:41,222 - ERROR - Executable for 'abc2midi' (abc2midi) not found. Is it installed?
-2026-08-15 14:35:41,222 - INFO - Using SoundFont: /home/runner/work/quarto-extensions/quarto-extensions/test-14/.local/share/soundfonts/timbresOfHeaven4.00.sf2
-2026-08-15 14:35:41,222 - INFO - [run_abc.py:251]: Executing fluidsynth: fluidsynth -n -i -F cache/audio/boarsHead.wav /home/runner/work/quarto-extensions/quarto-extensions/test-14/.local/share/soundfonts/timbresOfHeaven4.00.sf2 cache/audio/boarsHead.mid
-2026-08-15 14:35:41,223 - ERROR - Executable for 'fluidsynth' (fluidsynth) not found. Is it installed?
-2026-08-15 14:35:41,223 - INFO - [run_abc.py:256]: Executing ffmpeg: ffmpeg -y -i cache/audio/boarsHead.wav -c:a libopus -b:a 64k cache/audio/boarsHead.webm
-2026-08-15 14:35:41,223 - ERROR - Executable for 'ffmpeg' (ffmpeg) not found. Is it installed?
-2026-08-15 14:35:41,306 - INFO - Logging initialized. Log file: output/log/abc.log
-2026-08-15 14:35:41,306 - INFO - [run_abc.py:77]: Resolving image directory. arg_value=cache/images
-2026-08-15 14:35:41,306 - INFO - [run_abc.py:78]: Resolving audio directory. arg_value=cache/audio
-2026-08-15 14:35:41,306 - INFO - [run_abc.py:84]: Target file name base: shaveAndHaircut
-2026-08-15 14:35:41,306 - INFO - --- IMAGE GENERATION START (Renderer: abc2svg) ---
-2026-08-15 14:35:41,306 - INFO - File cache/images/shaveAndHaircut.svg missing. Generation needed.
-2026-08-15 14:35:41,306 - INFO - Executing abc2svg: abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/shaveAndHaircut.abc
-2026-08-15 14:35:41,308 - ERROR - abc2svg failed: Command 'abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/shaveAndHaircut.abc' returned non-zero exit status 127.
-2026-08-15 14:35:41,308 - INFO - SVGO not found; skipping optional optimization.
-2026-08-15 14:35:41,308 - INFO - Preparing SVG for seamless HTML embedding
-2026-08-15 14:35:41,308 - INFO - --- AUDIO GENERATION START ---
-2026-08-15 14:35:41,308 - INFO - File cache/audio/shaveAndHaircut.webm missing. Generation needed.
-2026-08-15 14:35:41,308 - INFO - [run_abc.py:240]: Executing abc2midi: abc2midi cache/audio/shaveAndHaircut.abc -o cache/audio/shaveAndHaircut.mid
-2026-08-15 14:35:41,309 - ERROR - Executable for 'abc2midi' (abc2midi) not found. Is it installed?
-2026-08-15 14:35:41,309 - INFO - Using SoundFont: /home/runner/work/quarto-extensions/quarto-extensions/test-14/.local/share/soundfonts/timbresOfHeaven4.00.sf2
-2026-08-15 14:35:41,309 - INFO - [run_abc.py:251]: Executing fluidsynth: fluidsynth -n -i -F cache/audio/shaveAndHaircut.wav /home/runner/work/quarto-extensions/quarto-extensions/test-14/.local/share/soundfonts/timbresOfHeaven4.00.sf2 cache/audio/shaveAndHaircut.mid
-2026-08-15 14:35:41,309 - ERROR - Executable for 'fluidsynth' (fluidsynth) not found. Is it installed?
-2026-08-15 14:35:41,309 - INFO - [run_abc.py:256]: Executing ffmpeg: ffmpeg -y -i cache/audio/shaveAndHaircut.wav -c:a libopus -b:a 64k cache/audio/shaveAndHaircut.webm
-2026-08-15 14:35:41,310 - ERROR - Executable for 'ffmpeg' (ffmpeg) not found. Is it installed?
-2026-08-15 14:35:41,393 - INFO - Logging initialized. Log file: output/log/abc.log
-2026-08-15 14:35:41,393 - INFO - [run_abc.py:77]: Resolving image directory. arg_value=cache/images
-2026-08-15 14:35:41,393 - INFO - [run_abc.py:78]: Resolving audio directory. arg_value=cache/audio
-2026-08-15 14:35:41,393 - INFO - [run_abc.py:84]: Target file name base: theElephantTuba
-2026-08-15 14:35:41,393 - INFO - --- IMAGE GENERATION START (Renderer: abc2svg) ---
-2026-08-15 14:35:41,393 - INFO - File cache/images/theElephantTuba.svg missing. Generation needed.
-2026-08-15 14:35:41,393 - INFO - Executing abc2svg: abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/theElephantTuba.abc
-2026-08-15 14:35:41,395 - ERROR - abc2svg failed: Command 'abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/theElephantTuba.abc' returned non-zero exit status 127.
-2026-08-15 14:35:41,395 - INFO - SVGO not found; skipping optional optimization.
-2026-08-15 14:35:41,395 - INFO - Preparing SVG for seamless HTML embedding
-2026-08-15 14:35:41,395 - INFO - --- AUDIO GENERATION START ---
-2026-08-15 14:35:41,395 - INFO - File cache/audio/theElephantTuba.webm missing. Generation needed.
-2026-08-15 14:35:41,395 - INFO - [run_abc.py:240]: Executing abc2midi: abc2midi cache/audio/theElephantTuba.abc -o cache/audio/theElephantTuba.mid
-2026-08-15 14:35:41,396 - ERROR - Executable for 'abc2midi' (abc2midi) not found. Is it installed?
-2026-08-15 14:35:41,396 - INFO - Using SoundFont: /home/runner/work/quarto-extensions/quarto-extensions/test-14/.local/share/soundfonts/timbresOfHeaven4.00.sf2
-2026-08-15 14:35:41,396 - INFO - [run_abc.py:251]: Executing fluidsynth: fluidsynth -n -i -F cache/audio/theElephantTuba.wav /home/runner/work/quarto-extensions/quarto-extensions/test-14/.local/share/soundfonts/timbresOfHeaven4.00.sf2 cache/audio/theElephantTuba.mid
-2026-08-15 14:35:41,396 - ERROR - Executable for 'fluidsynth' (fluidsynth) not found. Is it installed?
-2026-08-15 14:35:41,396 - INFO - [run_abc.py:256]: Executing ffmpeg: ffmpeg -y -i cache/audio/theElephantTuba.wav -c:a libopus -b:a 64k cache/audio/theElephantTuba.webm
-2026-08-15 14:35:41,397 - ERROR - Executable for 'ffmpeg' (ffmpeg) not found. Is it installed?
-2026-08-15 14:35:41,478 - INFO - Logging initialized. Log file: output/log/abc.log
-2026-08-15 14:35:41,478 - INFO - [run_abc.py:77]: Resolving image directory. arg_value=cache/images
-2026-08-15 14:35:41,479 - INFO - [run_abc.py:78]: Resolving audio directory. arg_value=cache/audio
-2026-08-15 14:35:41,479 - INFO - [run_abc.py:84]: Target file name base: morningMood
-2026-08-15 14:35:41,479 - INFO - --- IMAGE GENERATION START (Renderer: abc2svg) ---
-2026-08-15 14:35:41,479 - INFO - File cache/images/morningMood.svg missing. Generation needed.
-2026-08-15 14:35:41,479 - INFO - Executing abc2svg: abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/morningMood.abc
-2026-08-15 14:35:41,480 - ERROR - abc2svg failed: Command 'abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/morningMood.abc' returned non-zero exit status 127.
-2026-08-15 14:35:41,480 - INFO - SVGO not found; skipping optional optimization.
-2026-08-15 14:35:41,481 - INFO - Preparing SVG for seamless HTML embedding
-2026-08-15 14:35:41,481 - INFO - --- AUDIO GENERATION START ---
-2026-08-15 14:35:41,481 - INFO - File cache/audio/morningMood.webm missing. Generation needed.
-2026-08-15 14:35:41,481 - INFO - [run_abc.py:240]: Executing abc2midi: abc2midi cache/audio/morningMood.abc -o cache/audio/morningMood.mid
-2026-08-15 14:35:41,482 - ERROR - Executable for 'abc2midi' (abc2midi) not found. Is it installed?
-2026-08-15 14:35:41,482 - INFO - Using SoundFont: /home/runner/work/quarto-extensions/quarto-extensions/test-14/.local/share/soundfonts/timbresOfHeaven4.00.sf2
-2026-08-15 14:35:41,482 - INFO - [run_abc.py:251]: Executing fluidsynth: fluidsynth -n -i -F cache/audio/morningMood.wav /home/runner/work/quarto-extensions/quarto-extensions/test-14/.local/share/soundfonts/timbresOfHeaven4.00.sf2 cache/audio/morningMood.mid
-2026-08-15 14:35:41,482 - ERROR - Executable for 'fluidsynth' (fluidsynth) not found. Is it installed?
-2026-08-15 14:35:41,482 - INFO - [run_abc.py:256]: Executing ffmpeg: ffmpeg -y -i cache/audio/morningMood.wav -c:a libopus -b:a 64k cache/audio/morningMood.webm
-2026-08-15 14:35:41,483 - ERROR - Executable for 'ffmpeg' (ffmpeg) not found. Is it installed?
-2026-08-15 14:35:41,568 - INFO - Logging initialized. Log file: output/log/abc.log
-2026-08-15 14:35:41,569 - INFO - [run_abc.py:77]: Resolving image directory. arg_value=cache/images
-2026-08-15 14:35:41,569 - INFO - [run_abc.py:78]: Resolving audio directory. arg_value=cache/audio
-2026-08-15 14:35:41,569 - INFO - [run_abc.py:84]: Target file name base: mozartK545
-2026-08-15 14:35:41,569 - INFO - --- IMAGE GENERATION START (Renderer: abc2svg) ---
-2026-08-15 14:35:41,569 - INFO - File cache/images/mozartK545.svg missing. Generation needed.
-2026-08-15 14:35:41,569 - INFO - Executing abc2svg: abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/mozartK545.abc
-2026-08-15 14:35:41,570 - ERROR - abc2svg failed: Command 'abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/mozartK545.abc' returned non-zero exit status 127.
-2026-08-15 14:35:41,571 - INFO - SVGO not found; skipping optional optimization.
-2026-08-15 14:35:41,571 - INFO - Preparing SVG for seamless HTML embedding
-2026-08-15 14:35:41,571 - INFO - --- AUDIO GENERATION START ---
-2026-08-15 14:35:41,571 - INFO - File cache/audio/mozartK545.webm missing. Generation needed.
-2026-08-15 14:35:41,571 - INFO - [run_abc.py:240]: Executing abc2midi: abc2midi cache/audio/mozartK545.abc -o cache/audio/mozartK545.mid
-2026-08-15 14:35:41,572 - ERROR - Executable for 'abc2midi' (abc2midi) not found. Is it installed?
-2026-08-15 14:35:41,572 - INFO - Using SoundFont: /home/runner/work/quarto-extensions/quarto-extensions/test-14/.local/share/soundfonts/timbresOfHeaven4.00.sf2
-2026-08-15 14:35:41,572 - INFO - [run_abc.py:251]: Executing fluidsynth: fluidsynth -n -i -F cache/audio/mozartK545.wav /home/runner/work/quarto-extensions/quarto-extensions/test-14/.local/share/soundfonts/timbresOfHeaven4.00.sf2 cache/audio/mozartK545.mid
-2026-08-15 14:35:41,572 - ERROR - Executable for 'fluidsynth' (fluidsynth) not found. Is it installed?
-2026-08-15 14:35:41,572 - INFO - [run_abc.py:256]: Executing ffmpeg: ffmpeg -y -i cache/audio/mozartK545.wav -c:a libopus -b:a 64k cache/audio/mozartK545.webm
-2026-08-15 14:35:41,573 - ERROR - Executable for 'ffmpeg' (ffmpeg) not found. Is it installed?
-2026-08-15 14:35:41,655 - INFO - Logging initialized. Log file: output/log/abc.log
-2026-08-15 14:35:41,655 - INFO - [run_abc.py:77]: Resolving image directory. arg_value=cache/images
-2026-08-15 14:35:41,655 - INFO - [run_abc.py:78]: Resolving audio directory. arg_value=cache/audio
-2026-08-15 14:35:41,655 - INFO - [run_abc.py:84]: Target file name base: bachViola
-2026-08-15 14:35:41,655 - INFO - --- IMAGE GENERATION START (Renderer: abc2svg) ---
-2026-08-15 14:35:41,655 - INFO - File cache/images/bachViola.svg missing. Generation needed.
-2026-08-15 14:35:41,655 - INFO - Executing abc2svg: abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/bachViola.abc
-2026-08-15 14:35:41,657 - ERROR - abc2svg failed: Command 'abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/bachViola.abc' returned non-zero exit status 127.
-2026-08-15 14:35:41,657 - INFO - SVGO not found; skipping optional optimization.
-2026-08-15 14:35:41,657 - INFO - Preparing SVG for seamless HTML embedding
-2026-08-15 14:35:41,657 - INFO - --- AUDIO GENERATION START ---
-2026-08-15 14:35:41,657 - INFO - File cache/audio/bachViola.webm missing. Generation needed.
-2026-08-15 14:35:41,657 - INFO - [run_abc.py:240]: Executing abc2midi: abc2midi cache/audio/bachViola.abc -o cache/audio/bachViola.mid
-2026-08-15 14:35:41,658 - ERROR - Executable for 'abc2midi' (abc2midi) not found. Is it installed?
-2026-08-15 14:35:41,658 - INFO - Using SoundFont: /home/runner/work/quarto-extensions/quarto-extensions/test-14/.local/share/soundfonts/timbresOfHeaven4.00.sf2
-2026-08-15 14:35:41,658 - INFO - [run_abc.py:251]: Executing fluidsynth: fluidsynth -n -i -F cache/audio/bachViola.wav /home/runner/work/quarto-extensions/quarto-extensions/test-14/.local/share/soundfonts/timbresOfHeaven4.00.sf2 cache/audio/bachViola.mid
-2026-08-15 14:35:41,659 - ERROR - Executable for 'fluidsynth' (fluidsynth) not found. Is it installed?
-2026-08-15 14:35:41,659 - INFO - [run_abc.py:256]: Executing ffmpeg: ffmpeg -y -i cache/audio/bachViola.wav -c:a libopus -b:a 64k cache/audio/bachViola.webm
-2026-08-15 14:35:41,659 - ERROR - Executable for 'ffmpeg' (ffmpeg) not found. Is it installed?
+2026-08-20 16:18:32,915 - INFO - Logging initialized. Log file: output/log/abc.log
+2026-08-20 16:18:32,915 - INFO - [run_abc.py:77]: Resolving image directory. arg_value=cache/images
+2026-08-20 16:18:32,915 - INFO - [run_abc.py:78]: Resolving audio directory. arg_value=cache/audio
+2026-08-20 16:18:32,915 - INFO - [run_abc.py:84]: Target file name base: CMajorScale
+2026-08-20 16:18:32,915 - INFO - --- IMAGE GENERATION START (Renderer: abc2svg) ---
+2026-08-20 16:18:32,915 - INFO - File cache/images/CMajorScale.svg missing. Generation needed.
+2026-08-20 16:18:32,915 - INFO - Executing abc2svg: abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/CMajorScale.abc
+2026-08-20 16:18:32,917 - ERROR - abc2svg failed: Command 'abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/CMajorScale.abc' returned non-zero exit status 127.
+2026-08-20 16:18:32,917 - INFO - SVGO not found; skipping optional optimization.
+2026-08-20 16:18:32,917 - INFO - Preparing SVG for seamless HTML embedding
+2026-08-20 16:18:32,918 - INFO - --- AUDIO GENERATION START ---
+2026-08-20 16:18:32,918 - INFO - File cache/audio/CMajorScale.webm missing. Generation needed.
+2026-08-20 16:18:32,918 - INFO - [run_abc.py:240]: Executing abc2midi: abc2midi cache/audio/CMajorScale.abc -o cache/audio/CMajorScale.mid
+2026-08-20 16:18:32,918 - ERROR - Executable for 'abc2midi' (abc2midi) not found. Is it installed?
+2026-08-20 16:18:32,919 - INFO - Using SoundFont: /home/runner/work/quarto-extensions/quarto-extensions/test-16/.local/share/soundfonts/timbresOfHeaven4.00.sf2
+2026-08-20 16:18:32,919 - INFO - [run_abc.py:251]: Executing fluidsynth: fluidsynth -n -i -F cache/audio/CMajorScale.wav /home/runner/work/quarto-extensions/quarto-extensions/test-16/.local/share/soundfonts/timbresOfHeaven4.00.sf2 cache/audio/CMajorScale.mid
+2026-08-20 16:18:32,919 - ERROR - Executable for 'fluidsynth' (fluidsynth) not found. Is it installed?
+2026-08-20 16:18:32,919 - INFO - [run_abc.py:256]: Executing ffmpeg: ffmpeg -y -i cache/audio/CMajorScale.wav -c:a libopus -b:a 64k cache/audio/CMajorScale.webm
+2026-08-20 16:18:32,920 - ERROR - Executable for 'ffmpeg' (ffmpeg) not found. Is it installed?
+2026-08-20 16:18:33,006 - INFO - Logging initialized. Log file: output/log/abc.log
+2026-08-20 16:18:33,006 - INFO - [run_abc.py:77]: Resolving image directory. arg_value=cache/images
+2026-08-20 16:18:33,006 - INFO - [run_abc.py:78]: Resolving audio directory. arg_value=cache/audio
+2026-08-20 16:18:33,006 - INFO - [run_abc.py:84]: Target file name base: breton
+2026-08-20 16:18:33,006 - INFO - --- IMAGE GENERATION START (Renderer: abc2svg) ---
+2026-08-20 16:18:33,006 - INFO - File cache/images/breton.svg missing. Generation needed.
+2026-08-20 16:18:33,007 - INFO - Executing abc2svg: abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/breton.abc
+2026-08-20 16:18:33,008 - ERROR - abc2svg failed: Command 'abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/breton.abc' returned non-zero exit status 127.
+2026-08-20 16:18:33,008 - INFO - SVGO not found; skipping optional optimization.
+2026-08-20 16:18:33,008 - INFO - Preparing SVG for seamless HTML embedding
+2026-08-20 16:18:33,008 - INFO - --- AUDIO GENERATION START ---
+2026-08-20 16:18:33,008 - INFO - File cache/audio/breton.webm missing. Generation needed.
+2026-08-20 16:18:33,009 - INFO - [run_abc.py:240]: Executing abc2midi: abc2midi cache/audio/breton.abc -o cache/audio/breton.mid
+2026-08-20 16:18:33,009 - ERROR - Executable for 'abc2midi' (abc2midi) not found. Is it installed?
+2026-08-20 16:18:33,009 - INFO - Using SoundFont: /home/runner/work/quarto-extensions/quarto-extensions/test-16/.local/share/soundfonts/timbresOfHeaven4.00.sf2
+2026-08-20 16:18:33,010 - INFO - [run_abc.py:251]: Executing fluidsynth: fluidsynth -n -i -F cache/audio/breton.wav /home/runner/work/quarto-extensions/quarto-extensions/test-16/.local/share/soundfonts/timbresOfHeaven4.00.sf2 cache/audio/breton.mid
+2026-08-20 16:18:33,010 - ERROR - Executable for 'fluidsynth' (fluidsynth) not found. Is it installed?
+2026-08-20 16:18:33,010 - INFO - [run_abc.py:256]: Executing ffmpeg: ffmpeg -y -i cache/audio/breton.wav -c:a libopus -b:a 64k cache/audio/breton.webm
+2026-08-20 16:18:33,011 - ERROR - Executable for 'ffmpeg' (ffmpeg) not found. Is it installed?
+2026-08-20 16:18:33,093 - INFO - Logging initialized. Log file: output/log/abc.log
+2026-08-20 16:18:33,093 - INFO - [run_abc.py:77]: Resolving image directory. arg_value=cache/images
+2026-08-20 16:18:33,093 - INFO - [run_abc.py:78]: Resolving audio directory. arg_value=cache/audio
+2026-08-20 16:18:33,093 - INFO - [run_abc.py:84]: Target file name base: boarsHead
+2026-08-20 16:18:33,094 - INFO - --- IMAGE GENERATION START (Renderer: abc2svg) ---
+2026-08-20 16:18:33,094 - INFO - File cache/images/boarsHead.svg missing. Generation needed.
+2026-08-20 16:18:33,094 - INFO - Executing abc2svg: abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/boarsHead.abc
+2026-08-20 16:18:33,095 - ERROR - abc2svg failed: Command 'abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/boarsHead.abc' returned non-zero exit status 127.
+2026-08-20 16:18:33,096 - INFO - SVGO not found; skipping optional optimization.
+2026-08-20 16:18:33,096 - INFO - Preparing SVG for seamless HTML embedding
+2026-08-20 16:18:33,096 - INFO - --- AUDIO GENERATION START ---
+2026-08-20 16:18:33,096 - INFO - File cache/audio/boarsHead.webm missing. Generation needed.
+2026-08-20 16:18:33,096 - INFO - [run_abc.py:240]: Executing abc2midi: abc2midi cache/audio/boarsHead.abc -o cache/audio/boarsHead.mid
+2026-08-20 16:18:33,097 - ERROR - Executable for 'abc2midi' (abc2midi) not found. Is it installed?
+2026-08-20 16:18:33,097 - INFO - Using SoundFont: /home/runner/work/quarto-extensions/quarto-extensions/test-16/.local/share/soundfonts/timbresOfHeaven4.00.sf2
+2026-08-20 16:18:33,097 - INFO - [run_abc.py:251]: Executing fluidsynth: fluidsynth -n -i -F cache/audio/boarsHead.wav /home/runner/work/quarto-extensions/quarto-extensions/test-16/.local/share/soundfonts/timbresOfHeaven4.00.sf2 cache/audio/boarsHead.mid
+2026-08-20 16:18:33,098 - ERROR - Executable for 'fluidsynth' (fluidsynth) not found. Is it installed?
+2026-08-20 16:18:33,098 - INFO - [run_abc.py:256]: Executing ffmpeg: ffmpeg -y -i cache/audio/boarsHead.wav -c:a libopus -b:a 64k cache/audio/boarsHead.webm
+2026-08-20 16:18:33,098 - ERROR - Executable for 'ffmpeg' (ffmpeg) not found. Is it installed?
+2026-08-20 16:18:33,199 - INFO - Logging initialized. Log file: output/log/abc.log
+2026-08-20 16:18:33,200 - INFO - [run_abc.py:77]: Resolving image directory. arg_value=cache/images
+2026-08-20 16:18:33,200 - INFO - [run_abc.py:78]: Resolving audio directory. arg_value=cache/audio
+2026-08-20 16:18:33,200 - INFO - [run_abc.py:84]: Target file name base: shaveAndHaircut
+2026-08-20 16:18:33,200 - INFO - --- IMAGE GENERATION START (Renderer: abc2svg) ---
+2026-08-20 16:18:33,200 - INFO - File cache/images/shaveAndHaircut.svg missing. Generation needed.
+2026-08-20 16:18:33,201 - INFO - Executing abc2svg: abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/shaveAndHaircut.abc
+2026-08-20 16:18:33,202 - ERROR - abc2svg failed: Command 'abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/shaveAndHaircut.abc' returned non-zero exit status 127.
+2026-08-20 16:18:33,203 - INFO - SVGO not found; skipping optional optimization.
+2026-08-20 16:18:33,203 - INFO - Preparing SVG for seamless HTML embedding
+2026-08-20 16:18:33,203 - INFO - --- AUDIO GENERATION START ---
+2026-08-20 16:18:33,203 - INFO - File cache/audio/shaveAndHaircut.webm missing. Generation needed.
+2026-08-20 16:18:33,203 - INFO - [run_abc.py:240]: Executing abc2midi: abc2midi cache/audio/shaveAndHaircut.abc -o cache/audio/shaveAndHaircut.mid
+2026-08-20 16:18:33,204 - ERROR - Executable for 'abc2midi' (abc2midi) not found. Is it installed?
+2026-08-20 16:18:33,204 - INFO - Using SoundFont: /home/runner/work/quarto-extensions/quarto-extensions/test-16/.local/share/soundfonts/timbresOfHeaven4.00.sf2
+2026-08-20 16:18:33,205 - INFO - [run_abc.py:251]: Executing fluidsynth: fluidsynth -n -i -F cache/audio/shaveAndHaircut.wav /home/runner/work/quarto-extensions/quarto-extensions/test-16/.local/share/soundfonts/timbresOfHeaven4.00.sf2 cache/audio/shaveAndHaircut.mid
+2026-08-20 16:18:33,205 - ERROR - Executable for 'fluidsynth' (fluidsynth) not found. Is it installed?
+2026-08-20 16:18:33,205 - INFO - [run_abc.py:256]: Executing ffmpeg: ffmpeg -y -i cache/audio/shaveAndHaircut.wav -c:a libopus -b:a 64k cache/audio/shaveAndHaircut.webm
+2026-08-20 16:18:33,206 - ERROR - Executable for 'ffmpeg' (ffmpeg) not found. Is it installed?
+2026-08-20 16:18:33,334 - INFO - Logging initialized. Log file: output/log/abc.log
+2026-08-20 16:18:33,335 - INFO - [run_abc.py:77]: Resolving image directory. arg_value=cache/images
+2026-08-20 16:18:33,335 - INFO - [run_abc.py:78]: Resolving audio directory. arg_value=cache/audio
+2026-08-20 16:18:33,335 - INFO - [run_abc.py:84]: Target file name base: theElephantTuba
+2026-08-20 16:18:33,335 - INFO - --- IMAGE GENERATION START (Renderer: abc2svg) ---
+2026-08-20 16:18:33,335 - INFO - File cache/images/theElephantTuba.svg missing. Generation needed.
+2026-08-20 16:18:33,335 - INFO - Executing abc2svg: abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/theElephantTuba.abc
+2026-08-20 16:18:33,337 - ERROR - abc2svg failed: Command 'abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/theElephantTuba.abc' returned non-zero exit status 127.
+2026-08-20 16:18:33,337 - INFO - SVGO not found; skipping optional optimization.
+2026-08-20 16:18:33,337 - INFO - Preparing SVG for seamless HTML embedding
+2026-08-20 16:18:33,338 - INFO - --- AUDIO GENERATION START ---
+2026-08-20 16:18:33,338 - INFO - File cache/audio/theElephantTuba.webm missing. Generation needed.
+2026-08-20 16:18:33,338 - INFO - [run_abc.py:240]: Executing abc2midi: abc2midi cache/audio/theElephantTuba.abc -o cache/audio/theElephantTuba.mid
+2026-08-20 16:18:33,339 - ERROR - Executable for 'abc2midi' (abc2midi) not found. Is it installed?
+2026-08-20 16:18:33,339 - INFO - Using SoundFont: /home/runner/work/quarto-extensions/quarto-extensions/test-16/.local/share/soundfonts/timbresOfHeaven4.00.sf2
+2026-08-20 16:18:33,339 - INFO - [run_abc.py:251]: Executing fluidsynth: fluidsynth -n -i -F cache/audio/theElephantTuba.wav /home/runner/work/quarto-extensions/quarto-extensions/test-16/.local/share/soundfonts/timbresOfHeaven4.00.sf2 cache/audio/theElephantTuba.mid
+2026-08-20 16:18:33,339 - ERROR - Executable for 'fluidsynth' (fluidsynth) not found. Is it installed?
+2026-08-20 16:18:33,340 - INFO - [run_abc.py:256]: Executing ffmpeg: ffmpeg -y -i cache/audio/theElephantTuba.wav -c:a libopus -b:a 64k cache/audio/theElephantTuba.webm
+2026-08-20 16:18:33,340 - ERROR - Executable for 'ffmpeg' (ffmpeg) not found. Is it installed?
+2026-08-20 16:18:33,469 - INFO - Logging initialized. Log file: output/log/abc.log
+2026-08-20 16:18:33,470 - INFO - [run_abc.py:77]: Resolving image directory. arg_value=cache/images
+2026-08-20 16:18:33,470 - INFO - [run_abc.py:78]: Resolving audio directory. arg_value=cache/audio
+2026-08-20 16:18:33,470 - INFO - [run_abc.py:84]: Target file name base: morningMood
+2026-08-20 16:18:33,470 - INFO - --- IMAGE GENERATION START (Renderer: abc2svg) ---
+2026-08-20 16:18:33,470 - INFO - File cache/images/morningMood.svg missing. Generation needed.
+2026-08-20 16:18:33,471 - INFO - Executing abc2svg: abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/morningMood.abc
+2026-08-20 16:18:33,472 - ERROR - abc2svg failed: Command 'abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/morningMood.abc' returned non-zero exit status 127.
+2026-08-20 16:18:33,472 - INFO - SVGO not found; skipping optional optimization.
+2026-08-20 16:18:33,472 - INFO - Preparing SVG for seamless HTML embedding
+2026-08-20 16:18:33,473 - INFO - --- AUDIO GENERATION START ---
+2026-08-20 16:18:33,473 - INFO - File cache/audio/morningMood.webm missing. Generation needed.
+2026-08-20 16:18:33,473 - INFO - [run_abc.py:240]: Executing abc2midi: abc2midi cache/audio/morningMood.abc -o cache/audio/morningMood.mid
+2026-08-20 16:18:33,474 - ERROR - Executable for 'abc2midi' (abc2midi) not found. Is it installed?
+2026-08-20 16:18:33,474 - INFO - Using SoundFont: /home/runner/work/quarto-extensions/quarto-extensions/test-16/.local/share/soundfonts/timbresOfHeaven4.00.sf2
+2026-08-20 16:18:33,474 - INFO - [run_abc.py:251]: Executing fluidsynth: fluidsynth -n -i -F cache/audio/morningMood.wav /home/runner/work/quarto-extensions/quarto-extensions/test-16/.local/share/soundfonts/timbresOfHeaven4.00.sf2 cache/audio/morningMood.mid
+2026-08-20 16:18:33,474 - ERROR - Executable for 'fluidsynth' (fluidsynth) not found. Is it installed?
+2026-08-20 16:18:33,475 - INFO - [run_abc.py:256]: Executing ffmpeg: ffmpeg -y -i cache/audio/morningMood.wav -c:a libopus -b:a 64k cache/audio/morningMood.webm
+2026-08-20 16:18:33,475 - ERROR - Executable for 'ffmpeg' (ffmpeg) not found. Is it installed?
+2026-08-20 16:18:33,607 - INFO - Logging initialized. Log file: output/log/abc.log
+2026-08-20 16:18:33,607 - INFO - [run_abc.py:77]: Resolving image directory. arg_value=cache/images
+2026-08-20 16:18:33,607 - INFO - [run_abc.py:78]: Resolving audio directory. arg_value=cache/audio
+2026-08-20 16:18:33,607 - INFO - [run_abc.py:84]: Target file name base: mozartK545
+2026-08-20 16:18:33,607 - INFO - --- IMAGE GENERATION START (Renderer: abc2svg) ---
+2026-08-20 16:18:33,608 - INFO - File cache/images/mozartK545.svg missing. Generation needed.
+2026-08-20 16:18:33,608 - INFO - Executing abc2svg: abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/mozartK545.abc
+2026-08-20 16:18:33,609 - ERROR - abc2svg failed: Command 'abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/mozartK545.abc' returned non-zero exit status 127.
+2026-08-20 16:18:33,610 - INFO - SVGO not found; skipping optional optimization.
+2026-08-20 16:18:33,610 - INFO - Preparing SVG for seamless HTML embedding
+2026-08-20 16:18:33,610 - INFO - --- AUDIO GENERATION START ---
+2026-08-20 16:18:33,610 - INFO - File cache/audio/mozartK545.webm missing. Generation needed.
+2026-08-20 16:18:33,610 - INFO - [run_abc.py:240]: Executing abc2midi: abc2midi cache/audio/mozartK545.abc -o cache/audio/mozartK545.mid
+2026-08-20 16:18:33,611 - ERROR - Executable for 'abc2midi' (abc2midi) not found. Is it installed?
+2026-08-20 16:18:33,611 - INFO - Using SoundFont: /home/runner/work/quarto-extensions/quarto-extensions/test-16/.local/share/soundfonts/timbresOfHeaven4.00.sf2
+2026-08-20 16:18:33,611 - INFO - [run_abc.py:251]: Executing fluidsynth: fluidsynth -n -i -F cache/audio/mozartK545.wav /home/runner/work/quarto-extensions/quarto-extensions/test-16/.local/share/soundfonts/timbresOfHeaven4.00.sf2 cache/audio/mozartK545.mid
+2026-08-20 16:18:33,612 - ERROR - Executable for 'fluidsynth' (fluidsynth) not found. Is it installed?
+2026-08-20 16:18:33,612 - INFO - [run_abc.py:256]: Executing ffmpeg: ffmpeg -y -i cache/audio/mozartK545.wav -c:a libopus -b:a 64k cache/audio/mozartK545.webm
+2026-08-20 16:18:33,612 - ERROR - Executable for 'ffmpeg' (ffmpeg) not found. Is it installed?
+2026-08-20 16:18:33,744 - INFO - Logging initialized. Log file: output/log/abc.log
+2026-08-20 16:18:33,744 - INFO - [run_abc.py:77]: Resolving image directory. arg_value=cache/images
+2026-08-20 16:18:33,744 - INFO - [run_abc.py:78]: Resolving audio directory. arg_value=cache/audio
+2026-08-20 16:18:33,744 - INFO - [run_abc.py:84]: Target file name base: bachViola
+2026-08-20 16:18:33,744 - INFO - --- IMAGE GENERATION START (Renderer: abc2svg) ---
+2026-08-20 16:18:33,745 - INFO - File cache/images/bachViola.svg missing. Generation needed.
+2026-08-20 16:18:33,745 - INFO - Executing abc2svg: abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/bachViola.abc
+2026-08-20 16:18:33,746 - ERROR - abc2svg failed: Command 'abcnode tosvg.js --pagewidth 25.2cm --vocalfont "sans-serif 11" --stretchlast 1 --scale 1.0 --leftmargin 0 --rightmargin 0 --topmargin 0 --botmargin 0 --musicfont Bravura cache/images/bachViola.abc' returned non-zero exit status 127.
+2026-08-20 16:18:33,747 - INFO - SVGO not found; skipping optional optimization.
+2026-08-20 16:18:33,747 - INFO - Preparing SVG for seamless HTML embedding
+2026-08-20 16:18:33,747 - INFO - --- AUDIO GENERATION START ---
+2026-08-20 16:18:33,747 - INFO - File cache/audio/bachViola.webm missing. Generation needed.
+2026-08-20 16:18:33,747 - INFO - [run_abc.py:240]: Executing abc2midi: abc2midi cache/audio/bachViola.abc -o cache/audio/bachViola.mid
+2026-08-20 16:18:33,748 - ERROR - Executable for 'abc2midi' (abc2midi) not found. Is it installed?
+2026-08-20 16:18:33,748 - INFO - Using SoundFont: /home/runner/work/quarto-extensions/quarto-extensions/test-16/.local/share/soundfonts/timbresOfHeaven4.00.sf2
+2026-08-20 16:18:33,748 - INFO - [run_abc.py:251]: Executing fluidsynth: fluidsynth -n -i -F cache/audio/bachViola.wav /home/runner/work/quarto-extensions/quarto-extensions/test-16/.local/share/soundfonts/timbresOfHeaven4.00.sf2 cache/audio/bachViola.mid
+2026-08-20 16:18:33,749 - ERROR - Executable for 'fluidsynth' (fluidsynth) not found. Is it installed?
+2026-08-20 16:18:33,749 - INFO - [run_abc.py:256]: Executing ffmpeg: ffmpeg -y -i cache/audio/bachViola.wav -c:a libopus -b:a 64k cache/audio/bachViola.webm
+2026-08-20 16:18:33,749 - ERROR - Executable for 'ffmpeg' (ffmpeg) not found. Is it installed?
 Output created: output/example.html
 

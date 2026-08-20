@@ -2,8 +2,7 @@
 
 processing file: example.qmd
 
-1
-/7               
+1/7               
 
 2/7 [code-example]
 
@@ -39,9 +38,9 @@ DONE
 [typst]: Compiling index.typ to index.pdf...
 warning: unknown font family: georgia
     ┌─ tests/brand/index.typ:848:30
-    │
-848 │ #show 
-heading: set text(font: ("Georgia",), weight: 600, style: "normal", fill: rgb("#800020"), )
+    
+│
+848 │ #show heading: set text(font: ("Georgia",), weight: 600, style: "normal", fill: rgb("#800020"), )
     │                               ^^^^^^^^^^^^
 
 warning: unknown font family: helvetica

@@ -10,15 +10,15 @@ processing file: computo-quarto-extension.qmd
 6/17 [fig-plotly]       
 Downloading cpython-3.13.15-linux-x86_64-gnu (download) (33.2MiB)
  Downloaded cpython-3.13.15-linux-x86_64-gnu (download)
-Downloading pygments (1.2MiB)
-Downloading matplotlib (9.6MiB)
-Downloading fonttools (4.7MiB)
 Downloading pillow (6.6MiB)
-Downloading plotly (9.4MiB)
-Downloading jedi (4.7MiB)
-Downloading kiwisolver (1.4MiB)
 Downloading pandas (10.4MiB)
+Downloading pygments (1.2MiB)
+Downloading kiwisolver (1.4MiB)
+Downloading jedi (4.7MiB)
+Downloading plotly (9.4MiB)
+Downloading matplotlib (9.6MiB)
 Downloading numpy (15.9MiB)
+Downloading fonttools (4.7MiB)
  Downloaded kiwisolver
  Downloaded pygments
  Downloaded fonttools
@@ -28,7 +28,7 @@ Downloading numpy (15.9MiB)
  Downloaded numpy
  Downloaded pandas
  Downloaded jedi
-Installed 36 packages in 1.84s
+Installed 36 packages in 1.57s
 7/17                    
 8/17 [fig-polar]        
 9/17                    
@@ -133,7 +133,7 @@ failed with error code 1. Output:
 This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
-(/tmp/tikz-6660fe432f477379/tikz-image.tex
+(/tmp/tikz-362eba6d38838c40/tikz-image.tex
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-07-20>
 
@@ -149,8 +149,8 @@ Enter file name:
 l.2 \usepackage
                {tikz}^^M
 !  ==> Fatal error occurred, no output PDF file produced!
-Transcript written on /tmp/tikz-6660fe432f477379/tikz-image.log.
-/home/runner/work/quarto-extensions/quarto-extensions/test-6/repo/_extensions/computo/_extensions/pandoc-ext/diagram/diagram.lua: ...sions/computo/_extensions/pandoc-ext/diagram/diagram.lua:82: attempt to index a nil value (local 'fh')
+Transcript written on /tmp/tikz-362eba6d38838c40/tikz-image.log.
+/home/runner/work/quarto-extensions/quarto-extensions/test-8/repo/_extensions/computo/_extensions/pandoc-ext/diagram/diagram.lua: ...sions/computo/_extensions/pandoc-ext/diagram/diagram.lua:82: attempt to index a nil value (local 'fh')
 
 processing file: computo-quarto-extension.qmd
 1/17                    
@@ -256,7 +256,7 @@ failed with error code 1. Output:
 This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
-(/tmp/tikz-aaeee93a76f10852/tikz-image.tex
+(/tmp/tikz-cd792f97c382e5c1/tikz-image.tex
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-07-20>
 
@@ -272,8 +272,8 @@ Enter file name:
 l.2 \usepackage
                {tikz}^^M
 !  ==> Fatal error occurred, no output PDF file produced!
-Transcript written on /tmp/tikz-aaeee93a76f10852/tikz-image.log.
-/home/runner/work/quarto-extensions/quarto-extensions/test-6/repo/_extensions/computo/_extensions/pandoc-ext/diagram/diagram.lua: ...sions/computo/_extensions/pandoc-ext/diagram/diagram.lua:82: attempt to index a nil value (local 'fh')[31mFATAL (/opt/quarto/share/filters/main.lua:7326) An error occurred:
+Transcript written on /tmp/tikz-cd792f97c382e5c1/tikz-image.log.
+/home/runner/work/quarto-extensions/quarto-extensions/test-8/repo/_extensions/computo/_extensions/pandoc-ext/diagram/diagram.lua: ...sions/computo/_extensions/pandoc-ext/diagram/diagram.lua:82: attempt to index a nil value (local 'fh')[31mFATAL (/opt/quarto/share/filters/main.lua:7326) An error occurred:
 Could not convert a SVG to a PDF for output. Please ensure that rsvg-convert is available on the path.
 [39mError running filter '/opt/quarto/share/filters/main.lua':
 /opt/quarto/share/filters/main.lua:7351: FATAL QUARTO ERROR
@@ -316,9 +316,9 @@ processing file: computo-quarto-extension.qmd
 4/17 [setup-python-env] 
 5/17                    
 6/17 [fig-plotly]       
-Downloading cpython-3.12.13-linux-x86_64-gnu (download) (32.6MiB)
- Downloaded cpython-3.12.13-linux-x86_64-gnu (download)
-Installed 1 package in 153ms
+Downloading cpython-3.12.14-linux-x86_64-gnu (download) (32.6MiB)
+ Downloaded cpython-3.12.14-linux-x86_64-gnu (download)
+Installed 1 package in 151ms
 Error in py_call_impl(callable, call_args$unnamed, call_args$named) : 
   ModuleNotFoundError: No module named 'plotly'
 Run `reticulate::py_last_error()` for details.

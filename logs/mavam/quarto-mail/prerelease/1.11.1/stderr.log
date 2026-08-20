@@ -1,0 +1,52 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: template.html
+  template: _extensions/mail/template.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  lang: en
+  minimal: true
+  theme: none
+  mail-profiles:
+    senders:
+      personal:
+        account: user@example.com
+        from: user@example.com
+      work:
+        account: work@example.com
+        from: alias@example.com
+        name: Alex Example
+    identities:
+      personal:
+        name: Alex
+      formal:
+        name: Alex Example
+        indent: 4
+      work:
+        name: Alex Example
+    signatures:
+      work:
+        plain: |-
+          Alex Example
+          Role
+          Example Organization
+        html: <table role="presentation" style="font-family:Arial,Helvetica,sans-serif;font-size:14px"><tr><td><strong>Alex Example</strong><br>Role<br><a href="https://example.com">Example Organization</a></td></tr></table>
+  mail:
+    sender: personal
+    opening: Hi Jane,
+    closing: Best,
+    identity: personal
+    to:
+      - Jane Doe <jane@example.com>
+    cc: []
+    bcc: []
+    subject: Example subject
+    attachments: []
+  
+Output created: template.html
+

@@ -243,13 +243,13 @@ set LDFLAGS=-L/usr/local/lib
 -- Looking for __cplusplus - found
 -- Could NOT find JNI (missing: JAVA_INCLUDE_PATH JAVA_INCLUDE_PATH2 JVM) 
 -- Could NOT find Java (missing: Java_JAVA_EXECUTABLE Java_JAR_EXECUTABLE Java_JAVAC_EXECUTABLE Java_JAVAH_EXECUTABLE Java_JAVADOC_EXECUTABLE) (Required is at least version "1.5")
--- Configuring done (1.8s)
+-- Configuring done (2.3s)
 -- Generating done (0.0s)
--- Build files have been written to: /tmp/RtmpyFG0XW/R.INSTALL9fc587609f4/nloptr/src/nlopt-build
+-- Build files have been written to: /tmp/RtmpGIamzJ/R.INSTALL9fb1ab743e3/nloptr/src/nlopt-build
 [  2%] Generating nlopt.hpp
 [  2%] Built target generate-cpp
-[  4%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRect.c.o
 [  6%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/direct_wrap.c.o
+[  6%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRect.c.o
 [  8%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRserial.c.o
 [ 10%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRsubrout.c.o
 [ 12%] Building C object CMakeFiles/nlopt.dir/src/algs/cdirect/cdirect.c.o
@@ -300,17 +300,17 @@ set LDFLAGS=-L/usr/local/lib
 [100%] Built target nlopt
 Install the project...
 -- Install configuration: "Release"
--- Installing: /tmp/RtmpyFG0XW/R.INSTALL9fc587609f4/nloptr/src/nlopt/lib/pkgconfig/nlopt.pc
--- Installing: /tmp/RtmpyFG0XW/R.INSTALL9fc587609f4/nloptr/src/nlopt/include/nlopt.h
--- Installing: /tmp/RtmpyFG0XW/R.INSTALL9fc587609f4/nloptr/src/nlopt/include/nlopt.hpp
--- Installing: /tmp/RtmpyFG0XW/R.INSTALL9fc587609f4/nloptr/src/nlopt/lib/libnlopt.a
--- Installing: /tmp/RtmpyFG0XW/R.INSTALL9fc587609f4/nloptr/src/nlopt/share/man/man3/nlopt.3
--- Installing: /tmp/RtmpyFG0XW/R.INSTALL9fc587609f4/nloptr/src/nlopt/share/man/man3/nlopt_minimize.3
--- Installing: /tmp/RtmpyFG0XW/R.INSTALL9fc587609f4/nloptr/src/nlopt/share/man/man3/nlopt_minimize_constrained.3
--- Installing: /tmp/RtmpyFG0XW/R.INSTALL9fc587609f4/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends.cmake
--- Installing: /tmp/RtmpyFG0XW/R.INSTALL9fc587609f4/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends-release.cmake
--- Installing: /tmp/RtmpyFG0XW/R.INSTALL9fc587609f4/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfig.cmake
--- Installing: /tmp/RtmpyFG0XW/R.INSTALL9fc587609f4/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfigVersion.cmake
+-- Installing: /tmp/RtmpGIamzJ/R.INSTALL9fb1ab743e3/nloptr/src/nlopt/lib/pkgconfig/nlopt.pc
+-- Installing: /tmp/RtmpGIamzJ/R.INSTALL9fb1ab743e3/nloptr/src/nlopt/include/nlopt.h
+-- Installing: /tmp/RtmpGIamzJ/R.INSTALL9fb1ab743e3/nloptr/src/nlopt/include/nlopt.hpp
+-- Installing: /tmp/RtmpGIamzJ/R.INSTALL9fb1ab743e3/nloptr/src/nlopt/lib/libnlopt.a
+-- Installing: /tmp/RtmpGIamzJ/R.INSTALL9fb1ab743e3/nloptr/src/nlopt/share/man/man3/nlopt.3
+-- Installing: /tmp/RtmpGIamzJ/R.INSTALL9fb1ab743e3/nloptr/src/nlopt/share/man/man3/nlopt_minimize.3
+-- Installing: /tmp/RtmpGIamzJ/R.INSTALL9fb1ab743e3/nloptr/src/nlopt/share/man/man3/nlopt_minimize_constrained.3
+-- Installing: /tmp/RtmpGIamzJ/R.INSTALL9fb1ab743e3/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends.cmake
+-- Installing: /tmp/RtmpGIamzJ/R.INSTALL9fb1ab743e3/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends-release.cmake
+-- Installing: /tmp/RtmpGIamzJ/R.INSTALL9fb1ab743e3/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfig.cmake
+-- Installing: /tmp/RtmpGIamzJ/R.INSTALL9fb1ab743e3/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfigVersion.cmake
 Moving nlopt/lib to nlopt/lib
 Copying headers found in src/nlopt/include into inst/include
 configure: creating ./config.status
@@ -612,13 +612,15 @@ Note: ... may be used in an incorrect context
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Matrix/include' -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c external.cpp -o external.o
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Matrix/include' -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c glmFamily.cpp -o glmFamily.o
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Matrix/include' -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c optimizer.cpp -o optimizer.o
+Auto-detecting R dependencies for r-wasm/quarto-live (knitr engine, no renv.lock).
+Installing R packages: webr 
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Matrix/include' -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c predModule.cpp -o predModule.o
-g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Matrix/include' -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c respModule.cpp -o respModule.o
-g++ -std=gnu++20 -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o lme4.so external.o glmFamily.o optimizer.o predModule.o respModule.o -L/opt/R/4.6.1/lib/R/lib -lR
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Matrix/include' -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/RcppEigen/include' -I/usr/local/include   -DNDEBUG -DEIGEN_DONT_VECTORIZE -fpic  -g -O2   -c respModule.cpp -o respModule.o
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c a_color.cpp -o a_color.o
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c a_prstgeom.cpp -o a_prstgeom.o
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c clipper.cpp -o clipper.o
+g++ -std=gnu++20 -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o lme4.so external.o glmFamily.o optimizer.o predModule.o respModule.o -L/opt/R/4.6.1/lib/R/lib -lR
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c line_style.cpp -o line_style.o
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c main_tree.cpp -o main_tree.o
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c ppr.cpp -o ppr.o
@@ -631,5 +633,3 @@ g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c xfrm.cpp -o xfrm.o
 g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c xlsx.cpp -o xlsx.o
 g++ -std=gnu++20 -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o rvg.so RcppExports.o a_color.o a_prstgeom.o clipper.o line_style.o main_tree.o ppr.o pptx.o raster.o rpr.o shapes.o text.o write_nv_pr.o xfrm.o xlsx.o -lpng -lz -L/opt/R/4.6.1/lib/R/lib -lR
-Auto-detecting R dependencies for r-wasm/quarto-live (knitr engine, no renv.lock).
-Installing R packages: webr 
