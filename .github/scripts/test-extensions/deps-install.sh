@@ -61,7 +61,7 @@ if [[ ! -f uv.lock ]] && [[ ! -f requirements.txt ]]; then
 
 		if [[ "${has_python}" == "true" ]]; then
 			echo "Auto-detecting Python dependencies for ${EXT_ID} (jupyter engine, no lock file)." >>"${LOG_DIR}/stdout.log"
-			uv venv >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
+			uv venv --clear >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
 				echo "uv venv failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
 				exit 1
 			}
@@ -71,13 +71,53 @@ if [[ ! -f uv.lock ]] && [[ ! -f requirements.txt ]]; then
 			deps=$(find . -name '*.qmd' -not -path './_extensions/*' -print0 |
 				xargs -0 python3 -c '
 import sys, ast, re
+from pathlib import Path
+
+# Modules whose distribution name on PyPI differs from the import name.
+DISTRIBUTIONS = {
+    "Bio": "biopython",
+    "IPython": "ipython",
+    "OpenSSL": "pyopenssl",
+    "PIL": "pillow",
+    "attr": "attrs",
+    "bs4": "beautifulsoup4",
+    "cv2": "opencv-python",
+    "dateutil": "python-dateutil",
+    "docx": "python-docx",
+    "fitz": "pymupdf",
+    "git": "gitpython",
+    "mpl_toolkits": "matplotlib",
+    "pptx": "python-pptx",
+    "serial": "pyserial",
+    "skimage": "scikit-image",
+    "sklearn": "scikit-learn",
+    "yaml": "pyyaml",
+    "zmq": "pyzmq",
+}
 
 stdlib = set(sys.stdlib_module_names) if hasattr(sys, "stdlib_module_names") else set()
 imports = set()
+local = set()
 chunk_re = re.compile(r"^\s*```\{python[^}]*\}\s*$")
 end_re = re.compile(r"^\s*```\s*$")
 
+
+def local_modules(directory):
+    names = set()
+    for entry in directory.iterdir():
+        if entry.name == "_extensions":
+            continue
+        if entry.is_file() and entry.suffix == ".py":
+            names.add(entry.stem)
+        elif entry.is_dir() and (entry / "__init__.py").is_file():
+            names.add(entry.name)
+    return names
+
+
+local |= local_modules(Path("."))
+
 for path in sys.argv[1:]:
+    local |= local_modules(Path(path).parent)
     in_chunk = False
     lines = []
     with open(path) as f:
@@ -95,7 +135,7 @@ for path in sys.argv[1:]:
                             for alias in node.names:
                                 imports.add(alias.name.split(".")[0])
                         elif isinstance(node, ast.ImportFrom):
-                            if node.module:
+                            if node.level == 0 and node.module:
                                 imports.add(node.module.split(".")[0])
                 except SyntaxError:
                     pass
@@ -103,8 +143,8 @@ for path in sys.argv[1:]:
             elif in_chunk:
                 lines.append(line.rstrip())
 
-third_party = sorted(imports - stdlib - {"__future__"})
-for pkg in third_party:
+third_party = imports - stdlib - local - {"__future__"}
+for pkg in sorted({DISTRIBUTIONS.get(name, name) for name in third_party}):
     print(pkg)
 ' 2>/dev/null) || deps=""
 
@@ -186,7 +226,7 @@ if [[ -f renv.lock ]]; then
 fi
 if [[ -f uv.lock ]] || [[ -f requirements.txt ]]; then
 	echo "Installing Python dependencies for ${EXT_ID}." >>"${LOG_DIR}/stdout.log"
-	uv venv >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
+	uv venv --clear >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
 		echo "uv venv failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
 		exit 1
 	}
