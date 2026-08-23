@@ -97,7 +97,6 @@ DISTRIBUTIONS = {
 
 stdlib = set(sys.stdlib_module_names) if hasattr(sys, "stdlib_module_names") else set()
 imports = set()
-local = set()
 chunk_re = re.compile(r"^\s*```\{python[^}]*\}\s*$")
 end_re = re.compile(r"^\s*```\s*$")
 
@@ -114,10 +113,10 @@ def local_modules(directory):
     return names
 
 
-local |= local_modules(Path("."))
+directories = {Path(".")} | {Path(path).parent for path in sys.argv[1:]}
+local = set().union(*(local_modules(directory) for directory in directories))
 
 for path in sys.argv[1:]:
-    local |= local_modules(Path(path).parent)
     in_chunk = False
     lines = []
     with open(path) as f:
