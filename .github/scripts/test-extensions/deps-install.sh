@@ -26,6 +26,17 @@ detect_engines() {
 
 engines=$(detect_engines)
 
+# A documentation website under docs/ is a separate project that documents the
+# extension rather than exercising it, and render-inner.sh keeps it out of the
+# render surface. Its dependencies are therefore not needed, unless the
+# repository holds nothing else.
+qmd_list=$(mktemp)
+trap 'rm -f "${qmd_list}"' EXIT
+find . -type f -name '*.qmd' -not -path './_extensions/*' -not -path './docs/*' -print0 >"${qmd_list}"
+if [[ ! -s "${qmd_list}" ]]; then
+	find . -type f -name '*.qmd' -not -path './_extensions/*' -print0 >"${qmd_list}"
+fi
+
 # Auto-detect R dependencies when no renv.lock is present
 if [[ ! -f renv.lock ]]; then
 	if echo "${engines}" | grep -qx "knitr"; then
@@ -57,7 +68,7 @@ if [[ ! -f uv.lock ]] && [[ ! -f requirements.txt ]]; then
 				has_python=true
 				break
 			fi
-		done < <(find . -name '*.qmd' -not -path './_extensions/*' -print0)
+		done <"${qmd_list}"
 
 		if [[ "${has_python}" == "true" ]]; then
 			echo "Auto-detecting Python dependencies for ${EXT_ID} (jupyter engine, no lock file)." >>"${LOG_DIR}/stdout.log"
@@ -68,8 +79,7 @@ if [[ ! -f uv.lock ]] && [[ ! -f requirements.txt ]]; then
 			# shellcheck disable=SC1091 # created at runtime by uv venv
 			source .venv/bin/activate
 
-			deps=$(find . -name '*.qmd' -not -path './_extensions/*' -print0 |
-				xargs -0 python3 -c '
+			deps=$(xargs -0 python3 -c '
 import sys, ast, re
 from pathlib import Path
 
@@ -145,7 +155,10 @@ for path in sys.argv[1:]:
 third_party = imports - stdlib - local - {"__future__"}
 for pkg in sorted({DISTRIBUTIONS.get(name, name) for name in third_party}):
     print(pkg)
-' 2>/dev/null) || deps=""
+' <"${qmd_list}" 2>>"${LOG_DIR}/stderr.log") || {
+				echo "Python dependency detection failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
+				exit 1
+			}
 
 			if [[ -n "${deps}" ]]; then
 				echo "Installing Python packages: ${deps//$'\n'/, }" >>"${LOG_DIR}/stdout.log"
@@ -170,14 +183,13 @@ if [[ ! -f Project.toml ]] && [[ ! -f JuliaProject.toml ]]; then
 				has_julia=true
 				break
 			fi
-		done < <(find . -name '*.qmd' -not -path './_extensions/*' -print0)
+		done <"${qmd_list}"
 
 		if [[ "${has_julia}" == "true" ]]; then
 			echo "Auto-detecting Julia dependencies for ${EXT_ID} (jupyter engine, no Project.toml)." >>"${LOG_DIR}/stdout.log"
 
 			deps=$(
-				find . -name '*.qmd' -not -path './_extensions/*' -print0 |
-					xargs -0 grep -hP '^\s*(using|import)\s+' 2>/dev/null |
+				xargs -0 grep -hP '^\s*(using|import)\s+' <"${qmd_list}" 2>/dev/null |
 					sed -E 's/^\s*(using|import)\s+//' |
 					sed -E 's/:.*//' |
 					tr ',' '\n' |
