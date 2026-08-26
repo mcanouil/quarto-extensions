@@ -135,14 +135,11 @@ $status-neutral: if($is-dark, #a8b0ba, #5a5f66);
 // ===========================================================================
 // MODAL
 // ===========================================================================
-// Bootstrap's close button is a baked black SVG, unreadable on the dark modal
-// surface. 5.3 exposes a filter hook for exactly this.
-@if $is-dark {
-  .modal .btn-close {
-    --bs-btn-close-filter: invert(1) grayscale(100%) brightness(200%);
-  }
-}
-
+// The close button belongs to the atelier theme, which masks it from the text
+// colour around it. Nothing is needed here. `--bs-btn-close-filter` is a
+// Bootstrap 5.3.3 hook, and the bundle Quarto ships reads
+// `--bs-btn-close-white-filter` and sets no `filter` on `.btn-close` at all,
+// so setting either from this sheet has no effect.
 .modal-content {
   border: 1px solid body-mix(80%);
 }
