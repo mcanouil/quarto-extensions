@@ -53,18 +53,32 @@ ARG HOST_UID=1000
 ARG HOST_GID=1000
 RUN if [ -d /opt/tinytex ]; then chown -R ${HOST_UID}:${HOST_GID} /opt/tinytex; fi
 
+# uv keeps the interpreters it downloads under HOME by default, and the render
+# step gives every extension its own HOME, so the pinned interpreter would be
+# downloaded again for each of them. Hold it outside HOME instead. The mode is
+# the one /tmp uses: the render containers run under the host user, which is
+# not known here, and a container writes only to its own discarded layer.
+RUN install -d -m 1777 /opt/uv-python
+ENV UV_PYTHON_INSTALL_DIR=/opt/uv-python
+
 USER vscode
 
 # Python virtual environment with Jupyter and common packages.
-# The version is pinned instead of inherited from the base image: the render
-# scripts share these packages with a project venv only when the two Python
-# minor versions match, so a silent bump in the base image would withdraw them
-# from every extension at once. 3.13 is the version most extensions resolve to.
+# The version is pinned instead of resolved by uv: the render scripts share
+# these packages with a project venv only when the two Python minor versions
+# match, and uv picks the newest interpreter it can find, so an unpinned venv
+# would withdraw them from every extension the day a new release lands.
+# 3.13 is the version most extensions resolve to. deps-install.sh builds the
+# project venv on HARNESS_PYTHON too, unless the repository excludes it.
 ARG HARNESS_PYTHON=3.13
 ENV UV_LINK_MODE=copy
-RUN uv venv --python ${HARNESS_PYTHON} /home/vscode/.venv \
-    && . /home/vscode/.venv/bin/activate \
-    && uv pip install jupyter papermill matplotlib shinylive black
+ENV IMAGE_VENV=/home/vscode/.venv
+# deps-install.sh reads this list to replace the packages an extension loses
+# when its Python version differs from the image one.
+ENV IMAGE_BASELINE="jupyter papermill matplotlib shinylive black"
+RUN uv venv --python ${HARNESS_PYTHON} ${IMAGE_VENV} \
+    && . ${IMAGE_VENV}/bin/activate \
+    && uv pip install ${IMAGE_BASELINE}
 ENV HARNESS_PYTHON=${HARNESS_PYTHON}
-ENV VIRTUAL_ENV=/home/vscode/.venv
-ENV PATH="/home/vscode/.venv/bin:${PATH}"
+ENV VIRTUAL_ENV=${IMAGE_VENV}
+ENV PATH="${IMAGE_VENV}/bin:${PATH}"

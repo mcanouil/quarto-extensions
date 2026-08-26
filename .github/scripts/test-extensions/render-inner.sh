@@ -15,27 +15,30 @@ set -euo pipefail
 # limited to an image venv built on the same Python minor version: compiled
 # extension modules carry an interpreter-specific suffix, so sharing across
 # versions hides the local copy behind one the interpreter cannot import.
-IMAGE_VENV="/home/vscode/.venv"
+IMAGE_VENV="${IMAGE_VENV:-/home/vscode/.venv}"
 if [[ -f .venv/bin/activate ]]; then
 	# shellcheck disable=SC1091 # created at runtime by uv venv
 	source .venv/bin/activate
-	if ! read -r venv_tag venv_purelib < <(
-		python3 -c 'import sys, sysconfig; print("python%d.%d" % sys.version_info[:2], sysconfig.get_paths()["purelib"])'
+	if ! read -r venv_tag venv_sitedir < <(
+		python3 -c 'import site, sys; print("python%d.%d" % sys.version_info[:2], site.getsitepackages()[0])'
 	); then
 		echo "Could not inspect the project venv Python for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
 		exit 1
 	fi
 	image_sp="${IMAGE_VENV}/lib/${venv_tag}/site-packages"
 	if [[ -d "${image_sp}" ]]; then
-		printf '%s\n' "${image_sp}" >"${venv_purelib}/zz-image-venv.pth"
+		printf '%s\n' "${image_sp}" >"${venv_sitedir}/zz-image-venv.pth"
 	else
 		image_tags=""
 		for lib in "${IMAGE_VENV}"/lib/python*/; do
 			[[ -d "${lib}" ]] || continue
 			image_tags="${image_tags:+${image_tags}, }$(basename "${lib}")"
 		done
-		echo "Image venv (${image_tags:-none}) does not match the project venv (${venv_tag}) for ${EXT_ID}; its packages are not shared." \
-			>>"${LOG_DIR}/stdout.log"
+		# Also on the job log: this decides which packages the render can
+		# import, so it must be readable without opening the extension log.
+		mismatch="Image venv (${image_tags:-none}) does not match the project venv (${venv_tag}) for ${EXT_ID}; its packages are not shared."
+		echo "${mismatch}"
+		echo "${mismatch}" >>"${LOG_DIR}/stdout.log"
 	fi
 fi
 
