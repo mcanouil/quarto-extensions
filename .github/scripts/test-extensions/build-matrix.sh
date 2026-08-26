@@ -4,8 +4,9 @@ set -euo pipefail
 # Build the test matrix for the test-extensions workflow.
 # Inputs (env): DEBUG, FAILING_ONLY, NEW_ONLY, BATCH_SIZE, GH_TOKEN (for gh api calls)
 # Inputs (env, debug only): REPO_OWNER (filters to same-owner extensions)
-# Inputs (files, failing-only and new-only): test-results.json (from quarto-tests branch)
-# Outputs (to GITHUB_OUTPUT): matrix, skipped, count
+# Inputs (files, failing-only and new-only): test-results.json (from quarto-tests
+#               branch); rewritten in place when missing or malformed
+# Outputs (to GITHUB_OUTPUT): matrix, skipped, render_count
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=retry.sh
@@ -30,36 +31,29 @@ if [[ ! "${NEW_ONLY}" =~ ^(true|false)$ ]]; then
   exit 1
 fi
 
-# New-only selects extensions with no stored result at all, which is a subset of
-# what failing-only selects, so the two modes together mean new-only.
-if [[ "${NEW_ONLY}" == "true" ]] && [[ "${FAILING_ONLY}" == "true" ]]; then
-  echo "::notice::new_only and failing_only are both set. Using new_only."
-  FAILING_ONLY="false"
-fi
-
 if [[ ! "${BATCH_SIZE}" =~ ^[1-9][0-9]*$ ]]; then
   echo "::error::Invalid batch_size value: '${BATCH_SIZE}'. Expected a positive integer."
   exit 1
 fi
 
+# Both selection modes read the stored results, so normalise the document once.
+# A missing or malformed file means nothing has been tested yet.
+if [[ "${NEW_ONLY}" == "true" ]] || [[ "${FAILING_ONLY}" == "true" ]]; then
+  if [[ ! -f test-results.json ]] || ! jq -e 'type == "object"' test-results.json >/dev/null 2>&1; then
+    echo "::warning::Missing or invalid test-results.json. Treating every extension as never tested."
+    echo '{}' >test-results.json
+  fi
+fi
+
 extensions_json=$(cat quarto-extensions.json)
 if [[ "${NEW_ONLY}" == "true" ]]; then
-  tested_ids_file=$(mktemp)
-  if [[ -f test-results.json ]] && jq -e 'type == "object"' test-results.json >/dev/null 2>&1; then
-    jq -c 'keys' test-results.json >"${tested_ids_file}"
-  else
-    echo "::warning::Missing or invalid test-results.json. Treating every extension as never tested."
-    echo '[]' >"${tested_ids_file}"
-  fi
   # Filtering here, before the repository trees are fetched, keeps the tree
-  # requests to the extensions that actually need a first test.
-  # --slurpfile keeps the identifier list off the jq command line, hence $t[0].
-  extensions_json=$(echo "${extensions_json}" | jq -c --slurpfile t "${tested_ids_file}" '
-    ($t[0] | map({(.): true}) | add // {}) as $tested
-    | with_entries(select($tested[.key] | not))
-  ')
-  rm -f "${tested_ids_file}"
-  echo "New-only mode: $(echo "${extensions_json}" | jq 'length') extension(s) with no stored result."
+  # requests to the extensions that need a first test.
+  # --slurpfile keeps the stored results off the jq command line, hence $tr[0].
+  extensions_json=$(jq -c --slurpfile tr test-results.json '
+    with_entries(.key as $id | select($tr[0] | has($id) | not))
+  ' <<<"${extensions_json}")
+  echo "New-only mode: $(jq 'length' <<<"${extensions_json}") extension(s) with no stored result."
 fi
 
 if [[ "${DEBUG}" == "true" ]]; then
@@ -174,15 +168,16 @@ image_meta_map=$(jq -nc '{}')
 for channel in release prerelease; do
   image_tag="ghcr.io/mcanouil/quarto-extensions:${channel}"
 
-  if ! retry 3 5 docker pull "${image_tag}" >/dev/null 2>&1; then
-    echo "::error::Failed to pull image '${image_tag}'."
-    exit 1
-  fi
-  image_ref=$(docker image inspect --format='{{index .RepoDigests 0}}' "${image_tag}" 2>/dev/null || true)
-  if [[ -z "${image_ref}" ]]; then
+  # Read the digest from the registry manifest. The render jobs pull the image
+  # themselves, so downloading it here to inspect it would move gigabytes for
+  # a string.
+  image_digest=$(retry 3 5 docker buildx imagetools inspect "${image_tag}" \
+    --format '{{.Manifest.Digest}}' 2>/dev/null || true)
+  if [[ -z "${image_digest}" ]]; then
     echo "::error::Failed to resolve digest for image '${image_tag}'."
     exit 1
   fi
+  image_ref="${image_tag%:*}@${image_digest}"
   if [[ ! "${image_ref}" =~ @sha256:[0-9a-f]{64}$ ]]; then
     echo "::error::Resolved image reference '${image_ref}' is not a valid digest-pinned reference."
     exit 1
@@ -215,20 +210,14 @@ echo "Total extensions to test: ${total}"
 # Failing-only: per channel, keep extensions whose latest tested version failed,
 # or that have no stored result for that channel (never tested).
 entries_by_channel=$(jq -nc --argjson e "${entries}" '{release: $e, prerelease: $e}')
+count=$((total * 2))
 if [[ "${FAILING_ONLY}" == "true" ]]; then
-  test_results_file=$(mktemp)
   entries_file=$(mktemp)
-  if [[ -f test-results.json ]] && jq -e 'type == "object"' test-results.json >/dev/null 2>&1; then
-    cp test-results.json "${test_results_file}"
-  else
-    echo "::warning::Missing or invalid test-results.json. Treating all channels as never tested."
-    echo '{}' >"${test_results_file}"
-  fi
   printf '%s' "${entries}" >"${entries_file}"
   # Pass large JSON via files (--slurpfile) rather than --argjson so the entry
   # list and test history do not overflow ARG_MAX on the jq command line.
   # --slurpfile wraps each file's content in an array, hence $e[0] and $tr[0].
-  entries_by_channel=$(jq -nc --slurpfile e "${entries_file}" --slurpfile tr "${test_results_file}" '
+  entries_by_channel=$(jq -nc --slurpfile e "${entries_file}" --slurpfile tr test-results.json '
     def core(v): (v // "" | split("+")[0] | split("-")[0]
       | split(".") | map((tonumber? // 0)) | . + [0, 0, 0, 0] | .[0:4]);
     def suffix(v): (v // "" | split("+")[0] | split("-")[1:] | join("-"));
@@ -255,16 +244,16 @@ if [[ "${FAILING_ONLY}" == "true" ]]; then
         prerelease: [$entries[] | select(selected($results; .id; "prerelease"))]
       }
   ')
-  rm -f "${test_results_file}" "${entries_file}"
+  rm -f "${entries_file}"
   rel_count=$(echo "${entries_by_channel}" | jq '.release | length')
   pre_count=$(echo "${entries_by_channel}" | jq '.prerelease | length')
   echo "Failing-only selection: release=${rel_count}, prerelease=${pre_count}"
+  count=$((rel_count + pre_count))
 fi
 
-# Extensions to render across both channels. The workflow skips the render and
-# publication jobs when this is zero, so a run with nothing to do stops here.
-count=$(echo "${entries_by_channel}" | jq '[.release, .prerelease] | map(length) | add')
-echo "Extensions to render: ${count}"
+# Renders to run across both channels. The workflow skips the render and
+# publication jobs when this is zero.
+echo "Renders to run: ${count}"
 
 matrix=$(echo "${entries_by_channel}" | jq -c --argjson n "${BATCH_SIZE}" --argjson meta "${image_meta_map}" '
   def pad3: tostring | if length < 3 then ("000" + .)[-3:] else . end;
@@ -297,7 +286,7 @@ job_count=$(echo "${matrix}" | jq '.include | length')
 echo "Matrix jobs: ${job_count}"
 
 {
-  echo "matrix=$(echo "${matrix}" | jq -c '.')"
-  echo "skipped=$(echo "${skipped}" | jq -c '.')"
-  echo "count=${count}"
+  echo "matrix=${matrix}"
+  echo "skipped=${skipped}"
+  echo "render_count=${count}"
 } >>"${GITHUB_OUTPUT}"

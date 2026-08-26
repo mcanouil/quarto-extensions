@@ -35,11 +35,10 @@ concurrency:
 
 jobs:
   build-test-image:
-    # The harvest triggers this workflow on completion, not on success, so
-    # without this guard a failed harvest would test against stale data.
-    if: >-
-      github.event_name != 'workflow_run' ||
-      github.event.workflow_run.conclusion == 'success'
+    # The harvest path renders a handful of new extensions at most, and it runs
+    # every day, so it uses the images as they stand rather than paying for a
+    # rebuild each night.
+    if: github.event_name != 'workflow_run'
     uses: ./.github/workflows/build-test-image.yml
     permissions:
       contents: read
@@ -47,13 +46,19 @@ jobs:
 
   build-matrix:
     needs: [build-test-image]
+    # The harvest triggers this workflow on completion, not on success, so
+    # without this guard a failed harvest would test against stale data.
+    if: >-
+      always() && needs.build-test-image.result != 'failure' &&
+      (github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest
     permissions:
       contents: read
     outputs:
       matrix: ${{ steps.matrix.outputs.matrix }}
       skipped: ${{ steps.matrix.outputs.skipped }}
-      count: ${{ steps.matrix.outputs.count }}
+      render_count: ${{ steps.matrix.outputs.render_count }}
     steps:
       - name: Checkout scripts
         uses: actions/checkout@v7
@@ -78,10 +83,6 @@ jobs:
           permission-metadata: read
 
       - name: Fetch stored test results
-        if: >-
-          inputs.failing_only == 'true' ||
-          inputs.new_only == 'true' ||
-          github.event_name == 'workflow_run'
         working-directory: _data
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
@@ -101,7 +102,7 @@ jobs:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           DEBUG: ${{ inputs.debug || 'false' }}
           FAILING_ONLY: ${{ inputs.failing_only || 'false' }}
-          NEW_ONLY: ${{ inputs.new_only || (github.event_name == 'workflow_run' && 'true') || 'false' }}
+          NEW_ONLY: ${{ inputs.new_only == 'true' || github.event_name == 'workflow_run' }}
           BATCH_SIZE: ${{ inputs.batch_size || '25' }}
           REPO_OWNER: ${{ github.repository_owner }}
         shell: bash
@@ -113,7 +114,7 @@ jobs:
     needs: [build-matrix]
     # A new-only run finds nothing on most days, and an empty selection has
     # nothing to render or publish.
-    if: needs.build-matrix.outputs.count != '0'
+    if: needs.build-matrix.outputs.render_count != '0'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -194,7 +195,7 @@ jobs:
     needs: [build-matrix, test-extensions]
     if: >-
       always() && needs.build-matrix.result == 'success' &&
-      needs.build-matrix.outputs.count != '0'
+      needs.build-matrix.outputs.render_count != '0'
     runs-on: ubuntu-latest
     permissions:
       contents: read
