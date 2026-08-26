@@ -125,7 +125,12 @@ jobs:
     needs: [build-matrix]
     # An untested-only run finds nothing on most days, and an empty selection
     # has nothing to render or publish.
-    if: needs.build-matrix.outputs.render_count != '0'
+    # The status function is what keeps this job alive: the harvest path skips
+    # build-test-image, and a skipped job skips everything downstream of it
+    # unless each job says otherwise, whatever the jobs in between concluded.
+    if: >-
+      !cancelled() && needs.build-matrix.result == 'success' &&
+      needs.build-matrix.outputs.render_count != '0'
     runs-on: ubuntu-latest
     permissions:
       contents: read
