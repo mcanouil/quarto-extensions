@@ -3,6 +3,7 @@ set -euo pipefail
 
 # Build the test matrix for the test-extensions workflow.
 # Inputs (env): DEBUG, FAILING_ONLY, UNTESTED_ONLY, BATCH_SIZE, GH_TOKEN (for gh api calls)
+# Inputs (env, untested-only): MAX_UNTESTED (extensions per run, default 25)
 # Inputs (env, debug only): REPO_OWNER (filters to same-owner extensions)
 # Inputs (files, failing-only and untested-only): test-results.json (from quarto-tests
 #               branch); rewritten in place when missing or malformed
@@ -36,6 +37,12 @@ if [[ ! "${BATCH_SIZE}" =~ ^[1-9][0-9]*$ ]]; then
   exit 1
 fi
 
+MAX_UNTESTED="${MAX_UNTESTED:-25}"
+if [[ ! "${MAX_UNTESTED}" =~ ^[1-9][0-9]*$ ]]; then
+  echo "::error::Invalid max_untested value: '${MAX_UNTESTED}'. Expected a positive integer."
+  exit 1
+fi
+
 # Both selection modes read the stored results, so normalise the document once.
 # A missing or malformed file means nothing has been tested yet.
 if [[ "${UNTESTED_ONLY}" == "true" ]] || [[ "${FAILING_ONLY}" == "true" ]]; then
@@ -53,7 +60,17 @@ if [[ "${UNTESTED_ONLY}" == "true" ]]; then
   extensions_json=$(jq -c --slurpfile tr test-results.json '
     with_entries(.key as $id | select($tr[0] | has($id) | not))
   ' <<<"${extensions_json}")
-  echo "Untested-only mode: $(jq 'length' <<<"${extensions_json}") extension(s) with no stored result."
+  untested_total=$(jq 'length' <<<"${extensions_json}")
+  echo "Untested-only mode: ${untested_total} extension(s) with no stored result."
+  # A reset or malformed test-results.json makes every extension untested. The
+  # cap keeps that from launching a full run on a path that reuses the images
+  # as they stand; the rest are taken by the following runs.
+  if [[ "${untested_total}" -gt "${MAX_UNTESTED}" ]]; then
+    echo "::warning::Testing ${MAX_UNTESTED} of ${untested_total} untested extensions. The rest are deferred to the next run."
+    extensions_json=$(jq -c --argjson n "${MAX_UNTESTED}" '
+      to_entries | sort_by(.key) | .[0:$n] | from_entries
+    ' <<<"${extensions_json}")
+  fi
 fi
 
 if [[ "${DEBUG}" == "true" ]]; then
@@ -178,7 +195,7 @@ for channel in release prerelease; do
   image_digest=$(retry 3 5 docker buildx imagetools inspect "${image_tag}" \
     --format '{{.Manifest.Digest}}' 2>"${inspect_error_file}" || true)
   if [[ -z "${image_digest}" ]]; then
-    echo "::error::Failed to resolve digest for image '${image_tag}': $(tr '\n' ' ' <"${inspect_error_file}")"
+    echo "::error::Failed to resolve digest for image '${image_tag}', which usually means the tag is gone or the image has never been built: $(tr '\n' ' ' <"${inspect_error_file}")"
     rm -f "${inspect_error_file}"
     exit 1
   fi
@@ -217,7 +234,10 @@ echo "Total extensions to test: ${total}"
 # or that have no stored result for that channel (never tested).
 entries_by_channel=$(jq -nc --argjson e "${entries}" '{release: $e, prerelease: $e}')
 count=$((total * 2))
-if [[ "${FAILING_ONLY}" == "true" ]]; then
+# Untested-only leaves nothing for failing-only to select: every survivor has no
+# stored result, so the per-channel filter would keep them all and the log line
+# would claim a selection that did not happen.
+if [[ "${FAILING_ONLY}" == "true" ]] && [[ "${UNTESTED_ONLY}" != "true" ]]; then
   entries_file=$(mktemp)
   printf '%s' "${entries}" >"${entries_file}"
   # Pass large JSON via files (--slurpfile) rather than --argjson so the entry

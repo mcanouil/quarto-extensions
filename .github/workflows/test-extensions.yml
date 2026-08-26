@@ -33,11 +33,18 @@ concurrency:
   group: test-extensions
   cancel-in-progress: false
 
+# Deploy reads the conclusion of this workflow. A failed harvest skips every job
+# here, and the run then concludes 'skipped', which is what stops the site from
+# being deployed on stale data. A job that runs on 'always()' would conclude the
+# run 'success' instead and defeat that guard.
+
 jobs:
   build-test-image:
     # The harvest path renders a handful of extensions at most, and it runs
     # every day, so it uses the images as they stand rather than paying for a
-    # rebuild each night.
+    # rebuild each night. A first result therefore records the Quarto version of
+    # the last monthly build, which can be behind the current channel until the
+    # next full run tests the extension again.
     if: github.event_name != 'workflow_run'
     uses: ./.github/workflows/build-test-image.yml
     permissions:

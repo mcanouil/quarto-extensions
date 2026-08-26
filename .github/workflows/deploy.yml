@@ -23,10 +23,12 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    # The site content does not depend on the test results, so a batch that
-    # failed or timed out must still deploy. A cancelled run, and a run whose
-    # jobs were all skipped because the harvest itself failed, must not: there
-    # is either no fresh data or no complete run behind it.
+    # The render restores test-results.json from the quarto-tests branch, so it
+    # always uses the last published results. A test run that failed a batch, or
+    # failed to publish, therefore deploys the fresh harvest data with the
+    # previous results, which is preferred over not deploying at all. A
+    # cancelled run, and a run whose jobs were all skipped because the harvest
+    # itself failed, deploy nothing: there is no fresh data behind them.
     if: >-
       github.event_name == 'workflow_dispatch' ||
       (github.event.workflow_run.conclusion != 'cancelled' &&
