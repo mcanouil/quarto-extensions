@@ -161,6 +161,9 @@ fi
 skipped='[]'
 if [[ -s "${skipped_file}" ]]; then
   skipped=$(jq -sc '.' "${skipped_file}")
+  # The publication job reports this list too, but it does not run when nothing
+  # is rendered, which is the usual outcome of a new-only run.
+  echo "Skipped (no renderable content found): $(jq -r 'join(", ")' <<<"${skipped}")"
 fi
 entries=$(jq -nc --argjson a "${entries_phase_a}" --argjson b "${phase_b_entries}" '$a + $b')
 
@@ -171,12 +174,15 @@ for channel in release prerelease; do
   # Read the digest from the registry manifest. The render jobs pull the image
   # themselves, so downloading it here to inspect it would move gigabytes for
   # a string.
+  inspect_error_file=$(mktemp)
   image_digest=$(retry 3 5 docker buildx imagetools inspect "${image_tag}" \
-    --format '{{.Manifest.Digest}}' 2>/dev/null || true)
+    --format '{{.Manifest.Digest}}' 2>"${inspect_error_file}" || true)
   if [[ -z "${image_digest}" ]]; then
-    echo "::error::Failed to resolve digest for image '${image_tag}'."
+    echo "::error::Failed to resolve digest for image '${image_tag}': $(tr '\n' ' ' <"${inspect_error_file}")"
+    rm -f "${inspect_error_file}"
     exit 1
   fi
+  rm -f "${inspect_error_file}"
   image_ref="${image_tag%:*}@${image_digest}"
   if [[ ! "${image_ref}" =~ @sha256:[0-9a-f]{64}$ ]]; then
     echo "::error::Resolved image reference '${image_ref}' is not a valid digest-pinned reference."

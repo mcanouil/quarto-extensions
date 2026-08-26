@@ -49,7 +49,7 @@ jobs:
     # The harvest triggers this workflow on completion, not on success, so
     # without this guard a failed harvest would test against stale data.
     if: >-
-      always() && needs.build-test-image.result != 'failure' &&
+      !cancelled() && needs.build-test-image.result != 'failure' &&
       (github.event_name != 'workflow_run' ||
       github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest

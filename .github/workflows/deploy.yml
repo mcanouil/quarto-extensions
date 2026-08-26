@@ -22,11 +22,14 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    # The test run triggers this workflow on completion, not on success, so
-    # without this guard a failed run still redeploys the site.
+    # The site content does not depend on the test results, so a batch that
+    # failed or timed out must still deploy. A cancelled run, and a run whose
+    # jobs were all skipped because the harvest itself failed, must not: there
+    # is either no fresh data or no complete run behind it.
     if: >-
       github.event_name == 'workflow_dispatch' ||
-      github.event.workflow_run.conclusion == 'success'
+      (github.event.workflow_run.conclusion != 'cancelled' &&
+      github.event.workflow_run.conclusion != 'skipped')
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
