@@ -12,6 +12,9 @@ on:
       untested_only:
         description: "If 'true', test only the extensions with no stored result at all"
         default: "false"
+      untested_window_days:
+        description: "Untested-only: how recently the extension was listed, 0 for no window"
+        default: "7"
       batch_size:
         description: "Number of extensions per batch"
         default: "25"
@@ -19,8 +22,8 @@ on:
         description: "Number of concurrent renders per batch"
         default: "2"
   # A completed harvest means quarto-extensions.json is current, so an
-  # untested-only pass gives every extension with no stored result a first one
-  # without waiting for the monthly schedule.
+  # untested-only pass gives a first result to every extension that was listed
+  # recently and has none, without waiting for the monthly schedule.
   workflow_run:
     workflows:
       - "Quarto Wizard"
@@ -110,6 +113,7 @@ jobs:
           DEBUG: ${{ inputs.debug || 'false' }}
           FAILING_ONLY: ${{ inputs.failing_only || 'false' }}
           UNTESTED_ONLY: ${{ inputs.untested_only == 'true' || github.event_name == 'workflow_run' }}
+          UNTESTED_WINDOW_DAYS: ${{ inputs.untested_window_days || '7' }}
           BATCH_SIZE: ${{ inputs.batch_size || '25' }}
           REPO_OWNER: ${{ github.repository_owner }}
         shell: bash

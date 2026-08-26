@@ -3,7 +3,9 @@ set -euo pipefail
 
 # Build the test matrix for the test-extensions workflow.
 # Inputs (env): DEBUG, FAILING_ONLY, UNTESTED_ONLY, BATCH_SIZE, GH_TOKEN (for gh api calls)
-# Inputs (env, untested-only): MAX_UNTESTED (extensions per run, default 25)
+# Inputs (env, untested-only): MAX_UNTESTED (extensions per run, default 25),
+#               UNTESTED_WINDOW_DAYS (how recently the extension was listed,
+#               default 7, 0 for no window), GITHUB_REPOSITORY
 # Inputs (env, debug only): REPO_OWNER (filters to same-owner extensions)
 # Inputs (files, failing-only and untested-only): test-results.json (from quarto-tests
 #               branch); rewritten in place when missing or malformed
@@ -43,6 +45,40 @@ if [[ ! "${MAX_UNTESTED}" =~ ^[1-9][0-9]*$ ]]; then
   exit 1
 fi
 
+UNTESTED_WINDOW_DAYS="${UNTESTED_WINDOW_DAYS:-7}"
+if [[ ! "${UNTESTED_WINDOW_DAYS}" =~ ^[0-9]+$ ]]; then
+  echo "::error::Invalid untested_window_days value: '${UNTESTED_WINDOW_DAYS}'. Expected a non-negative integer."
+  exit 1
+fi
+
+if [[ "${UNTESTED_ONLY}" == "true" ]] && [[ "${UNTESTED_WINDOW_DAYS}" -gt 0 ]] && [[ -z "${GITHUB_REPOSITORY:-}" ]]; then
+  echo "::error::GITHUB_REPOSITORY is not set. It names the repository whose extension list holds the recent additions."
+  exit 1
+fi
+
+# Entries added to the extension list in the last window, one per line. An
+# extension that cannot be rendered never gets a stored result, so without this
+# window it would be selected by every run for ever.
+recent_csv_entries() {
+  local repo="$1" days="$2" csv="extensions/quarto-extensions.csv"
+  local since shas commit_file
+  since=$(jq -rn --argjson t "$(($(date -u +%s) - days * 86400))" '$t | todate')
+  if ! shas=$(retry 3 2 gh api \
+    "repos/${repo}/commits?path=${csv}&since=${since}&per_page=100" --jq '.[].sha' 2>/dev/null); then
+    return 1
+  fi
+  [[ -z "${shas}" ]] && return 0
+  commit_file=$(mktemp)
+  while read -r sha; do
+    if ! retry 3 2 gh api "repos/${repo}/commits/${sha}" >"${commit_file}" 2>/dev/null; then
+      rm -f "${commit_file}"
+      return 1
+    fi
+    jq -r --arg f "${csv}" '.files[]? | select(.filename == $f) | .patch // ""' "${commit_file}"
+  done <<<"${shas}" | grep '^+[^+]' | sed 's/^+//' | tr -d '\r' | sort -u
+  rm -f "${commit_file}"
+}
+
 # Both selection modes read the stored results, so normalise the document once.
 # A missing or malformed file means nothing has been tested yet.
 if [[ "${UNTESTED_ONLY}" == "true" ]] || [[ "${FAILING_ONLY}" == "true" ]]; then
@@ -62,6 +98,23 @@ if [[ "${UNTESTED_ONLY}" == "true" ]]; then
   ' <<<"${extensions_json}")
   untested_total=$(jq 'length' <<<"${extensions_json}")
   echo "Untested-only mode: ${untested_total} extension(s) with no stored result."
+
+  if [[ "${UNTESTED_WINDOW_DAYS}" -gt 0 ]] && [[ "${untested_total}" -gt 0 ]]; then
+    recent_file=$(mktemp)
+    if recent_csv_entries "${GITHUB_REPOSITORY}" "${UNTESTED_WINDOW_DAYS}" >"${recent_file}"; then
+      extensions_json=$(jq -c --rawfile recent "${recent_file}" '
+        ($recent | split("\n") | map(select(length > 0))) as $added
+        | with_entries(.key as $id | select($added | index($id)))
+      ' <<<"${extensions_json}")
+      echo "Listed in the last ${UNTESTED_WINDOW_DAYS} day(s): $(jq 'length' <<<"${extensions_json}") of ${untested_total}."
+    else
+      echo "::warning::Could not read the recent additions to the extension list. Selecting nothing; the next run tries again."
+      extensions_json='{}'
+    fi
+    rm -f "${recent_file}"
+    untested_total=$(jq 'length' <<<"${extensions_json}")
+  fi
+
   # A reset or malformed test-results.json makes every extension untested. The
   # cap keeps that from launching a full run on a path that reuses the images
   # as they stand; the rest are taken by the following runs.
