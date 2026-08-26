@@ -26,6 +26,84 @@ detect_engines() {
 
 engines=$(detect_engines)
 
+IMAGE_VENV="${IMAGE_VENV:-/home/vscode/.venv}"
+
+# Packages the image venv ships, published by the image itself so the two
+# cannot drift. render-inner.sh shares the image copies only when the two
+# Python versions match, so ensure_image_baseline replaces what a mismatch
+# withdraws. The default covers an image built before that variable existed.
+read -ra image_baseline <<<"${IMAGE_BASELINE:-jupyter papermill matplotlib shinylive black}"
+
+# The jupyter distribution is a metapackage that imports nothing, so probe the
+# modules the render actually needs from it.
+baseline_modules() {
+	if [[ "$1" == "jupyter" ]]; then
+		echo "ipykernel, nbclient, nbformat"
+	else
+		echo "$1"
+	fi
+}
+
+# A repository declares its Python version through .python-version or through
+# requires-python. uv only warns when an explicit version contradicts such a
+# declaration, and builds the environment anyway, so the flag must not be
+# passed here: the repository's own version is the one under test.
+declares_python_version() {
+	if [[ -f .python-version ]]; then
+		return 0
+	fi
+	if [[ -f pyproject.toml ]] && grep -Eq '^[[:space:]]*requires-python[[:space:]]*=' pyproject.toml; then
+		return 0
+	fi
+	return 1
+}
+
+# Create the project venv. uv picks the newest interpreter it can find when the
+# repository declares none, which leaves the image packages unshareable for no
+# reason, so build those environments on the image version instead.
+create_project_venv() {
+	if [[ -n "${HARNESS_PYTHON:-}" ]] && ! declares_python_version; then
+		if uv venv --clear --python "${HARNESS_PYTHON}" >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log"; then
+			return 0
+		fi
+		# The repository asked for nothing, so any interpreter will do: a
+		# missing image version must not fail the install.
+		echo "Python ${HARNESS_PYTHON} is unavailable for ${EXT_ID}; letting uv resolve the version." >>"${LOG_DIR}/stdout.log"
+	fi
+	uv venv --clear >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
+		echo "uv venv failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
+		exit 1
+	}
+}
+
+# Install the image baseline packages the project venv lacks, so a repository
+# on another Python version keeps the packages the share used to provide.
+# Packages the repository installed itself are left untouched.
+ensure_image_baseline() {
+	local venv_tag package
+	local missing=()
+	venv_tag=$(python3 -c 'import sys; print("python%d.%d" % sys.version_info[:2])')
+	if [[ -d "${IMAGE_VENV}/lib/${venv_tag}/site-packages" ]]; then
+		return 0
+	fi
+	if ! echo "${engines}" | grep -qx "jupyter"; then
+		return 0
+	fi
+	for package in "${image_baseline[@]}"; do
+		if ! python3 -c "import $(baseline_modules "${package}")" 2>/dev/null; then
+			missing+=("${package}")
+		fi
+	done
+	if [[ ${#missing[@]} -eq 0 ]]; then
+		return 0
+	fi
+	echo "Project venv Python (${venv_tag}) differs from the image venv for ${EXT_ID}; installing ${missing[*]}." >>"${LOG_DIR}/stdout.log"
+	uv pip install "${missing[@]}" >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
+		echo "Image baseline install failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
+		exit 1
+	}
+}
+
 # A documentation website under docs/ is a separate project that documents the
 # extension rather than exercising it, and render-inner.sh keeps it out of the
 # render surface. Its dependencies are therefore not needed, unless the
@@ -72,10 +150,7 @@ if [[ ! -f uv.lock ]] && [[ ! -f requirements.txt ]]; then
 
 		if [[ "${has_python}" == "true" ]]; then
 			echo "Auto-detecting Python dependencies for ${EXT_ID} (jupyter engine, no lock file)." >>"${LOG_DIR}/stdout.log"
-			uv venv --clear >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
-				echo "uv venv failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
-				exit 1
-			}
+			create_project_venv
 			# shellcheck disable=SC1091 # created at runtime by uv venv
 			source .venv/bin/activate
 
@@ -170,6 +245,7 @@ for pkg in sorted({DISTRIBUTIONS.get(name, name) for name in third_party}):
 			else
 				echo "No additional Python packages to install." >>"${LOG_DIR}/stdout.log"
 			fi
+			ensure_image_baseline
 		fi
 	fi
 fi
@@ -237,10 +313,7 @@ if [[ -f renv.lock ]]; then
 fi
 if [[ -f uv.lock ]] || [[ -f requirements.txt ]]; then
 	echo "Installing Python dependencies for ${EXT_ID}." >>"${LOG_DIR}/stdout.log"
-	uv venv --clear >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
-		echo "uv venv failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
-		exit 1
-	}
+	create_project_venv
 	# shellcheck disable=SC1091 # created at runtime by uv venv
 	source .venv/bin/activate
 	if [[ -f uv.lock ]]; then
@@ -254,6 +327,7 @@ if [[ -f uv.lock ]] || [[ -f requirements.txt ]]; then
 			exit 1
 		}
 	fi
+	ensure_image_baseline
 fi
 if [[ -f Project.toml ]] || [[ -f JuliaProject.toml ]]; then
 	echo "Installing Julia dependencies from Project.toml for ${EXT_ID}." >>"${LOG_DIR}/stdout.log"
