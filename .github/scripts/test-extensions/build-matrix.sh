@@ -2,9 +2,9 @@
 set -euo pipefail
 
 # Build the test matrix for the test-extensions workflow.
-# Inputs (env): DEBUG, FAILING_ONLY, NEW_ONLY, BATCH_SIZE, GH_TOKEN (for gh api calls)
+# Inputs (env): DEBUG, FAILING_ONLY, UNTESTED_ONLY, BATCH_SIZE, GH_TOKEN (for gh api calls)
 # Inputs (env, debug only): REPO_OWNER (filters to same-owner extensions)
-# Inputs (files, failing-only and new-only): test-results.json (from quarto-tests
+# Inputs (files, failing-only and untested-only): test-results.json (from quarto-tests
 #               branch); rewritten in place when missing or malformed
 # Outputs (to GITHUB_OUTPUT): matrix, skipped, render_count
 
@@ -25,9 +25,9 @@ if [[ ! "${FAILING_ONLY}" =~ ^(true|false)$ ]]; then
   exit 1
 fi
 
-NEW_ONLY="${NEW_ONLY:-false}"
-if [[ ! "${NEW_ONLY}" =~ ^(true|false)$ ]]; then
-  echo "::error::Invalid new_only value: '${NEW_ONLY}'. Expected 'true' or 'false'."
+UNTESTED_ONLY="${UNTESTED_ONLY:-false}"
+if [[ ! "${UNTESTED_ONLY}" =~ ^(true|false)$ ]]; then
+  echo "::error::Invalid untested_only value: '${UNTESTED_ONLY}'. Expected 'true' or 'false'."
   exit 1
 fi
 
@@ -38,7 +38,7 @@ fi
 
 # Both selection modes read the stored results, so normalise the document once.
 # A missing or malformed file means nothing has been tested yet.
-if [[ "${NEW_ONLY}" == "true" ]] || [[ "${FAILING_ONLY}" == "true" ]]; then
+if [[ "${UNTESTED_ONLY}" == "true" ]] || [[ "${FAILING_ONLY}" == "true" ]]; then
   if [[ ! -f test-results.json ]] || ! jq -e 'type == "object"' test-results.json >/dev/null 2>&1; then
     echo "::warning::Missing or invalid test-results.json. Treating every extension as never tested."
     echo '{}' >test-results.json
@@ -46,14 +46,14 @@ if [[ "${NEW_ONLY}" == "true" ]] || [[ "${FAILING_ONLY}" == "true" ]]; then
 fi
 
 extensions_json=$(cat quarto-extensions.json)
-if [[ "${NEW_ONLY}" == "true" ]]; then
+if [[ "${UNTESTED_ONLY}" == "true" ]]; then
   # Filtering here, before the repository trees are fetched, keeps the tree
-  # requests to the extensions that need a first test.
+  # requests to the extensions that need a first result.
   # --slurpfile keeps the stored results off the jq command line, hence $tr[0].
   extensions_json=$(jq -c --slurpfile tr test-results.json '
     with_entries(.key as $id | select($tr[0] | has($id) | not))
   ' <<<"${extensions_json}")
-  echo "New-only mode: $(jq 'length' <<<"${extensions_json}") extension(s) with no stored result."
+  echo "Untested-only mode: $(jq 'length' <<<"${extensions_json}") extension(s) with no stored result."
 fi
 
 if [[ "${DEBUG}" == "true" ]]; then
@@ -162,7 +162,7 @@ skipped='[]'
 if [[ -s "${skipped_file}" ]]; then
   skipped=$(jq -sc '.' "${skipped_file}")
   # The publication job reports this list too, but it does not run when nothing
-  # is rendered, which is the usual outcome of a new-only run.
+  # is rendered, which is the usual outcome of an untested-only run.
   echo "Skipped (no renderable content found): $(jq -r 'join(", ")' <<<"${skipped}")"
 fi
 entries=$(jq -nc --argjson a "${entries_phase_a}" --argjson b "${phase_b_entries}" '$a + $b')

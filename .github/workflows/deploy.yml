@@ -3,7 +3,8 @@ name: Deploy
 on:
   workflow_dispatch:
   # Test Extensions runs after every harvest, so this is the end of the chain:
-  # the site is rendered once the results of any new extension are published.
+  # the site is rendered once the results of any untested extension are
+  # published.
   workflow_run:
     workflows:
       - "Test Extensions"

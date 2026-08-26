@@ -9,7 +9,7 @@ on:
       failing_only:
         description: "If 'true', test only the channels currently failing or never tested"
         default: "false"
-      new_only:
+      untested_only:
         description: "If 'true', test only the extensions with no stored result at all"
         default: "false"
       batch_size:
@@ -18,9 +18,9 @@ on:
       render_concurrency:
         description: "Number of concurrent renders per batch"
         default: "2"
-  # A completed harvest means quarto-extensions.json holds every submission
-  # merged since the last run, so a new-only pass gives each of them a first
-  # test result without waiting for the monthly schedule.
+  # A completed harvest means quarto-extensions.json is current, so an
+  # untested-only pass gives every extension with no stored result a first one
+  # without waiting for the monthly schedule.
   workflow_run:
     workflows:
       - "Quarto Wizard"
@@ -35,7 +35,7 @@ concurrency:
 
 jobs:
   build-test-image:
-    # The harvest path renders a handful of new extensions at most, and it runs
+    # The harvest path renders a handful of extensions at most, and it runs
     # every day, so it uses the images as they stand rather than paying for a
     # rebuild each night.
     if: github.event_name != 'workflow_run'
@@ -102,7 +102,7 @@ jobs:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           DEBUG: ${{ inputs.debug || 'false' }}
           FAILING_ONLY: ${{ inputs.failing_only || 'false' }}
-          NEW_ONLY: ${{ inputs.new_only == 'true' || github.event_name == 'workflow_run' }}
+          UNTESTED_ONLY: ${{ inputs.untested_only == 'true' || github.event_name == 'workflow_run' }}
           BATCH_SIZE: ${{ inputs.batch_size || '25' }}
           REPO_OWNER: ${{ github.repository_owner }}
         shell: bash
@@ -112,8 +112,8 @@ jobs:
   test-extensions:
     name: test-extensions (batch ${{ matrix.batch_index }}, ${{ matrix.quarto_channel }})
     needs: [build-matrix]
-    # A new-only run finds nothing on most days, and an empty selection has
-    # nothing to render or publish.
+    # An untested-only run finds nothing on most days, and an empty selection
+    # has nothing to render or publish.
     if: needs.build-matrix.outputs.render_count != '0'
     runs-on: ubuntu-latest
     permissions:
