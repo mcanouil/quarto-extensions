@@ -1,0 +1,1890 @@
+Cloning into 'repo'...
+Installing package into '/cache/r-lib-0'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.4.tar.gz'
+Content type 'binary/octet-stream' length 1435963 bytes (1.4 MB)
+==================================================
+downloaded 1.4 MB
+
+* installing *source* package 'renv' ...
+** this is package 'renv' version '1.2.4'
+** package 'renv' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/RtmpfsDhIz/downloaded_packages'
+Using CPython 3.14.7 interpreter at: /usr/local/python/current/bin/python
+Creating virtual environment at: .venv
+Activate with: source .venv/bin/activate
+Resolved 19 packages in 351ms
+Downloading pillow (6.6MiB)
+Downloading statsmodels (9.9MiB)
+Downloading pandas (10.5MiB)
+Downloading numpy (15.9MiB)
+Downloading matplotlib (10.6MiB)
+Downloading plotnine (1.5MiB)
+Downloading scipy (33.7MiB)
+Downloading fonttools (4.7MiB)
+Downloading kiwisolver (1.4MiB)
+ Downloaded kiwisolver
+ Downloaded plotnine
+ Downloaded fonttools
+ Downloaded pillow
+ Downloaded matplotlib
+ Downloaded numpy
+ Downloaded statsmodels
+ Downloaded scipy
+ Downloaded pandas
+Prepared 19 packages in 1.19s
+Installed 19 packages in 304ms
+ + contourpy==1.3.3
+ + cycler==0.12.1
+ + fonttools==4.63.0
+ + kiwisolver==1.5.0
+ + matplotlib==3.11.1
+ + mizani==0.14.4
+ + numpy==2.5.2
+ + packaging==26.3
+ + pandas==3.0.5
+ + patsy==1.0.2
+ + pillow==12.3.0
+ + plotnine==0.15.8
+ + pyparsing==3.3.2
+ + python-dateutil==2.9.0.post0
+ + pyyaml==6.0.3
+ + scipy==1.18.1
+ + seaborn==0.13.2
+ + six==1.17.0
+ + statsmodels==0.14.6
+[ 1/13] examples/template-controls.qmd
+[typst]: Compiling template-controls.typ to template-controls.pdf...warning: unknown font family: helvetica neue
+     ┌─ examples/template-controls.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/template-controls.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/template-controls.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: menlo
+     ┌─ examples/template-controls.typ:1234:4
+     │  
+1234 │ ╭     ..th.code-text-args
+1235 │ │       + (if code-font-size != auto { (size: code-font-size) } else { (:) })
+1236 │ │       + (if code-ligatures != "" { (ligatures: code-ligatures == "true") } else { (:) }),
+     │ ╰────────────────────────────────────────────────────────────────────────────────────────^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/template-controls.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/template-controls.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/template-controls.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/template-controls.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/template-controls.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/template-controls.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/template-controls.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/template-controls.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/template-controls.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/template-controls.typ:1220:23
+     │
+1220 │       let inner = text(..(size: 1.25 * base-font-size) + th.subheading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/template-controls.typ:1220:23
+     │
+1220 │       let inner = text(..(size: 1.25 * base-font-size) + th.subheading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/template-controls.typ:1220:23
+     │
+1220 │       let inner = text(..(size: 1.25 * base-font-size) + th.subheading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ examples/template-controls.typ:770:13
+    │
+770 │         text(..(size: 0.9 * base) + th.stats-label-text-args, upper(label))
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ examples/template-controls.typ:770:13
+    │
+770 │         text(..(size: 0.9 * base) + th.stats-label-text-args, upper(label))
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ examples/template-controls.typ:770:13
+    │
+770 │         text(..(size: 0.9 * base) + th.stats-label-text-args, upper(label))
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ examples/template-controls.typ:790:15
+    │
+790 │           text(..th.stat-label-text-args, cell)
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ examples/template-controls.typ:790:15
+    │
+790 │           text(..th.stat-label-text-args, cell)
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ examples/template-controls.typ:790:15
+    │
+790 │           text(..th.stat-label-text-args, cell)
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ examples/template-controls.typ:737:15
+    │
+737 │           text(..(size: 0.9 * base) + overlay("label-text"), upper(label))
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ examples/template-controls.typ:737:15
+    │
+737 │           text(..(size: 0.9 * base) + overlay("label-text"), upper(label))
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ examples/template-controls.typ:737:15
+    │
+737 │           text(..(size: 0.9 * base) + overlay("label-text"), upper(label))
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ examples/template-controls.typ:740:13
+    │
+740 │         text(..(size: scale * base) + overlay("text"), body)
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ examples/template-controls.typ:740:13
+    │
+740 │         text(..(size: scale * base) + overlay("text"), body)
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ examples/template-controls.typ:740:13
+    │
+740 │         text(..(size: scale * base) + overlay("text"), body)
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ examples/template-controls.typ:787:17
+    │
+787 │             text(..(size: 2.0 * base) + th.stat-value-text-args, it.body)
+    │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ examples/template-controls.typ:787:17
+    │
+787 │             text(..(size: 2.0 * base) + th.stat-value-text-args, it.body)
+    │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ examples/template-controls.typ:787:17
+    │
+787 │             text(..(size: 2.0 * base) + th.stat-value-text-args, it.body)
+    │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DONE
+
+[ 2/13] examples/python.qmd
+
+Starting python3 kernel...[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+Done
+
+Executing 'python.quarto_ipynb'
+  Cell 1/4: ''...Done
+  Cell 2/4: ''...Done
+  Cell 3/4: ''...Done
+  Cell 4/4: ''...Done
+
+[typst]: Compiling python.typ to python.pdf...warning: unknown font family: helvetica neue
+     ┌─ examples/python.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/python.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/python.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/python.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/python.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/python.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/python.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/python.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/python.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/python.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/python.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/python.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/python.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/python.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/python.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/python.typ:1259:13
+     │
+1259 │     set text(..(size: 0.75 * base-font-size) + th.caption-text-args)
+     │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/python.typ:1259:13
+     │
+1259 │     set text(..(size: 0.75 * base-font-size) + th.caption-text-args)
+     │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/python.typ:1259:13
+     │
+1259 │     set text(..(size: 0.75 * base-font-size) + th.caption-text-args)
+     │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DONE
+
+[ 3/13] examples/qr-codes.qmd
+[typst]: Compiling qr-codes.typ to qr-codes.pdf...downloading @preview/tiaoma:0.3.0
+
+  0 B / 450.6 KiB (  0 %),   4.4 MiB/s, ETA: 0 s
+450.6 KiB / 450.6 KiB (100 %),   4.4 MiB/s, ETA: 0 s
+warning: unknown font family: helvetica neue
+     ┌─ examples/qr-codes.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/qr-codes.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/qr-codes.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/qr-codes.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/qr-codes.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/qr-codes.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/qr-codes.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/qr-codes.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/qr-codes.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/qr-codes.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/qr-codes.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/qr-codes.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/qr-codes.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/qr-codes.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/qr-codes.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ examples/qr-codes.typ:831:11
+    │
+831 │       text(..(size: 0.75em, weight: "medium") + th.caption-text-args, label)
+    │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ examples/qr-codes.typ:831:11
+    │
+831 │       text(..(size: 0.75em, weight: "medium") + th.caption-text-args, label)
+    │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ examples/qr-codes.typ:831:11
+    │
+831 │       text(..(size: 0.75em, weight: "medium") + th.caption-text-args, label)
+    │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DONE
+
+[ 4/13] examples/tables.qmd
+(W) sciposter: replaced a table's own colors, borders or spacing with the poster theme. Set `table-css: size-only` under `poster:` to keep the table's styling at a readable size.
+[typst]: Compiling tables.typ to tables.pdf...warning: unknown font family: helvetica neue
+     ┌─ examples/tables.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/tables.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/tables.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/tables.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/tables.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/tables.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/tables.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/tables.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/tables.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/tables.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/tables.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/tables.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/tables.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/tables.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/tables.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ examples/tables.typ:635:13
+    │
+635 │         text(..title-args, title)
+    │              ^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ examples/tables.typ:635:13
+    │
+635 │         text(..title-args, title)
+    │              ^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ examples/tables.typ:635:13
+    │
+635 │         text(..title-args, title)
+    │              ^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ examples/tables.typ:737:15
+    │
+737 │           text(..(size: 0.9 * base) + overlay("label-text"), upper(label))
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ examples/tables.typ:737:15
+    │
+737 │           text(..(size: 0.9 * base) + overlay("label-text"), upper(label))
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ examples/tables.typ:737:15
+    │
+737 │           text(..(size: 0.9 * base) + overlay("label-text"), upper(label))
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ examples/tables.typ:740:13
+    │
+740 │         text(..(size: scale * base) + overlay("text"), body)
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ examples/tables.typ:740:13
+    │
+740 │         text(..(size: scale * base) + overlay("text"), body)
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ examples/tables.typ:740:13
+    │
+740 │         text(..(size: scale * base) + overlay("text"), body)
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DONE
+
+[ 5/13] examples/a0-portrait.qmd
+[typst]: Compiling a0-portrait.typ to a0-portrait.pdf...warning: unknown font family: helvetica neue
+     ┌─ examples/a0-portrait.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/a0-portrait.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/a0-portrait.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/a0-portrait.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/a0-portrait.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/a0-portrait.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/a0-portrait.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/a0-portrait.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/a0-portrait.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/a0-portrait.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/a0-portrait.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/a0-portrait.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/a0-portrait.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/a0-portrait.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/a0-portrait.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ examples/a0-portrait.typ:635:13
+    │
+635 │         text(..title-args, title)
+    │              ^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ examples/a0-portrait.typ:635:13
+    │
+635 │         text(..title-args, title)
+    │              ^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ examples/a0-portrait.typ:635:13
+    │
+635 │         text(..title-args, title)
+    │              ^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/a0-portrait.typ:1259:13
+     │
+1259 │     set text(..(size: 0.75 * base-font-size) + th.caption-text-args)
+     │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/a0-portrait.typ:1259:13
+     │
+1259 │     set text(..(size: 0.75 * base-font-size) + th.caption-text-args)
+     │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/a0-portrait.typ:1259:13
+     │
+1259 │     set text(..(size: 0.75 * base-font-size) + th.caption-text-args)
+     │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DONE
+
+[ 6/13] examples/r-figures.qmd
+
+
+processing file: r-figures.qmd
+1/7                  
+2/7 [unnamed-chunk-1]
+3/7                  
+4/7 [unnamed-chunk-2]
+5/7                  
+6/7 [unnamed-chunk-3]
+7/7                  
+output file: r-figures.knit.md
+
+[typst]: Compiling r-figures.typ to r-figures.pdf...warning: unknown font family: helvetica neue
+     ┌─ examples/r-figures.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/r-figures.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/r-figures.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/r-figures.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/r-figures.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/r-figures.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/r-figures.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/r-figures.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/r-figures.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/r-figures.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/r-figures.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/r-figures.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/r-figures.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/r-figures.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/r-figures.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/r-figures.typ:1259:13
+     │
+1259 │     set text(..(size: 0.75 * base-font-size) + th.caption-text-args)
+     │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/r-figures.typ:1259:13
+     │
+1259 │     set text(..(size: 0.75 * base-font-size) + th.caption-text-args)
+     │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/r-figures.typ:1259:13
+     │
+1259 │     set text(..(size: 0.75 * base-font-size) + th.caption-text-args)
+     │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DONE
+
+[ 7/13] tests/table-guard.qmd
+[typst]: Compiling table-guard.typ to table-guard.pdf...warning: unknown font family: sans-serif
+     ┌─ tests/table-guard.typ:1371:17
+     │
+1371 │ #{set text(font: ("sans-serif",) , size: 9pt);table(
+     │                  ^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/table-guard.typ:1138:11
+     │
+1138 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/table-guard.typ:1138:11
+     │
+1138 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/table-guard.typ:1138:11
+     │
+1138 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/table-guard.typ:1194:40
+     │
+1194 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/table-guard.typ:1194:40
+     │
+1194 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/table-guard.typ:1194:40
+     │
+1194 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/table-guard.typ:1271:17
+     │
+1271 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/table-guard.typ:1271:17
+     │
+1271 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/table-guard.typ:1271:17
+     │
+1271 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+DONE
+
+[ 8/13] tests/reject-bad-size.qmd
+[typst]: Compiling reject-bad-size.typ to reject-bad-size.pdf...error: panicked with: poster size must be "WxH" in inches ("48x36") or one of a0, a1, a2; got "a3"
+    ┌─ tests/reject-bad-size.typ:489:4
+    │
+489 │     panic(expected + "; got " + repr(size))
+    │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  while calling `resolve-size` at tests/reject-bad-size.typ:929:25
+    resolve-size(size, orientation)
+
+ERROR: error: panicked with: poster size must be "WxH" in inches ("48x36") or one of a0, a1, a2; got "a3"
+    ┌─ tests/reject-bad-size.typ:489:4
+    │
+489 │     panic(expected + "; got " + repr(size))
+    │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  while calling `resolve-size` at tests/reject-bad-size.typ:929:25
+    resolve-size(size, orientation)
+
+
+ERROR: Typst compilation failed
+Render failed, retrying once...
+[ 1/13] examples/template-controls.qmd
+[typst]: Compiling template-controls.typ to template-controls.pdf...warning: unknown font family: helvetica neue
+     ┌─ examples/template-controls.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/template-controls.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/template-controls.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: menlo
+     ┌─ examples/template-controls.typ:1234:4
+     │  
+1234 │ ╭     ..th.code-text-args
+1235 │ │       + (if code-font-size != auto { (size: code-font-size) } else { (:) })
+1236 │ │       + (if code-ligatures != "" { (ligatures: code-ligatures == "true") } else { (:) }),
+     │ ╰────────────────────────────────────────────────────────────────────────────────────────^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/template-controls.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/template-controls.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/template-controls.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/template-controls.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/template-controls.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/template-controls.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/template-controls.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/template-controls.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/template-controls.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/template-controls.typ:1220:23
+     │
+1220 │       let inner = text(..(size: 1.25 * base-font-size) + th.subheading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/template-controls.typ:1220:23
+     │
+1220 │       let inner = text(..(size: 1.25 * base-font-size) + th.subheading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/template-controls.typ:1220:23
+     │
+1220 │       let inner = text(..(size: 1.25 * base-font-size) + th.subheading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ examples/template-controls.typ:770:13
+    │
+770 │         text(..(size: 0.9 * base) + th.stats-label-text-args, upper(label))
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ examples/template-controls.typ:770:13
+    │
+770 │         text(..(size: 0.9 * base) + th.stats-label-text-args, upper(label))
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ examples/template-controls.typ:770:13
+    │
+770 │         text(..(size: 0.9 * base) + th.stats-label-text-args, upper(label))
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ examples/template-controls.typ:790:15
+    │
+790 │           text(..th.stat-label-text-args, cell)
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ examples/template-controls.typ:790:15
+    │
+790 │           text(..th.stat-label-text-args, cell)
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ examples/template-controls.typ:790:15
+    │
+790 │           text(..th.stat-label-text-args, cell)
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ examples/template-controls.typ:737:15
+    │
+737 │           text(..(size: 0.9 * base) + overlay("label-text"), upper(label))
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ examples/template-controls.typ:737:15
+    │
+737 │           text(..(size: 0.9 * base) + overlay("label-text"), upper(label))
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ examples/template-controls.typ:737:15
+    │
+737 │           text(..(size: 0.9 * base) + overlay("label-text"), upper(label))
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ examples/template-controls.typ:740:13
+    │
+740 │         text(..(size: scale * base) + overlay("text"), body)
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ examples/template-controls.typ:740:13
+    │
+740 │         text(..(size: scale * base) + overlay("text"), body)
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ examples/template-controls.typ:740:13
+    │
+740 │         text(..(size: scale * base) + overlay("text"), body)
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ examples/template-controls.typ:787:17
+    │
+787 │             text(..(size: 2.0 * base) + th.stat-value-text-args, it.body)
+    │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ examples/template-controls.typ:787:17
+    │
+787 │             text(..(size: 2.0 * base) + th.stat-value-text-args, it.body)
+    │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ examples/template-controls.typ:787:17
+    │
+787 │             text(..(size: 2.0 * base) + th.stat-value-text-args, it.body)
+    │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DONE
+
+[ 2/13] examples/python.qmd
+
+Starting python3 kernel...[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+Done
+
+Executing 'python.quarto_ipynb'
+  Cell 1/4: ''...Done
+  Cell 2/4: ''...Done
+  Cell 3/4: ''...Done
+  Cell 4/4: ''...Done
+
+[typst]: Compiling python.typ to python.pdf...warning: unknown font family: helvetica neue
+     ┌─ examples/python.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/python.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/python.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/python.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/python.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/python.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/python.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/python.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/python.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/python.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/python.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/python.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/python.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/python.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/python.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/python.typ:1259:13
+     │
+1259 │     set text(..(size: 0.75 * base-font-size) + th.caption-text-args)
+     │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/python.typ:1259:13
+     │
+1259 │     set text(..(size: 0.75 * base-font-size) + th.caption-text-args)
+     │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/python.typ:1259:13
+     │
+1259 │     set text(..(size: 0.75 * base-font-size) + th.caption-text-args)
+     │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DONE
+
+[ 3/13] examples/qr-codes.qmd
+[typst]: Compiling qr-codes.typ to qr-codes.pdf...warning: unknown font family: helvetica neue
+     ┌─ examples/qr-codes.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/qr-codes.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/qr-codes.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/qr-codes.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/qr-codes.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/qr-codes.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/qr-codes.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/qr-codes.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/qr-codes.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/qr-codes.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/qr-codes.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/qr-codes.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/qr-codes.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/qr-codes.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/qr-codes.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ examples/qr-codes.typ:831:11
+    │
+831 │       text(..(size: 0.75em, weight: "medium") + th.caption-text-args, label)
+    │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ examples/qr-codes.typ:831:11
+    │
+831 │       text(..(size: 0.75em, weight: "medium") + th.caption-text-args, label)
+    │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ examples/qr-codes.typ:831:11
+    │
+831 │       text(..(size: 0.75em, weight: "medium") + th.caption-text-args, label)
+    │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DONE
+
+[ 4/13] examples/tables.qmd
+(W) sciposter: replaced a table's own colors, borders or spacing with the poster theme. Set `table-css: size-only` under `poster:` to keep the table's styling at a readable size.
+[typst]: Compiling tables.typ to tables.pdf...warning: unknown font family: helvetica neue
+     ┌─ examples/tables.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/tables.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/tables.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/tables.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/tables.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/tables.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/tables.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/tables.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/tables.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/tables.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/tables.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/tables.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/tables.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/tables.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/tables.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ examples/tables.typ:635:13
+    │
+635 │         text(..title-args, title)
+    │              ^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ examples/tables.typ:635:13
+    │
+635 │         text(..title-args, title)
+    │              ^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ examples/tables.typ:635:13
+    │
+635 │         text(..title-args, title)
+    │              ^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ examples/tables.typ:737:15
+    │
+737 │           text(..(size: 0.9 * base) + overlay("label-text"), upper(label))
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ examples/tables.typ:737:15
+    │
+737 │           text(..(size: 0.9 * base) + overlay("label-text"), upper(label))
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ examples/tables.typ:737:15
+    │
+737 │           text(..(size: 0.9 * base) + overlay("label-text"), upper(label))
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ examples/tables.typ:740:13
+    │
+740 │         text(..(size: scale * base) + overlay("text"), body)
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ examples/tables.typ:740:13
+    │
+740 │         text(..(size: scale * base) + overlay("text"), body)
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ examples/tables.typ:740:13
+    │
+740 │         text(..(size: scale * base) + overlay("text"), body)
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DONE
+
+[ 5/13] examples/a0-portrait.qmd
+[typst]: Compiling a0-portrait.typ to a0-portrait.pdf...warning: unknown font family: helvetica neue
+     ┌─ examples/a0-portrait.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/a0-portrait.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/a0-portrait.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/a0-portrait.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/a0-portrait.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/a0-portrait.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/a0-portrait.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/a0-portrait.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/a0-portrait.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/a0-portrait.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/a0-portrait.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/a0-portrait.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/a0-portrait.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/a0-portrait.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/a0-portrait.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ examples/a0-portrait.typ:635:13
+    │
+635 │         text(..title-args, title)
+    │              ^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ examples/a0-portrait.typ:635:13
+    │
+635 │         text(..title-args, title)
+    │              ^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ examples/a0-portrait.typ:635:13
+    │
+635 │         text(..title-args, title)
+    │              ^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/a0-portrait.typ:1259:13
+     │
+1259 │     set text(..(size: 0.75 * base-font-size) + th.caption-text-args)
+     │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/a0-portrait.typ:1259:13
+     │
+1259 │     set text(..(size: 0.75 * base-font-size) + th.caption-text-args)
+     │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/a0-portrait.typ:1259:13
+     │
+1259 │     set text(..(size: 0.75 * base-font-size) + th.caption-text-args)
+     │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DONE
+
+[ 6/13] examples/r-figures.qmd
+
+
+processing file: r-figures.qmd
+1/7                  
+2/7 [unnamed-chunk-1]
+3/7                  
+4/7 [unnamed-chunk-2]
+5/7                  
+6/7 [unnamed-chunk-3]
+7/7                  
+output file: r-figures.knit.md
+
+[typst]: Compiling r-figures.typ to r-figures.pdf...warning: unknown font family: helvetica neue
+     ┌─ examples/r-figures.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/r-figures.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/r-figures.typ:1004:17
+     │
+1004 │         set text(..(size: 0.9 * base-font-size) + th.footer-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/r-figures.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/r-figures.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/r-figures.typ:1186:11
+     │
+1186 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/r-figures.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/r-figures.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/r-figures.typ:1242:40
+     │
+1242 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/r-figures.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/r-figures.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/r-figures.typ:1319:17
+     │
+1319 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/r-figures.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/r-figures.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/r-figures.typ:1212:23
+     │
+1212 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ examples/r-figures.typ:1259:13
+     │
+1259 │     set text(..(size: 0.75 * base-font-size) + th.caption-text-args)
+     │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ examples/r-figures.typ:1259:13
+     │
+1259 │     set text(..(size: 0.75 * base-font-size) + th.caption-text-args)
+     │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ examples/r-figures.typ:1259:13
+     │
+1259 │     set text(..(size: 0.75 * base-font-size) + th.caption-text-args)
+     │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DONE
+
+[ 7/13] tests/table-guard.qmd
+[typst]: Compiling table-guard.typ to table-guard.pdf...warning: unknown font family: sans-serif
+     ┌─ tests/table-guard.typ:1371:17
+     │
+1371 │ #{set text(font: ("sans-serif",) , size: 9pt);table(
+     │                  ^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/table-guard.typ:1138:11
+     │
+1138 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/table-guard.typ:1138:11
+     │
+1138 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/table-guard.typ:1138:11
+     │
+1138 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/table-guard.typ:1194:40
+     │
+1194 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/table-guard.typ:1194:40
+     │
+1194 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/table-guard.typ:1194:40
+     │
+1194 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/table-guard.typ:1271:17
+     │
+1271 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/table-guard.typ:1271:17
+     │
+1271 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/table-guard.typ:1271:17
+     │
+1271 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+DONE
+
+[ 8/13] tests/reject-bad-size.qmd
+[typst]: Compiling reject-bad-size.typ to reject-bad-size.pdf...error: panicked with: poster size must be "WxH" in inches ("48x36") or one of a0, a1, a2; got "a3"
+    ┌─ tests/reject-bad-size.typ:489:4
+    │
+489 │     panic(expected + "; got " + repr(size))
+    │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  while calling `resolve-size` at tests/reject-bad-size.typ:929:25
+    resolve-size(size, orientation)
+
+ERROR: error: panicked with: poster size must be "WxH" in inches ("48x36") or one of a0, a1, a2; got "a3"
+    ┌─ tests/reject-bad-size.typ:489:4
+    │
+489 │     panic(expected + "; got " + repr(size))
+    │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  while calling `resolve-size` at tests/reject-bad-size.typ:929:25
+    resolve-size(size, orientation)
+
+
+ERROR: Typst compilation failed
