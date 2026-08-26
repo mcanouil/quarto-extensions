@@ -5,6 +5,7 @@ on:
   workflow_run:
     workflows:
       - "Quarto Wizard"
+      - "Test Extensions"
     types:
       - completed
 
@@ -20,11 +21,16 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    # The nightly Quarto Wizard run triggers this workflow on completion, not on
-    # success, so without this guard a failed harvest still redeploys the site.
+    # Both upstream workflows trigger this one on completion, not on success, so
+    # without this guard a failed harvest or test run still redeploys the site.
+    # A harvest that came from a push is a merged submission: the extension has
+    # no test result yet, so the deployment waits for Test Extensions to render
+    # and publish it, and the site ships with the result already in place.
     if: >-
       github.event_name == 'workflow_dispatch' ||
-      github.event.workflow_run.conclusion == 'success'
+      (github.event.workflow_run.conclusion == 'success' &&
+      (github.event.workflow_run.name == 'Test Extensions' ||
+      github.event.workflow_run.event != 'push'))
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

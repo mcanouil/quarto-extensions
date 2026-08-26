@@ -2,10 +2,10 @@
 set -euo pipefail
 
 # Build the test matrix for the test-extensions workflow.
-# Inputs (env): DEBUG, FAILING_ONLY, BATCH_SIZE, GH_TOKEN (for gh api calls)
+# Inputs (env): DEBUG, FAILING_ONLY, NEW_ONLY, BATCH_SIZE, GH_TOKEN (for gh api calls)
 # Inputs (env, debug only): REPO_OWNER (filters to same-owner extensions)
-# Inputs (files, failing-only): test-results.json (from quarto-tests branch)
-# Outputs (to GITHUB_OUTPUT): matrix, skipped
+# Inputs (files, failing-only and new-only): test-results.json (from quarto-tests branch)
+# Outputs (to GITHUB_OUTPUT): matrix, skipped, count
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=retry.sh
@@ -24,12 +24,44 @@ if [[ ! "${FAILING_ONLY}" =~ ^(true|false)$ ]]; then
   exit 1
 fi
 
+NEW_ONLY="${NEW_ONLY:-false}"
+if [[ ! "${NEW_ONLY}" =~ ^(true|false)$ ]]; then
+  echo "::error::Invalid new_only value: '${NEW_ONLY}'. Expected 'true' or 'false'."
+  exit 1
+fi
+
+# New-only selects extensions with no stored result at all, which is a subset of
+# what failing-only selects, so the two modes together mean new-only.
+if [[ "${NEW_ONLY}" == "true" ]] && [[ "${FAILING_ONLY}" == "true" ]]; then
+  echo "::notice::new_only and failing_only are both set. Using new_only."
+  FAILING_ONLY="false"
+fi
+
 if [[ ! "${BATCH_SIZE}" =~ ^[1-9][0-9]*$ ]]; then
   echo "::error::Invalid batch_size value: '${BATCH_SIZE}'. Expected a positive integer."
   exit 1
 fi
 
 extensions_json=$(cat quarto-extensions.json)
+if [[ "${NEW_ONLY}" == "true" ]]; then
+  tested_ids_file=$(mktemp)
+  if [[ -f test-results.json ]] && jq -e 'type == "object"' test-results.json >/dev/null 2>&1; then
+    jq -c 'keys' test-results.json >"${tested_ids_file}"
+  else
+    echo "::warning::Missing or invalid test-results.json. Treating every extension as never tested."
+    echo '[]' >"${tested_ids_file}"
+  fi
+  # Filtering here, before the repository trees are fetched, keeps the tree
+  # requests to the extensions that actually need a first test.
+  # --slurpfile keeps the identifier list off the jq command line, hence $t[0].
+  extensions_json=$(echo "${extensions_json}" | jq -c --slurpfile t "${tested_ids_file}" '
+    ($t[0] | map({(.): true}) | add // {}) as $tested
+    | with_entries(select($tested[.key] | not))
+  ')
+  rm -f "${tested_ids_file}"
+  echo "New-only mode: $(echo "${extensions_json}" | jq 'length') extension(s) with no stored result."
+fi
+
 if [[ "${DEBUG}" == "true" ]]; then
   if [[ -z "${REPO_OWNER:-}" ]]; then
     echo "::error::REPO_OWNER is not set."
@@ -229,6 +261,11 @@ if [[ "${FAILING_ONLY}" == "true" ]]; then
   echo "Failing-only selection: release=${rel_count}, prerelease=${pre_count}"
 fi
 
+# Extensions to render across both channels. The workflow skips the render and
+# publication jobs when this is zero, so a run with nothing to do stops here.
+count=$(echo "${entries_by_channel}" | jq '[.release, .prerelease] | map(length) | add')
+echo "Extensions to render: ${count}"
+
 matrix=$(echo "${entries_by_channel}" | jq -c --argjson n "${BATCH_SIZE}" --argjson meta "${image_meta_map}" '
   def pad3: tostring | if length < 3 then ("000" + .)[-3:] else . end;
   . as $byc
@@ -259,5 +296,8 @@ matrix=$(echo "${entries_by_channel}" | jq -c --argjson n "${BATCH_SIZE}" --argj
 job_count=$(echo "${matrix}" | jq '.include | length')
 echo "Matrix jobs: ${job_count}"
 
-echo "matrix=$(echo "${matrix}" | jq -c '.')" >>"${GITHUB_OUTPUT}"
-echo "skipped=$(echo "${skipped}" | jq -c '.')" >>"${GITHUB_OUTPUT}"
+{
+  echo "matrix=$(echo "${matrix}" | jq -c '.')"
+  echo "skipped=$(echo "${skipped}" | jq -c '.')"
+  echo "count=${count}"
+} >>"${GITHUB_OUTPUT}"

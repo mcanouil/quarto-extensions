@@ -9,12 +9,23 @@ on:
       failing_only:
         description: "If 'true', test only the channels currently failing or never tested"
         default: "false"
+      new_only:
+        description: "If 'true', test only the extensions with no stored result at all"
+        default: "false"
       batch_size:
         description: "Number of extensions per batch"
         default: "25"
       render_concurrency:
         description: "Number of concurrent renders per batch"
         default: "2"
+  # A completed harvest means quarto-extensions.json holds every submission
+  # merged since the last run, so a new-only pass gives each of them a first
+  # test result without waiting for the monthly schedule.
+  workflow_run:
+    workflows:
+      - "Quarto Wizard"
+    types:
+      - completed
   schedule:
     - cron: "0 14 15 * *"
 
@@ -24,6 +35,11 @@ concurrency:
 
 jobs:
   build-test-image:
+    # The harvest triggers this workflow on completion, not on success, so
+    # without this guard a failed harvest would test against stale data.
+    if: >-
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
     uses: ./.github/workflows/build-test-image.yml
     permissions:
       contents: read
@@ -37,6 +53,7 @@ jobs:
     outputs:
       matrix: ${{ steps.matrix.outputs.matrix }}
       skipped: ${{ steps.matrix.outputs.skipped }}
+      count: ${{ steps.matrix.outputs.count }}
     steps:
       - name: Checkout scripts
         uses: actions/checkout@v7
@@ -61,7 +78,10 @@ jobs:
           permission-metadata: read
 
       - name: Fetch stored test results
-        if: inputs.failing_only == 'true'
+        if: >-
+          inputs.failing_only == 'true' ||
+          inputs.new_only == 'true' ||
+          github.event_name == 'workflow_run'
         working-directory: _data
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
@@ -81,6 +101,7 @@ jobs:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           DEBUG: ${{ inputs.debug || 'false' }}
           FAILING_ONLY: ${{ inputs.failing_only || 'false' }}
+          NEW_ONLY: ${{ inputs.new_only || (github.event_name == 'workflow_run' && 'true') || 'false' }}
           BATCH_SIZE: ${{ inputs.batch_size || '25' }}
           REPO_OWNER: ${{ github.repository_owner }}
         shell: bash
@@ -90,6 +111,9 @@ jobs:
   test-extensions:
     name: test-extensions (batch ${{ matrix.batch_index }}, ${{ matrix.quarto_channel }})
     needs: [build-matrix]
+    # A new-only run finds nothing on most days, and an empty selection has
+    # nothing to render or publish.
+    if: needs.build-matrix.outputs.count != '0'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -168,7 +192,9 @@ jobs:
 
   summarise-and-publish:
     needs: [build-matrix, test-extensions]
-    if: always() && needs.build-matrix.result == 'success'
+    if: >-
+      always() && needs.build-matrix.result == 'success' &&
+      needs.build-matrix.outputs.count != '0'
     runs-on: ubuntu-latest
     permissions:
       contents: read
