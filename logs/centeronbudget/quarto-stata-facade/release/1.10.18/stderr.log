@@ -1,20 +1,12 @@
 Cloning into 'repo'...
-Using CPython 3.14.7 interpreter at: /usr/local/python/current/bin/python
+Using CPython 3.13.15
 Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
-Resolved 21 packages in 759ms
+Resolved 21 packages in 853ms
    Building stata-setup==0.1.3
-Downloading pandas (10.5MiB)
-Downloading numpy (15.9MiB)
-Downloading pygments (1.2MiB)
-Downloading jedi (4.7MiB)
- Downloaded pygments
       Built stata-setup==0.1.3
- Downloaded numpy
- Downloaded pandas
- Downloaded jedi
-Prepared 21 packages in 984ms
-Installed 21 packages in 988ms
+Prepared 1 package in 191ms
+Installed 21 packages in 993ms
  + asttokens==3.0.2
  + executing==2.2.1
  + ipython==9.16.1
@@ -56,7 +48,7 @@ stata_setup.config("C:/Program Files/Stata17", "mp")
 [32m      1[39m [38;5;28;01mimport[39;00m stata_setup
 [32m----> [39m[32m2[39m stata_setup.config([33m"C:/Program Files/Stata17"[39m, [33m"mp"[39m)
 
-[36mFile [39m[32m~/repo/.venv/lib/python3.14/site-packages/stata_setup.py:38[39m, in [36mconfig[39m[34m(path, edition, splash)[39m
+[36mFile [39m[32m~/repo/.venv/lib/python3.13/site-packages/stata_setup.py:38[39m, in [36mconfig[39m[34m(path, edition, splash)[39m
 [32m     19[39m [38;5;250m[39m[33;03m"""[39;00m
 [32m     20[39m [33;03mConfigure Stata within Python.[39;00m
 [32m     21[39m 
@@ -91,7 +83,7 @@ stata_setup.config("C:/Program Files/Stata17", "mp")
 [32m      1[39m [38;5;28;01mimport[39;00m stata_setup
 [32m----> [39m[32m2[39m stata_setup.config([33m"C:/Program Files/Stata17"[39m, [33m"mp"[39m)
 
-[36mFile [39m[32m~/repo/.venv/lib/python3.14/site-packages/stata_setup.py:38[39m, in [36mconfig[39m[34m(path, edition, splash)[39m
+[36mFile [39m[32m~/repo/.venv/lib/python3.13/site-packages/stata_setup.py:38[39m, in [36mconfig[39m[34m(path, edition, splash)[39m
 [32m     19[39m [38;5;250m[39m[33;03m"""[39;00m
 [32m     20[39m [33;03mConfigure Stata within Python.[39;00m
 [32m     21[39m 

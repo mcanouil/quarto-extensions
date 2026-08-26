@@ -1,0 +1,109 @@
+pandoc 
+
+  to: revealjs
+  output-file: example.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+
+metadata
+
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  title: ProgresSVG
+  subtitle: An extension for Quarto@revealjs
+  author: Rodrigo J. Gonçalves
+  theme: default
+  
+
+[ProgresSVG] 
+### Slide #1 ###
+
+[ProgresSVG] 
+### Slide #2 ###
+
+
+[ProgresSVG] Processing: file=assets/example.svg, element=axes, action=show
+[ProgresSVG] Processing SVG for first time: assets/example.svg
+[ProgresSVG] Processing SVG file: assets/example.svg
+[ProgresSVG] Found element with label: 'my first layer'
+[ProgresSVG] Found element with label: 'axes'
+[ProgresSVG] Found element with label: 'line_exponential'
+[ProgresSVG] Found element with label: 'line_logistic'
+[ProgresSVG] Found element with label: 'text_logistic'
+[ProgresSVG] Found element with label: 'text_exponential'
+[ProgresSVG]   Group element, ID updated
+[ProgresSVG]   Updated style for 'axes'
+
+[ProgresSVG]   Updated style for 'line_exponential'
+
+[ProgresSVG]   Updated style for 'line_logistic'
+
+[ProgresSVG]   Updated style for 'text_logistic'
+
+[ProgresSVG]   Updated style for 'text_exponential'
+
+[ProgresSVG] Removing width/height from SVG
+
+[ProgresSVG] Normalizing viewBox
+
+[ProgresSVG] Total labels processed: 6
+
+[ProgresSVG] Processing: file=assets/example.svg, element=axes, action=hide
+[ProgresSVG] Using cached SVG
+
+[ProgresSVG] 
+### Slide #3 ###
+
+[ProgresSVG] Processing: file=assets/example.svg, element=axes, action=show
+[ProgresSVG] Using cached SVG
+
+[ProgresSVG] Processing: file=assets/example.svg, element=line_exponential, action=show
+[ProgresSVG] Using cached SVG
+
+[ProgresSVG] Processing: file=assets/example.svg, element=text_exponential, action=show
+[ProgresSVG] Using cached SVG
+
+[ProgresSVG] Processing: file=assets/example.svg, element=line_logistic, action=show
+[ProgresSVG] Using cached SVG
+[ProgresSVG] Processing: file=assets/example.svg, element=text_logistic, action=show
+[ProgresSVG] Using cached SVG
+
+[ProgresSVG] Processing: file=assets/example.svg, element=text_exponential, action=hide
+[ProgresSVG] Using cached SVG
+
+[ProgresSVG] Processing: file=assets/example.svg, element=line_exponential, action=hide
+[ProgresSVG] Using cached SVG
+
+[ProgresSVG] Processing: file=assets/example.svg, element=text_logistic, action=hide
+[ProgresSVG] Using cached SVG
+
+[ProgresSVG] Processing: file=assets/example.svg, element=line_logistic, action=hide
+[ProgresSVG] Using cached SVG
+[ProgresSVG] Processing: file=assets/example.svg, element=axes, action=hide
+[ProgresSVG] Using cached SVG
+
+Output created: example.html
+
+

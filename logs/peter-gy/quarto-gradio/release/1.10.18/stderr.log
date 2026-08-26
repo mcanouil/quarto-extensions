@@ -3,29 +3,29 @@ Using CPython 3.12.3 interpreter at: /usr/bin/python3.12
 Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
 Resolved 137 packages in 0.69ms
-Downloading jedi (1.5MiB)
-Downloading babel (9.7MiB)
-Downloading debugpy (4.0MiB)
-Downloading numpy (15.4MiB)
-Downloading setuptools (1.2MiB)
-Downloading pandas (12.1MiB)
-Downloading gradio (59.4MiB)
-Downloading pillow (4.3MiB)
-Downloading pygments (1.2MiB)
 Downloading notebook (12.6MiB)
-Downloading plotly (14.1MiB)
-Downloading jupyterlab (11.1MiB)
-Downloading pydantic-core (1.9MiB)
+Downloading numpy (15.4MiB)
+Downloading babel (9.7MiB)
 Downloading ruff (12.0MiB)
+Downloading pygments (1.2MiB)
+Downloading pandas (12.1MiB)
+Downloading jedi (1.5MiB)
+Downloading pillow (4.3MiB)
+Downloading pydantic-core (1.9MiB)
+Downloading debugpy (4.0MiB)
+Downloading setuptools (1.2MiB)
+Downloading gradio (59.4MiB)
 Downloading widgetsnbextension (2.2MiB)
+Downloading jupyterlab (11.1MiB)
+Downloading plotly (14.1MiB)
  Downloaded pydantic-core
  Downloaded pygments
  Downloaded widgetsnbextension
  Downloaded setuptools
  Downloaded pillow
  Downloaded debugpy
- Downloaded jedi
  Downloaded babel
+ Downloaded jedi
  Downloaded ruff
  Downloaded jupyterlab
  Downloaded pandas
@@ -33,8 +33,8 @@ Downloading widgetsnbextension (2.2MiB)
  Downloaded numpy
  Downloaded gradio
  Downloaded plotly
-Prepared 131 packages in 4.13s
-Installed 131 packages in 6.05s
+Prepared 131 packages in 4.28s
+Installed 131 packages in 6.14s
  + aiofiles==23.2.1
  + annotated-types==0.7.0
  + anyio==4.8.0
@@ -166,6 +166,58 @@ Installed 131 packages in 6.05s
  + websocket-client==1.8.0
  + websockets==15.0
  + widgetsnbextension==4.0.13
+Resolved 80 packages in 1.69s
+   Building lzstring==1.0.4
+Downloading fonttools (4.8MiB)
+Downloading kiwisolver (1.4MiB)
+Downloading matplotlib (9.6MiB)
+Downloading black (1.8MiB)
+Downloading aiohttp (1.7MiB)
+Downloading shiny (3.8MiB)
+ Downloaded kiwisolver
+ Downloaded aiohttp
+      Built lzstring==1.0.4
+ Downloaded black
+ Downloaded fonttools
+ Downloaded matplotlib
+ Downloaded shiny
+Prepared 35 packages in 585ms
+Installed 35 packages in 759ms
+ + aiohappyeyeballs==2.7.1
+ + aiohttp==3.14.3
+ + aiosignal==1.4.0
+ + appdirs==1.4.4
+ + asgiref==3.12.1
+ + black==26.5.1
+ + chevron==0.14.0
+ + contourpy==1.3.3
+ + cycler==0.12.1
+ + entrypoints==0.4
+ + fonttools==4.63.0
+ + frozenlist==1.8.0
+ + future==1.0.0
+ + htmltools==0.7.0
+ + kiwisolver==1.5.0
+ + linkify-it-py==2.1.1
+ + lzstring==1.0.4
+ + matplotlib==3.11.1
+ + mdit-py-plugins==0.6.1
+ + multidict==6.7.1
+ + mypy-extensions==1.1.0
+ + opentelemetry-api==1.44.0
+ + papermill==2.7.0
+ + pathspec==1.1.1
+ + propcache==0.5.2
+ + pyparsing==3.3.2
+ + pytokens==0.4.1
+ + questionary==2.1.1
+ + shiny==1.7.0
+ + shinychat==0.6.1
+ + shinylive==0.8.11
+ + tenacity==9.1.4
+ + uc-micro-py==2.0.0
+ + watchfiles==1.2.0
+ + yarl==1.24.5
 pandoc 
   to: html
   output-file: index.html
@@ -1279,63 +1331,26 @@ metadata
 Output created: ../../_site/playground/media/sepia-filter.html
 
 
-Starting python3 kernel...Traceback (most recent call last):
-  File "/opt/quarto/share/jupyter/jupyter.py", line 20, in <module>
-    from notebook import notebook_execute, RestartKernel
-  File "/opt/quarto/share/jupyter/notebook.py", line 19, in <module>
-    import nbformat
-  File "/home/vscode/.venv/lib/python3.14/site-packages/nbformat/__init__.py", line 14, in <module>
-    from . import v1, v2, v3, v4
-  File "/home/vscode/.venv/lib/python3.14/site-packages/nbformat/v4/__init__.py", line 24, in <module>
-    from .convert import downgrade, upgrade
-  File "/home/vscode/.venv/lib/python3.14/site-packages/nbformat/v4/convert.py", line 12, in <module>
-    from nbformat import v3, validator
-  File "/home/vscode/.venv/lib/python3.14/site-packages/nbformat/validator.py", line 17, in <module>
-    from .json_compat import ValidationError, _validator_for_name, get_current_validator
-  File "/home/vscode/.venv/lib/python3.14/site-packages/nbformat/json_compat.py", line 13, in <module>
-    import jsonschema
-  File "/home/vscode/.venv/lib/python3.14/site-packages/jsonschema/__init__.py", line 13, in <module>
-    from jsonschema._format import FormatChecker
-  File "/home/vscode/.venv/lib/python3.14/site-packages/jsonschema/_format.py", line 11, in <module>
-    from jsonschema.exceptions import FormatError
-  File "/home/vscode/.venv/lib/python3.14/site-packages/jsonschema/exceptions.py", line 15, in <module>
-    from referencing.exceptions import Unresolvable as _Unresolvable
-  File "/home/vscode/.venv/lib/python3.14/site-packages/referencing/__init__.py", line 5, in <module>
-    from referencing._core import Anchor, Registry, Resource, Specification
-  File "/home/vscode/.venv/lib/python3.14/site-packages/referencing/_core.py", line 9, in <module>
-    from rpds import HashTrieMap, HashTrieSet, List
-  File "/home/vscode/.venv/lib/python3.14/site-packages/rpds/__init__.py", line 1, in <module>
-    from .rpds import *
-ModuleNotFoundError: No module named 'rpds.rpds'
-WARN: Error encountered when rendering files
-Render failed, retrying once...
+Starting python3 kernel...Done
 
-Starting python3 kernel...Traceback (most recent call last):
-  File "/opt/quarto/share/jupyter/jupyter.py", line 20, in <module>
-    from notebook import notebook_execute, RestartKernel
-  File "/opt/quarto/share/jupyter/notebook.py", line 19, in <module>
-    import nbformat
-  File "/home/vscode/.venv/lib/python3.14/site-packages/nbformat/__init__.py", line 14, in <module>
-    from . import v1, v2, v3, v4
-  File "/home/vscode/.venv/lib/python3.14/site-packages/nbformat/v4/__init__.py", line 24, in <module>
-    from .convert import downgrade, upgrade
-  File "/home/vscode/.venv/lib/python3.14/site-packages/nbformat/v4/convert.py", line 12, in <module>
-    from nbformat import v3, validator
-  File "/home/vscode/.venv/lib/python3.14/site-packages/nbformat/validator.py", line 17, in <module>
-    from .json_compat import ValidationError, _validator_for_name, get_current_validator
-  File "/home/vscode/.venv/lib/python3.14/site-packages/nbformat/json_compat.py", line 13, in <module>
-    import jsonschema
-  File "/home/vscode/.venv/lib/python3.14/site-packages/jsonschema/__init__.py", line 13, in <module>
-    from jsonschema._format import FormatChecker
-  File "/home/vscode/.venv/lib/python3.14/site-packages/jsonschema/_format.py", line 11, in <module>
-    from jsonschema.exceptions import FormatError
-  File "/home/vscode/.venv/lib/python3.14/site-packages/jsonschema/exceptions.py", line 15, in <module>
-    from referencing.exceptions import Unresolvable as _Unresolvable
-  File "/home/vscode/.venv/lib/python3.14/site-packages/referencing/__init__.py", line 5, in <module>
-    from referencing._core import Anchor, Registry, Resource, Specification
-  File "/home/vscode/.venv/lib/python3.14/site-packages/referencing/_core.py", line 9, in <module>
-    from rpds import HashTrieMap, HashTrieSet, List
-  File "/home/vscode/.venv/lib/python3.14/site-packages/rpds/__init__.py", line 1, in <module>
-    from .rpds import *
-ModuleNotFoundError: No module named 'rpds.rpds'
-WARN: Error encountered when rendering files
+Executing 'example.quarto_ipynb'
+  Cell 1/1: ''...Done
+
+pandoc 
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Quarto x Gradio Lite
+  
+Output created: example.html
+

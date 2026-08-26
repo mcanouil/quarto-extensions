@@ -1,62 +1,18 @@
 Cloning into 'repo'...
 Installing packages into '/cache/r-lib-0'
 (as 'lib' is unspecified)
-also installing the dependencies 'fontBitstreamVera', 'fontLiberation', 'fontquiver', 'extrafontdb', 'Rttf2pt1', 'gdtools', 'officer'
+also installing the dependencies 'zip', 'officer'
 
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fontBitstreamVera_0.1.1.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fontLiberation_0.1.0.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fontquiver_0.2.1.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/extrafontdb_1.1.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/Rttf2pt1_1.3.14.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/gdtools_0.5.1.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/zip_3.0.2.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/officer_0.7.6.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/extrafont_0.20.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/flextable_0.10.0.tar.gz'
-* installing *source* package 'fontBitstreamVera' ...
-** this is package 'fontBitstreamVera' version '0.1.1'
-** package 'fontBitstreamVera' successfully unpacked and MD5 sums checked
-** using staged installation
-** inst
-** help
-*** installing help indices
-** building package indices
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (fontBitstreamVera)
-* installing *source* package 'fontLiberation' ...
-** this is package 'fontLiberation' version '0.1.0'
-** package 'fontLiberation' successfully unpacked and MD5 sums checked
-** using staged installation
-** inst
-** help
-*** installing help indices
-** building package indices
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (fontLiberation)
-* installing *source* package 'extrafontdb' ...
-** this is package 'extrafontdb' version '1.1'
-** package 'extrafontdb' successfully unpacked and MD5 sums checked
-** using staged installation
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-** building package indices
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (extrafontdb)
-* installing *source* package 'Rttf2pt1' ...
-** this is package 'Rttf2pt1' version '1.3.14'
-** package 'Rttf2pt1' successfully unpacked and MD5 sums checked
+* installing *source* package 'zip' ...
+** this is package 'zip' version '3.0.2'
+** package 'zip' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** libs
-installing via 'install.libs.R' to /cache/r-lib-0/00LOCK-Rttf2pt1/00new/Rttf2pt1
-Installing ttf2pt1/ttf2pt1 to /cache/r-lib-0/00LOCK-Rttf2pt1/00new/Rttf2pt1/exec
+using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+installing via 'install.libs.R' to /cache/r-lib-0/00LOCK-zip/00new/zip
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -64,9 +20,10 @@ Installing ttf2pt1/ttf2pt1 to /cache/r-lib-0/00LOCK-Rttf2pt1/00new/Rttf2pt1/exec
 *** installing help indices
 ** building package indices
 ** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
-* DONE (Rttf2pt1)
+* DONE (zip)
 * installing *source* package 'officer' ...
 ** this is package 'officer' version '0.7.6'
 ** package 'officer' successfully unpacked and MD5 sums checked
@@ -82,51 +39,6 @@ Installing ttf2pt1/ttf2pt1 to /cache/r-lib-0/00LOCK-Rttf2pt1/00new/Rttf2pt1/exec
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (officer)
-* installing *source* package 'fontquiver' ...
-** this is package 'fontquiver' version '0.2.1'
-** package 'fontquiver' successfully unpacked and MD5 sums checked
-** using staged installation
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-** building package indices
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (fontquiver)
-* installing *source* package 'extrafont' ...
-** this is package 'extrafont' version '0.20'
-** package 'extrafont' successfully unpacked and MD5 sums checked
-** using staged installation
-** R
-** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-** building package indices
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (extrafont)
-* installing *source* package 'gdtools' ...
-** this is package 'gdtools' version '0.5.1'
-** package 'gdtools' successfully unpacked and MD5 sums checked
-** using staged installation
-** libs
-using C++ compiler: 'g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
-installing to /cache/r-lib-0/00LOCK-gdtools/00new/gdtools/libs
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-** building package indices
-** testing if installed package can be loaded from temporary location
-** checking absolute paths in shared objects and dynamic libraries
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (gdtools)
 * installing *source* package 'flextable' ...
 ** this is package 'flextable' version '0.10.0'
 ** package 'flextable' successfully unpacked and MD5 sums checked
@@ -145,7 +57,7 @@ installing to /cache/r-lib-0/00LOCK-gdtools/00new/gdtools/libs
 * DONE (flextable)
 
 The downloaded source packages are in
-	'/tmp/RtmpaCye23/downloaded_packages'
+	'/tmp/RtmpYv08in/downloaded_packages'
 Warning message:
 package 'InraeThemes' is not available for this version of R
 

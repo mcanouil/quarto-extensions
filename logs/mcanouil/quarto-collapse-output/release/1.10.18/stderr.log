@@ -1,50 +1,44 @@
 Cloning into 'repo'...
-Downloading cpython-3.13.15-linux-x86_64-gnu (download) (33.2MiB)
- Downloaded cpython-3.13.15-linux-x86_64-gnu (download)
 Using CPython 3.13.15
 Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
-Resolved 128 packages in 0.98ms
-Downloading kiwisolver (1.4MiB)
-Downloading matplotlib (8.3MiB)
-Downloading statsmodels (10.0MiB)
-Downloading widgetsnbextension (2.1MiB)
-Downloading scipy (34.0MiB)
+Resolved 128 packages in 1ms
 Downloading setuptools (1.1MiB)
-Downloading debugpy (4.1MiB)
-Downloading pillow (6.3MiB)
-Downloading pyarrow (40.8MiB)
+Downloading statsmodels (10.0MiB)
+Downloading jupyterlab (11.7MiB)
+Downloading scipy (34.0MiB)
 Downloading pandas (11.7MiB)
-Downloading jedi (1.5MiB)
-Downloading polars-runtime-32 (38.4MiB)
-Downloading notebook (13.7MiB)
+Downloading widgetsnbextension (2.1MiB)
+Downloading debugpy (4.1MiB)
+Downloading kiwisolver (1.4MiB)
 Downloading pygments (1.2MiB)
 Downloading numpy (15.9MiB)
+Downloading notebook (13.7MiB)
+Downloading pillow (6.3MiB)
+Downloading polars-runtime-32 (38.4MiB)
 Downloading plotnine (1.3MiB)
-Downloading jupyterlab (11.7MiB)
-Downloading babel (9.7MiB)
 Downloading fonttools (4.7MiB)
+Downloading matplotlib (8.3MiB)
+Downloading pyarrow (40.8MiB)
  Downloaded kiwisolver
  Downloaded widgetsnbextension
  Downloaded plotnine
  Downloaded pygments
- Downloaded setuptools
  Downloaded debugpy
+ Downloaded setuptools
  Downloaded fonttools
  Downloaded pillow
- Downloaded babel
  Downloaded matplotlib
  Downloaded jupyterlab
  Downloaded notebook
  Downloaded numpy
  Downloaded statsmodels
  Downloaded polars-runtime-32
- Downloaded jedi
  Downloaded scipy
  Downloaded pandas
  Downloaded pyarrow
-Prepared 123 packages in 4.65s
-Installed 123 packages in 4.21s
+Prepared 77 packages in 3.42s
+Installed 123 packages in 4.19s
  + ansicolors==1.1.8
  + anyio==4.11.0
  + argon2-cffi==25.1.0
@@ -169,63 +163,41 @@ Installed 123 packages in 4.21s
  + websocket-client==1.9.0
  + widgetsnbextension==4.0.14
 
-Starting python3 kernel...Traceback (most recent call last):
-  File "/opt/quarto/share/jupyter/jupyter.py", line 20, in <module>
-    from notebook import notebook_execute, RestartKernel
-  File "/opt/quarto/share/jupyter/notebook.py", line 19, in <module>
-    import nbformat
-  File "/home/vscode/.venv/lib/python3.14/site-packages/nbformat/__init__.py", line 14, in <module>
-    from . import v1, v2, v3, v4
-  File "/home/vscode/.venv/lib/python3.14/site-packages/nbformat/v4/__init__.py", line 24, in <module>
-    from .convert import downgrade, upgrade
-  File "/home/vscode/.venv/lib/python3.14/site-packages/nbformat/v4/convert.py", line 12, in <module>
-    from nbformat import v3, validator
-  File "/home/vscode/.venv/lib/python3.14/site-packages/nbformat/validator.py", line 17, in <module>
-    from .json_compat import ValidationError, _validator_for_name, get_current_validator
-  File "/home/vscode/.venv/lib/python3.14/site-packages/nbformat/json_compat.py", line 13, in <module>
-    import jsonschema
-  File "/home/vscode/.venv/lib/python3.14/site-packages/jsonschema/__init__.py", line 13, in <module>
-    from jsonschema._format import FormatChecker
-  File "/home/vscode/.venv/lib/python3.14/site-packages/jsonschema/_format.py", line 11, in <module>
-    from jsonschema.exceptions import FormatError
-  File "/home/vscode/.venv/lib/python3.14/site-packages/jsonschema/exceptions.py", line 15, in <module>
-    from referencing.exceptions import Unresolvable as _Unresolvable
-  File "/home/vscode/.venv/lib/python3.14/site-packages/referencing/__init__.py", line 5, in <module>
-    from referencing._core import Anchor, Registry, Resource, Specification
-  File "/home/vscode/.venv/lib/python3.14/site-packages/referencing/_core.py", line 9, in <module>
-    from rpds import HashTrieMap, HashTrieSet, List
-  File "/home/vscode/.venv/lib/python3.14/site-packages/rpds/__init__.py", line 1, in <module>
-    from .rpds import *
-ModuleNotFoundError: No module named 'rpds.rpds'
-WARN: Error encountered when rendering files
-Render failed, retrying once...
+Starting python3 kernel...Done
 
-Starting python3 kernel...Traceback (most recent call last):
-  File "/opt/quarto/share/jupyter/jupyter.py", line 20, in <module>
-    from notebook import notebook_execute, RestartKernel
-  File "/opt/quarto/share/jupyter/notebook.py", line 19, in <module>
-    import nbformat
-  File "/home/vscode/.venv/lib/python3.14/site-packages/nbformat/__init__.py", line 14, in <module>
-    from . import v1, v2, v3, v4
-  File "/home/vscode/.venv/lib/python3.14/site-packages/nbformat/v4/__init__.py", line 24, in <module>
-    from .convert import downgrade, upgrade
-  File "/home/vscode/.venv/lib/python3.14/site-packages/nbformat/v4/convert.py", line 12, in <module>
-    from nbformat import v3, validator
-  File "/home/vscode/.venv/lib/python3.14/site-packages/nbformat/validator.py", line 17, in <module>
-    from .json_compat import ValidationError, _validator_for_name, get_current_validator
-  File "/home/vscode/.venv/lib/python3.14/site-packages/nbformat/json_compat.py", line 13, in <module>
-    import jsonschema
-  File "/home/vscode/.venv/lib/python3.14/site-packages/jsonschema/__init__.py", line 13, in <module>
-    from jsonschema._format import FormatChecker
-  File "/home/vscode/.venv/lib/python3.14/site-packages/jsonschema/_format.py", line 11, in <module>
-    from jsonschema.exceptions import FormatError
-  File "/home/vscode/.venv/lib/python3.14/site-packages/jsonschema/exceptions.py", line 15, in <module>
-    from referencing.exceptions import Unresolvable as _Unresolvable
-  File "/home/vscode/.venv/lib/python3.14/site-packages/referencing/__init__.py", line 5, in <module>
-    from referencing._core import Anchor, Registry, Resource, Specification
-  File "/home/vscode/.venv/lib/python3.14/site-packages/referencing/_core.py", line 9, in <module>
-    from rpds import HashTrieMap, HashTrieSet, List
-  File "/home/vscode/.venv/lib/python3.14/site-packages/rpds/__init__.py", line 1, in <module>
-    from .rpds import *
-ModuleNotFoundError: No module named 'rpds.rpds'
-WARN: Error encountered when rendering files
+Executing 'example.quarto_ipynb'
+  Cell 1/2: ''...Done
+  Cell 2/2: ''...Done
+
+pandoc 
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Collapse Output
+  subtitle: Quarto Extension
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  jupyter: python3
+  extensions:
+    collapse-output:
+      method: lua
+      default-open: false
+      summary-template: '{type} ({lines} lines)'
+      summaries:
+        stdout: Console output
+  
+Output created: example.html
+

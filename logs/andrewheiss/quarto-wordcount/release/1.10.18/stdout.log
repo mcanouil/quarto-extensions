@@ -1,9 +1,5 @@
 Dependency install phase for andrewheiss/quarto-wordcount: auto-detect
 Auto-detecting R dependencies for andrewheiss/quarto-wordcount (knitr engine, no renv.lock).
-** libs
-using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
-gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c renv.c -o renv.o
-gcc -std=gnu2x -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o renv.so renv.o -L/opt/R/4.6.1/lib/R/lib -lR
 Installing R packages: quarto, testthat 
 gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c diff.c -o diff.o
 gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c diffobj.c -o diffobj.o

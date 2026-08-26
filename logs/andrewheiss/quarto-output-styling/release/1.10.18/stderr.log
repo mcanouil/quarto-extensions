@@ -1,5 +1,5 @@
 Cloning into 'repo'...
-Installing package into '/cache/r-lib-1'
+Installing package into '/cache/r-lib-0'
 (as 'lib' is unspecified)
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.4.tar.gz'
 Content type 'binary/octet-stream' length 1435963 bytes (1.4 MB)
@@ -25,18 +25,16 @@ downloaded 1.4 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/Rtmp9IISeN/downloaded_packages'
-Using CPython 3.14.7 interpreter at: /usr/local/python/current/bin/python
+	'/tmp/RtmpCt8rbh/downloaded_packages'
+Using CPython 3.13.15
 Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
-bash: line 162: julia: command not found
+bash: line 289: julia: command not found
 Auto-detect Julia dependency install failed for andrewheiss/quarto-output-styling.
 Dependency install failed (exit 1) for andrewheiss/quarto-output-styling; retrying once.
-Using CPython 3.14.7 interpreter at: /usr/local/python/current/bin/python
+Using CPython 3.13.15
 Creating virtual environment at: .venv
-error: Failed to create virtual environment
-  Caused by: A virtual environment already exists at: .venv
-
-hint: Use the `--clear` flag or set `UV_VENV_CLEAR=1` to replace the existing virtual environment
-uv venv failed for andrewheiss/quarto-output-styling.
+Activate with: source .venv/bin/activate
+bash: line 289: julia: command not found
+Auto-detect Julia dependency install failed for andrewheiss/quarto-output-styling.
 Dependency install failed (exit 1) for andrewheiss/quarto-output-styling.

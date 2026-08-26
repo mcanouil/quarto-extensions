@@ -35,7 +35,7 @@ metadata
     requestVersion       = HTTP/1.1
     proxySecureMode      = ProxySecureWithConnect
   }
-   (StatusCodeException (Response {responseStatus = Status {statusCode = 404, statusMessage = "Not Found"}, responseVersion = HTTP/1.1, responseHeaders = [("Content-Type","text/html; charset=utf-8"),("Cache-Control","no-cache, no-store, max-age=0, must-revalidate"),("Pragma","no-cache"),("Expires","Mon, 01 Jan 1990 00:00:00 GMT"),("Date","Wed, 26 Aug 2026 18:43:25 GMT"),("Content-Encoding","gzip"),("Server","ESF"),("X-XSS-Protection","0"),("X-Content-Type-Options","nosniff"),("Alt-Svc","h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"),("Transfer-Encoding","chunked")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
+   (StatusCodeException (Response {responseStatus = Status {statusCode = 404, statusMessage = "Not Found"}, responseVersion = HTTP/1.1, responseHeaders = [("Content-Type","text/html; charset=utf-8"),("Cache-Control","no-cache, no-store, max-age=0, must-revalidate"),("Pragma","no-cache"),("Expires","Mon, 01 Jan 1990 00:00:00 GMT"),("Date","Wed, 26 Aug 2026 21:33:11 GMT"),("Content-Encoding","gzip"),("Server","ESF"),("X-XSS-Protection","0"),("X-Content-Type-Options","nosniff"),("Alt-Svc","h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"),("Transfer-Encoding","chunked")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
     host                 = "fonts.googleapis.com"
     port                 = 443
     secure               = True
@@ -66,7 +66,7 @@ metadata
     requestVersion       = HTTP/1.1
     proxySecureMode      = ProxySecureWithConnect
   }
-   (StatusCodeException (Response {responseStatus = Status {statusCode = 404, statusMessage = "Not Found"}, responseVersion = HTTP/1.1, responseHeaders = [("Cross-Origin-Resource-Policy","cross-origin"),("Content-Type","text/html; charset=UTF-8"),("X-Content-Type-Options","nosniff"),("Date","Wed, 26 Aug 2026 18:43:25 GMT"),("Server","sffe"),("Content-Length","1561"),("X-XSS-Protection","0"),("Alt-Svc","h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
+   (StatusCodeException (Response {responseStatus = Status {statusCode = 404, statusMessage = "Not Found"}, responseVersion = HTTP/1.1, responseHeaders = [("Cross-Origin-Resource-Policy","cross-origin"),("Content-Type","text/html; charset=UTF-8"),("X-Content-Type-Options","nosniff"),("Date","Wed, 26 Aug 2026 21:33:11 GMT"),("Server","sffe"),("Content-Length","1561"),("X-XSS-Protection","0"),("Alt-Svc","h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
     host                 = "fonts.gstatic.com"
     port                 = 443
     secure               = True
@@ -101,15 +101,15 @@ metadata
   title: Configuration errors
   
 [31mFATAL (/opt/quarto/share/filters/main.lua:3757) An error occurred:
-Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/tests/fixtures/git-sandbox as a JSON filter.
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-7/repo/tests/fixtures/git-sandbox as a JSON filter.
 Please make sure the file exists and is executable.
 
 Did you intend 'git-sandbox' as a Lua filter in an extension?
 If so, make sure you've spelled the name of the extension correctly.
 
 The original Pandoc error follows below.
-Error running filter '/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/tests/fixtures/git-sandbox':
-Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/tests/fixtures/git-sandbox
+Error running filter '/home/runner/work/quarto-extensions/quarto-extensions/test-7/repo/tests/fixtures/git-sandbox':
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-7/repo/tests/fixtures/git-sandbox
 [39mError running filter '/opt/quarto/share/filters/main.lua':
 /opt/quarto/share/filters/main.lua:589: FATAL QUARTO ERROR
 stack traceback:
@@ -139,15 +139,15 @@ metadata
   title: Configuration errors
   
 [31mFATAL (/opt/quarto/share/filters/main.lua:3757) An error occurred:
-Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/tests/fixtures/git-sandbox as a JSON filter.
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-7/repo/tests/fixtures/git-sandbox as a JSON filter.
 Please make sure the file exists and is executable.
 
 Did you intend 'git-sandbox' as a Lua filter in an extension?
 If so, make sure you've spelled the name of the extension correctly.
 
 The original Pandoc error follows below.
-Error running filter '/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/tests/fixtures/git-sandbox':
-Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/tests/fixtures/git-sandbox
+Error running filter '/home/runner/work/quarto-extensions/quarto-extensions/test-7/repo/tests/fixtures/git-sandbox':
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-7/repo/tests/fixtures/git-sandbox
 [39mError running filter '/opt/quarto/share/filters/main.lua':
 /opt/quarto/share/filters/main.lua:589: FATAL QUARTO ERROR
 stack traceback:
