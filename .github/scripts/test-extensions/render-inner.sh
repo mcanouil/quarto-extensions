@@ -8,20 +8,34 @@ set -euo pipefail
 
 # Activate local venv if created during dependency install.
 # Preserve access to the image-level venv site-packages so pre-installed
-# packages (jupyter, shinylive, pyyaml, etc.) remain importable.
+# packages (jupyter, shinylive, pyyaml, etc.) remain importable. The share is
+# a .pth file rather than PYTHONPATH: site.py appends the paths it reads from
+# a .pth file after the local site-packages, so the versions the repository
+# locked keep priority and the image venv only fills genuine gaps. It is also
+# limited to an image venv built on the same Python minor version: compiled
+# extension modules carry an interpreter-specific suffix, so sharing across
+# versions hides the local copy behind one the interpreter cannot import.
 IMAGE_VENV="/home/vscode/.venv"
 if [[ -f .venv/bin/activate ]]; then
-	image_sp=""
-	for sp in "${IMAGE_VENV}"/lib/python*/site-packages; do
-		if [[ -d "${sp}" ]]; then
-			image_sp="${sp}"
-			break
-		fi
-	done
 	# shellcheck disable=SC1091 # created at runtime by uv venv
 	source .venv/bin/activate
-	if [[ -n "${image_sp}" ]]; then
-		export PYTHONPATH="${PYTHONPATH:+${PYTHONPATH}:}${image_sp}"
+	if ! read -r venv_tag venv_purelib < <(
+		python3 -c 'import sys, sysconfig; print("python%d.%d" % sys.version_info[:2], sysconfig.get_paths()["purelib"])'
+	); then
+		echo "Could not inspect the project venv Python for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
+		exit 1
+	fi
+	image_sp="${IMAGE_VENV}/lib/${venv_tag}/site-packages"
+	if [[ -d "${image_sp}" ]]; then
+		printf '%s\n' "${image_sp}" >"${venv_purelib}/zz-image-venv.pth"
+	else
+		image_tags=""
+		for lib in "${IMAGE_VENV}"/lib/python*/; do
+			[[ -d "${lib}" ]] || continue
+			image_tags="${image_tags:+${image_tags}, }$(basename "${lib}")"
+		done
+		echo "Image venv (${image_tags:-none}) does not match the project venv (${venv_tag}) for ${EXT_ID}; its packages are not shared." \
+			>>"${LOG_DIR}/stdout.log"
 	fi
 fi
 

@@ -26,6 +26,42 @@ detect_engines() {
 
 engines=$(detect_engines)
 
+# Create the project venv. When the repository declares no Python version,
+# match the image venv so render-inner.sh can share its packages; uv resolves
+# a declared version itself, and an explicit flag that contradicts it errors.
+create_project_venv() {
+	local args=(--clear)
+	if [[ -n "${HARNESS_PYTHON:-}" ]] && [[ ! -f pyproject.toml ]] && [[ ! -f .python-version ]]; then
+		args+=(--python "${HARNESS_PYTHON}")
+	fi
+	uv venv "${args[@]}" >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
+		echo "uv venv failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
+		exit 1
+	}
+}
+
+# render-inner.sh only shares the image venv site-packages with a project venv
+# built on the same Python minor version, so a project that pins another
+# version needs its own Jupyter stack to execute Python cells.
+ensure_jupyter_baseline() {
+	local venv_tag
+	venv_tag=$(python3 -c 'import sys; print("python%d.%d" % sys.version_info[:2])')
+	if [[ -d "/home/vscode/.venv/lib/${venv_tag}/site-packages" ]]; then
+		return 0
+	fi
+	if ! echo "${engines}" | grep -qx "jupyter"; then
+		return 0
+	fi
+	if python3 -c 'import ipykernel, nbclient, nbformat' 2>/dev/null; then
+		return 0
+	fi
+	echo "Project venv Python (${venv_tag}) differs from the image venv for ${EXT_ID}; installing the Jupyter baseline." >>"${LOG_DIR}/stdout.log"
+	uv pip install jupyter papermill >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
+		echo "Jupyter baseline install failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
+		exit 1
+	}
+}
+
 # A documentation website under docs/ is a separate project that documents the
 # extension rather than exercising it, and render-inner.sh keeps it out of the
 # render surface. Its dependencies are therefore not needed, unless the
@@ -72,10 +108,7 @@ if [[ ! -f uv.lock ]] && [[ ! -f requirements.txt ]]; then
 
 		if [[ "${has_python}" == "true" ]]; then
 			echo "Auto-detecting Python dependencies for ${EXT_ID} (jupyter engine, no lock file)." >>"${LOG_DIR}/stdout.log"
-			uv venv --clear >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
-				echo "uv venv failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
-				exit 1
-			}
+			create_project_venv
 			# shellcheck disable=SC1091 # created at runtime by uv venv
 			source .venv/bin/activate
 
@@ -170,6 +203,7 @@ for pkg in sorted({DISTRIBUTIONS.get(name, name) for name in third_party}):
 			else
 				echo "No additional Python packages to install." >>"${LOG_DIR}/stdout.log"
 			fi
+			ensure_jupyter_baseline
 		fi
 	fi
 fi
@@ -237,10 +271,7 @@ if [[ -f renv.lock ]]; then
 fi
 if [[ -f uv.lock ]] || [[ -f requirements.txt ]]; then
 	echo "Installing Python dependencies for ${EXT_ID}." >>"${LOG_DIR}/stdout.log"
-	uv venv --clear >>"${LOG_DIR}/stdout.log" 2>>"${LOG_DIR}/stderr.log" || {
-		echo "uv venv failed for ${EXT_ID}." >>"${LOG_DIR}/stderr.log"
-		exit 1
-	}
+	create_project_venv
 	# shellcheck disable=SC1091 # created at runtime by uv venv
 	source .venv/bin/activate
 	if [[ -f uv.lock ]]; then
@@ -254,6 +285,7 @@ if [[ -f uv.lock ]] || [[ -f requirements.txt ]]; then
 			exit 1
 		}
 	fi
+	ensure_jupyter_baseline
 fi
 if [[ -f Project.toml ]] || [[ -f JuliaProject.toml ]]; then
 	echo "Installing Julia dependencies from Project.toml for ${EXT_ID}." >>"${LOG_DIR}/stdout.log"

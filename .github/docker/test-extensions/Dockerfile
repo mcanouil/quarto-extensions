@@ -55,10 +55,16 @@ RUN if [ -d /opt/tinytex ]; then chown -R ${HOST_UID}:${HOST_GID} /opt/tinytex; 
 
 USER vscode
 
-# Python virtual environment with Jupyter and common packages
+# Python virtual environment with Jupyter and common packages.
+# The version is pinned instead of inherited from the base image: the render
+# scripts share these packages with a project venv only when the two Python
+# minor versions match, so a silent bump in the base image would withdraw them
+# from every extension at once. 3.13 is the version most extensions resolve to.
+ARG HARNESS_PYTHON=3.13
 ENV UV_LINK_MODE=copy
-RUN uv venv /home/vscode/.venv \
+RUN uv venv --python ${HARNESS_PYTHON} /home/vscode/.venv \
     && . /home/vscode/.venv/bin/activate \
     && uv pip install jupyter papermill matplotlib shinylive black
+ENV HARNESS_PYTHON=${HARNESS_PYTHON}
 ENV VIRTUAL_ENV=/home/vscode/.venv
 ENV PATH="/home/vscode/.venv/bin:${PATH}"
