@@ -9,12 +9,26 @@ on:
       failing_only:
         description: "If 'true', test only the channels currently failing or never tested"
         default: "false"
+      untested_only:
+        description: "If 'true', test only the extensions with no stored result at all"
+        default: "false"
+      untested_window_days:
+        description: "Untested-only: how recently the extension was listed, 0 for no window"
+        default: "7"
       batch_size:
         description: "Number of extensions per batch"
         default: "25"
       render_concurrency:
         description: "Number of concurrent renders per batch"
         default: "2"
+  # A completed harvest means quarto-extensions.json is current, so an
+  # untested-only pass gives a first result to every extension that was listed
+  # recently and has none, without waiting for the monthly schedule.
+  workflow_run:
+    workflows:
+      - "Quarto Wizard"
+    types:
+      - completed
   schedule:
     - cron: "0 14 15 * *"
 
@@ -22,8 +36,19 @@ concurrency:
   group: test-extensions
   cancel-in-progress: false
 
+# Deploy reads the conclusion of this workflow. A failed harvest skips every job
+# here, and the run then concludes 'skipped', which is what stops the site from
+# being deployed on stale data. A job that runs on 'always()' would conclude the
+# run 'success' instead and defeat that guard.
+
 jobs:
   build-test-image:
+    # The harvest path renders a handful of extensions at most, and it runs
+    # every day, so it uses the images as they stand rather than paying for a
+    # rebuild each night. A first result therefore records the Quarto version of
+    # the last monthly build, which can be behind the current channel until the
+    # next full run tests the extension again.
+    if: github.event_name != 'workflow_run'
     uses: ./.github/workflows/build-test-image.yml
     permissions:
       contents: read
@@ -31,12 +56,19 @@ jobs:
 
   build-matrix:
     needs: [build-test-image]
+    # The harvest triggers this workflow on completion, not on success, so
+    # without this guard a failed harvest would test against stale data.
+    if: >-
+      !cancelled() && needs.build-test-image.result != 'failure' &&
+      (github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest
     permissions:
       contents: read
     outputs:
       matrix: ${{ steps.matrix.outputs.matrix }}
       skipped: ${{ steps.matrix.outputs.skipped }}
+      render_count: ${{ steps.matrix.outputs.render_count }}
     steps:
       - name: Checkout scripts
         uses: actions/checkout@v7
@@ -61,7 +93,6 @@ jobs:
           permission-metadata: read
 
       - name: Fetch stored test results
-        if: inputs.failing_only == 'true'
         working-directory: _data
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
@@ -81,6 +112,8 @@ jobs:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           DEBUG: ${{ inputs.debug || 'false' }}
           FAILING_ONLY: ${{ inputs.failing_only || 'false' }}
+          UNTESTED_ONLY: ${{ inputs.untested_only == 'true' || github.event_name == 'workflow_run' }}
+          UNTESTED_WINDOW_DAYS: ${{ inputs.untested_window_days || '7' }}
           BATCH_SIZE: ${{ inputs.batch_size || '25' }}
           REPO_OWNER: ${{ github.repository_owner }}
         shell: bash
@@ -90,6 +123,14 @@ jobs:
   test-extensions:
     name: test-extensions (batch ${{ matrix.batch_index }}, ${{ matrix.quarto_channel }})
     needs: [build-matrix]
+    # An untested-only run finds nothing on most days, and an empty selection
+    # has nothing to render or publish.
+    # The status function is what keeps this job alive: the harvest path skips
+    # build-test-image, and a skipped job skips everything downstream of it
+    # unless each job says otherwise, whatever the jobs in between concluded.
+    if: >-
+      !cancelled() && needs.build-matrix.result == 'success' &&
+      needs.build-matrix.outputs.render_count != '0'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -168,7 +209,9 @@ jobs:
 
   summarise-and-publish:
     needs: [build-matrix, test-extensions]
-    if: always() && needs.build-matrix.result == 'success'
+    if: >-
+      always() && needs.build-matrix.result == 'success' &&
+      needs.build-matrix.outputs.render_count != '0'
     runs-on: ubuntu-latest
     permissions:
       contents: read
