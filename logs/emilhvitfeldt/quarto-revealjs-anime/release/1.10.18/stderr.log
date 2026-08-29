@@ -1,0 +1,42 @@
+Cloning into 'repo'...
+ERROR: Specified Reveal plugin directory 'revealjs-anime' does not exist.
+
+Stack trace:
+    at pluginFromBundle (file:///opt/quarto/bin/quarto.js:184449:11)
+    at revealPluginExtras (file:///opt/quarto/bin/quarto.js:184245:52)
+    at async Object.formatExtras (file:///opt/quarto/bin/quarto.js:184841:34)
+    at async runPandoc (file:///opt/quarto/bin/quarto.js:129395:56)
+    at async renderPandoc (file:///opt/quarto/bin/quarto.js:131107:24)
+    at async Object.onRender (file:///opt/quarto/bin/quarto.js:137191:30)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:137168:9)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136884:9)
+    at async render (file:///opt/quarto/bin/quarto.js:142553:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142798:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102189:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102066:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:188195:5)
+    at async file:///opt/quarto/bin/quarto.js:188224:5
+    at async file:///opt/quarto/bin/quarto.js:188078:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:188080:5)
+    at async file:///opt/quarto/bin/quarto.js:188217:3
+Render failed, retrying once...
+ERROR: Specified Reveal plugin directory 'revealjs-anime' does not exist.
+
+Stack trace:
+    at pluginFromBundle (file:///opt/quarto/bin/quarto.js:184449:11)
+    at revealPluginExtras (file:///opt/quarto/bin/quarto.js:184245:52)
+    at async Object.formatExtras (file:///opt/quarto/bin/quarto.js:184841:34)
+    at async runPandoc (file:///opt/quarto/bin/quarto.js:129395:56)
+    at async renderPandoc (file:///opt/quarto/bin/quarto.js:131107:24)
+    at async Object.onRender (file:///opt/quarto/bin/quarto.js:137191:30)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:137168:9)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136884:9)
+    at async render (file:///opt/quarto/bin/quarto.js:142553:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142798:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102189:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102066:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:188195:5)
+    at async file:///opt/quarto/bin/quarto.js:188224:5
+    at async file:///opt/quarto/bin/quarto.js:188078:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:188080:5)
+    at async file:///opt/quarto/bin/quarto.js:188217:3
