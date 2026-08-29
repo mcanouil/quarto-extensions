@@ -6,6 +6,9 @@
 # Pick the best _quarto.yml project path from a list of project file paths
 # on stdin: prefer repo root, then docs/, then the shallowest path outside
 # tests/ and examples/. Prints nothing when no suitable path exists.
+# docs/ stays a candidate here, unlike in the document fallback below: a
+# repository whose only project is its documentation website has nothing else
+# to render, and rendering the site keeps it under test.
 find_best_project_path() {
 	local best_path="" best_depth=999
 	while IFS= read -r qpath; do
@@ -76,9 +79,13 @@ classify_extension_tree() {
 
 	if [[ -n "${qmd_files}" ]]; then
 		local doc_files
+		# A documentation website under docs/ documents the extension rather than
+		# exercising it, so it is left out. A repository that holds nothing else
+		# keeps its docs/ pages, so it stays under test rather than being dropped.
 		doc_files=$(printf '%s\n' "${qmd_files}" | jq -Rsc --arg pfx "${prefix}" '
-			split("\n")[:-1]
-			| map(select(test("(^|/)(_extensions|tests|examples)/") | not))
+			(split("\n")[:-1] | map(select(test("(^|/)(_extensions|tests|examples)/") | not))) as $all
+			| ($all | map(select(test("(^|/)docs/") | not))) as $outside_docs
+			| (if ($outside_docs | length) > 0 then $outside_docs else $all end)
 			| map(if $pfx != "" then "\($pfx)/\(.)" else . end)
 		')
 		if [[ "$(echo "${doc_files}" | jq 'length')" -gt 0 ]]; then
