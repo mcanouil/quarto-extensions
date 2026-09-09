@@ -56,5 +56,25 @@ project_only=$(write_fixture project_only '{"status":"pass",
 check 'a run that rendered nothing reports zero rendered' 'pass	4	3	0	1	0' \
 	"$(framework_verdict "${project_only}")"
 
+eval "$(sed -n '/^framework_decides()/,/^}/p' "${HERE}/../render-extensions.sh")"
+
+# The framework speaks for an entry only where it actually rendered, and only
+# when it reached a verdict. An all-skip run exits 0 and would otherwise be
+# read as a clean pass, which is how a layer comes to assert nothing inside a
+# run that says PASS.
+check 'suite mode with failures is decided by the framework' 'yes' "$(framework_decides suite fail 2 5)"
+check 'schema mode with passes is decided by the framework' 'yes' "$(framework_decides schema pass 0 4)"
+check 'an all-skip suite run falls back to the render' 'no' "$(framework_decides suite skip 0 0)"
+check 'a framework that did not run falls back' 'no' "$(framework_decides suite none 0 0)"
+check 'conformance mode never decides the status' 'no' "$(framework_decides conformance fail 3 0)"
+check 'render-only mode never decides the status' 'no' "$(framework_decides render-only fail 3 0)"
+
+# The regression this rule exists to prevent. An extension contributing only a
+# project type passes conformance and skips its only smoke case, so the run
+# reports pass. Taking that verdict would mark the entry green and skip the
+# render it gets today, asserting nothing.
+check 'a pass that rendered nothing falls back to the render' 'no' \
+	"$(framework_decides schema pass 0 0)"
+
 printf '\n%d checks, %d failed\n' "$((passed + failed))" "${failed}"
 [[ "${failed}" -eq 0 ]]

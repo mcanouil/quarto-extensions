@@ -158,6 +158,35 @@ framework_verdict() {
 	' "${json}" 2>/dev/null || printf 'none\t0\t0\t0\t0\t0'
 }
 
+# Whether the framework's verdict replaces the render's.
+#
+# Replacing the render must never mean checking less, so three things must all
+# hold: the mode is one where the framework renders, it reached a verdict, and
+# it actually decided at least one rendering case. The third is not implied by
+# the second. An extension contributing only a project type passes conformance
+# and skips its only smoke case, so the run reports pass while having rendered
+# nothing; taking that verdict would mark the entry green and drop the render
+# it gets today.
+framework_decides() {
+	local mode="$1" verdict="$2" fail_count="$3" rendered="$4"
+	case "${mode}" in
+	suite | schema) ;;
+	*)
+		echo "no"
+		return 0
+		;;
+	esac
+	if [[ "${rendered}" -lt 1 ]]; then
+		echo "no"
+		return 0
+	fi
+	if [[ "${verdict}" == "pass" ]] || { [[ "${verdict}" == "fail" ]] && [[ "${fail_count}" -gt 0 ]]; }; then
+		echo "yes"
+	else
+		echo "no"
+	fi
+}
+
 render_extension() {
 	local i="$1"
 	local shard="${2:-0}"
@@ -259,6 +288,36 @@ render_extension() {
 		fi
 	fi
 
+	local test_mode fw_status fw_total fw_pass fw_fail fw_skip fw_rendered
+	test_mode=$(jq -r ".[${i}].ext.test_mode // \"render-only\"" clone-manifest.json)
+
+	fw_status="none"
+	fw_total=0
+	fw_pass=0
+	fw_fail=0
+	fw_skip=0
+	fw_rendered=0
+	if [[ "${test_mode}" != "render-only" ]] && [[ "${status}" != "skip" ]]; then
+		run_framework "${test_mode}" "${workdir}" "${log_dir}" "${render_dir}" "${shard}"
+		IFS=$'\t' read -r fw_status fw_total fw_pass fw_fail fw_skip fw_rendered < <(
+			framework_verdict "${log_dir}/extension-test.json"
+		)
+	fi
+
+	if [[ "$(framework_decides "${test_mode}" "${fw_status}" "${fw_fail}" "${fw_rendered}")" == "yes" ]]; then
+		if [[ "${fw_status}" == "fail" ]]; then
+			status="fail"
+			stage="extension-test"
+			# Bounded on purpose: the detail is repository-derived text and
+			# stays in the log rather than entering the published catalogue.
+			failure_reason="cases-failed"
+		else
+			status="pass"
+			stage=""
+			failure_reason=""
+		fi
+	fi
+
 	# Copy render logs to log directory
 	find "${workdir}" -maxdepth 1 -name '*.log' -not -name 'stdout.log' -not -name 'stderr.log' -type f -exec cp --no-dereference {} "${log_dir}/" \; 2>/dev/null || true
 
@@ -281,7 +340,12 @@ render_extension() {
 		--arg qc "${QUARTO_CHANNEL}" \
 		--arg st "${stage}" \
 		--arg fr "${failure_reason}" \
-		'{id: $id, type: $t, status: $s, log: $l, quarto_version: $qv, quarto_channel: $qc, stage: $st, failure_reason: $fr}' \
+		--arg test_mode "${test_mode}" \
+		--argjson cases "$(jq -cn \
+			--argjson total "${fw_total}" --argjson pass "${fw_pass}" \
+			--argjson fail "${fw_fail}" --argjson skip "${fw_skip}" \
+			'{total: $total, pass: $pass, fail: $fail, skip: $skip}')" \
+		'{id: $id, type: $t, status: $s, log: $l, quarto_version: $qv, quarto_channel: $qc, stage: $st, failure_reason: $fr, test_mode: $test_mode, cases: $cases}' \
 		>"${results_dir}/${i}.json"
 }
 
