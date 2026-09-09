@@ -153,6 +153,16 @@ jobs:
           sparse-checkout: .github/scripts/test-extensions
           sparse-checkout-cone-mode: false
 
+      # The catalogue runs one pinned framework version against every entry, so
+      # results are comparable and an upgrade is a single reviewable change.
+      - name: Checkout the test framework
+        uses: actions/checkout@v7
+        with:
+          repository: mcanouil/quarto-extension-test
+          ref: "0.1.0"
+          path: extension-test
+          persist-credentials: false
+
       - name: Write extensions batch to file
         env:
           EXTENSIONS_JSON: ${{ toJSON(matrix.extensions) }}
