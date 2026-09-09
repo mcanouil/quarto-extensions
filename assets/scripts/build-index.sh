@@ -76,7 +76,7 @@ jq -n \
                 status: .status,
                 log: .log,
                 date: .date,
-                mode: .test_mode,
+                mode: (.test_mode // "render-only"),
                 cases: .cases
               }
           ]
