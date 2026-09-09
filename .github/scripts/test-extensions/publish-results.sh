@@ -72,7 +72,9 @@ jq -c --arg d "${today}" --slurpfile cur "${current_run_file}" '
               log: $e.log,
               date: $d,
               stage: (($e.stage // "") | tostring),
-              failure_reason: (($e.failure_reason // "") | tostring)
+              failure_reason: (($e.failure_reason // "") | tostring),
+              test_mode: ($e.test_mode // "render-only"),
+              cases: ($e.cases // {total: 0, pass: 0, fail: 0, skip: 0})
             }]
         )
     )
