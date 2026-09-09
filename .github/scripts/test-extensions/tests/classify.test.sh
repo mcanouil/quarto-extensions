@@ -63,9 +63,13 @@ check 'document classification is unchanged' \
 	"$(printf 'example.qmd\n' | classify_extension_tree)"
 
 # A template or example entry is never classified, so it must default rather
-# than inherit whatever the last entry had.
-check 'an unclassified entry defaults to render-only' 'render-only' \
-	"$(printf '%s' '{"id":"o/r","type":"template"}' | jq -r '.test_mode // "render-only"')"
+# than inherit whatever the last entry had. An entry that already carries a
+# test_mode (set by phase B, or by a future caller) must keep it.
+STAMP_INPUT='[{"id":"o/r","type":"template"},{"id":"o/s","type":"example","test_mode":"schema"}]'
+STAMP_EXPECTED='[{"id":"o/r","type":"template","test_mode":"render-only"},{"id":"o/s","type":"example","test_mode":"schema"}]'
+check 'stamp_default_test_mode adds the default without overwriting an existing mode' \
+	"$(printf '%s' "${STAMP_EXPECTED}" | jq -Sc '.')" \
+	"$(printf '%s' "${STAMP_INPUT}" | stamp_default_test_mode | jq -Sc '.')"
 
 printf '\n%d checks, %d failed\n' "$((passed + failed))" "${failed}"
 [[ "${failed}" -eq 0 ]]

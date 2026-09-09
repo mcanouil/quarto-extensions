@@ -145,10 +145,9 @@ entries_phase_a=$(echo "${extensions_json}" | jq -c '
       else empty
       end
     )
-  # A template or example is never classified, so give it the mode
-  # explicitly rather than leaving it unset.
-  | map(. + {test_mode: "render-only"})
 ')
+# A template or example is never classified, so give it the mode explicitly.
+entries_phase_a=$(echo "${entries_phase_a}" | stamp_default_test_mode)
 
 phase_b_entries_file=$(mktemp)
 skipped_file=$(mktemp)

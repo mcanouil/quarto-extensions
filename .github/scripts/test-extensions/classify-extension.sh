@@ -138,3 +138,12 @@ detect_test_mode() {
 
 	echo "conformance"
 }
+
+# Stamp the default test mode onto a JSON array of entries on stdin, printing
+# the array back out. A template or example entry is never classified, so its
+# mode is stamped here rather than inherited from whatever a previous entry
+# carried; kept separate from build-matrix.sh so the stamping itself can be
+# tested. Does not overwrite a test_mode an entry already carries.
+stamp_default_test_mode() {
+	jq -c 'map(. + {test_mode: (.test_mode // "render-only")})'
+}
