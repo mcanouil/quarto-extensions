@@ -62,5 +62,10 @@ check 'document classification is unchanged' \
 	'{"type":"document","qmd_files":["example.qmd"]}' \
 	"$(printf 'example.qmd\n' | classify_extension_tree)"
 
+# A template or example entry is never classified, so it must default rather
+# than inherit whatever the last entry had.
+check 'an unclassified entry defaults to render-only' 'render-only' \
+	"$(printf '%s' '{"id":"o/r","type":"template"}' | jq -r '.test_mode // "render-only"')"
+
 printf '\n%d checks, %d failed\n' "$((passed + failed))" "${failed}"
 [[ "${failed}" -eq 0 ]]
