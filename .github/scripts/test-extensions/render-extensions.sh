@@ -93,6 +93,22 @@ if [[ ! -f "${FRAMEWORK_RUNNER}" ]]; then
 	exit 1
 fi
 
+# Whether the framework runs for this entry at all.
+#
+# Only where its verdict can be used. override_applies discards the verdict of
+# an entry that already failed, so running the framework there would execute
+# the code of a repository the dependency source policy refused to execute,
+# spend a container timeout on a clone that may not exist, and publish case
+# counts from a probe whose result was thrown away.
+framework_runs() {
+	local mode="$1" pre_status="$2"
+	if [[ "${mode}" == "render-only" ]] || [[ "${pre_status}" != "pass" ]]; then
+		echo "no"
+		return 0
+	fi
+	echo "yes"
+}
+
 # Run the pinned framework against one clone, writing its JSON into the log
 # directory so it travels with the logs the entry already publishes.
 #
@@ -101,13 +117,19 @@ fi
 # generates, which are markdown with shortcode invocations and no executable
 # cells, so they need no packages and mount no cache: that keeps them out of
 # the one surface shared between repositories.
+#
+# The root is the clone root, not the render directory. detect_test_mode reads
+# repository-root paths, and for a project entry the render directory is the
+# project path below it, holding neither _extensions/ nor tests/. Rooting here
+# keeps the framework looking where the mode was decided.
 run_framework() {
-	local mode="$1" workdir="$2" log_dir="$3" render_dir="$4" shard="$5" pre_status="$6"
+	local mode="$1" workdir="$2" log_dir="$3" shard="$4" pre_status="$5"
+	local repo_root="${workdir}/repo"
 	local tests_dir layers mount_cache
 
 	case "${mode}" in
 	suite)
-		tests_dir="${render_dir}/tests"
+		tests_dir="${repo_root}/tests"
 		layers=(--layer conformance --layer render --layer smoke)
 		mount_cache="yes"
 		;;
@@ -131,19 +153,20 @@ run_framework() {
 
 	# A repository that has already failed the dependency source policy or a
 	# dependency install has not earned write access to a cache shared with
-	# every other repository in this job. This costs nothing real, because
-	# override_applies already refuses a non-pass pre-status, so this run's
-	# verdict was never going to be used anyway.
+	# every other repository in this job. framework_runs already refuses to
+	# call this function for such an entry; the shared cache is the one channel
+	# between repositories, so it keeps its own guard rather than trusting a
+	# caller to hold the line.
 	if [[ "${pre_status}" != "pass" ]]; then
 		mount_cache="no"
 	fi
 
-	docker_run_render "${FRAMEWORK_TIMEOUT}" "${workdir}" "${log_dir}" "${render_dir}" "${shard}" "${mount_cache}" \
+	docker_run_render "${FRAMEWORK_TIMEOUT}" "${workdir}" "${log_dir}" "${repo_root}" "${shard}" "${mount_cache}" \
 		-v "${FRAMEWORK_DIR}:${FRAMEWORK_DIR}:ro" \
 		<<-EOF || true
 			set -uo pipefail
 			quarto pandoc lua "${FRAMEWORK_RUNNER}" \
-				--root "${render_dir}" \
+				--root "${repo_root}" \
 				--tests "${tests_dir}" \
 				--json "${log_dir}/extension-test.json" \
 				--tap /dev/null \
@@ -343,8 +366,8 @@ render_extension() {
 	fw_fail=0
 	fw_skip=0
 	fw_rendered=0
-	if [[ "${test_mode}" != "render-only" ]] && [[ "${status}" != "skip" ]]; then
-		run_framework "${test_mode}" "${workdir}" "${log_dir}" "${render_dir}" "${shard}" "${pre_framework_status}"
+	if [[ "$(framework_runs "${test_mode}" "${pre_framework_status}")" == "yes" ]]; then
+		run_framework "${test_mode}" "${workdir}" "${log_dir}" "${shard}" "${pre_framework_status}"
 		# The fallback branches of framework_verdict always emit a trailing
 		# newline, but `|| true` keeps this shard alive even if a future change
 		# to that contract lets a delimiter-less read hit EOF again.
