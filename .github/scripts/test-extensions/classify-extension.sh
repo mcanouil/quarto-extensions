@@ -102,8 +102,10 @@ classify_extension_tree() {
 #
 # Only build-matrix.sh calls this, so only the monthly sweep runs the
 # framework. check-extensions/preflight-render.sh sources this file for
-# classify_extension_tree and stays a plain render: a pull request check
-# gates one new entry, and the sweep is where every entry is asserted.
+# classify_extension_tree and runs the same render harness, but builds its
+# own batch entries without a test_mode, so every one of them defaults to
+# render-only: a pull request check gates one new entry, and the sweep is
+# where every entry is asserted.
 #
 # Paths only, because build-matrix.sh works from the trees API and has no file
 # contents. A schema this cannot tell is v1 is handled at run time: the

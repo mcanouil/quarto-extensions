@@ -22,6 +22,16 @@ eval_function() {
 		printf 'FAIL could not extract %s() from render-extensions.sh\n' "${name}" >&2
 		exit 1
 	fi
+	# The range ends at the first column-zero brace, which is the function's
+	# own closing brace today. A here-document body or an embedded jq or awk
+	# program could put one there first and end the range early, and a
+	# truncated body can still define a shorter, wrong function that every
+	# later check would then validate. Parsing it first rejects that: a cut
+	# leaves an unterminated here-document, quote or block behind.
+	if ! bash -n <<<"${body}" 2>/dev/null; then
+		printf 'FAIL extraction of %s() is truncated or unparseable\n' "${name}" >&2
+		exit 1
+	fi
 	eval "${body}"
 }
 
@@ -190,6 +200,24 @@ check 'a passing entry in schema mode runs the framework' 'yes' "$(framework_run
 check 'a render-only entry never runs the framework' 'no' "$(framework_runs render-only pass)"
 check 'a failed entry never runs the framework' 'no' "$(framework_runs suite fail)"
 check 'a skipped entry never runs the framework' 'no' "$(framework_runs conformance skip)"
+
+eval_function framework_required
+
+# The runner-presence guard must not fire for a batch that never calls the
+# framework. check-extensions/preflight-render.sh runs this same script for a
+# pull request, its workflow does not check the framework out, and it
+# swallows a non-zero exit into a warning: an unconditional guard there
+# aborts before the first entry renders, results.json is never written, and a
+# blocking preflight reports no failure at all.
+no_framework=$(write_fixture no_framework '[{"ext":{"test_mode":"render-only"}},{"ext":{}}]')
+one_framework=$(write_fixture one_framework '[{"ext":{"test_mode":"render-only"}},{"ext":{"test_mode":"schema"}}]')
+empty_batch=$(write_fixture empty_batch '[]')
+check 'a batch of render-only entries does not require the runner' 'no' \
+	"$(framework_required "${no_framework}")"
+check 'a batch missing test_mode entirely does not require the runner' 'no' \
+	"$(framework_required "${empty_batch}")"
+check 'a single non-render-only entry requires the runner' 'yes' \
+	"$(framework_required "${one_framework}")"
 
 eval_function count_renders
 

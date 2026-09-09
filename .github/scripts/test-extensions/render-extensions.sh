@@ -83,12 +83,29 @@ readonly FRAMEWORK_RUNNER="${FRAMEWORK_DIR}/_extensions/extension-test/run.lua"
 readonly FRAMEWORK_MAX_GENERATED=40
 readonly FRAMEWORK_TIMEOUT=600
 
+# Whether any entry in this batch will call the framework at all.
+framework_required() {
+	local manifest="$1"
+	if jq -e '[.[] | .ext.test_mode // "render-only"] | any(. != "render-only")' \
+		"${manifest}" >/dev/null 2>&1; then
+		echo "yes"
+	else
+		echo "no"
+	fi
+}
+
 # docker_run_render's caller swallows a non-zero exit with `|| true`, so a
 # layout change at a future framework tag that moves or renames the runner
 # would otherwise be silent: every framework run would quietly fail closed
 # and every entry would fall back to the render. Fail loudly instead, once,
 # before any extension is processed.
-if [[ ! -f "${FRAMEWORK_RUNNER}" ]]; then
+#
+# Only for a batch that needs it. check-extensions/preflight-render.sh runs
+# this script for a pull request, its workflow does not check the framework
+# out, and it turns a non-zero exit into a warning. An unconditional guard
+# there aborts before the first entry renders, leaves results.json unwritten,
+# and lets a blocking preflight report no failure at all.
+if [[ "$(framework_required clone-manifest.json)" == "yes" ]] && [[ ! -f "${FRAMEWORK_RUNNER}" ]]; then
 	echo "::error::Framework runner not found at ${FRAMEWORK_RUNNER}."
 	exit 1
 fi
