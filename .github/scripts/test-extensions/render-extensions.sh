@@ -187,6 +187,21 @@ framework_decides() {
 	fi
 }
 
+# Whether the framework's verdict overrides the render's status.
+#
+# The framework may add a failure the render missed, but must never erase one
+# the render already found: a clone, policy, dependency or render failure is a
+# fact about the entry that a later, decoupled probe cannot disprove. So the
+# override only ever applies when the render itself was clean going in.
+override_applies() {
+	local pre_status="$1" mode="$2" verdict="$3" fail_count="$4" rendered="$5"
+	if [[ "${pre_status}" != "pass" ]]; then
+		echo "no"
+		return 0
+	fi
+	framework_decides "${mode}" "${verdict}" "${fail_count}" "${rendered}"
+}
+
 render_extension() {
 	local i="$1"
 	local shard="${2:-0}"
@@ -288,6 +303,7 @@ render_extension() {
 		fi
 	fi
 
+	local pre_framework_status="${status}"
 	local test_mode fw_status fw_total fw_pass fw_fail fw_skip fw_rendered
 	test_mode=$(jq -r ".[${i}].ext.test_mode // \"render-only\"" clone-manifest.json)
 
@@ -304,7 +320,7 @@ render_extension() {
 		)
 	fi
 
-	if [[ "$(framework_decides "${test_mode}" "${fw_status}" "${fw_fail}" "${fw_rendered}")" == "yes" ]]; then
+	if [[ "$(override_applies "${pre_framework_status}" "${test_mode}" "${fw_status}" "${fw_fail}" "${fw_rendered}")" == "yes" ]]; then
 		if [[ "${fw_status}" == "fail" ]]; then
 			status="fail"
 			stage="extension-test"

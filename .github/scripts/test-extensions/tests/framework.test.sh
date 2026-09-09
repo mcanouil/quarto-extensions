@@ -76,5 +76,15 @@ check 'render-only mode never decides the status' 'no' "$(framework_decides rend
 check 'a pass that rendered nothing falls back to the render' 'no' \
 	"$(framework_decides schema pass 0 0)"
 
+eval "$(sed -n '/^override_applies()/,/^}/p' "${HERE}/../render-extensions.sh")"
+
+# The framework may add a failure the render missed, but must never erase one
+# the render already found: a clone, policy, dependency or render failure is a
+# fact about the entry that a later, decoupled probe cannot disprove.
+check 'a prior failure is never erased by a framework pass' 'no' \
+	"$(override_applies fail schema pass 0 4)"
+check 'a prior pass is overridden by the same framework result' 'yes' \
+	"$(override_applies pass schema pass 0 4)"
+
 printf '\n%d checks, %d failed\n' "$((passed + failed))" "${failed}"
 [[ "${failed}" -eq 0 ]]
