@@ -96,3 +96,45 @@ classify_extension_tree() {
 
 	return 1
 }
+
+# Decide which test mode an entry runs in, from a repository tree on stdin.
+# Prints one of: suite, schema, conformance, render-only.
+#
+# Paths only, because build-matrix.sh works from the trees API and has no file
+# contents. A schema this cannot tell is v1 is handled at run time: the
+# framework skips it, the run is all skips, and the caller falls back to the
+# render it would have done anyway.
+detect_test_mode() {
+	local tree
+	tree=$(cat)
+
+	# The repository's own extension, not an installed copy under docs/ or a
+	# staged one under tests/. This mirrors what the framework itself
+	# discovers.
+	local manifest
+	manifest=$(printf '%s\n' "${tree}" | grep -E '^_extensions/[^/]+/_extension\.ya?ml$' || true)
+	if [[ -z "${manifest}" ]]; then
+		echo "render-only"
+		return 0
+	fi
+
+	local tests_project tests_documents
+	tests_project=$(printf '%s\n' "${tree}" | grep -E '^tests/_quarto\.ya?ml$' || true)
+	# A generated, staged or result document is not an authored test.
+	tests_documents=$(printf '%s\n' "${tree}" |
+		grep -E '^tests/.*\.qmd$' |
+		grep -vE '^tests/(_extensions|generated|_results|_output)/' || true)
+	if [[ -n "${tests_project}" ]] && [[ -n "${tests_documents}" ]]; then
+		echo "suite"
+		return 0
+	fi
+
+	local schema
+	schema=$(printf '%s\n' "${tree}" | grep -E '^_extensions/[^/]+/_schema\.(json|ya?ml)$' || true)
+	if [[ -n "${schema}" ]]; then
+		echo "schema"
+		return 0
+	fi
+
+	echo "conformance"
+}
