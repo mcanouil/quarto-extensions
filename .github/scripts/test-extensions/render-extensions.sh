@@ -145,7 +145,7 @@ run_framework() {
 framework_verdict() {
 	local json="$1"
 	if [[ ! -s "${json}" ]]; then
-		printf 'none\t0\t0\t0\t0\t0'
+		printf 'none\t0\t0\t0\t0\t0\n'
 		return 0
 	fi
 	jq -r '
@@ -155,7 +155,7 @@ framework_verdict() {
 		 ([(.layers.render // {}), (.layers.smoke // {})]
 		  | map((.pass // 0) + (.fail // 0)) | add)]
 		| @tsv
-	' "${json}" 2>/dev/null || printf 'none\t0\t0\t0\t0\t0'
+	' "${json}" 2>/dev/null || printf 'none\t0\t0\t0\t0\t0\n'
 }
 
 # Whether the framework's verdict replaces the render's.
@@ -315,9 +315,12 @@ render_extension() {
 	fw_rendered=0
 	if [[ "${test_mode}" != "render-only" ]] && [[ "${status}" != "skip" ]]; then
 		run_framework "${test_mode}" "${workdir}" "${log_dir}" "${render_dir}" "${shard}"
+		# The fallback branches of framework_verdict always emit a trailing
+		# newline, but `|| true` keeps this shard alive even if a future change
+		# to that contract lets a delimiter-less read hit EOF again.
 		IFS=$'\t' read -r fw_status fw_total fw_pass fw_fail fw_skip fw_rendered < <(
 			framework_verdict "${log_dir}/extension-test.json"
-		)
+		) || true
 	fi
 
 	if [[ "$(override_applies "${pre_framework_status}" "${test_mode}" "${fw_status}" "${fw_fail}" "${fw_rendered}")" == "yes" ]]; then

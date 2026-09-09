@@ -56,6 +56,20 @@ project_only=$(write_fixture project_only '{"status":"pass",
 check 'a run that rendered nothing reports zero rendered' 'pass	4	3	0	1	0' \
 	"$(framework_verdict "${project_only}")"
 
+# The caller never reads framework_verdict through $( ); it reads it through
+# `IFS=$'\t' read -r ... < <(framework_verdict ...)`. Command substitution
+# strips a missing trailing newline, so a check built on $( ) cannot see a
+# fallback that forgets one: it must go through the same process-substitution
+# form the caller uses, or the read hitting EOF without a delimiter (and, under
+# `set -euo pipefail`, aborting the whole calling function) stays invisible.
+missing_read_status=0
+IFS=$'\t' read -r missing_status missing_total missing_pass missing_fail missing_skip missing_rendered < <(
+	framework_verdict "${FIXTURES}/absent.json"
+) || missing_read_status=$?
+check 'reading a missing-file verdict through process substitution succeeds' '0' "${missing_read_status}"
+check 'a missing-file verdict yields six fields via process substitution' 'none	0	0	0	0	0' \
+	"$(printf '%s\t%s\t%s\t%s\t%s\t%s' "${missing_status}" "${missing_total}" "${missing_pass}" "${missing_fail}" "${missing_skip}" "${missing_rendered}")"
+
 eval "$(sed -n '/^framework_decides()/,/^}/p' "${HERE}/../render-extensions.sh")"
 
 # The framework speaks for an entry only where it actually rendered, and only
