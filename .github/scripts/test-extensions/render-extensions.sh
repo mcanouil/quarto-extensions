@@ -83,7 +83,7 @@ readonly FRAMEWORK_TIMEOUT=600
 # cells, so they need no packages and mount no cache: that keeps them out of
 # the one surface shared between repositories.
 run_framework() {
-	local mode="$1" workdir="$2" log_dir="$3" render_dir="$4" shard="$5"
+	local mode="$1" workdir="$2" log_dir="$3" render_dir="$4" shard="$5" pre_status="$6"
 	local tests_dir layers mount_cache
 
 	case "${mode}" in
@@ -112,6 +112,15 @@ run_framework() {
 		return 0
 		;;
 	esac
+
+	# A repository that has already failed the dependency source policy or a
+	# dependency install has not earned write access to a cache shared with
+	# every other repository in this job. This costs nothing real: override_
+	# applies already refuses a non-pass pre-status, so this run's verdict was
+	# never going to be used anyway.
+	if [[ "${pre_status}" != "pass" ]]; then
+		mount_cache="no"
+	fi
 
 	docker_run_render "${FRAMEWORK_TIMEOUT}" "${workdir}" "${log_dir}" "${render_dir}" "${shard}" "${mount_cache}" \
 		-v "${FRAMEWORK_DIR}:${FRAMEWORK_DIR}:ro" \
@@ -314,7 +323,7 @@ render_extension() {
 	fw_skip=0
 	fw_rendered=0
 	if [[ "${test_mode}" != "render-only" ]] && [[ "${status}" != "skip" ]]; then
-		run_framework "${test_mode}" "${workdir}" "${log_dir}" "${render_dir}" "${shard}"
+		run_framework "${test_mode}" "${workdir}" "${log_dir}" "${render_dir}" "${shard}" "${pre_framework_status}"
 		# The fallback branches of framework_verdict always emit a trailing
 		# newline, but `|| true` keeps this shard alive even if a future change
 		# to that contract lets a delimiter-less read hit EOF again.

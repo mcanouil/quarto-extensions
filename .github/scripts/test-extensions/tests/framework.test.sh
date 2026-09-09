@@ -100,5 +100,35 @@ check 'a prior failure is never erased by a framework pass' 'no' \
 check 'a prior pass is overridden by the same framework result' 'yes' \
 	"$(override_applies pass schema pass 0 4)"
 
+eval "$(sed -n '/^run_framework()/,/^}/p' "${HERE}/../render-extensions.sh")"
+
+# run_framework's only externally observable action is the docker_run_render
+# call it makes, so that call is stubbed here to capture the mount_cache it
+# was given rather than run for real: this proves the decision without a
+# container. The constants below stand in for the readonly ones
+# render-extensions.sh sets at top level, which this eval does not pick up.
+# Read by the eval'd run_framework body, which shellcheck cannot see through
+# the sed extraction above.
+# shellcheck disable=SC2034
+FRAMEWORK_DIR="${FIXTURES}/framework"
+# shellcheck disable=SC2034
+FRAMEWORK_RUNNER="${FRAMEWORK_DIR}/_extensions/extension-test/run.lua"
+# shellcheck disable=SC2034
+FRAMEWORK_MAX_GENERATED=40
+# shellcheck disable=SC2034
+FRAMEWORK_TIMEOUT=600
+
+captured_mount_cache=""
+docker_run_render() {
+	captured_mount_cache="$6"
+}
+
+run_framework suite "${FIXTURES}/workdir" "${FIXTURES}/logdir" "${FIXTURES}/renderdir" 0 pass
+check 'a clean pre-framework status keeps the shared cache in suite mode' 'yes' "${captured_mount_cache}"
+
+captured_mount_cache=""
+run_framework suite "${FIXTURES}/workdir" "${FIXTURES}/logdir" "${FIXTURES}/renderdir" 0 fail
+check 'a policy or dependency failure loses the shared cache in suite mode' 'no' "${captured_mount_cache}"
+
 printf '\n%d checks, %d failed\n' "$((passed + failed))" "${failed}"
 [[ "${failed}" -eq 0 ]]
