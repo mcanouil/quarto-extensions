@@ -141,5 +141,17 @@ captured_mount_cache=""
 run_framework suite "${FIXTURES}/workdir" "${FIXTURES}/logdir" "${FIXTURES}/renderdir" 0 fail
 check 'a policy or dependency failure loses the shared cache in suite mode' 'no' "${captured_mount_cache}"
 
+eval "$(sed -n '/^count_renders()/,/^}/p' "${HERE}/../render-extensions.sh")"
+
+# A framework failure sets status="fail" with stage="extension-test", not
+# stage="render", even though render_extension had already run the render
+# before the framework decided the entry. The count must not drop that entry:
+# doing so both under-reports "Rendered N/M" and can trip the "no render was
+# executed" error over a batch that failed wholesale through the framework.
+extension_test_stage=$(write_fixture extension_test_stage '[{"status":"fail","stage":"extension-test"}]')
+clone_stage=$(write_fixture clone_stage '[{"status":"fail","stage":"clone"}]')
+check 'an extension-test failure is counted as a render' '1' "$(count_renders "${extension_test_stage}")"
+check 'a clone failure is not counted as a render' '0' "$(count_renders "${clone_stage}")"
+
 printf '\n%d checks, %d failed\n' "$((passed + failed))" "${failed}"
 [[ "${failed}" -eq 0 ]]

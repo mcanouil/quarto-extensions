@@ -412,9 +412,15 @@ if ((${#result_files[@]} > 0)); then
 else
 	echo '[]' >results.json
 fi
-# A render was executed exactly when the extension passed or failed at the
-# render stage (earlier stages never reach quarto render).
-render_count=$(jq '[.[] | select(.status == "pass" or .stage == "render")] | length' results.json)
+# Count entries for which a render was executed: a pass, a failure at the
+# render stage, or a failure at the extension-test stage (earlier stages
+# never reach quarto render; an extension-test failure means the framework
+# decided the entry after render_extension had already run the render).
+count_renders() {
+	jq '[.[] | select(.status == "pass" or .stage == "render" or .stage == "extension-test")] | length' "$1"
+}
+
+render_count=$(count_renders results.json)
 
 if [[ "${ext_count}" -gt 0 ]] && [[ "${render_count}" -eq 0 ]]; then
 	echo "::error::No quarto render was executed for ${ext_count} extensions."
