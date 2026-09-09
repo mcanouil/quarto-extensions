@@ -1,0 +1,35 @@
+name: Test Scripts
+
+# The sweep runs once a month, so a regression in the classification or
+# verdict logic would otherwise stay hidden until it misreports a whole
+# catalogue. These checks need no container and no Quarto, and run in
+# seconds, so they run on every change to the scripts they cover.
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/scripts/test-extensions/**"
+      - ".github/workflows/test-scripts.yml"
+  pull_request:
+    paths:
+      - ".github/scripts/test-extensions/**"
+      - ".github/workflows/test-scripts.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          sparse-checkout: .github/scripts/test-extensions
+          sparse-checkout-cone-mode: false
+          persist-credentials: false
+
+      - name: Run the script tests
+        run: |
+          .github/scripts/test-extensions/tests/classify.test.sh
+          .github/scripts/test-extensions/tests/framework.test.sh

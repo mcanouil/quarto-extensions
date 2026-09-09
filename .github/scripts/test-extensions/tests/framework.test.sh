@@ -84,6 +84,15 @@ hostile=$(write_fixture hostile '{"status":"pass",
 check 'a repository-supplied string, boolean and array default to zero' 'pass	0	0	0	0	0' \
 	"$(framework_verdict "${hostile}")"
 
+# `numbers` admits any JSON number, so a fraction, a negative and a huge
+# exponent are all still numbers and would travel through unchanged into a
+# published field the design describes as a bounded integer.
+unbounded=$(write_fixture unbounded '{"status":"pass",
+  "summary":{"total":1.5,"pass":-3,"fail":1e308,"skip":0.9},
+  "layers":{"render":{"total":2,"pass":2.7,"fail":-1,"skip":0}}}')
+check 'a fraction, a negative and a huge count are bounded to integers' 'pass	1	0	1000000	0	2' \
+	"$(framework_verdict "${unbounded}")"
+
 # The caller never reads framework_verdict through $( ); it reads it through
 # `IFS=$'\t' read -r ... < <(framework_verdict ...)`. Command substitution
 # strips a missing trailing newline, so a check built on $( ) cannot see a

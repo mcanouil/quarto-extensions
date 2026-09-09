@@ -198,15 +198,21 @@ framework_verdict() {
 	fi
 	# Only a bounded enum and four integers may reach the published catalogue.
 	# The JSON is written inside the container by the repository's own
-	# extension, so `numbers` coerces anything a repository puts there other
-	# than a number (a string, a boolean, an array) down to the default,
-	# rather than letting it travel through @tsv and later --argjson.
+	# extension, so a repository can put anything there. `count` coerces a
+	# string, a boolean or an array down to the default, and rounds what is
+	# left into a whole number within range: `numbers` alone still admits a
+	# fraction, a negative and a huge exponent, all of which would travel
+	# through @tsv and later --argjson into a field the design describes as a
+	# bounded integer. The ceiling is far above any real run, which
+	# --max-generated caps at a few dozen cases.
 	jq -r '
+		def count: (numbers // 0) | floor
+			| if . < 0 then 0 elif . > 1000000 then 1000000 else . end;
 		[(.status // "none"),
-		 (.summary.total | numbers // 0), (.summary.pass | numbers // 0),
-		 (.summary.fail | numbers // 0), (.summary.skip | numbers // 0),
+		 (.summary.total | count), (.summary.pass | count),
+		 (.summary.fail | count), (.summary.skip | count),
 		 ([(.layers.render // {}), (.layers.smoke // {})]
-		  | map((.pass | numbers // 0) + (.fail | numbers // 0)) | add)]
+		  | map((.pass | count) + (.fail | count)) | add)]
 		| @tsv
 	' "${json}" 2>/dev/null || printf 'none\t0\t0\t0\t0\t0\n'
 }
