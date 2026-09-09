@@ -247,11 +247,10 @@ framework_verdict() {
 # The rendered-case test is unconditional, so it drops a framework failure as
 # well as a framework pass. A schema-mode entry whose conformance layer fails
 # while its smoke layer only skips reports no rendered case, and the entry
-# publishes green. That is a deliberate limit on what the sweep asserts, not an
-# oversight, and it is not a regression because such an entry publishes green
-# today as well. Schema mode is imposed by the catalogue rather than adopted by
-# the author, so accepting the failure alone would fail an extension on checks
-# its author never chose. The sweep asserts only what an author opted into.
+# publishes green. That is a deliberate limit on what the sweep asserts rather
+# than an oversight. Schema mode is imposed by the catalogue rather than adopted
+# by the author, so accepting the failure alone would fail an extension on
+# checks its author never chose.
 framework_decides() {
 	local mode="$1" verdict="$2" fail_count="$3" rendered="$4"
 	case "${mode}" in
