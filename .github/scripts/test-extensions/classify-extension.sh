@@ -100,6 +100,11 @@ classify_extension_tree() {
 # Decide which test mode an entry runs in, from a repository tree on stdin.
 # Prints one of: suite, schema, conformance, render-only.
 #
+# Only build-matrix.sh calls this, so only the monthly sweep runs the
+# framework. check-extensions/preflight-render.sh sources this file for
+# classify_extension_tree and stays a plain render: a pull request check
+# gates one new entry, and the sweep is where every entry is asserted.
+#
 # Paths only, because build-matrix.sh works from the trees API and has no file
 # contents. A schema this cannot tell is v1 is handled at run time: the
 # framework skips it, the run is all skips, and the caller falls back to the

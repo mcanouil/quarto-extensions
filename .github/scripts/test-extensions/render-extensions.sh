@@ -111,21 +111,18 @@ run_framework() {
 		layers=(--layer conformance --layer render --layer smoke)
 		mount_cache="yes"
 		;;
-	schema)
+	schema | conformance)
 		# The catalogue supplies the project, so the repository's own
 		# tests/_quarto.yml is never read and none of its render scripts run.
 		tests_dir="${workdir}/framework-tests"
 		install -d -m 700 "${tests_dir}"
 		printf 'project:\n  type: default\n  output-dir: _output\n' >"${tests_dir}/_quarto.yml"
-		layers=(--layer conformance --layer smoke)
 		mount_cache="no"
-		;;
-	conformance)
-		tests_dir="${workdir}/framework-tests"
-		install -d -m 700 "${tests_dir}"
-		printf 'project:\n  type: default\n  output-dir: _output\n' >"${tests_dir}/_quarto.yml"
-		layers=(--layer conformance)
-		mount_cache="no"
+		if [[ "${mode}" == "schema" ]]; then
+			layers=(--layer conformance --layer smoke)
+		else
+			layers=(--layer conformance)
+		fi
 		;;
 	*)
 		return 0
@@ -134,9 +131,9 @@ run_framework() {
 
 	# A repository that has already failed the dependency source policy or a
 	# dependency install has not earned write access to a cache shared with
-	# every other repository in this job. This costs nothing real: override_
-	# applies already refuses a non-pass pre-status, so this run's verdict was
-	# never going to be used anyway.
+	# every other repository in this job. This costs nothing real, because
+	# override_applies already refuses a non-pass pre-status, so this run's
+	# verdict was never going to be used anyway.
 	if [[ "${pre_status}" != "pass" ]]; then
 		mount_cache="no"
 	fi
@@ -393,11 +390,11 @@ render_extension() {
 		--arg st "${stage}" \
 		--arg fr "${failure_reason}" \
 		--arg test_mode "${test_mode}" \
-		--argjson cases "$(jq -cn \
-			--argjson total "${fw_total}" --argjson pass "${fw_pass}" \
-			--argjson fail "${fw_fail}" --argjson skip "${fw_skip}" \
-			'{total: $total, pass: $pass, fail: $fail, skip: $skip}')" \
-		'{id: $id, type: $t, status: $s, log: $l, quarto_version: $qv, quarto_channel: $qc, stage: $st, failure_reason: $fr, test_mode: $test_mode, cases: $cases}' \
+		--argjson fw_total "${fw_total}" \
+		--argjson fw_pass "${fw_pass}" \
+		--argjson fw_fail "${fw_fail}" \
+		--argjson fw_skip "${fw_skip}" \
+		'{id: $id, type: $t, status: $s, log: $l, quarto_version: $qv, quarto_channel: $qc, stage: $st, failure_reason: $fr, test_mode: $test_mode, cases: {total: $fw_total, pass: $fw_pass, fail: $fw_fail, skip: $fw_skip}}' \
 		>"${results_dir}/${i}.json"
 }
 
