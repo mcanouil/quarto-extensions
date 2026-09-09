@@ -83,6 +83,16 @@ readonly FRAMEWORK_RUNNER="${FRAMEWORK_DIR}/_extensions/extension-test/run.lua"
 readonly FRAMEWORK_MAX_GENERATED=40
 readonly FRAMEWORK_TIMEOUT=600
 
+# docker_run_render's caller swallows a non-zero exit with `|| true`, so a
+# layout change at a future framework tag that moves or renames the runner
+# would otherwise be silent: every framework run would quietly fail closed
+# and every entry would fall back to the render. Fail loudly instead, once,
+# before any extension is processed.
+if [[ ! -f "${FRAMEWORK_RUNNER}" ]]; then
+	echo "::error::Framework runner not found at ${FRAMEWORK_RUNNER}."
+	exit 1
+fi
+
 # Run the pinned framework against one clone, writing its JSON into the log
 # directory so it travels with the logs the entry already publishes.
 #
