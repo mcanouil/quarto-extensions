@@ -157,12 +157,17 @@ framework_verdict() {
 		printf 'none\t0\t0\t0\t0\t0\n'
 		return 0
 	fi
+	# Only a bounded enum and four integers may reach the published catalogue.
+	# The JSON is written inside the container by the repository's own
+	# extension, so `numbers` coerces anything a repository puts there other
+	# than a number (a string, a boolean, an array) down to the default,
+	# rather than letting it travel through @tsv and later --argjson.
 	jq -r '
 		[(.status // "none"),
-		 (.summary.total // 0), (.summary.pass // 0),
-		 (.summary.fail // 0), (.summary.skip // 0),
+		 (.summary.total | numbers // 0), (.summary.pass | numbers // 0),
+		 (.summary.fail | numbers // 0), (.summary.skip | numbers // 0),
 		 ([(.layers.render // {}), (.layers.smoke // {})]
-		  | map((.pass // 0) + (.fail // 0)) | add)]
+		  | map((.pass | numbers // 0) + (.fail | numbers // 0)) | add)]
 		| @tsv
 	' "${json}" 2>/dev/null || printf 'none\t0\t0\t0\t0\t0\n'
 }

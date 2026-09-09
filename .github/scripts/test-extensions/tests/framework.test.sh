@@ -56,6 +56,17 @@ project_only=$(write_fixture project_only '{"status":"pass",
 check 'a run that rendered nothing reports zero rendered' 'pass	4	3	0	1	0' \
 	"$(framework_verdict "${project_only}")"
 
+# The framework's JSON is written inside the container by the repository's
+# own extension, so a repository can put anything there. Only a bounded enum
+# and four integers may reach the published catalogue: a string, a boolean
+# and an array must all default to zero rather than travel through @tsv and
+# later --argjson into a field the design promises is numeric.
+hostile=$(write_fixture hostile '{"status":"pass",
+  "summary":{"total":"5","pass":true,"fail":[1,2,3],"skip":0},
+  "layers":{"render":{"total":2,"pass":"2","fail":false,"skip":0}}}')
+check 'a repository-supplied string, boolean and array default to zero' 'pass	0	0	0	0	0' \
+	"$(framework_verdict "${hostile}")"
+
 # The caller never reads framework_verdict through $( ); it reads it through
 # `IFS=$'\t' read -r ... < <(framework_verdict ...)`. Command substitution
 # strips a missing trailing newline, so a check built on $( ) cannot see a
