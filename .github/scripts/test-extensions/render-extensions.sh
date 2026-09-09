@@ -38,10 +38,19 @@ docker_run_render() {
 	shift 6
 	local cache_mount=()
 	# The shared cache is a read-write surface across repositories within this
-	# job, so only a caller that actually needs packages mounts it.
-	if [[ "${mount_cache}" == "yes" ]]; then
+	# job, so only a caller that actually needs packages mounts it. A case
+	# statement, rather than an if, means a typo in a caller's mount_cache
+	# argument fails loudly instead of silently falling through to "no cache".
+	case "${mount_cache}" in
+	yes)
 		cache_mount=(-v "${cache_root}:/cache")
-	fi
+		;;
+	no) ;;
+	*)
+		echo "::error::Invalid mount_cache value '${mount_cache}'. Expected 'yes' or 'no'." >&2
+		return 1
+		;;
+	esac
 	timeout --kill-after=30 "${run_timeout}" docker run --rm -i \
 		--user "${DOCKER_USER}" \
 		"${DOCKER_SECURITY_OPTS[@]}" \
