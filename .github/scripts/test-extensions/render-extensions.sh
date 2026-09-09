@@ -34,8 +34,14 @@ for ((w = 0; w < RENDER_CONCURRENCY; w++)); do
 done
 
 docker_run_render() {
-	local run_timeout="$1" workdir="$2" log_dir="$3" render_dir="$4" shard="$5"
-	shift 5
+	local run_timeout="$1" workdir="$2" log_dir="$3" render_dir="$4" shard="$5" mount_cache="$6"
+	shift 6
+	local cache_mount=()
+	# The shared cache is a read-write surface across repositories within this
+	# job, so only a caller that actually needs packages mounts it.
+	if [[ "${mount_cache}" == "yes" ]]; then
+		cache_mount=(-v "${cache_root}:/cache")
+	fi
 	timeout --kill-after=30 "${run_timeout}" docker run --rm -i \
 		--user "${DOCKER_USER}" \
 		"${DOCKER_SECURITY_OPTS[@]}" \
@@ -53,12 +59,103 @@ docker_run_render() {
 		-e UV_CACHE_DIR="/cache/uv" \
 		-e JULIA_DEPOT_PATH="/cache/julia:" \
 		-e R_LIBS_USER="/cache/r-lib-${shard}" \
-		-v "${cache_root}:/cache" \
+		"${cache_mount[@]}" \
 		-v "${workdir}:${workdir}" \
 		-v "${log_dir}:${log_dir}" \
 		-w "${render_dir}" \
 		render-image \
 		bash
+}
+
+readonly FRAMEWORK_DIR="${GITHUB_WORKSPACE}/extension-test"
+readonly FRAMEWORK_RUNNER="${FRAMEWORK_DIR}/_extensions/extension-test/run.lua"
+# A catalogue sweep must finish, and a generated document per shortcode per
+# format grows with the extension rather than with the catalogue.
+readonly FRAMEWORK_MAX_GENERATED=40
+readonly FRAMEWORK_TIMEOUT=600
+
+# Run the pinned framework against one clone, writing its JSON into the log
+# directory so it travels with the logs the entry already publishes.
+#
+# `suite` renders the repository's own documents and so keeps the dependency
+# cache. `schema` and `conformance` render only documents the framework
+# generates, which are markdown with shortcode invocations and no executable
+# cells, so they need no packages and mount no cache: that keeps them out of
+# the one surface shared between repositories.
+run_framework() {
+	local mode="$1" workdir="$2" log_dir="$3" render_dir="$4" shard="$5"
+	local tests_dir layers mount_cache
+
+	case "${mode}" in
+	suite)
+		tests_dir="${render_dir}/tests"
+		layers=(--layer conformance --layer render --layer smoke)
+		mount_cache="yes"
+		;;
+	schema)
+		# The catalogue supplies the project, so the repository's own
+		# tests/_quarto.yml is never read and none of its render scripts run.
+		tests_dir="${workdir}/framework-tests"
+		install -d -m 700 "${tests_dir}"
+		printf 'project:\n  type: default\n  output-dir: _output\n' >"${tests_dir}/_quarto.yml"
+		layers=(--layer conformance --layer smoke)
+		mount_cache="no"
+		;;
+	conformance)
+		tests_dir="${workdir}/framework-tests"
+		install -d -m 700 "${tests_dir}"
+		printf 'project:\n  type: default\n  output-dir: _output\n' >"${tests_dir}/_quarto.yml"
+		layers=(--layer conformance)
+		mount_cache="no"
+		;;
+	*)
+		return 0
+		;;
+	esac
+
+	docker_run_render "${FRAMEWORK_TIMEOUT}" "${workdir}" "${log_dir}" "${render_dir}" "${shard}" "${mount_cache}" \
+		-v "${FRAMEWORK_DIR}:${FRAMEWORK_DIR}:ro" \
+		<<-EOF || true
+			set -uo pipefail
+			quarto pandoc lua "${FRAMEWORK_RUNNER}" \
+				--root "${render_dir}" \
+				--tests "${tests_dir}" \
+				--json "${log_dir}/extension-test.json" \
+				--tap /dev/null \
+				--quiet \
+				--max-generated ${FRAMEWORK_MAX_GENERATED} \
+				${layers[*]}
+		EOF
+}
+
+# Read the framework's own verdict out of its JSON.
+#
+# The exit code is not consulted on purpose: an all-skip run exits 0 and is
+# otherwise indistinguishable from a clean one, and this is the difference the
+# caller needs in order to decide whether to fall back to the render.
+#
+# `rendered` counts the cases the rendering layers actually decided, which is
+# not the same as the run passing. An extension contributing only a project
+# type passes conformance and skips its one smoke case, because generate.lua
+# names a contributed project type as a gap rather than half-generating it. It
+# would otherwise be recorded as a pass having rendered nothing.
+#
+# Prints: status<TAB>total<TAB>pass<TAB>fail<TAB>skip<TAB>rendered, where
+# status is `none` when there is nothing readable.
+framework_verdict() {
+	local json="$1"
+	if [[ ! -s "${json}" ]]; then
+		printf 'none\t0\t0\t0\t0\t0'
+		return 0
+	fi
+	jq -r '
+		[(.status // "none"),
+		 (.summary.total // 0), (.summary.pass // 0),
+		 (.summary.fail // 0), (.summary.skip // 0),
+		 ([(.layers.render // {}), (.layers.smoke // {})]
+		  | map((.pass // 0) + (.fail // 0)) | add)]
+		| @tsv
+	' "${json}" 2>/dev/null || printf 'none\t0\t0\t0\t0\t0'
 }
 
 render_extension() {
@@ -113,7 +210,7 @@ render_extension() {
 			fi
 			echo "Dependency install phase for ${id}: ${dep_sources[*]}" >>"${log_dir}/stdout.log"
 			run_dep_install() {
-				docker_run_render 600 "${workdir}" "${log_dir}" "${render_dir}" "${shard}" \
+				docker_run_render 600 "${workdir}" "${log_dir}" "${render_dir}" "${shard}" yes \
 					-e EXT_ID="${id}" \
 					-e LOG_DIR="${log_dir}" \
 					<"${SCRIPT_DIR}/deps-install.sh"
@@ -144,7 +241,7 @@ render_extension() {
 		# Phase B: Render
 		if [[ "${status}" == "pass" ]]; then
 			render_rc=0
-			docker_run_render 300 "${workdir}" "${log_dir}" "${render_dir}" "${shard}" \
+			docker_run_render 300 "${workdir}" "${log_dir}" "${render_dir}" "${shard}" yes \
 				-e EXT_TYPE="${ext_type}" \
 				-e EXT_ID="${id}" \
 				-e WORKDIR="${workdir}" \
