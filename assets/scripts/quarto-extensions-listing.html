@@ -405,6 +405,18 @@
               <td>${result.channel === 'prerelease' ? 'Pre-release' : 'Release'}</td>
               <td><i class="bi ${icon}" aria-hidden="true"></i> ${escapeHtml(result.status)}</td>
               <td>${escapeHtml(result.date)}</td>
+              <td>${escapeHtml(result.mode || 'render-only')}</td>
+              <td>${(() => {
+                // Counted against the cases the run decided, not its total:
+                // a skip is not a case that failed. An all-skip run would
+                // otherwise read as 0/N beside a green pass, which says every
+                // case failed when none of them ran.
+                const cases = result.cases;
+                if (!cases) return '&mdash;';
+                const decided = (cases.pass || 0) + (cases.fail || 0);
+                if (decided === 0) return '&mdash;';
+                return `${escapeHtml(String(cases.pass || 0))}/${escapeHtml(String(decided))}`;
+              })()}</td>
               <td><a href="${escapeHtml(logUrl)}" target="_blank" rel="noopener noreferrer">Log</a></td>
             </tr>`;
           }).join('');
@@ -412,7 +424,7 @@
           title: `Test history for ${item.title}`,
           body: `<table class="table table-sm align-middle mb-0">
             <thead><tr><th scope="col">Quarto</th><th scope="col">Channel</th><th scope="col">Status</th>
-              <th scope="col">Date</th><th scope="col">Log</th></tr></thead>
+              <th scope="col">Date</th><th scope="col">Mode</th><th scope="col">Cases</th><th scope="col">Log</th></tr></thead>
             <tbody>${rows}</tbody>
           </table>`
         };

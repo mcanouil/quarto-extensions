@@ -72,7 +72,9 @@ jq -c --arg d "${today}" --slurpfile cur "${current_run_file}" '
               log: $e.log,
               date: $d,
               stage: (($e.stage // "") | tostring),
-              failure_reason: (($e.failure_reason // "") | tostring)
+              failure_reason: (($e.failure_reason // "") | tostring),
+              test_mode: ($e.test_mode // "render-only"),
+              cases: ($e.cases // {total: 0, pass: 0, fail: 0, skip: 0})
             }]
         )
     )
@@ -81,7 +83,7 @@ jq -c --arg d "${today}" --slurpfile cur "${current_run_file}" '
 
 skipped_count=$(echo "${skipped_json}" | jq 'length')
 
-read -r run_total run_pass run_fail run_skip run_fail_deps run_fail_render run_fail_other < <(
+read -r run_total run_pass run_fail run_skip run_fail_deps run_fail_render run_fail_extension_test run_fail_other < <(
   jq -r '
     . as $all
     | ($all | [.[].id] | unique | length) as $run_total
@@ -91,11 +93,15 @@ read -r run_total run_pass run_fail run_skip run_fail_deps run_fail_render run_f
     | ([$groups[] | select(all(.status == "skip"))] | length) as $run_skip
     | ([$groups[] | select(any(.status == "fail"))
         | [.[] | select(.status == "fail") | .stage // ""]
-        | if any(. == "deps") then "deps" elif any(. == "render") then "render" else "other" end]) as $fail_stages
+        | if any(. == "deps") then "deps"
+          elif any(. == "render") then "render"
+          elif any(. == "extension-test") then "extension-test"
+          else "other" end]) as $fail_stages
     | ($fail_stages | map(select(. == "deps")) | length) as $run_fail_deps
     | ($fail_stages | map(select(. == "render")) | length) as $run_fail_render
+    | ($fail_stages | map(select(. == "extension-test")) | length) as $run_fail_extension_test
     | ($fail_stages | map(select(. == "other")) | length) as $run_fail_other
-    | [$run_total, $run_pass, $run_fail, $run_skip, $run_fail_deps, $run_fail_render, $run_fail_other] | @tsv
+    | [$run_total, $run_pass, $run_fail, $run_skip, $run_fail_deps, $run_fail_render, $run_fail_extension_test, $run_fail_other] | @tsv
   ' "${current_run_file}"
 )
 
@@ -129,7 +135,7 @@ skipped_list=$(echo "${skipped_json}" | jq -r '.[] | "- \(.)"')
   echo ""
   echo "- **Extensions tested:** ${run_total}"
   echo "- **Pass:** ${run_pass}"
-  echo "- **Fail:** ${run_fail} (dependencies: ${run_fail_deps}, render: ${run_fail_render}, other: ${run_fail_other})"
+  echo "- **Fail:** ${run_fail} (dependencies: ${run_fail_deps}, render: ${run_fail_render}, extension test: ${run_fail_extension_test}, other: ${run_fail_other})"
   echo "- **Skipped (repository not publicly accessible):** ${run_skip}"
   echo "- **Skipped (no renderable content found):** ${skipped_count}"
   echo ""

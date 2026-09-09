@@ -153,6 +153,21 @@ jobs:
           sparse-checkout: .github/scripts/test-extensions
           sparse-checkout-cone-mode: false
 
+      # The catalogue runs one pinned framework version against every entry, so
+      # results are comparable and an upgrade is a single reviewable change.
+      # The ref is the tag's commit rather than the tag, because this code is
+      # mounted into the container that runs third-party extensions and a
+      # moved tag would change it without a change here. The image the same
+      # container runs is digest pinned for the same reason.
+      - name: Checkout the test framework
+        uses: actions/checkout@v7
+        with:
+          repository: mcanouil/quarto-extension-test
+          # Tag 0.1.0
+          ref: "09e2dc09029ee8662f01976846dd88fc204952c5"
+          path: extension-test
+          persist-credentials: false
+
       - name: Write extensions batch to file
         env:
           EXTENSIONS_JSON: ${{ toJSON(matrix.extensions) }}

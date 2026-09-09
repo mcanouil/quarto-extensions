@@ -34,8 +34,23 @@ for ((w = 0; w < RENDER_CONCURRENCY; w++)); do
 done
 
 docker_run_render() {
-	local run_timeout="$1" workdir="$2" log_dir="$3" render_dir="$4" shard="$5"
-	shift 5
+	local run_timeout="$1" workdir="$2" log_dir="$3" render_dir="$4" shard="$5" mount_cache="$6"
+	shift 6
+	local cache_mount=()
+	# The shared cache is a read-write surface across repositories within this
+	# job, so only a caller that actually needs packages mounts it. A case
+	# statement, rather than an if, means a typo in a caller's mount_cache
+	# argument fails loudly instead of silently falling through to "no cache".
+	case "${mount_cache}" in
+	yes)
+		cache_mount=(-v "${cache_root}:/cache")
+		;;
+	no) ;;
+	*)
+		echo "::error::Invalid mount_cache value '${mount_cache}'. Expected 'yes' or 'no'." >&2
+		return 1
+		;;
+	esac
 	timeout --kill-after=30 "${run_timeout}" docker run --rm -i \
 		--user "${DOCKER_USER}" \
 		"${DOCKER_SECURITY_OPTS[@]}" \
@@ -53,12 +68,214 @@ docker_run_render() {
 		-e UV_CACHE_DIR="/cache/uv" \
 		-e JULIA_DEPOT_PATH="/cache/julia:" \
 		-e R_LIBS_USER="/cache/r-lib-${shard}" \
-		-v "${cache_root}:/cache" \
+		"${cache_mount[@]}" \
 		-v "${workdir}:${workdir}" \
 		-v "${log_dir}:${log_dir}" \
 		-w "${render_dir}" \
 		render-image \
 		bash
+}
+
+readonly FRAMEWORK_DIR="${GITHUB_WORKSPACE}/extension-test"
+readonly FRAMEWORK_RUNNER="${FRAMEWORK_DIR}/_extensions/extension-test/run.lua"
+# A catalogue sweep must finish, and a generated document per shortcode per
+# format grows with the extension rather than with the catalogue.
+readonly FRAMEWORK_MAX_GENERATED=40
+readonly FRAMEWORK_TIMEOUT=600
+
+# Whether any entry in this batch will call the framework at all.
+framework_required() {
+	local manifest="$1"
+	if jq -e '[.[] | .ext.test_mode // "render-only"] | any(. != "render-only")' \
+		"${manifest}" >/dev/null 2>&1; then
+		echo "yes"
+	else
+		echo "no"
+	fi
+}
+
+# docker_run_render's caller swallows a non-zero exit with `|| true`, so a
+# layout change at a future framework tag that moves or renames the runner
+# would otherwise be silent: every framework run would quietly fail closed
+# and every entry would fall back to the render. Fail loudly instead, once,
+# before any extension is processed.
+#
+# Only for a batch that needs it. check-extensions/preflight-render.sh runs
+# this script for a pull request, its workflow does not check the framework
+# out, and it turns a non-zero exit into a warning. An unconditional guard
+# there aborts before the first entry renders, leaves results.json unwritten,
+# and lets a blocking preflight report no failure at all.
+if [[ "$(framework_required clone-manifest.json)" == "yes" ]] && [[ ! -f "${FRAMEWORK_RUNNER}" ]]; then
+	echo "::error::Framework runner not found at ${FRAMEWORK_RUNNER}."
+	exit 1
+fi
+
+# Whether the framework runs for this entry at all.
+#
+# Only where its verdict can be used. override_applies discards the verdict of
+# an entry that already failed, so running the framework there would execute
+# the code of a repository the dependency source policy refused to execute,
+# spend a container timeout on a clone that may not exist, and publish case
+# counts from a probe whose result was thrown away.
+framework_runs() {
+	local mode="$1" pre_status="$2"
+	if [[ "${mode}" == "render-only" ]] || [[ "${pre_status}" != "pass" ]]; then
+		echo "no"
+		return 0
+	fi
+	echo "yes"
+}
+
+# Run the pinned framework against one clone, writing its JSON into the log
+# directory so it travels with the logs the entry already publishes.
+#
+# `suite` renders the repository's own documents and so keeps the dependency
+# cache. `schema` and `conformance` render only documents the framework
+# generates, which are markdown with shortcode invocations and no executable
+# cells, so they need no packages and mount no cache: that keeps them out of
+# the one surface shared between repositories.
+#
+# The root is the clone root, not the render directory. detect_test_mode reads
+# repository-root paths, and for a project entry the render directory is the
+# project path below it, holding neither _extensions/ nor tests/. Rooting here
+# keeps the framework looking where the mode was decided.
+run_framework() {
+	local mode="$1" workdir="$2" log_dir="$3" shard="$4" pre_status="$5"
+	local repo_root="${workdir}/repo"
+	local tests_dir layers mount_cache
+
+	case "${mode}" in
+	suite)
+		tests_dir="${repo_root}/tests"
+		layers=(--layer conformance --layer render --layer smoke)
+		mount_cache="yes"
+		;;
+	schema | conformance)
+		# The catalogue supplies the project, so the repository's own
+		# tests/_quarto.yml is never read and none of its render scripts run.
+		tests_dir="${workdir}/framework-tests"
+		install -d -m 700 "${tests_dir}"
+		printf 'project:\n  type: default\n  output-dir: _output\n' >"${tests_dir}/_quarto.yml"
+		mount_cache="no"
+		if [[ "${mode}" == "schema" ]]; then
+			layers=(--layer conformance --layer smoke)
+		else
+			layers=(--layer conformance)
+		fi
+		;;
+	*)
+		return 0
+		;;
+	esac
+
+	# A repository that has already failed the dependency source policy or a
+	# dependency install has not earned write access to a cache shared with
+	# every other repository in this job. framework_runs already refuses to
+	# call this function for such an entry; the shared cache is the one channel
+	# between repositories, so it keeps its own guard rather than trusting a
+	# caller to hold the line.
+	if [[ "${pre_status}" != "pass" ]]; then
+		mount_cache="no"
+	fi
+
+	docker_run_render "${FRAMEWORK_TIMEOUT}" "${workdir}" "${log_dir}" "${repo_root}" "${shard}" "${mount_cache}" \
+		-v "${FRAMEWORK_DIR}:${FRAMEWORK_DIR}:ro" \
+		<<-EOF || true
+			set -uo pipefail
+			quarto pandoc lua "${FRAMEWORK_RUNNER}" \
+				--root "${repo_root}" \
+				--tests "${tests_dir}" \
+				--json "${log_dir}/extension-test.json" \
+				--tap /dev/null \
+				--quiet \
+				--max-generated ${FRAMEWORK_MAX_GENERATED} \
+				${layers[*]}
+		EOF
+}
+
+# Read the framework's own verdict out of its JSON.
+#
+# The exit code is not consulted on purpose: an all-skip run exits 0 and is
+# otherwise indistinguishable from a clean one, and this is the difference the
+# caller needs in order to decide whether to fall back to the render.
+#
+# `rendered` counts the cases the rendering layers actually decided, which is
+# not the same as the run passing. An extension contributing only a project
+# type passes conformance and skips its one smoke case, because generate.lua
+# names a contributed project type as a gap rather than half-generating it. It
+# would otherwise be recorded as a pass having rendered nothing.
+#
+# Prints: status<TAB>total<TAB>pass<TAB>fail<TAB>skip<TAB>rendered, where
+# status is `none` when there is nothing readable.
+framework_verdict() {
+	local json="$1"
+	if [[ ! -s "${json}" ]]; then
+		printf 'none\t0\t0\t0\t0\t0\n'
+		return 0
+	fi
+	# Only a bounded enum and four integers may reach the published catalogue.
+	# The JSON is written inside the container by the repository's own
+	# extension, so a repository can put anything there. `count` coerces a
+	# string, a boolean or an array down to the default, and rounds what is
+	# left into a whole number within range: `numbers` alone still admits a
+	# fraction, a negative and a huge exponent, all of which would travel
+	# through @tsv and later --argjson into a field the design describes as a
+	# bounded integer. The ceiling is far above any real run, which
+	# --max-generated caps at a few dozen cases.
+	jq -r '
+		def count: (numbers // 0) | floor
+			| if . < 0 then 0 elif . > 1000000 then 1000000 else . end;
+		[(.status // "none"),
+		 (.summary.total | count), (.summary.pass | count),
+		 (.summary.fail | count), (.summary.skip | count),
+		 ([(.layers.render // {}), (.layers.smoke // {})]
+		  | map((.pass | count) + (.fail | count)) | add)]
+		| @tsv
+	' "${json}" 2>/dev/null || printf 'none\t0\t0\t0\t0\t0\n'
+}
+
+# Whether the framework's verdict replaces the render's.
+#
+# Replacing the render must never mean checking less, so three things must all
+# hold: the mode is one where the framework renders, it reached a verdict, and
+# it actually decided at least one rendering case. The third is not implied by
+# the second. An extension contributing only a project type passes conformance
+# and skips its only smoke case, so the run reports pass while having rendered
+# nothing; taking that verdict would mark the entry green and drop the render
+# it gets today.
+framework_decides() {
+	local mode="$1" verdict="$2" fail_count="$3" rendered="$4"
+	case "${mode}" in
+	suite | schema) ;;
+	*)
+		echo "no"
+		return 0
+		;;
+	esac
+	if [[ "${rendered}" -lt 1 ]]; then
+		echo "no"
+		return 0
+	fi
+	if [[ "${verdict}" == "pass" ]] || { [[ "${verdict}" == "fail" ]] && [[ "${fail_count}" -gt 0 ]]; }; then
+		echo "yes"
+	else
+		echo "no"
+	fi
+}
+
+# Whether the framework's verdict overrides the render's status.
+#
+# The framework may add a failure the render missed, but must never erase one
+# the render already found: a clone, policy, dependency or render failure is a
+# fact about the entry that a later, decoupled probe cannot disprove. So the
+# override only ever applies when the render itself was clean going in.
+override_applies() {
+	local pre_status="$1" mode="$2" verdict="$3" fail_count="$4" rendered="$5"
+	if [[ "${pre_status}" != "pass" ]]; then
+		echo "no"
+		return 0
+	fi
+	framework_decides "${mode}" "${verdict}" "${fail_count}" "${rendered}"
 }
 
 render_extension() {
@@ -113,7 +330,7 @@ render_extension() {
 			fi
 			echo "Dependency install phase for ${id}: ${dep_sources[*]}" >>"${log_dir}/stdout.log"
 			run_dep_install() {
-				docker_run_render 600 "${workdir}" "${log_dir}" "${render_dir}" "${shard}" \
+				docker_run_render 600 "${workdir}" "${log_dir}" "${render_dir}" "${shard}" yes \
 					-e EXT_ID="${id}" \
 					-e LOG_DIR="${log_dir}" \
 					<"${SCRIPT_DIR}/deps-install.sh"
@@ -144,7 +361,7 @@ render_extension() {
 		# Phase B: Render
 		if [[ "${status}" == "pass" ]]; then
 			render_rc=0
-			docker_run_render 300 "${workdir}" "${log_dir}" "${render_dir}" "${shard}" \
+			docker_run_render 300 "${workdir}" "${log_dir}" "${render_dir}" "${shard}" yes \
 				-e EXT_TYPE="${ext_type}" \
 				-e EXT_ID="${id}" \
 				-e WORKDIR="${workdir}" \
@@ -159,6 +376,40 @@ render_extension() {
 					failure_reason="exit ${render_rc}"
 				fi
 			fi
+		fi
+	fi
+
+	local pre_framework_status="${status}"
+	local test_mode fw_status fw_total fw_pass fw_fail fw_skip fw_rendered
+	test_mode=$(jq -r ".[${i}].ext.test_mode // \"render-only\"" clone-manifest.json)
+
+	fw_status="none"
+	fw_total=0
+	fw_pass=0
+	fw_fail=0
+	fw_skip=0
+	fw_rendered=0
+	if [[ "$(framework_runs "${test_mode}" "${pre_framework_status}")" == "yes" ]]; then
+		run_framework "${test_mode}" "${workdir}" "${log_dir}" "${shard}" "${pre_framework_status}"
+		# The fallback branches of framework_verdict always emit a trailing
+		# newline, but `|| true` keeps this shard alive even if a future change
+		# to that contract lets a delimiter-less read hit EOF again.
+		IFS=$'\t' read -r fw_status fw_total fw_pass fw_fail fw_skip fw_rendered < <(
+			framework_verdict "${log_dir}/extension-test.json"
+		) || true
+	fi
+
+	if [[ "$(override_applies "${pre_framework_status}" "${test_mode}" "${fw_status}" "${fw_fail}" "${fw_rendered}")" == "yes" ]]; then
+		if [[ "${fw_status}" == "fail" ]]; then
+			status="fail"
+			stage="extension-test"
+			# Bounded on purpose: the detail is repository-derived text and
+			# stays in the log rather than entering the published catalogue.
+			failure_reason="cases-failed"
+		else
+			status="pass"
+			stage=""
+			failure_reason=""
 		fi
 	fi
 
@@ -184,7 +435,12 @@ render_extension() {
 		--arg qc "${QUARTO_CHANNEL}" \
 		--arg st "${stage}" \
 		--arg fr "${failure_reason}" \
-		'{id: $id, type: $t, status: $s, log: $l, quarto_version: $qv, quarto_channel: $qc, stage: $st, failure_reason: $fr}' \
+		--arg test_mode "${test_mode}" \
+		--argjson fw_total "${fw_total}" \
+		--argjson fw_pass "${fw_pass}" \
+		--argjson fw_fail "${fw_fail}" \
+		--argjson fw_skip "${fw_skip}" \
+		'{id: $id, type: $t, status: $s, log: $l, quarto_version: $qv, quarto_channel: $qc, stage: $st, failure_reason: $fr, test_mode: $test_mode, cases: {total: $fw_total, pass: $fw_pass, fail: $fw_fail, skip: $fw_skip}}' \
 		>"${results_dir}/${i}.json"
 }
 
@@ -218,9 +474,15 @@ if ((${#result_files[@]} > 0)); then
 else
 	echo '[]' >results.json
 fi
-# A render was executed exactly when the extension passed or failed at the
-# render stage (earlier stages never reach quarto render).
-render_count=$(jq '[.[] | select(.status == "pass" or .stage == "render")] | length' results.json)
+# Count entries for which a render was executed: a pass, a failure at the
+# render stage, or a failure at the extension-test stage (earlier stages
+# never reach quarto render; an extension-test failure means the framework
+# decided the entry after render_extension had already run the render).
+count_renders() {
+	jq '[.[] | select(.status == "pass" or .stage == "render" or .stage == "extension-test")] | length' "$1"
+}
+
+render_count=$(count_renders results.json)
 
 if [[ "${ext_count}" -gt 0 ]] && [[ "${render_count}" -eq 0 ]]; then
 	echo "::error::No quarto render was executed for ${ext_count} extensions."

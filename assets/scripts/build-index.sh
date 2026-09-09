@@ -75,7 +75,9 @@ jq -n \
                 channel: .quarto_channel,
                 status: .status,
                 log: .log,
-                date: .date
+                date: .date,
+                mode: (.test_mode // "render-only"),
+                cases: .cases
               }
           ]
         }

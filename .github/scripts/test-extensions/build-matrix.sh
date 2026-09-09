@@ -146,6 +146,8 @@ entries_phase_a=$(echo "${extensions_json}" | jq -c '
       end
     )
 ')
+# A template or example is never classified, so give it the mode explicitly.
+entries_phase_a=$(echo "${entries_phase_a}" | stamp_default_test_mode)
 
 phase_b_entries_file=$(mktemp)
 skipped_file=$(mktemp)
@@ -216,7 +218,11 @@ for ((idx = 0; idx < candidate_count; idx++)); do
     continue
   fi
 
-  if entry_json=$(classify_extension_tree "" <"${trees_dir}/${idx}.tree"); then
+  tree=$(cat "${trees_dir}/${idx}.tree")
+  if entry_json=$(printf '%s\n' "${tree}" | classify_extension_tree ""); then
+    # Reuse the tree already read above rather than fetching it again.
+    mode=$(printf '%s\n' "${tree}" | detect_test_mode)
+    entry_json=$(printf '%s' "${entry_json}" | jq -c --arg m "${mode}" '. + {test_mode: $m}')
     jq -cn --arg id "${id}" --argjson e "${entry_json}" '{id: $id} + $e' >>"${phase_b_entries_file}"
     continue
   fi
