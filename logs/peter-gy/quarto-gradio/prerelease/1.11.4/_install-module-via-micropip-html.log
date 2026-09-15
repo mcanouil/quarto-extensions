@@ -1,0 +1,61 @@
+
+Starting python3 kernel...
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+
+Done
+
+
+Executing '_install-module-via-micropip.quarto_ipynb'
+  Cell 1/1: ''...
+
+
+An error occurred while executing the following cell:
+------------------
+import micropip
+await micropip.install("faker==37.8.0")
+
+import gradio as gr
+import pandas as pd
+from faker import Faker
+
+fake = Faker()
+generators = {
+    "Name": fake.name,
+    "Address": fake.address,
+    "Email": fake.email,
+    "Phone": fake.phone_number,
+    "Job": fake.job,
+}
+
+def generate_data(data_type, count):
+    rows = [
+        {"#": index + 1, "Data": generators[data_type]()}
+        for index in range(count)
+    ]
+    return pd.DataFrame(rows)
+
+demo = gr.Interface(
+    fn=generate_data,
+    inputs=[
+        gr.Dropdown(list(generators), value="Name"),
+        gr.Slider(1, 10, value=3, step=1),
+    ],
+    outputs=gr.Dataframe(wrap=True),
+)
+demo.launch()
+------------------
+
+
+---------------------------------------------------------------------------
+ModuleNotFoundError                       Traceback (most recent call last)
+Cell In[1], line 1
+----> 1 import micropip
+      2 await micropip.install("faker==37.8.0")
+      3 
+      4 import gradio as gr
+
+ModuleNotFoundError: No module named 'micropip'
+
+
+(WARN) Error encountered when rendering files
+

@@ -1,0 +1,32 @@
+pandoc 
+
+  to: html
+  output-file: about.html
+  standalone: true
+  title-prefix: Bookup website
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  embed-fonts: true
+  theme:
+    light:
+      - _extensions/bookup/bookup.scss
+    dark:
+      - _extensions/bookup/bookup.scss
+      - _extensions/bookup/bookup_dark.scss
+  title: About
+  
+
+Output created: _site/about.html
+
+

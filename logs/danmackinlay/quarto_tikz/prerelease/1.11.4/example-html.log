@@ -1,0 +1,35 @@
+pandoc 
+
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: TikZ Example
+  tikz:
+    cache: false
+  
+
+(E) tikz: could not render figure 'stick-figure.204cf967', leaving the block unrendered.
+inkscape not found. Install it, or set tikz.svg-engine / tikz.svg-command to a converter you do have.
+(E) 
+tikz: could not render figure 'my-fancy-diagram.53efa4b1', leaving the block unrendered.
+inkscape not found. Install it, or set tikz.svg-engine / tikz.svg-command to a converter you do have.
+(E) tikz: could not render figure 'tikz.3a491e13', leaving the block unrendered.
+inkscape not found. Install it, or set tikz.svg-engine / tikz.svg-command to a converter you do have.
+(E) tikz: could not render figure 'tikz.d1f23835', leaving the block unrendered.
+inkscape not found. Install it, or set tikz.svg-engine / tikz.svg-command to a converter you do have.
+
+Output created: example.html
+
+

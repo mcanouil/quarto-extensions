@@ -16,8 +16,12 @@ The following package(s) will be updated:
 - bslib         [0.12.0 -> 0.11.0]
 - curl          [8.0.0 -> 7.1.0]
 - data.table    [1.18.6.1 -> 1.18.4]
+- httr          [1.4.9 -> 1.4.8]
+- knitr         [1.52 -> 1.51]
 - renv          [1.2.4 -> 1.2.3]
+- reticulate    [1.47.0 -> 1.46.0]
 - rlang         [1.3.0 -> 1.2.0]
+- rmarkdown     [2.32 -> 2.31]
 - stringi       [1.8.9 -> 1.8.7]
 - xfun          [0.60 -> 0.59]
 - AsioHeaders   [* -> 1.30.2-1]
@@ -36,29 +40,33 @@ The following package(s) will be updated:
 - zip           [* -> 3.0.0]
 
 # Downloading packages -------------------------------------------------------
-[?25l  (0/22) Downloading: viridis, plotly, renv, stringi, ...                                                                                                       y ellipsis 0.3.3                           [26 kB in 0.85s]
-  (1/22) Downloading: viridis, plotly, renv, stringi, ...                                                                                                       y crosstalk 1.2.2                          [416 kB in 0.86s]
-  (2/22) Downloading: viridis, plotly, renv, stringi, ...                                                                                                       y cpp11 0.5.5                              [309 kB in 0.87s]
-  (3/22) Downloading: viridis, plotly, renv, stringi, ...                                                                                                       y gridExtra 2.3.1                          [528 kB in 0.87s]
-  (4/22) Downloading: viridis, plotly, renv, stringi, ...                                                                                                       y AsioHeaders 1.30.2-1                     [666 kB in 0.87s]
-  (5/22) Downloading: viridis, plotly, renv, stringi, ...                                                                                                       y lazyeval 0.2.3                           [191 kB in 0.88s]
-  (6/22) Downloading: viridis, plotly, renv, stringi, ...                                                                                                       y chromote 0.5.1                           [651 kB in 0.89s]
-  (7/22) Downloading: viridis, plotly, renv, stringi, ...                                                                                                       y zip 3.0.0                                [959 kB in 0.9s]
-  (8/22) Downloading: viridis, plotly, renv, stringi, ...                                                                                                       y promises 1.5.0                           [1.7 MB in 0.9s]
-  (9/22) Downloading: viridis, plotly, renv, stringi, ...                                                                                                       y curl 7.1.0                               [777 kB in 0.92s]
-  (10/22) Downloading: viridis, plotly, renv, stringi, ...                                                                                                      y later 1.4.8                              [162 kB in 74s]
-  (11/22) Downloading: viridis, plotly, renv, stringi, ...                                                                                                      y viridis 0.6.5                            [3.0 MB in 0.93s]
-  (12/22) Downloading: plotly, renv, stringi, rlang, ...                                                                                                        y stringi 1.8.7                            [3.5 MB in 0.93s]
-  (13/22) Downloading: plotly, renv, rlang, bslib, ...                                                                                                          y renv 1.2.3                               [2.5 MB in 0.93s]
-  (14/22) Downloading: plotly, rlang, bslib, data.table, ...                                                                                                    y plotly 4.12.0                            [3.9 MB in 0.96s]
-  (15/22) Downloading: rlang, bslib, data.table, Rcpp, ...                                                                                                      y rlang 1.2.0                              [1.6 MB in 0.97s]
-  (16/22) Downloading: bslib, data.table, Rcpp, xfun, ...                                                                                                       y webshot2 0.1.2                           [572 kB in 98s]
-  (17/22) Downloading: bslib, data.table, Rcpp, xfun, ...                                                                                                       y bslib 0.11.0                             [6.2 MB in 1.0s]
-  (18/22) Downloading: data.table, Rcpp, xfun, websocket                                                                                                        y websocket 1.4.4                          [451 kB in 0.12s]
-  (19/22) Downloading: data.table, Rcpp, xfun                                                                                                                   y data.table 1.18.4                        [3.0 MB in 0.14s]
-  (20/22) Downloading: Rcpp, xfun                                                                                                                               y Rcpp 1.1.1-1.1                           [2.3 MB in 0.13s]
-  (21/22) Downloading: xfun                                                                                                                                     y xfun 0.59                                [645 kB in 0.13s]
-                                                                                Successfully downloaded 22 packages in 1.3 seconds.
+[?25l  (0/26) Downloading: xfun, bslib, websocket, crosstalk, ...                                                                                                    y ellipsis 0.3.3                           [26 kB in 0.73s]
+  (1/26) Downloading: xfun, bslib, websocket, crosstalk, ...                                                                                                    y later 1.4.8                              [162 kB in 0.74s]
+  (2/26) Downloading: xfun, bslib, websocket, crosstalk, ...                                                                                                    y lazyeval 0.2.3                           [191 kB in 0.75s]
+  (3/26) Downloading: xfun, bslib, websocket, crosstalk, ...                                                                                                    y crosstalk 1.2.2                          [416 kB in 0.76s]
+  (4/26) Downloading: xfun, bslib, websocket, curl, ...                                                                                                         y websocket 1.4.4                          [451 kB in 0.76s]
+  (5/26) Downloading: xfun, bslib, curl, data.table, ...                                                                                                        y webshot2 0.1.2                           [572 kB in 0.76s]
+  (6/26) Downloading: xfun, bslib, curl, data.table, ...                                                                                                        y chromote 0.5.1                           [651 kB in 0.76s]
+  (7/26) Downloading: xfun, bslib, curl, data.table, ...                                                                                                        y curl 7.1.0                               [777 kB in 0.77s]
+  (8/26) Downloading: xfun, bslib, data.table, plotly, ...                                                                                                      y zip 3.0.0                                [959 kB in 0.79s]
+  (9/26) Downloading: xfun, bslib, data.table, plotly, ...                                                                                                      y stringi 1.8.7                            [3.5 MB in 0.79s]
+  (10/26) Downloading: xfun, bslib, data.table, plotly, ...                                                                                                     y promises 1.5.0                           [1.7 MB in 0.79s]
+  (11/26) Downloading: xfun, bslib, data.table, plotly, ...                                                                                                     y cpp11 0.5.5                              [309 kB in 54s]
+  (12/26) Downloading: xfun, bslib, data.table, plotly, ...                                                                                                     y viridis 0.6.5                            [3.0 MB in 0.8s]
+  (13/26) Downloading: xfun, bslib, data.table, plotly, ...                                                                                                     y bslib 0.11.0                             [6.2 MB in 0.8s]
+  (14/26) Downloading: xfun, data.table, plotly, rmarkdown, ...                                                                                                 y data.table 1.18.4                        [3.0 MB in 0.81s]
+  (15/26) Downloading: xfun, plotly, rmarkdown, httr, ...                                                                                                       y rmarkdown 2.31                           [2.7 MB in 88s]
+  (16/26) Downloading: xfun, plotly, httr, reticulate, ...                                                                                                      y rlang 1.2.0                              [1.6 MB in 80s]
+  (17/26) Downloading: xfun, plotly, httr, reticulate, ...                                                                                                      y AsioHeaders 1.30.2-1                     [666 kB in 82s]
+  (18/26) Downloading: xfun, plotly, httr, reticulate, ...                                                                                                      y gridExtra 2.3.1                          [528 kB in 93s]
+  (19/26) Downloading: xfun, plotly, httr, reticulate, ...                                                                                                      y knitr 1.51                               [1.1 MB in 95s]
+  (20/26) Downloading: xfun, plotly, httr, reticulate, ...                                                                                                      y xfun 0.59                                [645 kB in 0.87s]
+  (21/26) Downloading: plotly, httr, reticulate, Rcpp, ...                                                                                                      y httr 1.4.8                               [485 kB in 0.13s]
+  (22/26) Downloading: plotly, reticulate, Rcpp, renv                                                                                                           y renv 1.2.3                               [2.5 MB in 81s]
+  (23/26) Downloading: plotly, reticulate, Rcpp                                                                                                                 y Rcpp 1.1.1-1.1                           [2.3 MB in 88s]
+  (24/26) Downloading: plotly, reticulate                                                                                                                       y reticulate 1.46.0                        [1.7 MB in 0.24s]
+  (25/26) Downloading: plotly                                                                                                                                   y plotly 4.12.0                            [3.9 MB in 1.0s]
+                                                                                Successfully downloaded 26 packages in 1.3 seconds.
 
 # Installing packages --------------------------------------------------------
                                                                                 y AsioHeaders 1.30.2-1                     [installed binary]
@@ -72,18 +80,22 @@ The following package(s) will be updated:
                                                                                 y stringi 1.8.7                            [installed binary]
                                                                                 y xfun 0.59                                [installed binary]
                                                                                 y zip 3.0.0                                [installed binary]
+                                                                                y httr 1.4.8                               [installed binary]
                                                                                 y viridis 0.6.5                            [installed binary]
                                                                                 y bslib 0.11.0                             [installed binary]
                                                                                 y ellipsis 0.3.3                           [installed binary]
                                                                                 y later 1.4.8                              [installed binary]
                                                                                 y lazyeval 0.2.3                           [installed binary]
+                                                                                y knitr 1.51                               [installed binary]
                                                                                 y promises 1.5.0                           [installed binary]
                                                                                 y websocket 1.4.4                          [installed binary]
                                                                                 y crosstalk 1.2.2                          [installed binary]
+                                                                                y rmarkdown 2.31                           [installed binary]
                                                                                 y chromote 0.5.1                           [installed binary]
                                                                                 y plotly 4.12.0                            [installed binary]
                                                                                 y webshot2 0.1.2                           [installed binary]
-Successfully installed 22 packages in 9.6 seconds.
+  (25/26) Installing: reticulate                                                  (25/26) Installing: reticulate                                                  (25/26) Installing: reticulate                                                  (25/26) Installing: reticulate                                                  (25/26) Installing: reticulate                                                  (25/26) Installing: reticulate                                                                                                                                y reticulate 1.46.0                        [built from source in 24s]
+Successfully installed 26 packages in 31 seconds.
 [?25h
 The following loaded package(s) have been updated:
 - renv

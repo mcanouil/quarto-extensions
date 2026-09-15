@@ -1,0 +1,45 @@
+pandoc 
+
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Quarto Badge Extension Example
+  subtitle: Quarto Extension
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  extensions:
+    badge:
+      - key: stable
+        colour: springgreen
+      - key: experimental
+        class: bg-info
+      - key: release
+        colour: dodgerblue
+        icon: tag
+        href: https://github.com/mcanouil/quarto-badge/releases/tag/{{value}}
+        target: _blank
+        title: Open release {{value}} in a new tab
+  
+
+(W) [badge] 3: is not a recognised key and was ignored.
+(W) [badge] 2: is not a recognised key and was ignored.
+(W) [badge] 1: is not a recognised key and was ignored.
+
+Output created: example.html
+
+

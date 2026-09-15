@@ -1,115 +1,34 @@
 Cloning into 'repo'...
+Installing package into '/cache/r-lib-1'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.4.tar.gz'
+Content type 'binary/octet-stream' length 1435963 bytes (1.4 MB)
+==================================================
+downloaded 1.4 MB
 
+* installing *source* package 'renv' ...
+** this is package 'renv' version '1.2.4'
+** package 'renv' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (renv)
 
-processing file: _revealjs-example.qmd
-1/9                  
-2/9 [unnamed-chunk-1]
-3/9                  
-4/9 [unnamed-chunk-2]
-5/9                  
-6/9 [unnamed-chunk-3]
-7/9                  
-8/9 [unnamed-chunk-4]
-9/9                  
-output file: _revealjs-example.knit.md
-
-pandoc 
-  to: revealjs
-  output-file: _revealjs-example.html
-  template: _extensions/mcanouil/revealjs/template.html
-  standalone: true
-  embed-resources: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: slide
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  author:
-    - name:
-        given: Mickaël
-        family: CANOUIL
-      degrees: Ph.D.
-      email: pro@mickael.canouil.dev
-      orcid: 0000-0002-3396-4549
-      url: https://mickael.canouil.fr
-      attributes:
-        corresponding: true
-      affiliations:
-        - name: Independent Contractor
-          city: Lille
-          country: France
-  copyright: © 2026 Mickaël CANOUIL
-  license: CC BY-NC-SA
-  code-copy: true
-  date: today
-  date-format: dddd[, the] Do [of] MMMM, YYYY
-  mermaid:
-    theme: dark
-  extensions:
-    mcanouil:
-      grid-background: true
-      section-outline: true
-      date-superscript: true
-      hide-title-slide-chrome: true
-      favicon-from-logo: true
-      code-annotation-fragments: true
-      debug-borders: true
-  brand-mode: dark
-  logo:
-    light: light
-    dark: dark
-  theme:
-    - default
-    - _extensions/mcanouil/revealjs/theme.scss
-    - brand
-  revealjs-plugins:
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/_extensions/mcanouil/revealjs-plugin/mcanouil
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/_extensions/mcanouil/revealjs-plugin/tabset
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/_extensions/mcanouil/revealjs-plugin/line-fragment-indices
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/_extensions/mcanouil/revealjs-plugin/code-annotation-fragments
-  slideNumber: c
-  code-annotations: select
-  footer: |
-    <a href="https://mickael.canouil.fr/" target="_blank" rel="noopener noreferrer">mickael.canouil.fr</a>
-    |
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">License: CC BY-NC-SA 4.0</a>
-  closing-slide:
-    photo: https://github.com/mcanouil.png
-    social:
-      website: https://mickael.canouil.fr
-      github: mcanouil
-      linkedin: MickaelCanouil
-      bluesky: mickael.canouil.fr
-      mastodon: https://fosstodon.org/%40MickaelCanouil
-  title: Reveal.js Format Test
-  subtitle: Comprehensive Component Testing
-  
-Output created: _revealjs-example.html
-
+The downloaded source packages are in
+	'/tmp/RtmpVwnkiN/downloaded_packages'
 pandoc 
   to: html
-  output-file: /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/index.html
+  output-file: /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/index.html
   standalone: true
   section-divs: true
   html-math-method: mathjax
@@ -214,7 +133,7 @@ Output created: index.html
 pandoc 
   to: html
   output-file: >-
-    /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/example-academic.html
+    /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/example-academic.html
   standalone: true
   embed-resources: true
   section-divs: true
@@ -320,7 +239,7 @@ Output created: example-academic.html
 pandoc 
   to: revealjs
   output-file: >-
-    /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/example-revealjs-dark.html
+    /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/example-revealjs-dark.html
   template: _extensions/mcanouil/revealjs/template.html
   standalone: true
   embed-resources: true
@@ -398,10 +317,10 @@ metadata
     - _extensions/mcanouil/revealjs/theme.scss
     - brand
   revealjs-plugins:
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/_extensions/mcanouil/revealjs-plugin/mcanouil
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/_extensions/mcanouil/revealjs-plugin/tabset
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/_extensions/mcanouil/revealjs-plugin/line-fragment-indices
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/_extensions/mcanouil/revealjs-plugin/code-annotation-fragments
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/_extensions/mcanouil/revealjs-plugin/mcanouil
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/_extensions/mcanouil/revealjs-plugin/tabset
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/_extensions/mcanouil/revealjs-plugin/line-fragment-indices
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/_extensions/mcanouil/revealjs-plugin/code-annotation-fragments
   slideNumber: c
   code-annotations: select
   footer: |
@@ -461,7 +380,7 @@ Output created: example-revealjs-dark.html
 pandoc 
   to: revealjs
   output-file: >-
-    /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/example-revealjs-light.html
+    /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/example-revealjs-light.html
   template: _extensions/mcanouil/revealjs/template.html
   standalone: true
   embed-resources: true
@@ -539,10 +458,10 @@ metadata
     - _extensions/mcanouil/revealjs/theme.scss
     - brand
   revealjs-plugins:
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/_extensions/mcanouil/revealjs-plugin/mcanouil
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/_extensions/mcanouil/revealjs-plugin/tabset
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/_extensions/mcanouil/revealjs-plugin/line-fragment-indices
-    - /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/_extensions/mcanouil/revealjs-plugin/code-annotation-fragments
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/_extensions/mcanouil/revealjs-plugin/mcanouil
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/_extensions/mcanouil/revealjs-plugin/tabset
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/_extensions/mcanouil/revealjs-plugin/line-fragment-indices
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/_extensions/mcanouil/revealjs-plugin/code-annotation-fragments
   slideNumber: c
   code-annotations: select
   footer: |
@@ -731,33 +650,33 @@ metadata
   watermark-text: DEMO
   
 [typst]: Compiling example.typ to example.pdf...warning: unknown font family: menlo
-     ┌─ example.typ:5426:12
+     ┌─ example.typ:5513:12
      │
-5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+5513 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
      │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 warning: unknown font family: monaco
-     ┌─ example.typ:5426:12
+     ┌─ example.typ:5513:12
      │
-5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+5513 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
      │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 warning: unknown font family: courier new
-     ┌─ example.typ:5426:12
+     ┌─ example.typ:5513:12
      │
-5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+5513 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
      │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 warning: unknown font family: georgia
-     ┌─ example.typ:5588:80
+     ┌─ example.typ:5675:80
      │
-5588 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+5675 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
      │                                                                                 ^^^^^^^^^
 
 warning: unknown font family: georgia
-     ┌─ example.typ:5598:80
+     ┌─ example.typ:5685:80
      │
-5598 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+5685 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
      │                                                                                 ^^^^^^^^^
 
 DONE
@@ -896,33 +815,33 @@ metadata
   watermark-text: DEMO
   
 [typst]: Compiling example.typ to example.pdf...warning: unknown font family: menlo
-     ┌─ example.typ:5426:12
+     ┌─ example.typ:5513:12
      │
-5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+5513 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
      │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 warning: unknown font family: monaco
-     ┌─ example.typ:5426:12
+     ┌─ example.typ:5513:12
      │
-5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+5513 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
      │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 warning: unknown font family: courier new
-     ┌─ example.typ:5426:12
+     ┌─ example.typ:5513:12
      │
-5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+5513 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
      │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 warning: unknown font family: georgia
-     ┌─ example.typ:5588:80
+     ┌─ example.typ:5675:80
      │
-5588 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+5675 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
      │                                                                                 ^^^^^^^^^
 
 warning: unknown font family: georgia
-     ┌─ example.typ:5598:80
+     ┌─ example.typ:5685:80
      │
-5598 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+5685 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
      │                                                                                 ^^^^^^^^^
 
 DONE
@@ -1061,33 +980,33 @@ metadata
   watermark-text: DEMO
   
 [typst]: Compiling example.typ to example.pdf...warning: unknown font family: menlo
-     ┌─ example.typ:5426:12
+     ┌─ example.typ:5513:12
      │
-5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+5513 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
      │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 warning: unknown font family: monaco
-     ┌─ example.typ:5426:12
+     ┌─ example.typ:5513:12
      │
-5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+5513 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
      │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 warning: unknown font family: courier new
-     ┌─ example.typ:5426:12
+     ┌─ example.typ:5513:12
      │
-5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+5513 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
      │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 warning: unknown font family: georgia
-     ┌─ example.typ:5588:80
+     ┌─ example.typ:5675:80
      │
-5588 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+5675 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
      │                                                                                 ^^^^^^^^^
 
 warning: unknown font family: georgia
-     ┌─ example.typ:5598:80
+     ┌─ example.typ:5685:80
      │
-5598 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+5685 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
      │                                                                                 ^^^^^^^^^
 
 DONE
@@ -1226,36 +1145,144 @@ metadata
   watermark-text: DEMO
   
 [typst]: Compiling example.typ to example.pdf...warning: unknown font family: menlo
-     ┌─ example.typ:5426:12
+     ┌─ example.typ:5513:12
      │
-5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+5513 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
      │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 warning: unknown font family: monaco
-     ┌─ example.typ:5426:12
+     ┌─ example.typ:5513:12
      │
-5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+5513 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
      │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 warning: unknown font family: courier new
-     ┌─ example.typ:5426:12
+     ┌─ example.typ:5513:12
      │
-5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+5513 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
      │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 warning: unknown font family: georgia
-     ┌─ example.typ:5588:80
+     ┌─ example.typ:5675:80
      │
-5588 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+5675 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
      │                                                                                 ^^^^^^^^^
 
 warning: unknown font family: georgia
-     ┌─ example.typ:5598:80
+     ┌─ example.typ:5685:80
      │
-5598 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+5685 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
      │                                                                                 ^^^^^^^^^
 
 DONE
 
 Output created: example-light-professional.pdf
+
+
+
+processing file: _revealjs-example.qmd
+1/9                  
+2/9 [unnamed-chunk-1]
+3/9                  
+4/9 [unnamed-chunk-2]
+5/9                  
+6/9 [unnamed-chunk-3]
+7/9                  
+8/9 [unnamed-chunk-4]
+9/9                  
+output file: _revealjs-example.knit.md
+
+pandoc 
+  to: revealjs
+  output-file: _revealjs-example.html
+  template: _extensions/mcanouil/revealjs/template.html
+  standalone: true
+  embed-resources: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: slide
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  author:
+    - name:
+        given: Mickaël
+        family: CANOUIL
+      degrees: Ph.D.
+      email: pro@mickael.canouil.dev
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+      attributes:
+        corresponding: true
+      affiliations:
+        - name: Independent Contractor
+          city: Lille
+          country: France
+  copyright: © 2026 Mickaël CANOUIL
+  license: CC BY-NC-SA
+  code-copy: true
+  date: today
+  date-format: dddd[, the] Do [of] MMMM, YYYY
+  mermaid:
+    theme: dark
+  extensions:
+    mcanouil:
+      grid-background: true
+      section-outline: true
+      date-superscript: true
+      hide-title-slide-chrome: true
+      favicon-from-logo: true
+      code-annotation-fragments: true
+      debug-borders: true
+  brand-mode: dark
+  logo:
+    light: light
+    dark: dark
+  theme:
+    - default
+    - _extensions/mcanouil/revealjs/theme.scss
+    - brand
+  revealjs-plugins:
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/_extensions/mcanouil/revealjs-plugin/mcanouil
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/_extensions/mcanouil/revealjs-plugin/tabset
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/_extensions/mcanouil/revealjs-plugin/line-fragment-indices
+    - /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/_extensions/mcanouil/revealjs-plugin/code-annotation-fragments
+  slideNumber: c
+  code-annotations: select
+  footer: |
+    <a href="https://mickael.canouil.fr/" target="_blank" rel="noopener noreferrer">mickael.canouil.fr</a>
+    |
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">License: CC BY-NC-SA 4.0</a>
+  closing-slide:
+    photo: https://github.com/mcanouil.png
+    social:
+      website: https://mickael.canouil.fr
+      github: mcanouil
+      linkedin: MickaelCanouil
+      bluesky: mickael.canouil.fr
+      mastodon: https://fosstodon.org/%40MickaelCanouil
+  title: Reveal.js Format Test
+  subtitle: Comprehensive Component Testing
+  
+Output created: _revealjs-example.html
 

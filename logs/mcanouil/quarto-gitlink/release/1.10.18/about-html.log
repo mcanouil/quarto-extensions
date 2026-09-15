@@ -1,0 +1,42 @@
+
+
+pandoc 
+
+  to: html
+  output-file: about.html
+  standalone: true
+  title-prefix: Gitlink Navbar Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+  theme:
+    light: flatly
+    dark: darkly
+  title: About
+  description: 'A description that holds a reference to #1, which Quarto puts in a meta tag.'
+  about:
+    template: jolla
+    links:
+      - icon: github
+        text: Profile
+        href: https://github.com/mcanouil
+  
+
+
+
+Output created: _site/about.html
+
+

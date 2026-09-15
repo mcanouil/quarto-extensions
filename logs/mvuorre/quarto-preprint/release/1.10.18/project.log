@@ -24,44 +24,36 @@ DONE
 
 
 [typst]: Compiling index.typ to index.pdf...
-DONE
-
-
-[typst]: Compiling index.typ to index.pdf...
-DONE
-
-
-[typst]: Compiling index.typ to index.pdf...
-DONE
-
-
-[typst]: Compiling index.typ to index.pdf...
 warning: unknown font family: georgia
-    ┌─ tests/brand/index.typ:848:30
-    
-│
-848 │ #show heading: set text(font: ("Georgia",), weight: 600, style: "normal", fill: rgb("#800020"), )
+    ┌─ tests/brand/index.typ:795:30
+    │
+795 │
+ #show heading: set text(font: ("Georgia",), weight: 600, style: "normal", fill: rgb("#800020"), )
     │                               ^^^^^^^^^^^^
 
 warning: unknown font family: helvetica
-    ┌─ tests/brand/index.typ:487:17
+    ┌─ tests/brand/index.typ:490:17
     │
-487 │   set text(font: font) if font != none
+490 │   set text(font: font) if font != none
     │                  ^^^^
 
 warning: unknown font family: courier new
-    ┌─ tests/brand/index.typ:490:27
+    ┌─ tests/brand/index.typ:493:27
     │
-490 │   show raw: set text(font: codefont) if codefont != none
+493 │   show raw: set text(font: codefont) if codefont != none
     │                            ^^^^^^^^
 
 warning: unknown font family: georgia
-    ┌─ tests/brand/index.typ:637:26
+    ┌─ tests/brand/index.typ:587:26
     │
-637 │           #set text(font: heading-family) if heading-family != none
+587 │           #set text(font: heading-family) if heading-family != none
     │                           ^^^^^^^^^^^^^^
 
 
+DONE
+
+
+[typst]: Compiling index.typ to index.pdf...
 DONE
 
 
@@ -80,6 +72,14 @@ processing file: index.qmd
 3/3                  
 
 output file: index.knit.md
+
+
+[typst]: Compiling index.typ to index.pdf...
+DONE
+
+
+[typst]: Compiling index.typ to index.pdf...
+DONE
 
 
 [typst]: Compiling index.typ to index.pdf...

@@ -1,0 +1,22 @@
+(ERROR) The referenced format resource 'gbt9704.cls' does not exist.
+
+Stack trace:
+    at file:///opt/quarto/bin/quarto.js:128473:15
+    at Array.map (<anonymous>)
+    at writeFormatResources (file:///opt/quarto/bin/quarto.js:128470:32)
+    at resolveExtras (file:///opt/quarto/bin/quarto.js:130200:9)
+    at runPandoc (file:///opt/quarto/bin/quarto.js:129634:26)
+    at async renderPandoc (file:///opt/quarto/bin/quarto.js:131326:24)
+    at async Object.onRender (file:///opt/quarto/bin/quarto.js:137411:30)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:137388:9)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:137104:9)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:137688:23)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:143018:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102408:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102285:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:190371:5)
+    at async file:///opt/quarto/bin/quarto.js:190400:5
+    at async file:///opt/quarto/bin/quarto.js:190254:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:190256:5)
+    at async file:///opt/quarto/bin/quarto.js:190393:3
+

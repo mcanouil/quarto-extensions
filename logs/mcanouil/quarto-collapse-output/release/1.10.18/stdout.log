@@ -17,13 +17,19 @@ An administrator can install these packages with:
 The following package(s) will be updated:
 
 # Repository -----------------------------------------------------------------
-- bslib   [0.12.0 -> 0.11.0]
+- bslib       [0.12.0 -> 0.11.0]
+- knitr       [1.52 -> 1.51]
+- rmarkdown   [2.32 -> 2.31]
 
 # Downloading packages -------------------------------------------------------
-[?25l  (0/1) Downloading: bslib                                                                                                                                      y bslib 0.11.0                             [6.2 MB in 0.38s]
-                                                                                Successfully downloaded 1 package in 0.58 seconds.
+[?25l  (0/3) Downloading: knitr, rmarkdown, bslib                                                                                                                    y knitr 1.51                               [1.1 MB in 0.37s]
+  (1/3) Downloading: rmarkdown, bslib                                                                                                                           y rmarkdown 2.31                           [2.7 MB in 0.38s]
+  (2/3) Downloading: bslib                                                                                                                                      y bslib 0.11.0                             [6.2 MB in 0.39s]
+                                                                                Successfully downloaded 3 packages in 0.64 seconds.
 
 # Installing packages --------------------------------------------------------
                                                                                 y bslib 0.11.0                             [installed binary]
-Successfully installed 1 package in 0.56 seconds.
+                                                                                y knitr 1.51                               [installed binary]
+                                                                                y rmarkdown 2.31                           [installed binary]
+Successfully installed 3 packages in 1.7 seconds.
 [?25hInstalling Python dependencies for mcanouil/quarto-collapse-output.

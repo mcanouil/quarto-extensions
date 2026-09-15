@@ -1,0 +1,40 @@
+Dependency source policy check passed for kazuyanagimoto/quarto-awesomecv-typst.
+Dependency install phase for kazuyanagimoto/quarto-awesomecv-typst: renv.lock
+Installing R dependencies from renv.lock for kazuyanagimoto/quarto-awesomecv-typst.
+# Bootstrapping renv 1.2.3 ---------------------------------------------------
+- Downloading renv ... OK
+- Installing renv  ... OK
+
+- One or more packages recorded in the lockfile are not installed.
+- Use `renv::status()` for more details.
+- One or more packages recorded in the lockfile are not installed.
+- Use `renv::status()` for more details.
+The following required system packages are not installed:
+- pandoc  [required by knitr, rmarkdown]
+The R packages depending on these system packages may fail to install.
+
+An administrator can install these packages with:
+- sudo apt install pandoc
+
+The following package(s) will be updated:
+
+# Repository -----------------------------------------------------------------
+- bslib       [0.12.0 -> 0.11.0]
+- knitr       [1.52 -> 1.51]
+- rmarkdown   [2.32 -> 2.31]
+- typstcv     [* -> 0.0.2.4]
+
+# Downloading packages -------------------------------------------------------
+[?25l  (0/3) Downloading: knitr, rmarkdown, bslib                                                                                                                    [32m✔[0m knitr 1.51                               [1.1 MB in 0.35s]
+  (1/3) Downloading: rmarkdown, bslib                                                                                                                           [32m✔[0m bslib 0.11.0                             [6.2 MB in 0.37s]
+  (2/3) Downloading: rmarkdown                                                                                                                                  [32m✔[0m rmarkdown 2.31                           [2.7 MB in 0.44s]
+                                                                                [32m✔[0m typstcv 0.0.2.4                         
+Successfully downloaded 4 packages in 2 seconds.
+
+# Installing packages --------------------------------------------------------
+                                                                                [32m✔[0m bslib 0.11.0                             [installed binary]
+                                                                                [32m✔[0m knitr 1.51                               [installed binary]
+                                                                                [32m✔[0m rmarkdown 2.31                           [installed binary]
+  (3/4) Installing: typstcv                                                       (3/4) Installing: typstcv                                                                                                                                     [32m✔[0m typstcv 0.0.2.4                          [built from source in 1.6s]
+Successfully installed 4 packages in 2.8 seconds.
+[?25h

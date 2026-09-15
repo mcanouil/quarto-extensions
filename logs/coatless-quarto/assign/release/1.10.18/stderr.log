@@ -1,4 +1,31 @@
 Cloning into 'repo'...
+Installing package into '/cache/r-lib-0'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.4.tar.gz'
+Content type 'binary/octet-stream' length 1435963 bytes (1.4 MB)
+==================================================
+downloaded 1.4 MB
+
+* installing *source* package 'renv' ...
+** this is package 'renv' version '1.2.4'
+** package 'renv' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/RtmpQFByic/downloaded_packages'
 [1/4] demo/index.qmd
 
 
@@ -8,7 +35,9 @@ processing file: index.qmd
 3/3                  
 output file: index.knit.md
 
-[2/4] template.qmd
+[2/4] docs/index.qmd
+[3/4] docs/qassign-release-notes.qmd
+[4/4] template.qmd
 
 
 processing file: template.qmd
@@ -17,8 +46,6 @@ processing file: template.qmd
 3/3                  
 output file: template.knit.md
 
-[3/4] docs/qassign-release-notes.qmd
-[4/4] docs/index.qmd
 
-Output created: assign/docs/index.html
+Output created: assign/template.html
 

@@ -32,8 +32,92 @@ metadata
 downloading @preview/polylux:0.4.0
 
   0 B /   6.4 KiB (  0 %),  63.6 KiB/s, ETA: 0 s
-  6.4 KiB /   6.4 KiB
- (100 %),  63.6 KiB/s, ETA: 0 s
+  6.
+4 KiB /   6.4 KiB (100 %),  63.6 KiB/s, ETA: 0 s
+
+warning: document did not converge within five attempts
+ = hint: see 5 additional warnings for more details
+ = hint: see https://typst.app/help/convergence for help
+
+
+warning: value of the page counter did not converge
+   ┌─ @preview/polylux:0.4.0/src/toolbox/toolbox-impl.typ:11:18
+   │
+11 │     sections.push(link(loc, name))
+   │                   ^^^^^^^^^^^^^^^
+   │
+   = hint: the following values were observed:
+     - run 1: 1
+     - run 2: 10
+     - run 3: 25
+     - run 4: 26
+     - run 5: 26
+     - final: 27
+
+warning: value of the page counter did not converge
+    ┌─ @preview/polylux:0.4.0/src/logic.typ:274:28
+    │
+274 │     #metadata((t: "Idx", v: counter(page).get().first() - 1)) <pdfpc>
+    │                             ^^
+^^^^^^^^^^^^^^^^^
+    │
+    = hint: the following values were observed:
+      - run 1: 1
+      - run 2: 1
+      - run 3: 1
+      - run 4: 1
+      - run 5: 1
+      - final: 26
+
+warning: value of `counter("logical-slide")` did not converge
+    ┌─ @preview/polylux:0.4.0/src/logic.typ:276:37
+    │
+276 │     #metadata((t: "LogicalSlide", v: logical-slide.get().first())) <pdfpc>
+    │                                      ^^^^^^^^^^^^^^^^^^^
+    │
+    = hint: the following values were observed:
+      - run 1: 0
+      - run 2: 29
+      - run 3: 29
+      - run 4: 29
+    
+  - run 5: 29
+      - final: 21
+
+warning: value of `counter("later-counter")` did not converge
+    ┌─ @preview/polylux:0.4.0/src/logic.typ:248:20
+    │
+248 │       let curr-lc = later-counter.get().at(strand - 1)
+    
+│                     ^^^^^^^^^^^^^^^^^^^
+    │
+    = hint: the following values were observed:
+   
+   - run 1: 0
+      - run 2: 0
+      - run 3: 0
+      - run 4: 0
+      - run 5: 0
+      - final: 1
+
+
+warning: value of `counter("logical-slide")` did not converge
+   ┌─ @preview/polylux:0.4.0/src/toolbox/toolbox-impl.typ:45:30
+   │
+45 │ #let slide-number = context { logic
+.logical-slide.display() }
+   │                               
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   │
+   = hint: the following values were observed:
+     - run 1: 0
+     - run 2: 29
+
+     - run 3: 23
+     - run 4: 22
+     - run 5: 22
+     - final: 21
+
 
 DONE
 

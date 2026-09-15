@@ -2,74 +2,68 @@ Cloning into 'repo'...
 Running script 'cp'
 Running script './use-dev-binary.sh'
 Running script './render-termshow.sh'
-Downloading jedi (4.7MiB)
-Downloading pygments (1.2MiB)
-Downloading widgetsnbextension (2.1MiB)
-Downloading debugpy (3.7MiB)
-Downloading notebook (5.3MiB)
-Downloading babel (9.7MiB)
-Downloading ruff (10.5MiB)
 Downloading jupyterlab (16.4MiB)
-Downloading pillow (6.6MiB)
+Downloading babel (9.7MiB)
+Downloading notebook (5.3MiB)
+Downloading widgetsnbextension (2.1MiB)
+Downloading debugpy (3.8MiB)
+Downloading ruff (9.9MiB)
  Downloaded widgetsnbextension
- Downloaded pygments
  Downloaded debugpy
  Downloaded notebook
- Downloaded pillow
  Downloaded ruff
  Downloaded babel
  Downloaded jupyterlab
- Downloaded jedi
-Installed 106 packages in 852ms
+Installed 106 packages in 1.24s
 ✓ Rendered 204 keyframes to termshow/recording-demo/
   Duration: 12.4s | Chapters: 0
 
-[ 1/23] debugging.qmd
-[ 2/23] demo-formats.qmd
+[ 1/23] index.qmd
+quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
+[ 2/23] get-started.qmd
+quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
+[ 3/23] use-cases.md
+[ 4/23] reference.qmd
+[ 5/23] recording.qmd
+quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
+[ 6/23] styling.qmd
+quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
+[ 7/23] demo-formats.qmd
 quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
 quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
 quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
 quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
 [typst]: Compiling demo-formats.typ to demo-formats.pdf...DONE
 
-[ 3/23] styling.qmd
+[ 8/23] shells/index.qmd
+[ 9/23] shells/node.qmd
 quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
-[ 4/23] recording.qmd
+[10/23] shells/fish.qmd
 quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
-[ 5/23] demo-presentation.qmd
+[11/23] shells/r.qmd
 quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
-[ 6/23] recipes.qmd
+[12/23] shells/nushell.qmd
 quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
-[ 7/23] reference.qmd
-[ 8/23] use-cases.md
-[ 9/23] get-started.qmd
+[13/23] shells/bash.qmd
 quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
-[10/23] shells/bash.qmd
+[14/23] shells/python.qmd
 quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
-[11/23] shells/duckdb.qmd
+[15/23] shells/zsh.qmd
 quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
-[12/23] shells/sqlite.qmd
+[16/23] shells/sh.qmd
 quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
-[13/23] shells/python.qmd
+[17/23] shells/ruby.qmd
 quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
-[14/23] shells/nushell.qmd
+[18/23] shells/sqlite.qmd
 quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
-[15/23] shells/node.qmd
+[19/23] shells/duckdb.qmd
 quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
-[16/23] shells/zsh.qmd
+[20/23] docker.qmd
+[21/23] demo-presentation.qmd
 quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
-[17/23] shells/index.qmd
-[18/23] shells/r.qmd
+[22/23] debugging.qmd
+[23/23] recipes.qmd
 quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
-[19/23] shells/ruby.qmd
-quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
-[20/23] shells/fish.qmd
-quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
-[21/23] shells/sh.qmd
-quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
-[22/23] index.qmd
-quarto-term: engine error: quarto-term: createProcess: posix_spawnp: does not exist (No such file or directory)
-[23/23] docker.qmd
 
 Running script './render-readme.sh'
 ✓ Rendered 204 keyframes to termshow/recording-demo/

@@ -1,0 +1,25 @@
+pandoc 
+
+  to: html
+  output-file: plantuml.html
+  standalone: true
+  title-prefix: livefigures gallery
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  lightbox: true
+  title: PlantUML
+  
+
+Output created: _site/plantuml.html
+
+

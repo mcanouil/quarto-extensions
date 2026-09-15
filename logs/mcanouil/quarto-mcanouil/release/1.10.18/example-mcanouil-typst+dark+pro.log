@@ -134,39 +134,38 @@ metadata
   
 
 [typst]: Compiling example.typ to example.pdf...
-warning: unknown font family: menlo
-     ┌─ example.typ:5426:12
+warning
+: unknown font family: menlo
+     ┌─ example.typ:5513:12
      │
-5426 │       fon
-t: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+5513 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
      │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 warning: unknown font family: monaco
-     ┌─ example.typ:5426:12
+     ┌─ example.typ:5513:12
      │
-5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+5513 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
      │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 warning: unknown font family: courier new
-     ┌─ example.typ:5426:12
+     ┌─ example.typ:5513:12
      │
-5426 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
-     │             ^^^^^^^^^^^^^^^
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+5513 │       font: ("Fira Code", "Menlo", "Monaco", "Courier New"),
+     │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 warning: unknown font family: georgia
-     ┌─ example.typ:5588:80
+     ┌─ example.typ:5675:80
      │
-5588 │             text(siz
-e: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+5675 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
      │                                                                                 ^^^^^^^^^
 
+
 warning: unknown font family: georgia
-     ┌─ example.typ:5598:80
+     ┌─ example.typ:5685:80
      │
-5598 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
-     │                                                                                 ^^^^
-^^^^^
+5685 │             text(size: 3em, fill: colours.foreground.transparentize(70%), font: "Georgia", ["]),
+     │                                                                                 ^^
+^^^^^^^
 
 
 DONE

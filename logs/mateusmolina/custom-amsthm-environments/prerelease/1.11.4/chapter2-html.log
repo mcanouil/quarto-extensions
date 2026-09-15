@@ -1,0 +1,38 @@
+pandoc 
+
+  to: html
+  output-file: chapter2.html
+  standalone: true
+  toc: true
+  number-sections: true
+  title-prefix: Test Book for Custom AmSThm Environments
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  number-offset:
+    - 2
+  
+
+metadata
+
+  crossref:
+    chapters: true
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  custom-amsthm:
+    - key: prm
+      name: Problem
+    - key: tsk
+      name: Task
+      numbering-style: global
+  theme: cosmo
+  title: "[2]{.chapter-number}\_ [Chapter 2: Basic Examples]{.chapter-title}"
+  hide-description: true
+  
+
+Output created: _output/chapter2.html
+
+

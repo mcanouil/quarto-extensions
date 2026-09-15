@@ -1,0 +1,713 @@
+Cloning into 'repo'...
+Installing package into '/cache/r-lib-0'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.2.4.tar.gz'
+Content type 'binary/octet-stream' length 1435963 bytes (1.4 MB)
+==================================================
+downloaded 1.4 MB
+
+* installing *source* package 'renv' ...
+** this is package 'renv' version '1.2.4'
+** package 'renv' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/RtmpIYzRtG/downloaded_packages'
+Using CPython 3.13.15
+Creating virtual environment at: .venv
+Activate with: source .venv/bin/activate
+Resolved 24 packages in 229ms
+Downloading kiwisolver (1.4MiB)
+Downloading pillow (6.6MiB)
+Downloading matplotlib (9.4MiB)
+Downloading numpy (15.9MiB)
+Downloading fonttools (5.1MiB)
+Downloading scipy (33.7MiB)
+Downloading pandas (10.4MiB)
+Downloading statsmodels (11.5MiB)
+Downloading plotnine (1.5MiB)
+ Downloaded kiwisolver
+ Downloaded plotnine
+ Downloaded fonttools
+ Downloaded pillow
+ Downloaded matplotlib
+ Downloaded statsmodels
+ Downloaded pandas
+ Downloaded numpy
+ Downloaded scipy
+Prepared 24 packages in 819ms
+Installed 24 packages in 836ms
+ + contourpy==1.4.0
+ + cycler==0.12.1
+ + fonttools==4.65.0
+ + formulaic==1.2.2
+ + interface-meta==2.0.1
+ + kiwisolver==1.5.1
+ + matplotlib==3.11.2
+ + mizani==0.14.6
+ + narwhals==2.26.0
+ + numpy==2.5.3
+ + packaging==26.3
+ + pandas==3.0.5
+ + patsy==1.0.3
+ + pillow==12.3.0
+ + plotnine==0.15.8
+ + pyparsing==3.3.2
+ + python-dateutil==2.9.0.post0
+ + pyyaml==6.0.3
+ + scipy==1.18.1
+ + seaborn==0.13.2
+ + six==1.17.0
+ + statsmodels==0.15.0
+ + typing-extensions==4.16.0
+ + wrapt==2.4.1
+[ 1/17] tests/watermark-off.qmd
+[typst]: Compiling watermark-off.typ to watermark-off.pdf...warning: unknown font family: helvetica neue
+     ┌─ tests/watermark-off.typ:1318:11
+     │
+1318 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/watermark-off.typ:1318:11
+     │
+1318 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/watermark-off.typ:1318:11
+     │
+1318 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/watermark-off.typ:1374:40
+     │
+1374 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/watermark-off.typ:1374:40
+     │
+1374 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/watermark-off.typ:1374:40
+     │
+1374 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/watermark-off.typ:1451:17
+     │
+1451 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/watermark-off.typ:1451:17
+     │
+1451 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/watermark-off.typ:1451:17
+     │
+1451 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+DONE
+
+[ 2/17] tests/watermark.qmd
+[typst]: Compiling watermark.typ to watermark.pdf...warning: unknown font family: helvetica neue
+     ┌─ tests/watermark.typ:1318:11
+     │
+1318 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/watermark.typ:1318:11
+     │
+1318 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/watermark.typ:1318:11
+     │
+1318 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/watermark.typ:1374:40
+     │
+1374 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/watermark.typ:1374:40
+     │
+1374 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/watermark.typ:1374:40
+     │
+1374 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/watermark.typ:1451:17
+     │
+1451 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/watermark.typ:1451:17
+     │
+1451 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/watermark.typ:1451:17
+     │
+1451 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/watermark.typ:1344:23
+     │
+1344 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/watermark.typ:1344:23
+     │
+1344 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/watermark.typ:1344:23
+     │
+1344 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/watermark.typ:1207:35
+     │
+1207 │           let probe = measure(text(..(size: ref-size) + args, watermark-text))
+     │                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/watermark.typ:1207:35
+     │
+1207 │           let probe = measure(text(..(size: ref-size) + args, watermark-text))
+     │                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/watermark.typ:1207:35
+     │
+1207 │           let probe = measure(text(..(size: ref-size) + args, watermark-text))
+     │                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/watermark.typ:1221:32
+     │
+1221 │         let line = measure(text(..sized, watermark-text))
+     │                                 ^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/watermark.typ:1221:32
+     │
+1221 │         let line = measure(text(..sized, watermark-text))
+     │                                 ^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/watermark.typ:1221:32
+     │
+1221 │         let line = measure(text(..sized, watermark-text))
+     │                                 ^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/watermark.typ:1224:52
+     │
+1224 │           rotate(angle, box(width: line.width, text(..sized, watermark-text))),
+     │                                                     ^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/watermark.typ:1224:52
+     │
+1224 │           rotate(angle, box(width: line.width, text(..sized, watermark-text))),
+     │                                                     ^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/watermark.typ:1224:52
+     │
+1224 │           rotate(angle, box(width: line.width, text(..sized, watermark-text))),
+     │                                                     ^^^^^^^
+
+DONE
+
+[ 3/17] tests/attr-escaping.qmd
+[typst]: Compiling attr-escaping.typ to attr-escaping.pdf...warning: unknown font family: helvetica neue
+     ┌─ tests/attr-escaping.typ:1318:11
+     │
+1318 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/attr-escaping.typ:1318:11
+     │
+1318 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/attr-escaping.typ:1318:11
+     │
+1318 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/attr-escaping.typ:1374:40
+     │
+1374 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/attr-escaping.typ:1374:40
+     │
+1374 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/attr-escaping.typ:1374:40
+     │
+1374 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/attr-escaping.typ:1451:17
+     │
+1451 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/attr-escaping.typ:1451:17
+     │
+1451 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/attr-escaping.typ:1451:17
+     │
+1451 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ tests/attr-escaping.typ:658:13
+    │
+658 │         text(..title-args, title)
+    │              ^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ tests/attr-escaping.typ:658:13
+    │
+658 │         text(..title-args, title)
+    │              ^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ tests/attr-escaping.typ:658:13
+    │
+658 │         text(..title-args, title)
+    │              ^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ tests/attr-escaping.typ:760:15
+    │
+760 │           text(..(size: 0.9 * base) + overlay("label-text"), upper(label))
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ tests/attr-escaping.typ:760:15
+    │
+760 │           text(..(size: 0.9 * base) + overlay("label-text"), upper(label))
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ tests/attr-escaping.typ:760:15
+    │
+760 │           text(..(size: 0.9 * base) + overlay("label-text"), upper(label))
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ tests/attr-escaping.typ:763:13
+    │
+763 │         text(..(size: scale * base) + overlay("text"), body)
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ tests/attr-escaping.typ:763:13
+    │
+763 │         text(..(size: scale * base) + overlay("text"), body)
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ tests/attr-escaping.typ:763:13
+    │
+763 │         text(..(size: scale * base) + overlay("text"), body)
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DONE
+
+[ 4/17] tests/reject-bad-handout.qmd
+[typst]: Compiling reject-bad-handout.typ to reject-bad-handout.pdf...error: panicked with: poster handout must be true, "WxH" in inches ("11x8.5") or one of letter, legal, tabloid, a5, a4, a3; got "a-4"
+    ┌─ tests/reject-bad-handout.typ:553:4
+    │
+553 │     panic(expected + "; got " + repr(handout))
+    │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  while calling `resolve-handout` at tests/reject-bad-handout.typ:1013:14
+    resolve-handout(handout, page-w, page-h)
+
+ERROR: error: panicked with: poster handout must be true, "WxH" in inches ("11x8.5") or one of letter, legal, tabloid, a5, a4, a3; got "a-4"
+    ┌─ tests/reject-bad-handout.typ:553:4
+    │
+553 │     panic(expected + "; got " + repr(handout))
+    │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  while calling `resolve-handout` at tests/reject-bad-handout.typ:1013:14
+    resolve-handout(handout, page-w, page-h)
+
+
+ERROR: Typst compilation failed
+Render failed, retrying once...
+[ 1/17] tests/watermark-off.qmd
+[typst]: Compiling watermark-off.typ to watermark-off.pdf...warning: unknown font family: helvetica neue
+     ┌─ tests/watermark-off.typ:1318:11
+     │
+1318 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/watermark-off.typ:1318:11
+     │
+1318 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/watermark-off.typ:1318:11
+     │
+1318 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/watermark-off.typ:1374:40
+     │
+1374 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/watermark-off.typ:1374:40
+     │
+1374 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/watermark-off.typ:1374:40
+     │
+1374 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/watermark-off.typ:1451:17
+     │
+1451 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/watermark-off.typ:1451:17
+     │
+1451 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/watermark-off.typ:1451:17
+     │
+1451 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+DONE
+
+[ 2/17] tests/watermark.qmd
+[typst]: Compiling watermark.typ to watermark.pdf...warning: unknown font family: helvetica neue
+     ┌─ tests/watermark.typ:1318:11
+     │
+1318 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/watermark.typ:1318:11
+     │
+1318 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/watermark.typ:1318:11
+     │
+1318 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/watermark.typ:1374:40
+     │
+1374 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/watermark.typ:1374:40
+     │
+1374 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/watermark.typ:1374:40
+     │
+1374 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/watermark.typ:1451:17
+     │
+1451 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/watermark.typ:1451:17
+     │
+1451 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/watermark.typ:1451:17
+     │
+1451 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/watermark.typ:1344:23
+     │
+1344 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/watermark.typ:1344:23
+     │
+1344 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/watermark.typ:1344:23
+     │
+1344 │       let inner = text(..(size: 1.6 * base-font-size) + th.heading-text-args, it.body)
+     │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/watermark.typ:1207:35
+     │
+1207 │           let probe = measure(text(..(size: ref-size) + args, watermark-text))
+     │                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/watermark.typ:1207:35
+     │
+1207 │           let probe = measure(text(..(size: ref-size) + args, watermark-text))
+     │                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/watermark.typ:1207:35
+     │
+1207 │           let probe = measure(text(..(size: ref-size) + args, watermark-text))
+     │                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/watermark.typ:1221:32
+     │
+1221 │         let line = measure(text(..sized, watermark-text))
+     │                                 ^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/watermark.typ:1221:32
+     │
+1221 │         let line = measure(text(..sized, watermark-text))
+     │                                 ^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/watermark.typ:1221:32
+     │
+1221 │         let line = measure(text(..sized, watermark-text))
+     │                                 ^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/watermark.typ:1224:52
+     │
+1224 │           rotate(angle, box(width: line.width, text(..sized, watermark-text))),
+     │                                                     ^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/watermark.typ:1224:52
+     │
+1224 │           rotate(angle, box(width: line.width, text(..sized, watermark-text))),
+     │                                                     ^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/watermark.typ:1224:52
+     │
+1224 │           rotate(angle, box(width: line.width, text(..sized, watermark-text))),
+     │                                                     ^^^^^^^
+
+DONE
+
+[ 3/17] tests/attr-escaping.qmd
+[typst]: Compiling attr-escaping.typ to attr-escaping.pdf...warning: unknown font family: helvetica neue
+     ┌─ tests/attr-escaping.typ:1318:11
+     │
+1318 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/attr-escaping.typ:1318:11
+     │
+1318 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/attr-escaping.typ:1318:11
+     │
+1318 │   set text(..(size: base-font-size) + th.body-text-args)
+     │            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/attr-escaping.typ:1374:40
+     │
+1374 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/attr-escaping.typ:1374:40
+     │
+1374 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/attr-escaping.typ:1374:40
+     │
+1374 │   show table.cell.where(y: 0): set text(..th.table-header-text-args)
+     │                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+     ┌─ tests/attr-escaping.typ:1451:17
+     │
+1451 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+     ┌─ tests/attr-escaping.typ:1451:17
+     │
+1451 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+     ┌─ tests/attr-escaping.typ:1451:17
+     │
+1451 │         set text(..th.title-text-args)
+     │                  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ tests/attr-escaping.typ:658:13
+    │
+658 │         text(..title-args, title)
+    │              ^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ tests/attr-escaping.typ:658:13
+    │
+658 │         text(..title-args, title)
+    │              ^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ tests/attr-escaping.typ:658:13
+    │
+658 │         text(..title-args, title)
+    │              ^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ tests/attr-escaping.typ:760:15
+    │
+760 │           text(..(size: 0.9 * base) + overlay("label-text"), upper(label))
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ tests/attr-escaping.typ:760:15
+    │
+760 │           text(..(size: 0.9 * base) + overlay("label-text"), upper(label))
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ tests/attr-escaping.typ:760:15
+    │
+760 │           text(..(size: 0.9 * base) + overlay("label-text"), upper(label))
+    │                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica neue
+    ┌─ tests/attr-escaping.typ:763:13
+    │
+763 │         text(..(size: scale * base) + overlay("text"), body)
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: helvetica
+    ┌─ tests/attr-escaping.typ:763:13
+    │
+763 │         text(..(size: scale * base) + overlay("text"), body)
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: arial
+    ┌─ tests/attr-escaping.typ:763:13
+    │
+763 │         text(..(size: scale * base) + overlay("text"), body)
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DONE
+
+[ 4/17] tests/reject-bad-handout.qmd
+[typst]: Compiling reject-bad-handout.typ to reject-bad-handout.pdf...error: panicked with: poster handout must be true, "WxH" in inches ("11x8.5") or one of letter, legal, tabloid, a5, a4, a3; got "a-4"
+    ┌─ tests/reject-bad-handout.typ:553:4
+    │
+553 │     panic(expected + "; got " + repr(handout))
+    │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  while calling `resolve-handout` at tests/reject-bad-handout.typ:1013:14
+    resolve-handout(handout, page-w, page-h)
+
+ERROR: error: panicked with: poster handout must be true, "WxH" in inches ("11x8.5") or one of letter, legal, tabloid, a5, a4, a3; got "a-4"
+    ┌─ tests/reject-bad-handout.typ:553:4
+    │
+553 │     panic(expected + "; got " + repr(handout))
+    │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  while calling `resolve-handout` at tests/reject-bad-handout.typ:1013:14
+    resolve-handout(handout, page-w, page-h)
+
+
+ERROR: Typst compilation failed

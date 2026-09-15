@@ -1,0 +1,40 @@
+[scientific-writing] Validating 4 DOI(s) via CrossRef...
+  @hatfield2015temperature (10.1016/j.wace.2015.08.001)... 
+ISSUES FOUND
+  @wahid2007heat (10.1016/j.envexpbot.2007.05.011)... 
+ok
+  @porch2001effects (10.1046/j.1365-3040.2001.00716.x)... 
+ok
+  @sage2007temperature (10.1111/j.1365-3040.2007.01682.x)... 
+ok
+
+Error running filter '/opt/quarto/share/filters/main.lua':
+Cannot get Attr from TypeNil
+stack traceback:
+	/opt/quarto/share/filters/main.lua:21806: in function </opt/quarto/share/filters/main.lua:21774>
+	[C]: in function 'lpeg.match'
+	/opt/quarto/share/pandoc/datadir/lpegshortcode.lua:308: in function 'lpegshortcode.wrap_lpeg_match'
+	/opt/quarto/share/filters/main.lua:21810: in upvalue 'apply_code_shortcode'
+	/opt/quarto/share/filters/main.lua:21847: in function </opt/quarto/share/filters/main.lua:21834>
+	[C]: in ?
+	[C]: in method 'walk'
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:575: in function </opt/quarto/share/filters/main.lua:553>
+	(...tail calls...)
+	/opt/quarto/share/filters/main.lua:21863: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:589: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1318: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1336: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
+stack traceback:
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:575: in function </opt/quarto/share/filters/main.lua:553>
+	(...tail calls...)
+	/opt/quarto/share/filters/main.lua:21863: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:589: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1318: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1336: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
+
+(WARN) Error encountered when rendering files
+
