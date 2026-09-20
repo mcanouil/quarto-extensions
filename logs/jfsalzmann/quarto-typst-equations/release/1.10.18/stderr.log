@@ -1,0 +1,36 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: typst-equations example
+  
+typst 0.15.1 (9dfd3a08)
+Output created: example.html
+
+pandoc 
+  to: typst
+  output-file: example.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+metadata
+  title: typst-equations example
+  
+[typst]: Compiling example.typ to example.pdf...DONE
+
+Output created: example.pdf
+
