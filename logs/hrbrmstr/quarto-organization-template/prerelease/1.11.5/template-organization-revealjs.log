@@ -1,0 +1,46 @@
+
+
+processing file: template.qmd
+
+1/4                  
+
+2/4 [unnamed-chunk-1]
+
+3/4                  
+
+4/4 [unnamed-chunk-2]
+
+output file: template.knit.md
+
+
+(ERROR) Theme file compilation failed:
+
+Error: There is no module with the namespace "sass-color".
+     ╷
+3131 │ @if (sass-color.blackness($backgroundColor) > $code-block-theme-dark-threshhold) {
+     │      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     ╵
+
+Stack trace:
+    at dartCommand (file:///opt/quarto/bin/quarto.js:80184:11)
+    at async dartCompile (file:///opt/quarto/bin/quarto.js:80138:3)
+    at async file:///opt/quarto/bin/quarto.js:87875:9
+    at async SassCache.setFromHash (file:///opt/quarto/bin/quarto.js:80301:11)
+    at async compileSass (file:///opt/quarto/bin/quarto.js:87686:19)
+    at async revealTheme (file:///opt/quarto/bin/quarto.js:186863:15)
+    at async Object.formatExtras (file:///opt/quarto/bin/quarto.js:187020:23)
+    at async runPandoc (file:///opt/quarto/bin/quarto.js:129618:56)
+    at async renderPandoc (file:///opt/quarto/bin/quarto.js:131339:24)
+    at async Object.onRender (file:///opt/quarto/bin/quarto.js:137421:30)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:137398:9)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:137114:9)
+    at async render (file:///opt/quarto/bin/quarto.js:142783:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:143028:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102411:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102288:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:190385:5)
+    at async file:///opt/quarto/bin/quarto.js:190414:5
+    at async file:///opt/quarto/bin/quarto.js:190268:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:190270:5)
+    at async file:///opt/quarto/bin/quarto.js:190407:3
+

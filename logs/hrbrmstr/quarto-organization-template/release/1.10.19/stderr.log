@@ -1,0 +1,136 @@
+Cloning into 'repo'...
+
+
+processing file: template.qmd
+1/4                  
+2/4 [unnamed-chunk-1]
+3/4                  
+4/4 [unnamed-chunk-2]
+output file: template.knit.md
+
+Error adding css vars block SCSSParsingError: SCSS Parsing Error: Expecting punctuation: ")" (3143:53)
+    at cssVarsBlock (file:///opt/quarto/bin/quarto.js:87189:15)
+    at file:///opt/quarto/bin/quarto.js:87735:35
+    at file:///opt/quarto/bin/quarto.js:87383:33
+    at async handleVarsBlock (file:///opt/quarto/bin/quarto.js:87656:23)
+    at async file:///opt/quarto/bin/quarto.js:87682:17
+    at async SassCache.setFromHash (file:///opt/quarto/bin/quarto.js:80109:11)
+    at async compileSass (file:///opt/quarto/bin/quarto.js:87494:19)
+    at async revealTheme (file:///opt/quarto/bin/quarto.js:184787:15)
+    at async Object.formatExtras (file:///opt/quarto/bin/quarto.js:184944:23)
+    at async runPandoc (file:///opt/quarto/bin/quarto.js:129497:56)
+    at async renderPandoc (file:///opt/quarto/bin/quarto.js:131209:24)
+    at async Object.onRender (file:///opt/quarto/bin/quarto.js:137294:30)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:137271:9)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136987:9)
+    at async render (file:///opt/quarto/bin/quarto.js:142656:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142901:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102249:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102126:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:188304:5)
+    at async file:///opt/quarto/bin/quarto.js:188333:5
+    at async file:///opt/quarto/bin/quarto.js:188187:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:188189:5)
+    at async file:///opt/quarto/bin/quarto.js:188326:3
+The resulting CSS file will not have SCSS color variables exported as CSS.
+This is likely a Quarto bug.
+Please consider reporting it at https://github.com/quarto-dev/quarto-cli,
+along with the _quarto_internal_scss_error.scss file that can be found in the current working directory.
+ERROR: Theme file compilation failed:
+
+Error: There is no module with the namespace "sass-color".
+     ╷
+3131 │ @if (sass-color.blackness($backgroundColor) > $code-block-theme-dark-threshhold) {
+     │      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     ╵
+
+Stack trace:
+    at dartCommand (file:///opt/quarto/bin/quarto.js:79992:11)
+    at async dartCompile (file:///opt/quarto/bin/quarto.js:79946:3)
+    at async file:///opt/quarto/bin/quarto.js:87683:9
+    at async SassCache.setFromHash (file:///opt/quarto/bin/quarto.js:80109:11)
+    at async compileSass (file:///opt/quarto/bin/quarto.js:87494:19)
+    at async revealTheme (file:///opt/quarto/bin/quarto.js:184787:15)
+    at async Object.formatExtras (file:///opt/quarto/bin/quarto.js:184944:23)
+    at async runPandoc (file:///opt/quarto/bin/quarto.js:129497:56)
+    at async renderPandoc (file:///opt/quarto/bin/quarto.js:131209:24)
+    at async Object.onRender (file:///opt/quarto/bin/quarto.js:137294:30)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:137271:9)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136987:9)
+    at async render (file:///opt/quarto/bin/quarto.js:142656:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142901:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102249:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102126:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:188304:5)
+    at async file:///opt/quarto/bin/quarto.js:188333:5
+    at async file:///opt/quarto/bin/quarto.js:188187:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:188189:5)
+    at async file:///opt/quarto/bin/quarto.js:188326:3
+Render failed, retrying once...
+
+
+processing file: template.qmd
+1/4                  
+2/4 [unnamed-chunk-1]
+3/4                  
+4/4 [unnamed-chunk-2]
+output file: template.knit.md
+
+Error adding css vars block SCSSParsingError: SCSS Parsing Error: Expecting punctuation: ")" (3143:53)
+    at cssVarsBlock (file:///opt/quarto/bin/quarto.js:87189:15)
+    at file:///opt/quarto/bin/quarto.js:87735:35
+    at file:///opt/quarto/bin/quarto.js:87383:33
+    at async handleVarsBlock (file:///opt/quarto/bin/quarto.js:87656:23)
+    at async file:///opt/quarto/bin/quarto.js:87682:17
+    at async SassCache.setFromHash (file:///opt/quarto/bin/quarto.js:80109:11)
+    at async compileSass (file:///opt/quarto/bin/quarto.js:87494:19)
+    at async revealTheme (file:///opt/quarto/bin/quarto.js:184787:15)
+    at async Object.formatExtras (file:///opt/quarto/bin/quarto.js:184944:23)
+    at async runPandoc (file:///opt/quarto/bin/quarto.js:129497:56)
+    at async renderPandoc (file:///opt/quarto/bin/quarto.js:131209:24)
+    at async Object.onRender (file:///opt/quarto/bin/quarto.js:137294:30)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:137271:9)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136987:9)
+    at async render (file:///opt/quarto/bin/quarto.js:142656:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142901:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102249:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102126:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:188304:5)
+    at async file:///opt/quarto/bin/quarto.js:188333:5
+    at async file:///opt/quarto/bin/quarto.js:188187:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:188189:5)
+    at async file:///opt/quarto/bin/quarto.js:188326:3
+The resulting CSS file will not have SCSS color variables exported as CSS.
+This is likely a Quarto bug.
+Please consider reporting it at https://github.com/quarto-dev/quarto-cli,
+along with the _quarto_internal_scss_error.scss file that can be found in the current working directory.
+ERROR: Theme file compilation failed:
+
+Error: There is no module with the namespace "sass-color".
+     ╷
+3131 │ @if (sass-color.blackness($backgroundColor) > $code-block-theme-dark-threshhold) {
+     │      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     ╵
+
+Stack trace:
+    at dartCommand (file:///opt/quarto/bin/quarto.js:79992:11)
+    at async dartCompile (file:///opt/quarto/bin/quarto.js:79946:3)
+    at async file:///opt/quarto/bin/quarto.js:87683:9
+    at async SassCache.setFromHash (file:///opt/quarto/bin/quarto.js:80109:11)
+    at async compileSass (file:///opt/quarto/bin/quarto.js:87494:19)
+    at async revealTheme (file:///opt/quarto/bin/quarto.js:184787:15)
+    at async Object.formatExtras (file:///opt/quarto/bin/quarto.js:184944:23)
+    at async runPandoc (file:///opt/quarto/bin/quarto.js:129497:56)
+    at async renderPandoc (file:///opt/quarto/bin/quarto.js:131209:24)
+    at async Object.onRender (file:///opt/quarto/bin/quarto.js:137294:30)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:137271:9)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:136987:9)
+    at async render (file:///opt/quarto/bin/quarto.js:142656:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142901:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102249:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102126:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:188304:5)
+    at async file:///opt/quarto/bin/quarto.js:188333:5
+    at async file:///opt/quarto/bin/quarto.js:188187:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:188189:5)
+    at async file:///opt/quarto/bin/quarto.js:188326:3

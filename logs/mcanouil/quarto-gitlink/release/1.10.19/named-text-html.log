@@ -1,0 +1,37 @@
+
+
+pandoc 
+
+  to: html
+  output-file: named-text.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: '#003366'
+      badge-text-colour: white
+  theme:
+    light: flatly
+    dark: darkly
+  title: Named text colour
+  
+
+
+
+Output created: _site/named-text.html
+
+

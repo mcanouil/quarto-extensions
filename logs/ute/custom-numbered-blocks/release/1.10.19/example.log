@@ -1,0 +1,22 @@
+(ERROR) Include directive failed.
+  in file /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/example.qmd, 
+  could not find file /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/list-of-news.qmd.
+
+Stack trace:
+    at retrieveInclude (file:///opt/quarto/bin/quarto.js:68912:17)
+    at standaloneInclude (file:///opt/quarto/bin/quarto.js:68945:13)
+    at processMarkdownIncludes (file:///opt/quarto/bin/quarto.js:69405:34)
+    at expandIncludes (file:///opt/quarto/bin/quarto.js:69170:9)
+    at async projectResolveFullMarkdownForFile (file:///opt/quarto/bin/quarto.js:76935:21)
+    at async fileExecutionEngine (file:///opt/quarto/bin/quarto.js:77386:22)
+    at async fileExecutionEngineAndTarget (file:///opt/quarto/bin/quarto.js:77412:18)
+    at async render (file:///opt/quarto/bin/quarto.js:142664:22)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142901:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102249:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102126:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:188304:5)
+    at async file:///opt/quarto/bin/quarto.js:188333:5
+    at async file:///opt/quarto/bin/quarto.js:188187:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:188189:5)
+    at async file:///opt/quarto/bin/quarto.js:188326:3
+

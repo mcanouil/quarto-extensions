@@ -1,0 +1,55 @@
+Cloning into 'repo'...
+Using CPython 3.13.16
+Creating virtual environment at: .venv
+Activate with: source .venv/bin/activate
+Resolved 13 packages in 91ms
+Downloading pandas (10.3MiB)
+ Downloaded pandas
+Prepared 2 packages in 165ms
+Installed 13 packages in 368ms
+ + contourpy==1.4.0
+ + cycler==0.12.1
+ + fonttools==4.67.0
+ + kiwisolver==1.5.1
+ + matplotlib==3.11.2
+ + numpy==2.5.4
+ + packaging==26.3
+ + pandas==3.0.6
+ + pillow==12.3.0
+ + pyparsing==3.3.3
+ + python-dateutil==2.9.0.post0
+ + seaborn==0.13.2
+ + six==1.17.0
+[1/4] qtabby-faq.qmd
+
+
+processing file: qtabby-faq.qmd
+1/5                  
+2/5 [unnamed-chunk-1]
+Downloading cpython-3.13.15-linux-x86_64-gnu (download) (33.4MiB)
+ Downloaded cpython-3.13.15-linux-x86_64-gnu (download)
+Error in py_call_impl(callable, call_args$unnamed, call_args$named) : 
+  ModuleNotFoundError: No module named 'matplotlib'
+Run `reticulate::py_last_error()` for details.
+Calls: .main ... tryCatchList -> force -> <Anonymous> -> py_call_impl
+
+Quitting from qtabby-faq.qmd:78-82 [unnamed-chunk-1]
+Execution halted
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+[1/4] qtabby-faq.qmd
+
+
+processing file: qtabby-faq.qmd
+1/5                  
+2/5 [unnamed-chunk-1]
+Downloading cpython-3.13.14-linux-x86_64-gnu (download) (33.2MiB)
+ Downloaded cpython-3.13.14-linux-x86_64-gnu (download)
+Error in py_call_impl(callable, call_args$unnamed, call_args$named) : 
+  ModuleNotFoundError: No module named 'matplotlib'
+Run `reticulate::py_last_error()` for details.
+Calls: .main ... tryCatchList -> force -> <Anonymous> -> py_call_impl
+
+Quitting from qtabby-faq.qmd:78-82 [unnamed-chunk-1]
+Execution halted
+WARN: Error encountered when rendering files

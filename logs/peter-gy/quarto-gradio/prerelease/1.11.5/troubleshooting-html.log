@@ -1,0 +1,34 @@
+pandoc 
+
+  to: html
+  output-file: troubleshooting.html
+  standalone: true
+  title-prefix: quarto-gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../styles.css
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  title: Troubleshooting
+  description: Diagnose Quarto render failures, missing apps, worker startup errors, package failures, and deployment problems.
+  
+
+Output created: ../_site/reference/troubleshooting.html
+
+

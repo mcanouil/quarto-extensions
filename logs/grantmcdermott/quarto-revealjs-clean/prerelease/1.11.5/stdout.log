@@ -1,0 +1,74 @@
+Dependency install phase for grantmcdermott/quarto-revealjs-clean: auto-detect
+Auto-detecting R dependencies for grantmcdermott/quarto-revealjs-clean (knitr engine, no renv.lock).
+Installing R packages: fixest, modelsummary, tinytable, dygraphs 
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c string_tools.cpp -o string_tools.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c stringmagic.cpp -o stringmagic.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c stringmagic_parser.cpp -o stringmagic_parser.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c to_index.cpp -o to_index.o
+g++ -std=gnu++20 -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o stringmagic.so RcppExports.o string_tools.o stringmagic.o stringmagic_parser.o to_index.o -L/opt/R/4.6.1/lib/R/lib -lR
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c all_missing.c -o all_missing.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c any_infinite.c -o any_infinite.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c any_missing.c -o any_missing.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c any_nan.c -o any_nan.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c checks.c -o checks.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c find_nchar.c -o find_nchar.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c guess_type.c -o guess_type.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c helper.c -o helper.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c integerish.c -o integerish.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c is_sorted.c -o is_sorted.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c qassert.c -o qassert.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c which_first.c -o which_first.o
+gcc -std=gnu2x -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o checkmate.so all_missing.o any_infinite.o any_missing.o any_nan.o checks.o find_nchar.o guess_type.o helper.o init.o integerish.o is_sorted.o qassert.o which_first.o -L/opt/R/4.6.1/lib/R/lib -lR
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include    -fpic  -g -O2  -c coredata.c -o coredata.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include    -fpic  -g -O2  -c lag.c -o lag.o
+gcc -std=gnu2x -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o zoo.so coredata.o init.o lag.o -L/opt/R/4.6.1/lib/R/lib -lR
+Creating a generic function for 'nrow' from package 'base' in package 'tinytable'
+Creating a generic function for 'ncol' from package 'base' in package 'tinytable'
+Creating a generic function for 'colnames' from package 'base' in package 'tinytable'
+Creating a generic function for 'colnames<-' from package 'base' in package 'tinytable'
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c add_class.c -o add_class.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c any.c -o any.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c attr.c -o attr.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c binsearch.c -o binsearch.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c coredata.c -o coredata.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c dimnames.c -o dimnames.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c endpoints.c -o endpoints.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c extract_col.c -o extract_col.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c isOrdered.c -o isOrdered.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c isXts.c -o isXts.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c lag.c -o lag.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c merge.c -o merge.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c na.c -o na.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c period_apply.c -o period_apply.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c period_arithmetic.c -o period_arithmetic.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c period_quantile.c -o period_quantile.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c rbind.c -o rbind.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c rollfun.c -o rollfun.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c runSum.c -o runSum.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c startofyear.c -o startofyear.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c subset.c -o subset.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c toperiod.c -o toperiod.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c totalcols.c -o totalcols.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c tryXts.c -o tryXts.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I../inst/include -I'/cache/r-lib-0/zoo/include' -I/usr/local/include    -fpic  -g -O2  -c unique.time.c -o unique.time.o
+gcc -std=gnu2x -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o xts.so add_class.o any.o attr.o binsearch.o coredata.o dimnames.o endpoints.o extract_col.o init.o isOrdered.o isXts.o lag.o merge.o na.o period_apply.o period_arithmetic.o period_quantile.o rbind.o rollfun.o runSum.o startofyear.o subset.o toperiod.o totalcols.o tryXts.o unique.time.o -L/opt/R/4.6.1/lib/R/lib -lR
+* checking if OpenMP works with CXXFLAGS='' LIBS=''... no
+* checking if OpenMP works with CXXFLAGS='$(SHLIB_OPENMP_CXXFLAGS)' LIBS='$(SHLIB_OPENMP_CXXFLAGS)'... yes
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include   -fopenmp -DSTRICT_R_HEADERS -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include   -fopenmp -DSTRICT_R_HEADERS -fpic  -g -O2   -c collineairy.cpp -o collineairy.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include   -fopenmp -DSTRICT_R_HEADERS -fpic  -g -O2   -c convergence.cpp -o convergence.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include   -fopenmp -DSTRICT_R_HEADERS -fpic  -g -O2   -c demeaning.cpp -o demeaning.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include   -fopenmp -DSTRICT_R_HEADERS -fpic  -g -O2   -c dsb.cpp -o dsb.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include   -fopenmp -DSTRICT_R_HEADERS -fpic  -g -O2   -c fixest_main.cpp -o fixest_main.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include   -fopenmp -DSTRICT_R_HEADERS -fpic  -g -O2   -c index_fixed_effects.cpp -o index_fixed_effects.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include   -fopenmp -DSTRICT_R_HEADERS -fpic  -g -O2   -c lm_related.cpp -o lm_related.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include   -fopenmp -DSTRICT_R_HEADERS -fpic  -g -O2   -c misc_funs.cpp -o misc_funs.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include   -fopenmp -DSTRICT_R_HEADERS -fpic  -g -O2   -c parallel_funs.cpp -o parallel_funs.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include   -fopenmp -DSTRICT_R_HEADERS -fpic  -g -O2   -c string_funs.cpp -o string_funs.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include   -fopenmp -DSTRICT_R_HEADERS -fpic  -g -O2   -c to_index.cpp -o to_index.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include   -fopenmp -DSTRICT_R_HEADERS -fpic  -g -O2   -c vcov_related.cpp -o vcov_related.o
+g++ -std=gnu++20 -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o fixest.so RcppExports.o collineairy.o convergence.o demeaning.o dsb.o fixest_main.o index_fixed_effects.o lm_related.o misc_funs.o parallel_funs.o string_funs.o to_index.o vcov_related.o -fopenmp -L/opt/R/4.6.1/lib/R/lib -lR

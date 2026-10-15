@@ -1,0 +1,38 @@
+
+
+pandoc 
+
+  to: html
+  output-file: faint.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: '#00000040'
+  theme:
+    light: flatly
+    dark: darkly
+  title: Faint badge
+  
+
+(W) [gitlink] 'badge-background-colour' value '#00000040' is too transparent for readable text (1.8:1 at worst, below 4.5:1). Use a more opaque colour or a valid 'badge-text-colour'.
+
+
+
+Output created: _site/faint.html
+
+

@@ -1,0 +1,37 @@
+pandoc 
+
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: quarto-gradio
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  css:
+    - ../../styles.css
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  code-copy: true
+  theme: darkly
+  grid:
+    sidebar-width: 300px
+    body-width: 800px
+    margin-width: 200px
+  title: Install Python Packages
+  description: Declare pinned app requirements or install a package from Python inside the Gradio Lite browser runtime.
+  gradio:
+    requirements:
+      - plotly==5.24.1
+  
+
+Output created: ../../_site/guide/customize-python-modules/index.html
+
+

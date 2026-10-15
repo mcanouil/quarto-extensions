@@ -1,0 +1,53 @@
+pandoc 
+
+  to: revealjs
+  output-file: linear-regression.html
+  standalone: true
+  title-prefix: Machine Learning 101
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+
+metadata
+
+  link-citations: true
+  width: 1280
+  height: 720
+  margin: 0.06
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  scrollable: true
+  menu: false
+  footer: ' '
+  theme:
+    - default
+    - _extensions/cleanslidekit/theme.scss
+  mermaid:
+    theme: default
+    flowchart:
+      nodeSpacing: 10
+      rankSpacing: 15
+  author: CleanSlideKit
+  title: Linear regression
+  subtitle: The simplest model that actually works
+  
+
+Output created: _site/linear-regression.html
+
+

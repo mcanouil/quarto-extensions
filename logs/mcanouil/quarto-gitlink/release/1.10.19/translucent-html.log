@@ -1,0 +1,36 @@
+
+
+pandoc 
+
+  to: html
+  output-file: translucent.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: '#003366cc'
+  theme:
+    light: flatly
+    dark: darkly
+  title: Translucent badge
+  
+
+
+
+Output created: _site/translucent.html
+
+

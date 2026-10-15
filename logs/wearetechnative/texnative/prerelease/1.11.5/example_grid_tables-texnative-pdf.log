@@ -1,0 +1,56 @@
+pandoc 
+
+  to: latex
+  output-file: example_grid_tables.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  toc: false
+  
+
+metadata
+
+  block-headings: true
+  toc-title: Contents
+  cover_page: true
+  letterhead: false
+  dark_background: false
+  urlcolor: magenta
+  linkcolor: magenta
+  colorlinks: true
+  page_numbers: true
+  paragraph_numbers: false
+  papersize: a4
+  disable_justify: true
+  geometry:
+    - top=60mm
+  letterhead_img: bgwhite.jpg
+  letterhead_img_darkbg: bgdark.jpg
+  cover_illustration_img: cover-ill.png
+  cover_illustration_img_darkbg: cover-ill.png
+  classoption: table
+  
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+running lualatex - 2
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+
+
+Output created: example_grid_tables.pdf
+
+

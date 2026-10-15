@@ -1,0 +1,37 @@
+
+
+pandoc 
+
+  to: html
+  output-file: us-spelling.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-color: '#003366'
+      badge-text-color: '#ffcc00'
+  theme:
+    light: flatly
+    dark: darkly
+  title: US spelling
+  
+
+
+
+Output created: _site/us-spelling.html
+
+

@@ -1,0 +1,15 @@
+(ERROR) Unsupported project type atelier
+
+Stack trace:
+    at projectType (file:///opt/quarto/bin/quarto.js:69599:11)
+    at projectContext (file:///opt/quarto/bin/quarto.js:92240:23)
+    at async render (file:///opt/quarto/bin/quarto.js:142746:29)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:143028:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102411:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102288:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:190385:5)
+    at async file:///opt/quarto/bin/quarto.js:190414:5
+    at async file:///opt/quarto/bin/quarto.js:190268:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:190270:5)
+    at async file:///opt/quarto/bin/quarto.js:190407:3
+

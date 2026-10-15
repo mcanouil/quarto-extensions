@@ -1,0 +1,21 @@
+(ERROR) Specified Reveal plugin directory 'revealjs-anime' does not exist.
+
+Stack trace:
+    at pluginFromBundle (file:///opt/quarto/bin/quarto.js:186634:11)
+    at revealPluginExtras (file:///opt/quarto/bin/quarto.js:186430:52)
+    at async Object.formatExtras (file:///opt/quarto/bin/quarto.js:187026:34)
+    at async runPandoc (file:///opt/quarto/bin/quarto.js:129618:56)
+    at async renderPandoc (file:///opt/quarto/bin/quarto.js:131339:24)
+    at async Object.onRender (file:///opt/quarto/bin/quarto.js:137421:30)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:137398:9)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:137114:9)
+    at async render (file:///opt/quarto/bin/quarto.js:142783:19)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:143028:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102411:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102288:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:190385:5)
+    at async file:///opt/quarto/bin/quarto.js:190414:5
+    at async file:///opt/quarto/bin/quarto.js:190268:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:190270:5)
+    at async file:///opt/quarto/bin/quarto.js:190407:3
+

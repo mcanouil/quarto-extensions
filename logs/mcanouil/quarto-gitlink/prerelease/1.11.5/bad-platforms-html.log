@@ -1,0 +1,42 @@
+
+
+pandoc 
+
+  to: html
+  output-file: bad-platforms.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      custom-platforms-file: bad-platforms.yml
+  theme:
+    light: flatly
+    dark: darkly
+  title: Invalid custom platforms
+  
+
+(E) [gitlink] Failed to load custom platforms from 'bad-platforms.yml':
+broken:
+  - Missing required field: "base-url" (e.g., https://github.com)
+  - Missing required field: "patterns" (add patterns section with: issue, merge-request, commit, user)
+  - Missing required field: "url-formats" (add url-formats section with: issue, pull, merge-request, commit, user)
+
+
+
+Output created: _site/bad-platforms.html
+
+

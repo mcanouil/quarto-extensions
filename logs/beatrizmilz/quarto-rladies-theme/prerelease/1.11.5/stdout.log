@@ -1,0 +1,11 @@
+Dependency install phase for beatrizmilz/quarto-rladies-theme: auto-detect
+Auto-detecting R dependencies for beatrizmilz/quarto-rladies-theme (knitr engine, no renv.lock).
+Installing R packages: DT 
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I./rlang  -I/usr/local/include    -fpic  -g -O2  -c expr.c -o expr.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I./rlang  -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I./rlang  -I/usr/local/include    -fpic  -g -O2  -c interp.c -o interp.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I./rlang  -I/usr/local/include    -fpic  -g -O2  -c lazy.c -o lazy.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I./rlang  -I/usr/local/include    -fpic  -g -O2  -c name.c -o name.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I./rlang  -I/usr/local/include    -fpic  -g -O2  -c rlang.c -o rlang.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I./rlang  -I/usr/local/include    -fpic  -g -O2  -c utils.c -o utils.o
+gcc -std=gnu2x -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o lazyeval.so expr.o init.o interp.o lazy.o name.o rlang.o utils.o -L/opt/R/4.6.1/lib/R/lib -lR
