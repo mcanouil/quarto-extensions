@@ -33,8 +33,12 @@ $btn-close-white-filter: none !default;
     color: $fg;
   }
 
+  // The colour above outranks Bootstrap's colour for the active item but not
+  // its fill, so the active item takes the hover pair too, which stays AA.
   .dropdown-item:hover,
-  .dropdown-item:focus {
+  .dropdown-item:focus,
+  .dropdown-item.active,
+  .dropdown-item:active {
     background: $accent-soft;
     color: $accent;
   }
@@ -179,55 +183,209 @@ embed.embed-art:not([width]) {
 // body.quarto-dark / .quarto-light and swaps the whole stylesheet bundle, so an
 // html prefix (not the never-set data-bs-theme) raises specificity over
 // Quarto's rule; body-mix() derives the surface per bundle, correct in both.
-html div.sourceCode,
-html pre:not(.sourceCode) {
-  background-color: body-mix(95%);
+html div.sourceCode {
+  @if $code-block-bg {
+    background-color: body-mix(95%);
+  }
   border: 1px solid body-mix(85%);
   border-radius: $border-radius-sm;
+}
+
+// Quarto zeroes the padding of every pre, and pads pre.sourceCode only when
+// $code-block-bg is set. The border is drawn either way, so always inset the
+// code inside it. With $code-block-bg off, Quarto forces the page colour onto
+// div.sourceCode, so blocks become outlines and a plain block drops its tint.
+html pre:not(.sourceCode) {
+  @if $code-block-bg {
+    background-color: body-mix(95%);
+  } @else {
+    background-color: transparent;
+  }
+  border: 1px solid body-mix(85%);
+  border-radius: $border-radius-sm;
+  padding: $code-block-bg-padding;
 }
 
 html pre.sourceCode {
   background-color: transparent;
   border: none;
+  @if not $code-block-bg {
+    padding: $code-block-bg-padding;
+  }
 }
 
-// Code Window extension: its style.css uses the CSS system colour `Canvas`,
-// which follows the OS scheme rather than the active colour-scheme bundle.
-// Re-skin the container and title bar with body-mix(); a leading `div` keeps
-// these authoritative over the extension's class-only rules.
-div.code-with-filename {
-  background-color: body-mix(95%);
-  border-color: body-mix(85%);
+// Quarto drops the left inset of highlighted code in a callout; the frame is
+// still drawn there, so restore it.
+// Upstream: https://github.com/quarto-dev/quarto-cli/issues/15058
+html .callout pre.sourceCode {
+  padding-left: $code-block-bg-padding;
 }
 
-div.code-with-filename .code-with-filename-file {
-  background-color: body-mix(90%);
-  border-bottom-color: body-mix(85%);
+// Annotated code keeps Quarto's flush rows, which the rules above outrank.
+html pre.code-annotation-code {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
-div.code-with-filename .code-with-filename-file pre {
-  color: rgba($body-color, 0.6);
-}
-
-div.code-with-filename div.sourceCode,
-div.code-with-filename pre.sourceCode {
-  border: none;
-  border-radius: 0;
+// Quarto paints the annotation gutter from a fixed light grey in both schemes,
+// over a page-coloured backing that hides code scrolled under it; a strip on
+// the code surface. Clear the grey and back the gutter with the code surface.
+// Upstream: https://github.com/quarto-dev/quarto-cli/issues/15059
+html .code-annotation-gutter {
   background-color: transparent;
 }
 
+@if $code-block-bg {
+  html .code-annotation-gutter-bg {
+    background-color: body-mix(95%);
+  }
+}
+
+// A filename title bar holds its name in a plain `pre`, which the code surface
+// rules above would frame and pad; Quarto's own bar and the Code Window bar
+// both need it bare.
+html .code-with-filename .code-with-filename-file pre {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+// Code Window extension: it reads its surfaces from these variables and
+// derives the border, filename and chip colours from --code-window-bg. Its
+// defaults sit in :where(:root), so this rule wins in each scheme bundle.
+:root {
+  --code-window-bg: #{body-mix(95%)};
+  --code-window-title-bg: #{body-mix(90%)};
+}
+
+// The window draws the frame and the surface, so code inside it takes the
+// window colour. Quarto's own filename block, without the extension, has no
+// surface of its own and gets the same colour from the variable above, while
+// its title bar is a fixed grey (`#555` in dark) that the next rule replaces;
+// the dark selector matches Quarto's. A plain
+// `pre` needs the border reset too: `html pre:not(.sourceCode)` outranks the
+// extension's own reset. The window is a `div`, or a `details` once
+// collapsible, so match the class alone. With $code-block-bg off, Quarto's page
+// colour on div.sourceCode is `!important`, so this needs `!important` too.
+html .code-with-filename div.sourceCode {
+  @if $code-block-bg {
+    background-color: var(--code-window-bg);
+  } @else {
+    background-color: var(--code-window-bg) !important;
+  }
+}
+
+html .code-with-filename .code-with-filename-file,
+html .quarto-dark .code-with-filename .code-with-filename-file {
+  background-color: var(--code-window-title-bg);
+}
+
+// The window surface also backs the annotation gutter of code inside it.
+html .code-with-filename .code-annotation-gutter-bg {
+  background-color: var(--code-window-bg);
+}
+
+// Quarto greys every `details > summary`, and a collapsible window's title bar
+// is one; the filename mixes from that grey and drops below 4.5:1.
+html .code-with-filename > summary {
+  color: inherit;
+}
+
+html .code-with-filename > pre:not(.sourceCode) {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+}
+
 // Inline code: Bootstrap/Pandoc leave a near-white patch on dark surfaces.
+// The patch is darker than the page, so a primary that passes on the page can
+// fail on it; hold the ink to AA on the patch.
 code:not(.sourceCode):not(pre code) {
-  color: $primary;
+  color: theme-contrast($primary, body-mix(90%), "AA");
   background-color: body-mix(90%);
   padding: 0.1em 0.35em;
   border-radius: 0.3em;
+}
+
+// Quarto fades a callout title with opacity, which also fades the inline code
+// in it below AA. Fade the title text by its colour instead, so code keeps its
+// own ink.
+html .callout.callout-style-default > .callout-header {
+  opacity: 1;
+  color: rgba($body-color, 0.85);
+}
+
+html .callout.callout-style-simple > .callout-header {
+  opacity: 1;
+  color: rgba($body-color, 0.75);
+}
+
+// A callout with no type gets a $text-muted title band, a mid grey that title
+// text cannot clear AA on. Tint it from the page as the typed ones are tinted
+// from their colour.
+div.callout.callout-style-default:where(
+    :not(.callout-note, .callout-tip, .callout-warning, .callout-caution, .callout-important)
+  )
+  > .callout-header {
+  background-color: mix($body-bg, $text-muted, 70%);
 }
 
 // Quarto bakes a fixed grey into the copy button, which reads poorly on the
 // body-mix() code surface; use the palette accent in both schemes.
 .code-copy-button {
   color: $primary;
+}
+
+// Quarto moves the copy button clear of the annotation gutter with
+// `.code-annotated .code-copy-button`, but the button is a sibling of the
+// annotated pre, so that rule never matches and the button covers the
+// markers. Apply Quarto's declarations from the scaffold instead. The gutter
+// is 20px + 0.5em at the code size; 0.5em at the button's size clears it while
+// code is no larger than body text, plus the button's usual 5px margin.
+// Upstream: https://github.com/quarto-dev/quarto-cli/issues/13444
+html .code-copy-outer-scaffold:has(pre.code-annotated) > .code-copy-button {
+  margin-right: calc(20px + 0.5em + 5px);
+  margin-top: 0;
+  padding-top: 3px;
+  padding-bottom: 0;
+}
+
+// Quarto spaces the first and last child of a callout body for a paragraph.
+// With code there, that child is the copy scaffold, or the cell around it,
+// and the code block's own margin adds to that spacing.
+// In every style, drop the block's margin on that side so code starts and ends
+// where text would. In the default style, the copy button, placed from a bare
+// scaffold's padded top, also sits above the frame: move it down by that
+// padding. In a cell, Quarto pads both the cell and the scaffold inside it at
+// the bottom; keep one. An untitled callout nests its content one level
+// deeper, in .callout-body-container. A code window at the edge keeps the
+// spacing the Code Window extension gives it.
+// Upstream: https://github.com/quarto-dev/quarto-cli/issues/13446
+html .callout.callout-style-default :is(.callout-body, .callout-body-container)
+  > .code-copy-outer-scaffold:first-child
+  > .code-copy-button {
+  top: 0.5rem;
+}
+
+html .callout :is(.callout-body, .callout-body-container) {
+  > .code-copy-outer-scaffold:first-child,
+  > .cell:first-child > .code-copy-outer-scaffold:first-child {
+    > div.sourceCode {
+      margin-top: 0;
+    }
+  }
+
+  > .code-copy-outer-scaffold:last-child,
+  > .cell:last-child > .code-copy-outer-scaffold:last-child {
+    > div.sourceCode {
+      margin-bottom: 0;
+    }
+  }
+
+  > .cell:last-child > .code-copy-outer-scaffold:last-child {
+    padding-bottom: 0;
+  }
 }
 
 // ===========================================================================
@@ -727,6 +885,16 @@ body .navbar .gitlink-widget-dropdown {
   text-decoration: underline;
 }
 
+// Quarto gives footer text $text-muted, which is held to AA on the page rather
+// than on the bar; use the chrome muted ink instead.
+.nav-footer-contents {
+  color: var(--atelier-navbar-muted);
+}
+
+.sidebar .sidebar-footer {
+  color: var(--atelier-sidebar-muted);
+}
+
 // ===========================================================================
 // ANNOUNCEMENT BANNER
 // ===========================================================================
@@ -775,6 +943,7 @@ body .navbar .gitlink-widget-dropdown {
 // icon is no more readable there than a black one is on a modal. The icon is
 // masked from the text colour around it instead, so it follows the surface it
 // sits on, whichever bundle is active.
+// Upstream: https://github.com/quarto-dev/quarto-cli/issues/15060
 .btn-close,
 .btn-close:hover {
   color: inherit;
