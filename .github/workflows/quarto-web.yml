@@ -13,48 +13,27 @@ jobs:
   quarto-web:
     runs-on: ubuntu-latest
     steps:
-      # The token must exist before the checkout. A checkout without an explicit
-      # token persists GITHUB_TOKEN in .git/config, and the later push then
-      # authenticates as github-actions[bot] whatever git config says.
-      - name: Create GitHub App token
-        uses: actions/create-github-app-token@v3
-        id: app-token
+      # A pull request opened with the default token triggers no workflow, so
+      # its checks would never run.
+      - name: Get the token
+        id: token
+        uses: mcanouil/release-actions/token@v1
         with:
-          client-id: ${{ vars.APP_ID }}
-          private-key: ${{ secrets.APP_KEY }}
-          permission-contents: write
-          permission-pull-requests: write
-          permission-metadata: read
+          app-id: ${{ vars.APP_ID }}
+          app-key: ${{ secrets.APP_KEY }}
+          require-app: true
 
       - name: Checkout repository
         uses: actions/checkout@v7
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ steps.token.outputs.token }}
 
-      - name: Get GitHub App User ID
-        id: get-user-id
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
+      # One pull request per run, rather than per extension: a week's crawl
+      # regularly finds several at once, and reviewing them together is both
+      # cheaper in Actions minutes and easier to merge.
+      - name: Get extensions from Quarto Website
+        id: extensions
         shell: bash
-        run: echo "user-id=$(gh api "/users/${APP_SLUG}[bot]" --jq .id)" >>
-          "${GITHUB_OUTPUT}"
-
-      - name: Git Config
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
-          USER_ID: ${{ steps.get-user-id.outputs.user-id }}
-        shell: bash
-        run: |
-          git config --global user.name "${APP_SLUG}[bot]"
-          git config --global user.email "${USER_ID}+${APP_SLUG}[bot]@users.noreply.github.com"
-          gh auth setup-git
-
-      - name: Get extensions from Quarto Website and commit
-        shell: bash
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           CSV_FILE="extensions/quarto-extensions.csv"
           git clone --quiet --filter=blob:none --no-checkout https://github.com/quarto-dev/quarto-web _quarto-web
@@ -69,17 +48,6 @@ jobs:
           extensions_to_add=$(grep -Fvxi -f _quarto-web/quarto-extensions.csv _quarto-web/quarto-web-extensions.csv || true)
           rm -rf _quarto-web
 
-          if [[ -z "${extensions_to_add}" ]]; then
-            echo "No new extensions to add."
-            exit 0
-          fi
-
-          # One branch and one pull request per run, rather than per extension:
-          # a week's crawl regularly finds several at once, and reviewing them
-          # together is both cheaper in Actions minutes and easier to merge.
-          branch="ci/get-quarto-web-extensions"
-          git checkout -B "${branch}" main --quiet
-
           count=0
           body=$'Extensions discovered on the Quarto website:\n\n'
           while IFS= read -r extension; do
@@ -91,27 +59,27 @@ jobs:
 
           if [[ "${count}" -eq 0 ]]; then
             echo "No new extensions to add."
-            exit 0
-          fi
-
-          if [[ "${count}" -eq 1 ]]; then
+          elif [[ "${count}" -eq 1 ]]; then
             title="ci: add ${extensions_to_add} from quarto-web"
           else
             title="ci: add ${count} extensions from quarto-web"
           fi
 
-          git add "${CSV_FILE}"
-          git commit -m "${title}"
-          git push --force origin "${branch}"
+          {
+            echo "title=${title:-}"
+            echo "body<<QUARTO_WEB_BODY"
+            printf '%s' "${body}"
+            echo "QUARTO_WEB_BODY"
+          } >> "${GITHUB_OUTPUT}"
 
-          if [[ -z "$(gh pr list --head "${branch}" --state open --json number --jq '.[].number')" ]]; then
-            gh pr create \
-              --title "${title}" \
-              --body "${body}" \
-              --base "main" \
-              --head "${branch}" \
-              --label "Type: CI/CD :robot:" \
-              --reviewer "${GITHUB_REPOSITORY_OWNER}"
-          else
-            gh pr edit "${branch}" --title "${title}" --body "${body}"
-          fi
+      - name: Open the pull request
+        if: steps.extensions.outputs.title != ''
+        uses: mcanouil/release-actions/land@v1
+        with:
+          mode: pull-request
+          merge: none
+          files: extensions/quarto-extensions.csv
+          message: ${{ steps.extensions.outputs.title }}
+          branch: ci/get-quarto-web-extensions
+          body: ${{ steps.extensions.outputs.body }}
+          token: ${{ steps.token.outputs.token }}
