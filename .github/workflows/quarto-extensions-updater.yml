@@ -9,39 +9,16 @@ on:
   schedule:
     - cron: 00 12 1 * *
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref_name }}
-  cancel-in-progress: true
+permissions:
+  contents: read
 
 jobs:
-  quarto-extensions-updates:
-    runs-on: ubuntu-latest
-    # Every write goes through the App token, so GITHUB_TOKEN only has to clone.
+  updates:
+    uses: mcanouil/quarto-workflows/.github/workflows/quarto-extensions-updates.yml@v2
+    secrets: inherit
     permissions:
-      contents: read
-    steps:
-      - uses: actions/checkout@v7
-
-      # The updater writes through the REST API with this token, never with git,
-      # so it needs no checkout credentials and no local git identity.
-      - name: Create GitHub App token
-        uses: actions/create-github-app-token@v3
-        id: app-token
-        with:
-          client-id: ${{ vars.APP_ID }}
-          private-key: ${{ secrets.APP_KEY }}
-          permission-contents: write
-          permission-pull-requests: write
-          permission-metadata: read
-
-      - name: Setup Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-        with:
-          version: "pre-release"
-
-      - name: Update Quarto extensions
-        uses: mcanouil/quarto-extensions-updater@v2.2.1
-        with:
-          github-token: ${{ steps.app-token.outputs.token }}
-          pr-labels: "Type: Dependencies :arrow_up:"
-          group-updates: true
+      contents: write
+      pull-requests: write
+    with:
+      gh-app-id: ${{ vars.APP_ID }}
+      quarto-version: pre-release
