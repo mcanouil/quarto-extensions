@@ -135,8 +135,9 @@ read_repo_info() {
 # extension can be skipped.
 #
 # updatedAt alone misses new tags: a push changes pushedAt but not always
-# updatedAt. The latest tag is compared too, because a release can be created
-# or flagged as a prerelease on a tag that already exists, with no push.
+# updatedAt. The latest tag and its release URL are compared too, because a
+# release can be created or flagged as a prerelease on a tag that already
+# exists, with no push.
 # Arguments:
 #   $1 - record_file: Stored extension.json
 #   $2 - key: Lower-cased entry the record is stored under
@@ -145,7 +146,7 @@ record_is_current() {
   local record_file="$1"
   local key="$2"
   local repo_info="$3"
-  local fields='[.updatedAt, .pushedAt, .latestRelease]'
+  local fields='[.updatedAt, .pushedAt, .latestRelease, .latestReleaseUrl]'
 
   local stored current
   stored=$(jq -c --arg key "${key}" ".[\$key] // {} | ${fields}" "${record_file}" 2>/dev/null) || return 1
@@ -247,7 +248,7 @@ process_extensions() {
       fi
       if [[ "${FORCE_UPDATE}" != "true" ]]; then
         if [[ "${missing_card}" == false ]] && record_is_current "${extension_json_file}" "${entry,,}" "${repo_info}"; then
-          echo "Skipping ${entry}: updatedAt, pushedAt and latest tag match the existing record"
+          echo "Skipping ${entry}: updatedAt, pushedAt and latest release match the existing record"
           skipped_extensions+=("${entry}")
           echo "::endgroup::"
           continue

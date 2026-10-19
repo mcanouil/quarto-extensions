@@ -54,9 +54,9 @@ check 'a cache miss stores the latest tag by the same rule' \
 record="${work}/extension.json"
 store() {
 	jq -n --arg u "$1" --arg p "$2" --arg t "$3" \
-		'{"owner/demo": {updatedAt: $u, pushedAt: $p, latestRelease: $t}}' >"${record}"
+		'{"owner/demo": {updatedAt: $u, pushedAt: $p, latestRelease: $t, latestReleaseUrl: null}}' >"${record}"
 }
-current='{"updatedAt":"2024-02-01T00:00:00Z","pushedAt":"2024-03-01T00:00:00Z","latestRelease":"v1.3.0"}'
+current='{"updatedAt":"2024-02-01T00:00:00Z","pushedAt":"2024-03-01T00:00:00Z","latestRelease":"v1.3.0","latestReleaseUrl":null}'
 
 is_current() {
 	if record_is_current "${record}" "owner/demo" "${current}"; then echo current; else echo stale; fi
@@ -73,6 +73,11 @@ check 'a different latest tag makes the record stale' 'stale' "$(is_current)"
 
 store 2024-01-15T00:00:00Z 2024-03-01T00:00:00Z v1.3.0
 check 'a change of updatedAt makes the record stale' 'stale' "$(is_current)"
+
+# A release published on a tag that already exists changes no date or tag.
+store 2024-02-01T00:00:00Z 2024-03-01T00:00:00Z v1.3.0
+current=$(jq -c '.latestReleaseUrl = "https://github.com/owner/demo/releases/tag/v1.3.0"' <<<"${current}")
+check 'a new release URL makes the record stale' 'stale' "$(is_current)"
 
 echo '{"owner/other": {}}' >"${record}"
 check 'a record without the entry is stale' 'stale' "$(is_current)"
