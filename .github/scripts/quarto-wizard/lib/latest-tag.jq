@@ -4,6 +4,10 @@
 # (packages/core/src/github/latest.ts) for a stable install, so the update
 # check gives the same answer with or without a GitHub token. Change both
 # together. The registry stores one answer only, so prereleases never qualify.
+#
+# The input holds the 100 newest releases and the 100 newest tags, as fetched
+# by prefetch-repo-info.sh. A higher version outside those windows is missed.
+# Quarto Wizard reads only 30 of each, so the registry sees at least as much.
 
 # Normalised stable version of a tag name, as [major, minor, patch], or null.
 #
