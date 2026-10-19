@@ -8,30 +8,13 @@ set -euo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LIB="${HERE}/../lib"
 
-passed=0
-failed=0
-
-check() {
-	local description="$1" expected="$2" actual="$3"
-	if [[ "${expected}" == "${actual}" ]]; then
-		passed=$((passed + 1))
-		printf 'ok   %s\n' "${description}"
-	else
-		failed=$((failed + 1))
-		printf 'FAIL %s\n     expected %s, got %s\n' "${description}" "${expected}" "${actual}"
-	fi
-}
+# shellcheck source=SCRIPTDIR/helpers.sh
+source "${HERE}/helpers.sh"
 
 work="$(mktemp -d)"
 trap 'rm -rf "${work}"' EXIT
 
-mkdir -p "${work}/bin"
-cat >"${work}/bin/gh" <<'STUB'
-#!/usr/bin/env bash
-printf '%s\n' "$*" >"${STUB_DIR}/query"
-cat "${STUB_DIR}/response.json"
-STUB
-chmod +x "${work}/bin/gh"
+stub_gh "${work}"
 
 # A repository where the latest release marker (v1.2.0) is not the highest
 # version: v1.3.0 is a plain tag and v2.0.0 a release flagged as a prerelease.
@@ -100,5 +83,4 @@ check 'asks GitHub for the releases' \
 check 'asks GitHub for the tags' \
 	'1' "$(grep -c 'refs(refPrefix: "refs/tags/", first: 100' "${work}/query")"
 
-printf '\n%d checks, %d failed\n' "$((passed + failed))" "${failed}"
-[[ "${failed}" -eq 0 ]]
+finish

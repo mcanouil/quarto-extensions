@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Tests for lib/extension.sh. Run directly: tests/extension.test.sh
 #
-# A stub gh answers every call with a fixed GraphQL response, so the tests run
+# A stub gh answers with a fixed GraphQL response, so the tests run
 # without network access or a token.
 set -euo pipefail
 
@@ -9,29 +9,14 @@ HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=SCRIPTDIR/../lib/extension.sh
 source "${HERE}/../lib/extension.sh"
 
-passed=0
-failed=0
-
-check() {
-	local description="$1" expected="$2" actual="$3"
-	if [[ "${expected}" == "${actual}" ]]; then
-		passed=$((passed + 1))
-		printf 'ok   %s\n' "${description}"
-	else
-		failed=$((failed + 1))
-		printf 'FAIL %s\n     expected %s, got %s\n' "${description}" "${expected}" "${actual}"
-	fi
-}
+# shellcheck source=SCRIPTDIR/helpers.sh
+source "${HERE}/helpers.sh"
 
 work="$(mktemp -d)"
 trap 'rm -rf "${work}"' EXIT
 
-mkdir -p "${work}/bin" "${work}/cache"
-cat >"${work}/bin/gh" <<'STUB'
-#!/usr/bin/env bash
-cat "${STUB_DIR}/response.json"
-STUB
-chmod +x "${work}/bin/gh"
+stub_gh "${work}"
+mkdir -p "${work}/cache"
 
 cat >"${work}/response.json" <<'JSON'
 {
@@ -92,5 +77,4 @@ check 'a change of updatedAt makes the record stale' 'stale' "$(is_current)"
 echo '{"owner/other": {}}' >"${record}"
 check 'a record without the entry is stale' 'stale' "$(is_current)"
 
-printf '\n%d checks, %d failed\n' "$((passed + failed))" "${failed}"
-[[ "${failed}" -eq 0 ]]
+finish

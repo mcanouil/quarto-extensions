@@ -8,19 +8,8 @@ set -euo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LIB="${HERE}/../lib"
 
-passed=0
-failed=0
-
-check() {
-	local description="$1" expected="$2" actual="$3"
-	if [[ "${expected}" == "${actual}" ]]; then
-		passed=$((passed + 1))
-		printf 'ok   %s\n' "${description}"
-	else
-		failed=$((failed + 1))
-		printf 'FAIL %s\n     expected %s, got %s\n' "${description}" "${expected}" "${actual}"
-	fi
-}
+# shellcheck source=SCRIPTDIR/helpers.sh
+source "${HERE}/helpers.sh"
 
 # Latest tag of a repository, as compact JSON.
 # Arguments:
@@ -95,5 +84,4 @@ check 'rejects four parts' 'null' "$(version_of 1.2.3.4)"
 check 'rejects a dot after the v' 'null' "$(version_of v.1.0.0)"
 check 'rejects a leading zero' 'null' "$(version_of 01.2.3)"
 
-printf '\n%d checks, %d failed\n' "$((passed + failed))" "${failed}"
-[[ "${failed}" -eq 0 ]]
+finish

@@ -12,12 +12,10 @@
 # become zero ("1.2" gives [1, 2, 0]). A prerelease, a leading zero, or a name
 # that only contains a version, such as "release-3", gives null.
 def stable_version:
-  [sub("^\\s+"; "") | sub("\\s+$"; "") | sub("^v"; "")
-    | capture("^(?<major>0|[1-9][0-9]*)(?:\\.(?<minor>0|[1-9][0-9]*))?(?:\\.(?<patch>0|[1-9][0-9]*))?(?:\\+[0-9A-Za-z.-]+)?$")]
-  | if length == 0 then null else
-      first | [.major, .minor // "0", .patch // "0"] | map(tonumber)
-      | if all(. <= 9007199254740991) then . else null end
-    end;
+  (sub("^\\s+"; "") | sub("\\s+$"; "") | sub("^v"; "")
+    | capture("^(?<major>0|[1-9][0-9]*)(?:\\.(?<minor>0|[1-9][0-9]*))?(?:\\.(?<patch>0|[1-9][0-9]*))?(?:\\+[0-9A-Za-z.-]+)?$")
+    | [.major, .minor // "0", .patch // "0"] | map(tonumber)
+    | select(all(. <= 9007199254740991))) // null;
 
 # Latest tag among the releases and the tags together, as {tagName, url}, or
 # null when no tag qualifies.
@@ -36,4 +34,4 @@ def latest_tag:
     | select(.version != null))
   | reduce .[] as $candidate (null;
       if . == null or $candidate.version > .version then $candidate else . end)
-  | if . == null then null else {tagName, url} end;
+  | if . then {tagName, url} else null end;
