@@ -1,7 +1,8 @@
 # Shape a `gh repo view` payload into the record stored as extension.json.
 #
-# Used by both the batched prefetch and the inline fallback in extension.sh, so
-# a record is identical whichever path produced it.
+# prefetch-repo-info.sh reshapes its GraphQL response into that payload first.
+# It is the only path that writes a record, including the retry of a single
+# repository in extension.sh.
 {
   name: .name,
   title: (.name | split("-|_"; "") | map(select(. != "quarto" and . != "template")) | join(" ") | ascii_upcase),

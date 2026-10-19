@@ -109,10 +109,12 @@ prefetch_repo_info() {
     bash "${LIB_DIR}/prefetch-repo-info.sh" "${cache_dir}"
 }
 
-# Read a prefetched record, falling back to a direct fetch when the prefetch
-# missed it (a transient API failure, or an entry added since) or wrote something
-# unparseable. The cache is an optimisation, so a bad entry costs one extra
-# request rather than aborting the run at the first jq that reads it.
+# Read a prefetched record, fetching the repository again on its own when the
+# prefetch missed it (a transient API failure, or an entry added since) or wrote
+# something unparseable. The cache is an optimisation, so a bad entry costs one
+# extra request rather than aborting the run at the first jq that reads it. The
+# retry goes through the same query, because `gh repo view` cannot list the
+# tags that the latest tag is picked from.
 # Arguments:
 #   $1 - repo: Repository in owner/repo format
 #   $2 - Cache directory
@@ -125,9 +127,30 @@ read_repo_info() {
     return
   fi
 
-  gh repo view "${repo}" \
-    --json name,nameWithOwner,owner,description,openGraphImageUrl,stargazerCount,licenseInfo,url,latestRelease,createdAt,updatedAt,pushedAt,repositoryTopics,defaultBranchRef \
-    --jq "$(cat "${LIB_DIR}/repo-view.jq")"
+  printf '%s\n' "${repo}" | bash "${LIB_DIR}/prefetch-repo-info.sh" "${cache_dir}" >/dev/null
+  jq -c . "${cached}" 2>/dev/null
+}
+
+# Report whether a stored record still matches the repository, so that the
+# extension can be skipped.
+#
+# updatedAt alone misses new tags: a push changes pushedAt but not always
+# updatedAt. The latest tag is compared too, because a release can be created
+# or flagged as a prerelease on a tag that already exists, with no push.
+# Arguments:
+#   $1 - record_file: Stored extension.json
+#   $2 - key: Lower-cased entry the record is stored under
+#   $3 - repo_info: Current repository record as JSON
+record_is_current() {
+  local record_file="$1"
+  local key="$2"
+  local repo_info="$3"
+  local fields='[.updatedAt, .pushedAt, .latestRelease]'
+
+  local stored current
+  stored=$(jq -c --arg key "${key}" ".[\$key] // {} | ${fields}" "${record_file}" 2>/dev/null) || return 1
+  current=$(echo "${repo_info}" | jq -c "${fields}")
+  [[ "${stored}" == "${current}" ]]
 }
 
 # Main function to process extensions from CSV
@@ -216,9 +239,6 @@ process_extensions() {
     repo_info=$(echo "${repo_info}" | jq --arg author "${author}" '. + {author: $author}')
 
     if [[ -f "${extension_json_file}" ]]; then
-      local existing_updated_at current_updated_at
-      existing_updated_at=$(jq -r ".[\"${entry,,}\"].updatedAt // empty" "${extension_json_file}")
-      current_updated_at=$(echo "${repo_info}" | jq -r ".updatedAt")
       # A card is only ever stored when the download differed from GitHub's
       # generic placeholder, so a missing file is the sole retry signal.
       local missing_card=false
@@ -226,8 +246,8 @@ process_extensions() {
         missing_card=true
       fi
       if [[ "${FORCE_UPDATE}" != "true" ]]; then
-        if [[ -n "${existing_updated_at}" && "${existing_updated_at}" == "${current_updated_at}" && "${missing_card}" == false ]]; then
-          echo "Skipping ${entry}: updatedAt matches existing record (${existing_updated_at})"
+        if [[ "${missing_card}" == false ]] && record_is_current "${extension_json_file}" "${entry,,}" "${repo_info}"; then
+          echo "Skipping ${entry}: updatedAt, pushedAt and latest tag match the existing record"
           skipped_extensions+=("${entry}")
           echo "::endgroup::"
           continue

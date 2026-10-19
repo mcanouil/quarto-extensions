@@ -8,8 +8,8 @@ set -uo pipefail
 # limits, which throttled the whole phase to around ten minutes. Aliasing many
 # repositories into a single query turns that into a handful of requests.
 #
-# A failure here is never fatal: extension.sh falls back to fetching inline for
-# any repository missing from the cache.
+# A failure here is never fatal: extension.sh runs this script again on its own
+# for any repository missing from the cache.
 #
 # Arguments:
 #   $1 - Cache directory
@@ -28,8 +28,9 @@ mkdir -p "${cache_dir}"
 
 # GraphQL returns topics as a connection and omits an empty description, where
 # `gh repo view --json` returns a flat list and an empty string. Reshaping here
-# keeps repo-view.jq the single definition of a record, shared with the inline
-# fallback.
+# keeps repo-view.jq the single definition of a record. The latest release is
+# not GitHub's marker but the highest version among the releases and the tags,
+# picked by latest-tag.jq.
 normalise='{
   name: .name,
   nameWithOwner: .nameWithOwner,
@@ -39,7 +40,7 @@ normalise='{
   stargazerCount: .stargazerCount,
   licenseInfo: .licenseInfo,
   url: .url,
-  latestRelease: .latestRelease,
+  latestRelease: ({releases: .releases.nodes, tags: [.refs.nodes[].name]} | latest_tag),
   createdAt: .createdAt,
   updatedAt: .updatedAt,
   pushedAt: .pushedAt,
@@ -56,7 +57,12 @@ fragment='fragment RepoFields on Repository {
   stargazerCount
   licenseInfo { name }
   url
-  latestRelease { tagName url }
+  releases(first: 100, orderBy: {field: CREATED_AT, direction: DESC}) {
+    nodes { tagName url isPrerelease isDraft }
+  }
+  refs(refPrefix: "refs/tags/", first: 100, orderBy: {field: TAG_COMMIT_DATE, direction: DESC}) {
+    nodes { name }
+  }
   createdAt
   updatedAt
   pushedAt
@@ -105,9 +111,10 @@ fetch_batch() {
   while IFS=$'\t' read -r path record; do
     printf '%s\n' "${record}" > "${path}"
   done < <(
-    printf '%s' "${response}" | jq -r \
+    printf '%s' "${response}" | jq -r -L "${script_dir}" \
       --argjson names "${names_json}" \
       --arg dir "${cache_dir}" "
+      include \"latest-tag\";
       (.data // {}) | to_entries[] | select(.value != null) |
       (\$dir + \"/\" + \$names[(.key | ltrimstr(\"r\") | tonumber)] + \".json\")
       + \"\t\" + (.value | ${normalise} | ${view_filter} | tojson)
@@ -117,7 +124,7 @@ fetch_batch() {
 
 repos=()
 while IFS= read -r repo; do
-  # Anything unexpected is left to the inline fallback rather than interpolated
+  # Anything that is not a repository name is skipped rather than interpolated
   # into a GraphQL query.
   if [[ ! "${repo}" =~ ^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+$ ]]; then
     continue
