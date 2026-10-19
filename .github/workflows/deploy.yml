@@ -13,16 +13,10 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+  pages:
+    name: Site
     # The render restores test-results.json from the quarto-tests branch, so it
     # always uses the last published results. A test run that failed a batch, or
     # failed to publish, therefore deploys the fresh harvest data with the
@@ -33,35 +27,12 @@ jobs:
       github.event_name == 'workflow_dispatch' ||
       (github.event.workflow_run.conclusion != 'cancelled' &&
       github.event.workflow_run.conclusion != 'skipped')
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    env:
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      GH_TOKEN: ${{ github.token }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
-
-      - name: Set up Quarto CLI
-        uses: quarto-dev/quarto-actions/setup@v2
-        with:
-          version: pre-release
-
-      - name: Render Quarto Project
-        shell: bash
-        run: |
-          quarto render .
-          touch _site/.nojekyll
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v6
-
-      - name: Upload Pages Artifact
-        uses: actions/upload-pages-artifact@v5
-        with:
-          path: "_site"
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5
+    uses: mcanouil/quarto-workflows/.github/workflows/pages.yml@v2
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    with:
+      path: .
+      use-main-as-release: true
+      quarto: pre-release
