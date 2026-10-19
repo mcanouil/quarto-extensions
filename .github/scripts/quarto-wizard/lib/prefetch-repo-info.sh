@@ -30,7 +30,8 @@ mkdir -p "${cache_dir}"
 # `gh repo view --json` returns a flat list and an empty string. Reshaping here
 # keeps repo-view.jq the single definition of a record. The latest release is
 # not GitHub's marker but the highest version among the releases and the tags,
-# picked by latest-tag.jq.
+# picked by latest-tag.jq. GitHub can return a connection as null with a
+# field error, and one record that fails here would drop the rest of the batch.
 normalise='{
   name: .name,
   nameWithOwner: .nameWithOwner,
@@ -40,7 +41,7 @@ normalise='{
   stargazerCount: .stargazerCount,
   licenseInfo: .licenseInfo,
   url: .url,
-  latestRelease: ({releases: .releases.nodes, tags: [.refs.nodes[].name]} | latest_tag),
+  latestRelease: ({releases: (.releases.nodes // []), tags: [(.refs.nodes // [])[].name]} | latest_tag),
   createdAt: .createdAt,
   updatedAt: .updatedAt,
   pushedAt: .pushedAt,

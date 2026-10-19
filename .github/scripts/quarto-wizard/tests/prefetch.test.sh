@@ -52,8 +52,8 @@ cat >"${work}/response.json" <<'JSON'
       "licenseInfo": null,
       "url": "https://github.com/owner/bare",
       "latestRelease": null,
-      "releases": {"nodes": []},
-      "refs": {"nodes": [{"name": "nightly"}]},
+      "releases": null,
+      "refs": null,
       "createdAt": "2024-01-01T00:00:00Z",
       "updatedAt": "2024-02-01T00:00:00Z",
       "pushedAt": "2024-03-01T00:00:00Z",
@@ -74,7 +74,7 @@ check 'stores the highest stable version, not the release marker' \
 	'v1.3.0' "$(jq -r '.latestRelease' "${demo}")"
 check 'a tag without a release has no release URL' \
 	'null' "$(jq -r '.latestReleaseUrl' "${demo}")"
-check 'stores "none" when no tag qualifies' \
+check 'stores "none" when GitHub returns no releases and no tags' \
 	'none' "$(jq -r '.latestRelease' "${bare}")"
 check 'keeps pushedAt for the skip check' \
 	'2024-03-01T00:00:00Z' "$(jq -r '.pushedAt' "${demo}")"
