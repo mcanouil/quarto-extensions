@@ -14,7 +14,8 @@ trap 'rm -rf "${WORK}"' EXIT
 # Install a stub sleep, so that retries do not wait, and a stub gh in
 # ${WORK}/bin that answers per endpoint, and applies --jq
 # to the canned response as gh does.
-# Responses: view.json (gh repo view), releases.json, tags.json.
+# Responses: view.json (gh repo view, as gh prints it before --jq),
+# releases.json, tags.json. Like gh, a null result prints nothing.
 install_gh() {
 	mkdir -p "${WORK}/bin"
 	cat >"${WORK}/bin/gh" <<'STUB'
@@ -39,7 +40,7 @@ for ((i = 0; i < ${#args[@]}; i++)); do
 	fi
 done
 if [[ -n "${filter}" ]]; then
-	jq -r "${filter}" "${STUB_DIR}/${file}"
+	jq -r "(${filter}) | select(. != null)" "${STUB_DIR}/${file}"
 else
 	cat "${STUB_DIR}/${file}"
 fi
@@ -51,12 +52,12 @@ STUB
 
 # Run check-release.sh for one entry and print "<exit> <errors> <notes>".
 # Arguments:
-#   $1 - Latest release as gh repo view reports it (empty for none)
+#   $1 - Latest release object as gh repo view reports it (null for none)
 #   $2 - Releases as the API returns them
 #   $3 - Tags as the API returns them
 #   $4 - Optional stub file whose gh call fails, such as tags.json
 run_check() {
-	printf '%s' "$1" >"${WORK}/view.json"
+	printf '{"latestRelease":%s}' "$1" >"${WORK}/view.json"
 	printf '%s' "$2" >"${WORK}/releases.json"
 	printf '%s' "$3" >"${WORK}/tags.json"
 	: >"${WORK}/output"
@@ -87,11 +88,11 @@ check "a stable release raises nothing" \
 
 check "a stable tag without a release raises nothing" \
 	'0 [] []' \
-	"$(run_check '' '[]' '[{"name":"1.2.3"}]')"
+	"$(run_check null '[]' '[{"name":"1.2.3"}]')"
 
 check "only the tag latest adds a note" \
 	"0 [] [{\"line\":\"1\",\"message\":\"${NOTE}\"}]" \
-	"$(run_check '' '[]' '[{"name":"latest"}]')"
+	"$(run_check null '[]' '[{"name":"latest"}]')"
 
 check "only a prerelease adds a note" \
 	"0 [] [{\"line\":\"1\",\"message\":\"${NOTE}\"}]" \
@@ -105,10 +106,10 @@ check "a failing tags call adds no note and no error" \
 
 check "a failing releases call adds no note and no error" \
 	'0 [] []' \
-	"$(run_check '' '[]' '[{"name":"latest"}]' releases.json)"
+	"$(run_check null '[]' '[{"name":"latest"}]' releases.json)"
 
 check "no release and no tag keeps the error" \
 	'1 [{"line":"1","message":"Repository is missing release/tag."}] []' \
-	"$(run_check '' '[]' '[]')"
+	"$(run_check null '[]' '[]')"
 
 finish
