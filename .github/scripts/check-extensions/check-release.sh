@@ -37,7 +37,7 @@ while IFS=, read -r entry; do
 	fi
 	stable_tag=$(latest_stable_tag "${repo}") || continue
 	if [[ "${stable_tag}" == "null" ]]; then
-		add_note "${entry}" "No release or tag is a stable version, such as 1.2.3 or v1.2.3. Quarto Wizard will not offer updates for this extension until one is."
+		add_note "${entry}" "No stable version, such as 1.2.3 or v1.2.3, was found among the latest 100 releases and tags. Quarto Wizard will not offer updates for this extension until one is."
 	fi
 done < <(read_diff_entries)
 
