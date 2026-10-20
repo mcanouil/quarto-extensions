@@ -5,8 +5,10 @@
 # check gives the same answer with or without a GitHub token. Change both
 # together. The registry stores one answer only, so prereleases never qualify.
 #
-# The input holds the 100 newest releases and the 100 newest tags, as fetched
-# by prefetch-repo-info.sh. A higher version outside those windows is missed.
+# The input holds up to 100 releases and 100 tags. prefetch-repo-info.sh
+# fetches the newest by date; check-release.sh reads the first page of each
+# REST list, which tags do not order by date. A higher version outside those
+# windows is missed.
 # Quarto Wizard reads up to three pages of 100 releases and of 100 tags, so it
 # can see a higher version that the registry misses.
 

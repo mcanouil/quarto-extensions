@@ -11,7 +11,8 @@ source "${HERE}/../../quarto-wizard/tests/helpers.sh"
 WORK="$(mktemp -d)"
 trap 'rm -rf "${WORK}"' EXIT
 
-# Install a stub gh in ${WORK}/bin that answers per endpoint, and applies --jq
+# Install a stub sleep, so that retries do not wait, and a stub gh in
+# ${WORK}/bin that answers per endpoint, and applies --jq
 # to the canned response as gh does.
 # Responses: view.json (gh repo view), releases.json, tags.json.
 install_gh() {
@@ -44,6 +45,8 @@ else
 fi
 STUB
 	chmod +x "${WORK}/bin/gh"
+	printf '#!/usr/bin/env bash\nexit 0\n' >"${WORK}/bin/sleep"
+	chmod +x "${WORK}/bin/sleep"
 }
 
 # Run check-release.sh for one entry and print "<exit> <errors> <notes>".
@@ -66,7 +69,7 @@ run_check() {
 	STUB_DIR="${WORK}" PATH="${WORK}/bin:${PATH}" \
 		CSV_FILE="${WORK}/extensions.csv" GITHUB_OUTPUT="${WORK}/output" \
 		DIFF="$(printf 'owner/repo\n' | base64)" \
-		bash "${SCRIPT}" >/dev/null 2>&1 || status=$?
+		"${BASH}" "${SCRIPT}" >/dev/null 2>&1 || status=$?
 	printf '%s %s %s' "${status}" \
 		"$(sed -n 's/^errors=//p' "${WORK}/output")" \
 		"$(sed -n 's/^notes=//p' "${WORK}/output")"
