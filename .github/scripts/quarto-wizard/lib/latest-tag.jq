@@ -7,7 +7,8 @@
 #
 # The input holds the 100 newest releases and the 100 newest tags, as fetched
 # by prefetch-repo-info.sh. A higher version outside those windows is missed.
-# Quarto Wizard reads only 30 of each, so the registry sees at least as much.
+# Quarto Wizard reads up to three pages of 100 releases and of 100 tags, so it
+# can see a higher version that the registry misses.
 
 # Normalised stable version of a tag name, as [major, minor, patch], or null.
 #

@@ -12,11 +12,13 @@ on:
     paths:
       - ".github/scripts/test-extensions/**"
       - ".github/scripts/quarto-wizard/**"
+      - ".github/scripts/check-extensions/**"
       - ".github/workflows/test-scripts.yml"
   pull_request:
     paths:
       - ".github/scripts/test-extensions/**"
       - ".github/scripts/quarto-wizard/**"
+      - ".github/scripts/check-extensions/**"
       - ".github/workflows/test-scripts.yml"
 
 permissions:
@@ -32,6 +34,7 @@ jobs:
           sparse-checkout: |
             .github/scripts/test-extensions
             .github/scripts/quarto-wizard
+            .github/scripts/check-extensions
           sparse-checkout-cone-mode: false
           persist-credentials: false
 
@@ -42,3 +45,4 @@ jobs:
           .github/scripts/quarto-wizard/tests/latest-tag.test.sh
           .github/scripts/quarto-wizard/tests/prefetch.test.sh
           .github/scripts/quarto-wizard/tests/extension.test.sh
+          .github/scripts/check-extensions/tests/check-release.test.sh
