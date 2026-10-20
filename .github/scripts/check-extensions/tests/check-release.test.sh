@@ -26,6 +26,10 @@ case "$*" in
 *"/tags"*) file="tags.json" ;;
 *) echo "unexpected gh call: $*" >&2; exit 1 ;;
 esac
+if [[ -e "${STUB_DIR}/fail-${file}" ]]; then
+	echo "gh: simulated failure" >&2
+	exit 1
+fi
 filter=""
 args=("$@")
 for ((i = 0; i < ${#args[@]}; i++)); do
@@ -47,11 +51,16 @@ STUB
 #   $1 - Latest release as gh repo view reports it (empty for none)
 #   $2 - Releases as the API returns them
 #   $3 - Tags as the API returns them
+#   $4 - Optional stub file whose gh call fails, such as tags.json
 run_check() {
 	printf '%s' "$1" >"${WORK}/view.json"
 	printf '%s' "$2" >"${WORK}/releases.json"
 	printf '%s' "$3" >"${WORK}/tags.json"
 	: >"${WORK}/output"
+	rm -f "${WORK}"/fail-*
+	if [[ -n "${4:-}" ]]; then
+		: >"${WORK}/fail-$4"
+	fi
 	printf 'owner/repo\n' >"${WORK}/extensions.csv"
 	local status=0
 	STUB_DIR="${WORK}" PATH="${WORK}/bin:${PATH}" \
@@ -86,6 +95,14 @@ check "only a prerelease adds a note" \
 	"$(run_check '{"tagName":"v2.0.0-rc1"}' \
 		'[{"tag_name":"v2.0.0-rc1","html_url":"u","prerelease":true,"draft":false}]' \
 		'[{"name":"v2.0.0-rc1"}]')"
+
+check "a failing tags call adds no note and no error" \
+	'0 [] []' \
+	"$(run_check '{"tagName":"v2.0.0-rc1"}' '[]' '[]' tags.json)"
+
+check "a failing releases call adds no note and no error" \
+	'0 [] []' \
+	"$(run_check '' '[]' '[{"name":"latest"}]' releases.json)"
 
 check "no release and no tag keeps the error" \
 	'1 [{"line":"1","message":"Repository is missing release/tag."}] []' \
