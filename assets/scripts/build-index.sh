@@ -59,6 +59,7 @@ jq -n \
           modified: $e.pushedAt,
           categories: ($e.repositoryTopics // []),
           contributes: ($e.contributes // []),
+          formats: ($e.formats // []),
           license: ($e.licenseInfo // "none"),
           stars: ($e.stargazerCount // 0),
           quartoRequired: $e.quartoRequired,

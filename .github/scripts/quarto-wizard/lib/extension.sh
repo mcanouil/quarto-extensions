@@ -38,14 +38,14 @@ tree_has_path() {
   [[ $(echo "${tree}" | jq --arg p "${path}" 'map(select(.path == $p)) | length') -gt 0 ]]
 }
 
-# Extract contributes and quarto-required from _extension.yml files
+# Extract contributes, base formats, and quarto-required from _extension.yml files
 # Arguments:
 #   $1 - tree: JSON array from fetch_repo_tree
 #   $2 - repo: Repository in owner/repo format, for diagnostics
 #   $3 - repo_branch: Branch or tag queried, for diagnostics
 #   $4 - repo_subdirectory: Optional subdirectory path (with trailing /)
 # Returns:
-#   JSON object with contributes array and quartoRequired string via stdout
+#   JSON object with contributes and formats arrays and quartoRequired string via stdout
 extract_extension_manifest() {
   local tree="$1"
   local repo="$2"
@@ -58,17 +58,18 @@ extract_extension_manifest() {
       '.[] | select(.path | test($pattern)) | .url')
 
   if [[ -z "${extension_files}" ]]; then
-    echo '{"contributes": null, "quartoRequired": null}'
+    echo '{"contributes": null, "formats": null, "quartoRequired": null}'
     return
   fi
 
-  # Extract both fields with yq per file; skip unparseable manifests with a warning
+  # Extract the fields with yq per file; skip unparseable manifests with a warning
   # so one malformed _extension.yml does not abort the whole run.
   while IFS= read -r url; do
     local yaml_content parsed
     yaml_content=$(gh api "${url}" --jq '.content' | base64 --decode)
     if ! parsed=$(printf '%s' "${yaml_content}" | yq -o json '{
       "contributes": (.contributes | keys // []),
+      "formats": ((.contributes.formats // .contributes.format | select(tag == "!!map") | keys) // []),
       "quartoRequired": (."quarto-required" // null)
     }' 2>/dev/null); then
       echo "::warning title=Invalid Extension Manifest::${repo}@${repo_branch} ${url}" >&2
@@ -77,6 +78,7 @@ extract_extension_manifest() {
     printf '%s\n' "${parsed}"
   done <<< "${extension_files}" | jq -s '{
     contributes: ([.[].contributes // empty] | add // [] | map(select(. != null)) | map(if type=="string" then sub("s$"; "") else . end) | unique),
+    formats: ([.[].formats // empty] | add // [] | map(sub("\\+.*$"; "")) | map(select(. != "common")) | unique),
     quartoRequired: (map(.quartoRequired) | map(select(. != null)) | if length > 0 then first else null end)
   }'
 }
@@ -299,10 +301,11 @@ process_extensions() {
     latest_commit=$(gh api "repos/${repo}/commits/${default_branch}" --jq '.sha' 2>/dev/null || echo "")
     repo_info=$(echo "${repo_info}" | jq --arg latestCommit "${latest_commit}" '. + {latestCommit: $latestCommit}')
 
-    # Extract contributes and quarto-required in single pass
-    local manifest_data repo_contributes repo_quarto_required
+    # Extract contributes, formats, and quarto-required in single pass
+    local manifest_data repo_contributes repo_formats repo_quarto_required
     manifest_data=$(extract_extension_manifest "${repo_tree}" "${repo}" "${repo_branch}" "${repo_subdirectory}")
     repo_contributes=$(echo "${manifest_data}" | jq -c '.contributes')
+    repo_formats=$(echo "${manifest_data}" | jq -c '.formats')
     repo_quarto_required=$(echo "${manifest_data}" | jq -r '.quartoRequired')
 
     if [[ "${repo_contributes}" != "null" ]]; then
@@ -310,6 +313,8 @@ process_extensions() {
     else
       repo_info=$(echo "${repo_info}" | jq '. + {contributes: null}')
     fi
+
+    repo_info=$(echo "${repo_info}" | jq --argjson formats "${repo_formats}" '. + {formats: $formats}')
 
     if [[ -n "${repo_quarto_required}" && "${repo_quarto_required}" != "null" ]]; then
       repo_info=$(echo "${repo_info}" | jq --arg quartoRequired "${repo_quarto_required}" '. + {quartoRequired: $quartoRequired}')
