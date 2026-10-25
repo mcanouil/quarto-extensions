@@ -85,13 +85,19 @@ grid:
     </div>
 
     <div class="grid align-items-center">
-      <div class="g-col-12 g-col-sm-6">
+      <div class="g-col-12 g-col-sm-6 g-col-lg-4">
         <label class="visually-hidden" for="category-filter">Filter by category</label>
         <select class="form-select form-select-sm" id="category-filter">
           <option value="">All categories</option>
         </select>
       </div>
-      <div class="g-col-12 g-col-sm-6">
+      <div class="g-col-12 g-col-sm-6 g-col-lg-4">
+        <label class="visually-hidden" for="format-filter">Filter by output format</label>
+        <select class="form-select form-select-sm" id="format-filter">
+          <option value="">All formats</option>
+        </select>
+      </div>
+      <div class="g-col-12 g-col-lg-4">
         <div class="input-group input-group-sm">
           <label class="input-group-text" for="sort-field">Sort</label>
           <select class="form-select" id="sort-field">

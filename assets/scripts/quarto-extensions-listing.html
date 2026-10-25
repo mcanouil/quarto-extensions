@@ -16,12 +16,27 @@
       'shortcode', 'shortcodes'
     ]);
 
+    // Base formats offered in the format filter. Manifests can declare other
+    // keys (custom writers, typos), which are kept in the data but not offered.
+    const FORMAT_LABELS = new Map([
+      ['html', 'HTML'],
+      ['revealjs', 'Reveal.js'],
+      ['pdf', 'PDF (LaTeX)'],
+      ['typst', 'Typst'],
+      ['docx', 'Word'],
+      ['pptx', 'PowerPoint'],
+      ['beamer', 'Beamer'],
+      ['dashboard', 'Dashboard'],
+      ['odt', 'OpenDocument']
+    ]);
+
     const els = {
       results: document.getElementById('extensions-results'),
       empty: document.getElementById('extensions-empty'),
       counter: document.getElementById('extensions-counter'),
       search: document.getElementById('extension-search'),
       category: document.getElementById('category-filter'),
+      format: document.getElementById('format-filter'),
       sortField: document.getElementById('sort-field'),
       sortDirection: document.getElementById('sort-direction'),
       loadMore: document.getElementById('load-more'),
@@ -43,6 +58,7 @@
       filters: new Set(),
       author: null,
       category: '',
+      format: '',
       sort: 'modified',
       direction: 'desc',
       view: 'grid',
@@ -149,6 +165,7 @@
       state.filters = new Set((params.get('filter') || '').split(',').filter(Boolean));
       state.author = params.get('author') || null;
       state.category = params.get('category') || '';
+      state.format = params.get('format') || '';
       state.sort = ['modified', 'stars', 'title'].includes(params.get('sort')) ? params.get('sort') : 'modified';
       state.direction = params.get('dir') === 'asc' ? 'asc' : 'desc';
       state.view = params.get('view') === 'list' ? 'list' : 'grid';
@@ -161,11 +178,12 @@
       if (state.filters.size) params.set('filter', Array.from(state.filters).join(','));
       if (state.author) params.set('author', state.author);
       if (state.category) params.set('category', state.category);
+      if (state.format) params.set('format', state.format);
       if (state.sort !== 'modified') params.set('sort', state.sort);
       if (state.direction !== 'desc') params.set('dir', state.direction);
       if (state.view !== 'grid') params.set('view', state.view);
       const query = params.toString();
-      const url = `${window.location.pathname}${query ? `?${query}` : ''}`;
+      const url = `${window.location.pathname}${query ? `?${query}` : ''}${window.location.hash}`;
       if (push) {
         window.history.pushState(null, '', url);
       } else {
@@ -198,6 +216,7 @@
         if (query && !matchesQuery(item, query)) return false;
         if (state.author && item.login !== state.author) return false;
         if (state.category && !item.categories.includes(state.category)) return false;
+        if (state.format && !item.formats.includes(state.format)) return false;
         return matchesFilters(item);
       });
 
@@ -462,6 +481,11 @@
       refresh();
     });
 
+    els.format.addEventListener('change', () => {
+      state.format = els.format.value;
+      refresh();
+    });
+
     els.sortField.addEventListener('change', () => {
       state.sort = els.sortField.value;
       refresh();
@@ -483,6 +507,7 @@
       state.filters.clear();
       state.author = null;
       state.category = '';
+      state.format = '';
       state.sort = 'modified';
       state.direction = 'desc';
       syncControls();
@@ -559,6 +584,7 @@
     window.addEventListener('popstate', () => {
       readStateFromUrl();
       syncControls();
+      writeStateToUrl(false);
       applyFilters();
       render();
     });
@@ -577,6 +603,10 @@
     function syncControls() {
       els.search.value = state.query;
       els.category.value = state.category;
+      els.format.value = state.format;
+      // A format without an option (unknown, or no extension contributes it)
+      // would filter the list while the select shows nothing; drop it instead.
+      if (els.format.value !== state.format) state.format = '';
       els.sortField.value = state.sort;
       syncSortDirection();
       els.gridView.checked = state.view === 'grid';
@@ -598,12 +628,14 @@
       return Object.assign({}, item, {
         categories: item.categories || [],
         contributes: item.contributes || [],
+        formats: item.formats || [],
         tests: item.tests || [],
         displayCategories,
         testStatus: cardTestStatus(item.tests),
         haystack: [
           item.title, item.description, item.author, item.login,
-          (item.categories || []).join(' '), (item.contributes || []).join(' ')
+          (item.categories || []).join(' '), (item.contributes || []).join(' '),
+          (item.formats || []).join(' ')
         ].join(' ').toLowerCase()
       });
     });
@@ -624,6 +656,22 @@
       els.category.append(...options);
     };
 
+    const populateFormats = () => {
+      const counts = new Map();
+      extensions.forEach((item) => item.formats.forEach((format) => {
+        if (FORMAT_LABELS.has(format)) counts.set(format, (counts.get(format) || 0) + 1);
+      }));
+      const options = Array.from(counts.entries())
+        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+        .map(([format, count]) => {
+          const option = document.createElement('option');
+          option.value = format;
+          option.textContent = `${FORMAT_LABELS.get(format)} (${count})`;
+          return option;
+        });
+      els.format.append(...options);
+    };
+
     fetch(INDEX_URL)
       .then((response) => {
         if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
@@ -633,8 +681,10 @@
         extensions = prepare(raw);
         extensions.forEach((item) => byKey.set(item.key, item));
         populateCategories();
+        populateFormats();
         readStateFromUrl();
         syncControls();
+        writeStateToUrl(false);
         applyFilters();
         render();
       })

@@ -139,4 +139,47 @@ check 'an entry in a subdirectory reads only that subdirectory'"'"'s manifests' 
 	'["filter"]' "$(PATH="${work}/manifest/bin:${PATH}" STUB_DIR="${work}/manifest" \
 		extract_extension_manifest "${subdir_tree}" "owner/demo" "main" "diaquarto/" | jq -c '.contributes')"
 
+blob _extensions/journal/_extension.yml <<'YAML'
+contributes:
+  formats:
+    common:
+      toc: true
+    html+dark: {}
+    pdf: {}
+YAML
+blob _extensions/slides/_extension.yml <<'YAML'
+contributes:
+  format:
+    typst: {}
+    html: {}
+YAML
+blob _extensions/both/_extension.yml <<'YAML'
+contributes:
+  formats:
+    docx: {}
+  format:
+    pptx: {}
+YAML
+
+blob _extensions/odd/_extension.yml <<'YAML'
+contributes:
+  formats:
+    true: {}
+    1: {}
+    html: {}
+YAML
+
+check 'format keys that YAML reads as booleans or numbers are skipped' \
+	'["html"]' "$(manifest _extensions/odd/_extension.yml | jq -c '.formats')"
+check 'base formats are merged across manifests, without variants or common' \
+	'["html","pdf","typst"]' "$(manifest _extensions/journal/_extension.yml _extensions/slides/_extension.yml | jq -c '.formats')"
+check 'the singular format key counts as a format contribution' \
+	'["format"]' "$(manifest _extensions/slides/_extension.yml | jq -c '.contributes')"
+check 'formats wins over format, as in Quarto' \
+	'["docx"]' "$(manifest _extensions/both/_extension.yml | jq -c '.formats')"
+check 'an extension without formats has an empty list' \
+	'[]' "$(manifest _extensions/demo/_extension.yml | jq -c '.formats')"
+check 'a repository without manifests has no formats' \
+	'null' "$(manifest | jq -c '.formats')"
+
 finish
