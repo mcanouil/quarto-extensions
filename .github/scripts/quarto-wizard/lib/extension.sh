@@ -78,7 +78,7 @@ extract_extension_manifest() {
     printf '%s\n' "${parsed}"
   done <<< "${extension_files}" | jq -s '{
     contributes: ([.[].contributes // empty] | add // [] | map(select(. != null)) | map(if type=="string" then sub("s$"; "") else . end) | unique),
-    formats: ([.[].formats // empty] | add // [] | map(sub("\\+.*$"; "")) | map(select(. != "common")) | unique),
+    formats: ([.[].formats // empty] | add // [] | map(select(type == "string")) | map(sub("\\+.*$"; "")) | map(select(. != "common")) | unique),
     quartoRequired: (map(.quartoRequired) | map(select(. != null)) | if length > 0 then first else null end)
   }'
 }
@@ -304,18 +304,12 @@ process_extensions() {
     repo_info=$(echo "${repo_info}" | jq --arg latestCommit "${latest_commit}" '. + {latestCommit: $latestCommit}')
 
     # Extract contributes, formats, and quarto-required in single pass
-    local manifest_data repo_contributes repo_quarto_required
+    local manifest_data repo_quarto_required
     manifest_data=$(extract_extension_manifest "${repo_tree}" "${repo}" "${repo_branch}" "${repo_subdirectory}")
-    repo_contributes=$(echo "${manifest_data}" | jq -c '.contributes')
     repo_quarto_required=$(echo "${manifest_data}" | jq -r '.quartoRequired')
 
-    if [[ "${repo_contributes}" != "null" ]]; then
-      repo_info=$(echo "${repo_info}" | jq --argjson contributes "${repo_contributes}" '. + {contributes: $contributes}')
-    else
-      repo_info=$(echo "${repo_info}" | jq '. + {contributes: null}')
-    fi
-
-    repo_info=$(echo "${repo_info}" | jq --argjson manifest "${manifest_data}" '. + {formats: $manifest.formats}')
+    repo_info=$(echo "${repo_info}" | jq --argjson manifest "${manifest_data}" \
+      '. + {contributes: $manifest.contributes, formats: $manifest.formats}')
 
     if [[ -n "${repo_quarto_required}" && "${repo_quarto_required}" != "null" ]]; then
       repo_info=$(echo "${repo_info}" | jq --arg quartoRequired "${repo_quarto_required}" '. + {quartoRequired: $quartoRequired}')

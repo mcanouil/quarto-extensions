@@ -584,6 +584,7 @@
     window.addEventListener('popstate', () => {
       readStateFromUrl();
       syncControls();
+      writeStateToUrl(false);
       applyFilters();
       render();
     });
@@ -601,10 +602,11 @@
 
     function syncControls() {
       els.search.value = state.query;
+      // A value without an option (unknown, or no extension has it) would
+      // filter the list while the select shows nothing; drop it instead.
       els.category.value = state.category;
+      if (els.category.value !== state.category) state.category = '';
       els.format.value = state.format;
-      // A format without an option (unknown, or no extension contributes it)
-      // would filter the list while the select shows nothing; drop it instead.
       if (els.format.value !== state.format) state.format = '';
       els.sortField.value = state.sort;
       syncSortDirection();
@@ -683,6 +685,7 @@
         populateFormats();
         readStateFromUrl();
         syncControls();
+        writeStateToUrl(false);
         applyFilters();
         render();
       })

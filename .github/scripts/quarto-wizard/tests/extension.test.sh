@@ -167,6 +167,16 @@ contributes:
     pptx: {}
 YAML
 
+blob _extensions/odd/_extension.yml <<'YAML'
+contributes:
+  formats:
+    true: {}
+    1: {}
+    html: {}
+YAML
+
+check 'format keys that YAML reads as booleans or numbers are skipped' \
+	'["html"]' "$(manifest _extensions/odd/_extension.yml | jq -c '.formats')"
 check 'base formats are merged across manifests, without variants or common' \
 	'["html","pdf","typst"]' "$(manifest _extensions/journal/_extension.yml _extensions/slides/_extension.yml | jq -c '.formats')"
 check 'the singular format key counts as a format contribution' \
