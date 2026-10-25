@@ -603,6 +603,9 @@
       els.search.value = state.query;
       els.category.value = state.category;
       els.format.value = state.format;
+      // A format without an option (unknown, or no extension contributes it)
+      // would filter the list while the select shows nothing; drop it instead.
+      if (els.format.value !== state.format) state.format = '';
       els.sortField.value = state.sort;
       syncSortDirection();
       els.gridView.checked = state.view === 'grid';

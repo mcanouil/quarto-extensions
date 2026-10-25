@@ -54,7 +54,7 @@ check 'a cache miss stores the latest tag by the same rule' \
 record="${work}/extension.json"
 store() {
 	jq -n --arg u "$1" --arg p "$2" --arg t "$3" \
-		'{"owner/demo": {updatedAt: $u, pushedAt: $p, latestRelease: $t, latestReleaseUrl: null}}' >"${record}"
+		'{"owner/demo": {updatedAt: $u, pushedAt: $p, latestRelease: $t, latestReleaseUrl: null, formats: []}}' >"${record}"
 }
 current='{"updatedAt":"2024-02-01T00:00:00Z","pushedAt":"2024-03-01T00:00:00Z","latestRelease":"v1.3.0","latestReleaseUrl":null}'
 
@@ -78,6 +78,12 @@ check 'a change of updatedAt makes the record stale' 'stale' "$(is_current)"
 store 2024-02-01T00:00:00Z 2024-03-01T00:00:00Z v1.3.0
 current=$(jq -c '.latestReleaseUrl = "https://github.com/owner/demo/releases/tag/v1.3.0"' <<<"${current}")
 check 'a new release URL makes the record stale' 'stale' "$(is_current)"
+
+store 2024-02-01T00:00:00Z 2024-03-01T00:00:00Z v1.3.0
+current=$(jq -c '.latestReleaseUrl = null' <<<"${current}")
+check 'a matching record is current again' 'current' "$(is_current)"
+jq '."owner/demo" |= del(.formats)' "${record}" >"${record}.tmp" && mv "${record}.tmp" "${record}"
+check 'a record written before formats were stored is stale' 'stale' "$(is_current)"
 
 echo '{"owner/other": {}}' >"${record}"
 check 'a record without the entry is stale' 'stale' "$(is_current)"
