@@ -82,4 +82,61 @@ check 'a new release URL makes the record stale' 'stale' "$(is_current)"
 echo '{"owner/other": {}}' >"${record}"
 check 'a record without the entry is stale' 'stale' "$(is_current)"
 
+# A stub gh that serves each manifest from $STUB_DIR/blobs/<url>, base64
+# encoded as the contents API returns it. The tree uses the path as the url.
+mkdir -p "${work}/manifest/bin"
+cat >"${work}/manifest/bin/gh" <<'STUB'
+#!/usr/bin/env bash
+base64 <"${STUB_DIR}/blobs/$2"
+STUB
+chmod +x "${work}/manifest/bin/gh"
+
+# Write a manifest into the stub.
+# Arguments:
+#   $1 - Path in the repository
+#   stdin - YAML content
+blob() {
+	mkdir -p "$(dirname "${work}/manifest/blobs/$1")"
+	cat >"${work}/manifest/blobs/$1"
+}
+
+# Arguments:
+#   $@ - Paths in the repository tree
+manifest() {
+	local tree
+	tree=$(printf '%s\n' "$@" | jq -R . | jq -sc 'map({path: ., url: .})')
+	PATH="${work}/manifest/bin:${PATH}" STUB_DIR="${work}/manifest" \
+		extract_extension_manifest "${tree}" "owner/demo" "main" ""
+}
+
+blob _extensions/demo/_extension.yml <<'YAML'
+contributes:
+  filters:
+    - demo.lua
+YAML
+blob docs/_extensions/site/_extension.yml <<'YAML'
+contributes:
+  formats:
+    html: {}
+YAML
+
+check 'extensions vendored outside the root _extensions are ignored' \
+	'["filter"]' "$(manifest _extensions/demo/_extension.yml docs/_extensions/site/_extension.yml | jq -c '.contributes')"
+
+blob diaquarto/_extensions/demo/_extension.yml <<'YAML'
+contributes:
+  filters:
+    - demo.lua
+YAML
+blob vendor/diaquarto/_extensions/site/_extension.yml <<'YAML'
+contributes:
+  shortcodes:
+    - site.lua
+YAML
+
+subdir_tree=$(jq -nc '["diaquarto/_extensions/demo/_extension.yml", "vendor/diaquarto/_extensions/site/_extension.yml"] | map({path: ., url: .})')
+check 'an entry in a subdirectory reads only that subdirectory'"'"'s manifests' \
+	'["filter"]' "$(PATH="${work}/manifest/bin:${PATH}" STUB_DIR="${work}/manifest" \
+		extract_extension_manifest "${subdir_tree}" "owner/demo" "main" "diaquarto/" | jq -c '.contributes')"
+
 finish

@@ -54,7 +54,7 @@ extract_extension_manifest() {
 
   local extension_files
   extension_files=$(echo "${tree}" |
-    jq -r --arg pattern "${repo_subdirectory}_extensions/.*/_extension\\.ya?ml$" \
+    jq -r --arg pattern "^${repo_subdirectory}_extensions/.*/_extension\\.ya?ml$" \
       '.[] | select(.path | test($pattern)) | .url')
 
   if [[ -z "${extension_files}" ]]; then
