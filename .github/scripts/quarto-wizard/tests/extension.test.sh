@@ -189,9 +189,7 @@ check 'a filter keeps the matching entries, ignoring case' \
 	$'alpha/one\nBeta/two' "$(select_entries "${entries}" "^[a-l]")"
 check 'a filter that matches nothing fails' \
 	'failed' "$(select_entries "${entries}" "^z" 2>/dev/null || echo failed)"
-
-printf 'Alpha/One\n\nskriptum/diatypst/diaquarto\n' >"${work}/list.csv"
-check 'every listed entry keeps its lower-cased owner/repo directory' \
-	$'ext/alpha/one\next/skriptum/diatypst' "$(listed_entry_dirs "${work}/list.csv" ext)"
+check 'an invalid filter is reported as invalid' \
+	'1' "$(select_entries "${entries}" "[a-l" 2>&1 >/dev/null | grep -c 'Invalid Entries Filter')"
 
 finish

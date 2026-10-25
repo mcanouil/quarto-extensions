@@ -91,7 +91,7 @@ extract_extension_manifest() {
 #   $1 - CSV entries, one per line
 #   $2 - Extended regular expression, matched without regard to case; empty keeps all
 # Returns:
-#   The kept entries via stdout; fails when a filter matches nothing
+#   The kept entries via stdout; fails when a filter is invalid or matches nothing
 select_entries() {
   local csv_entries="$1"
   local filter="$2"
@@ -101,28 +101,14 @@ select_entries() {
     return
   fi
 
-  if ! grep -Ei -- "${filter}" <<< "${csv_entries}"; then
+  local status=0
+  grep -Ei -- "${filter}" <<< "${csv_entries}" || status=$?
+  if [[ "${status}" -eq 1 ]]; then
     echo "::error title=No Matching Entries::The filter \"${filter}\" matches no entry." >&2
-    return 1
+  elif [[ "${status}" -gt 1 ]]; then
+    echo "::error title=Invalid Entries Filter::\"${filter}\" is not a valid extended regular expression." >&2
   fi
-}
-
-# List the record directory of every entry in the CSV file.
-#
-# The cleanup keeps these, so a run that processed only some entries (a
-# filtered or debug run) does not delete the records of the others. Records
-# live under the lower-cased owner/repo, which is what nameWithOwner holds.
-# Arguments:
-#   $1 - CSV file, one entry per line
-#   $2 - Extensions directory
-# Returns:
-#   One directory per line via stdout
-listed_entry_dirs() {
-  local list_file="$1"
-  local records_dir="$2"
-
-  grep -v '^[[:space:]]*$' "${list_file}" | tr -d '\r' | tr '[:upper:]' '[:lower:]' | cut -d'/' -f1,2 |
-    sed "s|^|${records_dir}/|"
+  return "${status}"
 }
 
 # Fetch every repository's metadata up front, batched into few GraphQL queries.
