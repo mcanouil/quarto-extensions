@@ -139,8 +139,7 @@ read_repo_info() {
 # updatedAt alone misses new tags: a push changes pushedAt but not always
 # updatedAt. The latest tag and its release URL are compared too, because a
 # release can be created or flagged as a prerelease on a tag that already
-# exists, with no push. A record stored before formats were extracted is stale
-# too, so that every record gains the field without a forced run.
+# exists, with no push.
 # Arguments:
 #   $1 - record_file: Stored extension.json
 #   $2 - key: Lower-cased entry the record is stored under
@@ -152,7 +151,6 @@ record_is_current() {
   local fields='[.updatedAt, .pushedAt, .latestRelease, .latestReleaseUrl]'
 
   local stored current
-  jq -e --arg key "${key}" '.[$key] // {} | has("formats")' "${record_file}" >/dev/null 2>&1 || return 1
   stored=$(jq -c --arg key "${key}" ".[\$key] // {} | ${fields}" "${record_file}" 2>/dev/null) || return 1
   current=$(echo "${repo_info}" | jq -c "${fields}")
   [[ "${stored}" == "${current}" ]]
