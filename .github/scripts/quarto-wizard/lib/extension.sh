@@ -302,10 +302,9 @@ process_extensions() {
     repo_info=$(echo "${repo_info}" | jq --arg latestCommit "${latest_commit}" '. + {latestCommit: $latestCommit}')
 
     # Extract contributes, formats, and quarto-required in single pass
-    local manifest_data repo_contributes repo_formats repo_quarto_required
+    local manifest_data repo_contributes repo_quarto_required
     manifest_data=$(extract_extension_manifest "${repo_tree}" "${repo}" "${repo_branch}" "${repo_subdirectory}")
     repo_contributes=$(echo "${manifest_data}" | jq -c '.contributes')
-    repo_formats=$(echo "${manifest_data}" | jq -c '.formats')
     repo_quarto_required=$(echo "${manifest_data}" | jq -r '.quartoRequired')
 
     if [[ "${repo_contributes}" != "null" ]]; then
@@ -314,7 +313,7 @@ process_extensions() {
       repo_info=$(echo "${repo_info}" | jq '. + {contributes: null}')
     fi
 
-    repo_info=$(echo "${repo_info}" | jq --argjson formats "${repo_formats}" '. + {formats: $formats}')
+    repo_info=$(echo "${repo_info}" | jq --argjson manifest "${manifest_data}" '. + {formats: $manifest.formats}')
 
     if [[ -n "${repo_quarto_required}" && "${repo_quarto_required}" != "null" ]]; then
       repo_info=$(echo "${repo_info}" | jq --arg quartoRequired "${repo_quarto_required}" '. + {quartoRequired: $quartoRequired}')
