@@ -57,12 +57,12 @@ find "${EXTENSIONS_DIR}" -type f -path "${EXTENSIONS_DIR}/*/*/extension.json" -p
 git_stage_and_commit "${JSON_FILE}"
 
 # Clean up outdated directories. The cleanup removes every directory that was
-# not processed, and a filtered run cannot tell a stale record from one it
-# skipped, so only a full run does it.
-if [[ -z "${ENTRIES_FILTER}" ]]; then
+# not processed, and a filtered or debug run cannot tell a stale record from
+# one it skipped, so only a full run does it.
+if [[ -z "${ENTRIES_FILTER}" && "${DEBUG_MODE}" != "true" ]]; then
   github_cleanup_extensions_dir "${EXTENSIONS_DIR}" "${valid_dirs[@]}"
 else
-  echo "::notice title=Cleanup Skipped::Only entries matching \"${ENTRIES_FILTER}\" were processed."
+  echo "::notice title=Cleanup Skipped::This run processed only part of the entries."
 fi
 
 # Publish every commit made above in a single push
