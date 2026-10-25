@@ -83,6 +83,30 @@ extract_extension_manifest() {
   }'
 }
 
+# Keep the entries that match an optional filter.
+#
+# A forced run of every entry outlasts the one-hour App token, so it is split
+# into batches, for example "^[a-l]" and then "^[m-z]".
+# Arguments:
+#   $1 - CSV entries, one per line
+#   $2 - Extended regular expression, matched without regard to case; empty keeps all
+# Returns:
+#   The kept entries via stdout; fails when a filter matches nothing
+select_entries() {
+  local csv_entries="$1"
+  local filter="$2"
+
+  if [[ -z "${filter}" ]]; then
+    printf '%s\n' "${csv_entries}"
+    return
+  fi
+
+  if ! grep -Ei -- "${filter}" <<< "${csv_entries}"; then
+    echo "::error title=No Matching Entries::The filter \"${filter}\" matches no entry." >&2
+    return 1
+  fi
+}
+
 # Fetch every repository's metadata up front, batched into few GraphQL queries.
 #
 # The main loop is serial because it mutates git state, but the metadata each

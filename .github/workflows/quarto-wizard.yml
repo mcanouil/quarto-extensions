@@ -13,6 +13,11 @@ on:
         required: false
         default: false
         type: boolean
+      entries:
+        description: "Only process entries matching this regular expression, ignoring case (for example ^[a-l])"
+        required: false
+        default: ""
+        type: string
   repository_dispatch:
   release:
     types: [published]
@@ -46,6 +51,7 @@ jobs:
       EXTENSIONS_DIR: "extensions"
       DEBUG_MODE: ${{ github.event.inputs.debug }}
       FORCE_UPDATE: ${{ github.event.inputs.force_update }}
+      ENTRIES_FILTER: ${{ github.event.inputs.entries }}
     steps:
       # The token must exist before the first checkout. A checkout without an
       # explicit token persists GITHUB_TOKEN in .git/config, and the later push
@@ -103,6 +109,7 @@ jobs:
           GH_TOKEN: ${{ steps.token.outputs.token }}
           DEBUG_MODE: ${{ env.DEBUG_MODE }}
           FORCE_UPDATE: ${{ env.FORCE_UPDATE }}
+          ENTRIES_FILTER: ${{ env.ENTRIES_FILTER }}
           EXTENSIONS_DIR: ${{ env.EXTENSIONS_DIR }}
           JSON_FILE: ${{ env.JSON_FILE }}
           BRANCH: ${{ env.BRANCH }}
