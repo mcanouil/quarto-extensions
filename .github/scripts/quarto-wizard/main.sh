@@ -56,13 +56,10 @@ process_extensions "${CSV_ENTRIES}"
 find "${EXTENSIONS_DIR}" -type f -path "${EXTENSIONS_DIR}/*/*/extension.json" -print0 | xargs -0 cat | jq -s 'add' > "${JSON_FILE}"
 git_stage_and_commit "${JSON_FILE}"
 
-# Clean up outdated directories. The cleanup removes every directory that was
-# not processed, so a filtered run must not do it.
-if [[ -z "${ENTRIES_FILTER}" ]]; then
-  github_cleanup_extensions_dir "${EXTENSIONS_DIR}" "${valid_dirs[@]}"
-else
-  echo "::notice title=Cleanup Skipped::Only entries matching \"${ENTRIES_FILTER}\" were processed."
-fi
+# Clean up outdated directories, keeping every listed entry even when this run
+# did not process it
+mapfile -t -O "${#valid_dirs[@]}" valid_dirs < <(listed_entry_dirs "data/${CSV_FILE}" "${EXTENSIONS_DIR}")
+github_cleanup_extensions_dir "${EXTENSIONS_DIR}" "${valid_dirs[@]}"
 
 # Publish every commit made above in a single push
 git_push_branch

@@ -190,4 +190,8 @@ check 'a filter keeps the matching entries, ignoring case' \
 check 'a filter that matches nothing fails' \
 	'failed' "$(select_entries "${entries}" "^z" 2>/dev/null || echo failed)"
 
+printf 'Alpha/One\n\nskriptum/diatypst/diaquarto\n' >"${work}/list.csv"
+check 'every listed entry keeps its lower-cased owner/repo directory' \
+	$'ext/alpha/one\next/skriptum/diatypst' "$(listed_entry_dirs "${work}/list.csv" ext)"
+
 finish

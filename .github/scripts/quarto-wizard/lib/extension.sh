@@ -107,6 +107,24 @@ select_entries() {
   fi
 }
 
+# List the record directory of every entry in the CSV file.
+#
+# The cleanup keeps these, so a run that processed only some entries (a
+# filtered or debug run) does not delete the records of the others. Records
+# live under the lower-cased owner/repo, which is what nameWithOwner holds.
+# Arguments:
+#   $1 - CSV file, one entry per line
+#   $2 - Extensions directory
+# Returns:
+#   One directory per line via stdout
+listed_entry_dirs() {
+  local list_file="$1"
+  local records_dir="$2"
+
+  grep -v '^[[:space:]]*$' "${list_file}" | tr -d '\r' | tr '[:upper:]' '[:lower:]' | cut -d'/' -f1,2 |
+    sed "s|^|${records_dir}/|"
+}
+
 # Fetch every repository's metadata up front, batched into few GraphQL queries.
 #
 # The main loop is serial because it mutates git state, but the metadata each
