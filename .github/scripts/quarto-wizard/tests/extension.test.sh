@@ -123,4 +123,20 @@ YAML
 check 'extensions vendored outside the root _extensions are ignored' \
 	'["filter"]' "$(manifest _extensions/demo/_extension.yml docs/_extensions/site/_extension.yml | jq -c '.contributes')"
 
+blob diaquarto/_extensions/demo/_extension.yml <<'YAML'
+contributes:
+  filters:
+    - demo.lua
+YAML
+blob vendor/diaquarto/_extensions/site/_extension.yml <<'YAML'
+contributes:
+  shortcodes:
+    - site.lua
+YAML
+
+subdir_tree=$(jq -nc '["diaquarto/_extensions/demo/_extension.yml", "vendor/diaquarto/_extensions/site/_extension.yml"] | map({path: ., url: .})')
+check 'an entry in a subdirectory reads only that subdirectory'"'"'s manifests' \
+	'["filter"]' "$(PATH="${work}/manifest/bin:${PATH}" STUB_DIR="${work}/manifest" \
+		extract_extension_manifest "${subdir_tree}" "owner/demo" "main" "diaquarto/" | jq -c '.contributes')"
+
 finish
