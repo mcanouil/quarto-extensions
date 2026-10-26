@@ -1,24 +1,24 @@
 {
   "christopherkenny/ctk-article": {
-    "createdAt": "2024-06-26T17:15:15Z",
-    "defaultBranchRef": "main",
+    "name": "ctk-article",
+    "title": "CTK ARTICLE",
+    "nameWithOwner": "christopherkenny/ctk-article",
+    "owner": "christopherkenny",
     "description": "A general purpose article template for Quarto with a Typst backend",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/41abf410ddc4a5f68a728aaf0214922817bb0515449f268ae0fa0a89794ba291/christopherkenny/ctk-article",
+    "stargazerCount": 9,
+    "licenseInfo": "MIT License",
+    "url": "https://github.com/christopherkenny/ctk-article",
     "latestRelease": "v1.0.3",
     "latestReleaseUrl": "https://github.com/christopherkenny/ctk-article/releases/tag/v1.0.3",
-    "licenseInfo": "MIT License",
-    "name": "ctk-article",
-    "nameWithOwner": "christopherkenny/ctk-article",
-    "openGraphImageUrl": "https://opengraph.githubassets.com/41abf410ddc4a5f68a728aaf0214922817bb0515449f268ae0fa0a89794ba291/christopherkenny/ctk-article",
-    "owner": "christopherkenny",
+    "createdAt": "2024-06-26T17:15:15Z",
+    "updatedAt": "2026-06-22T14:14:19Z",
     "pushedAt": "2026-06-22T14:12:42Z",
+    "defaultBranchRef": "main",
     "repositoryTopics": [
       "typst",
       "template"
     ],
-    "stargazerCount": 9,
-    "title": "CTK ARTICLE",
-    "updatedAt": "2026-06-22T14:14:19Z",
-    "url": "https://github.com/christopherkenny/ctk-article",
     "author": "Christopher T. Kenny",
     "template": true,
     "example": false,
@@ -26,6 +26,9 @@
     "contributes": [
       "filter",
       "format"
+    ],
+    "formats": [
+      "typst"
     ],
     "quartoRequired": ">=1.5.0"
   }
