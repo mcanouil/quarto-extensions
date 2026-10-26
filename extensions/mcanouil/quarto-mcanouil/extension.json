@@ -25,11 +25,14 @@
     "example": true,
     "latestCommit": "5e2f301c60dce7a9a0a52ba1f77c50e582647ea8",
     "contributes": [
-      "filter",
       "format",
       "metadata",
-      "project",
-      "shortcode"
+      "project"
+    ],
+    "formats": [
+      "html",
+      "revealjs",
+      "typst"
     ],
     "quartoRequired": ">=1.9.36"
   }
