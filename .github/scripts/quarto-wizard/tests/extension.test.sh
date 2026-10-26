@@ -182,4 +182,14 @@ check 'an extension without formats has an empty list' \
 check 'a repository without manifests has no formats' \
 	'null' "$(manifest | jq -c '.formats')"
 
+entries=$'alpha/one\nBeta/two\nmike/three'
+check 'an empty filter keeps every entry' \
+	"${entries}" "$(select_entries "${entries}" "")"
+check 'a filter keeps the matching entries, ignoring case' \
+	$'alpha/one\nBeta/two' "$(select_entries "${entries}" "^[a-l]")"
+check 'a filter that matches nothing fails' \
+	'failed' "$(select_entries "${entries}" "^z" 2>/dev/null || echo failed)"
+check 'an invalid filter is reported as invalid' \
+	'1' "$(select_entries "${entries}" "[a-l" 2>&1 >/dev/null | grep -c 'Invalid Entries Filter')"
+
 finish
