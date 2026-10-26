@@ -1,23 +1,23 @@
 {
   "cct-datascience/uaz-revealjs": {
-    "createdAt": "2022-08-05T16:06:07Z",
-    "defaultBranchRef": "main",
+    "name": "uaz-revealjs",
+    "title": "UAZ REVEALJS",
+    "nameWithOwner": "cct-datascience/uaz-revealjs",
+    "owner": "cct-datascience",
     "description": "University of Arizona theme for Quarto revealjs slides",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/26fefdeb5160df550ff12cdd150a5ca0ebb6d0867a30c01bd6c8cf0748737b19/cct-datascience/uaz-revealjs",
+    "stargazerCount": 6,
+    "licenseInfo": "Creative Commons Zero v1.0 Universal",
+    "url": "https://github.com/cct-datascience/uaz-revealjs",
     "latestRelease": "v0.2.0",
     "latestReleaseUrl": "https://github.com/cct-datascience/uaz-revealjs/releases/tag/v0.2.0",
-    "licenseInfo": "Creative Commons Zero v1.0 Universal",
-    "name": "uaz-revealjs",
-    "nameWithOwner": "cct-datascience/uaz-revealjs",
-    "openGraphImageUrl": "https://opengraph.githubassets.com/26fefdeb5160df550ff12cdd150a5ca0ebb6d0867a30c01bd6c8cf0748737b19/cct-datascience/uaz-revealjs",
-    "owner": "cct-datascience",
+    "createdAt": "2022-08-05T16:06:07Z",
+    "updatedAt": "2025-09-25T15:37:35Z",
     "pushedAt": "2025-02-11T22:40:29Z",
+    "defaultBranchRef": "main",
     "repositoryTopics": [
       "template"
     ],
-    "stargazerCount": 6,
-    "title": "UAZ REVEALJS",
-    "updatedAt": "2025-09-25T15:37:35Z",
-    "url": "https://github.com/cct-datascience/uaz-revealjs",
     "author": "CCT Data Science",
     "template": true,
     "example": false,
@@ -25,6 +25,9 @@
     "contributes": [
       "format",
       "highlight-style"
+    ],
+    "formats": [
+      "revealjs"
     ],
     "quartoRequired": ">=1.2"
   }
