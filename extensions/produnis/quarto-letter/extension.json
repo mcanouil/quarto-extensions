@@ -1,16 +1,20 @@
 {
   "produnis/quarto-letter": {
-    "createdAt": "2024-01-12T20:06:12Z",
-    "defaultBranchRef": "main",
+    "name": "quarto-letter",
+    "title": "LETTER",
+    "nameWithOwner": "produnis/quarto-letter",
+    "owner": "produnis",
     "description": "A Quarto extension for generating PDF letters using Typst or LaTeX",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/f72a583b8f9681c92d1af662821cbb626de490042a926741b6bc76f0cd20454b/produnis/quarto-letter",
+    "stargazerCount": 6,
+    "licenseInfo": "MIT License",
+    "url": "https://github.com/produnis/quarto-letter",
     "latestRelease": "none",
     "latestReleaseUrl": null,
-    "licenseInfo": "MIT License",
-    "name": "quarto-letter",
-    "nameWithOwner": "produnis/quarto-letter",
-    "openGraphImageUrl": "https://opengraph.githubassets.com/f72a583b8f9681c92d1af662821cbb626de490042a926741b6bc76f0cd20454b/produnis/quarto-letter",
-    "owner": "produnis",
+    "createdAt": "2024-01-12T20:06:12Z",
+    "updatedAt": "2026-03-15T17:42:33Z",
     "pushedAt": "2026-03-13T11:49:52Z",
+    "defaultBranchRef": "main",
     "repositoryTopics": [
       "latex",
       "letter",
@@ -18,16 +22,16 @@
       "typst",
       "template"
     ],
-    "stargazerCount": 6,
-    "title": "LETTER",
-    "updatedAt": "2026-03-15T17:42:33Z",
-    "url": "https://github.com/produnis/quarto-letter",
     "author": "Joe Slam",
     "template": true,
     "example": false,
     "latestCommit": "cd551be9d0aab4d4ac2c0488241872e16c8f8d7f",
     "contributes": [
       "format"
+    ],
+    "formats": [
+      "pdf",
+      "typst"
     ],
     "quartoRequired": ">=1.7.0"
   }
