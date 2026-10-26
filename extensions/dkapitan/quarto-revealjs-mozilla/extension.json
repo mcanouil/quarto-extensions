@@ -1,24 +1,24 @@
 {
   "dkapitan/quarto-revealjs-mozilla": {
-    "createdAt": "2026-03-14T14:06:05Z",
-    "defaultBranchRef": "main",
+    "name": "quarto-revealjs-mozilla",
+    "title": "REVEALJS MOZILLA",
+    "nameWithOwner": "dkapitan/quarto-revealjs-mozilla",
+    "owner": "dkapitan",
     "description": "Quarto revealjs extension matching Mozilla brand guidelines",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/25556f841b78ce0e4b0eca4d4a07bb9e0b2ee878ab5a3a6451cee37be563702c/dkapitan/quarto-revealjs-mozilla",
+    "stargazerCount": 2,
+    "licenseInfo": "MIT License",
+    "url": "https://github.com/dkapitan/quarto-revealjs-mozilla",
     "latestRelease": "1.1.1",
     "latestReleaseUrl": "https://github.com/dkapitan/quarto-revealjs-mozilla/releases/tag/1.1.1",
-    "licenseInfo": "MIT License",
-    "name": "quarto-revealjs-mozilla",
-    "nameWithOwner": "dkapitan/quarto-revealjs-mozilla",
-    "openGraphImageUrl": "https://opengraph.githubassets.com/25556f841b78ce0e4b0eca4d4a07bb9e0b2ee878ab5a3a6451cee37be563702c/dkapitan/quarto-revealjs-mozilla",
-    "owner": "dkapitan",
+    "createdAt": "2026-03-14T14:06:05Z",
+    "updatedAt": "2026-05-14T10:08:50Z",
     "pushedAt": "2026-05-14T10:08:46Z",
+    "defaultBranchRef": "main",
     "repositoryTopics": [
       "template",
       "example"
     ],
-    "stargazerCount": 2,
-    "title": "REVEALJS MOZILLA",
-    "updatedAt": "2026-05-14T10:08:50Z",
-    "url": "https://github.com/dkapitan/quarto-revealjs-mozilla",
     "author": "Daniel Kapitan",
     "template": true,
     "example": true,
@@ -26,6 +26,9 @@
     "contributes": [
       "format",
       "shortcode"
+    ],
+    "formats": [
+      "revealjs"
     ],
     "quartoRequired": ">=1.4.0"
   }
