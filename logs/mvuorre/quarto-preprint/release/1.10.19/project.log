@@ -10,7 +10,8 @@ DONE
 warning: unknown font family: georgia
     ┌─ tests/brand/index.typ:801:30
     │
-801 │ #show heading: set text(font: ("Georgia",), weight: 600, style: "normal", fill: rgb("#800020"), )
+801 │ #show heading: set text(font: ("Georgia
+",), weight: 600, style: "normal", fill: rgb("#800020"), )
     │                               ^^^^^^^^^^^^
 
 warning: unknown font family: helvetica
@@ -23,8 +24,7 @@ warning: unknown font family: courier new
     ┌─ tests/brand/index.typ:493:27
     │
 493 │   show raw: set text(font: codefont) if codefont != none
-    │                            ^^^
-^^^^^
+    │                            ^^^^^^^^
 
 warning: unknown font family: georgia
     ┌─ tests/brand/index.typ:587:26

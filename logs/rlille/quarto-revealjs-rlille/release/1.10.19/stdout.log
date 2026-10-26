@@ -1,5 +1,9 @@
 Dependency install phase for rlille/quarto-revealjs-rlille: auto-detect
 Auto-detecting R dependencies for rlille/quarto-revealjs-rlille (knitr engine, no renv.lock).
+** libs
+using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c renv.c -o renv.o
+gcc -std=gnu2x -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o renv.so renv.o -L/opt/R/4.6.1/lib/R/lib -lR
 Installing R packages: ggtext 
 gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c read.c -o read.o
 gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c reg.c -o reg.o

@@ -50,9 +50,9 @@ Latexmk: This is Latexmk, John Collins, 9 March 2026. Version 4.88.
 No existing .aux file, so I'll make a simple one, and require run of *latex.
 
 Latexmk: applying rule 'pdflatex'...
-
 Rule 'pdflatex':  Reasons for rerun
 Category 'other':
+
   Rerun of 'pdflatex' forced or previously required:
     Reason or flag: 'Initial setup'
 
@@ -79,6 +79,7 @@ Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: cls)
 
 Enter file name: 
+
 ! Emergency stop.
 <read *> 
          
@@ -111,7 +112,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/example-quarto//:/tmp/quarto-sessionc2cad7a9931b9a0e/80de0d5e441abb4e//:/home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=pdf source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-16/repo/example-quarto//:/tmp/quarto-sessionc7cb7c42293c3e1c/ad2b10a20ba9b103//:/home/runner/work/quarto-extensions/quarto-extensions/test-16/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=pdf source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -207,7 +208,7 @@ q1 -- q2 -- q3; % make these edges plain
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.10.15)  15 OCT 2026 14:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.10.26)  26 OCT 2026 12:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -302,7 +303,6 @@ Collected error summary (may duplicate other messages):
       Refer to 'source.log' and/or above output for details
 
 
-
 Latexmk: Sometimes, the -f option can be used to get latexmk
   to try to force complete processing.
   But normally, you will need to correct the file(s) that caused the
@@ -311,7 +311,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/example-quarto//:/tmp/quarto-sessionc2cad7a9931b9a0e/80de0d5e441abb4e//:/home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=pdf source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-16/repo/example-quarto//:/tmp/quarto-sessionc7cb7c42293c3e1c/ad2b10a20ba9b103//:/home/runner/work/quarto-extensions/quarto-extensions/test-16/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=pdf source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -383,7 +383,7 @@ $
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.10.15)  15 OCT 2026 14:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.10.26)  26 OCT 2026 12:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -441,7 +441,7 @@ l.203 \usetikzlibrary
 
 
 
-see /home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/example-quarto/example.log for more information.
+see /home/runner/work/quarto-extensions/quarto-extensions/test-16/repo/example-quarto/example.log for more information.
 
 (WARN) Error encountered when rendering files
 

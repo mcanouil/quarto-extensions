@@ -78,8 +78,8 @@ output file: template.knit.md
 warning: unknown font family: libertinus sans
     ┌─ template.typ:327:31
     │
-327 │   show heading: set text(font: sansfont, weight: "semibo
-ld")
+327 │   show heading: set text(
+font: sansfont, weight: "semibold")
     │                                ^^^^^^^^
 
 warning: unknown font family: libertinus sans
@@ -104,44 +104,51 @@ warning: unknown font family: libertinus sans
     ┌─ template.typ:418:34
     │
 418 │         #text(size: 0.85em, font: sansfont)[#author.affiliation] \
-    │                                   ^^^^^^^^
+    │                 
+                  ^^^^^^^^
 
 warning: unknown font family: libertinus sans
     ┌─ template.typ:419:33
     │
 419 │         #text(size: 0.7em, font: sansfont, fill: link-color)[
-    │                                  ^^^^^^^^
+    │                     
+             ^^^^^^^^
 
 warning: unknown font family: libertinus sans
     ┌─ template.typ:428:38
     │
-428 │       #text(weight: "semibold", font: sansfont, size: 0.9em)[#abstract-title] #h(0.5em)
+428 │       #text(weight: "semibold", font: s
+ansfont, size: 0.9em)[#abstract-title] #h(0.5em)
     │                                       ^^^^^^^^
 
 warning: unknown font family: libertinus sans
     ┌─ template.typ:429:18
+
     │
 429 │       #text(font: sansfont)[#abstract]
     │                   ^^^^^^^^
 
+
 warning: unknown font family: libertinus sans
     ┌─ template.typ:431:39
     │
-431 │         text(weight: "semibold", font: sansfont, size: 0.9em)[\ Keywords:]
-    │                                        ^^
-^^^^^^
+431 │         text(weight: "semibold", font: sansf
+ont, size: 0.9em)[\ Keywords:]
+    │                                        ^^^^^^^^
 
 warning: unknown font family: libertinus sans
     ┌─ template.typ:433:19
     │
+
 433 │         text(font: sansfont)[#keywords]
     │                    ^^^^^^^^
+
 
 warning: unknown font family: libertinus sans
     ┌─ template.typ:330:20
     │
-330 │     #set text(font: sansfont, 
-size: 0.9em)
+330 │     #set text(font: sansfont, size: 0
+.9em)
     │                     ^^^^^^^^
 
 

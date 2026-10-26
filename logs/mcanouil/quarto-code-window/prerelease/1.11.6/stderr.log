@@ -1,0 +1,114 @@
+Cloning into 'repo'...
+pandoc 
+  to: typst
+  output-file: filter-disabled-no-language.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+metadata
+  title: The filter turned off, and a block with no language
+  extensions:
+    code-window:
+      enabled: false
+  
+[31mFATAL (/opt/quarto/share/filters/main.lua:3757) An error occurred:
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-10/repo/tests/fixtures/code-window as a JSON filter.
+Please make sure the file exists and is executable.
+
+Did you intend 'code-window' as a Lua filter in an extension?
+If so, make sure you've spelled the name of the extension correctly.
+
+The original Pandoc error follows below.
+Error running filter '/home/runner/work/quarto-extensions/quarto-extensions/test-10/repo/tests/fixtures/code-window':
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-10/repo/tests/fixtures/code-window
+[39mError running filter '/opt/quarto/share/filters/main.lua':
+/opt/quarto/share/filters/main.lua:589: FATAL QUARTO ERROR
+stack traceback:
+	/opt/quarto/share/filters/main.lua:2621: in function 'fatal'
+	/opt/quarto/share/filters/main.lua:2201: in function 'fail'
+	/opt/quarto/share/filters/main.lua:3757: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:589: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1318: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1336: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
+ERROR: [31mFATAL (/opt/quarto/share/filters/main.lua:3757) An error occurred:
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-10/repo/tests/fixtures/code-window as a JSON filter.
+Please make sure the file exists and is executable.
+
+Did you intend 'code-window' as a Lua filter in an extension?
+If so, make sure you've spelled the name of the extension correctly.
+
+The original Pandoc error follows below.
+Error running filter '/home/runner/work/quarto-extensions/quarto-extensions/test-10/repo/tests/fixtures/code-window':
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-10/repo/tests/fixtures/code-window
+[39mError running filter '/opt/quarto/share/filters/main.lua':
+/opt/quarto/share/filters/main.lua:589: FATAL QUARTO ERROR
+stack traceback:
+	/opt/quarto/share/filters/main.lua:2621: in function 'fatal'
+	/opt/quarto/share/filters/main.lua:2201: in function 'fail'
+	/opt/quarto/share/filters/main.lua:3757: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:589: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1318: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1336: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
+ERROR: Pandoc conversion failed (exit code 83)
+Render failed, retrying once...
+pandoc 
+  to: typst
+  output-file: filter-disabled-no-language.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+metadata
+  title: The filter turned off, and a block with no language
+  extensions:
+    code-window:
+      enabled: false
+  
+[31mFATAL (/opt/quarto/share/filters/main.lua:3757) An error occurred:
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-10/repo/tests/fixtures/code-window as a JSON filter.
+Please make sure the file exists and is executable.
+
+Did you intend 'code-window' as a Lua filter in an extension?
+If so, make sure you've spelled the name of the extension correctly.
+
+The original Pandoc error follows below.
+Error running filter '/home/runner/work/quarto-extensions/quarto-extensions/test-10/repo/tests/fixtures/code-window':
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-10/repo/tests/fixtures/code-window
+[39mError running filter '/opt/quarto/share/filters/main.lua':
+/opt/quarto/share/filters/main.lua:589: FATAL QUARTO ERROR
+stack traceback:
+	/opt/quarto/share/filters/main.lua:2621: in function 'fatal'
+	/opt/quarto/share/filters/main.lua:2201: in function 'fail'
+	/opt/quarto/share/filters/main.lua:3757: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:589: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1318: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1336: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
+ERROR: [31mFATAL (/opt/quarto/share/filters/main.lua:3757) An error occurred:
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-10/repo/tests/fixtures/code-window as a JSON filter.
+Please make sure the file exists and is executable.
+
+Did you intend 'code-window' as a Lua filter in an extension?
+If so, make sure you've spelled the name of the extension correctly.
+
+The original Pandoc error follows below.
+Error running filter '/home/runner/work/quarto-extensions/quarto-extensions/test-10/repo/tests/fixtures/code-window':
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-10/repo/tests/fixtures/code-window
+[39mError running filter '/opt/quarto/share/filters/main.lua':
+/opt/quarto/share/filters/main.lua:589: FATAL QUARTO ERROR
+stack traceback:
+	/opt/quarto/share/filters/main.lua:2621: in function 'fatal'
+	/opt/quarto/share/filters/main.lua:2201: in function 'fail'
+	/opt/quarto/share/filters/main.lua:3757: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:589: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1318: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1336: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
+ERROR: Pandoc conversion failed (exit code 83)

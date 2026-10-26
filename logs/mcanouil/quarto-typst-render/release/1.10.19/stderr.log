@@ -66,7 +66,7 @@ Output created: example-beamer.pdf
 pandoc 
   to: docx
   output-file: >-
-    /home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-docx.docx
+    /home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/example-docx.docx
   default-image-extension: png
   
 metadata
@@ -86,7 +86,7 @@ Output created: example-docx.docx
 
 pandoc 
   to: html
-  output-file: /home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/index.html
+  output-file: /home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/index.html
   standalone: true
   embed-resources: true
   section-divs: true
@@ -288,7 +288,7 @@ Output created: example-xelatex.pdf
 pandoc 
   to: pptx
   output-file: >-
-    /home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-pptx.pptx
+    /home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/example-pptx.pptx
   default-image-extension: png
   
 metadata
@@ -312,7 +312,7 @@ metadata
 pandoc 
   to: revealjs
   output-file: >-
-    /home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example-revealjs.html
+    /home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/example-revealjs.html
   standalone: true
   embed-resources: true
   wrap: none

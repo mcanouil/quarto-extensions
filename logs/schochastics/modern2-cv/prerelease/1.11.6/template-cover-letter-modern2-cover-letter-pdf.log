@@ -1,0 +1,75 @@
+pandoc 
+
+  to: latex
+  output-file: template-cover-letter.tex
+  template: _extensions/modern2-cover-letter/cover-letter-template.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+
+metadata
+
+  block-headings: true
+  author: David Schoch
+  date: today
+  date-format: long
+  cvfont: raleway
+  cvcolor:
+    main: B83B5E
+    accent: 6A2C70
+  title: Motivation letter
+  sub-title: Application as Team Lead "Transparent Social Analytics"
+  contact:
+    street: First Street 1
+    zip: 1234
+    city: Some City
+    phone: +1 2345 6789
+    mail: some.mail@mailbox.com
+  organization:
+    contact-person: Big Boss
+    name: Important Corporation
+    street: Second Street 2
+    zip: 1234
+    city: Some City
+  
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for t1raleway(0).fd
+
+> 1 package to install
+
+> installing hyphen-german (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+running lualatex - 2
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+
+
+Output created: template-cover-letter.pdf
+
+

@@ -1,0 +1,983 @@
+Cloning into 'repo'...
+
+pandoc 
+  to: typst
+  output-file: typst.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+metadata
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: '#003366'
+      badge-text-colour: white
+  title: Typst badge
+  
+[typst]: Compiling typst.typ to typst.pdf...DONE
+
+
+Output created: _site/typst.pdf
+
+
+pandoc 
+  to: html
+  output-file: faint.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: '#00000040'
+  theme:
+    light: flatly
+    dark: darkly
+  title: Faint badge
+  
+(W) [gitlink] 'badge-background-colour' value '#00000040' is too transparent for readable text (1.8:1 at worst, below 4.5:1). Use a more opaque colour or a valid 'badge-text-colour'.
+
+Output created: _site/faint.html
+
+
+pandoc 
+  to: html
+  output-file: short-hex.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: '#036'
+  theme:
+    light: flatly
+    dark: darkly
+  title: Short hex badge
+  
+
+Output created: _site/short-hex.html
+
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+  theme:
+    light: flatly
+    dark: darkly
+  title: Default badge
+  
+
+Output created: _site/index.html
+
+
+pandoc 
+  to: html
+  output-file: boolean-colour.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-text-colour: true
+  theme:
+    light: flatly
+    dark: darkly
+  title: Boolean colour
+  
+(E) [gitlink] badge-text-colour: must be of type "string", got "boolean".
+
+Output created: _site/boolean-colour.html
+
+
+pandoc 
+  to: html
+  output-file: named.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: navy
+  theme:
+    light: flatly
+    dark: darkly
+  title: Named colour badge
+  
+
+Output created: _site/named.html
+
+
+pandoc 
+  to: html
+  output-file: odd-hex.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: '#ffffa'
+  theme:
+    light: flatly
+    dark: darkly
+  title: Five-digit hex
+  
+(W) [gitlink] Ignoring invalid 'badge-background-colour' value '#ffffa': expected a hex colour (e.g. '#c3c3c3') or a CSS named colour.
+
+Output created: _site/odd-hex.html
+
+
+pandoc 
+  to: html
+  output-file: explicit.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: '#003366'
+      badge-text-colour: '#ffcc00'
+  theme:
+    light: flatly
+    dark: darkly
+  title: Explicit text colour
+  
+
+Output created: _site/explicit.html
+
+
+pandoc 
+  to: html
+  output-file: dark.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: '#003366'
+  theme:
+    light: flatly
+    dark: darkly
+  title: Dark badge
+  
+
+Output created: _site/dark.html
+
+
+pandoc 
+  to: html
+  output-file: bad-platforms.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      custom-platforms-file: bad-platforms.yml
+  theme:
+    light: flatly
+    dark: darkly
+  title: Invalid custom platforms
+  
+(E) [gitlink] Failed to load custom platforms from 'bad-platforms.yml':
+broken:
+  - Missing required field: "base-url" (e.g., https://github.com)
+  - Missing required field: "patterns" (add patterns section with: issue, merge-request, commit, user)
+  - Missing required field: "url-formats" (add url-formats section with: issue, pull, merge-request, commit, user)
+
+Output created: _site/bad-platforms.html
+
+
+pandoc 
+  to: html
+  output-file: named-text.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: '#003366'
+      badge-text-colour: white
+  theme:
+    light: flatly
+    dark: darkly
+  title: Named text colour
+  
+
+Output created: _site/named-text.html
+
+
+pandoc 
+  to: html
+  output-file: us-spelling.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-color: '#003366'
+      badge-text-color: '#ffcc00'
+  theme:
+    light: flatly
+    dark: darkly
+  title: US spelling
+  
+
+Output created: _site/us-spelling.html
+
+
+pandoc 
+  to: html
+  output-file: translucent.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: '#003366cc'
+  theme:
+    light: flatly
+    dark: darkly
+  title: Translucent badge
+  
+
+Output created: _site/translucent.html
+
+
+pandoc 
+  to: html
+  output-file: no-badge.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      show-platform-badge: false
+      badge-background-colour: '#ff000040'
+  theme:
+    light: flatly
+    dark: darkly
+  title: No badge
+  
+
+Output created: _site/no-badge.html
+
+
+pandoc 
+  to: html
+  output-file: boundary-white.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: '#757575'
+  theme:
+    light: flatly
+    dark: darkly
+  title: boundary-white
+  
+
+Output created: _site/boundary-white.html
+
+
+pandoc 
+  to: html
+  output-file: boundary-black.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: '#767676'
+  theme:
+    light: flatly
+    dark: darkly
+  title: boundary-black
+  
+
+Output created: _site/boundary-black.html
+
+
+pandoc 
+  to: typst
+  output-file: typst-computed.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+metadata
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: '#003366cc'
+  title: Typst computed badge
+  
+[typst]: Compiling typst-computed.typ to typst-computed.pdf...DONE
+
+
+Output created: _site/typst-computed.pdf
+
+
+pandoc 
+  to: html
+  output-file: short-hex-alpha.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: '#036c'
+  theme:
+    light: flatly
+    dark: darkly
+  title: Short hex with alpha
+  
+
+Output created: _site/short-hex-alpha.html
+
+
+pandoc 
+  to: html
+  output-file: faint-no-link.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: '#0000ff40'
+  theme:
+    light: flatly
+    dark: darkly
+  title: Faint without links
+  
+
+Output created: _site/faint-no-link.html
+
+
+pandoc 
+  to: html
+  output-file: unknown-name.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: teel
+  theme:
+    light: flatly
+    dark: darkly
+  title: Unknown colour name
+  
+(W) [gitlink] Ignoring invalid 'badge-background-colour' value 'teel': expected a hex colour (e.g. '#c3c3c3') or a CSS named colour.
+
+Output created: _site/unknown-name.html
+
+
+pandoc 
+  to: typst
+  output-file: typst-faint.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+metadata
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: '#00000040'
+  title: Typst faint badge
+  
+[typst]: Compiling typst-faint.typ to typst-faint.pdf...DONE
+
+
+Output created: _site/typst-faint.pdf
+
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Gitlink Widget Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      widget:
+        enabled: true
+        links:
+          discussions: true
+        extra-links:
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+          - text: Quarto
+            href: https://quarto.org
+            icon: globe
+        sponsor: mcanouil
+        style-navbar-tools: true
+  theme:
+    light: flatly
+    dark: darkly
+  title: 'Widget test: GitHub defaults'
+  
+
+Output created: _site/index.html
+
+
+pandoc 
+  to: html
+  output-file: widget-only.html
+  standalone: true
+  title-prefix: Gitlink Widget Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      widget:
+        enabled: true
+        links:
+          discussions: true
+        extra-links:
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+          - text: Quarto
+            href: https://quarto.org
+            icon: globe
+        sponsor: mcanouil
+        style-navbar-tools: true
+      enabled: false
+  theme:
+    light: flatly
+    dark: darkly
+  title: 'Widget test: widget only'
+  
+
+Output created: _site/widget-only.html
+
+
+pandoc 
+  to: html
+  output-file: codeberg.html
+  standalone: true
+  title-prefix: Gitlink Widget Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: codeberg
+      repository-name: forgejo/forgejo
+      widget:
+        enabled: true
+        links:
+          discussions: true
+        extra-links:
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+          - text: Quarto
+            href: https://quarto.org
+            icon: globe
+        sponsor: mcanouil
+        style-navbar-tools: true
+  theme:
+    light: flatly
+    dark: darkly
+  title: 'Widget test: Codeberg'
+  
+(W) [gitlink] Ignoring 'widget.sponsor': platform 'codeberg' defines no sponsor URL.
+
+Output created: _site/codeberg.html
+
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Gitlink Sidebar Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      widget:
+        enabled: true
+        links:
+          discussions: true
+        extra-links:
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+          - text: Quarto
+            href: https://quarto.org
+            icon: globe
+        sponsor: mcanouil
+      enabled: false
+  theme:
+    light: flatly
+    dark: darkly
+  title: 'Session 2: Authoring essentials'
+  
+
+Output created: ../../_site/sessions/02-authoring-essentials/index.html
+
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Gitlink Sidebar Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      widget:
+        enabled: true
+        links:
+          discussions: true
+        extra-links:
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+          - text: Quarto
+            href: https://quarto.org
+            icon: globe
+        sponsor: mcanouil
+  theme:
+    light: flatly
+    dark: darkly
+  title: 'Session 1: Introduction and setup'
+  
+
+Output created: ../../_site/sessions/01-introduction-setup/index.html
+
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Gitlink Sidebar Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      widget:
+        enabled: true
+        links:
+          discussions: true
+        extra-links:
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+          - text: Quarto
+            href: https://quarto.org
+            icon: globe
+        sponsor: mcanouil
+  theme:
+    light: flatly
+    dark: darkly
+  title: 'Sidebar widget test: home'
+  
+
+Output created: _site/index.html
+
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Gitlink Sidebar Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      widget:
+        enabled: true
+        links:
+          discussions: true
+        extra-links:
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+          - text: Quarto
+            href: https://quarto.org
+            icon: globe
+        sponsor: mcanouil
+  theme:
+    light: flatly
+    dark: darkly
+  title: Program
+  
+
+Output created: ../_site/program/index.html
+
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Gitlink Navbar Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+  theme:
+    light: flatly
+    dark: darkly
+  title: 'Navbar href test: home'
+  
+
+Output created: _site/index.html
+
+
+pandoc 
+  to: html
+  output-file: about.html
+  standalone: true
+  title-prefix: Gitlink Navbar Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+  theme:
+    light: flatly
+    dark: darkly
+  title: About
+  description: 'A description that holds a reference to #1, which Quarto puts in a meta tag.'
+  about:
+    template: jolla
+    links:
+      - icon: github
+        text: Profile
+        href: https://github.com/mcanouil
+  
+
+Output created: _site/about.html
+
+pandoc 
+  to: html
+  output-file: /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/index.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Git Hosting Platform for Quarto
+  subtitle: Quarto Extension
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  extensions:
+    gitlink:
+      platform: github
+      base-url: https://github.com
+      repository-name: mcanouil/quarto-gitlink
+  
+Output created: index.html
+

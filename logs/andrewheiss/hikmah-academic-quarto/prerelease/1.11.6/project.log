@@ -1,0 +1,107 @@
+
+
+processing file: template.qmd
+
+1/5                  
+
+2/5 [unnamed-chunk-1]
+
+3/5                  
+
+4/5 [fig-n-lights]   
+
+5/5                  
+
+output file: template.knit.md
+
+
+
+
+processing file: template.qmd
+
+1
+/
+5                  
+
+2/5 [unnamed-chunk-1]
+
+3/5                  
+
+4/5 [fig-n-lights]   
+
+5/5                  
+
+output file: template.knit.md
+
+
+
+
+processing file: template.qmd
+
+1/5                  
+
+2/5 [unnamed-chunk-1]
+
+3/5                  
+
+4/5 [fig-n-lights]   
+
+5/5                  
+
+output file: template.knit.md
+
+
+
+
+processing file: template.qmd
+
+1/5                  
+
+2/5 [unnamed-chunk-1]
+
+3/5                  
+
+4/5 [fig-n-lights]   
+
+5/5                  
+
+output file: template.knit.md
+
+
+[typst]: Compiling template.typ to template.pdf...
+DONE
+
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+running lualatex - 2
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+
+
+(ERROR) NotFound: No such file or directory (os error 2): rename '/home/runner/work/quarto-extensions/quarto-extensions/test-8/repo/template.pdf' -> '/home/runner/work/quarto-extensions/quarto-extensions/test-8/repo/examples/template.pdf'
+
+Stack trace:
+    at Object.renameSync (ext:deno_fs/30_fs.js:267:3)
+    at safeMoveSync (file:///opt/quarto/bin/quarto.js:12447:10)
+    at renderProject (file:///opt/quarto/bin/quarto.js:132249:9)
+    at async file:///opt/quarto/bin/quarto.js:137435:24
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:137263:7)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:16875:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:16752:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:183538:5)
+    at async file:///opt/quarto/bin/quarto.js:183567:5
+    at async file:///opt/quarto/bin/quarto.js:183421:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:183423:5)
+    at async file:///opt/quarto/bin/quarto.js:183560:3
+

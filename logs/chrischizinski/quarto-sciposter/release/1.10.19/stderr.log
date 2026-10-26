@@ -1,28 +1,28 @@
 Cloning into 'repo'...
-Using CPython 3.13.16
+Using CPython 3.13.17
 Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
-Resolved 24 packages in 309ms
+Resolved 25 packages in 377ms
+Downloading numpy (15.9MiB)
+Downloading pillow (6.8MiB)
 Downloading scipy (33.7MiB)
-Downloading pillow (6.6MiB)
+Downloading pandas (11.4MiB)
 Downloading kiwisolver (1.4MiB)
 Downloading fonttools (5.1MiB)
-Downloading matplotlib (9.4MiB)
-Downloading pandas (10.3MiB)
-Downloading numpy (15.9MiB)
 Downloading plotnine (1.5MiB)
+Downloading matplotlib (9.4MiB)
 Downloading statsmodels (11.5MiB)
  Downloaded kiwisolver
  Downloaded plotnine
  Downloaded fonttools
  Downloaded pillow
  Downloaded matplotlib
- Downloaded statsmodels
  Downloaded numpy
+ Downloaded statsmodels
  Downloaded pandas
  Downloaded scipy
-Prepared 24 packages in 862ms
-Installed 24 packages in 689ms
+Prepared 25 packages in 634ms
+Installed 25 packages in 1.67s
  + contourpy==1.4.0
  + cycler==0.12.1
  + fonttools==4.67.0
@@ -34,18 +34,19 @@ Installed 24 packages in 689ms
  + narwhals==2.27.1
  + numpy==2.5.4
  + packaging==26.3
- + pandas==3.0.6
+ + pandas==3.1.0
  + patsy==1.0.3
- + pillow==12.3.0
+ + pillow==13.0.0
  + plotnine==0.15.8
  + pyparsing==3.3.3
- + python-dateutil==2.9.0.post0
+ + python-dateutil==3.0.0
  + pyyaml==6.0.3
  + scipy==1.18.1
  + seaborn==0.13.2
  + six==1.17.0
  + statsmodels==0.15.0
  + typing-extensions==4.16.0
+ + tzdata==2026.5
  + wrapt==2.5.1
 [ 1/17] template.qmd
 [typst]: Compiling template.typ to template.pdf...warning: unknown font family: helvetica neue

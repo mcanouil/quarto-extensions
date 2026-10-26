@@ -1,0 +1,40 @@
+Dependency install phase for emilhvitfeldt/quarto-revealjs-magic-move: auto-detect
+Auto-detecting R dependencies for emilhvitfeldt/quarto-revealjs-magic-move (knitr engine, no renv.lock).
+Installing R packages: ggiraph 
+No man pages found in package  'fontBitstreamVera' 
+No man pages found in package  'fontLiberation' 
+Found pkg-config cflags and libs!
+Using PKG_CFLAGS=-I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1 
+Using PKG_LIBS=-lcairo -lfreetype 
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c CairoContext.cpp -o CairoContext.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c font_metrics.cpp -o font_metrics.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -I/usr/include/cairo -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/pixman-1  -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c versions.cpp -o versions.o
+g++ -std=gnu++20 -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o gdtools.so CairoContext.o RcppExports.o font_metrics.o versions.o -lcairo -lfreetype -L/opt/R/4.6.1/lib/R/lib -lR
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c a_color.cpp -o a_color.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c clip.cpp -o clip.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c dsvg.cpp -o dsvg.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c dsvg_dev.cpp -o dsvg_dev.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c geom.cpp -o geom.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c indexed.cpp -o indexed.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c interactive.cpp -o interactive.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c mask.cpp -o mask.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c pattern.cpp -o pattern.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c raster.cpp -o raster.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c shapes.cpp -o shapes.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c svg.cpp -o svg.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c text.cpp -o text.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c tinyxml2.cpp -o tinyxml2.o
+g++ -std=gnu++20 -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.1/lib/R/library/Rcpp/include' -I'/opt/R/4.6.1/lib/R/library/systemfonts/include' -I/usr/local/include    -fpic  -g -O2   -c utils.cpp -o utils.o
+g++ -std=gnu++20 -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o ggiraph.so RcppExports.o a_color.o clip.o dsvg.o dsvg_dev.o geom.o indexed.o interactive.o mask.o pattern.o raster.o shapes.o svg.o text.o tinyxml2.o utils.o -lpng -lz -L/opt/R/4.6.1/lib/R/lib -lR
+Auto-detecting Python dependencies for emilhvitfeldt/quarto-revealjs-magic-move (jupyter engine, no lock file).
+Installing Python packages: altair, matplotlib, pandas, plotnine, seaborn
+Auto-detecting Julia dependencies for emilhvitfeldt/quarto-revealjs-magic-move (jupyter engine, no Project.toml).
+Installing Julia packages: CairoMakie, Plots, matplotlib
+Auto-detecting R dependencies for emilhvitfeldt/quarto-revealjs-magic-move (knitr engine, no renv.lock).
+No additional R packages to install.
+Auto-detecting Python dependencies for emilhvitfeldt/quarto-revealjs-magic-move (jupyter engine, no lock file).
+Installing Python packages: altair, matplotlib, pandas, plotnine, seaborn
+Auto-detecting Julia dependencies for emilhvitfeldt/quarto-revealjs-magic-move (jupyter engine, no Project.toml).
+Installing Julia packages: CairoMakie, Plots, matplotlib

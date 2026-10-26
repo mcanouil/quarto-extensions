@@ -1,12 +1,12 @@
 Cloning into 'repo'...
-Installing package into '/cache/r-lib-1'
+Installing package into '/cache/r-lib-0'
 (as 'lib' is unspecified)
 also installing the dependencies 'fontBitstreamVera', 'fontLiberation', 'fontquiver', 'gdtools'
 
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fontBitstreamVera_0.1.1.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fontLiberation_0.1.0.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fontquiver_0.2.1.tar.gz'
-trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/gdtools_0.5.1.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/gdtools_0.5.2.tar.gz'
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/ggiraph_0.9.6.tar.gz'
 * installing *source* package 'fontBitstreamVera' ...
 ** this is package 'fontBitstreamVera' version '0.1.1'
@@ -47,12 +47,12 @@ trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/ggiraph_0.9.
 ** testing if installed package keeps a record of temporary installation path
 * DONE (fontquiver)
 * installing *source* package 'gdtools' ...
-** this is package 'gdtools' version '0.5.1'
+** this is package 'gdtools' version '0.5.2'
 ** package 'gdtools' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** libs
 using C++ compiler: 'g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
-installing to /cache/r-lib-1/00LOCK-gdtools/00new/gdtools/libs
+installing to /cache/r-lib-0/00LOCK-gdtools/00new/gdtools/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -70,7 +70,7 @@ installing to /cache/r-lib-1/00LOCK-gdtools/00new/gdtools/libs
 ** using staged installation
 ** libs
 using C++ compiler: 'g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
-installing to /cache/r-lib-1/00LOCK-ggiraph/00new/ggiraph/libs
+installing to /cache/r-lib-0/00LOCK-ggiraph/00new/ggiraph/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -86,31 +86,31 @@ installing to /cache/r-lib-1/00LOCK-ggiraph/00new/ggiraph/libs
 * DONE (ggiraph)
 
 The downloaded source packages are in
-	'/tmp/RtmplsuMem/downloaded_packages'
-Using CPython 3.13.16
+	'/tmp/RtmpGjX0eP/downloaded_packages'
+Using CPython 3.13.17
 Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
-Resolved 31 packages in 245ms
-Downloading statsmodels (11.5MiB)
-Downloading pillow (6.6MiB)
-Downloading numpy (15.9MiB)
-Downloading kiwisolver (1.4MiB)
-Downloading pandas (10.3MiB)
-Downloading scipy (33.7MiB)
-Downloading matplotlib (9.4MiB)
-Downloading plotnine (1.5MiB)
+Resolved 32 packages in 204ms
+Downloading pillow (6.8MiB)
 Downloading fonttools (5.1MiB)
+Downloading kiwisolver (1.4MiB)
+Downloading statsmodels (11.5MiB)
+Downloading scipy (33.7MiB)
+Downloading numpy (15.9MiB)
+Downloading plotnine (1.5MiB)
+Downloading matplotlib (9.4MiB)
+Downloading pandas (11.4MiB)
  Downloaded kiwisolver
  Downloaded plotnine
- Downloaded fonttools
  Downloaded pillow
+ Downloaded fonttools
  Downloaded matplotlib
  Downloaded statsmodels
  Downloaded numpy
  Downloaded pandas
  Downloaded scipy
-Prepared 31 packages in 787ms
-Installed 31 packages in 622ms
+Prepared 32 packages in 870ms
+Installed 32 packages in 757ms
  + altair==6.3.0
  + attrs==26.1.0
  + contourpy==1.4.0
@@ -128,12 +128,12 @@ Installed 31 packages in 622ms
  + narwhals==2.27.1
  + numpy==2.5.4
  + packaging==26.3
- + pandas==3.0.6
+ + pandas==3.1.0
  + patsy==1.0.3
- + pillow==12.3.0
+ + pillow==13.0.0
  + plotnine==0.15.8
  + pyparsing==3.3.3
- + python-dateutil==2.9.0.post0
+ + python-dateutil==3.0.0
  + referencing==0.37.0
  + rpds-py==2026.9.1
  + scipy==1.18.1
@@ -141,15 +141,16 @@ Installed 31 packages in 622ms
  + six==1.17.0
  + statsmodels==0.15.0
  + typing-extensions==4.16.0
+ + tzdata==2026.5
  + wrapt==2.5.1
 bash: line 289: julia: command not found
 Auto-detect Julia dependency install failed for emilhvitfeldt/quarto-revealjs-magic-move.
 Dependency install failed (exit 1) for emilhvitfeldt/quarto-revealjs-magic-move; retrying once.
-Using CPython 3.13.16
+Using CPython 3.13.17
 Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
-Resolved 31 packages in 8ms
-Installed 31 packages in 600ms
+Resolved 32 packages in 6ms
+Installed 32 packages in 755ms
  + altair==6.3.0
  + attrs==26.1.0
  + contourpy==1.4.0
@@ -167,12 +168,12 @@ Installed 31 packages in 600ms
  + narwhals==2.27.1
  + numpy==2.5.4
  + packaging==26.3
- + pandas==3.0.6
+ + pandas==3.1.0
  + patsy==1.0.3
- + pillow==12.3.0
+ + pillow==13.0.0
  + plotnine==0.15.8
  + pyparsing==3.3.3
- + python-dateutil==2.9.0.post0
+ + python-dateutil==3.0.0
  + referencing==0.37.0
  + rpds-py==2026.9.1
  + scipy==1.18.1
@@ -180,6 +181,7 @@ Installed 31 packages in 600ms
  + six==1.17.0
  + statsmodels==0.15.0
  + typing-extensions==4.16.0
+ + tzdata==2026.5
  + wrapt==2.5.1
 bash: line 289: julia: command not found
 Auto-detect Julia dependency install failed for emilhvitfeldt/quarto-revealjs-magic-move.

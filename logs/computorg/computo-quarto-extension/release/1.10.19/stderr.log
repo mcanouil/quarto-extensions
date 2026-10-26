@@ -1,4 +1,17 @@
 Cloning into 'repo'...
+Installing package into '/cache/r-lib-1'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/__linux__/noble/latest/src/contrib/renv_1.3.1.tar.gz'
+Content type 'binary/octet-stream' length 2748432 bytes (2.6 MB)
+==================================================
+downloaded 2.6 MB
+
+* installing *binary* package 'renv' ...
+* package 'renv' successfully unpacked and SHA256 sums checked
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/RtmpE1qvqv/downloaded_packages'
 
 
 processing file: computo-quarto-extension.qmd
@@ -8,25 +21,27 @@ processing file: computo-quarto-extension.qmd
 4/17 [setup-python-env] 
 5/17                    
 6/17 [fig-plotly]       
-Downloading cpython-3.13.15-linux-x86_64-gnu (download) (33.4MiB)
- Downloaded cpython-3.13.15-linux-x86_64-gnu (download)
-Downloading pygments (1.2MiB)
-Downloading fonttools (5.1MiB)
+Downloading cpython-3.13.16-linux-x86_64-gnu (download) (33.5MiB)
+ Downloaded cpython-3.13.16-linux-x86_64-gnu (download)
+Downloading pandas (11.4MiB)
+Downloading numpy (15.9MiB)
 Downloading kiwisolver (1.4MiB)
 Downloading matplotlib (9.4MiB)
-Downloading pillow (6.6MiB)
-Downloading pandas (10.3MiB)
-Downloading jedi (4.7MiB)
 Downloading plotly (9.4MiB)
+Downloading pillow (6.8MiB)
+Downloading fonttools (5.1MiB)
+Downloading jedi (4.7MiB)
+Downloading pygments (1.2MiB)
  Downloaded kiwisolver
  Downloaded pygments
  Downloaded fonttools
  Downloaded pillow
- Downloaded plotly
  Downloaded matplotlib
+ Downloaded plotly
+ Downloaded numpy
  Downloaded pandas
  Downloaded jedi
-Installed 36 packages in 1.59s
+Installed 37 packages in 2.09s
 7/17                    
 8/17 [fig-polar]        
 9/17                    
@@ -131,7 +146,7 @@ failed with error code 1. Output:
 This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
-(/tmp/tikz-0f786cfd6026ae01/tikz-image.tex
+(/tmp/tikz-517973e65e35047b/tikz-image.tex
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-09-09>
 
@@ -147,8 +162,8 @@ Enter file name:
 l.2 \usepackage
                {tikz}^^M
 !  ==> Fatal error occurred, no output PDF file produced!
-Transcript written on /tmp/tikz-0f786cfd6026ae01/tikz-image.log.
-/home/runner/work/quarto-extensions/quarto-extensions/test-19/repo/_extensions/computo/_extensions/pandoc-ext/diagram/diagram.lua: ...sions/computo/_extensions/pandoc-ext/diagram/diagram.lua:82: attempt to index a nil value (local 'fh')
+Transcript written on /tmp/tikz-517973e65e35047b/tikz-image.log.
+/home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/_extensions/computo/_extensions/pandoc-ext/diagram/diagram.lua: ...sions/computo/_extensions/pandoc-ext/diagram/diagram.lua:82: attempt to index a nil value (local 'fh')
 
 processing file: computo-quarto-extension.qmd
 1/17                    
@@ -157,9 +172,9 @@ processing file: computo-quarto-extension.qmd
 4/17 [setup-python-env] 
 5/17                    
 6/17 [fig-plotly]       
-Downloading cpython-3.13.14-linux-x86_64-gnu (download) (33.2MiB)
- Downloaded cpython-3.13.14-linux-x86_64-gnu (download)
-Installed 36 packages in 1.71s
+Downloading cpython-3.13.15-linux-x86_64-gnu (download) (33.4MiB)
+ Downloaded cpython-3.13.15-linux-x86_64-gnu (download)
+Installed 37 packages in 1.18s
 7/17                    
 8/17 [fig-polar]        
 9/17                    
@@ -257,7 +272,7 @@ failed with error code 1. Output:
 This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
-(/tmp/tikz-29543a03a4e9fd6b/tikz-image.tex
+(/tmp/tikz-79d2fc1aa056a482/tikz-image.tex
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-09-09>
 
@@ -273,8 +288,8 @@ Enter file name:
 l.2 \usepackage
                {tikz}^^M
 !  ==> Fatal error occurred, no output PDF file produced!
-Transcript written on /tmp/tikz-29543a03a4e9fd6b/tikz-image.log.
-/home/runner/work/quarto-extensions/quarto-extensions/test-19/repo/_extensions/computo/_extensions/pandoc-ext/diagram/diagram.lua: ...sions/computo/_extensions/pandoc-ext/diagram/diagram.lua:82: attempt to index a nil value (local 'fh')[31mFATAL (/opt/quarto/share/filters/main.lua:7326) An error occurred:
+Transcript written on /tmp/tikz-79d2fc1aa056a482/tikz-image.log.
+/home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/_extensions/computo/_extensions/pandoc-ext/diagram/diagram.lua: ...sions/computo/_extensions/pandoc-ext/diagram/diagram.lua:82: attempt to index a nil value (local 'fh')[31mFATAL (/opt/quarto/share/filters/main.lua:7326) An error occurred:
 Could not convert a SVG to a PDF for output. Please ensure that rsvg-convert is available on the path.
 [39mError running filter '/opt/quarto/share/filters/main.lua':
 /opt/quarto/share/filters/main.lua:7351: FATAL QUARTO ERROR
@@ -317,9 +332,9 @@ processing file: computo-quarto-extension.qmd
 4/17 [setup-python-env] 
 5/17                    
 6/17 [fig-plotly]       
-Downloading cpython-3.13.13-linux-x86_64-gnu (download) (33.3MiB)
- Downloaded cpython-3.13.13-linux-x86_64-gnu (download)
-Installed 1 package in 286ms
+Downloading cpython-3.13.14-linux-x86_64-gnu (download) (33.2MiB)
+ Downloaded cpython-3.13.14-linux-x86_64-gnu (download)
+Installed 1 package in 132ms
 Error in py_call_impl(callable, call_args$unnamed, call_args$named) : 
   ModuleNotFoundError: No module named 'plotly'
 Run `reticulate::py_last_error()` for details.

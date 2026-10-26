@@ -1,0 +1,173 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  toc: true
+  number-sections: false
+  title-prefix: Fixture Book
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  crossref:
+    chapters: true
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Fixture Book
+  
+Output created: _book/index.html
+
+pandoc 
+  to: html
+  output-file: mermaid.html
+  standalone: true
+  toc: true
+  number-sections: true
+  title-prefix: Fixture Book
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  number-offset:
+    - 1
+  
+metadata
+  crossref:
+    chapters: true
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  hide-description: true
+  title: "[1]{.chapter-number}\_ [Mermaid]{.chapter-title}"
+  
+Output created: _book/mermaid.html
+
+pandoc 
+  to: html
+  output-file: graphviz.html
+  standalone: true
+  toc: true
+  number-sections: true
+  title-prefix: Fixture Book
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  number-offset:
+    - 2
+  
+metadata
+  crossref:
+    chapters: true
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  hide-description: true
+  title: "[2]{.chapter-number}\_ [Graphviz]{.chapter-title}"
+  
+Output created: _book/graphviz.html
+
+pandoc 
+  to: html
+  output-file: diagrams.html
+  standalone: true
+  title-prefix: Fixture Site
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Diagrams
+  
+Output created: _site/diagrams.html
+
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Fixture Site
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Home
+  
+Output created: _site/index.html
+
+pandoc 
+  to: docx
+  output-file: docx.docx
+  default-image-extension: png
+  
+metadata
+  title: Word
+  
+[31mFATAL (/opt/quarto/share/filters/main.lua:3757) An error occurred:
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-7/repo/tests/fixtures/doc/diagram-zoom as a JSON filter.
+Please make sure the file exists and is executable.
+
+Did you intend 'diagram-zoom' as a Lua filter in an extension?
+If so, make sure you've spelled the name of the extension correctly.
+
+The original Pandoc error follows below.
+Error running filter '/home/runner/work/quarto-extensions/quarto-extensions/test-7/repo/tests/fixtures/doc/diagram-zoom':
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-7/repo/tests/fixtures/doc/diagram-zoom
+[39mError running filter '/opt/quarto/share/filters/main.lua':
+/opt/quarto/share/filters/main.lua:589: FATAL QUARTO ERROR
+stack traceback:
+	/opt/quarto/share/filters/main.lua:2621: in function 'fatal'
+	/opt/quarto/share/filters/main.lua:2201: in function 'fail'
+	/opt/quarto/share/filters/main.lua:3757: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:589: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1318: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1336: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+pandoc 
+  to: docx
+  output-file: docx.docx
+  default-image-extension: png
+  
+metadata
+  title: Word
+  
+[31mFATAL (/opt/quarto/share/filters/main.lua:3757) An error occurred:
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-7/repo/tests/fixtures/doc/diagram-zoom as a JSON filter.
+Please make sure the file exists and is executable.
+
+Did you intend 'diagram-zoom' as a Lua filter in an extension?
+If so, make sure you've spelled the name of the extension correctly.
+
+The original Pandoc error follows below.
+Error running filter '/home/runner/work/quarto-extensions/quarto-extensions/test-7/repo/tests/fixtures/doc/diagram-zoom':
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-7/repo/tests/fixtures/doc/diagram-zoom
+[39mError running filter '/opt/quarto/share/filters/main.lua':
+/opt/quarto/share/filters/main.lua:589: FATAL QUARTO ERROR
+stack traceback:
+	/opt/quarto/share/filters/main.lua:2621: in function 'fatal'
+	/opt/quarto/share/filters/main.lua:2201: in function 'fail'
+	/opt/quarto/share/filters/main.lua:3757: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:589: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1318: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1336: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1372: in function </opt/quarto/share/filters/main.lua:1369>
+WARN: Error encountered when rendering files

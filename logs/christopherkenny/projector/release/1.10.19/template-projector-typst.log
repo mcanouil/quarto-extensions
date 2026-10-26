@@ -32,8 +32,7 @@ metadata
 downloading @preview/polylux:0.4.0
 
   0 B /   6.4 KiB (  0 %),  63.6 KiB/s, ETA: 0 s
-  6.4 KiB /   
-6.4 KiB (100 %),  63.6 KiB/s, ETA: 0 s
+  6.4 KiB /   6.4 KiB (100 %),  63.6 KiB/s, ETA: 0 s
 
 warning: document did not converge within five attempts
  = hint: see 5 additional warnings for more details
@@ -41,9 +40,9 @@ warning: document did not converge within five attempts
 
 warning: value of the page counter did not converge
    ┌─ @preview/polylux:0.4.0/src/toolbox/toolbox-impl.typ:11:18
-  
- │
-11 │     sections.push(link(loc, name))
+   │
+11 │     sect
+ions.push(link(loc, name))
    │                   ^^^^^^^^^^^^^^^
    │
    = hint: the following values were observed:

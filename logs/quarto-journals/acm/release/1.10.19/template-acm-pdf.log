@@ -2,7 +2,7 @@ pandoc
 
   to: latex
   output-file: template.tex
-  template: _extensions/quarto-journals/acm/acmarttemplate.tex
+  template: _extensions/acm/acmarttemplate.tex
   standalone: true
   pdf-engine: lualatex
   variables:
@@ -25,6 +25,7 @@ metadata
   header-includes:
     - |
       \definecolor{mypink}{RGB}{219, 48, 122}
+  biblio-config: false
   bibliography:
     - bibliography.bib
   title: The Name of the Title Is Hope
@@ -164,21 +165,165 @@ updating tlmgr
 
 updating existing packages
 
-(ERROR) 
-compilation failed- error
+finding package for acmart.cls
 
-LaTeX Error: Not in outer par mode.
+> 1 package to install
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.745 {
-     \centering \includegraphics{sample-franklin.png}}
+> installing acmart (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for xstring.sty
+
+> 1 package to install
+
+> installing xstring (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+
+finding package for microtype.sty
+
+> 1 package to install
+
+> installing microtype (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for totpages.sty
+
+> 1 package to install
+
+> installing totpages (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for everyshi.sty
+
+> 1 package to install
+
+> installing everyshi (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for setspace.sty
+
+> 1 package to install
+
+> installing setspace (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for hyperxmp.sty
+
+> 1 package to install
+
+> installing hyperxmp (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for luacode.sty
+
+> 1 package to install
+
+> installing luacode (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for luatexbase.sty
+
+> 1 package to install
+
+> installing luatexbase (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for manyfoot.sty
+
+> 1 package to install
+
+> installing ncctools (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for comment.sty
+
+> 1 package to install
+
+> installing comment (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+generating bibliography
+
+  This is BibTeX, Version 0.99e (TeX Live 2026)
+  The top-level auxiliary file: template.aux
+  The style file: ACM-Reference-Format.bst
+  Illegal, another \bibdata command---line 127 of file template.aux
+   : \bibdata
+   :         {bibliography.bib}
+  I'm skipping whatever remains of this command
+  Database file #1: bibliography.bib
+  Warning--entry type for "Bornmann2019" isn't style-file defined
+  --line 1604 of file bibliography.bib
+  Warning--entry type for "AnzarootPBM14" isn't style-file defined
+  --line 1621 of file bibliography.bib
+  Warning--I didn't find a database entry for "Kirschmer-2010-AEI-1958016-1958018"
+  Warning--I didn't find a database entry for "2004-ITE-1009386-1010128"
+  Warning--empty chapter and pages in Editor00
+  Warning--page numbers missing in Editor00a
+  Warning--empty address in Knuth97
+  Warning--articleno or eid field, but no numpages field, in Lee05
+  Warning--page numbers missing in both pages and numpages fields in Lee05
+  Warning--articleno or eid, but no pages or numpages field in Lee05
+  Warning--unrecognized DOI value [99.9999/woot07-S422]
+  Warning--unrecognized DOI value [99.9999/woot07-S422]
+  Warning--articleno or eid field, but no numpages field, in rous08
+  Warning--page numbers missing in both pages and numpages fields in rous08
+  Warning--articleno or eid, but no pages or numpages field in rous08
+  Warning--page numbers missing in both pages and numpages fields in SaeediJETC10
+  Warning--unrecognized DOI value [99.9999/woot07-S422]
+  Warning--unrecognized DOI value [99.9999/woot07-S422]
+  (There was 1 error message)
+  
+
+running lualatex - 2
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+running lualatex - 3
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
 
 
 
-see /home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/template.log for more information.
+Output created: template.pdf
 
-(WARN) Error encountered when rendering files
 

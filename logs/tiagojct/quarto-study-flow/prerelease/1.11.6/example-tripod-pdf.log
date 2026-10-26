@@ -1,0 +1,79 @@
+pandoc 
+
+  to: latex
+  output-file: example-tripod.tex
+  standalone: true
+  pdf-engine: xelatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  toc: false
+  
+
+metadata
+
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  title: TRIPOD+AI flow diagram example
+  study-flow:
+    type: tripod
+    source:
+      label: Source population
+      'n': 18450
+    eligibility:
+      label: Eligible
+      'n': 14210
+      excluded: 4240
+      exclusion_reasons:
+        - 'Outside age range (18-85): 1850'
+        - 'No baseline measurement: 1620'
+        - 'Prior outcome event: 770'
+    cohorts:
+      - label: Development cohort
+        'n': 9420
+        excluded_missing: 380
+        excluded_missing_reasons:
+          - 'Missing predictor data: 280'
+          - 'Lost before index date: 100'
+        analysed: 9040
+        events: 412
+        no_events: 8628
+      - label: External validation cohort
+        'n': 4790
+        excluded_missing: 95
+        excluded_missing_reasons:
+          - 'Missing predictor data: 95'
+        analysed: 4695
+        events: 233
+        no_events: 4462
+  
+
+
+Rendering PDF
+
+running xelatex - 1
+
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+running xelatex - 2
+
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+
+
+Output created: example-tripod.pdf
+
+

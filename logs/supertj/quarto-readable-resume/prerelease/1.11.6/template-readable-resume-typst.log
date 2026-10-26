@@ -1,0 +1,36 @@
+pandoc 
+
+  to: typst
+  output-file: template.typ
+  standalone: true
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+
+metadata
+
+  page-numbering: false
+  name: Olivia Bennett
+  contact:
+    - Providence, RI
+    - (401) 555-0132
+    - olivia.bennett@example.com
+    - linkedin.com/in/oliviabennett
+  papersize: us-letter
+  
+
+[typst]: Compiling template.typ to template.pdf...
+warning: unknown font family: georgia
+    ┌─ template.typ:337:17
+    │
+337 │   set text(font: font, size: font-size, lang: "en", hyphenate: false)
+    │                  ^^^^
+
+
+DONE
+
+
+Output created: template.pdf
+
+

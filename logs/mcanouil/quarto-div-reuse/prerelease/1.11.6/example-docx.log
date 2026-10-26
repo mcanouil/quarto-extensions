@@ -1,0 +1,28 @@
+pandoc 
+
+  to: docx
+  output-file: >-
+    /home/runner/work/quarto-extensions/quarto-extensions/test-16/repo/div-reuse-docx.docx
+  default-image-extension: png
+  
+
+metadata
+
+  title: Div Reuse Quarto Extension
+  subtitle: Quarto Extension
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  div-reuse:
+    limit: 1
+    vars:
+      project: Quarto Extensions
+      author:
+        name: Mickaël Canouil
+      year: 2026
+  
+
+Output created: div-reuse-docx.docx
+
+

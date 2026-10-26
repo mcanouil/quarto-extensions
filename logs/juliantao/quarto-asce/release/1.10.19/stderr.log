@@ -1,20 +1,9 @@
 Cloning into 'repo'...
-Using CPython 3.13.16
+Using CPython 3.13.17
 Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
-Resolved 11 packages in 154ms
-Downloading kiwisolver (1.4MiB)
-Downloading matplotlib (9.4MiB)
-Downloading pillow (6.6MiB)
-Downloading numpy (15.9MiB)
-Downloading fonttools (5.1MiB)
- Downloaded kiwisolver
- Downloaded fonttools
- Downloaded pillow
- Downloaded matplotlib
- Downloaded numpy
-Prepared 11 packages in 307ms
-Installed 11 packages in 240ms
+Resolved 12 packages in 5ms
+Installed 12 packages in 340ms
  + contourpy==1.4.0
  + cycler==0.12.1
  + fonttools==4.67.0
@@ -22,10 +11,11 @@ Installed 11 packages in 240ms
  + matplotlib==3.11.2
  + numpy==2.5.4
  + packaging==26.3
- + pillow==12.3.0
+ + pillow==13.0.0
  + pyparsing==3.3.3
- + python-dateutil==2.9.0.post0
+ + python-dateutil==3.0.0
  + six==1.17.0
+ + tzdata==2026.5
 
 Starting python3 kernel...[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
 Done
