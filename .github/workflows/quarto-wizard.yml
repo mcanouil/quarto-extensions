@@ -13,6 +13,11 @@ on:
         required: false
         default: false
         type: boolean
+      entries:
+        description: "Only process entries matching this regular expression, ignoring case (for example ^[a-l])"
+        required: false
+        default: ""
+        type: string
   repository_dispatch:
   release:
     types: [published]
@@ -46,24 +51,24 @@ jobs:
       EXTENSIONS_DIR: "extensions"
       DEBUG_MODE: ${{ github.event.inputs.debug }}
       FORCE_UPDATE: ${{ github.event.inputs.force_update }}
+      ENTRIES_FILTER: ${{ github.event.inputs.entries }}
     steps:
       # The token must exist before the first checkout. A checkout without an
       # explicit token persists GITHUB_TOKEN in .git/config, and the later push
       # then authenticates as github-actions[bot] whatever git config says.
-      - name: Create GitHub App token
-        uses: actions/create-github-app-token@v3
-        id: app-token
+      - name: Get the token
+        id: token
+        uses: mcanouil/release-actions/token@v1
         with:
-          client-id: ${{ vars.APP_ID }}
-          private-key: ${{ secrets.APP_KEY }}
-          permission-contents: write
-          permission-metadata: read
+          app-id: ${{ vars.APP_ID }}
+          app-key: ${{ secrets.APP_KEY }}
+          require-app: true
 
       - name: Checkout repository
         uses: actions/checkout@v7
         with:
           ref: ${{ env.BRANCH }}
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ steps.token.outputs.token }}
 
       - name: Checkout repository with sparse checkout
         uses: actions/checkout@v7
@@ -71,25 +76,6 @@ jobs:
           sparse-checkout: ${{ env.CSV_FILE }}
           sparse-checkout-cone-mode: false
           path: data
-
-      - name: Get GitHub App User ID
-        id: get-user-id
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
-        shell: bash
-        run: echo "user-id=$(gh api "/users/${APP_SLUG}[bot]" --jq .id)" >> "${GITHUB_OUTPUT}"
-
-      - name: Git Config
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
-          USER_ID: ${{ steps.get-user-id.outputs.user-id }}
-        shell: bash
-        run: |
-          git config --global user.name "${APP_SLUG}[bot]"
-          git config --global user.email "${USER_ID}+${APP_SLUG}[bot]@users.noreply.github.com"
-          gh auth setup-git
 
       - name: Checkout scripts from main branch
         uses: actions/checkout@v7
@@ -120,96 +106,13 @@ jobs:
         id: get-extensions-details
         shell: bash
         env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ steps.token.outputs.token }}
           DEBUG_MODE: ${{ env.DEBUG_MODE }}
           FORCE_UPDATE: ${{ env.FORCE_UPDATE }}
+          ENTRIES_FILTER: ${{ env.ENTRIES_FILTER }}
           EXTENSIONS_DIR: ${{ env.EXTENSIONS_DIR }}
           JSON_FILE: ${{ env.JSON_FILE }}
           BRANCH: ${{ env.BRANCH }}
           COMMIT: ${{ env.COMMIT }}
           CSV_FILE: ${{ env.CSV_FILE }}
         run: .github/scripts/quarto-wizard/main.sh
-
-      - name: Generate workflow summary
-        if: always()
-        env:
-          UPDATED_COUNT: ${{ steps.get-extensions-details.outputs.updated-count }}
-          SKIPPED_COUNT: ${{ steps.get-extensions-details.outputs.skipped-count }}
-          OUTDATED_COUNT: ${{ steps.get-extensions-details.outputs.outdated-count }}
-          RENAMED_COUNT: ${{ steps.get-extensions-details.outputs.renamed-count }}
-          UPDATED_EXTENSIONS: ${{ steps.get-extensions-details.outputs.updated-extensions }}
-          SKIPPED_EXTENSIONS: ${{ steps.get-extensions-details.outputs.skipped-extensions }}
-          OUTDATED_EXTENSIONS: ${{ steps.get-extensions-details.outputs.outdated-extensions }}
-          RENAMED_EXTENSIONS: ${{ steps.get-extensions-details.outputs.renamed-extensions }}
-        shell: bash
-        run: |
-          UPDATED_COUNT=${UPDATED_COUNT:-0}
-          SKIPPED_COUNT=${SKIPPED_COUNT:-0}
-          OUTDATED_COUNT=${OUTDATED_COUNT:-0}
-          RENAMED_COUNT=${RENAMED_COUNT:-0}
-
-          if [[ "${DEBUG_MODE}" == "true" ]]; then
-            echo "## Extension Processing Summary (Debug Mode)" >> "${GITHUB_STEP_SUMMARY}"
-          else
-            echo "## Extension Processing Summary" >> "${GITHUB_STEP_SUMMARY}"
-          fi
-
-          echo "" >> "${GITHUB_STEP_SUMMARY}"
-          echo "### Updated Extensions (${UPDATED_COUNT})" >> "${GITHUB_STEP_SUMMARY}"
-          if [[ "${UPDATED_COUNT}" -eq 0 ]]; then
-            echo "No extensions were updated." >> "${GITHUB_STEP_SUMMARY}"
-          else
-            echo "<details><summary>Show updated extensions</summary>" >> "${GITHUB_STEP_SUMMARY}"
-            echo "" >> "${GITHUB_STEP_SUMMARY}"
-            IFS=',' read -ra EXTENSIONS <<< "${UPDATED_EXTENSIONS}"
-            for ext in "${EXTENSIONS[@]}"; do
-              [[ -n "${ext}" ]] && echo "- ${ext}" >> "${GITHUB_STEP_SUMMARY}"
-            done
-            echo "" >> "${GITHUB_STEP_SUMMARY}"
-            echo "</details>" >> "${GITHUB_STEP_SUMMARY}"
-          fi
-
-          echo "" >> "${GITHUB_STEP_SUMMARY}"
-          echo "### Skipped Extensions (${SKIPPED_COUNT})" >> "${GITHUB_STEP_SUMMARY}"
-          if [[ "${SKIPPED_COUNT}" -eq 0 ]]; then
-            echo "No extensions were skipped." >> "${GITHUB_STEP_SUMMARY}"
-          else
-            echo "<details><summary>Show skipped extensions</summary>" >> "${GITHUB_STEP_SUMMARY}"
-            echo "" >> "${GITHUB_STEP_SUMMARY}"
-            IFS=',' read -ra EXTENSIONS <<< "${SKIPPED_EXTENSIONS}"
-            for ext in "${EXTENSIONS[@]}"; do
-              [[ -n "${ext}" ]] && echo "- ${ext}" >> "${GITHUB_STEP_SUMMARY}"
-            done
-            echo "" >> "${GITHUB_STEP_SUMMARY}"
-            echo "</details>" >> "${GITHUB_STEP_SUMMARY}"
-          fi
-
-          echo "" >> "${GITHUB_STEP_SUMMARY}"
-          echo "### Renamed Extensions (Auto-Fixed) (${RENAMED_COUNT})" >> "${GITHUB_STEP_SUMMARY}"
-          if [[ "${RENAMED_COUNT}" -eq 0 ]]; then
-            echo "No extensions were renamed." >> "${GITHUB_STEP_SUMMARY}"
-          else
-            echo "<details><summary>Show renamed extensions</summary>" >> "${GITHUB_STEP_SUMMARY}"
-            echo "" >> "${GITHUB_STEP_SUMMARY}"
-            IFS=',' read -ra EXTENSIONS <<< "${RENAMED_EXTENSIONS}"
-            for ext in "${EXTENSIONS[@]}"; do
-              [[ -n "${ext}" ]] && echo "- ${ext}" >> "${GITHUB_STEP_SUMMARY}"
-            done
-            echo "" >> "${GITHUB_STEP_SUMMARY}"
-            echo "</details>" >> "${GITHUB_STEP_SUMMARY}"
-          fi
-
-          echo "" >> "${GITHUB_STEP_SUMMARY}"
-          echo "### Outdated Extensions (${OUTDATED_COUNT})" >> "${GITHUB_STEP_SUMMARY}"
-          if [[ "${OUTDATED_COUNT}" -eq 0 ]]; then
-            echo "No extensions were outdated." >> "${GITHUB_STEP_SUMMARY}"
-          else
-            echo "<details><summary>Show outdated extensions</summary>" >> "${GITHUB_STEP_SUMMARY}"
-            echo "" >> "${GITHUB_STEP_SUMMARY}"
-            IFS=',' read -ra EXTENSIONS <<< "${OUTDATED_EXTENSIONS}"
-            for ext in "${EXTENSIONS[@]}"; do
-              [[ -n "${ext}" ]] && echo "- ${ext}" >> "${GITHUB_STEP_SUMMARY}"
-            done
-            echo "" >> "${GITHUB_STEP_SUMMARY}"
-            echo "</details>" >> "${GITHUB_STEP_SUMMARY}"
-          fi

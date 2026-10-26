@@ -80,6 +80,7 @@ jobs:
       release-errors: ${{ steps.release.outputs.errors || '[]' }}
       redirection-errors: ${{ steps.redirection.outputs.errors || '[]' }}
       structure-errors: ${{ steps.structure.outputs.errors || '[]' }}
+      release-notes: ${{ steps.release.outputs.notes || '[]' }}
       wizard-notes: ${{ steps.wizard.outputs.notes || '[]' }}
     steps:
       - name: Checkout repository
@@ -185,6 +186,7 @@ jobs:
           RELEASE_ERRORS: ${{ needs.check-metadata.outputs.release-errors }}
           REDIRECTION_ERRORS: ${{ needs.check-metadata.outputs.redirection-errors }}
           STRUCTURE_ERRORS: ${{ needs.check-metadata.outputs.structure-errors }}
+          RELEASE_NOTES: ${{ needs.check-metadata.outputs.release-notes }}
           WIZARD_NOTES: ${{ needs.check-metadata.outputs.wizard-notes }}
           RENDER_RESULT: ${{ needs.check-render.result }}
           RENDER_ERRORS: ${{ needs.check-render.outputs.errors }}
@@ -265,9 +267,10 @@ jobs:
           fi
 
           ALL_NOTES=$(jq -cn \
+            --argjson l "${RELEASE_NOTES:-[]}" \
             --argjson w "${WIZARD_NOTES:-[]}" \
             --argjson r "${RENDER_NOTES:-[]}" \
-            '$w + $r')
+            '$l + $w + $r')
 
           if [[ "${ALL_NOTES}" != "[]" && "${ALL_NOTES}" != "" ]]; then
             declare -A file_line_notes

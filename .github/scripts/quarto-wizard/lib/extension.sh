@@ -38,14 +38,14 @@ tree_has_path() {
   [[ $(echo "${tree}" | jq --arg p "${path}" 'map(select(.path == $p)) | length') -gt 0 ]]
 }
 
-# Extract contributes and quarto-required from _extension.yml files
+# Extract contributes, base formats, and quarto-required from _extension.yml files
 # Arguments:
 #   $1 - tree: JSON array from fetch_repo_tree
 #   $2 - repo: Repository in owner/repo format, for diagnostics
 #   $3 - repo_branch: Branch or tag queried, for diagnostics
 #   $4 - repo_subdirectory: Optional subdirectory path (with trailing /)
 # Returns:
-#   JSON object with contributes array and quartoRequired string via stdout
+#   JSON object with contributes and formats arrays and quartoRequired string via stdout
 extract_extension_manifest() {
   local tree="$1"
   local repo="$2"
@@ -54,21 +54,22 @@ extract_extension_manifest() {
 
   local extension_files
   extension_files=$(echo "${tree}" |
-    jq -r --arg pattern "${repo_subdirectory}_extensions/.*/_extension\\.ya?ml$" \
+    jq -r --arg pattern "^${repo_subdirectory}_extensions/.*/_extension\\.ya?ml$" \
       '.[] | select(.path | test($pattern)) | .url')
 
   if [[ -z "${extension_files}" ]]; then
-    echo '{"contributes": null, "quartoRequired": null}'
+    echo '{"contributes": null, "formats": null, "quartoRequired": null}'
     return
   fi
 
-  # Extract both fields with yq per file; skip unparseable manifests with a warning
+  # Extract the fields with yq per file; skip unparseable manifests with a warning
   # so one malformed _extension.yml does not abort the whole run.
   while IFS= read -r url; do
     local yaml_content parsed
     yaml_content=$(gh api "${url}" --jq '.content' | base64 --decode)
     if ! parsed=$(printf '%s' "${yaml_content}" | yq -o json '{
       "contributes": (.contributes | keys // []),
+      "formats": ((.contributes.formats // .contributes.format | select(tag == "!!map") | keys) // []),
       "quartoRequired": (."quarto-required" // null)
     }' 2>/dev/null); then
       echo "::warning title=Invalid Extension Manifest::${repo}@${repo_branch} ${url}" >&2
@@ -77,8 +78,37 @@ extract_extension_manifest() {
     printf '%s\n' "${parsed}"
   done <<< "${extension_files}" | jq -s '{
     contributes: ([.[].contributes // empty] | add // [] | map(select(. != null)) | map(if type=="string" then sub("s$"; "") else . end) | unique),
+    formats: ([.[].formats // empty] | add // [] | map(select(type == "string")) | map(sub("\\+.*$"; "")) | map(select(. != "common")) | unique),
     quartoRequired: (map(.quartoRequired) | map(select(. != null)) | if length > 0 then first else null end)
   }'
+}
+
+# Keep the entries that match an optional filter.
+#
+# A forced run of every entry outlasts the one-hour App token, so it is split
+# into batches, for example "^[a-l]" and then "^[m-z]".
+# Arguments:
+#   $1 - CSV entries, one per line
+#   $2 - Extended regular expression, matched without regard to case; empty keeps all
+# Returns:
+#   The kept entries via stdout; fails when a filter is invalid or matches nothing
+select_entries() {
+  local csv_entries="$1"
+  local filter="$2"
+
+  if [[ -z "${filter}" ]]; then
+    printf '%s\n' "${csv_entries}"
+    return
+  fi
+
+  local status=0
+  grep -Ei -- "${filter}" <<< "${csv_entries}" || status=$?
+  if [[ "${status}" -eq 1 ]]; then
+    echo "::error title=No Matching Entries::The filter \"${filter}\" matches no entry." >&2
+  elif [[ "${status}" -gt 1 ]]; then
+    echo "::error title=Invalid Entries Filter::\"${filter}\" is not a valid extended regular expression." >&2
+  fi
+  return "${status}"
 }
 
 # Fetch every repository's metadata up front, batched into few GraphQL queries.
@@ -109,10 +139,12 @@ prefetch_repo_info() {
     bash "${LIB_DIR}/prefetch-repo-info.sh" "${cache_dir}"
 }
 
-# Read a prefetched record, falling back to a direct fetch when the prefetch
-# missed it (a transient API failure, or an entry added since) or wrote something
-# unparseable. The cache is an optimisation, so a bad entry costs one extra
-# request rather than aborting the run at the first jq that reads it.
+# Read a prefetched record, fetching the repository again on its own when the
+# prefetch missed it (a transient API failure, or an entry added since) or wrote
+# something unparseable. The cache is an optimisation, so a bad entry costs one
+# extra request rather than aborting the run at the first jq that reads it. The
+# retry goes through the same query, because `gh repo view` cannot list the
+# tags that the latest tag is picked from.
 # Arguments:
 #   $1 - repo: Repository in owner/repo format
 #   $2 - Cache directory
@@ -125,9 +157,31 @@ read_repo_info() {
     return
   fi
 
-  gh repo view "${repo}" \
-    --json name,nameWithOwner,owner,description,openGraphImageUrl,stargazerCount,licenseInfo,url,latestRelease,createdAt,updatedAt,pushedAt,repositoryTopics,defaultBranchRef \
-    --jq "$(cat "${LIB_DIR}/repo-view.jq")"
+  printf '%s\n' "${repo}" | bash "${LIB_DIR}/prefetch-repo-info.sh" "${cache_dir}" >/dev/null
+  jq -c . "${cached}" 2>/dev/null
+}
+
+# Report whether a stored record still matches the repository, so that the
+# extension can be skipped.
+#
+# updatedAt alone misses new tags: a push changes pushedAt but not always
+# updatedAt. The latest tag and its release URL are compared too, because a
+# release can be created or flagged as a prerelease on a tag that already
+# exists, with no push.
+# Arguments:
+#   $1 - record_file: Stored extension.json
+#   $2 - key: Lower-cased entry the record is stored under
+#   $3 - repo_info: Current repository record as JSON
+record_is_current() {
+  local record_file="$1"
+  local key="$2"
+  local repo_info="$3"
+  local fields='[.updatedAt, .pushedAt, .latestRelease, .latestReleaseUrl]'
+
+  local stored current
+  stored=$(jq -c --arg key "${key}" ".[\$key] // {} | ${fields}" "${record_file}" 2>/dev/null) || return 1
+  current=$(echo "${repo_info}" | jq -c "${fields}")
+  [[ "${stored}" == "${current}" ]]
 }
 
 # Main function to process extensions from CSV
@@ -216,9 +270,6 @@ process_extensions() {
     repo_info=$(echo "${repo_info}" | jq --arg author "${author}" '. + {author: $author}')
 
     if [[ -f "${extension_json_file}" ]]; then
-      local existing_updated_at current_updated_at
-      existing_updated_at=$(jq -r ".[\"${entry,,}\"].updatedAt // empty" "${extension_json_file}")
-      current_updated_at=$(echo "${repo_info}" | jq -r ".updatedAt")
       # A card is only ever stored when the download differed from GitHub's
       # generic placeholder, so a missing file is the sole retry signal.
       local missing_card=false
@@ -226,8 +277,8 @@ process_extensions() {
         missing_card=true
       fi
       if [[ "${FORCE_UPDATE}" != "true" ]]; then
-        if [[ -n "${existing_updated_at}" && "${existing_updated_at}" == "${current_updated_at}" && "${missing_card}" == false ]]; then
-          echo "Skipping ${entry}: updatedAt matches existing record (${existing_updated_at})"
+        if [[ "${missing_card}" == false ]] && record_is_current "${extension_json_file}" "${entry,,}" "${repo_info}"; then
+          echo "Skipping ${entry}: updatedAt, pushedAt and latest release match the existing record"
           skipped_extensions+=("${entry}")
           echo "::endgroup::"
           continue
@@ -278,17 +329,13 @@ process_extensions() {
     latest_commit=$(gh api "repos/${repo}/commits/${default_branch}" --jq '.sha' 2>/dev/null || echo "")
     repo_info=$(echo "${repo_info}" | jq --arg latestCommit "${latest_commit}" '. + {latestCommit: $latestCommit}')
 
-    # Extract contributes and quarto-required in single pass
-    local manifest_data repo_contributes repo_quarto_required
+    # Extract contributes, formats, and quarto-required in single pass
+    local manifest_data repo_quarto_required
     manifest_data=$(extract_extension_manifest "${repo_tree}" "${repo}" "${repo_branch}" "${repo_subdirectory}")
-    repo_contributes=$(echo "${manifest_data}" | jq -c '.contributes')
     repo_quarto_required=$(echo "${manifest_data}" | jq -r '.quartoRequired')
 
-    if [[ "${repo_contributes}" != "null" ]]; then
-      repo_info=$(echo "${repo_info}" | jq --argjson contributes "${repo_contributes}" '. + {contributes: $contributes}')
-    else
-      repo_info=$(echo "${repo_info}" | jq '. + {contributes: null}')
-    fi
+    repo_info=$(echo "${repo_info}" | jq --argjson manifest "${manifest_data}" \
+      '. + {contributes: $manifest.contributes, formats: $manifest.formats}')
 
     if [[ -n "${repo_quarto_required}" && "${repo_quarto_required}" != "null" ]]; then
       repo_info=$(echo "${repo_info}" | jq --arg quartoRequired "${repo_quarto_required}" '. + {quartoRequired: $quartoRequired}')

@@ -3,6 +3,13 @@ name: "Release: Bump Version & Create Release"
 on:
   workflow_dispatch:
 
+# A release bumps a version, pushes a branch, and creates a tag, so two at once
+# would race over all three. Queue rather than cancel: a cancelled release
+# leaves the bump branch and its pull request behind.
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -12,71 +19,58 @@ jobs:
       contents: read
 
     steps:
-      # The token must exist before the checkout. A checkout without an explicit
-      # token persists GITHUB_TOKEN in .git/config, and the later push then
-      # authenticates as github-actions[bot] whatever git config says.
-      - name: Create GitHub App token
-        uses: actions/create-github-app-token@v3
-        id: app-token
+      # The release event of the App token is what starts the Quarto Wizard
+      # workflow, which the default token would not do.
+      - name: Get the token
+        id: token
+        uses: mcanouil/release-actions/token@v1
         with:
-          client-id: ${{ vars.APP_ID }}
-          private-key: ${{ secrets.APP_KEY }}
-          permission-contents: write
-          permission-pull-requests: write
-          permission-metadata: read
+          app-id: ${{ vars.APP_ID }}
+          app-key: ${{ secrets.APP_KEY }}
+          require-app: true
 
       - name: Checkout repository
         uses: actions/checkout@v7
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ steps.token.outputs.token }}
 
-      - name: Get GitHub App User ID
-        id: get-user-id
-        shell: bash
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
-        run: echo "user-id=$(gh api "/users/${APP_SLUG}[bot]" --jq .id)" >> "${GITHUB_OUTPUT}"
+      # The repository keeps no changelog: the body is the notes GitHub
+      # generates from the merged pull requests.
+      - name: Bump the version
+        id: bump
+        uses: mcanouil/release-actions/bump@v1
+        with:
+          bump: calver
+          changelog: ""
+          token: ${{ steps.token.outputs.token }}
+          ecosystems: citation
 
-      - name: Git Config
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
-          USER_ID: ${{ steps.get-user-id.outputs.user-id }}
-        shell: bash
-        run: |
-          git config --global user.name "${APP_SLUG}[bot]"
-          git config --global user.email "${USER_ID}+${APP_SLUG}[bot]@users.noreply.github.com"
-          gh auth setup-git
+      - name: Land the bump
+        id: land
+        uses: mcanouil/release-actions/land@v1
+        with:
+          mode: pull-request
+          files: ${{ steps.bump.outputs.files }}
+          version: ${{ steps.bump.outputs.version }}
+          message: "ci: bump version for release :rocket:"
+          branch: ci/bump-version
+          token: ${{ steps.token.outputs.token }}
 
-      - name: Bump Version
-        id: bump-version
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-          COMMIT: "ci: bump version for release :rocket:"
-          BRANCH: ci/bump-version
-        shell: bash
-        run: |
-          if git show-ref --quiet "refs/heads/${BRANCH}"; then
-            echo "Branch ${BRANCH} already exists."
-            git branch -D "${BRANCH}"
-            git push origin --delete "${BRANCH}"
-          fi
-          git checkout -b "${BRANCH}"
-          DATE=$(date +%Y-%m-%d)
-          VERSION=$(date +%Y.%m.%d)
-          sed -i "s/^version:.*/version: ${VERSION}/" CITATION.cff
-          sed -i "s/^date-released:.*/date-released: \"${DATE}\"/" CITATION.cff
-          if git diff --quiet CITATION.cff; then
-            echo "CITATION.cff is already up to date. Skipping PR creation."
-          else
-            git add CITATION.cff
-            git commit -m "${COMMIT}"
-            git push --force origin "${BRANCH}"
-            sleep 5
-            gh pr create --fill-first --base "main" --head "${BRANCH}" --label "Type: CI/CD :robot:"
-            sleep 5
-            gh pr merge --auto --squash --delete-branch
-            sleep 5
-          fi
-          gh release create "${VERSION}" --title "${DATE}" --generate-notes
+      - name: Compose the release body
+        id: notes
+        uses: mcanouil/release-actions/notes@v1
+        with:
+          notes-file: ${{ steps.bump.outputs.notes-file }}
+          tag: ${{ steps.bump.outputs.version }}
+          target: ${{ steps.land.outputs.sha }}
+          generate-notes: true
+          token: ${{ steps.token.outputs.token }}
+
+      - name: Release on GitHub
+        uses: mcanouil/release-actions/release@v1
+        with:
+          version: ${{ steps.bump.outputs.version }}
+          body-file: ${{ steps.notes.outputs.body-file }}
+          title: "{date}{count}"
+          target: ${{ steps.land.outputs.sha }}
+          token: ${{ steps.token.outputs.token }}

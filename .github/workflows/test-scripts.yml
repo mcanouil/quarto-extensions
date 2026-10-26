@@ -2,17 +2,23 @@ name: Test Scripts
 
 # The sweep runs once a month, so a regression in the classification or
 # verdict logic would otherwise stay hidden until it misreports a whole
-# catalogue. These checks need no container and no Quarto, and run in
-# seconds, so they run on every change to the scripts they cover.
+# catalogue. The registry generator runs nightly, and a wrong latest tag
+# reaches every Quarto Wizard user without a token. These checks need no
+# container, no Quarto and no network, and run in seconds, so they run on
+# every change to the scripts they cover.
 on:
   push:
     branches: [main]
     paths:
       - ".github/scripts/test-extensions/**"
+      - ".github/scripts/quarto-wizard/**"
+      - ".github/scripts/check-extensions/**"
       - ".github/workflows/test-scripts.yml"
   pull_request:
     paths:
       - ".github/scripts/test-extensions/**"
+      - ".github/scripts/quarto-wizard/**"
+      - ".github/scripts/check-extensions/**"
       - ".github/workflows/test-scripts.yml"
 
 permissions:
@@ -25,7 +31,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          sparse-checkout: .github/scripts/test-extensions
+          sparse-checkout: |
+            .github/scripts/test-extensions
+            .github/scripts/quarto-wizard
+            .github/scripts/check-extensions
           sparse-checkout-cone-mode: false
           persist-credentials: false
 
@@ -33,3 +42,7 @@ jobs:
         run: |
           .github/scripts/test-extensions/tests/classify.test.sh
           .github/scripts/test-extensions/tests/framework.test.sh
+          .github/scripts/quarto-wizard/tests/latest-tag.test.sh
+          .github/scripts/quarto-wizard/tests/prefetch.test.sh
+          .github/scripts/quarto-wizard/tests/extension.test.sh
+          .github/scripts/check-extensions/tests/check-release.test.sh
