@@ -1,21 +1,21 @@
 {
   "davidcarayon/quarto-inrae-extension": {
-    "createdAt": "2022-08-30T07:24:19Z",
-    "defaultBranchRef": "main",
+    "name": "quarto-inrae-extension",
+    "title": "INRAE EXTENSION",
+    "nameWithOwner": "davidcarayon/quarto-inrae-extension",
+    "owner": "davidcarayon",
     "description": "Quarto extension for INRAE Templates",
+    "openGraphImageUrl": "https://opengraph.githubassets.com/f4376da4d188af434ffcd2139497651779400c7ac7c9dfb4e02773b1a5838e53/davidcarayon/quarto-inrae-extension",
+    "stargazerCount": 37,
+    "licenseInfo": "Other",
+    "url": "https://github.com/davidcarayon/quarto-inrae-extension",
     "latestRelease": "v1.1.0",
     "latestReleaseUrl": "https://github.com/davidcarayon/quarto-inrae-extension/releases/tag/v1.1.0",
-    "licenseInfo": "Other",
-    "name": "quarto-inrae-extension",
-    "nameWithOwner": "davidcarayon/quarto-inrae-extension",
-    "openGraphImageUrl": "https://opengraph.githubassets.com/f4376da4d188af434ffcd2139497651779400c7ac7c9dfb4e02773b1a5838e53/davidcarayon/quarto-inrae-extension",
-    "owner": "davidcarayon",
-    "pushedAt": "2025-09-08T12:20:55Z",
-    "repositoryTopics": [],
-    "stargazerCount": 37,
-    "title": "INRAE EXTENSION",
+    "createdAt": "2022-08-30T07:24:19Z",
     "updatedAt": "2026-06-18T07:27:18Z",
-    "url": "https://github.com/davidcarayon/quarto-inrae-extension",
+    "pushedAt": "2025-09-08T12:20:55Z",
+    "defaultBranchRef": "main",
+    "repositoryTopics": [],
     "author": "David Carayon",
     "template": false,
     "example": false,
@@ -23,6 +23,14 @@
     "contributes": [
       "format",
       "project"
+    ],
+    "formats": [
+      "beamer",
+      "docx",
+      "html",
+      "pdf",
+      "pptx",
+      "revealjs"
     ],
     "quartoRequired": null
   }
