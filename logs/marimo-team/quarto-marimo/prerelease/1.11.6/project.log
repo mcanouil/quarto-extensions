@@ -1,0 +1,59 @@
+
+Starting python3 kernel...
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+
+Done
+
+
+Executing 'index.quarto_ipynb'
+
+  Cell 1/2: ''...
+Done
+
+  Cell 2/2: ''...
+Done
+
+
+
+
+Starting python3 kernel...
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+
+Done
+
+
+Executing 'dataflow.quarto_ipynb'
+
+  Cell 1/25: ''...
+
+
+An error occurred while executing the following cell:
+------------------
+mo.accordion(
+    {
+        "Tip: inspecting refs and defs": f"""
+        Use `mo.refs()` and `mo.defs()` to inspect the refs and defs of any
+        given cell. This can help with debugging complex notebooks.
+
+        For example, here are the refs and defs of this cell:
+
+        {mo.as_html({"refs": mo.refs(), "defs": mo.defs()})}
+        """
+    }
+)
+------------------
+
+
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+Cell In[1], line 1
+----> 1 mo.accordion(
+      2     {
+      3         "Tip: inspecting refs and defs": f"""
+      4         Use `mo.refs()` and `mo.defs()` to inspect the refs and defs of any
+
+NameError: name 'mo' is not defined
+
+
+(WARN) Error encountered when rendering files
+

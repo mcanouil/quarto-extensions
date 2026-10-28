@@ -1,0 +1,197 @@
+Cloning into 'repo'...
+Using CPython 3.13.17
+Creating virtual environment at: .venv
+Activate with: source .venv/bin/activate
+Resolved 69 packages in 450ms
+Downloading pygments (1.2MiB)
+Downloading kiwisolver (1.4MiB)
+Downloading numpy (15.9MiB)
+Downloading fonttools (5.2MiB)
+Downloading pillow (6.8MiB)
+Downloading duckdb (23.2MiB)
+Downloading matplotlib (9.4MiB)
+Downloading wigglystuff (1.1MiB)
+Downloading loro (3.7MiB)
+Downloading widgetsnbextension (2.1MiB)
+Downloading plotly (9.2MiB)
+Downloading jedi (4.7MiB)
+Downloading pandas (11.4MiB)
+Downloading marimo (37.6MiB)
+Downloading polars-runtime-32 (51.4MiB)
+ Downloaded wigglystuff
+ Downloaded kiwisolver
+ Downloaded pygments
+ Downloaded widgetsnbextension
+ Downloaded loro
+ Downloaded fonttools
+ Downloaded pillow
+ Downloaded plotly
+ Downloaded matplotlib
+ Downloaded numpy
+ Downloaded duckdb
+ Downloaded pandas
+ Downloaded jedi
+ Downloaded polars-runtime-32
+ Downloaded marimo
+Prepared 69 packages in 1.98s
+Installed 69 packages in 4.06s
+ + altair==6.3.0
+ + anyio==4.15.1
+ + anywidget==0.11.0
+ + asttokens==3.0.2
+ + attrs==26.1.0
+ + click==8.5.0
+ + comm==0.2.3
+ + contourpy==1.4.0
+ + cycler==0.12.1
+ + docutils==0.23
+ + drawdata==0.5.2
+ + duckdb==2.0.0
+ + executing==2.3.0
+ + fonttools==4.68.0
+ + h11==0.16.0
+ + idna==3.20
+ + ipython==9.17.1
+ + ipython-pygments-lexers==1.1.1
+ + ipywidgets==8.1.9
+ + itsdangerous==2.2.0
+ + jedi==0.20.1
+ + jinja2==3.1.6
+ + jsonschema==4.26.0
+ + jsonschema-specifications==2025.9.1
+ + jupyterlab-widgets==3.0.17
+ + kiwisolver==1.5.1
+ + loro==1.17.1
+ + marimo==0.25.2
+ + markdown==3.11.2
+ + markupsafe==3.0.4
+ + matplotlib==3.11.2
+ + matplotlib-inline==0.2.2
+ + msgspec==0.22.0
+ + narwhals==2.28.0
+ + numpy==2.5.4
+ + packaging==26.3
+ + pandas==3.1.0
+ + parso==0.8.7
+ + pexpect==4.9.0
+ + pillow==13.0.0
+ + plotly==7.1.0
+ + polars==2.1.0
+ + polars-runtime-32==2.1.0
+ + prompt-toolkit==3.0.53
+ + psutil==7.2.2
+ + psygnal==0.16.1
+ + ptyprocess==0.7.0
+ + pure-eval==0.2.4
+ + pygments==2.21.0
+ + pymdown-extensions==11.0.2
+ + pyparsing==3.3.3
+ + python-dateutil==3.0.0
+ + python-multipart==0.0.32
+ + pyyaml==6.0.3
+ + pyzmq==27.2.0
+ + referencing==0.37.0
+ + rpds-py==2026.9.1
+ + six==1.17.0
+ + stack-data==0.6.3
+ + starlette==1.10.0
+ + tomlkit==0.15.2
+ + traitlets==5.16.1
+ + typing-extensions==4.16.0
+ + tzdata==2026.6
+ + uvicorn==0.54.0
+ + wcwidth==0.9.4
+ + websockets==17.3
+ + widgetsnbextension==4.0.16
+ + wigglystuff==0.5.36
+[ 1/14] index.qmd
+
+Starting python3 kernel...[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+Done
+
+Executing 'index.quarto_ipynb'
+  Cell 1/2: ''...Done
+  Cell 2/2: ''...Done
+
+[ 2/14] tutorials/dataflow.qmd
+
+Starting python3 kernel...[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+Done
+
+Executing 'dataflow.quarto_ipynb'
+  Cell 1/25: ''...
+
+An error occurred while executing the following cell:
+------------------
+mo.accordion(
+    {
+        "Tip: inspecting refs and defs": f"""
+        Use `mo.refs()` and `mo.defs()` to inspect the refs and defs of any
+        given cell. This can help with debugging complex notebooks.
+
+        For example, here are the refs and defs of this cell:
+
+        {mo.as_html({"refs": mo.refs(), "defs": mo.defs()})}
+        """
+    }
+)
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mNameError[39m                                 Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 1[39m
+[32m----> [39m[32m1[39m mo.accordion(
+[32m      2[39m     {
+[32m      3[39m         "Tip: inspecting refs and defs": f"""
+[32m      4[39m         Use `mo.refs()` [38;5;28;01mand[39;00m `mo.defs()` to inspect the refs [38;5;28;01mand[39;00m defs of any
+
+[31mNameError[39m: name 'mo' is not defined
+
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+[ 1/14] index.qmd
+
+Starting python3 kernel...[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+Done
+
+Executing 'index.quarto_ipynb'
+  Cell 1/2: ''...Done
+  Cell 2/2: ''...Done
+
+[ 2/14] tutorials/dataflow.qmd
+
+Starting python3 kernel...[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+Done
+
+Executing 'dataflow.quarto_ipynb'
+  Cell 1/25: ''...
+
+An error occurred while executing the following cell:
+------------------
+mo.accordion(
+    {
+        "Tip: inspecting refs and defs": f"""
+        Use `mo.refs()` and `mo.defs()` to inspect the refs and defs of any
+        given cell. This can help with debugging complex notebooks.
+
+        For example, here are the refs and defs of this cell:
+
+        {mo.as_html({"refs": mo.refs(), "defs": mo.defs()})}
+        """
+    }
+)
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mNameError[39m                                 Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 1[39m
+[32m----> [39m[32m1[39m mo.accordion(
+[32m      2[39m     {
+[32m      3[39m         "Tip: inspecting refs and defs": f"""
+[32m      4[39m         Use `mo.refs()` [38;5;28;01mand[39;00m `mo.defs()` to inspect the refs [38;5;28;01mand[39;00m defs of any
+
+[31mNameError[39m: name 'mo' is not defined
+
+WARN: Error encountered when rendering files
