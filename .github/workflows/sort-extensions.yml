@@ -1,6 +1,7 @@
 name: Sort Extensions
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
