@@ -1,0 +1,64 @@
+name: Sort Extensions
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - extensions/quarto-extensions.csv
+
+concurrency:
+  group: sort-extensions
+  cancel-in-progress: true
+
+# Every write goes through the App token, so GITHUB_TOKEN only has to clone.
+permissions:
+  contents: read
+
+jobs:
+  sort:
+    runs-on: ubuntu-latest
+    steps:
+      # A pull request opened with the default token triggers no workflow, so
+      # its checks would never run.
+      - name: Get the token
+        id: token
+        uses: mcanouil/release-actions/token@v1
+        with:
+          app-id: ${{ vars.APP_ID }}
+          app-key: ${{ secrets.APP_KEY }}
+          require-app: true
+
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          token: ${{ steps.token.outputs.token }}
+
+      # Only owner and repository are lowercased: a subdirectory after them is
+      # matched case-sensitively against the repository tree.
+      - name: Lowercase and sort the extensions
+        id: sort
+        shell: bash
+        run: |
+          set -euo pipefail
+          CSV_FILE="extensions/quarto-extensions.csv"
+          awk -F/ 'BEGIN { OFS = "/" } NF < 2 { print; next } { $1 = tolower($1); $2 = tolower($2); print }' "${CSV_FILE}" \
+            | LC_ALL=C sort > sorted.csv
+          if cmp -s sorted.csv "${CSV_FILE}"; then
+            echo "Already sorted."
+          else
+            mv sorted.csv "${CSV_FILE}"
+            echo "changed=true" >> "${GITHUB_OUTPUT}"
+          fi
+
+      - name: Open the pull request
+        if: steps.sort.outputs.changed == 'true'
+        uses: mcanouil/release-actions/land@v1
+        with:
+          mode: pull-request
+          merge: none
+          files: extensions/quarto-extensions.csv
+          message: "ci: sort extensions"
+          branch: ci/sort-extensions
+          body: Lowercase and sort the entries of `extensions/quarto-extensions.csv`.
+          token: ${{ steps.token.outputs.token }}
