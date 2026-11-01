@@ -34,13 +34,16 @@ jobs:
         with:
           token: ${{ steps.token.outputs.token }}
 
+      # Only owner and repository are lowercased: a subdirectory after them is
+      # matched case-sensitively against the repository tree.
       - name: Lowercase and sort the extensions
         id: sort
         shell: bash
         run: |
           set -euo pipefail
           CSV_FILE="extensions/quarto-extensions.csv"
-          tr '[:upper:]' '[:lower:]' < "${CSV_FILE}" | LC_ALL=C sort > sorted.csv
+          awk -F/ 'BEGIN { OFS = "/" } { $1 = tolower($1); $2 = tolower($2); print }' "${CSV_FILE}" \
+            | LC_ALL=C sort > sorted.csv
           if cmp -s sorted.csv "${CSV_FILE}"; then
             echo "Already sorted."
           else
