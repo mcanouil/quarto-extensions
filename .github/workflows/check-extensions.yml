@@ -22,7 +22,7 @@ concurrency:
 jobs:
   check-submission:
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.draft != true && github.event.pull_request.head.ref != 'ci/sort-extensions' }}
+    if: ${{ github.event.pull_request.draft != true && (github.event.pull_request.head.ref != 'ci/sort-extensions' || github.event.pull_request.head.repo.full_name != github.repository) }}
     timeout-minutes: 10
     outputs:
       submission: ${{ steps.check-submission.outputs.SUBMISSION }}
@@ -167,7 +167,7 @@ jobs:
       - check-submission
       - check-metadata
       - check-render
-    if: always() && github.event.pull_request.draft != true && github.event.pull_request.head.ref != 'ci/sort-extensions'
+    if: always() && github.event.pull_request.draft != true && (github.event.pull_request.head.ref != 'ci/sort-extensions' || github.event.pull_request.head.repo.full_name != github.repository)
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
