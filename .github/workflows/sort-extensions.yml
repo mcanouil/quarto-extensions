@@ -42,7 +42,7 @@ jobs:
         run: |
           set -euo pipefail
           CSV_FILE="extensions/quarto-extensions.csv"
-          awk -F/ 'BEGIN { OFS = "/" } { $1 = tolower($1); $2 = tolower($2); print }' "${CSV_FILE}" \
+          awk -F/ 'BEGIN { OFS = "/" } NF < 2 { print; next } { $1 = tolower($1); $2 = tolower($2); print }' "${CSV_FILE}" \
             | LC_ALL=C sort > sorted.csv
           if cmp -s sorted.csv "${CSV_FILE}"; then
             echo "Already sorted."
