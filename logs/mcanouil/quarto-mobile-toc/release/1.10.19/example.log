@@ -1,0 +1,23 @@
+(ERROR) The extension Mobile TOC is incompatible with this quarto version.
+
+Extension requires: >=1.11
+Quarto version: 1.10.19
+
+Stack trace:
+    at validateExtension (file:///opt/quarto/bin/quarto.js:79070:11)
+    at readExtension (file:///opt/quarto/bin/quarto.js:79231:3)
+    at async readExtensions (file:///opt/quarto/bin/quarto.js:78847:27)
+    at async loadExtensions (file:///opt/quarto/bin/quarto.js:79439:108)
+    at async Object.extensions2 [as extensions] (file:///opt/quarto/bin/quarto.js:78657:25)
+    at async projectExtensionsConfigResolver (file:///opt/quarto/bin/quarto.js:92322:33)
+    at async projectContext (file:///opt/quarto/bin/quarto.js:91948:5)
+    at async render (file:///opt/quarto/bin/quarto.js:142619:29)
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:142901:24)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:102249:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:102126:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:188304:5)
+    at async file:///opt/quarto/bin/quarto.js:188333:5
+    at async file:///opt/quarto/bin/quarto.js:188187:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:188189:5)
+    at async file:///opt/quarto/bin/quarto.js:188326:3
+
