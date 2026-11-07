@@ -1,0 +1,22 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  embed-resources: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Quarto Conditional Vars
+  
+[33mWARNING [conditional-vars]: unknown variable 'country' referenced in .when-var / .unless-var[0m
+Output created: index.html
+

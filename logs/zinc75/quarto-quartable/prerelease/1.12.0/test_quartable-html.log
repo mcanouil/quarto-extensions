@@ -1,0 +1,34 @@
+pandoc 
+
+  to: html
+  output-file: test_quartable.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  toc-depth: 2
+  number-sections: true
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: '`quartable` test document'
+  subtitle: colspan · rowspan · midrule · cline · vline · align
+  author: Eric Bavu
+  date: today
+  theme: cosmo
+  
+
+[quartable] WARNING: rs=3 on row 2 crosses a === separator on row 4 — LaTeX rendering will be incorrect.
+
+[quartable] WARNING: ^ marker without a matching origin cell (row 5, logical column 1).
+
+Output created: test_quartable.html
+
+

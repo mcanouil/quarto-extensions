@@ -1,0 +1,58 @@
+Error running filter '/opt/quarto/share/filters/main.lua':
+Cannot get Attr from TypeNil
+stack traceback:
+	/opt/quarto/share/filters/main.lua:21907: in function </opt/quarto/share/filters/main.lua:21875>
+	[C]: in function 'lpeg.match'
+	/opt/quarto/share/pandoc/datadir/lpegshortcode.lua:308: in function 'lpegshortcode.wrap_lpeg_match'
+	/opt/quarto/share/filters/main.lua:21911: in upvalue 'apply_code_shortcode'
+	/opt/quarto/share/filters/main.lua:21948: in function </opt/quarto/share/filters/main.lua:21935>
+	[C]: in ?
+	[C]: in method 'walk'
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:577: in function </opt/quarto/share/filters/main.lua:555>
+	(...tail calls...)
+	/opt/quarto/share/filters/main.lua:21964: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:591: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1320: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1338: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1374: in function </opt/quarto/share/filters/main.lua:1371>
+stack traceback:
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:577: in function </opt/quarto/share/filters/main.lua:555>
+	(...tail calls...)
+	/opt/quarto/share/filters/main.lua:21964: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:591: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1320: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1338: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1374: in function </opt/quarto/share/filters/main.lua:1371>
+
+(ERROR) Error running filter '/opt/quarto/share/filters/main.lua':
+Cannot get Attr from TypeNil
+stack traceback:
+	/opt/quarto/share/filters/main.lua:21907: in function </opt/quarto/share/filters/main.lua:21875>
+	[C]: in function 'lpeg.match'
+	/opt/quarto/share/pandoc/datadir/lpegshortcode.lua:308: in function 'lpegshortcode.wrap_lpeg_match'
+	/opt/quarto/share/filters/main.lua:21911: in upvalue 'apply_code_shortcode'
+	/opt/quarto/share/filters/main.lua:21948: in function </opt/quarto/share/filters/main.lua:21935>
+	[C]: in ?
+	[C]: in method 'walk'
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:577: in function </opt/quarto/share/filters/main.lua:555>
+	(...tail calls...)
+	/opt/quarto/share/filters/main.lua:21964: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:591: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1320: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1338: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1374: in function </opt/quarto/share/filters/main.lua:1371>
+stack traceback:
+	/opt/quarto/share/pandoc/datadir/_utils.lua:607: in function '_utils.walk'
+	/opt/quarto/share/filters/main.lua:577: in function </opt/quarto/share/filters/main.lua:555>
+	(...tail calls...)
+	/opt/quarto/share/filters/main.lua:21964: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:591: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1320: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1338: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1374: in function </opt/quarto/share/filters/main.lua:1371>
+
+(ERROR) Pandoc conversion failed (exit code 83)
+

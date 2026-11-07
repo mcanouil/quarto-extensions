@@ -1,0 +1,32 @@
+
+
+pandoc 
+
+  to: typst
+  output-file: typst-computed.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+
+metadata
+
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: '#003366cc'
+  title: Typst computed badge
+  
+
+[typst]: Compiling typst-computed.typ to typst-computed.pdf...
+DONE
+
+
+
+
+Output created: _site/typst-computed.pdf
+
+

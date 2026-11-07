@@ -1,0 +1,139 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Mobile TOC
+  subtitle: Quarto Extension
+  author: Mickaël Canouil
+  
+Output created: example.html
+
+pandoc 
+  to: html
+  output-file: one-heading.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: One heading
+  
+[31mFATAL (/opt/quarto/share/filters/main.lua:3759) An error occurred:
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-9/repo/tests/mobile-toc as a JSON filter.
+Please make sure the file exists and is executable.
+
+Did you intend 'mobile-toc' as a Lua filter in an extension?
+If so, make sure you've spelled the name of the extension correctly.
+
+The original Pandoc error follows below.
+Error running filter '/home/runner/work/quarto-extensions/quarto-extensions/test-9/repo/tests/mobile-toc':
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-9/repo/tests/mobile-toc
+[39mError running filter '/opt/quarto/share/filters/main.lua':
+/opt/quarto/share/filters/main.lua:591: FATAL QUARTO ERROR
+stack traceback:
+	/opt/quarto/share/filters/main.lua:2623: in function 'fatal'
+	/opt/quarto/share/filters/main.lua:2203: in function 'fail'
+	/opt/quarto/share/filters/main.lua:3759: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:591: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1320: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1338: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1374: in function </opt/quarto/share/filters/main.lua:1371>
+ERROR: [31mFATAL (/opt/quarto/share/filters/main.lua:3759) An error occurred:
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-9/repo/tests/mobile-toc as a JSON filter.
+Please make sure the file exists and is executable.
+
+Did you intend 'mobile-toc' as a Lua filter in an extension?
+If so, make sure you've spelled the name of the extension correctly.
+
+The original Pandoc error follows below.
+Error running filter '/home/runner/work/quarto-extensions/quarto-extensions/test-9/repo/tests/mobile-toc':
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-9/repo/tests/mobile-toc
+[39mError running filter '/opt/quarto/share/filters/main.lua':
+/opt/quarto/share/filters/main.lua:591: FATAL QUARTO ERROR
+stack traceback:
+	/opt/quarto/share/filters/main.lua:2623: in function 'fatal'
+	/opt/quarto/share/filters/main.lua:2203: in function 'fail'
+	/opt/quarto/share/filters/main.lua:3759: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:591: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1320: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1338: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1374: in function </opt/quarto/share/filters/main.lua:1371>
+ERROR: Pandoc conversion failed (exit code 83)
+Render failed, retrying once...
+pandoc 
+  to: html
+  output-file: one-heading.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: One heading
+  
+[31mFATAL (/opt/quarto/share/filters/main.lua:3759) An error occurred:
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-9/repo/tests/mobile-toc as a JSON filter.
+Please make sure the file exists and is executable.
+
+Did you intend 'mobile-toc' as a Lua filter in an extension?
+If so, make sure you've spelled the name of the extension correctly.
+
+The original Pandoc error follows below.
+Error running filter '/home/runner/work/quarto-extensions/quarto-extensions/test-9/repo/tests/mobile-toc':
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-9/repo/tests/mobile-toc
+[39mError running filter '/opt/quarto/share/filters/main.lua':
+/opt/quarto/share/filters/main.lua:591: FATAL QUARTO ERROR
+stack traceback:
+	/opt/quarto/share/filters/main.lua:2623: in function 'fatal'
+	/opt/quarto/share/filters/main.lua:2203: in function 'fail'
+	/opt/quarto/share/filters/main.lua:3759: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:591: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1320: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1338: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1374: in function </opt/quarto/share/filters/main.lua:1371>
+ERROR: [31mFATAL (/opt/quarto/share/filters/main.lua:3759) An error occurred:
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-9/repo/tests/mobile-toc as a JSON filter.
+Please make sure the file exists and is executable.
+
+Did you intend 'mobile-toc' as a Lua filter in an extension?
+If so, make sure you've spelled the name of the extension correctly.
+
+The original Pandoc error follows below.
+Error running filter '/home/runner/work/quarto-extensions/quarto-extensions/test-9/repo/tests/mobile-toc':
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-9/repo/tests/mobile-toc
+[39mError running filter '/opt/quarto/share/filters/main.lua':
+/opt/quarto/share/filters/main.lua:591: FATAL QUARTO ERROR
+stack traceback:
+	/opt/quarto/share/filters/main.lua:2623: in function 'fatal'
+	/opt/quarto/share/filters/main.lua:2203: in function 'fail'
+	/opt/quarto/share/filters/main.lua:3759: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:591: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1320: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1338: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1374: in function </opt/quarto/share/filters/main.lua:1371>
+ERROR: Pandoc conversion failed (exit code 83)

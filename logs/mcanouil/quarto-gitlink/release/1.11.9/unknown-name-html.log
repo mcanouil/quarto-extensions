@@ -1,0 +1,38 @@
+
+
+pandoc 
+
+  to: html
+  output-file: unknown-name.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: teel
+  theme:
+    light: flatly
+    dark: darkly
+  title: Unknown colour name
+  
+
+(W) [gitlink] Ignoring invalid 'badge-background-colour' value 'teel': expected a hex colour (e.g. '#c3c3c3') or a CSS named colour.
+
+
+
+Output created: _site/unknown-name.html
+
+

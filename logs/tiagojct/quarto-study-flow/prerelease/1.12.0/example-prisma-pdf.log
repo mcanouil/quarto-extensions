@@ -1,0 +1,81 @@
+pandoc 
+
+  to: latex
+  output-file: example-prisma.tex
+  standalone: true
+  pdf-engine: xelatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  toc: false
+  
+
+metadata
+
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  title: PRISMA 2020 flow diagram example
+  study-flow:
+    type: prisma
+    identification:
+      databases: 1842
+      registers: 167
+      duplicates_removed: 612
+      ineligible_automation: 88
+      other_removed: 14
+    screening:
+      screened: 1295
+      excluded: 1024
+      sought_retrieval: 271
+      not_retrieved: 23
+      assessed: 248
+      excluded_with_reasons:
+        - Wrong population (n=46)
+        - Wrong intervention (n=31)
+        - Wrong outcome (n=22)
+        - Wrong study design (n=18)
+        - Conference abstract only (n=11)
+    other_methods:
+      websites: 12
+      organisations: 8
+      citation_searching: 25
+      sought_retrieval: 41
+      not_retrieved: 3
+      assessed: 38
+      excluded_with_reasons:
+        - Wrong population (n=5)
+        - Wrong outcome (n=4)
+    included:
+      studies: 134
+      reports: 142
+  
+
+
+Rendering PDF
+
+running xelatex - 1
+
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+running xelatex - 2
+
+  This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+
+
+
+Output created: example-prisma.pdf
+
+

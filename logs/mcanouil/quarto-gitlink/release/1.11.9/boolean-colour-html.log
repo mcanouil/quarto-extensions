@@ -1,0 +1,38 @@
+
+
+pandoc 
+
+  to: html
+  output-file: boolean-colour.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-text-colour: true
+  theme:
+    light: flatly
+    dark: darkly
+  title: Boolean colour
+  
+
+(E) [gitlink] badge-text-colour: must be of type "string", got "boolean".
+
+
+
+Output created: _site/boolean-colour.html
+
+

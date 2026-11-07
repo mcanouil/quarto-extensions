@@ -1,0 +1,38 @@
+
+
+pandoc 
+
+  to: html
+  output-file: odd-hex.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: '#ffffa'
+  theme:
+    light: flatly
+    dark: darkly
+  title: Five-digit hex
+  
+
+(W) [gitlink] Ignoring invalid 'badge-background-colour' value '#ffffa': expected a hex colour (e.g. '#c3c3c3') or a CSS named colour.
+
+
+
+Output created: _site/odd-hex.html
+
+

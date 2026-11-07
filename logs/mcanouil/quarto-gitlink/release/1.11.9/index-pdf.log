@@ -1,0 +1,81 @@
+
+
+pandoc 
+
+  to: latex
+  output-file: index.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+
+metadata
+
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  csl: ../apa.csl
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      mentions:
+        - jdoe
+  title: Citations and mentions
+  bibliography:
+    - ../refs.bib
+  
+
+[WARNING] Citeproc: citation endhyphen- not found
+[WARNING] Citeproc: citation mixeduser not found
+
+[WARNING] Citeproc: citation smith_unknown_2021 not found
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for scrartcl.cls
+
+> 1 package to install
+
+> installing koma-script (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+
+running lualatex - 2
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+
+
+
+
+Output created: index.pdf
+
+

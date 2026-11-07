@@ -1,0 +1,33 @@
+
+
+pandoc 
+
+  to: html
+  output-file: custom.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  csl: apa.csl
+  extensions:
+    gitlink:
+      platform: forge
+      repository-name: owner/repo
+      custom-platforms-file: custom-platforms.yml
+  title: Custom platform mentions
+  
+
+
+
+Output created: custom.html
+
+

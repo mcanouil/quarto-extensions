@@ -1,0 +1,32 @@
+
+
+pandoc 
+
+  to: html
+  output-file: about.html
+  standalone: true
+  title-prefix: Gitlink Widget Without Repository
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      widget:
+        enabled: true
+  title: About
+  
+
+
+
+Output created: _site/about.html
+
+

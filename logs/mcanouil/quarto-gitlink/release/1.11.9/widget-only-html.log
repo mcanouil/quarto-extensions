@@ -1,0 +1,49 @@
+
+
+pandoc 
+
+  to: html
+  output-file: widget-only.html
+  standalone: true
+  title-prefix: Gitlink Widget Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      widget:
+        enabled: true
+        links:
+          discussions: true
+        extra-links:
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+          - text: Quarto
+            href: https://quarto.org
+            icon: globe
+        sponsor: mcanouil
+        style-navbar-tools: true
+      enabled: false
+  theme:
+    light: flatly
+    dark: darkly
+  title: 'Widget test: widget only'
+  
+
+
+
+Output created: _site/widget-only.html
+
+

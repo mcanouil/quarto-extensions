@@ -1,0 +1,33 @@
+
+
+pandoc 
+
+  to: typst
+  output-file: typst.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+
+metadata
+
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: '#003366'
+      badge-text-colour: white
+  title: Typst badge
+  
+
+[typst]: Compiling typst.typ to typst.pdf...
+DONE
+
+
+
+
+Output created: _site/typst.pdf
+
+

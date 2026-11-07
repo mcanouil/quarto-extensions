@@ -1,0 +1,46 @@
+pandoc 
+
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: On the Optimal Immersion Time of a Biscuit in Hot Tea
+  subtitle: A working draft in revision before submission — annotations shown live
+  author: B. Crumble, E. Dunkin, P. G. Tips, G. Marchetti, and M. Halvorsen
+  date: '2026-06-06'
+  extensions:
+    quarto-proofread-comments:
+      enabled: true
+      show_list: true
+      list_title: Annotations
+      reviewers:
+        sup:
+          name: Prof. Halvorsen
+          color_html: '#0072B2'
+          color_latex: blue!20
+        r2:
+          name: John Chief
+          color_html: '#D55E00'
+          color_latex: orange!35
+        co:
+          name: Dr. Marchetti
+        ed:
+          name: Copy-editor
+          color_html: '#CC79A7'
+          color_latex: magenta!25
+  
+
+Output created: example.html
+
+

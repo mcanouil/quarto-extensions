@@ -1,0 +1,71 @@
+pandoc 
+
+  to: docx
+  output-file: template.docx
+  template: _extensions/better-word/template.xml
+  default-image-extension: png
+  toc: true
+  
+
+metadata
+
+  docx-page-width: 11906
+  docx-page-height: 16838
+  docx-page-margin: 1440
+  title: Better Word Template Playground
+  subtitle: Custom OpenXML Pandoc Template
+  title-logo: '![](logo.svg){height=2cm}'
+  author:
+    - name:
+        given: Robin
+        family: Everhart
+      orcid: 0000-0000-0000-0000
+      email: robin.everhart@example.org
+      corresponding: true
+      affiliations:
+        - ref: uni
+        - ref: lab
+    - name: Sam Okoro
+      affiliations:
+        - ref: uni
+    - name: Priya Chandra
+      affiliations:
+        - ref: lab
+  affiliations:
+    - id: uni
+      name: Fictional University
+      department: Department of Examples
+      city: Springfield
+      country: Freedonia
+    - id: lab
+      name: Placeholder Research Institute
+      city: Metropolis
+      country: Ruritania
+  date: today
+  date-modified: today
+  doi: 10.5555/12345678
+  description: |
+    A short description of the document, rendered in the title block just like
+    Quarto's HTML format.
+  categories:
+    - Quarto
+    - OpenXML
+    - Word
+  keywords:
+    - docx
+    - template
+    - title block
+  abstract: |
+    This document is a playground for Quarto's `docx` format driven by a custom
+    OpenXML Pandoc template. It shows how the title block, author and affiliation
+    metadata, page geometry, and landscape sections can be customised structurally,
+    in the spirit of the HTML and Typst templates.
+  docx-title-page-break: true
+  
+
+[WARNING] 
+Could not convert image logo.svg: "check that rsvg-convert is in path.\nrsvg-convert: createProcess: posix_spawnp: does not exist (No such file or directory)"
+
+Output created: template.docx
+
+

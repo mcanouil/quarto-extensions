@@ -1,0 +1,53 @@
+
+
+pandoc 
+
+  to: html
+  output-file: bad-user.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  csl: apa.csl
+  extensions:
+    gitlink:
+      platform: listuser
+      repository-name: owner/repo
+      custom-platforms-file: bad-user-platforms.yml
+  title: Invalid custom user patterns
+  
+
+(E) [gitlink] Failed to load custom platforms from 'bad-user-platforms.yml':
+noat:
+  - User pattern must start with "@" (e.g., "@([%w%-]+)")
+nocap:
+  - User pattern must have exactly one capture group, for the username (e.g., "@([%w%-]+)")
+twocap:
+  - User pattern must have exactly one capture group, for the username (e.g., "@([%w%-]+)")
+threecap:
+  - Issue pattern must have one or two capture groups: (%w+)/(%w+)#(%d+)
+listuser:
+  - User pattern must be a single string, not a list (e.g., user: "@([%w%-]+)")
+posmix:
+  - Issue pattern must have one or two capture groups: ()#(%d+)
+  - User pattern must have exactly one capture group, for the username (e.g., "@([%w%-]+)")
+poscap:
+  - User pattern must have exactly one capture group, for the username (e.g., "@([%w%-]+)")
+Using the built-in platforms only.
+
+(E) [gitlink] Unsupported platform: 'listuser'. Supported platforms are: bitbucket, codeberg, gitea, github, gitlab.
+
+
+
+Output created: bad-user.html
+
+

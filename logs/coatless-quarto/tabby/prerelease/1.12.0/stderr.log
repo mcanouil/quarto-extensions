@@ -1,0 +1,75 @@
+Cloning into 'repo'...
+Using CPython 3.13.18
+Creating virtual environment at: .venv
+Activate with: source .venv/bin/activate
+Resolved 13 packages in 193ms
+Downloading matplotlib (9.4MiB)
+Downloading pillow (6.8MiB)
+Downloading fonttools (5.2MiB)
+Downloading numpy (15.9MiB)
+Downloading pandas (11.4MiB)
+Downloading kiwisolver (1.4MiB)
+ Downloaded kiwisolver
+ Downloaded fonttools
+ Downloaded pillow
+ Downloaded matplotlib
+ Downloaded numpy
+ Downloaded pandas
+Prepared 13 packages in 338ms
+Installed 13 packages in 1.10s
+ + contourpy==1.4.0
+ + cycler==0.12.1
+ + fonttools==4.68.0
+ + kiwisolver==1.5.1
+ + matplotlib==3.11.2
+ + numpy==2.5.4
+ + packaging==26.3
+ + pandas==3.1.1
+ + pillow==13.0.0
+ + pyparsing==3.3.3
+ + python-dateutil==4.0.0
+ + seaborn==0.13.2
+ + tzdata==2026.6
+[1/4] qtabby-example.qmd
+
+
+processing file: qtabby-example.qmd
+1/9                  
+2/9 [unnamed-chunk-1]
+Downloading cpython-3.13.17-linux-x86_64-gnu (download) (33.7MiB)
+ Downloaded cpython-3.13.17-linux-x86_64-gnu (download)
+Installed 1 package in 388ms
+3/9                  
+4/9 [unnamed-chunk-2]
+5/9                  
+6/9 [fig-python]     
+Error in py_call_impl(callable, call_args$unnamed, call_args$named) : 
+  ModuleNotFoundError: No module named 'matplotlib'
+Run `reticulate::py_last_error()` for details.
+Calls: .main ... tryCatchList -> force -> <Anonymous> -> py_call_impl
+
+Quitting from qtabby-example.qmd:310-321 [fig-python]
+Execution halted
+WARN: Error encountered when rendering files
+Render failed, retrying once...
+[1/4] qtabby-example.qmd
+
+
+processing file: qtabby-example.qmd
+1/9                  
+2/9 [unnamed-chunk-1]
+Downloading cpython-3.13.16-linux-x86_64-gnu (download) (33.5MiB)
+ Downloaded cpython-3.13.16-linux-x86_64-gnu (download)
+Installed 1 package in 284ms
+3/9                  
+4/9 [unnamed-chunk-2]
+5/9                  
+6/9 [fig-python]     
+Error in py_call_impl(callable, call_args$unnamed, call_args$named) : 
+  ModuleNotFoundError: No module named 'matplotlib'
+Run `reticulate::py_last_error()` for details.
+Calls: .main ... tryCatchList -> force -> <Anonymous> -> py_call_impl
+
+Quitting from qtabby-example.qmd:310-321 [fig-python]
+Execution halted
+WARN: Error encountered when rendering files

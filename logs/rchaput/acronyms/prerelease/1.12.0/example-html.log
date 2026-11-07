@@ -1,0 +1,31 @@
+pandoc 
+
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Acronyms Example
+  acronyms:
+    keys:
+      - shortname: RL
+        longname: Reinforcement Learning
+    loa_title: Glossary
+    insert_loa: end
+    sorting: alphabetical
+    style: short-long
+  
+
+Output created: example.html
+
+

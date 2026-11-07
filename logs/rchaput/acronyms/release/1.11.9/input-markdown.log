@@ -1,0 +1,64 @@
+pandoc 
+
+  to: markdown
+  output-file: input.md
+  standalone: true
+  default-image-extension: png
+  markdown-headings: atx
+  wrap: preserve
+  
+
+metadata
+
+  keep-yaml: false
+  acronyms:
+    fromfile:
+      - ./acronyms_original.yml
+      - ./acronyms_simplified.yml
+  
+
+FATAL (/opt/quarto/share/filters/main.lua:3759) An error occurred:
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/tests/32-simplified-external-format/acronyms as a JSON filter.
+Please make sure the file exists and is executable.
+
+Did you intend 'acronyms' as a Lua filter in an extension?
+If so, make sure you've spelled the name of the extension correctly.
+
+The original Pandoc error follows below.
+Error running filter '/home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/tests/32-simplified-external-format/acronyms':
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/tests/32-simplified-external-format/acronyms
+
+Error running filter '/opt/quarto/share/filters/main.lua':
+/opt/quarto/share/filters/main.lua:591: FATAL QUARTO ERROR
+stack traceback:
+	/opt/quarto/share/filters/main.lua:2623: in function 'fatal'
+	/opt/quarto/share/filters/main.lua:2203: in function 'fail'
+	/opt/quarto/share/filters/main.lua:3759: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:591: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1320: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1338: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1374: in function </opt/quarto/share/filters/main.lua:1371>
+
+(ERROR) FATAL (/opt/quarto/share/filters/main.lua:3759) An error occurred:
+Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/tests/32-simplified-external-format/acronyms as a JSON filter.
+Please make sure the file exists and is executable.
+
+Did you intend 'acronyms' as a Lua filter in an extension?
+If so, make sure you've spelled the name of the extension correctly.
+
+The original Pandoc error follows below.
+Error running filter '/home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/tests/32-simplified-external-format/acronyms':
+Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/tests/32-simplified-external-format/acronyms
+Error running filter '/opt/quarto/share/filters/main.lua':
+/opt/quarto/share/filters/main.lua:591: FATAL QUARTO ERROR
+stack traceback:
+	/opt/quarto/share/filters/main.lua:2623: in function 'fatal'
+	/opt/quarto/share/filters/main.lua:2203: in function 'fail'
+	/opt/quarto/share/filters/main.lua:3759: in field 'Pandoc'
+	/opt/quarto/share/filters/main.lua:591: in function 'run_emulated_filter'
+	/opt/quarto/share/filters/main.lua:1320: in local 'callback'
+	/opt/quarto/share/filters/main.lua:1338: in upvalue 'run_emulated_filter_chain'
+	/opt/quarto/share/filters/main.lua:1374: in function </opt/quarto/share/filters/main.lua:1371>
+
+(ERROR) Pandoc conversion failed (exit code 83)
+

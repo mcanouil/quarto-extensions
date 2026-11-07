@@ -1,0 +1,36 @@
+
+
+pandoc 
+
+  to: html
+  output-file: short-hex-alpha.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: '#036c'
+  theme:
+    light: flatly
+    dark: darkly
+  title: Short hex with alpha
+  
+
+
+
+Output created: _site/short-hex-alpha.html
+
+

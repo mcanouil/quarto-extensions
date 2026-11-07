@@ -1,0 +1,46 @@
+Cloning into 'repo'...
+ERROR: Include directive failed.
+  in file /home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example.qmd, 
+  could not find file /home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/list-of-news.qmd.
+
+Stack trace:
+    at retrieveInclude (file:///opt/quarto/bin/quarto.js:75983:13)
+    at standaloneInclude (file:///opt/quarto/bin/quarto.js:76016:9)
+    at processMarkdownIncludes (file:///opt/quarto/bin/quarto.js:76254:30)
+    at expandIncludes (file:///opt/quarto/bin/quarto.js:76285:9)
+    at async projectResolveFullMarkdownForFile (file:///opt/quarto/bin/quarto.js:84025:21)
+    at async fileExecutionEngine (file:///opt/quarto/bin/quarto.js:84458:22)
+    at async fileExecutionEngineAndTarget (file:///opt/quarto/bin/quarto.js:84484:18)
+    at async render (file:///opt/quarto/bin/quarto.js:137360:22)
+    at async file:///opt/quarto/bin/quarto.js:137620:24
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:137448:7)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:16906:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:16783:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:183993:5)
+    at async file:///opt/quarto/bin/quarto.js:184022:5
+    at async file:///opt/quarto/bin/quarto.js:183876:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:183878:5)
+    at async file:///opt/quarto/bin/quarto.js:184015:3
+Render failed, retrying once...
+ERROR: Include directive failed.
+  in file /home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example.qmd, 
+  could not find file /home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/list-of-news.qmd.
+
+Stack trace:
+    at retrieveInclude (file:///opt/quarto/bin/quarto.js:75983:13)
+    at standaloneInclude (file:///opt/quarto/bin/quarto.js:76016:9)
+    at processMarkdownIncludes (file:///opt/quarto/bin/quarto.js:76254:30)
+    at expandIncludes (file:///opt/quarto/bin/quarto.js:76285:9)
+    at async projectResolveFullMarkdownForFile (file:///opt/quarto/bin/quarto.js:84025:21)
+    at async fileExecutionEngine (file:///opt/quarto/bin/quarto.js:84458:22)
+    at async fileExecutionEngineAndTarget (file:///opt/quarto/bin/quarto.js:84484:18)
+    at async render (file:///opt/quarto/bin/quarto.js:137360:22)
+    at async file:///opt/quarto/bin/quarto.js:137620:24
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:137448:7)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:16906:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:16783:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:183993:5)
+    at async file:///opt/quarto/bin/quarto.js:184022:5
+    at async file:///opt/quarto/bin/quarto.js:183876:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:183878:5)
+    at async file:///opt/quarto/bin/quarto.js:184015:3

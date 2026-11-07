@@ -1,0 +1,28 @@
+pandoc 
+
+  to: html
+  output-file: index.html
+  standalone: true
+  toc: true
+  number-sections: false
+  title-prefix: Fixture Book
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  crossref:
+    chapters: true
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Fixture Book
+  
+
+Output created: _book/index.html
+
+

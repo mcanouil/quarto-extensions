@@ -1,0 +1,32 @@
+
+
+pandoc 
+
+  to: html
+  output-file: gitlab.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  csl: apa.csl
+  extensions:
+    gitlink:
+      platform: gitlab
+      repository-name: owner/repo
+  title: GitLab mentions
+  
+
+
+
+Output created: gitlab.html
+
+
