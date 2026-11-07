@@ -52,13 +52,14 @@ No existing .aux file, so I'll make a simple one, and require run of *latex.
 Latexmk: applying rule 'pdflatex'...
 Rule 'pdflatex':  Reasons for rerun
 Category 'other':
+
   Rerun of 'pdflatex' forced or previously required:
     Reason or flag: 'Initial setup'
-
 
 ------------
 Run number 1 of rule 'pdflatex'
 ------------
+
 ------------
 Running 'pdflatex  --interaction=nonstopmode -recorder  "source.tex"'
 ------------
@@ -78,6 +79,7 @@ Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: cls)
 
 Enter file name: 
+
 ! Emergency stop.
 <read *> 
          
@@ -110,7 +112,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:/tmp/quarto-sessionadb80676e8765885/eb77e8e9632bbf6c//:/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=pdf source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:/tmp/quarto-session9b8ebe8e8447450f/d7297c3c23a0a8e3//:/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=pdf source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -206,7 +208,7 @@ q1 -- q2 -- q3; % make these edges plain
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.11.7)  7 NOV 2026 13:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.11.7)  7 NOV 2026 14:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -247,15 +249,11 @@ Latexmk: This is Latexmk, John Collins, 9 March 2026. Version 4.88.
 No existing .aux file, so I'll make a simple one, and require run of *latex.
 
 Latexmk: applying rule 'pdflatex'...
-
 Rule 'pdflatex':  Reasons for rerun
 
 Category 'other':
-
   Rerun of 'pdflatex' forced or previously required:
     Reason or flag: 'Initial setup'
-
-
 
 ------------
 Run number 1 of rule 'pdflatex'
@@ -301,10 +299,8 @@ Latexmk: Missing input file 'standalone.cls' message in .log file:
 Latexmk: Errors, so I did not complete making targets
 
 Collected error summary (may duplicate other messages):
-
   pdflatex: Command for 'pdflatex' gave return code 1
       Refer to 'source.log' and/or above output for details
-
 
 
 Latexmk: Sometimes, the -f option can be used to get latexmk
@@ -315,7 +311,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:/tmp/quarto-sessionadb80676e8765885/eb77e8e9632bbf6c//:/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=pdf source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:/tmp/quarto-session9b8ebe8e8447450f/d7297c3c23a0a8e3//:/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=pdf source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -387,7 +383,7 @@ $
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.11.7)  7 NOV 2026 13:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.11.7)  7 NOV 2026 14:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.

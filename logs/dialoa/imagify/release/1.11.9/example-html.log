@@ -42,8 +42,8 @@ No existing .aux file, so I'll make a simple one, and require run of *latex.
 
 Latexmk: applying rule 'latex'...
 Rule 'latex':  Reasons for rerun
-Category 'other':
 
+Category 'other':
   Rerun of 'latex' forced or previously required:
     Reason or flag: 'Initial setup'
 
@@ -99,7 +99,6 @@ Collected error summary (may duplicate other messages):
       Refer to 'source.log' and/or above output for details
 
 
-
 Latexmk: Sometimes, the -f option can be used to get latexmk
   to try to force complete processing.
   But normally, you will need to correct the file(s) that caused the
@@ -108,7 +107,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:/tmp/quarto-session74eacb63cb5e31d3/6aafc18de0fc8579//:/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:/tmp/quarto-sessiondc5cd4b385c862a9/4e76c72cb66836c7//:/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -171,7 +170,7 @@ $E = mc^2$
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.11.7)  7 NOV 2026 13:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.11.7)  7 NOV 2026 14:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -279,7 +278,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:/tmp/quarto-session74eacb63cb5e31d3/6aafc18de0fc8579//:/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:/tmp/quarto-sessiondc5cd4b385c862a9/4e76c72cb66836c7//:/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -342,7 +341,7 @@ $x=\frac{-b\pm\sqrt[]{b^2-4ac}}{2a}$
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.11.7)  7 NOV 2026 13:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.11.7)  7 NOV 2026 14:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -450,7 +449,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:/tmp/quarto-session74eacb63cb5e31d3/6aafc18de0fc8579//:/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:/tmp/quarto-sessiondc5cd4b385c862a9/4e76c72cb66836c7//:/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -513,7 +512,7 @@ $x=\frac{-b\pm\sqrt[]{b^2-4ac}}{2a}$
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.11.7)  7 NOV 2026 13:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.11.7)  7 NOV 2026 14:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -563,7 +562,6 @@ Category 'other':
 ------------
 Run number 1 of rule 'latex'
 ------------
-
 ------------
 Running 'latex  --interaction=nonstopmode -recorder  "source.tex"'
 ------------
@@ -621,7 +619,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:/tmp/quarto-session74eacb63cb5e31d3/6aafc18de0fc8579//:/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:/tmp/quarto-sessiondc5cd4b385c862a9/4e76c72cb66836c7//:/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -685,7 +683,7 @@ P = \frac{T}{V}$
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.11.7)  7 NOV 2026 13:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.11.7)  7 NOV 2026 14:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -793,7 +791,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:/tmp/quarto-session74eacb63cb5e31d3/6aafc18de0fc8579//:/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:/tmp/quarto-sessiondc5cd4b385c862a9/4e76c72cb66836c7//:/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -869,7 +867,7 @@ $\displaystyle
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.11.7)  7 NOV 2026 13:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.11.7)  7 NOV 2026 14:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -977,7 +975,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:/tmp/quarto-session74eacb63cb5e31d3/6aafc18de0fc8579//:/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:/tmp/quarto-sessiondc5cd4b385c862a9/4e76c72cb66836c7//:/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -1041,7 +1039,7 @@ P = \frac{T}{V}$
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.11.7)  7 NOV 2026 13:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.11.7)  7 NOV 2026 14:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1082,7 +1080,6 @@ Latexmk: This is Latexmk, John Collins, 9 March 2026. Version 4.88.
 No existing .aux file, so I'll make a simple one, and require run of *latex.
 
 Latexmk: applying rule 'latex'...
-
 Rule 'latex':  Reasons for rerun
 
 Category 'other':
@@ -1150,7 +1147,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:/tmp/quarto-session74eacb63cb5e31d3/6aafc18de0fc8579//:/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:/tmp/quarto-sessiondc5cd4b385c862a9/4e76c72cb66836c7//:/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -1241,7 +1238,7 @@ q1 -- q2 -- q3; % make these edges plain
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.11.7)  7 NOV 2026 13:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.11.7)  7 NOV 2026 14:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1349,7 +1346,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:/tmp/quarto-session74eacb63cb5e31d3/6aafc18de0fc8579//:/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:/tmp/quarto-sessiondc5cd4b385c862a9/4e76c72cb66836c7//:/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -1415,7 +1412,7 @@ $
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.11.7)  7 NOV 2026 13:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.11.7)  7 NOV 2026 14:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1523,7 +1520,7 @@ Latexmk: Sometimes, the -f option can be used to get latexmk
   latexmk after you've corrected the files.
 
 [ERROR] Imagify: LaTeX compilation failed.
-Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:/tmp/quarto-session74eacb63cb5e31d3/6aafc18de0fc8579//:/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
+Command used: export TEXINPUTS=/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:/tmp/quarto-sessiondc5cd4b385c862a9/4e76c72cb66836c7//:/home/runner/work/quarto-extensions/quarto-extensions/test-11/repo/example-quarto//:; latexmk  -latex --interaction=nonstopmode --output-format=dvi source.tex
 LaTeX source code:
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
@@ -1621,7 +1618,7 @@ important line/.style={very thick}]
 
 \end{document}
 LaTeX log:
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.11.7)  7 NOV 2026 13:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex 2026.11.7)  7 NOV 2026 14:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.

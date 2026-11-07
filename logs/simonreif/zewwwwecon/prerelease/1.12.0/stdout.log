@@ -250,13 +250,13 @@ set LDFLAGS=-L/usr/local/lib
 -- Looking for __cplusplus - found
 -- Could NOT find JNI (missing: JAVA_INCLUDE_PATH JAVA_INCLUDE_PATH2 JVM) 
 -- Could NOT find Java (missing: Java_JAVA_EXECUTABLE Java_JAR_EXECUTABLE Java_JAVAC_EXECUTABLE Java_JAVAH_EXECUTABLE Java_JAVADOC_EXECUTABLE) (Required is at least version "1.5")
--- Configuring done (2.0s)
+-- Configuring done (2.4s)
 -- Generating done (0.0s)
--- Build files have been written to: /tmp/RtmpxAy1jQ/R.INSTALL8835a2c374e/nloptr/src/nlopt-build
+-- Build files have been written to: /tmp/RtmpjpFjf5/R.INSTALL8836c93093f/nloptr/src/nlopt-build
 [  2%] Generating nlopt.hpp
 [  2%] Built target generate-cpp
-[  4%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRect.c.o
 [  6%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/direct_wrap.c.o
+[  6%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRect.c.o
 [  8%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRserial.c.o
 [ 10%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/DIRsubrout.c.o
 [ 12%] Building C object CMakeFiles/nlopt.dir/src/algs/cdirect/cdirect.c.o
@@ -287,8 +287,8 @@ set LDFLAGS=-L/usr/local/lib
 [ 63%] Building C object CMakeFiles/nlopt.dir/src/util/redblack.c.o
 [ 65%] Building C object CMakeFiles/nlopt.dir/src/util/qsort_r.c.o
 [ 67%] Building C object CMakeFiles/nlopt.dir/src/util/rescale.c.o
-[ 69%] Building C object CMakeFiles/nlopt.dir/src/algs/luksan/plip.c.o
-[ 71%] Building C object CMakeFiles/nlopt.dir/src/algs/luksan/plis.c.o
+[ 69%] Building C object CMakeFiles/nlopt.dir/src/algs/luksan/plis.c.o
+[ 71%] Building C object CMakeFiles/nlopt.dir/src/algs/luksan/plip.c.o
 [ 73%] Building C object CMakeFiles/nlopt.dir/src/algs/luksan/pnet.c.o
 [ 75%] Building C object CMakeFiles/nlopt.dir/src/algs/luksan/mssubs.c.o
 [ 77%] Building C object CMakeFiles/nlopt.dir/src/algs/luksan/pssubs.c.o
@@ -307,17 +307,17 @@ set LDFLAGS=-L/usr/local/lib
 [100%] Built target nlopt
 Install the project...
 -- Install configuration: "Release"
--- Installing: /tmp/RtmpxAy1jQ/R.INSTALL8835a2c374e/nloptr/src/nlopt/lib/pkgconfig/nlopt.pc
--- Installing: /tmp/RtmpxAy1jQ/R.INSTALL8835a2c374e/nloptr/src/nlopt/include/nlopt.h
--- Installing: /tmp/RtmpxAy1jQ/R.INSTALL8835a2c374e/nloptr/src/nlopt/include/nlopt.hpp
--- Installing: /tmp/RtmpxAy1jQ/R.INSTALL8835a2c374e/nloptr/src/nlopt/lib/libnlopt.a
--- Installing: /tmp/RtmpxAy1jQ/R.INSTALL8835a2c374e/nloptr/src/nlopt/share/man/man3/nlopt.3
--- Installing: /tmp/RtmpxAy1jQ/R.INSTALL8835a2c374e/nloptr/src/nlopt/share/man/man3/nlopt_minimize.3
--- Installing: /tmp/RtmpxAy1jQ/R.INSTALL8835a2c374e/nloptr/src/nlopt/share/man/man3/nlopt_minimize_constrained.3
--- Installing: /tmp/RtmpxAy1jQ/R.INSTALL8835a2c374e/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends.cmake
--- Installing: /tmp/RtmpxAy1jQ/R.INSTALL8835a2c374e/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends-release.cmake
--- Installing: /tmp/RtmpxAy1jQ/R.INSTALL8835a2c374e/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfig.cmake
--- Installing: /tmp/RtmpxAy1jQ/R.INSTALL8835a2c374e/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfigVersion.cmake
+-- Installing: /tmp/RtmpjpFjf5/R.INSTALL8836c93093f/nloptr/src/nlopt/lib/pkgconfig/nlopt.pc
+-- Installing: /tmp/RtmpjpFjf5/R.INSTALL8836c93093f/nloptr/src/nlopt/include/nlopt.h
+-- Installing: /tmp/RtmpjpFjf5/R.INSTALL8836c93093f/nloptr/src/nlopt/include/nlopt.hpp
+-- Installing: /tmp/RtmpjpFjf5/R.INSTALL8836c93093f/nloptr/src/nlopt/lib/libnlopt.a
+-- Installing: /tmp/RtmpjpFjf5/R.INSTALL8836c93093f/nloptr/src/nlopt/share/man/man3/nlopt.3
+-- Installing: /tmp/RtmpjpFjf5/R.INSTALL8836c93093f/nloptr/src/nlopt/share/man/man3/nlopt_minimize.3
+-- Installing: /tmp/RtmpjpFjf5/R.INSTALL8836c93093f/nloptr/src/nlopt/share/man/man3/nlopt_minimize_constrained.3
+-- Installing: /tmp/RtmpjpFjf5/R.INSTALL8836c93093f/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends.cmake
+-- Installing: /tmp/RtmpjpFjf5/R.INSTALL8836c93093f/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends-release.cmake
+-- Installing: /tmp/RtmpjpFjf5/R.INSTALL8836c93093f/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfig.cmake
+-- Installing: /tmp/RtmpjpFjf5/R.INSTALL8836c93093f/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfigVersion.cmake
 Moving nlopt/lib to nlopt/lib
 Copying headers found in src/nlopt/include into inst/include
 configure: creating ./config.status
@@ -493,7 +493,7 @@ g++ -std=gnu++20 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG   -I/usr/local/include 
 g++ -std=gnu++20 -shared -L/opt/R/4.6.2/lib/R/lib -L/usr/local/lib -o e1071.so Rsvm.o cmeans.o cshell.o floyd.o init.o svm.o -L/opt/R/4.6.2/lib/R/lib -lR
 Found OpenSSL pkg-config cflags and libs!
 Testing compiler OpenSSL configuration using PKG_CFLAGS=
-** Using PKG_CONFIG_PATH=:/tmp/RtmpwFDFbI/R.INSTALL1d857708d859/s2/tools/pkgconfig
+** Using PKG_CONFIG_PATH=:/tmp/Rtmp97DY8d/R.INSTALL1d853e617822/s2/tools/pkgconfig
 ** Building abseil-cpp using cmake
 GNU Make 4.3
 Built for x86_64-pc-linux-gnu
@@ -518,9 +518,9 @@ Using MAKE=make
 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
 -- Found Threads: TRUE  
--- Configuring done (0.4s)
--- Generating done (0.1s)
--- Build files have been written to: /tmp/RtmpwFDFbI/R.INSTALL1d857708d859/s2/tools/build/abseil-cpp
+-- Configuring done (0.5s)
+-- Generating done (0.2s)
+-- Build files have been written to: /tmp/Rtmp97DY8d/R.INSTALL1d853e617822/s2/tools/build/abseil-cpp
 [  0%] Building CXX object absl/base/CMakeFiles/log_severity.dir/log_severity.cc.o
 [  1%] Linking CXX static library libabsl_log_severity.a
 [  1%] Built target log_severity
@@ -1533,7 +1533,7 @@ Using MAKE=make
 -- Installing: /tmp/s2_absl_7743/lib/pkgconfig/absl_utility.pc
 -- Installing: /tmp/s2_absl_7743/lib/pkgconfig/absl_if_constexpr.pc
 ** Done!
-** Using PKG_CONFIG_PATH=/tmp/s2_absl_7743/lib/pkgconfig::/tmp/RtmpwFDFbI/R.INSTALL1d857708d859/s2/tools/pkgconfig
+** Using PKG_CONFIG_PATH=/tmp/s2_absl_7743/lib/pkgconfig::/tmp/Rtmp97DY8d/R.INSTALL1d853e617822/s2/tools/pkgconfig
 Testing Abseil configuration using PKG_CPPFLAGS=-I/tmp/s2_absl_7743/include PKG_CFLAGS=
 Using PKG_LIBS=-L/tmp/s2_absl_7743/lib /tmp/s2_absl_7743/lib/libabsl_flags.a /tmp/s2_absl_7743/lib/libabsl_flags_internal.a /tmp/s2_absl_7743/lib/libabsl_flags_marshalling.a /tmp/s2_absl_7743/lib/libabsl_flags_reflection.a /tmp/s2_absl_7743/lib/libabsl_flags_private_handle_accessor.a /tmp/s2_absl_7743/lib/libabsl_flags_commandlineflag.a /tmp/s2_absl_7743/lib/libabsl_flags_commandlineflag_internal.a /tmp/s2_absl_7743/lib/libabsl_flags_config.a /tmp/s2_absl_7743/lib/libabsl_flags_program_name.a /tmp/s2_absl_7743/lib/libabsl_raw_hash_set.a /tmp/s2_absl_7743/lib/libabsl_hashtablez_sampler.a /tmp/s2_absl_7743/lib/libabsl_log_internal_check_op.a /tmp/s2_absl_7743/lib/libabsl_log_internal_conditions.a /tmp/s2_absl_7743/lib/libabsl_log_internal_message.a /tmp/s2_absl_7743/lib/libabsl_examine_stack.a /tmp/s2_absl_7743/lib/libabsl_log_internal_format.a /tmp/s2_absl_7743/lib/libabsl_log_internal_proto.a /tmp/s2_absl_7743/lib/libabsl_log_internal_nullguard.a /tmp/s2_absl_7743/lib/libabsl_log_internal_log_sink_set.a /tmp/s2_absl_7743/lib/libabsl_log_internal_globals.a /tmp/s2_absl_7743/lib/libabsl_log_globals.a /tmp/s2_absl_7743/lib/libabsl_hash.a /tmp/s2_absl_7743/lib/libabsl_city.a /tmp/s2_absl_7743/lib/libabsl_bad_variant_access.a /tmp/s2_absl_7743/lib/libabsl_low_level_hash.a /tmp/s2_absl_7743/lib/libabsl_log_sink.a /tmp/s2_absl_7743/lib/libabsl_log_entry.a /tmp/s2_absl_7743/lib/libabsl_status.a /tmp/s2_absl_7743/lib/libabsl_cord.a /tmp/s2_absl_7743/lib/libabsl_cordz_info.a /tmp/s2_absl_7743/lib/libabsl_cord_internal.a /tmp/s2_absl_7743/lib/libabsl_cordz_functions.a /tmp/s2_absl_7743/lib/libabsl_exponential_biased.a /tmp/s2_absl_7743/lib/libabsl_cordz_handle.a /tmp/s2_absl_7743/lib/libabsl_synchronization.a /tmp/s2_absl_7743/lib/libabsl_graphcycles_internal.a /tmp/s2_absl_7743/lib/libabsl_kernel_timeout_internal.a /tmp/s2_absl_7743/lib/libabsl_time.a /tmp/s2_absl_7743/lib/libabsl_civil_time.a /tmp/s2_absl_7743/lib/libabsl_time_zone.a /tmp/s2_absl_7743/lib/libabsl_crc_cord_state.a /tmp/s2_absl_7743/lib/libabsl_crc32c.a /tmp/s2_absl_7743/lib/libabsl_crc_internal.a /tmp/s2_absl_7743/lib/libabsl_crc_cpu_detect.a /tmp/s2_absl_7743/lib/libabsl_bad_optional_access.a /tmp/s2_absl_7743/lib/libabsl_stacktrace.a /tmp/s2_absl_7743/lib/libabsl_str_format_internal.a /tmp/s2_absl_7743/lib/libabsl_strerror.a /tmp/s2_absl_7743/lib/libabsl_symbolize.a /tmp/s2_absl_7743/lib/libabsl_debugging_internal.a /tmp/s2_absl_7743/lib/libabsl_demangle_internal.a /tmp/s2_absl_7743/lib/libabsl_malloc_internal.a /tmp/s2_absl_7743/lib/libabsl_strings.a /tmp/s2_absl_7743/lib/libabsl_string_view.a /tmp/s2_absl_7743/lib/libabsl_strings_internal.a /tmp/s2_absl_7743/lib/libabsl_base.a -lrt /tmp/s2_absl_7743/lib/libabsl_spinlock_wait.a /tmp/s2_absl_7743/lib/libabsl_int128.a /tmp/s2_absl_7743/lib/libabsl_throw_delegate.a /tmp/s2_absl_7743/lib/libabsl_raw_logging_internal.a /tmp/s2_absl_7743/lib/libabsl_log_severity.a -lssl -lcrypto 
 Using PKG_CFLAGS=
@@ -1616,29 +1616,3 @@ g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/inc
 g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2lax_polygon_shape.cc -o s2/s2lax_polygon_shape.o
 g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2lax_polyline_shape.cc -o s2/s2lax_polyline_shape.o
 g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2loop_measures.cc -o s2/s2loop_measures.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2loop.cc -o s2/s2loop.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2max_distance_targets.cc -o s2/s2max_distance_targets.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2measures.cc -o s2/s2measures.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2memory_tracker.cc -o s2/s2memory_tracker.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2metrics.cc -o s2/s2metrics.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2min_distance_targets.cc -o s2/s2min_distance_targets.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2padded_cell.cc -o s2/s2padded_cell.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2point_compression.cc -o s2/s2point_compression.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2point_region.cc -o s2/s2point_region.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2pointutil.cc -o s2/s2pointutil.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2polygon.cc -o s2/s2polygon.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2polyline_alignment.cc -o s2/s2polyline_alignment.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2polyline_measures.cc -o s2/s2polyline_measures.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2polyline_simplifier.cc -o s2/s2polyline_simplifier.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2polyline.cc -o s2/s2polyline.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2predicates.cc -o s2/s2predicates.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2projections.cc -o s2/s2projections.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2r2rect.cc -o s2/s2r2rect.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2region_coverer.cc -o s2/s2region_coverer.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2region_intersection.cc -o s2/s2region_intersection.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2region_term_indexer.cc -o s2/s2region_term_indexer.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2region_union.cc -o s2/s2region_union.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2region.cc -o s2/s2region.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2shape_index_buffered_region.cc -o s2/s2shape_index_buffered_region.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2shape_index_measures.cc -o s2/s2shape_index_measures.o
-g++ -std=gnu++17 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/tmp/s2_absl_7743/include -I../src -DSTRICT_R_HEADERS -DRCPP_NO_MASK_RF_ERROR -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/wk/include' -I/usr/local/include   -pthread -fpic  -g -O2   -c s2/s2shape_index.cc -o s2/s2shape_index.o

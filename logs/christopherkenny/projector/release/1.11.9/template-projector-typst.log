@@ -32,16 +32,16 @@ metadata
 downloading @preview/polylux:0.4.0
 
   0 B /   6.4 KiB (  0 %),  63.6 KiB/s, ETA: 0 s
-  6.4 KiB /   6.4 KiB (100 %), 
- 63.6 KiB/s, ETA: 0 s
+  6.4 KiB /   6.4
+ KiB (100 %),  63.6 KiB/s, ETA: 0 s
 
 warning: document did not converge within five attempts
  = hint: see 5 additional warnings for more details
  = hint: see https://typst.app/help/convergence for help
 
+
 warning: value of the page counter did not converge
    ┌─ @preview/polylux:0.4.0/src/toolbox/toolbox-impl.typ:11:18
-
    │
 11 │     sections.push(link(loc, name))
    │                   ^^^^^^^^^^^^^^^
@@ -71,7 +71,8 @@ warning: value of the page counter did not converge
 warning: value of `counter("logical-slide")` did not converge
     ┌─ @preview/polylux:0.4.0/src/logic.typ:276:37
     │
-276 │     #metadata((t: "LogicalSlide", v: logical-slide.get().first())) <pdfpc>
+276 │     #metadata((t: "LogicalSlide", v: logical-slide.get(
+).first())) <pdfpc>
     │                                      ^^^^^^^^^^^^^^^^^^^
     │
     = hint: the following values were observed:
@@ -88,7 +89,8 @@ warning: value of `counter("later-counter")` did not converge
 248 │       let curr-lc = later-counter.get().at(strand - 1)
     │                     ^^^^^^^^^^^^^^^^^^^
     │
-    = hint: the following values were observed:
+  
+  = hint: the following values were observed:
       - run 1: 0
       - run 2: 0
       - run 3: 0
@@ -99,15 +101,23 @@ warning: value of `counter("later-counter")` did not converge
 warning: value of `counter("logical-slide")` did not converge
    ┌─ @preview/polylux:0.4.0/src/toolbox/toolbox-impl.typ:45:30
    │
-45 │ #let slide-number = context { logic.logical-slide.display() }
-   │                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+45
+ │ #let slide-number = context { l
+ogic.logical-slide.displ
+ay() }
+   │                
+               ^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
+
    │
    = hint: the following values were observed:
      - run 1: 0
-     - run 2: 29
+ 
+    - run 2: 29
      - run 3: 23
      - run 4: 22
-     - run 5: 22
+  
+   - run 5: 22
      - final: 21
 
 

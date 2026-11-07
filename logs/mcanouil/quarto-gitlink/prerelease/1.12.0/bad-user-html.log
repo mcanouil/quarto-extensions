@@ -27,21 +27,21 @@ metadata
   
 
 (E) [gitlink] Failed to load custom platforms from 'bad-user-platforms.yml':
-noat:
-  - User pattern must start with "@" (e.g., "@([%w%-]+)")
-listuser:
-  - User pattern must be a single string, not a list (e.g., user: "@([%w%-]+)")
-threecap:
-  - Issue pattern must have one or two capture groups: (%w+)/(%w+)#(%d+)
 posmix:
   - Issue pattern must have one or two capture groups: ()#(%d+)
   - User pattern must have exactly one capture group, for the username (e.g., "@([%w%-]+)")
+threecap:
+  - Issue pattern must have one or two capture groups: (%w+)/(%w+)#(%d+)
 twocap:
   - User pattern must have exactly one capture group, for the username (e.g., "@([%w%-]+)")
 poscap:
   - User pattern must have exactly one capture group, for the username (e.g., "@([%w%-]+)")
 nocap:
   - User pattern must have exactly one capture group, for the username (e.g., "@([%w%-]+)")
+noat:
+  - User pattern must start with "@" (e.g., "@([%w%-]+)")
+listuser:
+  - User pattern must be a single string, not a list (e.g., user: "@([%w%-]+)")
 Using the built-in platforms only.
 
 (E) [gitlink] Unsupported platform: 'listuser'. Supported platforms are: bitbucket, codeberg, gitea, github, gitlab.

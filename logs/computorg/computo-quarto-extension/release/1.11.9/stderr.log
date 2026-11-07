@@ -18,7 +18,7 @@ Downloading plotly (9.4MiB)
  Downloaded plotly
  Downloaded pandas
  Downloaded jedi
-Installed 36 packages in 1.44s
+Installed 36 packages in 1.82s
 7/17                    
 8/17 [fig-polar]        
 9/17                    
@@ -124,7 +124,7 @@ failed with error code 1. Output:
 This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
-(/tmp/tikz-415aef4973221db8/tikz-image.tex
+(/tmp/tikz-30bb00145d0b5c6d/tikz-image.tex
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-09-09>
 
@@ -140,7 +140,7 @@ Enter file name:
 l.2 \usepackage
                {tikz}^^M
 !  ==> Fatal error occurred, no output PDF file produced!
-Transcript written on /tmp/tikz-415aef4973221db8/tikz-image.log.
+Transcript written on /tmp/tikz-30bb00145d0b5c6d/tikz-image.log.
 /home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/_extensions/computo/_extensions/pandoc-ext/diagram/diagram.lua: ...sions/computo/_extensions/pandoc-ext/diagram/diagram.lua:82: attempt to index a nil value (local 'fh')
 
 processing file: computo-quarto-extension.qmd
@@ -152,7 +152,7 @@ processing file: computo-quarto-extension.qmd
 6/17 [fig-plotly]       
 Downloading cpython-3.13.16-linux-x86_64-gnu (download) (33.5MiB)
  Downloaded cpython-3.13.16-linux-x86_64-gnu (download)
-Installed 36 packages in 1.25s
+Installed 36 packages in 1.75s
 7/17                    
 8/17 [fig-polar]        
 9/17                    
@@ -251,7 +251,7 @@ failed with error code 1. Output:
 This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
-(/tmp/tikz-152fb212b89d8c47/tikz-image.tex
+(/tmp/tikz-e1c4b811e8710b51/tikz-image.tex
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-09-09>
 
@@ -267,7 +267,7 @@ Enter file name:
 l.2 \usepackage
                {tikz}^^M
 !  ==> Fatal error occurred, no output PDF file produced!
-Transcript written on /tmp/tikz-152fb212b89d8c47/tikz-image.log.
+Transcript written on /tmp/tikz-e1c4b811e8710b51/tikz-image.log.
 /home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/_extensions/computo/_extensions/pandoc-ext/diagram/diagram.lua: ...sions/computo/_extensions/pandoc-ext/diagram/diagram.lua:82: attempt to index a nil value (local 'fh')[31mFATAL (/opt/quarto/share/filters/main.lua:7304) An error occurred:
 Could not convert a SVG to a PDF for output. Please ensure that rsvg-convert is available on the path.
 [39mError running filter '/opt/quarto/share/filters/main.lua':
@@ -282,14 +282,14 @@ stack traceback:
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:34: in upvalue 'run_filter_function'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:226: in function <...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:205>
 	(...tail calls...)
-	[C]: in function 'tmap'
+	[C]: in function 'pandoc.List.map'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:128: in upvalue 'recurse'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:225: in local 'jogger'
 	...	(skipping 19 levels)
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:98: in upvalue 'recurse'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:225: in function <...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:205>
 	(...tail calls...)
-	[C]: in function 'tmap'
+	[C]: in function 'pandoc.List.map'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:128: in upvalue 'recurse'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:225: in local 'jogger'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:174: in upvalue 'recurse'
@@ -306,7 +306,7 @@ failed with error code 1. Output:
 This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
-(/tmp/tikz-152fb212b89d8c47/tikz-image.tex
+(/tmp/tikz-e1c4b811e8710b51/tikz-image.tex
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-09-09>
 
@@ -322,7 +322,7 @@ Enter file name:
 l.2 \usepackage
                {tikz}^^M
 !  ==> Fatal error occurred, no output PDF file produced!
-Transcript written on /tmp/tikz-152fb212b89d8c47/tikz-image.log.
+Transcript written on /tmp/tikz-e1c4b811e8710b51/tikz-image.log.
 /home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/_extensions/computo/_extensions/pandoc-ext/diagram/diagram.lua: ...sions/computo/_extensions/pandoc-ext/diagram/diagram.lua:82: attempt to index a nil value (local 'fh')[31mFATAL (/opt/quarto/share/filters/main.lua:7304) An error occurred:
 Could not convert a SVG to a PDF for output. Please ensure that rsvg-convert is available on the path.
 [39mError running filter '/opt/quarto/share/filters/main.lua':
@@ -337,14 +337,14 @@ stack traceback:
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:34: in upvalue 'run_filter_function'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:226: in function <...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:205>
 	(...tail calls...)
-	[C]: in function 'tmap'
+	[C]: in function 'pandoc.List.map'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:128: in upvalue 'recurse'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:225: in local 'jogger'
 	...	(skipping 19 levels)
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:98: in upvalue 'recurse'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:225: in function <...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:205>
 	(...tail calls...)
-	[C]: in function 'tmap'
+	[C]: in function 'pandoc.List.map'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:128: in upvalue 'recurse'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:225: in local 'jogger'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:174: in upvalue 'recurse'

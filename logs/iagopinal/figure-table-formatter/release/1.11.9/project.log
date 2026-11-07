@@ -2,15 +2,12 @@
 
 processing file: example.qmd
 
-1
-/3                  
+1/3                  
 2/3 [unnamed-chunk-1]
 
 3
 /
-3
-                  
-
+3                  
 
 output file: example.knit.md
 
@@ -46,7 +43,6 @@ metadata
   
 
 INFO: latex
-
 INFO: Running format_citations.
 WARNING: No IDs found in Cite block: {'t': 'Cite', 'c': [[{'citationId': 'Pinal-Fernandez2024', 'citationPrefix': [], 'citationSuffix': [], 'citationMode': {'t': 'AuthorInText'}, 'citationNoteNum': 8, 'citationHash': 0}], [{'t': 'Str', 'c': '@Pinal-Fernandez2024'}]]}
 WARNING: No IDs found in Cite block: {'t': 'Cite', 'c': [[{'citationId': 'Selva-OCallaghan2018', 'citationPrefix': [], 'citationSuffix': [], 'citationMode': {'t': 'AuthorInText'}, 'citationNoteNum': 9, 'citationHash': 0}], [{'t': 'Str', 'c': '@Selva-OCallaghan2018'}]]}
@@ -54,26 +50,30 @@ INFO: Sorted IDs: ['fig:experiment1', 'fig:experiment2', 'fig:experiment4', 'fig
 INFO: Counters: {'fig': 4, 'tbl': 3, 'supfig': 2, 'suptbl': 3}
 
 INFO: Tag found: tbl:results
+
 INFO: Tag found: supfig:experiment1
+
 INFO: Tag found: fig:experiment1
+
 INFO: Tag found: suptbl:appendixA
+
 INFO: Placeholder: tbl,fig
+
 INFO: Placeholder: supfig
+
 INFO: Placeholder: suptbl
 
 
 
 processing file: example.qmd
 
-1
-/3                  
-2/3 [unnamed-chunk-1]
+1/3                  
 
-3
+2
 /
-3
-                  
+3 [unnamed-chunk-1]
 
+3/3                  
 
 output file: example.knit.md
 
@@ -105,13 +105,9 @@ metadata
 INFO: html
 
 INFO: Running format_citations.
-
 WARNING: No IDs found in Cite block: {'t': 'Cite', 'c': [[{'citationId': 'Pinal-Fernandez2024', 'citationPrefix': [], 'citationSuffix': [], 'citationMode': {'t': 'AuthorInText'}, 'citationNoteNum': 8, 'citationHash': 0}], [{'t': 'Str', 'c': '@Pinal-Fernandez2024'}]]}
-
 WARNING: No IDs found in Cite block: {'t': 'Cite', 'c': [[{'citationId': 'Selva-OCallaghan2018', 'citationPrefix': [], 'citationSuffix': [], 'citationMode': {'t': 'AuthorInText'}, 'citationNoteNum': 9, 'citationHash': 0}], [{'t': 'Str', 'c': '@Selva-OCallaghan2018'}]]}
-
 INFO: Sorted IDs: ['fig:experiment1', 'fig:experiment2', 'fig:experiment4', 'fig:experiment5', 'supfig:experiment1', 'suptbl:experiment2', 'suptbl:experiment3', 'tbl:experiment1', 'tbl:results', 'tbl:summary', 'supfig:extra1', 'suptbl:appendixA']
-
 INFO: Counters: {'fig': 4, 'tbl': 3, 'supfig': 2, 'suptbl': 3}
 
 INFO: Tag found: tbl:results
@@ -119,13 +115,9 @@ INFO: Tag found: tbl:results
 INFO: Tag found: supfig:experiment1
 
 INFO: Tag found: fig:experiment1
-
 INFO: Tag found: suptbl:appendixA
-
 INFO: Placeholder: tbl,fig
-
 INFO: Placeholder: supfig
-
 INFO: Placeholder: suptbl
 
 
@@ -133,10 +125,13 @@ INFO: Placeholder: suptbl
 processing file: example.qmd
 
 1/3                  
-
 2/3 [unnamed-chunk-1]
 
-3/3                  
+3
+/
+3
+                  
+
 
 output file: example.knit.md
 
@@ -158,6 +153,7 @@ metadata
   
 
 INFO: docx
+
 INFO: Running format_citations.
 WARNING: No IDs found in Cite block: {'t': 'Cite', 'c': [[{'citationId': 'Pinal-Fernandez2024', 'citationPrefix': [], 'citationSuffix': [], 'citationMode': {'t': 'AuthorInText'}, 'citationNoteNum': 8, 'citationHash': 0}], [{'t': 'Str', 'c': '@Pinal-Fernandez2024'}]]}
 WARNING: No IDs found in Cite block: {'t': 'Cite', 'c': [[{'citationId': 'Selva-OCallaghan2018', 'citationPrefix': [], 'citationSuffix': [], 'citationMode': {'t': 'AuthorInText'}, 'citationNoteNum': 9, 'citationHash': 0}], [{'t': 'Str', 'c': '@Selva-OCallaghan2018'}]]}
@@ -169,7 +165,6 @@ INFO: Tag found: tbl:results
 INFO: Tag found: supfig:experiment1
 
 INFO: Tag found: fig:experiment1
-
 INFO: Tag found: suptbl:appendixA
 INFO: Placeholder: tbl,fig
 INFO: Placeholder: supfig

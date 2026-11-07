@@ -1,15 +1,16 @@
 [typst]: Compiling Letter.typ to Letter.pdf...
 downloading @preview/fontawesome:0.6.0
 
-  0 B /  81.9 KiB (  0 %), 818.9 KiB/s, ETA: 0 s
+  0 B
+ /  81.9 KiB (  0 %), 818.9 KiB/s, ETA: 0 s
 
  81.9 KiB /  81.9 KiB (100 %), 818.9 KiB/s, ETA: 0 s
 
 warning: unknown font family: source sans 3
     ┌─ Letter.typ:582:18
     │
-582 │   #set text(font: body-font-str, size: body-
-size, weight: 400, fill: main_color)
+582 │   #set text(font: 
+body-font-str, size: body-size, weight: 400, fill: main_color)
     │                   ^^^^^^^^^^^^^
 
 warning: unknown font family: roboto
@@ -33,26 +34,31 @@ warning: unknown font family: roboto
 warning: unknown font family: roboto
     ┌─ Letter.typ:716:25
     │
-716 │              #text(font: heading-font-str, size: contact-size, weight: 400, fill: light-color)[
+716 │              #text(f
+ont: heading-font-str, size: contact-size, weight: 400, fill: light-color)[
     │                          ^^^^^^^^^^^^^^^^
 
 warning: unknown font family: roboto
     ┌─ Letter.typ:728:25
     │
-728 │              #text(font: heading-font-str, size: contact-size, weight: 400, fill: light-color)[
+
+728 │              #text(font: heading-font-str, size: contact-size, weight: 400, fill: light-color
+)[
     │                          ^^^^^^^^^^^^^^^^
 
 warning: unknown font family: font awesome 7 free
    ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
    │
-80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
+80 │       font: defa
+ult_fonts, // If you see warning here, please check whether the FA font is installed
    │             ^^^^^^^^^^^^^
+
 
 warning: unknown font family: font awesome 7 brands
    ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
    │
-80 │       font: defau
-lt_fonts, // If you see warning here, please check whether the FA font is installed
+80 │       font: default_fonts, // If you see warning here, please check w
+hether the FA font is installed
    │             ^^^^^^^^^^^^^
 
 
@@ -63,8 +69,8 @@ DONE
 warning: unknown font family: source sans 3
     ┌─ CV.typ:562:18
     │
-562 │   #set text(font: body-font-str, size: body-si
-ze, weight: 400, fill: main_color)
+562 │   #set text(font: body-font-str, size: bod
+y-size, weight: 400, fill: main_color)
     │                   ^^^^^^^^^^^^^
 
 warning: unknown font family: roboto
@@ -79,84 +85,76 @@ warning: unknown font family: roboto
 690 │            #text(font: heading-font-str, size: 11pt, weight: 700, fill: accent)[#research-area]
     │                        ^^^^^^^^^^^^^^^^
 
+
 warning: unknown font family: roboto
     ┌─ CV.typ:694:26
     │
 694 │               #text(font: heading-font-str, size: contact-size, weight: 400, fill: light-color)[#location]
-    │                           ^^^^^^^^^^^^^^^^
+    │                           ^^^^^^^^^^^^^^^
+^
 
 warning: unknown font family: roboto
     ┌─ CV.typ:698:25
     │
-698 │              #text(font: heading-font-str, size: contact-size, w
-eight: 400, fill: light-color)[
-    │                          ^^^^^^^^^^^^^^^^
+698 │              #text(font: heading-font-str, size: contact-size, weight: 400, fill: light-color)[
+    │  
+                        ^^^^^^^^^^^^^^^^
 
 warning: unknown font family: roboto
     ┌─ CV.typ:710:25
     │
-710 │              #text(font: heading-font-str, size: contact-size, weig
-ht: 400, fill: light-color)[
+710 │              #text(font: heading-font-str, size: contact-siz
+e, weight: 400, fill: light-color)[
     │                          ^^^^^^^^^^^^^^^^
-
 
 warning: unknown font family: roboto
     ┌─ CV.typ:575:16
     │
-575 │     #text(font: heading-font-str
-, size: heading-1-size, weight: 600, fill: accent)[#it.body]
-    │    
-             ^^^^^^^^^^^^^^^^
+575 │     #text(fo
+nt: heading-font-str, size: heading-1-size, weight: 600, fill: accent)[#it.body]
+    │                 ^^^^^^^^^^^^^^^^
+
 
 warning: unknown font family: font awesome 7 free
-   ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:
-12
+   ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
    │
-80 │       font: default_fonts, // If you see warning here, please check w
-hether the FA font is installed
+80 │       font: default_fonts, // If you see warning here, please check whether the FA font is instal
+led
    │             ^^^^^^^^^^^^^
-
 
 warning: unknown font family: font awesome 7 brands
    ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
    │
-80 │       font: default_fonts, // If 
-you see warning here, please check whether the FA font is installed
- 
-  │             ^^^^^^^^^^^^^
+80 │       font: default_fonts, // If you see warning here, please check whether the FA
+ font is installed
+   │             ^^^^^^^^^^^^^
 
 warning: unknown font family: source sans 3
     ┌─ CV.typ:572:31
     │
-572 │   
-#show emph: it => text(font: body-font-str, style: "italic")[#it.body]
-    │                        
-        ^^^^^^^^^^^^^
+572 │   #show emph: it => text(font: body-f
+ont-str, style: "italic")[#it.body]
+    │                                ^^^^^^^^^^^^^
 
 warning: unknown font family: roboto
     ┌─ CV.typ:584:36
-  
-  │
-584 │       let text-content = text(font: heading-font-str, size: heading-2-
-size, weight: 500, fill: accent)[#heading-text]
-    │               
-                      ^^^^^^^^^^^^^^^^
-
+    │
+584 │       let text-content = text(fo
+nt: heading-font-str, size: heading-2-size, weight: 500, fill: accent)[#heading-text]
+    │                                    
+ ^^^^^^^^^^^^^^^^
 
 warning: unknown font family: roboto
     ┌─ CV.typ:589:29
     │
-589 │         let dot = text(font: heading-fo
-nt-str, size: heading-2-size, weight: 200, fill: accent)[·]
-  
-  │                              ^^^^^^^^^^^^^^^^
+589 │         let dot = text(font: heading-font-str, size: heading-2-size, weight: 200, fill: accent)[·]
+    │                              ^^^^^^^^^^^^^^^^
 
 warning: unknown font family: source sans 3
     ┌─ CV.typ:475:14
     │
 475 │   #text(font: body-font-str, size: footer-size, fill: light-color)[
-    │  
-             ^^^^^^^^^^^^^
+    │               ^^^^^^^^^^^^^
 
 
 DONE

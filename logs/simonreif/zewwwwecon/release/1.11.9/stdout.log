@@ -252,7 +252,7 @@ set LDFLAGS=-L/usr/local/lib
 -- Could NOT find Java (missing: Java_JAVA_EXECUTABLE Java_JAR_EXECUTABLE Java_JAVAC_EXECUTABLE Java_JAVAH_EXECUTABLE Java_JAVADOC_EXECUTABLE) (Required is at least version "1.5")
 -- Configuring done (2.0s)
 -- Generating done (0.0s)
--- Build files have been written to: /tmp/RtmpKdz7Kw/R.INSTALL8837e64e705/nloptr/src/nlopt-build
+-- Build files have been written to: /tmp/RtmpRIgXWV/R.INSTALL883630988f3/nloptr/src/nlopt-build
 [  2%] Generating nlopt.hpp
 [  2%] Built target generate-cpp
 [  6%] Building C object CMakeFiles/nlopt.dir/src/algs/direct/direct_wrap.c.o
@@ -307,17 +307,17 @@ set LDFLAGS=-L/usr/local/lib
 [100%] Built target nlopt
 Install the project...
 -- Install configuration: "Release"
--- Installing: /tmp/RtmpKdz7Kw/R.INSTALL8837e64e705/nloptr/src/nlopt/lib/pkgconfig/nlopt.pc
--- Installing: /tmp/RtmpKdz7Kw/R.INSTALL8837e64e705/nloptr/src/nlopt/include/nlopt.h
--- Installing: /tmp/RtmpKdz7Kw/R.INSTALL8837e64e705/nloptr/src/nlopt/include/nlopt.hpp
--- Installing: /tmp/RtmpKdz7Kw/R.INSTALL8837e64e705/nloptr/src/nlopt/lib/libnlopt.a
--- Installing: /tmp/RtmpKdz7Kw/R.INSTALL8837e64e705/nloptr/src/nlopt/share/man/man3/nlopt.3
--- Installing: /tmp/RtmpKdz7Kw/R.INSTALL8837e64e705/nloptr/src/nlopt/share/man/man3/nlopt_minimize.3
--- Installing: /tmp/RtmpKdz7Kw/R.INSTALL8837e64e705/nloptr/src/nlopt/share/man/man3/nlopt_minimize_constrained.3
--- Installing: /tmp/RtmpKdz7Kw/R.INSTALL8837e64e705/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends.cmake
--- Installing: /tmp/RtmpKdz7Kw/R.INSTALL8837e64e705/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends-release.cmake
--- Installing: /tmp/RtmpKdz7Kw/R.INSTALL8837e64e705/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfig.cmake
--- Installing: /tmp/RtmpKdz7Kw/R.INSTALL8837e64e705/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfigVersion.cmake
+-- Installing: /tmp/RtmpRIgXWV/R.INSTALL883630988f3/nloptr/src/nlopt/lib/pkgconfig/nlopt.pc
+-- Installing: /tmp/RtmpRIgXWV/R.INSTALL883630988f3/nloptr/src/nlopt/include/nlopt.h
+-- Installing: /tmp/RtmpRIgXWV/R.INSTALL883630988f3/nloptr/src/nlopt/include/nlopt.hpp
+-- Installing: /tmp/RtmpRIgXWV/R.INSTALL883630988f3/nloptr/src/nlopt/lib/libnlopt.a
+-- Installing: /tmp/RtmpRIgXWV/R.INSTALL883630988f3/nloptr/src/nlopt/share/man/man3/nlopt.3
+-- Installing: /tmp/RtmpRIgXWV/R.INSTALL883630988f3/nloptr/src/nlopt/share/man/man3/nlopt_minimize.3
+-- Installing: /tmp/RtmpRIgXWV/R.INSTALL883630988f3/nloptr/src/nlopt/share/man/man3/nlopt_minimize_constrained.3
+-- Installing: /tmp/RtmpRIgXWV/R.INSTALL883630988f3/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends.cmake
+-- Installing: /tmp/RtmpRIgXWV/R.INSTALL883630988f3/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends-release.cmake
+-- Installing: /tmp/RtmpRIgXWV/R.INSTALL883630988f3/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfig.cmake
+-- Installing: /tmp/RtmpRIgXWV/R.INSTALL883630988f3/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfigVersion.cmake
 Moving nlopt/lib to nlopt/lib
 Copying headers found in src/nlopt/include into inst/include
 configure: creating ./config.status
@@ -493,7 +493,7 @@ g++ -std=gnu++20 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG   -I/usr/local/include 
 g++ -std=gnu++20 -shared -L/opt/R/4.6.2/lib/R/lib -L/usr/local/lib -o e1071.so Rsvm.o cmeans.o cshell.o floyd.o init.o svm.o -L/opt/R/4.6.2/lib/R/lib -lR
 Found OpenSSL pkg-config cflags and libs!
 Testing compiler OpenSSL configuration using PKG_CFLAGS=
-** Using PKG_CONFIG_PATH=:/tmp/Rtmp70QBuU/R.INSTALL1d85724d0401/s2/tools/pkgconfig
+** Using PKG_CONFIG_PATH=:/tmp/RtmpVgPGTO/R.INSTALL1d8572045095/s2/tools/pkgconfig
 ** Building abseil-cpp using cmake
 GNU Make 4.3
 Built for x86_64-pc-linux-gnu
@@ -520,7 +520,7 @@ Using MAKE=make
 -- Found Threads: TRUE  
 -- Configuring done (0.4s)
 -- Generating done (0.1s)
--- Build files have been written to: /tmp/Rtmp70QBuU/R.INSTALL1d85724d0401/s2/tools/build/abseil-cpp
+-- Build files have been written to: /tmp/RtmpVgPGTO/R.INSTALL1d8572045095/s2/tools/build/abseil-cpp
 [  0%] Building CXX object absl/base/CMakeFiles/log_severity.dir/log_severity.cc.o
 [  1%] Linking CXX static library libabsl_log_severity.a
 [  1%] Built target log_severity
@@ -1533,7 +1533,7 @@ Using MAKE=make
 -- Installing: /tmp/s2_absl_7743/lib/pkgconfig/absl_utility.pc
 -- Installing: /tmp/s2_absl_7743/lib/pkgconfig/absl_if_constexpr.pc
 ** Done!
-** Using PKG_CONFIG_PATH=/tmp/s2_absl_7743/lib/pkgconfig::/tmp/Rtmp70QBuU/R.INSTALL1d85724d0401/s2/tools/pkgconfig
+** Using PKG_CONFIG_PATH=/tmp/s2_absl_7743/lib/pkgconfig::/tmp/RtmpVgPGTO/R.INSTALL1d8572045095/s2/tools/pkgconfig
 Testing Abseil configuration using PKG_CPPFLAGS=-I/tmp/s2_absl_7743/include PKG_CFLAGS=
 Using PKG_LIBS=-L/tmp/s2_absl_7743/lib /tmp/s2_absl_7743/lib/libabsl_flags.a /tmp/s2_absl_7743/lib/libabsl_flags_internal.a /tmp/s2_absl_7743/lib/libabsl_flags_marshalling.a /tmp/s2_absl_7743/lib/libabsl_flags_reflection.a /tmp/s2_absl_7743/lib/libabsl_flags_private_handle_accessor.a /tmp/s2_absl_7743/lib/libabsl_flags_commandlineflag.a /tmp/s2_absl_7743/lib/libabsl_flags_commandlineflag_internal.a /tmp/s2_absl_7743/lib/libabsl_flags_config.a /tmp/s2_absl_7743/lib/libabsl_flags_program_name.a /tmp/s2_absl_7743/lib/libabsl_raw_hash_set.a /tmp/s2_absl_7743/lib/libabsl_hashtablez_sampler.a /tmp/s2_absl_7743/lib/libabsl_log_internal_check_op.a /tmp/s2_absl_7743/lib/libabsl_log_internal_conditions.a /tmp/s2_absl_7743/lib/libabsl_log_internal_message.a /tmp/s2_absl_7743/lib/libabsl_examine_stack.a /tmp/s2_absl_7743/lib/libabsl_log_internal_format.a /tmp/s2_absl_7743/lib/libabsl_log_internal_proto.a /tmp/s2_absl_7743/lib/libabsl_log_internal_nullguard.a /tmp/s2_absl_7743/lib/libabsl_log_internal_log_sink_set.a /tmp/s2_absl_7743/lib/libabsl_log_internal_globals.a /tmp/s2_absl_7743/lib/libabsl_log_globals.a /tmp/s2_absl_7743/lib/libabsl_hash.a /tmp/s2_absl_7743/lib/libabsl_city.a /tmp/s2_absl_7743/lib/libabsl_bad_variant_access.a /tmp/s2_absl_7743/lib/libabsl_low_level_hash.a /tmp/s2_absl_7743/lib/libabsl_log_sink.a /tmp/s2_absl_7743/lib/libabsl_log_entry.a /tmp/s2_absl_7743/lib/libabsl_status.a /tmp/s2_absl_7743/lib/libabsl_cord.a /tmp/s2_absl_7743/lib/libabsl_cordz_info.a /tmp/s2_absl_7743/lib/libabsl_cord_internal.a /tmp/s2_absl_7743/lib/libabsl_cordz_functions.a /tmp/s2_absl_7743/lib/libabsl_exponential_biased.a /tmp/s2_absl_7743/lib/libabsl_cordz_handle.a /tmp/s2_absl_7743/lib/libabsl_synchronization.a /tmp/s2_absl_7743/lib/libabsl_graphcycles_internal.a /tmp/s2_absl_7743/lib/libabsl_kernel_timeout_internal.a /tmp/s2_absl_7743/lib/libabsl_time.a /tmp/s2_absl_7743/lib/libabsl_civil_time.a /tmp/s2_absl_7743/lib/libabsl_time_zone.a /tmp/s2_absl_7743/lib/libabsl_crc_cord_state.a /tmp/s2_absl_7743/lib/libabsl_crc32c.a /tmp/s2_absl_7743/lib/libabsl_crc_internal.a /tmp/s2_absl_7743/lib/libabsl_crc_cpu_detect.a /tmp/s2_absl_7743/lib/libabsl_bad_optional_access.a /tmp/s2_absl_7743/lib/libabsl_stacktrace.a /tmp/s2_absl_7743/lib/libabsl_str_format_internal.a /tmp/s2_absl_7743/lib/libabsl_strerror.a /tmp/s2_absl_7743/lib/libabsl_symbolize.a /tmp/s2_absl_7743/lib/libabsl_debugging_internal.a /tmp/s2_absl_7743/lib/libabsl_demangle_internal.a /tmp/s2_absl_7743/lib/libabsl_malloc_internal.a /tmp/s2_absl_7743/lib/libabsl_strings.a /tmp/s2_absl_7743/lib/libabsl_string_view.a /tmp/s2_absl_7743/lib/libabsl_strings_internal.a /tmp/s2_absl_7743/lib/libabsl_base.a -lrt /tmp/s2_absl_7743/lib/libabsl_spinlock_wait.a /tmp/s2_absl_7743/lib/libabsl_int128.a /tmp/s2_absl_7743/lib/libabsl_throw_delegate.a /tmp/s2_absl_7743/lib/libabsl_raw_logging_internal.a /tmp/s2_absl_7743/lib/libabsl_log_severity.a -lssl -lcrypto 
 Using PKG_CFLAGS=
@@ -1664,4 +1664,3 @@ ar rcs s2/libs2static.a s2/encoded_s2cell_id_vector.o s2/encoded_s2point_vector.
 g++ -std=gnu++17 -shared -L/opt/R/4.6.2/lib/R/lib -L/usr/local/lib -o s2.so cpp-compat.o s2-altrep.o s2-accessors.o s2-bounds.o s2-cell.o s2-cell-union.o s2-constructors-formatters.o s2-predicates.o s2-transformers.o init.o util.o RcppExports.o s2-geography.o s2-lnglat.o s2-matrix.o wk-impl.o s2geography/accessors-geog.o s2geography/accessors.o s2geography/build.o s2geography/coverings.o s2geography/distance.o s2geography/geography.o s2geography/linear-referencing.o s2geography/predicates.o -Ls2 -ls2static -L/tmp/s2_absl_7743/lib /tmp/s2_absl_7743/lib/libabsl_flags.a /tmp/s2_absl_7743/lib/libabsl_flags_internal.a /tmp/s2_absl_7743/lib/libabsl_flags_marshalling.a /tmp/s2_absl_7743/lib/libabsl_flags_reflection.a /tmp/s2_absl_7743/lib/libabsl_flags_private_handle_accessor.a /tmp/s2_absl_7743/lib/libabsl_flags_commandlineflag.a /tmp/s2_absl_7743/lib/libabsl_flags_commandlineflag_internal.a /tmp/s2_absl_7743/lib/libabsl_flags_config.a /tmp/s2_absl_7743/lib/libabsl_flags_program_name.a /tmp/s2_absl_7743/lib/libabsl_raw_hash_set.a /tmp/s2_absl_7743/lib/libabsl_hashtablez_sampler.a /tmp/s2_absl_7743/lib/libabsl_log_internal_check_op.a /tmp/s2_absl_7743/lib/libabsl_log_internal_conditions.a /tmp/s2_absl_7743/lib/libabsl_log_internal_message.a /tmp/s2_absl_7743/lib/libabsl_examine_stack.a /tmp/s2_absl_7743/lib/libabsl_log_internal_format.a /tmp/s2_absl_7743/lib/libabsl_log_internal_proto.a /tmp/s2_absl_7743/lib/libabsl_log_internal_nullguard.a /tmp/s2_absl_7743/lib/libabsl_log_internal_log_sink_set.a /tmp/s2_absl_7743/lib/libabsl_log_internal_globals.a /tmp/s2_absl_7743/lib/libabsl_log_globals.a /tmp/s2_absl_7743/lib/libabsl_hash.a /tmp/s2_absl_7743/lib/libabsl_city.a /tmp/s2_absl_7743/lib/libabsl_bad_variant_access.a /tmp/s2_absl_7743/lib/libabsl_low_level_hash.a /tmp/s2_absl_7743/lib/libabsl_log_sink.a /tmp/s2_absl_7743/lib/libabsl_log_entry.a /tmp/s2_absl_7743/lib/libabsl_status.a /tmp/s2_absl_7743/lib/libabsl_cord.a /tmp/s2_absl_7743/lib/libabsl_cordz_info.a /tmp/s2_absl_7743/lib/libabsl_cord_internal.a /tmp/s2_absl_7743/lib/libabsl_cordz_functions.a /tmp/s2_absl_7743/lib/libabsl_exponential_biased.a /tmp/s2_absl_7743/lib/libabsl_cordz_handle.a /tmp/s2_absl_7743/lib/libabsl_synchronization.a /tmp/s2_absl_7743/lib/libabsl_graphcycles_internal.a /tmp/s2_absl_7743/lib/libabsl_kernel_timeout_internal.a /tmp/s2_absl_7743/lib/libabsl_time.a /tmp/s2_absl_7743/lib/libabsl_civil_time.a /tmp/s2_absl_7743/lib/libabsl_time_zone.a /tmp/s2_absl_7743/lib/libabsl_crc_cord_state.a /tmp/s2_absl_7743/lib/libabsl_crc32c.a /tmp/s2_absl_7743/lib/libabsl_crc_internal.a /tmp/s2_absl_7743/lib/libabsl_crc_cpu_detect.a /tmp/s2_absl_7743/lib/libabsl_bad_optional_access.a /tmp/s2_absl_7743/lib/libabsl_stacktrace.a /tmp/s2_absl_7743/lib/libabsl_str_format_internal.a /tmp/s2_absl_7743/lib/libabsl_strerror.a /tmp/s2_absl_7743/lib/libabsl_symbolize.a /tmp/s2_absl_7743/lib/libabsl_debugging_internal.a /tmp/s2_absl_7743/lib/libabsl_demangle_internal.a /tmp/s2_absl_7743/lib/libabsl_malloc_internal.a /tmp/s2_absl_7743/lib/libabsl_strings.a /tmp/s2_absl_7743/lib/libabsl_string_view.a /tmp/s2_absl_7743/lib/libabsl_strings_internal.a /tmp/s2_absl_7743/lib/libabsl_base.a -lrt /tmp/s2_absl_7743/lib/libabsl_spinlock_wait.a /tmp/s2_absl_7743/lib/libabsl_int128.a /tmp/s2_absl_7743/lib/libabsl_throw_delegate.a /tmp/s2_absl_7743/lib/libabsl_raw_logging_internal.a /tmp/s2_absl_7743/lib/libabsl_log_severity.a -lssl -lcrypto -L/opt/R/4.6.2/lib/R/lib -lR
 g++ -std=gnu++20 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/RcppEigen/include' -I/usr/local/include    -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
 g++ -std=gnu++20 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/RcppEigen/include' -I/usr/local/include    -fpic  -g -O2   -c lm_robust_helper.cpp -o lm_robust_helper.o
-g++ -std=gnu++20 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG  -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I'/cache/r-lib-1/RcppEigen/include' -I/usr/local/include    -fpic  -g -O2   -c naomit.cpp -o naomit.o

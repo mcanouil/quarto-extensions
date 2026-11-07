@@ -4,11 +4,7 @@ processing file: example.qmd
 
 1/7               
 
-2
-/
-7
- [code-example]
-
+2/7 [code-example]
 
 3/7               
 
@@ -68,8 +64,8 @@ DONE
 warning: unknown font family: georgia
     ┌─ tests/brand/index.typ:802:30
     │
-802 │ #show 
-heading: set text(font: ("Georgia",), weight: 600, style: "normal", fill: rgb("#800020"), )
+802 │ #show heading: set text(font: ("Georgia
+",), weight: 600, style: "normal", fill: rgb("#800020"), )
     │                               ^^^^^^^^^^^^
 
 warning: unknown font family: helvetica

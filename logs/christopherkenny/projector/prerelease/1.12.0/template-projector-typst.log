@@ -32,8 +32,8 @@ metadata
 downloading @preview/polylux:0.4.0
 
   0 B /   6.4 KiB (  0 %),  63.6 KiB/s, ETA: 0 s
-  6.
-4 KiB /   6.4 KiB (100 %),  63.6 KiB/s, ETA: 0 s
+  6.4 KiB /   6.4 KiB (100 %),  63.6 KiB/s, ETA: 
+0 s
 
 warning: document did not converge within five attempts
  = hint: see 5 additional warnings for more details
@@ -69,8 +69,7 @@ warning: value of the page counter did not converge
       - final: 26
 
 warning: value of `counter("logical-slide")` did not converge
- 
-   ┌─ @preview/polylux:0.4.0/src/logic.typ:276:37
+    ┌─ @preview/polylux:0.4.0/src/logic.typ:276:37
     │
 276 │     #metadata((t: "LogicalSlide", v: logical-slide.get().first())) <pdfpc>
     │                                      ^^^^^^^^^^^^^^^^^^^
@@ -82,6 +81,7 @@ warning: value of `counter("logical-slide")` did not converge
       - run 4: 29
       - run 5: 29
       - final: 21
+
 
 warning: value of `counter("later-counter")` did not converge
     ┌─ @preview/polylux:0.4.0/src/logic.typ:248:20
@@ -103,8 +103,7 @@ warning: value of `counter("logical-slide")` did not converge
 45 │ #let slide-number = context { logic.logical-slide.display() }
    │                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    │
- 
-  = hint: the following values were observed:
+   = hint: the following values were observed:
      - run 1: 0
      - run 2: 29
      - run 3: 23

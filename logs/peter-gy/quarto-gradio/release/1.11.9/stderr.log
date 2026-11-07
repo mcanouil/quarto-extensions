@@ -3,24 +3,24 @@ Using CPython 3.12.3 interpreter at: /usr/bin/python3.12
 Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
 Resolved 145 packages in 1ms
-Downloading babel (9.7MiB)
-Downloading pygments (1.2MiB)
-Downloading debugpy (3.8MiB)
-Downloading pillow (6.6MiB)
-Downloading plotly (8.6MiB)
 Downloading numpy (15.9MiB)
-Downloading jupyterlab (16.4MiB)
-Downloading hf-xet (4.3MiB)
-Downloading ruff (9.8MiB)
-Downloading pandas (10.5MiB)
-Downloading gradio (29.8MiB)
-Downloading pydantic-core (2.0MiB)
-Downloading ty (12.8MiB)
-Downloading notebook (5.3MiB)
-Downloading brotli (1.4MiB)
 Downloading widgetsnbextension (2.1MiB)
-Downloading jedi (4.7MiB)
+Downloading debugpy (3.8MiB)
+Downloading pygments (1.2MiB)
 Downloading pyrefly (13.7MiB)
+Downloading hf-xet (4.3MiB)
+Downloading brotli (1.4MiB)
+Downloading pydantic-core (2.0MiB)
+Downloading babel (9.7MiB)
+Downloading notebook (5.3MiB)
+Downloading gradio (29.8MiB)
+Downloading ty (12.8MiB)
+Downloading jedi (4.7MiB)
+Downloading pillow (6.6MiB)
+Downloading pandas (10.5MiB)
+Downloading ruff (9.8MiB)
+Downloading plotly (8.6MiB)
+Downloading jupyterlab (16.4MiB)
  Downloaded pygments
  Downloaded brotli
  Downloaded pydantic-core
@@ -29,18 +29,18 @@ Downloading pyrefly (13.7MiB)
  Downloaded hf-xet
  Downloaded notebook
  Downloaded pillow
- Downloaded jedi
  Downloaded plotly
  Downloaded ruff
  Downloaded babel
  Downloaded ty
- Downloaded pandas
  Downloaded pyrefly
+ Downloaded pandas
  Downloaded numpy
+ Downloaded jedi
  Downloaded jupyterlab
  Downloaded gradio
-Prepared 138 packages in 1.37s
-Installed 138 packages in 4.94s
+Prepared 138 packages in 1.78s
+Installed 138 packages in 5.98s
  + annotated-doc==0.0.5
  + annotated-types==0.8.0
  + anyio==4.15.1
@@ -179,26 +179,26 @@ Installed 138 packages in 4.94s
  + webencodings==0.6.1
  + websocket-client==1.9.2
  + widgetsnbextension==4.0.16
-Resolved 80 packages in 1.06s
+Resolved 80 packages in 940ms
    Building lzstring==1.0.4
-Downloading fonttools (5.2MiB)
 Downloading aiohttp (1.8MiB)
-Downloading matplotlib (9.4MiB)
-Downloading black (2.0MiB)
 Downloading kiwisolver (1.4MiB)
+Downloading matplotlib (9.4MiB)
+Downloading fonttools (5.2MiB)
 Downloading libsass (9.0MiB)
+Downloading black (2.0MiB)
 Downloading shiny (3.9MiB)
  Downloaded kiwisolver
  Downloaded aiohttp
  Downloaded black
+      Built lzstring==1.0.4
+ Downloaded libsass
  Downloaded fonttools
  Downloaded shiny
- Downloaded libsass
  Downloaded matplotlib
-      Built lzstring==1.0.4
-Prepared 37 packages in 289ms
-Uninstalled 1 package in 20ms
-Installed 38 packages in 851ms
+Prepared 37 packages in 476ms
+Uninstalled 1 package in 27ms
+Installed 38 packages in 961ms
  + aiohappyeyeballs==2.7.1
  + aiohttp==3.14.5
  + aiosignal==1.4.0
