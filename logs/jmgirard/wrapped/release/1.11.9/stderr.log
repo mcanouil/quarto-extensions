@@ -1,5 +1,5 @@
 Cloning into 'repo'...
-Installing package into '/cache/r-lib-0'
+Installing package into '/cache/r-lib-1'
 (as 'lib' is unspecified)
 trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.3.1.tar.gz'
 Content type 'binary/octet-stream' length 1563989 bytes (1.5 MB)
@@ -25,18 +25,18 @@ downloaded 1.5 MB
 * DONE (renv)
 
 The downloaded source packages are in
-	'/tmp/RtmpdpiAra/downloaded_packages'
-[ 1/22] stopping.qmd
-[ 2/22] normal-layout.qmd
-(W) wrapped: the figure #fig-callout is in a callout, so it does not wrap.
-[ 3/22] formats/latex.qmd
-[ 4/22] formats/html.qmd
-[ 5/22] formats/word.qmd
+	'/tmp/RtmpRR6PUe/downloaded_packages'
+[ 1/22] get-started.qmd
+[ 2/22] index.qmd
+[ 3/22] stopping.qmd
+[ 4/22] defaults.qmd
+[ 5/22] width-gap.qmd
 [ 6/22] formats/typst.qmd
-[ 7/22] reference.qmd
-[ 8/22] examples/slides.qmd
-[ 9/22] examples/code-cell.qmd
-[typst]: Compiling code-cell.typ to code-cell.pdf...DONE
+[ 7/22] formats/word.qmd
+[ 8/22] formats/latex.qmd
+[ 9/22] formats/html.qmd
+[10/22] examples/both-sides.qmd
+[typst]: Compiling both-sides.typ to both-sides.pdf...DONE
 
 
 Rendering PDF
@@ -60,20 +60,6 @@ running lualatex - 2
    restricted system commands enabled.
   
 
-[10/22] examples/defaults.qmd
-[typst]: Compiling defaults.typ to defaults.pdf...DONE
-
-
-Rendering PDF
-running lualatex - 1
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-running lualatex - 2
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-
 [11/22] examples/image-figure.qmd
 [typst]: Compiling image-figure.typ to image-figure.pdf...DONE
 
@@ -88,23 +74,7 @@ running lualatex - 2
    restricted system commands enabled.
   
 
-[12/22] examples/div-figure.qmd
-[typst]: Compiling div-figure.typ to div-figure.pdf...DONE
-
-
-Rendering PDF
-running lualatex - 1
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-running lualatex - 2
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-
-[13/22] examples/index.qmd
-[14/22] examples/dashboard.qmd
-[15/22] examples/uncaptioned-image.qmd
+[12/22] examples/uncaptioned-image.qmd
 [typst]: Compiling uncaptioned-image.typ to uncaptioned-image.pdf...DONE
 
 
@@ -118,8 +88,10 @@ running lualatex - 2
    restricted system commands enabled.
   
 
-[16/22] examples/width-gap.qmd
-[typst]: Compiling width-gap.typ to width-gap.pdf...DONE
+[13/22] examples/index.qmd
+[14/22] examples/slides.qmd
+[15/22] examples/code-cell.qmd
+[typst]: Compiling code-cell.typ to code-cell.pdf...DONE
 
 
 Rendering PDF
@@ -132,8 +104,22 @@ running lualatex - 2
    restricted system commands enabled.
   
 
-[17/22] examples/both-sides.qmd
-[typst]: Compiling both-sides.typ to both-sides.pdf...DONE
+[16/22] examples/defaults.qmd
+[typst]: Compiling defaults.typ to defaults.pdf...DONE
+
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+[17/22] examples/width-gap.qmd
+[typst]: Compiling width-gap.typ to width-gap.pdf...DONE
 
 
 Rendering PDF
@@ -160,10 +146,24 @@ running lualatex - 2
    restricted system commands enabled.
   
 
-[19/22] get-started.qmd
-[20/22] defaults.qmd
-[21/22] index.qmd
-[22/22] width-gap.qmd
+[19/22] examples/dashboard.qmd
+[20/22] examples/div-figure.qmd
+[typst]: Compiling div-figure.typ to div-figure.pdf...DONE
+
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+[21/22] reference.qmd
+[22/22] normal-layout.qmd
+(W) wrapped: the figure #fig-callout is in a callout, so it does not wrap.
 
 Output created: _site/index.html
 
