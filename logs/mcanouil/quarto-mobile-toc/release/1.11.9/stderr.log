@@ -22,7 +22,7 @@ Output created: example.html
 
 pandoc 
   to: html
-  output-file: one-heading.html
+  output-file: page.html
   standalone: true
   section-divs: true
   html-math-method: mathjax
@@ -35,7 +35,7 @@ metadata
   link-citations: true
   date-format: long
   lang: en
-  title: One heading
+  title: Mobile TOC smoke page
   
 [31mFATAL (/opt/quarto/share/filters/main.lua:3759) An error occurred:
 Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/tests/mobile-toc as a JSON filter.
@@ -81,7 +81,7 @@ ERROR: Pandoc conversion failed (exit code 83)
 Render failed, retrying once...
 pandoc 
   to: html
-  output-file: one-heading.html
+  output-file: page.html
   standalone: true
   section-divs: true
   html-math-method: mathjax
@@ -94,7 +94,7 @@ metadata
   link-citations: true
   date-format: long
   lang: en
-  title: One heading
+  title: Mobile TOC smoke page
   
 [31mFATAL (/opt/quarto/share/filters/main.lua:3759) An error occurred:
 Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/tests/mobile-toc as a JSON filter.
