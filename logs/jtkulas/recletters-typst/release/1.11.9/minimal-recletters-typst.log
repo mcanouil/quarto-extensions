@@ -1,0 +1,25 @@
+pandoc 
+
+  to: typst
+  output-file: minimal.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+
+metadata
+
+  font-paths:
+    - _extensions/recletters/fonts
+  background: letterhead/looney.pdf
+  
+
+[typst]: Compiling minimal.typ to minimal.pdf...
+DONE
+
+
+Output created: minimal.pdf
+
+

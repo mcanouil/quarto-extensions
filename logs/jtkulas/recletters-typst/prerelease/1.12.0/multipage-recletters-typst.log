@@ -1,0 +1,38 @@
+pandoc 
+
+  to: typst
+  output-file: multipage.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+
+metadata
+
+  font-paths:
+    - _extensions/recletters/fonts
+  background: letterhead/watermark.pdf
+  from-name: I M Awesome, PhD
+  from-title: Associate Professor
+  from-affiliation: Occasional Wiseguy
+  from-align: left
+  subject: Recommendation for Bullwinkle J. Moose
+  subject-align: left
+  opening: Dear Committee Members,
+  closing: Sincerely,
+  signature: Ignacious M Awesome
+  date: today
+  email: imawesome@stcloudstate.edu
+  phone: 320-308-4157
+  emptyhead: 6
+  
+
+[typst]: Compiling multipage.typ to multipage.pdf...
+DONE
+
+
+Output created: multipage.pdf
+
+
