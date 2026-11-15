@@ -62,6 +62,34 @@ check 'document classification is unchanged' \
 	'{"type":"document","qmd_files":["example.qmd"]}' \
 	"$(printf 'example.qmd\n' | classify_extension_tree)"
 
+# A documentation website under docs/ stages the extension with its own
+# scripts, so a clean clone cannot render it. Documents outside docs/ exercise
+# the extension directly, and win over the site.
+SITE_AND_EXAMPLE_TREE='_extensions/demo/_extension.yml
+docs/_quarto.yml
+docs/index.qmd
+example.qmd
+tests/_quarto.yml
+tests/basic.qmd'
+
+SITE_ONLY_TREE='_extensions/demo/_extension.yml
+docs/_quarto.yml
+docs/index.qmd
+README.md'
+
+check 'documents outside docs win over a docs project' \
+	'{"type":"document","qmd_files":["example.qmd"]}' \
+	"$(printf '%s\n' "${SITE_AND_EXAMPLE_TREE}" | classify_extension_tree)"
+check 'a docs project is kept when nothing else renders' \
+	'{"type":"project","project_path":"docs"}' \
+	"$(printf '%s\n' "${SITE_ONLY_TREE}" | classify_extension_tree)"
+check 'documents outside docs win over a docs project under a subdir' \
+	'{"type":"document","qmd_files":["sub/example.qmd"]}' \
+	"$(printf '%s\n' "${SITE_AND_EXAMPLE_TREE}" | sed 's|^|sub/|' | classify_extension_tree sub)"
+check 'a root project still wins over a docs project' \
+	'{"type":"project","project_path":"."}' \
+	"$(printf '_quarto.yml\nindex.qmd\ndocs/_quarto.yml\ndocs/index.qmd\n' | classify_extension_tree)"
+
 # A template or example entry is never classified, so it must default rather
 # than inherit whatever the last entry had. An entry that already carries a
 # test_mode (set by phase B, or by a future caller) must keep it.

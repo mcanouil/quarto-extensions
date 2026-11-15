@@ -6,9 +6,9 @@
 # Pick the best _quarto.yml project path from a list of project file paths
 # on stdin: prefer repo root, then docs/, then the shallowest path outside
 # tests/ and examples/. Prints nothing when no suitable path exists.
-# docs/ stays a candidate here, unlike in the document fallback below: a
-# repository whose only project is its documentation website has nothing else
-# to render, and rendering the site keeps it under test.
+# docs/ stays a candidate here. classify_extension_tree drops it when documents
+# outside docs/ exist, and keeps it when the documentation website is all the
+# repository has to render, so that the site stays under test.
 find_best_project_path() {
 	local best_path="" best_depth=999
 	while IFS= read -r qpath; do
@@ -60,6 +60,17 @@ classify_extension_tree() {
 	if [[ -n "${project_files}" ]]; then
 		local best_path
 		best_path=$(printf '%s\n' "${project_files}" | find_best_project_path)
+		# A documentation website under docs/ often stages the extension with a
+		# script the harness does not run, so a clean clone cannot render it.
+		# Documents outside docs/ exercise the extension directly: leave the site
+		# to the document fallback below, which picks them instead.
+		if [[ "${best_path}" == "docs" ]]; then
+			local qmd_outside_docs
+			qmd_outside_docs=$(printf '%s\n' "${tree}" | grep -E '\.qmd$' | grep -vE '(^|/)(_extensions|tests|examples|docs)/' || true)
+			if [[ -n "${qmd_outside_docs}" ]]; then
+				best_path=""
+			fi
+		fi
 		if [[ -n "${best_path}" ]]; then
 			if [[ -n "${prefix}" ]]; then
 				if [[ "${best_path}" == "." ]]; then
