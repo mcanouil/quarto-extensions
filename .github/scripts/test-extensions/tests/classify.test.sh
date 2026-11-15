@@ -86,6 +86,12 @@ check 'a docs project is kept when nothing else renders' \
 check 'documents outside docs win over a docs project under a subdir' \
 	'{"type":"document","qmd_files":["sub/example.qmd"]}' \
 	"$(printf '%s\n' "${SITE_AND_EXAMPLE_TREE}" | sed 's|^|sub/|' | classify_extension_tree sub)"
+check 'a project nested in docs loses to documents outside docs' \
+	'{"type":"document","qmd_files":["example.qmd"]}' \
+	"$(printf 'docs/_quarto.yml\ndocs/demo/_quarto.yml\ndocs/demo/a.qmd\nexample.qmd\n' | classify_extension_tree)"
+check 'a project nested in docs is kept when nothing else renders' \
+	'{"type":"project","project_path":"docs/demo"}' \
+	"$(printf 'docs/demo/_quarto.yml\ndocs/demo/a.qmd\n' | classify_extension_tree)"
 check 'a nested project wins over a docs project' \
 	'{"type":"project","project_path":"sub/site"}' \
 	"$(printf 'docs/_quarto.yml\ndocs/index.qmd\nsub/site/_quarto.yml\nsub/site/a.qmd\n' | classify_extension_tree)"

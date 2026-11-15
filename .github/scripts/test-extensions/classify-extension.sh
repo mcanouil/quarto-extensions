@@ -5,11 +5,12 @@
 
 # Pick the best _quarto.yml project path from a list of project file paths
 # on stdin: prefer repo root, then the shallowest path outside docs/, tests/
-# and examples/, then docs/. Prints nothing when no suitable path exists.
-# docs/ comes last because a documentation website documents the extension
-# rather than exercising it; see classify_extension_tree.
+# and examples/, then the shallowest path inside docs/. Prints nothing when no
+# suitable path exists. docs/ comes last because a documentation website
+# documents the extension rather than exercising it; see
+# classify_extension_tree.
 find_best_project_path() {
-	local best_path="" best_depth=999 has_docs=false
+	local best_path="" best_depth=999 docs_path="" docs_depth=999
 	while IFS= read -r qpath; do
 		local dir
 		dir=$(dirname "${qpath}")
@@ -20,22 +21,23 @@ find_best_project_path() {
 			echo "."
 			return
 		fi
-		if [[ "${dir}" == "docs" ]]; then
-			has_docs=true
-			continue
-		fi
 		local depth slashes
 		slashes="${dir//[!\/]/}"
 		depth=$((${#slashes} + 1))
-		if [[ "${depth}" -lt "${best_depth}" ]]; then
+		if [[ "${dir}" =~ ^docs(/|$) ]]; then
+			if [[ "${depth}" -lt "${docs_depth}" ]]; then
+				docs_path="${dir}"
+				docs_depth="${depth}"
+			fi
+		elif [[ "${depth}" -lt "${best_depth}" ]]; then
 			best_path="${dir}"
 			best_depth="${depth}"
 		fi
 	done
 	if [[ -n "${best_path}" ]]; then
 		echo "${best_path}"
-	elif [[ "${has_docs}" == true ]]; then
-		echo "docs"
+	elif [[ -n "${docs_path}" ]]; then
+		echo "${docs_path}"
 	fi
 }
 
@@ -68,7 +70,7 @@ classify_extension_tree() {
 		# Documents outside docs/ exercise the extension directly: leave the site
 		# to the document fallback below, which picks them instead. A repository
 		# that holds nothing else keeps its site, so it stays under test.
-		if [[ "${best_path}" == "docs" ]] &&
+		if [[ "${best_path}" =~ ^docs(/|$) ]] &&
 			[[ -n "$(printf '%s\n' "${qmd_files}" | grep -vE '(^|/)(_extensions|tests|examples|docs)/' || true)" ]]; then
 			best_path=""
 		fi
