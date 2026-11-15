@@ -70,4 +70,10 @@ check 'a failure with no reason reports the Quarto version and stage' \
 	'Pre-flight render failed with Quarto 1.11.9 (release) at stage `render`.' \
 	"$(run_preflight "${FAIL_RESULTS}" 'o/b')"
 
+MULTILINE_RESULTS='[{"id":"o/c","status":"fail","stage":"render","failure_reason":"line one\nline two","quarto_version":"1.11.9","log":"logs/o/c"}]'
+# shellcheck disable=SC2016 # The backticks are Markdown in the expected note.
+check 'a failure reason with a newline stays in one note' \
+	'Pre-flight render failed with Quarto 1.11.9 (release) at stage `render` (line one line two).' \
+	"$(run_preflight "${MULTILINE_RESULTS}" 'o/c')"
+
 finish
