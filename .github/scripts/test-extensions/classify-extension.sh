@@ -3,39 +3,47 @@
 # Source this file; do not execute it directly.
 # Used by build-matrix.sh (monthly tests) and preflight-render.sh (PR checks).
 
+# Paths that never hold renderable content, and paths inside a documentation
+# website. The project ranking, the documents-over-site check and the document
+# fallback all read these, so they cannot disagree on what a path is.
+CLASSIFY_SKIP_RE='(^|/)(_extensions|tests|examples)(/|$)'
+CLASSIFY_DOCS_RE='(^|/)docs(/|$)'
+
 # Pick the best _quarto.yml project path from a list of project file paths
-# on stdin: prefer repo root, then docs/, then the shallowest path outside
-# tests/ and examples/. Prints nothing when no suitable path exists.
-# docs/ stays a candidate here, unlike in the document fallback below: a
-# repository whose only project is its documentation website has nothing else
-# to render, and rendering the site keeps it under test.
+# on stdin: prefer repo root, then the shallowest path outside docs/, tests/
+# and examples/, then the shallowest path inside docs/. Prints nothing when no
+# suitable path exists. docs/ comes last because a documentation website
+# documents the extension rather than exercising it; see
+# classify_extension_tree.
 find_best_project_path() {
-	local best_path="" best_depth=999
+	local best_path="" best_depth=999 docs_path="" docs_depth=999
 	while IFS= read -r qpath; do
 		local dir
 		dir=$(dirname "${qpath}")
-		if [[ "${dir}" =~ (^|/)tests(/|$) ]] || [[ "${dir}" =~ (^|/)examples(/|$) ]]; then
+		if [[ "${dir}" =~ ${CLASSIFY_SKIP_RE} ]]; then
 			continue
 		fi
 		if [[ "${dir}" == "." ]]; then
 			echo "."
 			return
 		fi
-		if [[ "${dir}" == "docs" ]] && [[ "${best_depth}" -gt 1 ]]; then
-			best_path="docs"
-			best_depth=1
-			continue
-		fi
 		local depth slashes
 		slashes="${dir//[!\/]/}"
 		depth=$((${#slashes} + 1))
-		if [[ "${depth}" -lt "${best_depth}" ]]; then
+		if [[ "${dir}" =~ ${CLASSIFY_DOCS_RE} ]]; then
+			if [[ "${depth}" -lt "${docs_depth}" ]]; then
+				docs_path="${dir}"
+				docs_depth="${depth}"
+			fi
+		elif [[ "${depth}" -lt "${best_depth}" ]]; then
 			best_path="${dir}"
 			best_depth="${depth}"
 		fi
 	done
 	if [[ -n "${best_path}" ]]; then
 		echo "${best_path}"
+	elif [[ -n "${docs_path}" ]]; then
+		echo "${docs_path}"
 	fi
 }
 
@@ -53,6 +61,9 @@ classify_extension_tree() {
 		tree=$(printf '%s\n' "${tree}" | awk -v p="${prefix}/" 'index($0, p) == 1 { print substr($0, length(p) + 1) }')
 	fi
 
+	local qmd_files
+	qmd_files=$(printf '%s\n' "${tree}" | grep -E '\.qmd$' || true)
+
 	# Check for _quarto.yml/_quarto.yaml (project), excluding _extensions/
 	local project_files
 	project_files=$(printf '%s\n' "${tree}" | grep -E '(^|/)_quarto\.ya?ml$' | grep -vE '(^|/)_extensions/' || true)
@@ -60,6 +71,15 @@ classify_extension_tree() {
 	if [[ -n "${project_files}" ]]; then
 		local best_path
 		best_path=$(printf '%s\n' "${project_files}" | find_best_project_path)
+		# A documentation website under docs/ often stages the extension with a
+		# script the harness does not run, so a clean clone cannot render it.
+		# Documents outside docs/ exercise the extension directly: leave the site
+		# to the document fallback below, which picks them instead. A repository
+		# that holds nothing else keeps its site, so it stays under test.
+		if [[ "${best_path}" =~ ${CLASSIFY_DOCS_RE} ]] &&
+			[[ -n "$(printf '%s\n' "${qmd_files}" | grep -vE "${CLASSIFY_SKIP_RE}" | grep -vE "${CLASSIFY_DOCS_RE}" || true)" ]]; then
+			best_path=""
+		fi
 		if [[ -n "${best_path}" ]]; then
 			if [[ -n "${prefix}" ]]; then
 				if [[ "${best_path}" == "." ]]; then
@@ -73,18 +93,14 @@ classify_extension_tree() {
 		fi
 	fi
 
-	# Fallback: check for standalone .qmd files (document)
-	local qmd_files
-	qmd_files=$(printf '%s\n' "${tree}" | grep -E '\.qmd$' || true)
-
+	# Fallback: standalone .qmd files (document), docs/ pages only when nothing
+	# else is left, for the reason given above.
 	if [[ -n "${qmd_files}" ]]; then
 		local doc_files
-		# A documentation website under docs/ documents the extension rather than
-		# exercising it, so it is left out. A repository that holds nothing else
-		# keeps its docs/ pages, so it stays under test rather than being dropped.
-		doc_files=$(printf '%s\n' "${qmd_files}" | jq -Rsc --arg pfx "${prefix}" '
-			(split("\n")[:-1] | map(select(test("(^|/)(_extensions|tests|examples)/") | not))) as $all
-			| ($all | map(select(test("(^|/)docs/") | not))) as $outside_docs
+		doc_files=$(printf '%s\n' "${qmd_files}" | jq -Rsc --arg pfx "${prefix}" \
+			--arg skip "${CLASSIFY_SKIP_RE}" --arg docs "${CLASSIFY_DOCS_RE}" '
+			(split("\n")[:-1] | map(select(test($skip) | not))) as $all
+			| ($all | map(select(test($docs) | not))) as $outside_docs
 			| (if ($outside_docs | length) > 0 then $outside_docs else $all end)
 			| map(if $pfx != "" then "\($pfx)/\(.)" else . end)
 		')
