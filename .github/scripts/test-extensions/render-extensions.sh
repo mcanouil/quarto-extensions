@@ -206,7 +206,10 @@ run_framework() {
 # would otherwise be recorded as a pass having rendered nothing.
 #
 # Prints: status<TAB>total<TAB>pass<TAB>fail<TAB>skip<TAB>rendered, where
-# status is `none` when there is nothing readable.
+# status is `none` when there is nothing readable. Unlike the other harness
+# rows, this one is tab-joined, which is safe only because no field can be
+# empty: a tab-split read merges empty fields. A field that can be empty must
+# move this row to row.jq.
 framework_verdict() {
 	local json="$1"
 	if [[ ! -s "${json}" ]]; then
@@ -225,7 +228,7 @@ framework_verdict() {
 	jq -r '
 		def count: (numbers // 0) | floor
 			| if . < 0 then 0 elif . > 1000000 then 1000000 else . end;
-		[(.status // "none"),
+		[(.status | if IN("pass", "fail", "skip") then . else "none" end),
 		 (.summary.total | count), (.summary.pass | count),
 		 (.summary.fail | count), (.summary.skip | count),
 		 ([(.layers.render // {}), (.layers.smoke // {})]
@@ -291,8 +294,8 @@ render_extension() {
 	local shard="${2:-0}"
 
 	local id ext_type status workdir render_dir log_dir log_path ext
-	IFS=$'\t' read -r id ext_type status workdir render_dir log_dir log_path < <(
-		jq -r ".[${i}] | [.id // \"\", .type // \"\", .clone_status // \"\", .workdir // \"\", .render_dir // \"\", .log_dir // \"\", .log_path // \"\"] | @tsv" clone-manifest.json
+	IFS=$'\x1f' read -r id ext_type status workdir render_dir log_dir log_path < <(
+		jq -r -L "${SCRIPT_DIR}" "include \"row\"; .[${i}] | [.id, .type, .clone_status, .workdir, .render_dir, .log_dir, .log_path] | row" clone-manifest.json
 	)
 	ext=$(jq -c ".[${i}].ext" clone-manifest.json)
 

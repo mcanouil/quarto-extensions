@@ -191,13 +191,13 @@ fetch_tree() {
     touch "${output_dir}/${idx}.failed"
   fi
 }
-while IFS=$'\t' read -r idx id branch; do
+while IFS=$'\x1f' read -r idx id branch; do
   fetch_tree "${idx}" "${id}" "${branch}" "${trees_dir}" &
   # Limit to 20 concurrent jobs
   if (($(jobs -r | wc -l) >= 20)); then
     wait -n
   fi
-done < <(echo "${phase_b_candidates}" | jq -r 'to_entries[] | "\(.key)\t\(.value.id)\t\(.value.default_branch)"')
+done < <(echo "${phase_b_candidates}" | jq -r -L "${SCRIPT_DIR}" 'include "row"; to_entries[] | [.key, .value.id, .value.default_branch] | row')
 wait
 
 mapfile -t candidate_ids < <(echo "${phase_b_candidates}" | jq -r '.[].id')
