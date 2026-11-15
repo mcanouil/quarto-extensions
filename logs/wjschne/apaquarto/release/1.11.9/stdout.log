@@ -1,6 +1,6 @@
 Dependency install phase for wjschne/apaquarto: auto-detect
 Auto-detecting R dependencies for wjschne/apaquarto (knitr engine, no renv.lock).
-Installing R packages: apa7, flextable, ftExtra, pdftools, snakecase 
+Installing R packages: apa7, flextable, ftExtra, patchwork, pdftools, snakecase 
 No man pages found in package  'fontBitstreamVera' 
 No man pages found in package  'fontLiberation' 
 gfortran  -fpic  -g -O2  -c biv-nt.f -o biv-nt.o
@@ -235,5 +235,7 @@ Using PKG_CFLAGS=-I/usr/include/freetype2 -I/usr/include/libpng16
 Using PKG_LIBS=-lfreetype 
 g++ -std=gnu++20 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16  -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
 g++ -std=gnu++20 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16  -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c glyph_metrics.cpp -o glyph_metrics.o
+g++ -std=gnu++20 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16  -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c kerning.cpp -o kerning.o
+g++ -std=gnu++20 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16  -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c line_metrics.cpp -o line_metrics.o
 g++ -std=gnu++20 -I"/opt/R/4.6.2/lib/R/include" -DNDEBUG -I/usr/include/freetype2 -I/usr/include/libpng16  -I'/opt/R/4.6.2/lib/R/library/Rcpp/include' -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2   -c versions.cpp -o versions.o
-g++ -std=gnu++20 -shared -L/opt/R/4.6.2/lib/R/lib -L/usr/local/lib -o gdtools.so RcppExports.o glyph_metrics.o versions.o -lfreetype -L/opt/R/4.6.2/lib/R/lib -lR
+g++ -std=gnu++20 -shared -L/opt/R/4.6.2/lib/R/lib -L/usr/local/lib -o gdtools.so RcppExports.o glyph_metrics.o kerning.o line_metrics.o versions.o -lfreetype -L/opt/R/4.6.2/lib/R/lib -lR

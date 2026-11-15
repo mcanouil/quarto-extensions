@@ -1,0 +1,36 @@
+pandoc 
+
+  to: html
+  output-file: index.html
+  standalone: true
+  toc: true
+  number-sections: true
+  title-prefix: Test Book for Custom AmSThm Environments
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  crossref:
+    chapters: true
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  custom-amsthm:
+    - key: prm
+      name: Problem
+    - key: tsk
+      name: Task
+      numbering-style: global
+  theme: cosmo
+  title: Test Book for Custom AmSThm Environments
+  author: Test Author
+  
+
+Output created: _output/index.html
+
+

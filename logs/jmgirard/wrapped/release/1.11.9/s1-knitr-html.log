@@ -1,0 +1,53 @@
+
+
+processing file: s1-knitr.qmd
+
+1
+/3            
+2/3 [fig-knitr]
+
+3
+/3            
+
+output file: s1-knitr.knit.md
+
+
+pandoc 
+
+  to: html
+  output-file: s1-knitr.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: 'S1 probe: knitr engine'
+  
+
+S1 Image id= classes=[wrap-right] wrap=wrap-right attrs={width=40%}
+S1 Image id= classes=[] wrap=none attrs={}
+
+S1 Image id= classes=[wrap-right] wrap=wrap-right attrs={fig-alt=A plot, width=20%}
+S1 Image id= classes=[] wrap=none attrs={width=672}
+S1 FloatRefTarget id=fig-md classes=[wrap-right] wrap=wrap-right attrs={}
+S1 FloatRefTarget id=fig-div classes=[wrap-left] wrap=wrap-left attrs={width=35%}
+S1 FloatRefTarget id=fig-knitr classes=[] wrap=none attrs={}
+S1 Div id= classes=[cell-output-display] wrap=none attrs={}
+S1 Div id= classes=[cell wrap-right] wrap=wrap-right attrs={}
+
+S1 topdown: FloatRefTarget fig-md gets cell class none
+S1 topdown: FloatRefTarget fig-div gets cell class none
+
+S1 topdown: FloatRefTarget fig-knitr gets cell class wrap-right
+
+Output created: s1-knitr.html
+
+

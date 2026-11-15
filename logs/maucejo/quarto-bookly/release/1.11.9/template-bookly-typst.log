@@ -30,23 +30,89 @@ metadata
   colors:
     primary: rgb("#1d90d0")
     secondary: rgb("#dddddd").darken(15%)
+  title-page:
+    style: book
+    subtitle: Quarto extension usage example
+    edition: First edition
+    institution: Your Institution
+    series: Your Series
+    year: 2026
   
 
 [typst]: Compiling template.typ to template.pdf...
-error: color string contains non-hexadecimal letters
-    ┌─ template.typ:474:17
-    │
-474 │     primary: rgb("\#1d90d0"),
-    │                  ^^^^^^^^^^
+downloading @preview/bookly:5.3.0
+
+  0 B / 314.2 KiB (  0 %),   3.1 MiB/s, ETA: 0 s
+
+314.2 KiB / 314.2 KiB (100 %),   3.1 MiB/s, ETA: 0 s
+
+downloading @preview/equate:0.3.3
+
+  0 B /   9.1 KiB (  0 %),  90.5 KiB/s, ETA: 0 s
+
+  9.1 KiB /   9.1 KiB (100 %),  90.5 KiB/s, ETA: 
+0 s
+
+downloading @preview/unichar:0.4.0
+
+  0 B / 452.9 KiB (  0 %),   4.4 MiB/s, ETA: 0 s
+
+452.9 KiB / 452.9 KiB (100 %),   4.4 MiB/s, ETA: 0 s
+
+downloading @preview/hydra:0.6.3
+
+  0 B /   9.2 KiB (  0 %),  91.9 KiB/s, ETA: 0 s
+
+  9.2 KiB /   9.2 KiB (100 %),  91.9 KiB/s, ETA: 0 s
+
+downloading @preview/oxifmt:1.0.0
+
+  0 B /  19.7 KiB (  0 %), 196.5 KiB/s, ETA: 0 s
+
+ 19.7 KiB /  19.7 KiB (100 %), 196.5 KiB/s, ETA: 0 s
+
+downloading @preview/marginalia:0.3.1
+
+  0 B /  13.8 KiB (  0 %), 137.8 KiB/s, ETA: 0 s
+
+ 13.8 KiB /  13.8 KiB (100 %), 137.8 KiB/s, ETA: 0 s
+
+downloading @preview/showybox:2.0.4
+
+  0 B /   9.3 KiB (  0 %),  92.9 KiB/s, ETA: 0 s
+
+  9.3 KiB /   9.3 KiB (100 %),  
+92.9 KiB/s, ETA: 0 s
+
+downloading @preview/subpar:0.2.2
+
+  0 B / 482.2 KiB (  0 %),   4.7 MiB/s, ETA: 0 s
+
+482.2 KiB / 482.2 KiB (100 %),   4.7 MiB/s, ETA: 0 s
+
+downloading @preview/suboutline:0.3.1
+
+  0 B /  13.6 KiB (  0 %), 135.8 KiB/s, ETA: 0 s
+
+ 13.6 KiB /  13.6 KiB (100 %), 135.8 KiB/s, ETA: 0 s
+
+warning: unknown font family: lato
+   ┌─ @preview/bookly:5.3.0/src/bookly.typ:61:17
+   │
+61 │   set text(font: bookly-fonts.body, la
+ng: bookly-lang, size: bookly-fonts.size, ligatures: false)
+   │                  ^^^^^^^^^^^^^^^^^
+
+warning: unknown font family: lete sans math
+   ┌─ @preview/bookly:5.3.0/src/bookly.typ:65:37
+   │
+65 │   show math.equation: set text(font: bookly-fonts.math, stylistic-set: 1)
+   │                                      ^^^^^^^^^^^^^^^^^
 
 
-(ERROR) error: color string contains non-hexadecimal letters
-    ┌─ template.typ:474:17
-    │
-474 │     primary: rgb("\#1d90d0"),
-    │                  ^^^^^^^^^^
+DONE
 
 
+Output created: template.pdf
 
-(ERROR) Typst compilation failed
 

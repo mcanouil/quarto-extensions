@@ -1,0 +1,31 @@
+pandoc 
+
+  to: typst
+  output-file: s3-wrapit.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+
+metadata
+
+  title: 'S3: wrap-it with a citation in the wrapped text'
+  bibliography:
+    - refs.bib
+  
+
+[typst]: Compiling s3-wrapit.typ to s3-wrapit.pdf...
+downloading @preview/wrap-it:0.1.1
+
+  0 B /   5.1 KiB (  0 %),  51.5 KiB/s, ETA: 0 s
+  5.1 KiB /   5.1 KiB (100 %), 
+ 51.5 KiB/s, ETA: 0 s
+
+DONE
+
+
+Output created: s3-wrapit.pdf
+
+

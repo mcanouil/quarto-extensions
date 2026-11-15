@@ -10,15 +10,17 @@ processing file: computo-quarto-extension.qmd
 6/17 [fig-plotly]       
 Downloading cpython-3.13.17-linux-x86_64-gnu (download) (33.7MiB)
  Downloaded cpython-3.13.17-linux-x86_64-gnu (download)
-Downloading jedi (4.7MiB)
-Downloading pygments (1.2MiB)
+Downloading kiwisolver (1.4MiB)
+Downloading fonttools (5.2MiB)
+Downloading matplotlib (9.4MiB)
 Downloading pandas (11.4MiB)
 Downloading plotly (9.4MiB)
- Downloaded pygments
- Downloaded plotly
+ Downloaded kiwisolver
+ Downloaded fonttools
+ Downloaded matplotlib
  Downloaded pandas
- Downloaded jedi
-Installed 36 packages in 1.82s
+ Downloaded plotly
+Installed 36 packages in 1.59s
 7/17                    
 8/17 [fig-polar]        
 9/17                    
@@ -124,8 +126,8 @@ failed with error code 1. Output:
 This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
-(/tmp/tikz-30bb00145d0b5c6d/tikz-image.tex
-LaTeX2e <2026-06-01>
+(/tmp/tikz-8e981fdb69e67e70/tikz-image.tex
+LaTeX2e <2026-11-01>
 L3 programming layer <2026-09-09>
 
 ! LaTeX Error: File `standalone.cls' not found.
@@ -140,8 +142,8 @@ Enter file name:
 l.2 \usepackage
                {tikz}^^M
 !  ==> Fatal error occurred, no output PDF file produced!
-Transcript written on /tmp/tikz-30bb00145d0b5c6d/tikz-image.log.
-/home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/_extensions/computo/_extensions/pandoc-ext/diagram/diagram.lua: ...sions/computo/_extensions/pandoc-ext/diagram/diagram.lua:82: attempt to index a nil value (local 'fh')
+Transcript written on /tmp/tikz-8e981fdb69e67e70/tikz-image.log.
+/home/runner/work/quarto-extensions/quarto-extensions/test-18/repo/_extensions/computo/_extensions/pandoc-ext/diagram/diagram.lua: ...sions/computo/_extensions/pandoc-ext/diagram/diagram.lua:82: attempt to index a nil value (local 'fh')
 
 processing file: computo-quarto-extension.qmd
 1/17                    
@@ -152,7 +154,7 @@ processing file: computo-quarto-extension.qmd
 6/17 [fig-plotly]       
 Downloading cpython-3.13.16-linux-x86_64-gnu (download) (33.5MiB)
  Downloaded cpython-3.13.16-linux-x86_64-gnu (download)
-Installed 36 packages in 1.75s
+Installed 36 packages in 1.64s
 7/17                    
 8/17 [fig-polar]        
 9/17                    
@@ -251,8 +253,8 @@ failed with error code 1. Output:
 This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
-(/tmp/tikz-e1c4b811e8710b51/tikz-image.tex
-LaTeX2e <2026-06-01>
+(/tmp/tikz-47e45122fbbf47ef/tikz-image.tex
+LaTeX2e <2026-11-01>
 L3 programming layer <2026-09-09>
 
 ! LaTeX Error: File `standalone.cls' not found.
@@ -267,8 +269,8 @@ Enter file name:
 l.2 \usepackage
                {tikz}^^M
 !  ==> Fatal error occurred, no output PDF file produced!
-Transcript written on /tmp/tikz-e1c4b811e8710b51/tikz-image.log.
-/home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/_extensions/computo/_extensions/pandoc-ext/diagram/diagram.lua: ...sions/computo/_extensions/pandoc-ext/diagram/diagram.lua:82: attempt to index a nil value (local 'fh')[31mFATAL (/opt/quarto/share/filters/main.lua:7304) An error occurred:
+Transcript written on /tmp/tikz-47e45122fbbf47ef/tikz-image.log.
+/home/runner/work/quarto-extensions/quarto-extensions/test-18/repo/_extensions/computo/_extensions/pandoc-ext/diagram/diagram.lua: ...sions/computo/_extensions/pandoc-ext/diagram/diagram.lua:82: attempt to index a nil value (local 'fh')[31mFATAL (/opt/quarto/share/filters/main.lua:7304) An error occurred:
 Could not convert a SVG to a PDF for output. Please ensure that rsvg-convert is available on the path.
 [39mError running filter '/opt/quarto/share/filters/main.lua':
 /opt/quarto/share/filters/main.lua:7329: FATAL QUARTO ERROR
@@ -282,14 +284,14 @@ stack traceback:
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:34: in upvalue 'run_filter_function'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:226: in function <...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:205>
 	(...tail calls...)
-	[C]: in function 'pandoc.List.map'
+	[C]: in function 'tmap'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:128: in upvalue 'recurse'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:225: in local 'jogger'
 	...	(skipping 19 levels)
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:98: in upvalue 'recurse'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:225: in function <...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:205>
 	(...tail calls...)
-	[C]: in function 'pandoc.List.map'
+	[C]: in function 'tmap'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:128: in upvalue 'recurse'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:225: in local 'jogger'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:174: in upvalue 'recurse'
@@ -306,8 +308,8 @@ failed with error code 1. Output:
 This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
-(/tmp/tikz-e1c4b811e8710b51/tikz-image.tex
-LaTeX2e <2026-06-01>
+(/tmp/tikz-47e45122fbbf47ef/tikz-image.tex
+LaTeX2e <2026-11-01>
 L3 programming layer <2026-09-09>
 
 ! LaTeX Error: File `standalone.cls' not found.
@@ -322,8 +324,8 @@ Enter file name:
 l.2 \usepackage
                {tikz}^^M
 !  ==> Fatal error occurred, no output PDF file produced!
-Transcript written on /tmp/tikz-e1c4b811e8710b51/tikz-image.log.
-/home/runner/work/quarto-extensions/quarto-extensions/test-17/repo/_extensions/computo/_extensions/pandoc-ext/diagram/diagram.lua: ...sions/computo/_extensions/pandoc-ext/diagram/diagram.lua:82: attempt to index a nil value (local 'fh')[31mFATAL (/opt/quarto/share/filters/main.lua:7304) An error occurred:
+Transcript written on /tmp/tikz-47e45122fbbf47ef/tikz-image.log.
+/home/runner/work/quarto-extensions/quarto-extensions/test-18/repo/_extensions/computo/_extensions/pandoc-ext/diagram/diagram.lua: ...sions/computo/_extensions/pandoc-ext/diagram/diagram.lua:82: attempt to index a nil value (local 'fh')[31mFATAL (/opt/quarto/share/filters/main.lua:7304) An error occurred:
 Could not convert a SVG to a PDF for output. Please ensure that rsvg-convert is available on the path.
 [39mError running filter '/opt/quarto/share/filters/main.lua':
 /opt/quarto/share/filters/main.lua:7329: FATAL QUARTO ERROR
@@ -337,14 +339,14 @@ stack traceback:
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:34: in upvalue 'run_filter_function'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:226: in function <...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:205>
 	(...tail calls...)
-	[C]: in function 'pandoc.List.map'
+	[C]: in function 'tmap'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:128: in upvalue 'recurse'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:225: in local 'jogger'
 	...	(skipping 19 levels)
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:98: in upvalue 'recurse'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:225: in function <...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:205>
 	(...tail calls...)
-	[C]: in function 'pandoc.List.map'
+	[C]: in function 'tmap'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:128: in upvalue 'recurse'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:225: in local 'jogger'
 	...uarto/share/pandoc/datadir/../../filters/modules/jog.lua:174: in upvalue 'recurse'
@@ -368,6 +370,7 @@ processing file: computo-quarto-extension.qmd
 6/17 [fig-plotly]       
 Downloading cpython-3.13.15-linux-x86_64-gnu (download) (33.4MiB)
  Downloaded cpython-3.13.15-linux-x86_64-gnu (download)
+Installed 1 package in 326ms
 Error in py_call_impl(callable, call_args$unnamed, call_args$named) : 
   ModuleNotFoundError: No module named 'plotly'
 Run `reticulate::py_last_error()` for details.

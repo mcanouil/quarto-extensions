@@ -1,6 +1,6 @@
 
 
-processing file: hikmah-testing-custom.qmd
+processing file: hikmah-testing-default.qmd
 
 1/5                  
 
@@ -12,29 +12,12 @@ processing file: hikmah-testing-custom.qmd
 
 5/5                  
 
-output file: hikmah-testing-custom.knit.md
+output file: hikmah-testing-default.knit.md
 
 
 
 
-processing file: hikmah-testing-custom.qmd
-
-1/5                  
-
-2/5 [unnamed-chunk-1]
-
-3/5                  
-
-4/5 [fig-n-lights]   
-
-5/5                  
-
-output file: hikmah-testing-custom.knit.md
-
-
-
-
-processing file: hikmah-testing-custom.qmd
+processing file: hikmah-testing-default.qmd
 
 1/5                  
 
@@ -46,12 +29,28 @@ processing file: hikmah-testing-custom.qmd
 
 5/5                  
 
-output file: hikmah-testing-custom.knit.md
+output file: hikmah-testing-default.knit.md
 
 
 
 
-processing file: hikmah-testing-custom.qmd
+processing file: hikmah-testing-default.qmd
+
+1/5                  
+
+2/5 [unnamed-chunk-1]
+
+3/5                  
+4/5 [fig-n-lights]   
+
+5/5                  
+
+output file: hikmah-testing-default.knit.md
+
+
+
+
+processing file: hikmah-testing-default.qmd
 
 1/5                  
 
@@ -63,24 +62,10 @@ processing file: hikmah-testing-custom.qmd
 
 5/5                  
 
-output file: hikmah-testing-custom.knit.md
+output file: hikmah-testing-default.knit.md
 
 
-[typst]: Compiling hikmah-testing-custom.typ to hikmah-testing-custom.pdf...
-warning: unknown font family: times new roman
-    ┌─ hikmah-testing-custom.typ:437:17
-    │
-437 │   se
-t text(font: font) if font != none
-    │                  ^^^^
-
-warning: unknown font family: times new roman
-    ┌─ hikmah-testing-custom.typ:515:10
-    │
-515 │     font: if font != none { font } else { default-typst-font },
-    │           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
+[typst]: Compiling hikmah-testing-default.typ to hikmah-testing-default.pdf...
 DONE
 
 
@@ -92,40 +77,16 @@ running lualatex - 1
   This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
    restricted system commands enabled.
   
-  luaotfload | db : Reload initiated (formats: otf,ttf,ttc); reason: Font "Linux Libertine O" not found.
 
-updating tlmgr
+running lualatex - 2
 
-
-
-updating existing packages
-
-finding package for Linux\s*Libertine\s*O(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
-
-(ERROR) 
-compilation failed- no matching packages
-
-Package fontspec Error: 
-(fontspec)                The font "Linux Libertine O" cannot be found; this
-(fontspec)                may be but usually is not a fontspec bug. Either
-(fontspec)                there is a typo in the font name/file, the font is
-(fontspec)                not installed (correctly), or there is a bug in
-(fontspec)                the underlying font loading engine
-(fontspec)                (XeTeX/luaotfload).
-
-For immediate help type H <return>.
- ...                                              
-                                                  
-l.29   \setmathfont
-                 []{Libertinus Math}
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
 
 
 
-see /home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/hikmah-testing-custom.log for more information.
-
-(WARN) Error encountered when rendering files
-
-(ERROR) NotFound: No such file or directory (os error 2): rename '/home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/hikmah-testing-custom.pdf' -> '/home/runner/work/quarto-extensions/quarto-extensions/test-14/repo/examples/hikmah-testing-custom.pdf'
+(ERROR) NotFound: No such file or directory (os error 2): rename '/home/runner/work/quarto-extensions/quarto-extensions/test-10/repo/hikmah-testing-default.pdf' -> '/home/runner/work/quarto-extensions/quarto-extensions/test-10/repo/examples/hikmah-testing-default.pdf'
 
 Stack trace:
     at Object.renameSync (ext:deno_fs/30_fs.js:1:3891)

@@ -1,0 +1,158 @@
+pandoc 
+
+  to: latex
+  output-file: template.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  number-sections: false
+  toc: false
+  
+
+metadata
+
+  block-headings: true
+  lang: en-GB
+  csl: _extensions/bmj/bmj.csl
+  documentclass: article
+  papersize: a4
+  fontsize: 12pt
+  geometry:
+    - margin=2.54cm
+  colorlinks: true
+  linkcolor: black
+  citecolor: black
+  urlcolor: blue
+  title: 'Title of the article: a prospective cohort study'
+  author:
+    - name: Jane Doe
+      orcid: 0000-0002-1825-0097
+      email: jane.doe@example.org
+      corresponding: true
+      position: senior lecturer
+      affiliations:
+        - id: epi
+          department: Department of Epidemiology
+          name: Example University
+          address: 1 Example Street
+          city: London
+          postal-code: WC1E 0AA
+          country: UK
+    - name: John Smith
+      orcid: 0000-0000-0000-0000
+      position: statistician
+      affiliations:
+        - ref: epi
+    - name: Ana García
+      position: general practitioner
+      affiliations:
+        - id: gp
+          name: Riverside Medical Centre
+          city: Manchester
+          postal-code: M1 0AA
+          country: UK
+  abstract: |
+    **Objectives** State the main aim of the study and the major hypothesis tested or research question posed.
+  
+    **Design** Give the study design, for example prospective cohort study.
+  
+    **Setting** Describe the level of care (primary, secondary) and the number of participating centres; give the geographical location if important.
+  
+    **Participants** Give the numbers entering and completing the study, with sex and ethnic group if appropriate, and how participants were selected.
+  
+    **Interventions** Describe what, how, when, and for how long. Delete this heading if there were no interventions.
+  
+    **Main outcome measures** List the outcomes planned in the protocol and those finally measured.
+  
+    **Results** Report the main results with 95% confidence intervals (written as 15 to 27) and, where appropriate, absolute risks and the number needed to treat or harm.
+  
+    **Conclusions** State the primary conclusions and their implications without going beyond the data.
+  
+    **Trial registration** Give the registry and registration number (last line of the abstract).
+  keywords:
+    - Cohort Studies
+    - Primary Health Care
+    - Depression
+  summary-box:
+    known:
+      - Summarise the state of scientific knowledge on this topic before the study.
+      - Explain why this study needed to be done.
+    adds:
+      - Give a simple answer to "what do we now know as a result of this study that we did not know before?", with the single most useful summary statistic.
+  bibliography:
+    - references.bib
+  
+
+[bmj] word count: main text 239, abstract 152
+
+
+Rendering PDF
+
+running lualatex - 1
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+
+updating tlmgr
+
+
+
+updating existing packages
+
+finding package for luatexbase.sty
+
+> 1 package to install
+
+> installing luatexbase (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for selnolig.sty
+
+> 1 package to install
+
+> installing selnolig (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for setspace.sty
+
+> 1 package to install
+
+> installing setspace (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+finding package for lineno.sty
+
+> 1 package to install
+
+> installing lineno (1 of 1)
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+running lualatex - 2
+
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+
+
+Output created: template.pdf
+
+

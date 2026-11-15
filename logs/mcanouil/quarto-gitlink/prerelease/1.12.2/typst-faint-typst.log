@@ -1,0 +1,32 @@
+
+
+pandoc 
+
+  to: typst
+  output-file: typst-faint.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+
+metadata
+
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: '#00000040'
+  title: Typst faint badge
+  
+
+[typst]: Compiling typst-faint.typ to typst-faint.pdf...
+DONE
+
+
+
+
+Output created: _site/typst-faint.pdf
+
+

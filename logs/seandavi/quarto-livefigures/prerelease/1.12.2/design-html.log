@@ -1,0 +1,32 @@
+pandoc 
+
+  to: html
+  output-file: design.html
+  standalone: true
+  toc: true
+  number-sections: true
+  title-prefix: Book with live figures
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  number-offset:
+    - 2
+  
+
+metadata
+
+  crossref:
+    chapters: true
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  lightbox: true
+  hide-description: true
+  title: "[2]{.chapter-number}\_ [Design]{.chapter-title}"
+  
+
+Output created: _book/design.html
+
+

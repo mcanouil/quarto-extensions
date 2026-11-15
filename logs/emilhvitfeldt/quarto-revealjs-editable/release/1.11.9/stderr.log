@@ -1,7 +1,7 @@
 Cloning into 'repo'...
 pandoc 
   to: revealjs
-  output-file: modify-mode-table.html
+  output-file: example.html
   standalone: true
   wrap: none
   default-image-extension: png
@@ -29,26 +29,15 @@ metadata
   pdfSeparateFragments: false
   lang: en
   auto-stretch: true
+  title: Interactive Demo
   revealjs-plugins:
     - editable
-  theme: default
   
-Output created: modify-mode-table.html
-
-
-
-processing file: modify-mode-all.qmd
-1/5            
-2/5 [chunk-out]
-3/5            
-4/5 [chunk-fig]
-5/5            
-output file: modify-mode-all.knit.md
+Output created: example.html
 
 pandoc 
   to: revealjs
-  output-file: >-
-    /home/runner/work/quarto-extensions/quarto-extensions/test-21/repo/testing/modify-mode-all.html
+  output-file: modify-mode-arrows.html
   standalone: true
   wrap: none
   default-image-extension: png
@@ -79,9 +68,448 @@ metadata
   revealjs-plugins:
     - editable
   theme: default
-  title: Modify Mode — All Classifiers
   
-Output created: modify-mode-all.html
+Output created: modify-mode-arrows.html
+
+pandoc 
+  to: revealjs
+  output-file: modify-mode-inline-img.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  revealjs-plugins:
+    - editable
+  theme: default
+  
+Output created: modify-mode-inline-img.html
+
+pandoc 
+  to: revealjs
+  output-file: modify-mode-video.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  revealjs-plugins:
+    - editable
+  theme: default
+  title: Modify Mode Video Test
+  
+Output created: modify-mode-video.html
+
+pandoc 
+  to: revealjs
+  output-file: quill-editor.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  revealjs-plugins:
+    - editable
+  theme: default
+  title: Quill Editor Test
+  
+Output created: quill-editor.html
+
+pandoc 
+  to: revealjs
+  output-file: bare-syntax.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  revealjs-plugins:
+    - editable
+  theme: default
+  title: Bare Syntax Test
+  
+Output created: bare-syntax.html
+
+pandoc 
+  to: revealjs
+  output-file: colons-in-content.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  revealjs-plugins:
+    - editable
+  theme: default
+  title: Colons Test
+  
+Output created: colons-in-content.html
+
+pandoc 
+  to: revealjs
+  output-file: brand-colors.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  revealjs-plugins:
+    - editable
+  theme: default
+  title: Brand Colors Test
+  
+Output created: brand-colors.html
+
+pandoc 
+  to: revealjs
+  output-file: utf8.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  revealjs-plugins:
+    - editable
+  theme: default
+  title: UTF-8 Test
+  
+Output created: utf8.html
+
+pandoc 
+  to: revealjs
+  output-file: modify-mode-diagrams.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  revealjs-plugins:
+    - editable
+  theme: default
+  
+Output created: modify-mode-diagrams.html
+
+pandoc 
+  to: revealjs
+  output-file: shapes.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  revealjs-plugins:
+    - editable
+  theme: default
+  
+Output created: shapes.html
+
+pandoc 
+  to: revealjs
+  output-file: latex.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  revealjs-plugins:
+    - editable
+  theme: default
+  title: LaTeX Test
+  
+Output created: latex.html
+
+pandoc 
+  to: revealjs
+  output-file: windows-paths.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  revealjs-plugins:
+    - editable
+  theme: default
+  title: Windows Paths Test
+  
+Output created: windows-paths.html
+
+pandoc 
+  to: revealjs
+  output-file: multiple-elements.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  revealjs-plugins:
+    - editable
+  theme: default
+  
+Output created: multiple-elements.html
 
 pandoc 
   to: revealjs
@@ -122,7 +550,7 @@ Output created: shortcode.html
 
 pandoc 
   to: revealjs
-  output-file: include-header.html
+  output-file: modify-mode-lists.html
   standalone: true
   wrap: none
   default-image-extension: png
@@ -153,46 +581,8 @@ metadata
   revealjs-plugins:
     - editable
   theme: default
-  title: Include Header Test
   
-Output created: include-header.html
-
-pandoc 
-  to: revealjs
-  output-file: space in name.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  revealjs-plugins:
-    - editable
-  theme: default
-  title: Space in Name Test
-  
-Output created: space in name.html
+Output created: modify-mode-lists.html
 
 pandoc 
   to: revealjs
@@ -233,8 +623,9 @@ Output created: special-chars.html
 
 pandoc 
   to: revealjs
-  output-file: modify-mode-code.html
+  output-file: manual-positioned-reactivation.html
   standalone: true
+  self-contained: false
   wrap: none
   default-image-extension: png
   html-math-method:
@@ -265,11 +656,11 @@ metadata
     - editable
   theme: default
   
-Output created: modify-mode-code.html
+Output created: manual-positioned-reactivation.html
 
 pandoc 
   to: revealjs
-  output-file: modify-mode-lists.html
+  output-file: modify-mode-fenced-div.html
   standalone: true
   wrap: none
   default-image-extension: png
@@ -301,11 +692,22 @@ metadata
     - editable
   theme: default
   
-Output created: modify-mode-lists.html
+Output created: modify-mode-fenced-div.html
+
+
+
+processing file: modify-mode-all.qmd
+1/5            
+2/5 [chunk-out]
+3/5            
+4/5 [chunk-fig]
+5/5            
+output file: modify-mode-all.knit.md
 
 pandoc 
   to: revealjs
-  output-file: modify-mode-diagrams.html
+  output-file: >-
+    /home/runner/work/quarto-extensions/quarto-extensions/test-5/repo/testing/modify-mode-all.html
   standalone: true
   wrap: none
   default-image-extension: png
@@ -336,8 +738,9 @@ metadata
   revealjs-plugins:
     - editable
   theme: default
+  title: Modify Mode — All Classifiers
   
-Output created: modify-mode-diagrams.html
+Output created: modify-mode-all.html
 
 
 
@@ -393,7 +796,7 @@ Output created: chunk-figures.html
 
 pandoc 
   to: revealjs
-  output-file: modify-mode-equations.html
+  output-file: modify-mode.html
   standalone: true
   wrap: none
   default-image-extension: png
@@ -424,265 +827,9 @@ metadata
   revealjs-plugins:
     - editable
   theme: default
+  title: Modify Mode Test
   
-Output created: modify-mode-equations.html
-
-pandoc 
-  to: revealjs
-  output-file: bare-syntax.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  revealjs-plugins:
-    - editable
-  theme: default
-  title: Bare Syntax Test
-  
-Output created: bare-syntax.html
-
-pandoc 
-  to: revealjs
-  output-file: title-only.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  revealjs-plugins:
-    - editable
-  theme: default
-  title: Title Only Presentation
-  
-Output created: title-only.html
-
-pandoc 
-  to: revealjs
-  output-file: latex.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  revealjs-plugins:
-    - editable
-  theme: default
-  title: LaTeX Test
-  
-Output created: latex.html
-
-pandoc 
-  to: revealjs
-  output-file: arrows.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  revealjs-plugins:
-    - editable
-  theme: default
-  title: Arrows Test
-  
-Output created: arrows.html
-
-pandoc 
-  to: revealjs
-  output-file: modify-mode-code-output.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  revealjs-plugins:
-    - editable
-  theme: default
-  
-Output created: modify-mode-code-output.html
-
-pandoc 
-  to: revealjs
-  output-file: modify-mode-arrows.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  revealjs-plugins:
-    - editable
-  theme: default
-  
-Output created: modify-mode-arrows.html
-
-pandoc 
-  to: revealjs
-  output-file: colons-in-content.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  revealjs-plugins:
-    - editable
-  theme: default
-  title: Colons Test
-  
-Output created: colons-in-content.html
+Output created: modify-mode.html
 
 pandoc 
   to: revealjs
@@ -722,518 +869,6 @@ Output created: basic.html
 
 pandoc 
   to: revealjs
-  output-file: round-trip.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  revealjs-plugins:
-    - editable
-  theme: default
-  title: Round-trip Test
-  
-Output created: round-trip.html
-
-pandoc 
-  to: revealjs
-  output-file: manual-positioned-reactivation.html
-  standalone: true
-  self-contained: false
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  revealjs-plugins:
-    - editable
-  theme: default
-  
-Output created: manual-positioned-reactivation.html
-
-pandoc 
-  to: revealjs
-  output-file: multiple-elements.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  revealjs-plugins:
-    - editable
-  theme: default
-  
-Output created: multiple-elements.html
-
-pandoc 
-  to: revealjs
-  output-file: quill-editor.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  revealjs-plugins:
-    - editable
-  theme: default
-  title: Quill Editor Test
-  
-Output created: quill-editor.html
-
-pandoc 
-  to: revealjs
-  output-file: modify-mode-paragraph.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  revealjs-plugins:
-    - editable
-  theme: default
-  
-Output created: modify-mode-paragraph.html
-
-pandoc 
-  to: revealjs
-  output-file: modify-mode.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  revealjs-plugins:
-    - editable
-  theme: default
-  title: Modify Mode Test
-  
-Output created: modify-mode.html
-
-pandoc 
-  to: revealjs
-  output-file: modify-mode-absolute.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  revealjs-plugins:
-    - editable
-  theme: default
-  
-Output created: modify-mode-absolute.html
-
-pandoc 
-  to: revealjs
-  output-file: modify-mode-video.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  revealjs-plugins:
-    - editable
-  theme: default
-  title: Modify Mode Video Test
-  
-Output created: modify-mode-video.html
-
-pandoc 
-  to: revealjs
-  output-file: modify-mode-inline-img.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  revealjs-plugins:
-    - editable
-  theme: default
-  
-Output created: modify-mode-inline-img.html
-
-pandoc 
-  to: revealjs
-  output-file: modify-mode-fenced-div.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  revealjs-plugins:
-    - editable
-  theme: default
-  
-Output created: modify-mode-fenced-div.html
-
-pandoc 
-  to: revealjs
-  output-file: shapes.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  revealjs-plugins:
-    - editable
-  theme: default
-  
-Output created: shapes.html
-
-pandoc 
-  to: revealjs
-  output-file: utf8.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  revealjs-plugins:
-    - editable
-  theme: default
-  title: UTF-8 Test
-  
-Output created: utf8.html
-
-pandoc 
-  to: revealjs
-  output-file: brand-colors.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  revealjs-plugins:
-    - editable
-  theme: default
-  title: Brand Colors Test
-  
-Output created: brand-colors.html
-
-pandoc 
-  to: revealjs
-  output-file: windows-paths.html
-  standalone: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  revealjs-plugins:
-    - editable
-  theme: default
-  title: Windows Paths Test
-  
-Output created: windows-paths.html
-
-pandoc 
-  to: revealjs
   output-file: modify-mode-absolute-img.html
   standalone: true
   wrap: none
@@ -1267,6 +902,43 @@ metadata
   theme: default
   
 Output created: modify-mode-absolute-img.html
+
+pandoc 
+  to: revealjs
+  output-file: space in name.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  revealjs-plugins:
+    - editable
+  theme: default
+  title: Space in Name Test
+  
+Output created: space in name.html
 
 pandoc 
   to: revealjs
@@ -1307,7 +979,7 @@ Output created: no-editable.html
 
 pandoc 
   to: revealjs
-  output-file: example.html
+  output-file: modify-mode-table.html
   standalone: true
   wrap: none
   default-image-extension: png
@@ -1335,9 +1007,337 @@ metadata
   pdfSeparateFragments: false
   lang: en
   auto-stretch: true
-  title: Interactive Demo
   revealjs-plugins:
     - editable
+  theme: default
   
-Output created: example.html
+Output created: modify-mode-table.html
+
+pandoc 
+  to: revealjs
+  output-file: modify-mode-code-output.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  revealjs-plugins:
+    - editable
+  theme: default
+  
+Output created: modify-mode-code-output.html
+
+pandoc 
+  to: revealjs
+  output-file: modify-mode-absolute.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  revealjs-plugins:
+    - editable
+  theme: default
+  
+Output created: modify-mode-absolute.html
+
+pandoc 
+  to: revealjs
+  output-file: modify-mode-code.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  revealjs-plugins:
+    - editable
+  theme: default
+  
+Output created: modify-mode-code.html
+
+pandoc 
+  to: revealjs
+  output-file: include-header.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  revealjs-plugins:
+    - editable
+  theme: default
+  title: Include Header Test
+  
+Output created: include-header.html
+
+pandoc 
+  to: revealjs
+  output-file: arrows.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  revealjs-plugins:
+    - editable
+  theme: default
+  title: Arrows Test
+  
+Output created: arrows.html
+
+pandoc 
+  to: revealjs
+  output-file: round-trip.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  revealjs-plugins:
+    - editable
+  theme: default
+  title: Round-trip Test
+  
+Output created: round-trip.html
+
+pandoc 
+  to: revealjs
+  output-file: modify-mode-equations.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  revealjs-plugins:
+    - editable
+  theme: default
+  
+Output created: modify-mode-equations.html
+
+pandoc 
+  to: revealjs
+  output-file: modify-mode-paragraph.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  revealjs-plugins:
+    - editable
+  theme: default
+  
+Output created: modify-mode-paragraph.html
+
+pandoc 
+  to: revealjs
+  output-file: title-only.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  revealjs-plugins:
+    - editable
+  theme: default
+  title: Title Only Presentation
+  
+Output created: title-only.html
 

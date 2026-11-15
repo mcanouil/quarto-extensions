@@ -13,13 +13,16 @@ pandoc
 
 metadata
 
+  csl: apa.csl
   extensions:
     gitlink:
       platform: github
       repository-name: mcanouil/quarto-gitlink
-      badge-background-colour: '#003366'
-      badge-text-colour: white
-  title: Typst badge
+      mentions:
+        - jdoe
+  title: Citations and mentions in Typst
+  bibliography:
+    - refs.bib
   
 
 [typst]: Compiling typst.typ to typst.pdf...
@@ -28,6 +31,6 @@ DONE
 
 
 
-Output created: _site/typst.pdf
+Output created: typst.pdf
 
 

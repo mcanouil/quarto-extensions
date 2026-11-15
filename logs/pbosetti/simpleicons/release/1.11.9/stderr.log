@@ -1,121 +1,31 @@
 Cloning into 'repo'...
+Installing package into '/cache/r-lib-0'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.3.1.tar.gz'
+Content type 'binary/octet-stream' length 1563989 bytes (1.5 MB)
+==================================================
+downloaded 1.5 MB
 
+* installing *source* package 'renv' ...
+** this is package 'renv' version '1.3.1'
+** package 'renv' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (renv)
 
-processing file: example_html.qmd
-1/3                  
-2/3 [unnamed-chunk-1]
-3/3                  
-output file: example_html.knit.md
-
-pandoc 
-  to: html
-  output-file: example_html.html
-  standalone: true
-  self-contained: true
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  
-metadata
-  document-css: false
-  link-citations: true
-  lang: en
-  title: bsicons Example
-  author: Shafayet Khan Shafee
-  date: last-modified
-  date-format: DD MMM, YYYY
-  
-[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39mOutput created: example_html.html
-
-
-
-processing file: example.qmd
-1/3                  
-2/3 [unnamed-chunk-1]
-3/3                  
-output file: example.knit.md
-
-pandoc 
-  to: revealjs
-  output-file: example.html
-  standalone: true
-  self-contained: true
-  wrap: none
-  default-image-extension: png
-  html-math-method:
-    method: mathjax
-    url: >-
-      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
-  slide-level: 2
-  
-metadata
-  link-citations: true
-  width: 1050
-  height: 700
-  margin: 0.1
-  center: false
-  navigationMode: linear
-  controlsLayout: edges
-  controlsTutorial: false
-  hash: true
-  history: true
-  hashOneBasedIndex: false
-  fragmentInURL: false
-  transition: none
-  backgroundTransition: none
-  pdfSeparateFragments: false
-  lang: en
-  auto-stretch: true
-  title: bsicons Example
-  author: Shafayet Khan Shafee
-  date: last-modified
-  date-format: DD MMM, YYYY
-  
-[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39m[33mWARNING (/opt/quarto/share/filters/main.lua:22120) Shortcode 'bi' not found
-[39mOutput created: example.html
-
+The downloaded source packages are in
+	'/tmp/RtmpQdtTxv/downloaded_packages'
 pandoc 
   to: html
   output-file: example_simpleicons.html
@@ -150,7 +60,7 @@ HttpExceptionRequest Request {
   requestVersion       = HTTP/1.1
   proxySecureMode      = ProxySecureWithConnect
 }
- (StatusCodeException (Response {responseStatus = Status {statusCode = 404, statusMessage = "Not Found"}, responseVersion = HTTP/1.1, responseHeaders = [("Date","Sat, 07 Nov 2026 14:15:46 GMT"),("Content-Type","text/html; charset=utf-8"),("Transfer-Encoding","chunked"),("Connection","keep-alive"),("x-content-type-options","nosniff"),("Report-To","{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=NSuwKjSH68JBVihCH6tDbo%2BadT7FbkpgUmT5tlhA2foKfJ6PQ6aoIWcnva92pUa9u%2BEnNApqwJVTWkPIMpC%2FhQ103vAiNCq33efRaBmGCh1%2F7dVSSmKY2oRhQL2nIaeZNrM%3D\"}]}"),("Nel","{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"),("Access-Control-Allow-Origin","*"),("Cache-Control","no-store"),("referrer-policy","strict-origin-when-cross-origin"),("Speculation-Rules","\"/cdn-cgi/speculation\""),("Server-Timing","cfCacheStatus;desc=\"BYPASS\""),("Server-Timing","cfEdge;dur=24,cfOrigin;dur=29"),("Server","cloudflare"),("cf-cache-status","BYPASS"),("vary","accept-encoding"),("Content-Encoding","gzip"),("CF-RAY","a56cf3b2af49394d-DFW"),("alt-svc","h3=\":443\"; ma=86400")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
+ (StatusCodeException (Response {responseStatus = Status {statusCode = 404, statusMessage = "Not Found"}, responseVersion = HTTP/1.1, responseHeaders = [("Date","Sun, 15 Nov 2026 22:07:33 GMT"),("Content-Type","text/html; charset=utf-8"),("Transfer-Encoding","chunked"),("Connection","keep-alive"),("x-content-type-options","nosniff"),("Report-To","{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=G8U4O8ruIbYgHgEx3R1ZlsZmO5y6jIWdwnOXYmf08udcegKaBT5%2BoLvQYwmHxVwW8krm0eA%2BMlw6B%2BEDKWgtmnm0yHrxtoNbVwVVJY5sSc1uzyftiBuDZoEWqcFcbpkEYJc%3D\"}]}"),("Nel","{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"),("Access-Control-Allow-Origin","*"),("Cache-Control","no-store"),("referrer-policy","strict-origin-when-cross-origin"),("Speculation-Rules","\"/cdn-cgi/speculation\""),("Server-Timing","cfCacheStatus;desc=\"BYPASS\""),("Server-Timing","cfEdge;dur=8,cfOrigin;dur=12"),("Server","cloudflare"),("cf-cache-status","BYPASS"),("vary","accept-encoding"),("Content-Encoding","gzip"),("CF-RAY","a5b191c73939d2f4-STL"),("alt-svc","h3=\":443\"; ma=86400")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
   host                 = "simpleicons.org"
   port                 = 443
   secure               = True
@@ -165,9 +75,9 @@ HttpExceptionRequest Request {
   requestVersion       = HTTP/1.1
   proxySecureMode      = ProxySecureWithConnect
 }
-, responseEarlyHints = []}) "<!doctype html><script type=\"70634b6c42d3459b8aa3616a-text/javascript\">const PATH=`404/`,params=new URL(window.location).searchParams.toString(),opts=params?`?${params}`:``;window.location=`https://simpleicons.org/404/${opts}`;</script><noscript><meta content=\"0; URL=https://simpleicons.org/404/\" http-equiv=refresh></head></noscript></html><script type=\"module\" src=\"https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092\" integrity=\"sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==\" data-cf-beacon='{\"version\":\"2024.11.0\",\"token\":\"6119c6c2ff1c4ac59e73ca98c9a7d467\",\"r\":1,\"spa\":2}' crossorigin=\"anonymous\"></script>\n<script src=\"/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js\" data-cf-settings=\"70634b6c42d3459b8aa3616a-|49\" defer></script>")
+, responseEarlyHints = []}) "<!doctype html><script type=\"1f715e75453517ab26826b01-text/javascript\">const PATH=`404/`,params=new URL(window.location).searchParams.toString(),opts=params?`?${params}`:``;window.location=`https://simpleicons.org/404/${opts}`;</script><noscript><meta content=\"0; URL=https://simpleicons.org/404/\" http-equiv=refresh></head></noscript></html><script type=\"module\" src=\"https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092\" integrity=\"sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==\" data-cf-beacon='{\"version\":\"2024.11.0\",\"token\":\"6119c6c2ff1c4ac59e73ca98c9a7d467\",\"r\":1,\"spa\":2}' crossorigin=\"anonymous\"></script>\n<script src=\"/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js\" data-cf-settings=\"1f715e75453517ab26826b01-|49\" defer></script>")
 stack traceback:
-	...ons/test-20/repo/_extensions/simpleicons/simpleicons.lua:18: in function <...ons/test-20/repo/_extensions/simpleicons/simpleicons.lua:8>
+	...ions/test-0/repo/_extensions/simpleicons/simpleicons.lua:18: in function <...ions/test-0/repo/_extensions/simpleicons/simpleicons.lua:8>
 	(...tail calls...)
 	[string "if pandoc.system.os == "mingw32" then..."]:807: in function <[string "if pandoc.system.os == "mingw32" then..."]:805>
 	(...tail calls...)
@@ -211,7 +121,7 @@ HttpExceptionRequest Request {
   requestVersion       = HTTP/1.1
   proxySecureMode      = ProxySecureWithConnect
 }
- (StatusCodeException (Response {responseStatus = Status {statusCode = 404, statusMessage = "Not Found"}, responseVersion = HTTP/1.1, responseHeaders = [("Date","Sat, 07 Nov 2026 14:15:46 GMT"),("Content-Type","text/html; charset=utf-8"),("Transfer-Encoding","chunked"),("Connection","keep-alive"),("x-content-type-options","nosniff"),("Report-To","{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=NSuwKjSH68JBVihCH6tDbo%2BadT7FbkpgUmT5tlhA2foKfJ6PQ6aoIWcnva92pUa9u%2BEnNApqwJVTWkPIMpC%2FhQ103vAiNCq33efRaBmGCh1%2F7dVSSmKY2oRhQL2nIaeZNrM%3D\"}]}"),("Nel","{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"),("Access-Control-Allow-Origin","*"),("Cache-Control","no-store"),("referrer-policy","strict-origin-when-cross-origin"),("Speculation-Rules","\"/cdn-cgi/speculation\""),("Server-Timing","cfCacheStatus;desc=\"BYPASS\""),("Server-Timing","cfEdge;dur=24,cfOrigin;dur=29"),("Server","cloudflare"),("cf-cache-status","BYPASS"),("vary","accept-encoding"),("Content-Encoding","gzip"),("CF-RAY","a56cf3b2af49394d-DFW"),("alt-svc","h3=\":443\"; ma=86400")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
+ (StatusCodeException (Response {responseStatus = Status {statusCode = 404, statusMessage = "Not Found"}, responseVersion = HTTP/1.1, responseHeaders = [("Date","Sun, 15 Nov 2026 22:07:33 GMT"),("Content-Type","text/html; charset=utf-8"),("Transfer-Encoding","chunked"),("Connection","keep-alive"),("x-content-type-options","nosniff"),("Report-To","{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=G8U4O8ruIbYgHgEx3R1ZlsZmO5y6jIWdwnOXYmf08udcegKaBT5%2BoLvQYwmHxVwW8krm0eA%2BMlw6B%2BEDKWgtmnm0yHrxtoNbVwVVJY5sSc1uzyftiBuDZoEWqcFcbpkEYJc%3D\"}]}"),("Nel","{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"),("Access-Control-Allow-Origin","*"),("Cache-Control","no-store"),("referrer-policy","strict-origin-when-cross-origin"),("Speculation-Rules","\"/cdn-cgi/speculation\""),("Server-Timing","cfCacheStatus;desc=\"BYPASS\""),("Server-Timing","cfEdge;dur=8,cfOrigin;dur=12"),("Server","cloudflare"),("cf-cache-status","BYPASS"),("vary","accept-encoding"),("Content-Encoding","gzip"),("CF-RAY","a5b191c73939d2f4-STL"),("alt-svc","h3=\":443\"; ma=86400")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
   host                 = "simpleicons.org"
   port                 = 443
   secure               = True
@@ -226,9 +136,9 @@ HttpExceptionRequest Request {
   requestVersion       = HTTP/1.1
   proxySecureMode      = ProxySecureWithConnect
 }
-, responseEarlyHints = []}) "<!doctype html><script type=\"70634b6c42d3459b8aa3616a-text/javascript\">const PATH=`404/`,params=new URL(window.location).searchParams.toString(),opts=params?`?${params}`:``;window.location=`https://simpleicons.org/404/${opts}`;</script><noscript><meta content=\"0; URL=https://simpleicons.org/404/\" http-equiv=refresh></head></noscript></html><script type=\"module\" src=\"https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092\" integrity=\"sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==\" data-cf-beacon='{\"version\":\"2024.11.0\",\"token\":\"6119c6c2ff1c4ac59e73ca98c9a7d467\",\"r\":1,\"spa\":2}' crossorigin=\"anonymous\"></script>\n<script src=\"/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js\" data-cf-settings=\"70634b6c42d3459b8aa3616a-|49\" defer></script>")
+, responseEarlyHints = []}) "<!doctype html><script type=\"1f715e75453517ab26826b01-text/javascript\">const PATH=`404/`,params=new URL(window.location).searchParams.toString(),opts=params?`?${params}`:``;window.location=`https://simpleicons.org/404/${opts}`;</script><noscript><meta content=\"0; URL=https://simpleicons.org/404/\" http-equiv=refresh></head></noscript></html><script type=\"module\" src=\"https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092\" integrity=\"sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==\" data-cf-beacon='{\"version\":\"2024.11.0\",\"token\":\"6119c6c2ff1c4ac59e73ca98c9a7d467\",\"r\":1,\"spa\":2}' crossorigin=\"anonymous\"></script>\n<script src=\"/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js\" data-cf-settings=\"1f715e75453517ab26826b01-|49\" defer></script>")
 stack traceback:
-	...ons/test-20/repo/_extensions/simpleicons/simpleicons.lua:18: in function <...ons/test-20/repo/_extensions/simpleicons/simpleicons.lua:8>
+	...ions/test-0/repo/_extensions/simpleicons/simpleicons.lua:18: in function <...ions/test-0/repo/_extensions/simpleicons/simpleicons.lua:8>
 	(...tail calls...)
 	[string "if pandoc.system.os == "mingw32" then..."]:807: in function <[string "if pandoc.system.os == "mingw32" then..."]:805>
 	(...tail calls...)
@@ -291,7 +201,7 @@ HttpExceptionRequest Request {
   requestVersion       = HTTP/1.1
   proxySecureMode      = ProxySecureWithConnect
 }
- (StatusCodeException (Response {responseStatus = Status {statusCode = 404, statusMessage = "Not Found"}, responseVersion = HTTP/1.1, responseHeaders = [("Date","Sat, 07 Nov 2026 14:15:49 GMT"),("Content-Type","text/html; charset=utf-8"),("Transfer-Encoding","chunked"),("Connection","keep-alive"),("x-content-type-options","nosniff"),("Report-To","{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=CdY%2Bk95kC9doNThgzEgy0geIHGHL%2BO8RrhVwVF8v%2FQMb5UGGStZHyCBnElpGo8wBLAsFTIfLuuuywC53Jv7sqqRjgTHG8OGaEUa3xhblP7wTVokS6sCygb8wWdjkJ2zA6ZE%3D\"}]}"),("Nel","{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"),("Access-Control-Allow-Origin","*"),("Cache-Control","no-store"),("referrer-policy","strict-origin-when-cross-origin"),("Speculation-Rules","\"/cdn-cgi/speculation\""),("Server-Timing","cfCacheStatus;desc=\"BYPASS\""),("Server-Timing","cfEdge;dur=4,cfOrigin;dur=30"),("Server","cloudflare"),("cf-cache-status","BYPASS"),("vary","accept-encoding"),("Content-Encoding","gzip"),("CF-RAY","a56cf3c318f5f07c-DFW"),("alt-svc","h3=\":443\"; ma=86400")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
+ (StatusCodeException (Response {responseStatus = Status {statusCode = 404, statusMessage = "Not Found"}, responseVersion = HTTP/1.1, responseHeaders = [("Date","Sun, 15 Nov 2026 22:07:35 GMT"),("Content-Type","text/html; charset=utf-8"),("Transfer-Encoding","chunked"),("Connection","keep-alive"),("x-content-type-options","nosniff"),("Report-To","{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=gC03uBK2n9OYLfWK6TMBy2rojHexytG2OYboUe2m4aawXREuQuOy2sLsyiV51P6AfMu6D01t1igTaqn%2BRb9odcChLOGm%2FBvEo2qNYYgFWPEsLvVczOCLQmw6k4150J4BCgE%3D\"}]}"),("Nel","{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"),("Access-Control-Allow-Origin","*"),("Cache-Control","no-store"),("referrer-policy","strict-origin-when-cross-origin"),("Speculation-Rules","\"/cdn-cgi/speculation\""),("Server-Timing","cfCacheStatus;desc=\"BYPASS\""),("Server-Timing","cfEdge;dur=7,cfOrigin;dur=35"),("Server","cloudflare"),("cf-cache-status","BYPASS"),("vary","accept-encoding"),("Content-Encoding","gzip"),("CF-RAY","a5b191d89971a0e5-PIT"),("alt-svc","h3=\":443\"; ma=86400")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
   host                 = "simpleicons.org"
   port                 = 443
   secure               = True
@@ -306,9 +216,9 @@ HttpExceptionRequest Request {
   requestVersion       = HTTP/1.1
   proxySecureMode      = ProxySecureWithConnect
 }
-, responseEarlyHints = []}) "<!doctype html><script type=\"a3fbad0b6a96f0660f21b8e5-text/javascript\">const PATH=`404/`,params=new URL(window.location).searchParams.toString(),opts=params?`?${params}`:``;window.location=`https://simpleicons.org/404/${opts}`;</script><noscript><meta content=\"0; URL=https://simpleicons.org/404/\" http-equiv=refresh></head></noscript></html><script type=\"module\" src=\"https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092\" integrity=\"sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==\" data-cf-beacon='{\"version\":\"2024.11.0\",\"token\":\"6119c6c2ff1c4ac59e73ca98c9a7d467\",\"r\":1,\"spa\":2}' crossorigin=\"anonymous\"></script>\n<script src=\"/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js\" data-cf-settings=\"a3fbad0b6a96f0660f21b8e5-|49\" defer></script>")
+, responseEarlyHints = []}) "<!doctype html><script type=\"f20fb4db0315ab1ce35d15da-text/javascript\">const PATH=`404/`,params=new URL(window.location).searchParams.toString(),opts=params?`?${params}`:``;window.location=`https://simpleicons.org/404/${opts}`;</script><noscript><meta content=\"0; URL=https://simpleicons.org/404/\" http-equiv=refresh></head></noscript></html><script type=\"module\" src=\"https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092\" integrity=\"sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==\" data-cf-beacon='{\"version\":\"2024.11.0\",\"token\":\"6119c6c2ff1c4ac59e73ca98c9a7d467\",\"r\":1,\"spa\":2}' crossorigin=\"anonymous\"></script>\n<script src=\"/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js\" data-cf-settings=\"f20fb4db0315ab1ce35d15da-|49\" defer></script>")
 stack traceback:
-	...ons/test-20/repo/_extensions/simpleicons/simpleicons.lua:18: in function <...ons/test-20/repo/_extensions/simpleicons/simpleicons.lua:8>
+	...ions/test-0/repo/_extensions/simpleicons/simpleicons.lua:18: in function <...ions/test-0/repo/_extensions/simpleicons/simpleicons.lua:8>
 	(...tail calls...)
 	[string "if pandoc.system.os == "mingw32" then..."]:807: in function <[string "if pandoc.system.os == "mingw32" then..."]:805>
 	(...tail calls...)
@@ -352,7 +262,7 @@ HttpExceptionRequest Request {
   requestVersion       = HTTP/1.1
   proxySecureMode      = ProxySecureWithConnect
 }
- (StatusCodeException (Response {responseStatus = Status {statusCode = 404, statusMessage = "Not Found"}, responseVersion = HTTP/1.1, responseHeaders = [("Date","Sat, 07 Nov 2026 14:15:49 GMT"),("Content-Type","text/html; charset=utf-8"),("Transfer-Encoding","chunked"),("Connection","keep-alive"),("x-content-type-options","nosniff"),("Report-To","{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=CdY%2Bk95kC9doNThgzEgy0geIHGHL%2BO8RrhVwVF8v%2FQMb5UGGStZHyCBnElpGo8wBLAsFTIfLuuuywC53Jv7sqqRjgTHG8OGaEUa3xhblP7wTVokS6sCygb8wWdjkJ2zA6ZE%3D\"}]}"),("Nel","{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"),("Access-Control-Allow-Origin","*"),("Cache-Control","no-store"),("referrer-policy","strict-origin-when-cross-origin"),("Speculation-Rules","\"/cdn-cgi/speculation\""),("Server-Timing","cfCacheStatus;desc=\"BYPASS\""),("Server-Timing","cfEdge;dur=4,cfOrigin;dur=30"),("Server","cloudflare"),("cf-cache-status","BYPASS"),("vary","accept-encoding"),("Content-Encoding","gzip"),("CF-RAY","a56cf3c318f5f07c-DFW"),("alt-svc","h3=\":443\"; ma=86400")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
+ (StatusCodeException (Response {responseStatus = Status {statusCode = 404, statusMessage = "Not Found"}, responseVersion = HTTP/1.1, responseHeaders = [("Date","Sun, 15 Nov 2026 22:07:35 GMT"),("Content-Type","text/html; charset=utf-8"),("Transfer-Encoding","chunked"),("Connection","keep-alive"),("x-content-type-options","nosniff"),("Report-To","{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=gC03uBK2n9OYLfWK6TMBy2rojHexytG2OYboUe2m4aawXREuQuOy2sLsyiV51P6AfMu6D01t1igTaqn%2BRb9odcChLOGm%2FBvEo2qNYYgFWPEsLvVczOCLQmw6k4150J4BCgE%3D\"}]}"),("Nel","{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"),("Access-Control-Allow-Origin","*"),("Cache-Control","no-store"),("referrer-policy","strict-origin-when-cross-origin"),("Speculation-Rules","\"/cdn-cgi/speculation\""),("Server-Timing","cfCacheStatus;desc=\"BYPASS\""),("Server-Timing","cfEdge;dur=7,cfOrigin;dur=35"),("Server","cloudflare"),("cf-cache-status","BYPASS"),("vary","accept-encoding"),("Content-Encoding","gzip"),("CF-RAY","a5b191d89971a0e5-PIT"),("alt-svc","h3=\":443\"; ma=86400")], responseBody = (), responseCookieJar = CJ {expose = []}, responseClose' = ResponseClose, responseOriginalRequest = Request {
   host                 = "simpleicons.org"
   port                 = 443
   secure               = True
@@ -367,9 +277,9 @@ HttpExceptionRequest Request {
   requestVersion       = HTTP/1.1
   proxySecureMode      = ProxySecureWithConnect
 }
-, responseEarlyHints = []}) "<!doctype html><script type=\"a3fbad0b6a96f0660f21b8e5-text/javascript\">const PATH=`404/`,params=new URL(window.location).searchParams.toString(),opts=params?`?${params}`:``;window.location=`https://simpleicons.org/404/${opts}`;</script><noscript><meta content=\"0; URL=https://simpleicons.org/404/\" http-equiv=refresh></head></noscript></html><script type=\"module\" src=\"https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092\" integrity=\"sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==\" data-cf-beacon='{\"version\":\"2024.11.0\",\"token\":\"6119c6c2ff1c4ac59e73ca98c9a7d467\",\"r\":1,\"spa\":2}' crossorigin=\"anonymous\"></script>\n<script src=\"/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js\" data-cf-settings=\"a3fbad0b6a96f0660f21b8e5-|49\" defer></script>")
+, responseEarlyHints = []}) "<!doctype html><script type=\"f20fb4db0315ab1ce35d15da-text/javascript\">const PATH=`404/`,params=new URL(window.location).searchParams.toString(),opts=params?`?${params}`:``;window.location=`https://simpleicons.org/404/${opts}`;</script><noscript><meta content=\"0; URL=https://simpleicons.org/404/\" http-equiv=refresh></head></noscript></html><script type=\"module\" src=\"https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092\" integrity=\"sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==\" data-cf-beacon='{\"version\":\"2024.11.0\",\"token\":\"6119c6c2ff1c4ac59e73ca98c9a7d467\",\"r\":1,\"spa\":2}' crossorigin=\"anonymous\"></script>\n<script src=\"/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js\" data-cf-settings=\"f20fb4db0315ab1ce35d15da-|49\" defer></script>")
 stack traceback:
-	...ons/test-20/repo/_extensions/simpleicons/simpleicons.lua:18: in function <...ons/test-20/repo/_extensions/simpleicons/simpleicons.lua:8>
+	...ions/test-0/repo/_extensions/simpleicons/simpleicons.lua:18: in function <...ions/test-0/repo/_extensions/simpleicons/simpleicons.lua:8>
 	(...tail calls...)
 	[string "if pandoc.system.os == "mingw32" then..."]:807: in function <[string "if pandoc.system.os == "mingw32" then..."]:805>
 	(...tail calls...)

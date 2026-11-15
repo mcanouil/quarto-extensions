@@ -1,19 +1,13 @@
 Cloning into 'repo'...
 pandoc 
-  to: typst
-  output-file: minimal-example.typ
+  to: >-
+    commonmark+autolink_bare_uris+emoji+footnotes+gfm_auto_identifiers+pipe_tables+strikeout+task_lists+tex_math_dollars
+  output-file: README.md
   standalone: true
-  shift-heading-level-by: -1
-  default-image-extension: svg
-  wrap: none
-  citeproc: false
+  default-image-extension: png
+  wrap: preserve
   
-metadata
-  title: Fancy epigraphs
-  
-[typst]: Compiling minimal-example.typ to minimal-example.pdf...DONE
-
-Output created: minimal-example.pdf
+Output created: README.md
 
 pandoc 
   to: docx
@@ -185,12 +179,18 @@ metadata
 Output created: example-typst.pdf
 
 pandoc 
-  to: >-
-    commonmark+autolink_bare_uris+emoji+footnotes+gfm_auto_identifiers+pipe_tables+strikeout+task_lists+tex_math_dollars
-  output-file: README.md
+  to: typst
+  output-file: minimal-example.typ
   standalone: true
-  default-image-extension: png
-  wrap: preserve
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
   
-Output created: README.md
+metadata
+  title: Fancy epigraphs
+  
+[typst]: Compiling minimal-example.typ to minimal-example.pdf...DONE
+
+Output created: minimal-example.pdf
 

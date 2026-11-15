@@ -4,33 +4,6 @@ Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
 
 
-processing file: example_filename.qmd
-1/1
-output file: example_filename.knit.md
-
-pandoc 
-  to: html
-  output-file: example_filename.html
-  standalone: true
-  embed-resources: true
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  title: Add Code Files
-  author: Shafayet Khan Shafee
-  date: last-modified
-  
-Output created: example_filename.html
-
-
-
 processing file: example_knitr.qmd
 1/11                  
 2/11 [unnamed-chunk-1]
@@ -65,6 +38,33 @@ metadata
   date: last-modified
   
 Output created: example_knitr.html
+
+
+
+processing file: example_filename.qmd
+1/1
+output file: example_filename.knit.md
+
+pandoc 
+  to: html
+  output-file: example_filename.html
+  standalone: true
+  embed-resources: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Add Code Files
+  author: Shafayet Khan Shafee
+  date: last-modified
+  
+Output created: example_filename.html
 
 
 Starting python3 kernel...[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.

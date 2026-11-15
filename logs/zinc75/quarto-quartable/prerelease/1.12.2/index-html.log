@@ -1,0 +1,26 @@
+pandoc 
+
+  to: html
+  output-file: index.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: false
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: '`quartable` — Quarto extension'
+  subtitle: Column spans · row spans · midrules · clines · vertical lines · per-cell alignment
+  theme: cosmo
+  
+
+Output created: index.html
+
+

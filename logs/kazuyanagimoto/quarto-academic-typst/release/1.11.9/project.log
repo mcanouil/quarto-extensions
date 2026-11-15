@@ -1,5 +1,4 @@
 Warning message:
-
 rv is not installed! Install rv, then restart your R session 
 
 
@@ -19,7 +18,6 @@ processing file: template-full.qmd
 6/15 [fig-patchwork]   
 
 7/15                   
-
 8/15 [tbl-sum-penguins]
 
 9/15                   
@@ -46,8 +44,8 @@ downloading @preview/mitex:0.2.7
 
   0 B / 109.3 KiB (  0 %),   1.1 MiB/s, ETA: 0 s
 
-109.3 KiB / 109.3 KiB (
-100 %),   1.1 MiB/s, ETA: 0 s
+109.3 KiB / 109.3 KiB (100 %),  
+ 1.1 MiB/s, ETA: 0 s
 
 DONE
 
@@ -80,8 +78,8 @@ output file: template.knit.md
 warning: unknown font family: libertinus sans
     ┌─ template.typ:328:31
     │
-328 │   show 
-heading: set text(font: sansfont, weight: "semibold")
+328 │   show heading:
+ set text(font: sansfont, weight: "semibold")
     │                                ^^^^^^^^
 
 warning: unknown font family: libertinus sans
@@ -100,73 +98,62 @@ warning: unknown font family: libertinus sans
     ┌─ template.typ:410:33
     │
 410 │         #text(size: 1.2em, font: sansfont)[#author.name]
-    │     
-                             ^^^^^^^^
+    │                         
+         ^^^^^^^^
 
 warning: unknown font family: libertinus sans
     ┌─ template.typ:419:34
     │
-419 │         #text(size: 0.85em, font: s
-ansfont)[#author.affiliation] \
-    │          
-                         ^^^^^^^^
+419 │         #text(size: 0.85em, font: sansfont)[#author.affiliation] \
 
+    │                                   ^^^^^^^^
 
 warning: unknown font family: libertinus sans
     ┌─ template.typ:420:33
     │
-420 │        
- #text(size: 0.7em, font: sansfont, fill: link-color)[
-    │                        
-          ^^^^^^^^
+420 │         #text(size: 0.7em, f
+ont: sansfont, fill: link-color)[
+    │                                  ^^^^^^^^
+
+
+warning: unknown font family: libertinus sans
+    ┌─ template.typ:429:38
+    │
+429 │       #text(weight: "semibold", font: san
+sfont, size: 0.9em)[#abstract-title] #h(0.5em)
+    │                                       ^^^^^
+^^^
+
+warning: unknown font family: libertinus sans
+    ┌─ template.typ:430:18
+    │
+430 │       #text(font: sansfont
+)[#abstract]
+    │                   ^^^^^^^^
 
 warning: unknown font family: libertinus sans
     ┌─ 
-template.typ:429:38
+template.typ:432:39
     │
-429 │       #text(weight: "
-semibold", font: sansfont, size: 0
-.9em)[#abstract-title] #h(0.5em)
-
-    │                          
-             ^^^^^^^^
-
-warning
-: unknown font family: libertinus sans
-    ┌─ template.typ:430:18
-    │
-430 │       #t
-ext(font: sansfont)[#abstract]
-    │      
-             ^^^^^^^^
-
-warning: 
-unknown font family: libertinus sans
-    ┌─ template.typ:432:39
-    │
-432 │         tex
-t(weight: "semibold", font: sansfo
-nt, size: 0.9em)[\ Keywords:]
-    │
-                                        ^^^^^^^^
+432 │         text(weight: "semibold", font: sansfont, size:
+ 0.9em)[\ Keywords:]
+    │                                        ^^^^^^^^
 
 
 warning: unknown font family: libertinus sans
     ┌─ template.typ:434:19
     │
-434 │         text(fon
-t: sansfont)[#keywords]
-    │           
-         ^^^^^^^^
+434 │         text(font: sansfont)[#keywords]
+   
+ │                    ^^^^^^^^
 
 warning: unknown font family: libertinus sans
     ┌─ template.typ:331:20
-
-    │
-331 │     #set text(font: sansfont, si
-ze: 0.9em)
-    │                   
-  ^^^^^^^^
+   
+ │
+331 │     #set text(font: sansfont, size: 0.9em)
+    │                     
+^^^^^^^^
 
 
 DONE

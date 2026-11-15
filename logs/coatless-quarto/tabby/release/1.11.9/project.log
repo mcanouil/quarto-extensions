@@ -10,8 +10,6 @@ Downloading cpython-3.13.16-linux-x86_64-gnu (download) (33.5MiB)
 
  Downloaded cpython-3.13.16-linux-x86_64-gnu (download)
 
-Installed 1 package in 140ms
-
 3/9                  
 
 4/9 [unnamed-chunk-2]
@@ -22,9 +20,9 @@ Installed 1 package in 140ms
 
 Error in py_call_impl(callable, call_args$unnamed, call_args$named) : 
   ModuleNotFoundError: No module named 'matplotlib'
-Run `reticulate::py_last_error()` for details.
+Run `
+reticulate::py_last_error()` for details.
 Calls: .main ... tryCatchList -> force -> <Anonymous> -> py_call_impl
-
 
 Quitting from qtabby-example.qmd:310-321 [fig-python]
 

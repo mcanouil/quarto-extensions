@@ -1,5 +1,5 @@
 Cloning into 'repo'...
-Installing packages into '/cache/r-lib-0'
+Installing packages into '/cache/r-lib-1'
 (as 'lib' is unspecified)
 also installing the dependency 'later'
 
@@ -13,7 +13,7 @@ trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/tinytable_0.
 ** libs
 using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
 using C++ compiler: 'g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
-installing to /cache/r-lib-0/00LOCK-later/00new/later/libs
+installing to /cache/r-lib-1/00LOCK-later/00new/later/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -59,21 +59,8 @@ installing to /cache/r-lib-0/00LOCK-later/00new/later/libs
 * DONE (quarto)
 
 The downloaded source packages are in
-	'/tmp/RtmpK4sHYz/downloaded_packages'
-[1/2] shifu-custom.qmd
-
-
-processing file: shifu-custom.qmd
-1/5           
-2/5 [tbl-cars]
-3/5           
-4/5 [fig-cars]
-5/5           
-output file: shifu-custom.knit.md
-
-[typst]: Compiling shifu-custom.typ to shifu-custom.pdf...DONE
-
-[2/2] shifu-default.qmd
+	'/tmp/RtmpclSaNW/downloaded_packages'
+[1/2] shifu-default.qmd
 
 
 processing file: shifu-default.qmd
@@ -86,6 +73,19 @@ output file: shifu-default.knit.md
 
 [typst]: Compiling shifu-default.typ to shifu-default.pdf...DONE
 
+[2/2] shifu-custom.qmd
 
-Output created: pdf-examples/shifu-default.pdf
+
+processing file: shifu-custom.qmd
+1/5           
+2/5 [tbl-cars]
+3/5           
+4/5 [fig-cars]
+5/5           
+output file: shifu-custom.knit.md
+
+[typst]: Compiling shifu-custom.typ to shifu-custom.pdf...DONE
+
+
+Output created: pdf-examples/shifu-custom.pdf
 

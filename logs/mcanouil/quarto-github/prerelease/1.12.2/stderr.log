@@ -1,0 +1,30 @@
+Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: GitHub Extension For Quarto
+  subtitle: Quarto Extension
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  extensions:
+    github:
+      repository-name: jlord/sheetsee.js
+      base-url: https://github.com
+  
+(W) The "GitHub" extension has been superseded by the "Git Link" extension. Please update your extension following the instructions at: https://github.com/mcanouil/quarto-gitlink?tab=readme-ov-file#installation
+Output created: example.html
+

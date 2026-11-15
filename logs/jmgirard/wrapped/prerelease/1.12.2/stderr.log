@@ -1,0 +1,319 @@
+Cloning into 'repo'...
+Installing package into '/cache/r-lib-0'
+(as 'lib' is unspecified)
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/renv_1.3.1.tar.gz'
+Content type 'binary/octet-stream' length 1563989 bytes (1.5 MB)
+==================================================
+downloaded 1.5 MB
+
+* installing *source* package 'renv' ...
+** this is package 'renv' version '1.3.1'
+** package 'renv' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (renv)
+
+The downloaded source packages are in
+	'/tmp/RtmpzjsgOD/downloaded_packages'
+Installing package into '/cache/r-lib-0'
+(as 'lib' is unspecified)
+also installing the dependencies 'fontBitstreamVera', 'fontLiberation', 'fontquiver', 'zip', 'gdtools', 'officer'
+
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fontBitstreamVera_0.1.1.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fontLiberation_0.1.0.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/fontquiver_0.2.1.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/zip_3.0.2.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/gdtools_0.6.0.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/officer_0.7.8.tar.gz'
+trying URL 'https://packagemanager.posit.co/cran/latest/src/contrib/flextable_0.10.4.tar.gz'
+* installing *source* package 'fontBitstreamVera' ...
+** this is package 'fontBitstreamVera' version '0.1.1'
+** package 'fontBitstreamVera' successfully unpacked and MD5 sums checked
+** using staged installation
+** inst
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (fontBitstreamVera)
+* installing *source* package 'fontLiberation' ...
+** this is package 'fontLiberation' version '0.1.0'
+** package 'fontLiberation' successfully unpacked and MD5 sums checked
+** using staged installation
+** inst
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (fontLiberation)
+* installing *source* package 'zip' ...
+** this is package 'zip' version '3.0.2'
+** package 'zip' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C compiler: 'gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+installing via 'install.libs.R' to /cache/r-lib-0/00LOCK-zip/00new/zip
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (zip)
+* installing *source* package 'fontquiver' ...
+** this is package 'fontquiver' version '0.2.1'
+** package 'fontquiver' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (fontquiver)
+* installing *source* package 'officer' ...
+** this is package 'officer' version '0.7.8'
+** package 'officer' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (officer)
+* installing *source* package 'gdtools' ...
+** this is package 'gdtools' version '0.6.0'
+** package 'gdtools' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+using C++ compiler: 'g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0'
+installing to /cache/r-lib-0/00LOCK-gdtools/00new/gdtools/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (gdtools)
+* installing *source* package 'flextable' ...
+** this is package 'flextable' version '0.10.4'
+** package 'flextable' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (flextable)
+
+The downloaded source packages are in
+	'/tmp/RtmpzjsgOD/downloaded_packages'
+Using CPython 3.13.18
+Creating virtual environment at: .venv
+Activate with: source .venv/bin/activate
+Resolved 16 packages in 261ms
+Downloading pygments (1.2MiB)
+Downloading jedi (4.7MiB)
+ Downloaded pygments
+ Downloaded jedi
+Prepared 16 packages in 252ms
+Installed 16 packages in 345ms
+ + asttokens==3.0.2
+ + executing==2.3.0
+ + ipython==9.18.1
+ + ipython-pygments-lexers==1.1.1
+ + jedi==0.20.1
+ + matplotlib-inline==0.2.2
+ + parso==0.8.7
+ + pexpect==4.9.0
+ + prompt-toolkit==3.0.53
+ + psutil==7.2.2
+ + ptyprocess==0.7.0
+ + pure-eval==0.2.4
+ + pygments==2.21.0
+ + stack-data==0.6.3
+ + traitlets==5.16.1
+ + wcwidth==0.9.4
+
+Starting python3 kernel...[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+Done
+
+Executing 's1-jupyter.quarto_ipynb'
+  Cell 1/1: 'fig-jupyter'...Done
+
+pandoc 
+  to: html
+  output-file: s1-jupyter.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: 'S1 probe: Jupyter engine'
+  jupyter: python3
+  
+S1 Image id= classes=[] wrap=none attrs={}
+S1 FloatRefTarget id=fig-jupyter classes=[] wrap=none attrs={}
+S1 Div id= classes=[cell-output cell-output-display] wrap=none attrs={execution_count=1}
+S1 Div id=cell-fig-jupyter classes=[cell wrap-right] wrap=wrap-right attrs={execution_count=1}
+S1 topdown: FloatRefTarget fig-jupyter gets cell class wrap-right
+Output created: s1-jupyter.html
+
+
+
+processing file: s1-knitr.qmd
+1/3            
+2/3 [fig-knitr]
+3/3            
+output file: s1-knitr.knit.md
+
+pandoc 
+  to: html
+  output-file: s1-knitr.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: 'S1 probe: knitr engine'
+  
+S1 Image id= classes=[wrap-right] wrap=wrap-right attrs={width=40%}
+S1 Image id= classes=[] wrap=none attrs={}
+S1 Image id= classes=[wrap-right] wrap=wrap-right attrs={fig-alt=A plot, width=20%}
+S1 Image id= classes=[] wrap=none attrs={width=672}
+S1 FloatRefTarget id=fig-md classes=[wrap-right] wrap=wrap-right attrs={}
+S1 FloatRefTarget id=fig-div classes=[wrap-left] wrap=wrap-left attrs={width=35%}
+S1 FloatRefTarget id=fig-knitr classes=[] wrap=none attrs={}
+S1 Div id= classes=[cell-output-display] wrap=none attrs={}
+S1 Div id= classes=[cell wrap-right] wrap=wrap-right attrs={}
+S1 topdown: FloatRefTarget fig-md gets cell class none
+S1 topdown: FloatRefTarget fig-div gets cell class none
+S1 topdown: FloatRefTarget fig-knitr gets cell class wrap-right
+Output created: s1-knitr.html
+
+pandoc 
+  to: latex
+  output-file: s2.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  title: 'S2: wrappedfigure wrapper around wrapfigure'
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+finding package for scrartcl.cls
+> 1 package to install
+> installing koma-script (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: s2.pdf
+
+pandoc 
+  to: typst
+  output-file: s3-wrapit.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+metadata
+  title: 'S3: wrap-it with a citation in the wrapped text'
+  bibliography:
+    - refs.bib
+  
+[typst]: Compiling s3-wrapit.typ to s3-wrapit.pdf...downloading @preview/wrap-it:0.1.1
+
+  0 B /   5.1 KiB (  0 %),  51.5 KiB/s, ETA: 0 s
+  5.1 KiB /   5.1 KiB (100 %),  51.5 KiB/s, ETA: 0 s
+DONE
+
+Output created: s3-wrapit.pdf
+
+pandoc 
+  to: docx
+  output-file: s4.docx
+  default-image-extension: png
+  
+metadata
+  title: 'S4: Word frame around a figure'
+  
+Output created: s4.docx
+

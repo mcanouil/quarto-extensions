@@ -1,5 +1,7 @@
 Cloning into 'repo'...
-[ 1/17] titlepages/great-wave/article.qmd
+[ 1/17] 01-how-to-use-extension.qmd
+[ 2/17] 08-acknowledgements.qmd
+[ 3/17] titlepages/vline/article-srcartcl.qmd
 
 Rendering PDF
 running lualatex - 1
@@ -9,7 +11,7 @@ running lualatex - 1
 updating tlmgr
 
 updating existing packages
-finding package for scrbook.cls
+finding package for scrartcl.cls
 > 1 package to install
 > installing koma-script (1 of 1)
   This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
@@ -20,32 +22,6 @@ finding package for scrbook.cls
 finding package for hyphenat.sty
 > 1 package to install
 > installing hyphenat (1 of 1)
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-finding package for pagecolor.sty
-> 1 package to install
-> installing pagecolor (1 of 1)
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-  luaotfload | db : Reload initiated (formats: otf,ttf,ttc); reason: Font "pplb8t" not found.
-  luaotfload | resolve : sequence of 3 lookups yielded nothing appropriate.
-finding package for pplb8t(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
-> 1 package to install
-> installing palatino (1 of 1)
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-running lualatex - 2
-  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
-   restricted system commands enabled.
-  
-
-[ 2/17] titlepages/vline/article.qmd
-
-Rendering PDF
-running lualatex - 1
   This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
    restricted system commands enabled.
   
@@ -109,8 +85,12 @@ running lualatex - 2
   This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
    restricted system commands enabled.
   
+running lualatex - 3
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
 
-[ 3/17] titlepages/vline/article-svmono.qmd
+[ 4/17] titlepages/vline/article-elsarticle.qmd
 
 Rendering PDF
 running lualatex - 1
@@ -181,7 +161,7 @@ running lualatex - 3
    restricted system commands enabled.
   
 
-[ 4/17] titlepages/vline/article-srcartcl.qmd
+[ 5/17] titlepages/vline/article-svmono.qmd
 
 Rendering PDF
 running lualatex - 1
@@ -197,7 +177,7 @@ running lualatex - 3
    restricted system commands enabled.
   
 
-[ 5/17] titlepages/vline/article-krantz.qmd
+[ 6/17] titlepages/vline/article.qmd
 
 Rendering PDF
 running lualatex - 1
@@ -209,7 +189,7 @@ running lualatex - 2
    restricted system commands enabled.
   
 
-[ 6/17] titlepages/vline/article-elsarticle.qmd
+[ 7/17] titlepages/vline/article-krantz.qmd
 
 Rendering PDF
 running lualatex - 1
@@ -220,26 +200,49 @@ running lualatex - 2
   This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
    restricted system commands enabled.
   
-running lualatex - 3
+
+[ 8/17] titlepages/great-wave/article.qmd
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+finding package for pagecolor.sty
+> 1 package to install
+> installing pagecolor (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Reload initiated (formats: otf,ttf,ttc); reason: Font "pplb8t" not found.
+  luaotfload | resolve : sequence of 3 lookups yielded nothing appropriate.
+finding package for pplb8t(-(Bold|Italic|Regular).*)?[.](tfm|afm|mf|otf|ttf)
+> 1 package to install
+> installing palatino (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
   This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
    restricted system commands enabled.
   
 
-[ 7/17] 09-author-styles.qmd
+[ 9/17] 05-coverpage-themes.qmd
+[10/17] 02-titlepages.qmd
+[11/17] 03-titlepage-themes.qmd
+[12/17] 10-fonts.qmd
+[13/17] index.qmd
+[14/17] 09-author-styles.qmd
 [33mWARNING (/opt/quarto/share/filters/main.lua:10073) 
 The following string was found in the document: :::
 
 This usually indicates a problem with a fenced div in the document. Please check the document for errors.
-[39m[ 8/17] 02-titlepages.qmd
-[ 9/17] 05-coverpage-themes.qmd
-[10/17] 01-how-to-use-extension.qmd
-[11/17] Readme.md
-[12/17] 10-fonts.qmd
-[13/17] 06-static-files.qmd
-[14/17] 08-acknowledgements.qmd
-[15/17] 04-coverpages.qmd
-[16/17] 03-titlepage-themes.qmd
-[17/17] index.qmd
+[39m[15/17] 06-static-files.qmd
+[16/17] Readme.md
+[17/17] 04-coverpages.qmd
 
 Output created: _site/index.html
 

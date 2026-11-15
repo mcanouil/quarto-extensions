@@ -1,11 +1,100 @@
 Cloning into 'repo'...
-[1/7] qembedio-faq.qmd
-[2/7] qembedio-embed-revealjs.qmd
-[3/7] qembedio-embed-audio.qmd
-[4/7] qembedio-embed-html.qmd
-[5/7] qembedio-release-notes.qmd
-[6/7] qembedio-embed-pdf.qmd
-[7/7] index.qmd
+pandoc 
+  to: html
+  output-file: my-html-page.html
+  standalone: true
+  embed-resources: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Example HTML Webpage
+  
+Output created: my-html-page.html
 
-Output created: _site/index.html
+pandoc 
+  to: latex
+  output-file: my-pdf-file.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  
+metadata
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - \KOMAoption{captions}{tableheading}
+  block-headings: true
+  title: Example PDF document
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+updating tlmgr
+
+updating existing packages
+finding package for scrartcl.cls
+> 1 package to install
+> installing koma-script (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: my-pdf-file.pdf
+
+pandoc 
+  to: revealjs
+  output-file: my-revealjs-slides.html
+  standalone: true
+  embed-resources: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  title: Example RevealJS Slides
+  
+Output created: my-revealjs-slides.html
 

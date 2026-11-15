@@ -1,0 +1,52 @@
+
+Starting python3 kernel...
+Done
+
+
+Executing 'example.quarto_ipynb'
+
+  Cell 1/2: ''...
+Done
+
+  Cell 2/2: ''...
+Done
+
+
+
+pandoc 
+
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Collapse Output
+  subtitle: Quarto Extension
+  author:
+    - name: Mickaël CANOUIL, _Ph.D._
+      orcid: 0000-0002-3396-4549
+      url: https://mickael.canouil.fr
+  jupyter: python3
+  extensions:
+    collapse-output:
+      method: lua
+      default-open: false
+      summary-template: '{type} ({lines} lines)'
+      summaries:
+        stdout: Console output
+  
+
+Output created: example.html
+
+

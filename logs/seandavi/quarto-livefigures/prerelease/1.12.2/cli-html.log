@@ -1,0 +1,32 @@
+pandoc 
+
+  to: html
+  output-file: cli.html
+  standalone: true
+  title-prefix: livefigures
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  bibliography:
+    - references.bib
+  theme:
+    - cosmo
+    - custom.scss
+  lightbox: true
+  code-copy: true
+  title: CLI
+  
+
+Output created: _site/cli.html
+
+

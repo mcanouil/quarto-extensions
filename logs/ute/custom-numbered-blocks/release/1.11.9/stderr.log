@@ -1,7 +1,45 @@
 Cloning into 'repo'...
+pandoc 
+  to: html
+  output-file: boxtypes.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Custom Numbered Blocks Extension
+  search-replace:
+    +rend: '`<div class=rendered>`{=html}'
+    +/div: '`</div>`{=html}'
+  extensions:
+    custom-numbered-blocks:
+      styles:
+        txtbx:
+          appearance: textbox
+          sizes:
+            margin: 1em
+            padding: 1em
+          color: '#aabbdd'
+      classes:
+        Box:
+          style: txtbx
+        ToDo: default
+        TODOplain:
+          boxtype: fallback
+  crossref:
+    chapters: false
+  
+Output created: boxtypes.html
+
 ERROR: Include directive failed.
-  in file /home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example.qmd, 
-  could not find file /home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/list-of-news.qmd.
+  in file /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/example.qmd, 
+  could not find file /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/list-of-news.qmd.
 
 Stack trace:
     at retrieveInclude (file:///opt/quarto/bin/quarto.js:75983:13)
@@ -23,8 +61,8 @@ Stack trace:
     at async file:///opt/quarto/bin/quarto.js:184015:3
 Render failed, retrying once...
 ERROR: Include directive failed.
-  in file /home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/example.qmd, 
-  could not find file /home/runner/work/quarto-extensions/quarto-extensions/test-3/repo/list-of-news.qmd.
+  in file /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/example.qmd, 
+  could not find file /home/runner/work/quarto-extensions/quarto-extensions/test-1/repo/list-of-news.qmd.
 
 Stack trace:
     at retrieveInclude (file:///opt/quarto/bin/quarto.js:75983:13)

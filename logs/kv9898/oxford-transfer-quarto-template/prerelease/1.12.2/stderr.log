@@ -1,0 +1,111 @@
+Cloning into 'repo'...
+pandoc 
+  to: latex
+  output-file: example.tex
+  standalone: true
+  pdf-engine: lualatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  toc: true
+  toc-depth: 3
+  number-sections: true
+  listings: true
+  
+metadata
+  block-headings: true
+  documentclass: report
+  classoption:
+    - 12pt
+  papersize: a4
+  date-format: MMMM YYYY
+  lof: true
+  lot: true
+  lol: true
+  linestretch: 1.5
+  running-header: false
+  minimal-footer: true
+  geometry:
+    - top=25mm
+    - bottom=25mm
+    - left=30mm
+    - right=30mm
+    - includeheadfoot
+    - headheight=15pt
+  colorlinks: true
+  linkcolor: black
+  citecolor: blue
+  urlcolor: blue
+  link-citations: true
+  title: Interesting Scientific Title That Encompasses your DPhil Subject
+  author: Your Name
+  date: September 2023
+  abstract: |
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit,
+    vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum gravida
+    mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate a, magna.
+    Donec vehicula augue eu neque. Pellentesque habitant morbi tristique senectus
+    et netus et malesuada fames ac turpis egestas. Mauris ut leo. Cras viverra
+    metus rhoncus sem. Nulla et lectus vestibulum urna fringilla ultrices.
+    Phasellus eu tellus sit amet tortor gravida placerat. Integer sapien est,
+    iaculis in, pretium quis, viverra ac, nunc. Praesent eget sem vel leo ultrices
+    bibendum. Aenean faucibus. Morbi dolor nulla, malesuada eu, pulvinar at, mollis
+    ac, nulla. Curabitur auctor semper nulla. Donec varius orci eget risus. Duis
+    nibh mi, congue eu, accumsan eleifend, sagittis quis, diam. Duis eget orci sit
+    amet orci dignissim rutrum.
+  
+    Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi
+    auctor lorem non justo. Nam lacus libero, pretium at, lobortis vitae, ultricies
+    et, tellus. Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet
+    magna, vitae ornare odio metus a mi. Morbi ac orci et nisl hendrerit mollis.
+    Suspendisse ut massa. Cras nec ante. Pellentesque a nulla. Cum sociis natoque
+    penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam
+    tincidunt urna. Nulla ullamcorper vestibulum turpis. Pellentesque cursus luctus
+    mauris.
+  keywords:
+    - Keyword1
+    - Keyword2
+    - Keyword3
+  supervisor: Your Supervisor
+  college: St. Hugh's College
+  status: Transfer of Status
+  toc-title: Table of Contents
+  crest: _extensions/oxford-transfer/figures/beltcrest.pdf
+  
+
+Rendering PDF
+running lualatex - 1
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+  luaotfload | db : Font names database not found, generating new one.
+  luaotfload | db : This can take several minutes; please be patient.
+updating tlmgr
+
+updating existing packages
+finding package for setspace.sty
+> 1 package to install
+> installing setspace (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for parskip.sty
+> 1 package to install
+> installing parskip (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+finding package for appendix.sty
+> 1 package to install
+> installing appendix (1 of 1)
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+running lualatex - 2
+  This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+   restricted system commands enabled.
+  
+
+Output created: example.pdf
+

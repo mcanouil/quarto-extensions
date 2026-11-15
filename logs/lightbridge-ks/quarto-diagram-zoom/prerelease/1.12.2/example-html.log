@@ -1,0 +1,29 @@
+pandoc 
+
+  to: html
+  output-file: example.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: diagram-zoom
+  subtitle: Zoom and pan for Mermaid and Graphviz diagrams in Quarto
+  theme:
+    light: cosmo
+    dark: darkly
+  code-summary: Show the source
+  
+
+Output created: example.html
+
+

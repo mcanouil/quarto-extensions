@@ -1,0 +1,36 @@
+
+
+pandoc 
+
+  to: html
+  output-file: boundary-black.html
+  standalone: true
+  title-prefix: Gitlink Badge Test
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+      badge-background-colour: '#767676'
+  theme:
+    light: flatly
+    dark: darkly
+  title: boundary-black
+  
+
+
+
+Output created: _site/boundary-black.html
+
+

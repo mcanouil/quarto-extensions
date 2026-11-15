@@ -5,7 +5,7 @@ pandoc
   to: html
   output-file: index.html
   standalone: true
-  title-prefix: Gitlink Widget Without Repository
+  title-prefix: Gitlink Sidebar Test
   section-divs: true
   html-math-method: mathjax
   wrap: none
@@ -20,13 +20,28 @@ metadata
   lang: en
   extensions:
     gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
       widget:
         enabled: true
-  title: Home
+        links:
+          discussions: true
+        extra-links:
+          - text: Q&A
+            href: /discussions/categories/q-a
+            icon: question
+          - text: Quarto
+            href: https://quarto.org
+            icon: globe
+        sponsor: mcanouil
+  theme:
+    light: flatly
+    dark: darkly
+  title: Program
   
 
 
 
-Output created: _site/index.html
+Output created: ../_site/program/index.html
 
 

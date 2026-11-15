@@ -1,61 +1,10 @@
 Cloning into 'repo'...
-[1/2] Letter.qmd
-[typst]: Compiling Letter.typ to Letter.pdf...downloading @preview/fontawesome:0.6.0
+[1/2] CV.qmd
+[typst]: Compiling CV.typ to CV.pdf...downloading @preview/fontawesome:0.6.0
 
   0 B /  81.9 KiB (  0 %), 818.9 KiB/s, ETA: 0 s
  81.9 KiB /  81.9 KiB (100 %), 818.9 KiB/s, ETA: 0 s
 warning: unknown font family: source sans 3
-    ┌─ Letter.typ:582:18
-    │
-582 │   #set text(font: body-font-str, size: body-size, weight: 400, fill: main_color)
-    │                   ^^^^^^^^^^^^^
-
-warning: unknown font family: roboto
-    ┌─ Letter.typ:699:16
-    │
-699 │           font: heading-font-str,
-    │                 ^^^^^^^^^^^^^^^^
-
-warning: unknown font family: roboto
-    ┌─ Letter.typ:708:23
-    │
-708 │            #text(font: heading-font-str, size: 9pt, weight: 700, fill: accent)[#research-area]
-    │                        ^^^^^^^^^^^^^^^^
-
-warning: unknown font family: roboto
-    ┌─ Letter.typ:712:27
-    │
-712 │                #text(font: heading-font-str, size: contact-size, weight: 700, fill: main_color)[#location]
-    │                            ^^^^^^^^^^^^^^^^
-
-warning: unknown font family: roboto
-    ┌─ Letter.typ:716:25
-    │
-716 │              #text(font: heading-font-str, size: contact-size, weight: 400, fill: light-color)[
-    │                          ^^^^^^^^^^^^^^^^
-
-warning: unknown font family: roboto
-    ┌─ Letter.typ:728:25
-    │
-728 │              #text(font: heading-font-str, size: contact-size, weight: 400, fill: light-color)[
-    │                          ^^^^^^^^^^^^^^^^
-
-warning: unknown font family: font awesome 7 free
-   ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
-   │
-80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
-   │             ^^^^^^^^^^^^^
-
-warning: unknown font family: font awesome 7 brands
-   ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
-   │
-80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
-   │             ^^^^^^^^^^^^^
-
-DONE
-
-[2/2] CV.qmd
-[typst]: Compiling CV.typ to CV.pdf...warning: unknown font family: source sans 3
     ┌─ CV.typ:562:18
     │
 562 │   #set text(font: body-font-str, size: body-size, weight: 400, fill: main_color)
@@ -135,6 +84,57 @@ warning: unknown font family: source sans 3
 
 DONE
 
+[2/2] Letter.qmd
+[typst]: Compiling Letter.typ to Letter.pdf...warning: unknown font family: source sans 3
+    ┌─ Letter.typ:582:18
+    │
+582 │   #set text(font: body-font-str, size: body-size, weight: 400, fill: main_color)
+    │                   ^^^^^^^^^^^^^
 
-Output created: CV.pdf
+warning: unknown font family: roboto
+    ┌─ Letter.typ:699:16
+    │
+699 │           font: heading-font-str,
+    │                 ^^^^^^^^^^^^^^^^
+
+warning: unknown font family: roboto
+    ┌─ Letter.typ:708:23
+    │
+708 │            #text(font: heading-font-str, size: 9pt, weight: 700, fill: accent)[#research-area]
+    │                        ^^^^^^^^^^^^^^^^
+
+warning: unknown font family: roboto
+    ┌─ Letter.typ:712:27
+    │
+712 │                #text(font: heading-font-str, size: contact-size, weight: 700, fill: main_color)[#location]
+    │                            ^^^^^^^^^^^^^^^^
+
+warning: unknown font family: roboto
+    ┌─ Letter.typ:716:25
+    │
+716 │              #text(font: heading-font-str, size: contact-size, weight: 400, fill: light-color)[
+    │                          ^^^^^^^^^^^^^^^^
+
+warning: unknown font family: roboto
+    ┌─ Letter.typ:728:25
+    │
+728 │              #text(font: heading-font-str, size: contact-size, weight: 400, fill: light-color)[
+    │                          ^^^^^^^^^^^^^^^^
+
+warning: unknown font family: font awesome 7 free
+   ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
+   │
+80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
+   │             ^^^^^^^^^^^^^
+
+warning: unknown font family: font awesome 7 brands
+   ┌─ @preview/fontawesome:0.6.0/lib-impl.typ:80:12
+   │
+80 │       font: default_fonts, // If you see warning here, please check whether the FA font is installed
+   │             ^^^^^^^^^^^^^
+
+DONE
+
+
+Output created: Letter.pdf
 

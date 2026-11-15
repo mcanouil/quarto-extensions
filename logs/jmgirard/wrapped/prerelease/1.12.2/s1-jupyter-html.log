@@ -1,0 +1,45 @@
+
+Starting python3 kernel...
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+
+Done
+
+
+Executing 's1-jupyter.quarto_ipynb'
+
+  Cell 1/1: 'fig-jupyter'...
+Done
+
+
+
+pandoc 
+
+  to: html
+  output-file: s1-jupyter.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: 'S1 probe: Jupyter engine'
+  jupyter: python3
+  
+
+S1 Image id= classes=[] wrap=none attrs={}
+
+S1 FloatRefTarget id=fig-jupyter classes=[] wrap=none attrs={}
+S1 Div id= classes=[cell-output cell-output-display] wrap=none attrs={execution_count=1}
+S1 Div id=cell-fig-jupyter classes=[cell wrap-right] wrap=wrap-right attrs={execution_count=1}
+S1 topdown: FloatRefTarget fig-jupyter gets cell class wrap-right
+
+Output created: s1-jupyter.html
+
+

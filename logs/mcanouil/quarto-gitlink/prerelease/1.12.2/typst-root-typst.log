@@ -1,0 +1,34 @@
+
+
+pandoc 
+
+  to: typst
+  output-file: typst-root.typ
+  standalone: true
+  shift-heading-level-by: -1
+  default-image-extension: svg
+  wrap: none
+  citeproc: false
+  
+
+metadata
+
+  csl: apa.csl
+  extensions:
+    gitlink:
+      platform: github
+      repository-name: mcanouil/quarto-gitlink
+  title: Bibliography path from the project root in Typst
+  bibliography:
+    - /refs.bib
+  
+
+[typst]: Compiling typst-root.typ to typst-root.pdf...
+DONE
+
+
+
+
+Output created: typst-root.pdf
+
+
