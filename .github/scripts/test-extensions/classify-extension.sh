@@ -24,7 +24,7 @@ find_best_project_path() {
 		local depth slashes
 		slashes="${dir//[!\/]/}"
 		depth=$((${#slashes} + 1))
-		if [[ "${dir}" =~ ^docs(/|$) ]]; then
+		if [[ "${dir}" =~ (^|/)docs(/|$) ]]; then
 			if [[ "${depth}" -lt "${docs_depth}" ]]; then
 				docs_path="${dir}"
 				docs_depth="${depth}"
@@ -70,7 +70,7 @@ classify_extension_tree() {
 		# Documents outside docs/ exercise the extension directly: leave the site
 		# to the document fallback below, which picks them instead. A repository
 		# that holds nothing else keeps its site, so it stays under test.
-		if [[ "${best_path}" =~ ^docs(/|$) ]] &&
+		if [[ "${best_path}" =~ (^|/)docs(/|$) ]] &&
 			[[ -n "$(printf '%s\n' "${qmd_files}" | grep -vE '(^|/)(_extensions|tests|examples|docs)/' || true)" ]]; then
 			best_path=""
 		fi

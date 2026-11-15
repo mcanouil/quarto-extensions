@@ -92,6 +92,9 @@ check 'a project nested in docs loses to documents outside docs' \
 check 'a project nested in docs is kept when nothing else renders' \
 	'{"type":"project","project_path":"docs/demo"}' \
 	"$(printf 'docs/demo/_quarto.yml\ndocs/demo/a.qmd\n' | classify_extension_tree)"
+check 'a docs site below the root loses to documents outside it' \
+	'{"type":"document","qmd_files":["example.qmd"]}' \
+	"$(printf 'sub/docs/_quarto.yml\nsub/docs/a.qmd\nexample.qmd\n' | classify_extension_tree)"
 check 'a nested project wins over a docs project' \
 	'{"type":"project","project_path":"sub/site"}' \
 	"$(printf 'docs/_quarto.yml\ndocs/index.qmd\nsub/site/_quarto.yml\nsub/site/a.qmd\n' | classify_extension_tree)"
