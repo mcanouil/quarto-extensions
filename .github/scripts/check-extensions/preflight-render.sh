@@ -92,7 +92,11 @@ QUARTO_CHANNEL="${QUARTO_CHANNEL}" RENDER_CONCURRENCY=2 bash "${TEST_SCRIPTS_DIR
 run_url="${GITHUB_SERVER_URL:-https://github.com}/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}"
 failed=0
 
-while IFS=$'\t' read -r id status stage failure_reason quarto_version log_path; do
+# Fields are joined by the ASCII unit separator rather than a tab. A tab is IFS
+# whitespace, so read would merge the empty fields of a pass and shift the
+# Quarto version and log path into the wrong variables. Newlines and
+# separators inside a value become spaces, so each result stays on one line.
+while IFS=$'\x1f' read -r id status stage failure_reason quarto_version log_path; do
 	entry="${batch_entry_for_repo[${id}]:-${id}}"
 
 	case "${status}" in
@@ -122,7 +126,8 @@ while IFS=$'\t' read -r id status stage failure_reason quarto_version log_path; 
 		fi
 		;;
 	esac
-done < <(jq -r '.[] | [.id, .status, .stage // "", .failure_reason // "", .quarto_version, .log] | @tsv' results.json)
+done < <(jq -r '.[] | [.id, .status, .stage, .failure_reason, .quarto_version, .log]
+	| map(. // "" | tostring | gsub("[\n\r\u001f]"; " ")) | join("\u001f")' results.json)
 
 write_check_outputs
 
