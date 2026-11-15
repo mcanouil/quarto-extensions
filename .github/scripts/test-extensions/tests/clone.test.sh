@@ -4,19 +4,8 @@ set -euo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-passed=0
-failed=0
-
-check() {
-	local description="$1" expected="$2" actual="$3"
-	if [[ "${expected}" == "${actual}" ]]; then
-		passed=$((passed + 1))
-		printf 'ok   %s\n' "${description}"
-	else
-		failed=$((failed + 1))
-		printf 'FAIL %s\n     expected %s, got %s\n' "${description}" "${expected}" "${actual}"
-	fi
-}
+# shellcheck source=SCRIPTDIR/../../quarto-wizard/tests/helpers.sh
+source "${HERE}/../../quarto-wizard/tests/helpers.sh"
 
 WORK="$(mktemp -d)"
 trap 'rm -rf "${WORK}"' EXIT
@@ -63,5 +52,4 @@ check 'an entry with the id "error" fails on its own' '0 error|fail o/r|pass' \
 check 'an entry with an empty id stops the batch' '1' \
 	"$(run_clone '[{"id":"","type":"document","project_path":"docs"}]')"
 
-printf '\n%d checks, %d failed\n' "$((passed + failed))" "${failed}"
-[[ "${failed}" -eq 0 ]]
+finish

@@ -92,7 +92,6 @@ QUARTO_CHANNEL="${QUARTO_CHANNEL}" RENDER_CONCURRENCY=2 bash "${TEST_SCRIPTS_DIR
 run_url="${GITHUB_SERVER_URL:-https://github.com}/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}"
 failed=0
 
-# Rows come from row.jq, which keeps empty fields in place; see that file.
 while IFS=$'\x1f' read -r id status stage failure_reason quarto_version log_path; do
 	entry="${batch_entry_for_repo[${id}]:-${id}}"
 

@@ -67,7 +67,7 @@ clone_extension() {
 
   if [[ -z "${id}" ]] || [[ -z "${ext_type}" ]]; then
     echo "::error::Missing required entry fields at index ${i} in extensions-batch.json."
-    : >"${status_file}.error"
+    invalid_entry=true
     return 0
   fi
 
@@ -124,20 +124,21 @@ clone_extension() {
     esac
   fi
 
-  printf '%s\x1f%s\x1f%s\x1f%s\x1f%s\x1f%s\x1f%s\n' \
+  jq -rn -L "${SCRIPT_DIR}" 'include "row"; $ARGS.positional | row' --args \
     "${id}" "${ext_type}" "${status}" "${workdir}" "${render_dir}" "${log_dir}" "${log_path}" \
     >"${status_file}"
 }
 
+invalid_entry=false
 for ((i = 0; i < ext_count; i++)); do
   clone_extension "${i}"
 done
+if [[ "${invalid_entry}" == true ]]; then
+  exit 1
+fi
 
 for ((i = 0; i < ext_count; i++)); do
   status_file="${clone_status_dir}/${i}"
-  if [[ -e "${status_file}.error" ]]; then
-    exit 1
-  fi
   if [[ ! -f "${status_file}" ]]; then
     echo "::error::Clone status file missing for index ${i}."
     continue

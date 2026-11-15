@@ -225,7 +225,7 @@ framework_verdict() {
 	jq -r '
 		def count: (numbers // 0) | floor
 			| if . < 0 then 0 elif . > 1000000 then 1000000 else . end;
-		[(.status | if . == "pass" or . == "fail" or . == "skip" then . else "none" end),
+		[(.status | if IN("pass", "fail", "skip") then . else "none" end),
 		 (.summary.total | count), (.summary.pass | count),
 		 (.summary.fail | count), (.summary.skip | count),
 		 ([(.layers.render // {}), (.layers.smoke // {})]
