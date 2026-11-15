@@ -16,7 +16,10 @@ round_trip() {
 }
 
 check 'empty fields in the middle keep their place' 'a|||d' "$(round_trip '["a", "", "", "d"]')"
+check 'a leading empty field keeps its place' '|b|c|d' "$(round_trip '["", "b", "c", "d"]')"
+check 'a trailing empty field keeps its place' 'a|b|c|' "$(round_trip '["a", "b", "c", ""]')"
 check 'a null field reads as empty' 'a||c|d' "$(round_trip '["a", null, "c", "d"]')"
+check 'a false field reads as false' 'false|b|c|d' "$(round_trip '[false, "b", "c", "d"]')"
 check 'a backslash is kept as it is' 'a\b|c|d|e' "$(round_trip '["a\\b", "c", "d", "e"]')"
 check 'a newline becomes a space' 'a b|c|d|e' "$(round_trip '["a\nb", "c", "d", "e"]')"
 check 'a separator inside a value becomes a space' 'a b|c|d|e' "$(round_trip '["a\u001fb", "c", "d", "e"]')"
