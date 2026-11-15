@@ -62,6 +62,52 @@ check 'document classification is unchanged' \
 	'{"type":"document","qmd_files":["example.qmd"]}' \
 	"$(printf 'example.qmd\n' | classify_extension_tree)"
 
+# A documentation website under docs/ stages the extension with its own
+# scripts, so a clean clone cannot render it. Documents outside docs/ exercise
+# the extension directly, and win over the site.
+SITE_AND_EXAMPLE_TREE='_extensions/demo/_extension.yml
+docs/_quarto.yml
+docs/index.qmd
+example.qmd
+tests/_quarto.yml
+tests/basic.qmd'
+
+SITE_ONLY_TREE='_extensions/demo/_extension.yml
+docs/_quarto.yml
+docs/index.qmd
+README.md'
+
+check 'documents outside docs win over a docs project' \
+	'{"type":"document","qmd_files":["example.qmd"]}' \
+	"$(printf '%s\n' "${SITE_AND_EXAMPLE_TREE}" | classify_extension_tree)"
+check 'a docs project is kept when nothing else renders' \
+	'{"type":"project","project_path":"docs"}' \
+	"$(printf '%s\n' "${SITE_ONLY_TREE}" | classify_extension_tree)"
+check 'documents outside docs win over a docs project under a subdir' \
+	'{"type":"document","qmd_files":["sub/example.qmd"]}' \
+	"$(printf '%s\n' "${SITE_AND_EXAMPLE_TREE}" | sed 's|^|sub/|' | classify_extension_tree sub)"
+check 'a project nested in docs loses to documents outside docs' \
+	'{"type":"document","qmd_files":["example.qmd"]}' \
+	"$(printf 'docs/_quarto.yml\ndocs/demo/_quarto.yml\ndocs/demo/a.qmd\nexample.qmd\n' | classify_extension_tree)"
+check 'a project nested in docs is kept when nothing else renders' \
+	'{"type":"project","project_path":"docs/demo"}' \
+	"$(printf 'docs/demo/_quarto.yml\ndocs/demo/a.qmd\n' | classify_extension_tree)"
+check 'a docs site below the root loses to documents outside it' \
+	'{"type":"document","qmd_files":["example.qmd"]}' \
+	"$(printf 'sub/docs/_quarto.yml\nsub/docs/a.qmd\nexample.qmd\n' | classify_extension_tree)"
+check 'a nested project wins over a docs project' \
+	'{"type":"project","project_path":"sub/site"}' \
+	"$(printf 'docs/_quarto.yml\ndocs/index.qmd\nsub/site/_quarto.yml\nsub/site/a.qmd\n' | classify_extension_tree)"
+check 'a sibling project wins over a docs project listed first' \
+	'{"type":"project","project_path":"zeta"}' \
+	"$(printf 'docs/_quarto.yml\nzeta/_quarto.yml\n' | classify_extension_tree)"
+check 'a sibling project wins over a docs project listed last' \
+	'{"type":"project","project_path":"zeta"}' \
+	"$(printf 'zeta/_quarto.yml\ndocs/_quarto.yml\n' | classify_extension_tree)"
+check 'a root project still wins over a docs project' \
+	'{"type":"project","project_path":"."}' \
+	"$(printf '_quarto.yml\nindex.qmd\ndocs/_quarto.yml\ndocs/index.qmd\n' | classify_extension_tree)"
+
 # A template or example entry is never classified, so it must default rather
 # than inherit whatever the last entry had. An entry that already carries a
 # test_mode (set by phase B, or by a future caller) must keep it.
