@@ -3,6 +3,12 @@
 # Source this file; do not execute it directly.
 # Used by build-matrix.sh (monthly tests) and preflight-render.sh (PR checks).
 
+# Paths that never hold renderable content, and paths inside a documentation
+# website. The project ranking, the documents-over-site check and the document
+# fallback all read these, so they cannot disagree on what a path is.
+CLASSIFY_SKIP_RE='(^|/)(_extensions|tests|examples)(/|$)'
+CLASSIFY_DOCS_RE='(^|/)docs(/|$)'
+
 # Pick the best _quarto.yml project path from a list of project file paths
 # on stdin: prefer repo root, then the shallowest path outside docs/, tests/
 # and examples/, then the shallowest path inside docs/. Prints nothing when no
@@ -14,7 +20,7 @@ find_best_project_path() {
 	while IFS= read -r qpath; do
 		local dir
 		dir=$(dirname "${qpath}")
-		if [[ "${dir}" =~ (^|/)tests(/|$) ]] || [[ "${dir}" =~ (^|/)examples(/|$) ]]; then
+		if [[ "${dir}" =~ ${CLASSIFY_SKIP_RE} ]]; then
 			continue
 		fi
 		if [[ "${dir}" == "." ]]; then
@@ -24,7 +30,7 @@ find_best_project_path() {
 		local depth slashes
 		slashes="${dir//[!\/]/}"
 		depth=$((${#slashes} + 1))
-		if [[ "${dir}" =~ (^|/)docs(/|$) ]]; then
+		if [[ "${dir}" =~ ${CLASSIFY_DOCS_RE} ]]; then
 			if [[ "${depth}" -lt "${docs_depth}" ]]; then
 				docs_path="${dir}"
 				docs_depth="${depth}"
@@ -70,8 +76,8 @@ classify_extension_tree() {
 		# Documents outside docs/ exercise the extension directly: leave the site
 		# to the document fallback below, which picks them instead. A repository
 		# that holds nothing else keeps its site, so it stays under test.
-		if [[ "${best_path}" =~ (^|/)docs(/|$) ]] &&
-			[[ -n "$(printf '%s\n' "${qmd_files}" | grep -vE '(^|/)(_extensions|tests|examples|docs)/' || true)" ]]; then
+		if [[ "${best_path}" =~ ${CLASSIFY_DOCS_RE} ]] &&
+			[[ -n "$(printf '%s\n' "${qmd_files}" | grep -vE "${CLASSIFY_SKIP_RE}" | grep -vE "${CLASSIFY_DOCS_RE}" || true)" ]]; then
 			best_path=""
 		fi
 		if [[ -n "${best_path}" ]]; then
@@ -91,9 +97,10 @@ classify_extension_tree() {
 	# else is left, for the reason given above.
 	if [[ -n "${qmd_files}" ]]; then
 		local doc_files
-		doc_files=$(printf '%s\n' "${qmd_files}" | jq -Rsc --arg pfx "${prefix}" '
-			(split("\n")[:-1] | map(select(test("(^|/)(_extensions|tests|examples)/") | not))) as $all
-			| ($all | map(select(test("(^|/)docs/") | not))) as $outside_docs
+		doc_files=$(printf '%s\n' "${qmd_files}" | jq -Rsc --arg pfx "${prefix}" \
+			--arg skip "${CLASSIFY_SKIP_RE}" --arg docs "${CLASSIFY_DOCS_RE}" '
+			(split("\n")[:-1] | map(select(test($skip) | not))) as $all
+			| ($all | map(select(test($docs) | not))) as $outside_docs
 			| (if ($outside_docs | length) > 0 then $outside_docs else $all end)
 			| map(if $pfx != "" then "\($pfx)/\(.)" else . end)
 		')
