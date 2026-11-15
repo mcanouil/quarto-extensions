@@ -206,7 +206,10 @@ run_framework() {
 # would otherwise be recorded as a pass having rendered nothing.
 #
 # Prints: status<TAB>total<TAB>pass<TAB>fail<TAB>skip<TAB>rendered, where
-# status is `none` when there is nothing readable.
+# status is `none` when there is nothing readable. Unlike the other harness
+# rows, this one is tab-joined, which is safe only because no field can be
+# empty: a tab-split read merges empty fields. A field that can be empty must
+# move this row to row.jq.
 framework_verdict() {
 	local json="$1"
 	if [[ ! -s "${json}" ]]; then
