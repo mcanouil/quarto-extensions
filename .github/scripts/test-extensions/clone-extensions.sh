@@ -124,9 +124,10 @@ clone_extension() {
     esac
   fi
 
-  jq -rn -L "${SCRIPT_DIR}" 'include "row"; $ARGS.positional | row' --args \
-    "${id}" "${ext_type}" "${status}" "${workdir}" "${render_dir}" "${log_dir}" "${log_path}" \
-    >"${status_file}"
+  jq -rn -L "${SCRIPT_DIR}" \
+    --arg id "${id}" --arg type "${ext_type}" --arg status "${status}" \
+    --arg wd "${workdir}" --arg rd "${render_dir}" --arg ld "${log_dir}" --arg lp "${log_path}" \
+    'include "row"; [$id, $type, $status, $wd, $rd, $ld, $lp] | row' >"${status_file}"
 }
 
 invalid_entry=false

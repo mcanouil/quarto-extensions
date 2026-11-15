@@ -52,5 +52,7 @@ check 'an entry with the id "error" fails on its own' '0 error|fail o/r|pass' \
 	"$(run_clone '[{"id":"error","type":"document"},{"id":"o/r","type":"document"}]')"
 check 'an entry with an empty id stops the batch' '1 Missing required entry fields at index 0 in extensions-batch.json.' \
 	"$(run_clone '[{"id":"","type":"document","project_path":"docs"}]')"
+check 'a value that starts with a hyphen is recorded, not read as an option' '0 o/r|fail' \
+	"$(run_clone '[{"id":"o/r","type":"-n"}]')"
 
 finish
