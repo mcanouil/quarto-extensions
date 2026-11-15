@@ -47,14 +47,16 @@ run_preflight() {
 			STUB_RESULTS="${results}" \
 			bash "${WORK}/scripts/check-extensions/preflight-render.sh" >"${WORK}/run/log" 2>&1 || true
 	)
-	# A script that stops before it writes its outputs is a broken sandbox, not
-	# a wrong note: show its log so the failure can be traced.
-	if ! grep -q '^notes=' "${WORK}/run/output"; then
-		echo "preflight-render.sh wrote no notes; its output follows:" >&2
+	# A script that reports no note at all is a broken sandbox, not a wrong
+	# note: show its log so the failure can be traced.
+	local message
+	message=$(sed -n 's/^notes=//p' "${WORK}/run/output" | jq -r '.[0].message // empty')
+	if [[ -z "${message}" ]]; then
+		echo "preflight-render.sh reported no note; its output follows:" >&2
 		cat "${WORK}/run/log" >&2
 		return 0
 	fi
-	sed -n 's/^notes=//p' "${WORK}/run/output" | jq -r '.[0].message | split("\n")[0]'
+	printf '%s\n' "${message%%$'\n'*}"
 }
 
 PASS_RESULTS='[{"id":"o/a","status":"pass","stage":"","failure_reason":"","quarto_version":"1.11.9","log":"logs/o/a"}]'
