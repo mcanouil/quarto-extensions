@@ -4,13 +4,12 @@
 # Used by build-matrix.sh (monthly tests) and preflight-render.sh (PR checks).
 
 # Pick the best _quarto.yml project path from a list of project file paths
-# on stdin: prefer repo root, then docs/, then the shallowest path outside
-# tests/ and examples/. Prints nothing when no suitable path exists.
-# docs/ stays a candidate here. classify_extension_tree drops it when documents
-# outside docs/ exist, and keeps it when the documentation website is all the
-# repository has to render, so that the site stays under test.
+# on stdin: prefer repo root, then the shallowest path outside docs/, tests/
+# and examples/, then docs/. Prints nothing when no suitable path exists.
+# docs/ comes last because a documentation website documents the extension
+# rather than exercising it; see classify_extension_tree.
 find_best_project_path() {
-	local best_path="" best_depth=999
+	local best_path="" best_depth=999 has_docs=false
 	while IFS= read -r qpath; do
 		local dir
 		dir=$(dirname "${qpath}")
@@ -21,9 +20,8 @@ find_best_project_path() {
 			echo "."
 			return
 		fi
-		if [[ "${dir}" == "docs" ]] && [[ "${best_depth}" -gt 1 ]]; then
-			best_path="docs"
-			best_depth=1
+		if [[ "${dir}" == "docs" ]]; then
+			has_docs=true
 			continue
 		fi
 		local depth slashes
@@ -36,6 +34,8 @@ find_best_project_path() {
 	done
 	if [[ -n "${best_path}" ]]; then
 		echo "${best_path}"
+	elif [[ "${has_docs}" == true ]]; then
+		echo "docs"
 	fi
 }
 
@@ -53,6 +53,9 @@ classify_extension_tree() {
 		tree=$(printf '%s\n' "${tree}" | awk -v p="${prefix}/" 'index($0, p) == 1 { print substr($0, length(p) + 1) }')
 	fi
 
+	local qmd_files
+	qmd_files=$(printf '%s\n' "${tree}" | grep -E '\.qmd$' || true)
+
 	# Check for _quarto.yml/_quarto.yaml (project), excluding _extensions/
 	local project_files
 	project_files=$(printf '%s\n' "${tree}" | grep -E '(^|/)_quarto\.ya?ml$' | grep -vE '(^|/)_extensions/' || true)
@@ -63,13 +66,11 @@ classify_extension_tree() {
 		# A documentation website under docs/ often stages the extension with a
 		# script the harness does not run, so a clean clone cannot render it.
 		# Documents outside docs/ exercise the extension directly: leave the site
-		# to the document fallback below, which picks them instead.
-		if [[ "${best_path}" == "docs" ]]; then
-			local qmd_outside_docs
-			qmd_outside_docs=$(printf '%s\n' "${tree}" | grep -E '\.qmd$' | grep -vE '(^|/)(_extensions|tests|examples|docs)/' || true)
-			if [[ -n "${qmd_outside_docs}" ]]; then
-				best_path=""
-			fi
+		# to the document fallback below, which picks them instead. A repository
+		# that holds nothing else keeps its site, so it stays under test.
+		if [[ "${best_path}" == "docs" ]] &&
+			[[ -n "$(printf '%s\n' "${qmd_files}" | grep -vE '(^|/)(_extensions|tests|examples|docs)/' || true)" ]]; then
+			best_path=""
 		fi
 		if [[ -n "${best_path}" ]]; then
 			if [[ -n "${prefix}" ]]; then
@@ -84,15 +85,10 @@ classify_extension_tree() {
 		fi
 	fi
 
-	# Fallback: check for standalone .qmd files (document)
-	local qmd_files
-	qmd_files=$(printf '%s\n' "${tree}" | grep -E '\.qmd$' || true)
-
+	# Fallback: standalone .qmd files (document), docs/ pages only when nothing
+	# else is left, for the reason given above.
 	if [[ -n "${qmd_files}" ]]; then
 		local doc_files
-		# A documentation website under docs/ documents the extension rather than
-		# exercising it, so it is left out. A repository that holds nothing else
-		# keeps its docs/ pages, so it stays under test rather than being dropped.
 		doc_files=$(printf '%s\n' "${qmd_files}" | jq -Rsc --arg pfx "${prefix}" '
 			(split("\n")[:-1] | map(select(test("(^|/)(_extensions|tests|examples)/") | not))) as $all
 			| ($all | map(select(test("(^|/)docs/") | not))) as $outside_docs
