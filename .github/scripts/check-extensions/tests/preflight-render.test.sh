@@ -45,8 +45,15 @@ run_preflight() {
 			GITHUB_OUTPUT="${WORK}/run/output" \
 			IMAGE="stub" \
 			STUB_RESULTS="${results}" \
-			bash "${WORK}/scripts/check-extensions/preflight-render.sh" >/dev/null 2>&1 || true
+			bash "${WORK}/scripts/check-extensions/preflight-render.sh" >"${WORK}/run/log" 2>&1 || true
 	)
+	# A script that stops before it writes its outputs is a broken sandbox, not
+	# a wrong note: show its log so the failure can be traced.
+	if ! grep -q '^notes=' "${WORK}/run/output"; then
+		echo "preflight-render.sh wrote no notes; its output follows:" >&2
+		cat "${WORK}/run/log" >&2
+		return 0
+	fi
 	sed -n 's/^notes=//p' "${WORK}/run/output" | jq -r '.[0].message | split("\n")[0]'
 }
 
