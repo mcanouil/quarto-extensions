@@ -117,6 +117,20 @@ check 'reading a missing-file verdict through process substitution succeeds' '0'
 check 'a missing-file verdict yields six fields via process substitution' 'none	0	0	0	0	0' \
 	"$(printf '%s\t%s\t%s\t%s\t%s\t%s' "${missing_status}" "${missing_total}" "${missing_pass}" "${missing_fail}" "${missing_skip}" "${missing_rendered}")"
 
+# The status is repository-supplied too. An empty one used to lead the row with
+# a tab, which the caller's tab-split read merges away, shifting every count
+# one field to the left. Anything outside the known verdicts reads as none.
+for status_json in '""' '"pass\textra"' '"PASS"' '7'; do
+	odd_status=$(write_fixture "odd-status" "{\"status\":${status_json},
+  \"summary\":{\"total\":5,\"pass\":3,\"fail\":2,\"skip\":0},
+  \"layers\":{\"render\":{\"total\":2,\"pass\":2,\"fail\":0,\"skip\":0}}}")
+	IFS=$'\t' read -r odd_status_out odd_total odd_pass odd_fail odd_skip odd_rendered < <(
+		framework_verdict "${odd_status}"
+	)
+	check "a status of ${status_json} reads as none, counts in place" 'none 5 3 2 0 2' \
+		"${odd_status_out} ${odd_total} ${odd_pass} ${odd_fail} ${odd_skip} ${odd_rendered}"
+done
+
 eval_function framework_decides
 
 # The framework speaks for an entry only where it actually rendered, and only
