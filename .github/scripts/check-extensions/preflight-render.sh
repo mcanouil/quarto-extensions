@@ -92,7 +92,7 @@ QUARTO_CHANNEL="${QUARTO_CHANNEL}" RENDER_CONCURRENCY=2 bash "${TEST_SCRIPTS_DIR
 run_url="${GITHUB_SERVER_URL:-https://github.com}/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}"
 failed=0
 
-while IFS=$'\t' read -r id status stage failure_reason quarto_version log_path; do
+while IFS=$'\x1f' read -r id status stage failure_reason quarto_version log_path; do
 	entry="${batch_entry_for_repo[${id}]:-${id}}"
 
 	case "${status}" in
@@ -122,7 +122,8 @@ while IFS=$'\t' read -r id status stage failure_reason quarto_version log_path; 
 		fi
 		;;
 	esac
-done < <(jq -r '.[] | [.id, .status, .stage // "", .failure_reason // "", .quarto_version, .log] | @tsv' results.json)
+done < <(jq -r -L "${TEST_SCRIPTS_DIR}" 'include "row";
+	.[] | [.id, .status, .stage, .failure_reason, .quarto_version, .log] | row' results.json)
 
 write_check_outputs
 

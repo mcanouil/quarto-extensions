@@ -21,6 +21,10 @@ on:
       - ".github/scripts/check-extensions/**"
       - ".github/workflows/test-scripts.yml"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
@@ -42,7 +46,10 @@ jobs:
         run: |
           .github/scripts/test-extensions/tests/classify.test.sh
           .github/scripts/test-extensions/tests/framework.test.sh
+          .github/scripts/test-extensions/tests/row.test.sh
+          .github/scripts/test-extensions/tests/clone.test.sh
           .github/scripts/quarto-wizard/tests/latest-tag.test.sh
           .github/scripts/quarto-wizard/tests/prefetch.test.sh
           .github/scripts/quarto-wizard/tests/extension.test.sh
           .github/scripts/check-extensions/tests/check-release.test.sh
+          .github/scripts/check-extensions/tests/preflight-render.test.sh
