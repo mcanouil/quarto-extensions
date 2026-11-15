@@ -42,6 +42,8 @@ jobs:
         run: |
           .github/scripts/test-extensions/tests/classify.test.sh
           .github/scripts/test-extensions/tests/framework.test.sh
+          .github/scripts/test-extensions/tests/row.test.sh
+          .github/scripts/test-extensions/tests/clone.test.sh
           .github/scripts/quarto-wizard/tests/latest-tag.test.sh
           .github/scripts/quarto-wizard/tests/prefetch.test.sh
           .github/scripts/quarto-wizard/tests/extension.test.sh

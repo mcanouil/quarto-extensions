@@ -17,6 +17,7 @@ mkdir -p "${WORK}/scripts/check-extensions" "${WORK}/scripts/test-extensions" "$
 cp "${SCRIPTS}/check-extensions/preflight-render.sh" "${SCRIPTS}/check-extensions/lib.sh" \
 	"${WORK}/scripts/check-extensions/"
 cp "${SCRIPTS}/test-extensions/classify-extension.sh" "${SCRIPTS}/test-extensions/retry.sh" \
+	"${SCRIPTS}/test-extensions/row.jq" \
 	"${WORK}/scripts/test-extensions/"
 for step in prepare-image clone-extensions; do
 	printf '#!/usr/bin/env bash\nexit 0\n' >"${WORK}/scripts/test-extensions/${step}.sh"

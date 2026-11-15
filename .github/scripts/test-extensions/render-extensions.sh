@@ -291,8 +291,8 @@ render_extension() {
 	local shard="${2:-0}"
 
 	local id ext_type status workdir render_dir log_dir log_path ext
-	IFS=$'\t' read -r id ext_type status workdir render_dir log_dir log_path < <(
-		jq -r ".[${i}] | [.id // \"\", .type // \"\", .clone_status // \"\", .workdir // \"\", .render_dir // \"\", .log_dir // \"\", .log_path // \"\"] | @tsv" clone-manifest.json
+	IFS=$'\x1f' read -r id ext_type status workdir render_dir log_dir log_path < <(
+		jq -r -L "${SCRIPT_DIR}" "include \"row\"; .[${i}] | [.id, .type, .clone_status, .workdir, .render_dir, .log_dir, .log_path] | row" clone-manifest.json
 	)
 	ext=$(jq -c ".[${i}].ext" clone-manifest.json)
 

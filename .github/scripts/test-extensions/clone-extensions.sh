@@ -61,13 +61,13 @@ clone_extension() {
   local i="$1"
   local status_file="${clone_status_dir}/${i}"
 
-  read -r id ext_type project_path < <(
-    jq -r ".[${i}] | [.id // \"\", .type // \"\", .project_path // \"\"] | @tsv" extensions-batch.json
+  IFS=$'\x1f' read -r id ext_type project_path < <(
+    jq -r -L "${SCRIPT_DIR}" "include \"row\"; .[${i}] | [.id, .type, .project_path] | row" extensions-batch.json
   )
 
   if [[ -z "${id}" ]] || [[ -z "${ext_type}" ]]; then
     echo "::error::Missing required entry fields at index ${i} in extensions-batch.json."
-    printf 'error\t\t\t\t\t\t\n' >"${status_file}"
+    : >"${status_file}.error"
     return 0
   fi
 
@@ -124,7 +124,7 @@ clone_extension() {
     esac
   fi
 
-  printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\n' \
+  printf '%s\x1f%s\x1f%s\x1f%s\x1f%s\x1f%s\x1f%s\n' \
     "${id}" "${ext_type}" "${status}" "${workdir}" "${render_dir}" "${log_dir}" "${log_path}" \
     >"${status_file}"
 }
@@ -135,16 +135,15 @@ done
 
 for ((i = 0; i < ext_count; i++)); do
   status_file="${clone_status_dir}/${i}"
+  if [[ -e "${status_file}.error" ]]; then
+    exit 1
+  fi
   if [[ ! -f "${status_file}" ]]; then
     echo "::error::Clone status file missing for index ${i}."
     continue
   fi
 
-  IFS=$'\t' read -r id ext_type status workdir render_dir log_dir log_path <"${status_file}"
-
-  if [[ "${id}" == "error" ]]; then
-    exit 1
-  fi
+  IFS=$'\x1f' read -r id ext_type status workdir render_dir log_dir log_path <"${status_file}"
 
   ext=$(jq -c ".[${i}]" extensions-batch.json)
   jq -cn \
