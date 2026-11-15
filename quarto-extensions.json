@@ -3413,14 +3413,14 @@
     "nameWithOwner": "ryjohnson09/quarto-simulator",
     "owner": "ryjohnson09",
     "description": "Teach Quarto inside Quarto: an editor and live preview that simulate quarto render in the learner's browser, with graded exercises. Quarto's own Lua filters in pandoc-wasm; R via webR, Python via Pyodide. No server.",
-    "openGraphImageUrl": "https://opengraph.githubassets.com/153b768cf02dca0db24d6e257ce3902c80f5d60945383b65914d437faf73fc4d/ryjohnson09/quarto-simulator",
-    "stargazerCount": 3,
+    "openGraphImageUrl": "https://opengraph.githubassets.com/9e31e34e8e98a1a4fc6a945361559f0f354ed2d2e366ded3e83794d02a4f4822/ryjohnson09/quarto-simulator",
+    "stargazerCount": 4,
     "licenseInfo": "MIT License",
     "url": "https://github.com/ryjohnson09/quarto-simulator",
     "latestRelease": "v0.4.0",
     "latestReleaseUrl": null,
     "createdAt": "2026-10-14T18:06:23Z",
-    "updatedAt": "2026-10-19T09:25:20Z",
+    "updatedAt": "2026-11-15T18:37:07Z",
     "pushedAt": "2026-10-16T16:50:52Z",
     "defaultBranchRef": "main",
     "repositoryTopics": [
@@ -4705,11 +4705,11 @@
     "stargazerCount": 1,
     "licenseInfo": "MIT License",
     "url": "https://github.com/jtkulas/recletters-typst",
-    "latestRelease": "none",
-    "latestReleaseUrl": null,
+    "latestRelease": "v1.0.0",
+    "latestReleaseUrl": "https://github.com/jtkulas/recletters-typst/releases/tag/v1.0.0",
     "createdAt": "2026-11-07T02:15:35Z",
     "updatedAt": "2026-11-11T02:24:16Z",
-    "pushedAt": "2026-11-11T01:27:33Z",
+    "pushedAt": "2026-11-15T17:09:29Z",
     "defaultBranchRef": "main",
     "repositoryTopics": [
       "letter",
@@ -4719,7 +4719,7 @@
     "author": "John-o Kulas",
     "template": false,
     "example": false,
-    "latestCommit": "76a2cbb7c0c4689216515bc53c08c42c17263ca3",
+    "latestCommit": "567a01a0fa86841762c67d32ccacefb6cd456886",
     "contributes": [
       "format"
     ],
@@ -6195,7 +6195,7 @@
     "latestReleaseUrl": "https://github.com/skyfroger/qcode/releases/tag/1.10.0",
     "createdAt": "2026-06-05T17:31:09Z",
     "updatedAt": "2026-11-07T15:00:08Z",
-    "pushedAt": "2026-11-07T15:00:03Z",
+    "pushedAt": "2026-11-15T15:02:56Z",
     "defaultBranchRef": "main",
     "repositoryTopics": [
       "educational-tool",
@@ -6206,7 +6206,7 @@
     "author": "Pavel Khoroshevich",
     "template": false,
     "example": true,
-    "latestCommit": "286e35bbedc04c9821c07178d2b0aa7ee578f263",
+    "latestCommit": "d7c1b984f64d086501931801ead1ed29108fb17a",
     "contributes": [
       "filter"
     ],
@@ -9146,7 +9146,7 @@
     "latestReleaseUrl": "https://github.com/mcanouil/quarto-mcanouil/releases/tag/0.22.0",
     "createdAt": "2025-08-14T08:39:12Z",
     "updatedAt": "2026-11-07T19:20:11Z",
-    "pushedAt": "2026-11-13T05:03:27Z",
+    "pushedAt": "2026-11-15T17:44:20Z",
     "defaultBranchRef": "main",
     "repositoryTopics": [
       "brand-yml",
@@ -9201,6 +9201,38 @@
     ],
     "formats": [],
     "quartoRequired": ">=1.7.33"
+  },
+  "mcanouil/quarto-veil": {
+    "name": "quarto-veil",
+    "title": "VEIL",
+    "nameWithOwner": "mcanouil/quarto-veil",
+    "owner": "mcanouil",
+    "description": "A Quarto extension that shows or hides groups of content live in Reveal.js and HTML documents.",
+    "openGraphImageUrl": "https://repository-images.githubusercontent.com/1448049918/b7648956-0485-4c47-b183-ae1617a81aa8",
+    "stargazerCount": 2,
+    "licenseInfo": "MIT License",
+    "url": "https://github.com/mcanouil/quarto-veil",
+    "latestRelease": "0.2.1",
+    "latestReleaseUrl": "https://github.com/mcanouil/quarto-veil/releases/tag/0.2.1",
+    "createdAt": "2026-11-06T09:08:21Z",
+    "updatedAt": "2026-11-12T09:12:24Z",
+    "pushedAt": "2026-11-13T15:00:07Z",
+    "defaultBranchRef": "main",
+    "repositoryTopics": [
+      "filter",
+      "reveal.js",
+      "example"
+    ],
+    "author": "Mickaël Canouil",
+    "template": false,
+    "example": true,
+    "latestCommit": "77282ea9df1839a984ea65acb75c610e897a6ea4",
+    "contributes": [
+      "filter",
+      "revealjs-plugin"
+    ],
+    "formats": [],
+    "quartoRequired": ">=1.9.38"
   },
   "mcanouil/quarto-revealjs-fragmention": {
     "name": "quarto-revealjs-fragmention",
@@ -9786,11 +9818,11 @@
     "stargazerCount": 15,
     "licenseInfo": "MIT License",
     "url": "https://github.com/mcanouil/quarto-gitlink",
-    "latestRelease": "1.13.0",
-    "latestReleaseUrl": "https://github.com/mcanouil/quarto-gitlink/releases/tag/1.13.0",
+    "latestRelease": "1.14.0",
+    "latestReleaseUrl": "https://github.com/mcanouil/quarto-gitlink/releases/tag/1.14.0",
     "createdAt": "2025-08-23T08:42:39Z",
     "updatedAt": "2026-11-11T13:41:44Z",
-    "pushedAt": "2026-11-12T21:18:41Z",
+    "pushedAt": "2026-11-15T18:49:40Z",
     "defaultBranchRef": "main",
     "repositoryTopics": [
       "auto-link",
@@ -9805,7 +9837,7 @@
     "author": "Mickaël Canouil",
     "template": false,
     "example": true,
-    "latestCommit": "455faa999d9930e7b1b21c58958f579d8ea24d91",
+    "latestCommit": "d14e52ad0205c0e6d0c31f282670680bff72207a",
     "contributes": [
       "filter"
     ],
@@ -10160,7 +10192,7 @@
     "latestReleaseUrl": "https://github.com/mcanouil/quarto-atelier/releases/tag/0.11.0",
     "createdAt": "2026-07-23T18:14:09Z",
     "updatedAt": "2026-11-12T13:53:11Z",
-    "pushedAt": "2026-11-14T08:24:09Z",
+    "pushedAt": "2026-11-15T19:20:53Z",
     "defaultBranchRef": "main",
     "repositoryTopics": [
       "accessibility",
@@ -10172,7 +10204,7 @@
     "author": "Mickaël Canouil",
     "template": false,
     "example": false,
-    "latestCommit": "d9bd726d2e58dbe41be99241200cb8be0e883c60",
+    "latestCommit": "91e022bd86ef71df67ae6a44f96d0531135ab8e7",
     "contributes": [
       "filter",
       "format",
