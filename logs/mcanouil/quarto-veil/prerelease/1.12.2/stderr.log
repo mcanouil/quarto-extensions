@@ -1,7 +1,7 @@
 Cloning into 'repo'...
 pandoc 
   to: html
-  output-file: ui-toast-false.html
+  output-file: example.html
   standalone: true
   section-divs: true
   html-math-method: mathjax
@@ -13,14 +13,100 @@ metadata
   link-citations: true
   date-format: long
   lang: en
-  title: Toast off
+  title: Veil
+  subtitle: One deck for many audiences
+  author: Mickaël Canouil
+  revealjs-plugins:
+    - veil
   extensions:
     veil:
-      toast: false
       groups:
+        - name: advanced
+          level: 1
+          shown: true
+          label: Advanced
+        - name: expert
+          level: 2
+          shown: false
+          label: Expert
         - name: backup
           shown: false
           label: Backup
+  
+Output created: example.html
+
+pandoc 
+  to: revealjs
+  output-file: >-
+    /home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/example-slides.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  title: Veil
+  subtitle: One deck for many audiences
+  author: Mickaël Canouil
+  revealjs-plugins:
+    - veil
+  extensions:
+    veil:
+      groups:
+        - name: advanced
+          level: 1
+          shown: true
+          label: Advanced
+        - name: expert
+          level: 2
+          shown: false
+          label: Expert
+        - name: backup
+          shown: false
+          label: Backup
+  
+Output created: example-slides.html
+
+pandoc 
+  to: html
+  output-file: warn-key-conflict-html.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Search key conflict in HTML
+  extensions:
+    veil:
+      keys:
+        menu: /
   
 [31mFATAL (/opt/quarto/share/filters/main.lua:3759) An error occurred:
 Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/tests/veil as a JSON filter.
@@ -66,7 +152,7 @@ ERROR: Pandoc conversion failed (exit code 83)
 Render failed, retrying once...
 pandoc 
   to: html
-  output-file: ui-toast-false.html
+  output-file: warn-key-conflict-html.html
   standalone: true
   section-divs: true
   html-math-method: mathjax
@@ -78,14 +164,11 @@ metadata
   link-citations: true
   date-format: long
   lang: en
-  title: Toast off
+  title: Search key conflict in HTML
   extensions:
     veil:
-      toast: false
-      groups:
-        - name: backup
-          shown: false
-          label: Backup
+      keys:
+        menu: /
   
 [31mFATAL (/opt/quarto/share/filters/main.lua:3759) An error occurred:
 Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/tests/veil as a JSON filter.
