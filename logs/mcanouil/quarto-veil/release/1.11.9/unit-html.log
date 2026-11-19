@@ -1,0 +1,23 @@
+pandoc 
+
+  to: html
+  output-file: unit.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+
+metadata
+
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Unit tests of the state module
+  
+
+Output created: _output/unit.html
+
+
