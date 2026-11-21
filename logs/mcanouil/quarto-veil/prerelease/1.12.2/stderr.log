@@ -1,144 +1,44 @@
 Cloning into 'repo'...
-pandoc 
-  to: html
-  output-file: unit.html
-  standalone: true
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  title: Unit tests of the state module
-  
-Output created: _output/unit.html
+ERROR: Specified Reveal plugin directory 'veil' does not exist.
 
-pandoc 
-  to: docx
-  output-file: static-level2-backup.docx
-  default-image-extension: png
-  
-metadata
-  title: Static removal with every group shown
-  extensions:
-    veil:
-      groups:
-        - name: veil
-        - name: advanced
-          level: 1
-          shown: true
-        - name: expert
-          level: 2
-          shown: false
-        - name: backup
-          shown: false
-      state: level:2,backup
-  
-[31mFATAL (/opt/quarto/share/filters/main.lua:3759) An error occurred:
-Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/tests/veil as a JSON filter.
-Please make sure the file exists and is executable.
-
-Did you intend 'veil' as a Lua filter in an extension?
-If so, make sure you've spelled the name of the extension correctly.
-
-The original Pandoc error follows below.
-Error running filter '/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/tests/veil':
-Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/tests/veil
-[39mError running filter '/opt/quarto/share/filters/main.lua':
-/opt/quarto/share/filters/main.lua:591: FATAL QUARTO ERROR
-stack traceback:
-	/opt/quarto/share/filters/main.lua:2623: in function 'fatal'
-	/opt/quarto/share/filters/main.lua:2203: in function 'fail'
-	/opt/quarto/share/filters/main.lua:3759: in field 'Pandoc'
-	/opt/quarto/share/filters/main.lua:591: in function 'run_emulated_filter'
-	/opt/quarto/share/filters/main.lua:1320: in local 'callback'
-	/opt/quarto/share/filters/main.lua:1338: in upvalue 'run_emulated_filter_chain'
-	/opt/quarto/share/filters/main.lua:1374: in function </opt/quarto/share/filters/main.lua:1371>
-ERROR: [31mFATAL (/opt/quarto/share/filters/main.lua:3759) An error occurred:
-Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/tests/veil as a JSON filter.
-Please make sure the file exists and is executable.
-
-Did you intend 'veil' as a Lua filter in an extension?
-If so, make sure you've spelled the name of the extension correctly.
-
-The original Pandoc error follows below.
-Error running filter '/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/tests/veil':
-Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/tests/veil
-[39mError running filter '/opt/quarto/share/filters/main.lua':
-/opt/quarto/share/filters/main.lua:591: FATAL QUARTO ERROR
-stack traceback:
-	/opt/quarto/share/filters/main.lua:2623: in function 'fatal'
-	/opt/quarto/share/filters/main.lua:2203: in function 'fail'
-	/opt/quarto/share/filters/main.lua:3759: in field 'Pandoc'
-	/opt/quarto/share/filters/main.lua:591: in function 'run_emulated_filter'
-	/opt/quarto/share/filters/main.lua:1320: in local 'callback'
-	/opt/quarto/share/filters/main.lua:1338: in upvalue 'run_emulated_filter_chain'
-	/opt/quarto/share/filters/main.lua:1374: in function </opt/quarto/share/filters/main.lua:1371>
-ERROR: Pandoc conversion failed (exit code 83)
+Stack trace:
+    at pluginFromBundle (file:///opt/quarto/bin/quarto.js:180521:11)
+    at revealPluginExtras (file:///opt/quarto/bin/quarto.js:180315:52)
+    at async Object.formatExtras (file:///opt/quarto/bin/quarto.js:180891:34)
+    at async runPandoc (file:///opt/quarto/bin/quarto.js:120558:56)
+    at async renderPandoc (file:///opt/quarto/bin/quarto.js:122326:24)
+    at async Object.onRender (file:///opt/quarto/bin/quarto.js:132158:30)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:132135:9)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:131851:9)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:132423:23)
+    at async file:///opt/quarto/bin/quarto.js:137684:24
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:137512:7)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:16873:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:16750:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:184145:5)
+    at async file:///opt/quarto/bin/quarto.js:184174:5
+    at async file:///opt/quarto/bin/quarto.js:184028:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:184030:5)
+    at async file:///opt/quarto/bin/quarto.js:184167:3
 Render failed, retrying once...
-pandoc 
-  to: docx
-  output-file: static-level2-backup.docx
-  default-image-extension: png
-  
-metadata
-  title: Static removal with every group shown
-  extensions:
-    veil:
-      groups:
-        - name: veil
-        - name: advanced
-          level: 1
-          shown: true
-        - name: expert
-          level: 2
-          shown: false
-        - name: backup
-          shown: false
-      state: level:2,backup
-  
-[31mFATAL (/opt/quarto/share/filters/main.lua:3759) An error occurred:
-Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/tests/veil as a JSON filter.
-Please make sure the file exists and is executable.
+ERROR: Specified Reveal plugin directory 'veil' does not exist.
 
-Did you intend 'veil' as a Lua filter in an extension?
-If so, make sure you've spelled the name of the extension correctly.
-
-The original Pandoc error follows below.
-Error running filter '/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/tests/veil':
-Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/tests/veil
-[39mError running filter '/opt/quarto/share/filters/main.lua':
-/opt/quarto/share/filters/main.lua:591: FATAL QUARTO ERROR
-stack traceback:
-	/opt/quarto/share/filters/main.lua:2623: in function 'fatal'
-	/opt/quarto/share/filters/main.lua:2203: in function 'fail'
-	/opt/quarto/share/filters/main.lua:3759: in field 'Pandoc'
-	/opt/quarto/share/filters/main.lua:591: in function 'run_emulated_filter'
-	/opt/quarto/share/filters/main.lua:1320: in local 'callback'
-	/opt/quarto/share/filters/main.lua:1338: in upvalue 'run_emulated_filter_chain'
-	/opt/quarto/share/filters/main.lua:1374: in function </opt/quarto/share/filters/main.lua:1371>
-ERROR: [31mFATAL (/opt/quarto/share/filters/main.lua:3759) An error occurred:
-Could not run /home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/tests/veil as a JSON filter.
-Please make sure the file exists and is executable.
-
-Did you intend 'veil' as a Lua filter in an extension?
-If so, make sure you've spelled the name of the extension correctly.
-
-The original Pandoc error follows below.
-Error running filter '/home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/tests/veil':
-Could not find executable /home/runner/work/quarto-extensions/quarto-extensions/test-2/repo/tests/veil
-[39mError running filter '/opt/quarto/share/filters/main.lua':
-/opt/quarto/share/filters/main.lua:591: FATAL QUARTO ERROR
-stack traceback:
-	/opt/quarto/share/filters/main.lua:2623: in function 'fatal'
-	/opt/quarto/share/filters/main.lua:2203: in function 'fail'
-	/opt/quarto/share/filters/main.lua:3759: in field 'Pandoc'
-	/opt/quarto/share/filters/main.lua:591: in function 'run_emulated_filter'
-	/opt/quarto/share/filters/main.lua:1320: in local 'callback'
-	/opt/quarto/share/filters/main.lua:1338: in upvalue 'run_emulated_filter_chain'
-	/opt/quarto/share/filters/main.lua:1374: in function </opt/quarto/share/filters/main.lua:1371>
-ERROR: Pandoc conversion failed (exit code 83)
+Stack trace:
+    at pluginFromBundle (file:///opt/quarto/bin/quarto.js:180521:11)
+    at revealPluginExtras (file:///opt/quarto/bin/quarto.js:180315:52)
+    at async Object.formatExtras (file:///opt/quarto/bin/quarto.js:180891:34)
+    at async runPandoc (file:///opt/quarto/bin/quarto.js:120558:56)
+    at async renderPandoc (file:///opt/quarto/bin/quarto.js:122326:24)
+    at async Object.onRender (file:///opt/quarto/bin/quarto.js:132158:30)
+    at async renderFileInternal (file:///opt/quarto/bin/quarto.js:132135:9)
+    at async renderFiles (file:///opt/quarto/bin/quarto.js:131851:9)
+    at async renderProject (file:///opt/quarto/bin/quarto.js:132423:23)
+    at async file:///opt/quarto/bin/quarto.js:137684:24
+    at async _Command.actionHandler (file:///opt/quarto/bin/quarto.js:137512:7)
+    at async _Command.execute (file:///opt/quarto/bin/quarto.js:16873:7)
+    at async _Command.parseCommand (file:///opt/quarto/bin/quarto.js:16750:14)
+    at async quarto4 (file:///opt/quarto/bin/quarto.js:184145:5)
+    at async file:///opt/quarto/bin/quarto.js:184174:5
+    at async file:///opt/quarto/bin/quarto.js:184028:14
+    at async mainRunner (file:///opt/quarto/bin/quarto.js:184030:5)
+    at async file:///opt/quarto/bin/quarto.js:184167:3
